@@ -9,7 +9,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 approach (Claude Code + Claude Agent SDK)** in place of Caruca's hand-written procedural logic, and then
 **evaluate the two systematically against each other**.
 
-Lead: Tiran Dagan (PhD student). PI/advisor: Prof. Michael Greenberg; also Prof. William Eiers.
+Lead: Tiran Dagan (PhD student). Two PhD advisors: Prof. Michael Greenberg (also the PI/advisor for
+Caruca itself) and Prof. William Eiers (a PhD advisor to Tiran, but **not** involved in Caruca).
 
 The comparison dimensions that drive every design decision here:
 
@@ -19,10 +20,36 @@ The comparison dimensions that drive every design decision here:
 4. **Consistency/reproducibility** across repeated runs (LLM nondeterminism is itself a result)
 5. **How much hand-encoded logic** is eliminated for equal-or-better output
 
-**Current state: greenfield.** Only scaffolding exists (`ai_docs/`, `.claude/`). No source code, no git
-repo yet (`git init` has not been run). The near-term work per the project brief is: understand the
-baseline, then build a **baseline + evaluation harness first**, before writing the LLM-driven version.
-Do not skip to implementing the new miner without a measurable baseline to compare against.
+**Current state:** git repo initialized and pushed to `github.com/tirandagan/caruca_v2` (private). Only
+scaffolding + this file exist so far — no pipeline code yet. The near-term work per the project brief is:
+understand the baseline, build a **baseline + evaluation harness first**, then the **naive-LLM baseline**
+(see below) — before attempting any agentic pipeline rebuild. Do not skip straight to an agentic rebuild
+without a measurable baseline and a naive-LLM control to compare against.
+
+## Two "LLM approaches" in scope — don't conflate them
+
+Per Prof. Eiers' guidance (email thread with Tiran + Prof. Greenberg, Aug 2026), there are two different
+systems in scope here, at very different levels of ambition, and the near-term deliverable is the
+**simpler one**:
+
+1. **Naive-LLM baseline — build this first.** A deliberately minimal, non-agentic system: one
+   straightforward prompt telling an LLM what to produce, given a command's **binary + its documentation**
+   as input, asked to directly emit a **specification in a downstream-consumable format** (comparable to
+   Caruca's PaSh/POSH/SaSh/ShellCheck outputs). Include a handful of concrete worked examples in the
+   prompt (few-shot) — similar in spirit to Caruca's own `llm.py` few-shot priming on `touch`/`rm`/`mv`/`ls`.
+   Eiers was explicit: **do not** engineer this to be good — *"we don't want to have Claude try to min-max
+   the perfect specification synthesizer... it would be another experiment."* Its whole purpose is to be a
+   weak, naive control, so the evaluation can show *how much better* Caruca's engineered pipeline is over
+   an off-the-shelf LLM prompt.
+2. **Agentic Claude Code / Agent-SDK full-pipeline rebuild** (Tiran's original proposal — a **later,
+   separate experiment**, not the current deliverable). This would replace every Caruca stage — config
+   generation, tracing orchestration, spec derivation, adapters — with agentic LLM reasoning rather than a
+   single prompt. Per Eiers' email, this is explicitly **out of scope for now**.
+
+So the comparison to run first is **three-way**: Caruca (baseline) vs. the naive-LLM baseline vs. ground
+truth (`~/stevens/caruca/benchmarks/annotations/`) — not yet Caruca vs. a full agentic rebuild. Telemetry
+(tokens, cost, wall-clock, model ID) needs to be captured for Caruca's existing LLM step and for the
+naive-LLM baseline alike, per the cost/performance dimension above.
 
 ## The paper is part of the codebase
 
@@ -53,9 +80,12 @@ Known baseline limits (fair game as targets for the LLM approach): `git` is unsu
 string normalization does not hold for content-sensitive commands (`xargs`, `nohup`); flag-combination
 explosion dominates cost for wide-interface commands with simple semantics (`convert`).
 
-## The baseline lives outside this repo
+## The baseline ("v1") lives outside this repo
 
-The implementation is at `~/stevens/caruca/` (git root; remote `binpash/caruca`, commit `d80324073`).
+Tiran refers to the original hand-written implementation as **v1** (this repo, `caruca_v2`, is **v2**) —
+use that shorthand; "baseline" and "v1" mean the same thing throughout this file.
+
+v1's implementation is at `~/stevens/caruca/` (git root; remote `binpash/caruca`, commit `d80324073`).
 Read these before touching anything — they were verified by execution, not inferred:
 
 - `~/stevens/caruca/caruca/CLAUDE.md` — baseline architecture (three-level IR, tracer, annotator, CLI)
@@ -146,11 +176,19 @@ correctness comparison has to separate "better model" from "better method."
 - **Task documents**: numbered markdown in `ai_docs/tasks/` (`NNN_snake_case.md`), created by the
   `task-creator` skill from `ai_docs/dev_templates/task_template.md`. Use them for multi-session work.
 - `ai_docs/refs/` — reference material (the paper, upstream docs, transcripts) pinned for future sessions.
-- `ai_docs/prep/` — project-planning output; `ai_docs/prep_templates/` and most of `ai_docs/dev_templates/`
-  and `.claude/commands/` came from a **Next.js/Drizzle/Trigger.dev web-app starter kit and do not apply
-  here**. Same for the `drizzle` / `typescript-react` / `trigger-dev-task-writer` agents in `.claude/agents/`.
-  Ignore them unless a task genuinely calls for one; don't let their conventions leak into a Python research
-  codebase.
+- `ai_docs/prep/` — project-planning output; `ai_docs/prep_templates/` came from a **Next.js/Drizzle/
+  Trigger.dev web-app starter kit** and is being adapted one file at a time for this research project.
+  `01_generate_master_idea.md` has been adapted (strips ShipKit/SaaS framing, reframes around this
+  project's actual goal/stakeholders/components/evaluation criteria) — safe to run. `02` through `10` are
+  still the original ShipKit content (app naming, UI theme, logo, Trigger.dev workflows, Drizzle schemas,
+  etc.) and do **not** apply here as-is; most depend on knowing v2's system design, which isn't settled yet,
+  so don't adapt them speculatively. `.claude/commands/0N_*.md` are thin `@`-reference wrappers around
+  their `ai_docs/prep_templates/` counterparts — editing the template is enough, no need to update both.
+  Most of `ai_docs/dev_templates/` (Drizzle migrations, Next.js refactors, Trigger.dev, Stripe/auth setup)
+  is also starter-kit-specific and doesn't apply; `task_template.md` is closer to reusable but still has
+  stack-specific sections to strip once real implementation starts. Same starter-kit origin for the
+  `drizzle` / `typescript-react` / `trigger-dev-task-writer` agents in `.claude/agents/` — ignore them
+  unless a task genuinely calls for one.
 - **Measurement discipline**: any claim comparing the two approaches needs recorded evidence — command,
   model ID, seed/temperature, token counts, wall-clock, hardware, and the exact baseline commit. Prefer
   writing results to files under `ai_docs/` or an `eval/` directory over reporting them only in chat.
