@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Builds the caruca_v2 status decks for both advisors from a single content
-definition, so the two versions cannot silently drift apart.
+Builds the caruca_v2 status deck. One deck serves both advisors: the two
+background slides are labelled as such, so they can be skipped when presenting
+live to Michael, who does not need them, while remaining in the document for
+William to read on his own.
 
 Run:  ../../../.venv/bin/python build_decks.py
 """
@@ -184,7 +186,7 @@ def add_notes(slide, notes):
 
 # ---------------------------------------------------------------- slide kinds
 
-def slide_title(prs, audience):
+def slide_title(prs):
     slide = blank(prs)
     band = rect(slide, 0, 0, SLIDE_W, 2.45, BLUE_FILL, None,
                 shape=MSO_SHAPE.RECTANGLE)
@@ -203,11 +205,20 @@ def slide_title(prs, audience):
     write(tf, "measure the two head to head, and only then extend further.",
           size=19, color=MUTED)
 
-    tf = textbox(slide, MARGIN, 4.75, CONTENT_W, 1.2)
-    write(tf, f"Prepared for {audience}", size=17, bold=True, first=True,
-          space_after=6)
-    write(tf, "Tiran Dagan", size=16, color=MUTED, space_after=2)
-    write(tf, DATE, size=14, color=FAINT)
+    tf = textbox(slide, MARGIN, 4.55, CONTENT_W, 0.35)
+    write(tf, "PREPARED FOR", size=11, bold=True, color=BLUE, first=True)
+
+    tf = textbox(slide, MARGIN, 4.92, CONTENT_W, 0.9)
+    write(tf, "Prof. Michael Greenberg", size=17, bold=True, first=True)
+    write(tf, "Principal Investigator, Caruca", size=14, color=MUTED,
+          space_after=9)
+    write(tf, "Prof. William Eiers", size=17, bold=True)
+    write(tf, "PhD Advisor", size=14, color=MUTED)
+
+    tf = textbox(slide, SLIDE_W - MARGIN - 3.2, 4.92, 3.2, 0.9)
+    write(tf, "Tiran Dagan", size=16, color=MUTED, align=PP_ALIGN.RIGHT,
+          first=True, space_after=2)
+    write(tf, DATE, size=14, color=FAINT, align=PP_ALIGN.RIGHT)
 
     add_notes(slide, NOTES_TITLE)
     return slide
@@ -600,15 +611,19 @@ BUILDERS = {
 
 
 # ---------------------------------------------------------------- content
-# Every slide declares its audience: "both", "michael", or "william".
-# The two decks are generated from this one list so they cannot diverge.
+# One deck serves both advisors. Background slides are labelled as such so
+# they can be skipped when presenting live to Michael, who does not need
+# them, while remaining available for William to read on his own.
 
 NOTES_TITLE = (
     "Thanks for making the time. I want to walk you through where the project "
     "stands, share four things I found while reviewing the paper and the code, "
     "and then put four open questions to you. Planning is finished; nothing is "
     "built yet. That is deliberate, because I would rather get your input "
-    "before writing code than after."
+    "before writing code than after.\n\n"
+    "One deck serves both advisors. Slides 3 and 4 are background on what "
+    "Caruca is: skip them with Michael, who co-authored it, and walk through "
+    "them with William, who has no involvement with it."
 )
 
 SLIDES = [
@@ -638,7 +653,7 @@ SLIDES = [
 
     # ---------------------------------------------------------- William primer
     {
-        "kind": "bullets", "audience": "william",
+        "kind": "bullets", "audience": "both",
         "kicker": "Background",
         "title": "What Caruca does",
         "lead": "Some shell tools need to know how a command behaves before they can safely optimise it.",
@@ -655,14 +670,16 @@ SLIDES = [
         ],
         "sources": ["caruca_white_paper"],
         "notes": (
-            "William has no involvement with Caruca, so this slide exists to give "
-            "him a standing start. Keep it to about ninety seconds. The important "
-            "part is the third bullet: read the manual, build tests, run them, "
-            "watch. That four-step shape recurs throughout the deck."
+            "SKIP THIS SLIDE when presenting to Michael, who co-authored Caruca. "
+            "It is here for William, who has no involvement with it, and for "
+            "anyone reading the deck without me. If presenting to William, keep it "
+            "to about ninety seconds. The important part is the third bullet: read "
+            "the manual, build tests, run them, watch. That four-step shape recurs "
+            "throughout the deck."
         ),
     },
     {
-        "kind": "bullets", "audience": "william",
+        "kind": "bullets", "audience": "both",
         "kicker": "Background",
         "title": "Why it is worth testing a language model here",
         "lead": "Caruca uses AI for one small step. Everything else is hand-written code.",
@@ -678,9 +695,10 @@ SLIDES = [
         ],
         "sources": ["master_idea"],
         "notes": (
-            "This is the 'why should I care' slide for William specifically. The "
-            "third bullet is the methodological heart and is squarely in his "
-            "wheelhouse, so pause there and invite him in."
+            "SKIP THIS SLIDE when presenting to Michael. It is the 'why should I "
+            "care' slide for William, whose background is formal methods rather "
+            "than shell tooling. The third bullet is the methodological heart and "
+            "is squarely in his wheelhouse, so pause there and invite him in."
         ),
     },
 
@@ -1087,9 +1105,9 @@ APPENDIX = [
     },
 ]
 
-MICHAEL_EXTRA = [
+DETAIL = [
     {
-        "kind": "bullets", "audience": "michael",
+        "kind": "bullets", "audience": "both",
         "kicker": "Detail",
         "title": "What we reuse from Caruca, unchanged",
         "lead": "The new work attaches at existing seams rather than replacing anything.",
@@ -1116,7 +1134,7 @@ MICHAEL_EXTRA = [
         ),
     },
     {
-        "kind": "bullets", "audience": "michael",
+        "kind": "bullets", "audience": "both",
         "kicker": "Detail",
         "title": "One thing to fix in the comparison script",
         "lead": "It affects one reported number, not the headline count.",
@@ -1139,11 +1157,8 @@ MICHAEL_EXTRA = [
             "the fix upstreamed or kept local to this project."
         ),
     },
-]
-
-WILLIAM_EXTRA = [
     {
-        "kind": "bullets", "audience": "william",
+        "kind": "bullets", "audience": "both",
         "kicker": "Detail",
         "title": "Why this comparison is worth running",
         "lead": "The result is useful whichever way it comes out.",
@@ -1169,20 +1184,21 @@ WILLIAM_EXTRA = [
 
 # ---------------------------------------------------------------- assembly
 
-def build(audience_key, audience_label, out_path):
+def build(out_path):
+    """
+    One deck for both advisors. The background slides are marked as such and
+    can be skipped when presenting live to Michael, who does not need them,
+    while still being there for William to read on his own.
+    """
     prs = Presentation()
     prs.slide_width = Inches(SLIDE_W)
     prs.slide_height = Inches(SLIDE_H)
 
-    slide_title(prs, audience_label)
+    slide_title(prs)
 
-    main = [s for s in SLIDES if s["audience"] in ("both", audience_key)]
-    extra = MICHAEL_EXTRA if audience_key == "michael" else WILLIAM_EXTRA
-    extra = [s for s in extra if s["audience"] in ("both", audience_key)]
-
-    # Audience-specific detail slides sit just before the questions.
-    q_index = next(i for i, s in enumerate(main) if s["kind"] == "questions")
-    ordered = main[:q_index] + extra + main[q_index:]
+    # Detail slides sit together, just before the closing questions.
+    q_index = next(i for i, s in enumerate(SLIDES) if s["kind"] == "questions")
+    ordered = SLIDES[:q_index] + DETAIL + SLIDES[q_index:]
 
     number = 2
     for spec in ordered:
@@ -1196,13 +1212,10 @@ def build(audience_key, audience_label, out_path):
         number += 1
 
     prs.save(str(out_path))
-    return len(prs.slides.__iter__.__self__._sldIdLst), out_path
+    return number - 1  # number is the next slot, not the count
 
 
 if __name__ == "__main__":
-    for key, label, fname in [
-        ("michael", "Prof. Michael Greenberg", "caruca_v2_status_greenberg.pptx"),
-        ("william", "Prof. William Eiers", "caruca_v2_status_eiers.pptx"),
-    ]:
-        count, path = build(key, label, HERE / fname)
-        print(f"{path.name}: {count} slides")
+    out = HERE / "caruca_v2_status.pptx"
+    total = build(out)
+    print(f"{out.name}: {total} slides")
