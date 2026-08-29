@@ -209,6 +209,22 @@ both the optimistic and conservative reads at a glance, matching the care alread
 **v2 relevance:** worth adopting this disaggregated-metric habit for v2's own coverage numbers from
 the start (comparison dimension 3, "Coverage," in `CLAUDE.md`), rather than retrofitting it later.
 
+### 14. No environment-variable modeling anywhere in the generated invocation configurations **[PAPER-NOTED]**
+The paper states this directly as one of only three items in its Limitations section (§2.2, p.4):
+*"Caruca does not generate environment variables in its invocation configurations, so it is agnostic to
+command behavior changes based on the values of environment variables."* No environment-variable axis
+exists anywhere in the codebase's configuration generation (`ir/environment.py`, `ir/string.py`) —
+invocation configs vary path type, string form, and (per items 6/8/12 above) permission/content/integer
+values, but never `$PATH`, locale variables (`LC_*`), or other env vars documented to change behavior.
+
+**Opportunity:** add an environment-variable dimension to the configuration/fixture model — even a small
+set (a locale variable, a `PATH` variant, one command-specific variable for env-var-sensitive commands)
+would let commands whose documented behavior depends on environment state (many GNU coreutils honor
+`LC_ALL`/`LC_COLLATE` for sort order, for instance) get exercised along an axis the current model entirely
+omits. **v2 relevance:** a natural addition to the v2-extended fixture profile already planned for Secure
+Sandbox (`ai_docs/prep/component_functionality.md`), alongside symlinks, permissions, and pipes — same
+"coverage beyond v1's sweet spot" story (comparison dimension 3 in `CLAUDE.md`).
+
 ---
 
 ## Summary table
@@ -228,3 +244,4 @@ the start (comparison dimension 3, "Coverage," in `CLAUDE.md`), rather than retr
 | 11 | No pipe / SIGPIPE testing | Codebase (env model) | Paper-noted |
 | 12 | Integers limited to {-1, 0, 1} | Codebase (arg generator) | Self-assessed |
 | 13 | Aggregate coverage % blends strong and weak normalizations | Evaluation metric | Self-assessed |
+| 14 | No environment-variable modeling | Codebase (env model) | Paper-noted |

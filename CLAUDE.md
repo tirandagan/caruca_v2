@@ -2,6 +2,16 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Session memory
+
+@memory/MEMORY.md
+
+The file above is this project's persistent cross-session memory index (see "Persistent memory" under
+Conventions, below, for what it is and how to maintain it). It's `@`-referenced here specifically so it
+loads automatically every session, the same way this CLAUDE.md itself does — don't wait for a memory
+entry to "look relevant" before reading it, the index is small by design. Each index line links to a
+topic file under `memory/`; open a topic file only when the task actually touches what it covers.
+
 ## What this project is
 
 `caruca_v2` is a **research project**, not a product. Goal: reproduce the behavior of
@@ -219,3 +229,31 @@ correctness comparison has to separate "better model" from "better method."
 - **Measurement discipline**: any claim comparing the two approaches needs recorded evidence — command,
   model ID, seed/temperature, token counts, wall-clock, hardware, and the exact baseline commit. Prefer
   writing results to files under `ai_docs/` or an `eval/` directory over reporting them only in chat.
+- **Persistent memory lives in-repo, not in Claude Code's global store**: `memory/` at the repo root holds
+  the cross-session notes that Claude Code's auto-memory feature would otherwise keep under
+  `~/.claude/projects/<hashed-path>/memory/` outside the repo. Tiran wants everything about this project
+  inside the project folder, so that store is not used here — `memory/` is the sole location. Start at
+  `memory/MEMORY.md` for the index; each entry links to a topic file with the same frontmatter shape
+  (`name`, `description`, `metadata.type` of `user`/`feedback`/`project`/`reference`) the harness's own
+  auto-memory docs describe. When you'd otherwise write to the global auto-memory path, write here instead
+  and update `memory/MEMORY.md`'s index — same read/write discipline (check before recommending from a
+  memory that names a specific file/fact, update or remove stale entries, don't duplicate).
+  - `memory/MEMORY.md` is `@`-referenced at the top of this file, so it loads on every session
+    automatically — no need to go read it manually. Individual topic files under `memory/` are *not*
+    auto-loaded; open one only when its `MEMORY.md` line looks relevant to the current task, same as the
+    `ai_docs/analysis/` docs above.
+  - **Update it proactively, without being asked.** Write a new or updated topic file whenever you learn
+    something in one of these categories, in the same turn you learn it — don't wait for the user to say
+    "remember this" — and add/update its one-line entry in `memory/MEMORY.md`:
+    - **user**: something about Tiran's role, preferences, or knowledge that should shape how you explain
+      or scope future work.
+    - **feedback**: a correction ("no, don't do X") or a confirmed approach ("yes, that was right") —
+      capture the *why*, not just the rule, so future sessions can judge edge cases.
+    - **project**: a decision, deadline, stakeholder ask, or piece of context about the ongoing work that
+      isn't derivable from the code or git history (e.g. who Greenberg/Eiers are and how they relate to
+      Caruca vs. this project, or scope calls like the naive-LLM-baseline-first decision).
+    - **reference**: a pointer to where something authoritative lives outside this repo (a path, a doc, an
+      external system) that a future session would otherwise have to rediscover.
+  - Skip anything derivable by reading the code, `git log`, or files already in the repo — memory is for
+    facts that would otherwise be lost between sessions, not a second copy of the codebase.
+  - If the user explicitly asks you to remember or forget something, do it immediately in that same turn.
