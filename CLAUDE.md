@@ -22,26 +22,37 @@ approach (Claude Code + Claude Agent SDK)** in place of Caruca's hand-written pr
 Lead: Tiran Dagan (PhD student). Two PhD advisors: Prof. Michael Greenberg (also the PI/advisor for
 Caruca itself) and Prof. William Eiers (a PhD advisor to Tiran, but **not** involved in Caruca).
 
-The comparison dimensions that drive every design decision here:
+The comparison dimensions that drive every design decision here. This numbering is canonical and matches
+`ai_docs/prep/master_idea.md`'s "Evaluation Criteria & Success Definition" section — keep the two in sync,
+and refer to them by number ("dimension 6") in analysis docs:
 
 1. **Correctness/fidelity** of the produced specifications/annotations vs. baseline + ground truth
 2. **Cost/performance** — wall-clock, tokens, $ (requires adding telemetry to *both* the baseline and the new system)
 3. **Coverage** of command behaviors, flags, and configurations
 4. **Consistency/reproducibility** across repeated runs (LLM nondeterminism is itself a result)
-5. **How much hand-encoded logic** is eliminated for equal-or-better output
+5. **Percent-change roll-up** — an explicit v1-vs-v2 delta per dimension above, giving one headline number each
+6. **Reduction in hand-encoded logic** — how much procedural code is replaced for equal-or-better output
+   on dimensions 1-4. Measure against v1's ~3,456 LOC of hand-written pipeline logic, **not** the paper's
+   published 6,520 (which also counts ~3,130 LOC of LLM-generated spec data); see
+   `memory/caruca_v1_loc_baseline.md`.
 
 caruca_v2 serves two objectives: prove an LLM approach can do this at all and demonstrate efficacy
 (near-term), and produce evidence/documentation to revise and resubmit the Caruca white paper — not
 accepted in its original submission — incorporating v2's findings (longer-term). Write evaluation output
 at paper-worthy rigor, not just internal notes.
 
-**Current state:** git repo initialized and pushed to `github.com/tirandagan/caruca_v2` (private). Only
-scaffolding + this file existed at first; the Master Idea Document is now done
-(`ai_docs/prep/master_idea.md` — end goal, stakeholders, evaluation criteria, MVP components, usage
-scenarios). Still no pipeline code. The near-term work per the project brief is:
-understand the baseline, build a **baseline + evaluation harness first**, then the **naive-LLM baseline**
-(see below) — before attempting any agentic pipeline rebuild. Do not skip straight to an agentic rebuild
-without a measurable baseline and a naive-LLM control to compare against.
+**Current state:** git repo initialized and pushed to `github.com/tirandagan/caruca_v2` (private). Still no
+pipeline code, but the planning passes are done: `ai_docs/prep/master_idea.md` (end goal, stakeholders,
+evaluation criteria, MVP components, usage scenarios), `component_functionality.md` (per-component I/O +
+CLI surface), `data_telemetry_schema.md` (telemetry/comparison record shapes, extends v1's `Traces`), and
+`system_architecture.md` (Foundation-v1/Extensions-v2, with a rendered diagram in `ai_docs/diagrams/`).
+
+Work is staged into **Tier 0** (Baseline Instrumentation + naive-LLM baseline, plain docs + Evaluation
+Harness's Q2-style comparison + telemetry + variance — no sandbox needed) and **Tier 1** (Secure Sandbox
+both profiles, tool-augmentation, real execution-based Q1, Web GUI); see `memory/caruca_v2_build_tiering.md`
+for why. Tier 0 is the near-term deliverable, and the DSPy migration on v1's `llm.py` is its hard
+prerequisite. Do not skip straight to an agentic rebuild without a measurable baseline and a naive-LLM
+control to compare against.
 
 ## Two "LLM approaches" in scope — don't conflate them
 
@@ -207,11 +218,12 @@ correctness comparison has to separate "better model" from "better method."
   they don't need. Current entry: `evaluation_gaps.md` (v1/paper test-coverage opportunities).
 - `ai_docs/prep/` — project-planning output; `ai_docs/prep_templates/` came from a **Next.js/Drizzle/
   Trigger.dev web-app starter kit** and is being adapted one file at a time for this research project.
-  **Adapted, safe to run**: `01_generate_master_idea.md` (→ `ai_docs/prep/master_idea.md`, done),
-  `05_generate_app_pages_and_functionality.md` (→ component/CLI functionality spec),
-  `08_generate_initial_data_models.md` (→ data & telemetry schemas, extends v1's `Traces` model),
-  `09_generate_system_design.md` (→ system architecture, Foundation-v1/Extensions-v2 framing),
-  `10_generate_build_order_worker.md` (→ roadmap, phases = MVP components done end-to-end). **Still
+  **Adapted, safe to run**: `01_generate_master_idea.md` (→ `ai_docs/prep/master_idea.md`, **done**),
+  `05_generate_app_pages_and_functionality.md` (→ `component_functionality.md`, **done**),
+  `08_generate_initial_data_models.md` (→ `data_telemetry_schema.md`, **done**),
+  `09_generate_system_design.md` (→ `system_architecture.md` + `ai_docs/diagrams/`, **done**),
+  `10_generate_build_order_worker.md` (→ `roadmap.md`, phases = MVP components done end-to-end, **done**).
+  All five adapted passes are now complete; implementation starts at the roadmap's Phase 1. **Still
   original ShipKit content, do not run as-is**: `02` (app naming — no product needing a market name),
   `03` (UI theme — no UI exists), `04` (logo — no plausible use), `06` (Trigger.dev workflows — no
   orchestration mechanism decided yet), `07` (wireframe — blocked on the same undecided web GUI as 03).

@@ -2,8 +2,10 @@
 - [Key people](project_key_people.md) — Greenberg is PI/advisor for Caruca + PhD advisor; Eiers is a PhD advisor only, not on Caruca
 - [Baseline scope](caruca_v2_baseline_scope.md) — near-term deliverable is a naive single-prompt LLM baseline (Eiers' call), not the agentic full-pipeline rebuild
 - [V1/V2 framing](feedback_v1_v2_framing.md) — in stakeholder-facing prose, frame v2 as extending v1's capabilities, not fixing v1's flaws (Greenberg co-authored v1)
+- [Plain language](feedback_plain_language.md) — assume Tiran hasn't read the docs; explain in simple terms; never use bare shorthand like "dimension 6" or "§7.2"; link docs as optional further reading
 - [Dual objectives](project_dual_objectives.md) — near-term: prove LLM feasibility; longer-term: resubmit the rejected Caruca white paper using v2 findings
 - [Component functionality spec](component_functionality_spec.md) — shared v1/naive-LLM pipeline seam, v1-faithful/v2-extended dual-profile evaluation, deferred PTY-terminal Web GUI design (see correction note inside)
 - [Build tiering](caruca_v2_build_tiering.md) — Tier 0 (minimal proof, satisfies Eiers) vs Tier 1 (gap-driven extensions, satisfies Greenberg); decided 2026-08-29
 - [v1 eval-tooling notes](caruca_v1_eval_tooling_notes.md) — cmp_specs.py's denominator bug, verified ground-truth provenance for syntax_specs/*.py, Q1 vs Q2 methodology distinction
 - [Paper's unmeasured contributions](caruca_paper_unmeasured_contributions.md) — the paper measures zero LLM cost/tokens and never tests reproducibility; v2 measures both
+- [v1 LOC baseline](caruca_v1_loc_baseline.md) — the paper's 6,520 LOC is ~half generated spec data; dimension 6 must be measured against ~3,456 LOC of hand-written logic

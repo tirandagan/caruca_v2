@@ -1,0 +1,110 @@
+digraph caruca_v2_architecture {
+    graph [
+        rankdir=TB
+        fontname="Helvetica"
+        bgcolor=white
+        label=<<FONT POINT-SIZE="24"><B>caruca_v2 System Architecture</B></FONT><BR/><BR/><FONT POINT-SIZE="14" COLOR="#555555">Foundation (v1) + Extensions (v2)  &#8226;  Tier 0 = minimal proof, Tier 1 = gap-driven extensions</FONT>>
+        labelloc=t
+        splines=spline
+        nodesep=0.55
+        ranksep=0.42
+        pad="0.4,0.3"
+        size="7.8,10.3"
+        dpi=300
+    ]
+
+    node [
+        shape=box
+        style="rounded,filled"
+        fontname="Helvetica"
+        fontsize=15
+        fillcolor=white
+        color="#444444"
+        penwidth=1.3
+        margin="0.22,0.13"
+    ]
+
+    edge [
+        color="#888888"
+        fontname="Helvetica"
+        fontsize=12
+        fontcolor="#555555"
+        arrowsize=0.8
+        penwidth=1.1
+    ]
+
+    // ===================== v1 Foundation =====================
+    subgraph cluster_v1 {
+        label=<<FONT POINT-SIZE="16"><B>v1 &#8212; Foundation</B></FONT><BR/><FONT POINT-SIZE="11">existing, unchanged</FONT>>
+        style="rounded"
+        color="#5B8C5A"
+        margin=20
+        penwidth=1.6
+
+        LLMSpec [label="man page →  LLM syntax-spec (DSPy)\nverified ground truth", fillcolor="#EDF3EB", color="#5B8C5A"]
+        ConfigTrace [label="config generation  +  tracer (strace)", fillcolor="#EDF3EB", color="#5B8C5A"]
+        TracesJSON [label="Traces JSON", shape=cylinder, fillcolor="#DCEBDA", color="#5B8C5A", fontsize=13]
+        Annotator [label="annotator", fillcolor="#EDF3EB", color="#5B8C5A"]
+        Consumers [label="PaSh · POSH · SaSh · ShellCheck", shape=component, fillcolor="#DCEBDA", color="#5B8C5A", fontsize=13]
+
+        LLMSpec -> ConfigTrace -> TracesJSON -> Annotator -> Consumers [color="#5B8C5A"]
+    }
+
+    // ===================== v2 Tier 0 =====================
+    subgraph cluster_t0 {
+        label=<<FONT POINT-SIZE="16"><B>v2 Tier 0</B></FONT><BR/><FONT POINT-SIZE="11">minimal proof, new</FONT>>
+        style="rounded"
+        color="#4A6FA5"
+        margin=20
+        penwidth=1.6
+
+        NaiveLLM [label="docs → naive-LLM baseline\n→ spec  (plain)", fillcolor="#EAF0F8", color="#4A6FA5"]
+        EvalQ2 [label="Evaluation Harness\nQ2 diff vs. v1's ground truth\n+ telemetry + variance", fillcolor="#EAF0F8", color="#4A6FA5", fontsize=13]
+        Roll [label="% roll-up, paper-ready", shape=note, fillcolor="#D9E4F3", color="#4A6FA5"]
+
+        NaiveLLM -> EvalQ2 -> Roll [color="#4A6FA5"]
+    }
+
+    // ===================== v2 Tier 1 =====================
+    subgraph cluster_t1 {
+        label=<<FONT POINT-SIZE="16"><B>v2 Tier 1</B></FONT><BR/><FONT POINT-SIZE="11">gap-driven extensions, new</FONT>>
+        style="rounded"
+        color="#4A6FA5"
+        margin=20
+        penwidth=1.6
+
+        NaiveLLMAug [label="sparse docs → tool-augmentation\n→ naive-LLM baseline (augmented)", fillcolor="#EAF0F8", color="#4A6FA5"]
+        Sandbox [label="Secure Sandbox\nv1-faithful | v2-extended\nbackend: TBD", shape=hexagon, style="dashed,filled", color="#C08A2E", fillcolor="#FBF0DC", fontsize=13]
+        EvalDiff [label="annotation-diff comparison\nreuses v1's annotator\nvs. benchmarks/annotations", fillcolor="#EAF0F8", color="#4A6FA5", fontsize=13]
+        WebGUI [label="Web GUI — PTY wrapper over the CLI", style="dashed,filled", fillcolor="#EAF0F8", color="#4A6FA5", fontsize=12]
+
+        NaiveLLMAug -> Sandbox -> EvalDiff -> WebGUI [color="#4A6FA5"]
+    }
+
+    // ===================== Cross-cutting telemetry =====================
+    Telemetry [label="Telemetry Capture — every LLM call\n+ every sandboxed execution", shape=component, style="dashed,filled", fillcolor="#EFE9F7", color="#7A5FA0", fontsize=12]
+
+    // ===================== Legend =====================
+    subgraph cluster_legend {
+        label=<<FONT POINT-SIZE="13"><B>Legend</B></FONT>>
+        style="rounded"
+        color="#AAAAAA"
+        margin=16
+
+        L1 [label="v1 — existing, unchanged", shape=box, style=filled, fillcolor="#EDF3EB", color="#5B8C5A", fontsize=11, margin="0.15,0.08"]
+        L2 [label="v2 — new", shape=box, style=filled, fillcolor="#EAF0F8", color="#4A6FA5", fontsize=11, margin="0.15,0.08"]
+        L3 [label="open / undecided", shape=hexagon, style="dashed,filled", fillcolor="#FBF0DC", color="#C08A2E", fontsize=11]
+        L4 [label="cross-cutting concern", shape=component, style="dashed,filled", fillcolor="#EFE9F7", color="#7A5FA0", fontsize=11]
+
+        L1 -> L2 -> L3 -> L4 [style=invis]
+    }
+
+    // ---- layout-only invisible backbone: v1 on top, Tier0/Tier1 as parallel
+    // branches below it (they are independent extensions, not sequential),
+    // converging into Telemetry + Legend ----
+    Consumers -> NaiveLLM [style=invis]
+    Consumers -> NaiveLLMAug [style=invis]
+    Roll -> Telemetry [style=invis]
+    WebGUI -> Telemetry [style=invis]
+    Telemetry -> L1 [style=invis]
+}

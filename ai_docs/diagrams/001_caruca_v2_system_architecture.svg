@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2548.46pt" height="3298.0pt" viewBox="0.00 0.00 2548.46 3298.0">
+<rect width="2548.46" height="3298.0" fill="white" /><g id="graph0" class="graph" transform="scale(2.29379 2.29379) rotate(0) translate(224.2102 1371.1438)">
+<title>caruca_v2_architecture</title>
+<polygon fill="white" stroke="none" points="-28.8,21.6 -28.8,-1326.24 691.3,-1326.24 691.3,21.6 -28.8,21.6" />
+<text xml:space="preserve" text-anchor="start" x="120.88" y="-1278.84" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="24.00">caruca_v2 System Architecture</text>
+<text xml:space="preserve" text-anchor="start" x="8" y="-1250.34" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#555555">Foundation (v1) + Extensions (v2)  •  Tier 0 = minimal proof, Tier 1 = gap-driven extensions</text>
+<g id="clust1" class="cluster">
+<title>cluster_v1</title>
+<path fill="white" stroke="#5b8c5a" stroke-width="1.6" d="M167.25,-829.06C167.25,-829.06 495.25,-829.06 495.25,-829.06 501.25,-829.06 507.25,-835.06 507.25,-841.06 507.25,-841.06 507.25,-1224.64 507.25,-1224.64 507.25,-1230.64 501.25,-1236.64 495.25,-1236.64 495.25,-1236.64 167.25,-1236.64 167.25,-1236.64 161.25,-1236.64 155.25,-1230.64 155.25,-1224.64 155.25,-1224.64 155.25,-841.06 155.25,-841.06 155.25,-835.06 161.25,-829.06 167.25,-829.06" />
+<text xml:space="preserve" text-anchor="start" x="256.62" y="-1218.44" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="16.00">v1 — Foundation</text>
+<text xml:space="preserve" text-anchor="start" x="275.75" y="-1207.19" font-family="Helvetica,sans-Serif" font-size="11.00">existing, unchanged</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_t0</title>
+<path fill="white" stroke="#4a6fa5" stroke-width="1.6" d="M389.25,-380.34C389.25,-380.34 637.25,-380.34 637.25,-380.34 643.25,-380.34 649.25,-386.34 649.25,-392.34 649.25,-392.34 649.25,-691.34 649.25,-691.34 649.25,-697.34 643.25,-703.34 637.25,-703.34 637.25,-703.34 389.25,-703.34 389.25,-703.34 383.25,-703.34 377.25,-697.34 377.25,-691.34 377.25,-691.34 377.25,-392.34 377.25,-392.34 377.25,-386.34 383.25,-380.34 389.25,-380.34" />
+<text xml:space="preserve" text-anchor="start" x="473.88" y="-685.14" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="16.00">v2 Tier 0</text>
+<text xml:space="preserve" text-anchor="start" x="460.38" y="-673.89" font-family="Helvetica,sans-Serif" font-size="11.00">minimal proof, new</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_t1</title>
+<path fill="white" stroke="#4a6fa5" stroke-width="1.6" d="M25.25,-380.7C25.25,-380.7 357.25,-380.7 357.25,-380.7 363.25,-380.7 369.25,-386.7 369.25,-392.7 369.25,-392.7 369.25,-809.06 369.25,-809.06 369.25,-815.06 363.25,-821.06 357.25,-821.06 357.25,-821.06 25.25,-821.06 25.25,-821.06 19.25,-821.06 13.25,-815.06 13.25,-809.06 13.25,-809.06 13.25,-392.7 13.25,-392.7 13.25,-386.7 19.25,-380.7 25.25,-380.7" />
+<text xml:space="preserve" text-anchor="start" x="151.88" y="-802.86" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="16.00">v2 Tier 1</text>
+<text xml:space="preserve" text-anchor="start" x="115.12" y="-791.61" font-family="Helvetica,sans-Serif" font-size="11.00">gap-driven extensions, new</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_legend</title>
+<path fill="white" stroke="#aaaaaa" d="M254.25,-8C254.25,-8 468.25,-8 468.25,-8 474.25,-8 480.25,-14 480.25,-20 480.25,-20 480.25,-303.12 480.25,-303.12 480.25,-309.12 474.25,-315.12 468.25,-315.12 468.25,-315.12 254.25,-315.12 254.25,-315.12 248.25,-315.12 242.25,-309.12 242.25,-303.12 242.25,-303.12 242.25,-20 242.25,-20 242.25,-14 248.25,-8 254.25,-8" />
+<text xml:space="preserve" text-anchor="start" x="334.62" y="-299.77" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="13.00">Legend</text>
+</g>
+
+<g id="node1" class="node">
+<title>LLMSpec</title>
+<path fill="#edf3eb" stroke="#5b8c5a" stroke-width="1.3" d="M475.34,-1181.64C475.34,-1181.64 187.16,-1181.64 187.16,-1181.64 181.16,-1181.64 175.16,-1175.64 175.16,-1169.64 175.16,-1169.64 175.16,-1138.92 175.16,-1138.92 175.16,-1132.92 181.16,-1126.92 187.16,-1126.92 187.16,-1126.92 475.34,-1126.92 475.34,-1126.92 481.34,-1126.92 487.34,-1132.92 487.34,-1138.92 487.34,-1138.92 487.34,-1169.64 487.34,-1169.64 487.34,-1175.64 481.34,-1181.64 475.34,-1181.64" />
+<text xml:space="preserve" text-anchor="middle" x="331.25" y="-1158.03" font-family="Helvetica,sans-Serif" font-size="15.00">man page →  LLM syntax-spec (DSPy)</text>
+<text xml:space="preserve" text-anchor="middle" x="331.25" y="-1140.03" font-family="Helvetica,sans-Serif" font-size="15.00">verified ground truth</text>
+</g>
+
+<g id="node2" class="node">
+<title>ConfigTrace</title>
+<path fill="#edf3eb" stroke="#5b8c5a" stroke-width="1.3" d="M470.09,-1096.92C470.09,-1096.92 192.41,-1096.92 192.41,-1096.92 186.41,-1096.92 180.41,-1090.92 180.41,-1084.92 180.41,-1084.92 180.41,-1072.2 180.41,-1072.2 180.41,-1066.2 186.41,-1060.2 192.41,-1060.2 192.41,-1060.2 470.09,-1060.2 470.09,-1060.2 476.09,-1060.2 482.09,-1066.2 482.09,-1072.2 482.09,-1072.2 482.09,-1084.92 482.09,-1084.92 482.09,-1090.92 476.09,-1096.92 470.09,-1096.92" />
+<text xml:space="preserve" text-anchor="middle" x="331.25" y="-1073.31" font-family="Helvetica,sans-Serif" font-size="15.00">config generation  +  tracer (strace)</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>LLMSpec-&gt;ConfigTrace</title>
+<path fill="none" stroke="#5b8c5a" stroke-width="1.1" d="M331.25,-1126.67C331.25,-1120.28 331.25,-1113.45 331.25,-1107.02" />
+<polygon fill="#5b8c5a" stroke="#5b8c5a" stroke-width="1.1" points="334.05,-1107.05 331.25,-1099.05 328.45,-1107.05 334.05,-1107.05" />
+</g>
+
+<g id="node3" class="node">
+<title>TracesJSON</title>
+<path fill="#dcebda" stroke="#5b8c5a" stroke-width="1.3" d="M386.47,-1025.8C386.47,-1028.23 361.72,-1030.2 331.25,-1030.2 300.78,-1030.2 276.03,-1028.23 276.03,-1025.8 276.03,-1025.8 276.03,-986.18 276.03,-986.18 276.03,-983.75 300.78,-981.78 331.25,-981.78 361.72,-981.78 386.47,-983.75 386.47,-986.18 386.47,-986.18 386.47,-1025.8 386.47,-1025.8" />
+<path fill="none" stroke="#5b8c5a" stroke-width="1.3" d="M386.47,-1025.8C386.47,-1023.37 361.72,-1021.4 331.25,-1021.4 300.78,-1021.4 276.03,-1023.37 276.03,-1025.8" />
+<text xml:space="preserve" text-anchor="middle" x="331.25" y="-1001.89" font-family="Helvetica,sans-Serif" font-size="13.00">Traces JSON</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>ConfigTrace-&gt;TracesJSON</title>
+<path fill="none" stroke="#5b8c5a" stroke-width="1.1" d="M331.25,-1059.76C331.25,-1053.83 331.25,-1047.02 331.25,-1040.31" />
+<polygon fill="#5b8c5a" stroke="#5b8c5a" stroke-width="1.1" points="334.05,-1040.33 331.25,-1032.33 328.45,-1040.33 334.05,-1040.33" />
+</g>
+
+<g id="node4" class="node">
+<title>Annotator</title>
+<path fill="#edf3eb" stroke="#5b8c5a" stroke-width="1.3" d="M371.84,-951.78C371.84,-951.78 290.66,-951.78 290.66,-951.78 284.66,-951.78 278.66,-945.78 278.66,-939.78 278.66,-939.78 278.66,-927.06 278.66,-927.06 278.66,-921.06 284.66,-915.06 290.66,-915.06 290.66,-915.06 371.84,-915.06 371.84,-915.06 377.84,-915.06 383.84,-921.06 383.84,-927.06 383.84,-927.06 383.84,-939.78 383.84,-939.78 383.84,-945.78 377.84,-951.78 371.84,-951.78" />
+<text xml:space="preserve" text-anchor="middle" x="331.25" y="-928.17" font-family="Helvetica,sans-Serif" font-size="15.00">annotator</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>TracesJSON-&gt;Annotator</title>
+<path fill="none" stroke="#5b8c5a" stroke-width="1.1" d="M331.25,-981.49C331.25,-975.02 331.25,-967.96 331.25,-961.32" />
+<polygon fill="#5b8c5a" stroke="#5b8c5a" stroke-width="1.1" points="334.05,-961.67 331.25,-953.67 328.45,-961.67 334.05,-961.67" />
+</g>
+
+<g id="node5" class="node">
+<title>Consumers</title>
+<polygon fill="#dcebda" stroke="#5b8c5a" stroke-width="1.3" points="454.34,-885.06 208.16,-885.06 208.16,-881.06 204.16,-881.06 204.16,-877.06 208.16,-877.06 208.16,-857.06 204.16,-857.06 204.16,-853.06 208.16,-853.06 208.16,-849.06 454.34,-849.06 454.34,-885.06" />
+<polyline fill="none" stroke="#5b8c5a" stroke-width="1.3" points="208.16,-881.06 212.16,-881.06 212.16,-877.06 208.16,-877.06" />
+<polyline fill="none" stroke="#5b8c5a" stroke-width="1.3" points="208.16,-857.06 212.16,-857.06 212.16,-853.06 208.16,-853.06" />
+<text xml:space="preserve" text-anchor="middle" x="331.25" y="-862.96" font-family="Helvetica,sans-Serif" font-size="13.00">PaSh · POSH · SaSh · ShellCheck</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>Annotator-&gt;Consumers</title>
+<path fill="none" stroke="#5b8c5a" stroke-width="1.1" d="M331.25,-914.49C331.25,-908.39 331.25,-901.44 331.25,-894.8" />
+<polygon fill="#5b8c5a" stroke="#5b8c5a" stroke-width="1.1" points="334.05,-895.11 331.25,-887.11 328.45,-895.11 334.05,-895.11" />
+</g>
+
+<g id="node6" class="node">
+<title>NaiveLLM</title>
+<path fill="#eaf0f8" stroke="#4a6fa5" stroke-width="1.3" d="M616.84,-648.34C616.84,-648.34 409.66,-648.34 409.66,-648.34 403.66,-648.34 397.66,-642.34 397.66,-636.34 397.66,-636.34 397.66,-605.62 397.66,-605.62 397.66,-599.62 403.66,-593.62 409.66,-593.62 409.66,-593.62 616.84,-593.62 616.84,-593.62 622.84,-593.62 628.84,-599.62 628.84,-605.62 628.84,-605.62 628.84,-636.34 628.84,-636.34 628.84,-642.34 622.84,-648.34 616.84,-648.34" />
+<text xml:space="preserve" text-anchor="middle" x="513.25" y="-624.73" font-family="Helvetica,sans-Serif" font-size="15.00">docs → naive-LLM baseline</text>
+<text xml:space="preserve" text-anchor="middle" x="513.25" y="-606.73" font-family="Helvetica,sans-Serif" font-size="15.00">→ spec  (plain)</text>
+</g>
+
+
+<g id="node9" class="node">
+<title>NaiveLLMAug</title>
+<path fill="#eaf0f8" stroke="#4a6fa5" stroke-width="1.3" d="M331.72,-766.06C331.72,-766.06 60.78,-766.06 60.78,-766.06 54.78,-766.06 48.78,-760.06 48.78,-754.06 48.78,-754.06 48.78,-723.34 48.78,-723.34 48.78,-717.34 54.78,-711.34 60.78,-711.34 60.78,-711.34 331.72,-711.34 331.72,-711.34 337.72,-711.34 343.72,-717.34 343.72,-723.34 343.72,-723.34 343.72,-754.06 343.72,-754.06 343.72,-760.06 337.72,-766.06 331.72,-766.06" />
+<text xml:space="preserve" text-anchor="middle" x="196.25" y="-742.45" font-family="Helvetica,sans-Serif" font-size="15.00">sparse docs → tool-augmentation</text>
+<text xml:space="preserve" text-anchor="middle" x="196.25" y="-724.45" font-family="Helvetica,sans-Serif" font-size="15.00">→ naive-LLM baseline (augmented)</text>
+</g>
+
+
+<g id="node7" class="node">
+<title>EvalQ2</title>
+<path fill="#eaf0f8" stroke="#4a6fa5" stroke-width="1.3" d="M606.09,-535.28C606.09,-535.28 412.41,-535.28 412.41,-535.28 406.41,-535.28 400.41,-529.28 400.41,-523.28 400.41,-523.28 400.41,-479.06 400.41,-479.06 400.41,-473.06 406.41,-467.06 412.41,-467.06 412.41,-467.06 606.09,-467.06 606.09,-467.06 612.09,-467.06 618.09,-473.06 618.09,-479.06 618.09,-479.06 618.09,-523.28 618.09,-523.28 618.09,-529.28 612.09,-535.28 606.09,-535.28" />
+<text xml:space="preserve" text-anchor="middle" x="509.25" y="-513.57" font-family="Helvetica,sans-Serif" font-size="13.00">Evaluation Harness</text>
+<text xml:space="preserve" text-anchor="middle" x="509.25" y="-497.07" font-family="Helvetica,sans-Serif" font-size="13.00">Q2 diff vs. v1's ground truth</text>
+<text xml:space="preserve" text-anchor="middle" x="509.25" y="-480.57" font-family="Helvetica,sans-Serif" font-size="13.00">+ telemetry + variance</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>NaiveLLM-&gt;EvalQ2</title>
+<path fill="none" stroke="#4a6fa5" stroke-width="1.1" d="M512.34,-593.24C511.86,-578.94 511.25,-560.99 510.7,-544.81" />
+<polygon fill="#4a6fa5" stroke="#4a6fa5" stroke-width="1.1" points="513.51,-545.1 510.44,-537.2 507.91,-545.29 513.51,-545.1" />
+</g>
+
+<g id="node8" class="node">
+<title>Roll</title>
+<polygon fill="#d9e4f3" stroke="#4a6fa5" stroke-width="1.3" points="595.72,-437.06 402.79,-437.06 402.79,-400.34 601.72,-400.34 601.72,-431.06 595.72,-437.06" />
+<polyline fill="none" stroke="#4a6fa5" stroke-width="1.3" points="595.72,-437.06 595.72,-431.06" />
+<polyline fill="none" stroke="#4a6fa5" stroke-width="1.3" points="601.72,-431.06 595.72,-431.06" />
+<text xml:space="preserve" text-anchor="middle" x="502.25" y="-413.45" font-family="Helvetica,sans-Serif" font-size="15.00">% roll-up, paper-ready</text>
+</g>
+
+<g id="edge6" class="edge">
+<title>EvalQ2-&gt;Roll</title>
+<path fill="none" stroke="#4a6fa5" stroke-width="1.1" d="M506.32,-466.5C505.75,-459.95 505.16,-453.15 504.61,-446.84" />
+<polygon fill="#4a6fa5" stroke="#4a6fa5" stroke-width="1.1" points="507.42,-446.8 503.94,-439.08 501.84,-447.29 507.42,-446.8" />
+</g>
+
+<g id="node13" class="node">
+<title>Telemetry</title>
+<polygon fill="#efe9f7" stroke="#7a5fa0" stroke-width="1.3" stroke-dasharray="5,2" points="484.72,-370.34 237.78,-370.34 237.78,-366.34 233.78,-366.34 233.78,-362.34 237.78,-362.34 237.78,-331.12 233.78,-331.12 233.78,-327.12 237.78,-327.12 237.78,-323.12 484.72,-323.12 484.72,-370.34" />
+<polyline fill="none" stroke="#7a5fa0" stroke-width="1.3" stroke-dasharray="5,2" points="237.78,-366.34 241.78,-366.34 241.78,-362.34 237.78,-362.34" />
+<polyline fill="none" stroke="#7a5fa0" stroke-width="1.3" stroke-dasharray="5,2" points="237.78,-331.12 241.78,-331.12 241.78,-327.12 237.78,-327.12" />
+<text xml:space="preserve" text-anchor="middle" x="361.25" y="-349.58" font-family="Helvetica,sans-Serif" font-size="12.00">Telemetry Capture — every LLM call</text>
+<text xml:space="preserve" text-anchor="middle" x="361.25" y="-335.33" font-family="Helvetica,sans-Serif" font-size="12.00">+ every sandboxed execution</text>
+</g>
+
+
+<g id="node10" class="node">
+<title>Sandbox</title>
+<polygon fill="#fbf0dc" stroke="#c08a2e" stroke-width="1.3" stroke-dasharray="5,2" points="349.39,-620.98 270.32,-676.68 112.18,-676.68 33.11,-620.98 112.18,-565.28 270.32,-565.28 349.39,-620.98" />
+<text xml:space="preserve" text-anchor="middle" x="191.25" y="-633.38" font-family="Helvetica,sans-Serif" font-size="13.00">Secure Sandbox</text>
+<text xml:space="preserve" text-anchor="middle" x="191.25" y="-616.88" font-family="Helvetica,sans-Serif" font-size="13.00">v1-faithful | v2-extended</text>
+<text xml:space="preserve" text-anchor="middle" x="191.25" y="-600.38" font-family="Helvetica,sans-Serif" font-size="13.00">backend: TBD</text>
+</g>
+
+<g id="edge7" class="edge">
+<title>NaiveLLMAug-&gt;Sandbox</title>
+<path fill="none" stroke="#4a6fa5" stroke-width="1.1" d="M195.09,-710.86C194.77,-703.4 194.4,-694.98 194.03,-686.35" />
+<polygon fill="#4a6fa5" stroke="#4a6fa5" stroke-width="1.1" points="196.84,-686.49 193.7,-678.62 191.25,-686.73 196.84,-686.49" />
+</g>
+
+<g id="node11" class="node">
+<title>EvalDiff</title>
+<path fill="#eaf0f8" stroke="#4a6fa5" stroke-width="1.3" d="M295.84,-535.28C295.84,-535.28 100.66,-535.28 100.66,-535.28 94.66,-535.28 88.66,-529.28 88.66,-523.28 88.66,-523.28 88.66,-479.06 88.66,-479.06 88.66,-473.06 94.66,-467.06 100.66,-467.06 100.66,-467.06 295.84,-467.06 295.84,-467.06 301.84,-467.06 307.84,-473.06 307.84,-479.06 307.84,-479.06 307.84,-523.28 307.84,-523.28 307.84,-529.28 301.84,-535.28 295.84,-535.28" />
+<text xml:space="preserve" text-anchor="middle" x="198.25" y="-513.57" font-family="Helvetica,sans-Serif" font-size="13.00">annotation-diff comparison</text>
+<text xml:space="preserve" text-anchor="middle" x="198.25" y="-497.07" font-family="Helvetica,sans-Serif" font-size="13.00">reuses v1's annotator</text>
+<text xml:space="preserve" text-anchor="middle" x="198.25" y="-480.57" font-family="Helvetica,sans-Serif" font-size="13.00">vs. benchmarks/annotations</text>
+</g>
+
+<g id="edge8" class="edge">
+<title>Sandbox-&gt;EvalDiff</title>
+<path fill="none" stroke="#4a6fa5" stroke-width="1.1" d="M194.52,-564.87C194.92,-558.19 195.32,-551.44 195.71,-544.98" />
+<polygon fill="#4a6fa5" stroke="#4a6fa5" stroke-width="1.1" points="198.48,-545.56 196.16,-537.41 192.89,-545.23 198.48,-545.56" />
+</g>
+
+<g id="node12" class="node">
+<title>WebGUI</title>
+<polygon fill="#eaf0f8" stroke="#4a6fa5" stroke-width="1.3" stroke-dasharray="5,2" points="341.22,-436.7 85.28,-436.7 85.28,-400.7 341.22,-400.7 341.22,-436.7" />
+<text xml:space="preserve" text-anchor="middle" x="213.25" y="-414.42" font-family="Helvetica,sans-Serif" font-size="12.00">Web GUI — PTY wrapper over the CLI</text>
+</g>
+
+<g id="edge9" class="edge">
+<title>EvalDiff-&gt;WebGUI</title>
+<path fill="none" stroke="#4a6fa5" stroke-width="1.1" d="M204.52,-466.5C205.8,-459.68 207.12,-452.59 208.34,-446.05" />
+<polygon fill="#4a6fa5" stroke="#4a6fa5" stroke-width="1.1" points="211.01,-446.99 209.72,-438.61 205.5,-445.96 211.01,-446.99" />
+</g>
+
+
+<g id="node14" class="node">
+<title>L1</title>
+<polygon fill="#edf3eb" stroke="#5b8c5a" stroke-width="1.3" points="443.68,-274.62 278.82,-274.62 278.82,-238.62 443.68,-238.62 443.68,-274.62" />
+<text xml:space="preserve" text-anchor="middle" x="361.25" y="-252.92" font-family="Helvetica,sans-Serif" font-size="11.00">v1 — existing, unchanged</text>
+</g>
+
+
+<g id="node15" class="node">
+<title>L2</title>
+<polygon fill="#eaf0f8" stroke="#4a6fa5" stroke-width="1.3" points="399.43,-208.62 323.07,-208.62 323.07,-172.62 399.43,-172.62 399.43,-208.62" />
+<text xml:space="preserve" text-anchor="middle" x="361.25" y="-186.92" font-family="Helvetica,sans-Serif" font-size="11.00">v2 — new</text>
+</g>
+
+
+<g id="node16" class="node">
+<title>L3</title>
+<polygon fill="#fbf0dc" stroke="#c08a2e" stroke-width="1.3" stroke-dasharray="5,2" points="464.28,-116.31 412.76,-142.62 309.74,-142.62 258.22,-116.31 309.74,-90 412.76,-90 464.28,-116.31" />
+<text xml:space="preserve" text-anchor="middle" x="361.25" y="-112.61" font-family="Helvetica,sans-Serif" font-size="11.00">open / undecided</text>
+</g>
+
+
+<g id="node17" class="node">
+<title>L4</title>
+<polygon fill="#efe9f7" stroke="#7a5fa0" stroke-width="1.3" stroke-dasharray="5,2" points="436.34,-60 286.16,-60 286.16,-56 282.16,-56 282.16,-52 286.16,-52 286.16,-32 282.16,-32 282.16,-28 286.16,-28 286.16,-24 436.34,-24 436.34,-60" />
+<polyline fill="none" stroke="#7a5fa0" stroke-width="1.3" stroke-dasharray="5,2" points="286.16,-56 290.16,-56 290.16,-52 286.16,-52" />
+<polyline fill="none" stroke="#7a5fa0" stroke-width="1.3" stroke-dasharray="5,2" points="286.16,-32 290.16,-32 290.16,-28 286.16,-28" />
+<text xml:space="preserve" text-anchor="middle" x="361.25" y="-38.3" font-family="Helvetica,sans-Serif" font-size="11.00">cross-cutting concern</text>
+</g>
+
+</g>
+</svg>
