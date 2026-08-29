@@ -1,0 +1,88 @@
+digraph caruca_v2_widescreen {
+    graph [
+        rankdir=TB
+        newrank=true
+        fontname="Helvetica"
+        bgcolor=white
+        splines=spline
+        nodesep=0.4
+        ranksep=0.5
+        pad="0.25,0.2"
+    ]
+
+    node [
+        shape=box
+        style="rounded,filled"
+        fontname="Helvetica"
+        fontsize=15
+        fillcolor=white
+        color="#444444"
+        penwidth=1.4
+        margin="0.20,0.13"
+        width=2.4
+    ]
+
+    edge [
+        color="#888888"
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="#666666"
+        arrowsize=0.75
+        penwidth=1.2
+    ]
+
+    // ===================== Caruca today =====================
+    subgraph cluster_v1 {
+        label=<<FONT POINT-SIZE="17"><B>Caruca today</B></FONT><BR/><FONT POINT-SIZE="12">existing, reused unchanged</FONT>>
+        style="rounded"
+        color="#5B8C5A"
+        margin=16
+        penwidth=1.8
+
+        V1Spec [label="manual page → AI writes\ncommand description", fillcolor="#EDF3EB", color="#5B8C5A"]
+        V1Run [label="build test cases,\nrun them and watch", fillcolor="#EDF3EB", color="#5B8C5A"]
+        V1Out [label="recorded behaviour", shape=cylinder, fillcolor="#DCEBDA", color="#5B8C5A", fontsize=13]
+        V1Ann [label="turn into specifications", fillcolor="#EDF3EB", color="#5B8C5A"]
+
+        V1Spec -> V1Run -> V1Out -> V1Ann [color="#5B8C5A"]
+    }
+
+    // ===================== Step one =====================
+    subgraph cluster_step1 {
+        label=<<FONT POINT-SIZE="17"><B>Step one: replicate</B></FONT><BR/><FONT POINT-SIZE="12">what we build first</FONT>>
+        style="rounded"
+        color="#4A6FA5"
+        margin=16
+        penwidth=1.8
+
+        S1LLM [label="manual page → one simple\nprompt → description", fillcolor="#EAF0F8", color="#4A6FA5"]
+        S1Cmp [label="compare the two,\nmeasure cost and time", fillcolor="#EAF0F8", color="#4A6FA5"]
+        S1Rep [label="repeat runs to check\nthe answer is stable", fillcolor="#EAF0F8", color="#4A6FA5"]
+        S1Out [label="head-to-head results", shape=note, fillcolor="#D9E4F3", color="#4A6FA5"]
+
+        S1LLM -> S1Cmp -> S1Rep -> S1Out [color="#4A6FA5"]
+    }
+
+    // ===================== Step two =====================
+    subgraph cluster_step2 {
+        label=<<FONT POINT-SIZE="17"><B>Step two: extend</B></FONT><BR/><FONT POINT-SIZE="12">later, not now</FONT>>
+        style="rounded,dashed"
+        color="#4A6FA5"
+        margin=16
+        penwidth=1.8
+
+        S2Safe [label="a safe place to run\ndestructive commands", shape=hexagon, style="dashed,filled", color="#C08A2E", fillcolor="#FBF0DC", fontsize=13]
+        S2Rich [label="richer test cases: links,\npermissions, empty files", style="dashed,filled", fillcolor="#EAF0F8", color="#4A6FA5"]
+        S2Poor [label="commands with little\nor no documentation", style="dashed,filled", fillcolor="#EAF0F8", color="#4A6FA5"]
+        S2Out [label="broader coverage\nthan before", shape=note, style="dashed,filled", fillcolor="#EAF0F8", color="#4A6FA5"]
+
+        S2Safe -> S2Rich -> S2Poor -> S2Out [style=dashed, color="#4A6FA5"]
+    }
+
+    // force left-to-right column order: today | step one | step two.
+    // No visible cross-cluster edges: they fight the ordering and read as
+    // clutter at slide scale. The relationships are stated on the slide instead.
+    { rank=same; V1Spec; S1LLM; S2Safe; }
+    V1Spec -> S1LLM [style=invis]
+    S1LLM -> S2Safe [style=invis]
+}
