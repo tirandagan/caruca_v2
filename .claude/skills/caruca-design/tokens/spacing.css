@@ -1,0 +1,10 @@
+:root{
+/* Spacing (4px base) */
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-8:32px;--space-10:40px;--space-12:48px;
+/* Radii — small and precise; blocks 6px, chips 4px, ticks 3px */
+--radius-xs:3px;--radius-sm:4px;--radius-md:6px;--radius-pill:999px;
+/* Borders */
+--border-w:1px;--border-w-strong:2px;--callout-bar:4px;
+/* Shadows — the brand is nearly flat; one soft elevation for overlays only */
+--shadow-overlay:0 8px 24px rgba(11,31,51,0.12);
+}

@@ -1,0 +1,38 @@
+<!-- @dsCard group="Components" viewport="700x340" name="Forms" subtitle="Button, Input, Select, Checkbox, Radio, Switch" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>body{margin:0;padding:18px 22px;font-family:var(--font-sans);background:#fff;color:var(--ink)}a{color:var(--blue)}a:hover{color:var(--blue-hover)}.g{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.col{display:flex;flex-direction:column;gap:14px}</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script></head>
+<body><div id="root"></div>
+<script type="text/babel">
+const { Button, Input, Select, Checkbox, Radio, Switch, Card, Badge, Callout, CodeBlock, InlineCode, DataTable, MetricStat, Tabs } = window.KarukaDesignSystem_69ceb9;
+
+function Demo(){
+  const [chk,setChk]=React.useState(true);const [sw,setSw]=React.useState(true);const [r,setR]=React.useState('docker');
+  return <div className="col">
+    <div className="g">
+      <Button>Run comparison</Button>
+      <Button variant="secondary">Export tables</Button>
+      <Button variant="ghost">View telemetry</Button>
+      <Button variant="danger">Tear down sandbox</Button>
+      <Button disabled>Run comparison</Button>
+      <Button size="sm" variant="secondary">Small</Button>
+      <Button size="lg">Large</Button>
+    </div>
+    <div className="g" style={{alignItems:'flex-start'}}>
+      <Input label="Command" mono placeholder="rm" hint="Binary name as invoked" style={{width:170}}/>
+      <Input label="Seed" mono defaultValue="7" error="Seed must be a positive integer" style={{width:170}}/>
+      <Select label="Profile" options={['v1-faithful','v2-extended','both']} style={{width:170}}/>
+    </div>
+    <div className="g" style={{gap:24}}>
+      <Checkbox label="Include variance runs" checked={chk} onChange={e=>setChk(e.target.checked)}/>
+      <Checkbox label="Disabled" disabled/>
+      <Radio name="b" label="Docker" checked={r==='docker'} onChange={()=>setR('docker')}/>
+      <Radio name="b" label="Firecracker" checked={r==='fc'} onChange={()=>setR('fc')}/>
+      <Switch label="Augmented docs" checked={sw} onChange={e=>setSw(e.target.checked)}/>
+    </div>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>

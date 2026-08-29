@@ -1,0 +1,35 @@
+<!-- @dsCard group="Components" viewport="700x560" name="Display" subtitle="Card, Badge, Callout, CodeBlock, MetricStat, DataTable" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>body{margin:0;padding:18px 22px;font-family:var(--font-sans);background:#fff;color:var(--ink)}a{color:var(--blue)}a:hover{color:var(--blue-hover)}.g{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.col{display:flex;flex-direction:column;gap:14px}</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script></head>
+<body><div id="root"></div>
+<script type="text/babel">
+const { Button, Input, Select, Checkbox, Radio, Switch, Card, Badge, Callout, CodeBlock, InlineCode, DataTable, MetricStat, Tabs } = window.KarukaDesignSystem_69ceb9;
+
+function Demo(){
+  return <div className="col">
+    <div className="g">
+      <Badge tone="success" dot>Completed</Badge>
+      <Badge tone="warning" dot>Queued</Badge>
+      <Badge tone="danger" dot>Failed</Badge>
+      <Badge tone="info" mono>v2-extended</Badge>
+      <Badge tone="neutral" mono>v1-faithful</Badge>
+    </div>
+    <div className="g" style={{gap:28}}>
+      <MetricStat label="Q2 exact-match" value="87.5" unit="%" delta="+4.2% vs v1" deltaTone="up"/>
+      <MetricStat label="Cost / command" value="$0.041" delta="3.1x v1" deltaTone="down"/>
+      <MetricStat label="Wall-clock" value="12.4" unit="s" delta="−18% vs v1" deltaTone="up"/>
+      <MetricStat label="Variance (N=5)" value="±2.3" unit="pp"/>
+    </div>
+    <Callout kind="warning" title="Open question">The isolation backend is not yet decided; <InlineCode>--backend</InlineCode> has no default.</Callout>
+    <Card title="Latest run" actions={<Badge tone="info" mono>seed 7</Badge>}>
+      <CodeBlock language="bash">caruca-v2 compare rm --dimension all --variance 5 --profile both</CodeBlock>
+    </Card>
+    <DataTable columns={[{key:'cmd',label:'Command',mono:true},{key:'cond',label:'Condition',mono:true},{key:'q2',label:'Q2 match',align:'right'},{key:'cost',label:'Cost',align:'right'}]}
+      rows={[{cmd:'rm',cond:'naive-LLM (plain)',q2:'94.1%',cost:'$0.038'},{cmd:'mkdir',cond:'naive-LLM (plain)',q2:'100%',cost:'$0.022'},{cmd:'chmod',cond:'naive-LLM (augmented)',q2:'88.7%',cost:'$0.067'}]}/>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>

@@ -1,0 +1,37 @@
+:root{
+/* Brand */
+--ink:#0B1F33; /* primary text, wordmark, logo fill */
+--blue:#2563EB; /* primary action, links, h2, accents */
+--blue-hover:#1D4ED8;
+--teal:#0E7490; /* secondary accent: gradients, decorative rings */
+/* Neutrals (text) */
+--gray-700:#374151;
+--gray-600:#475569;
+--gray-500:#616B73;
+--gray-400:#9CA3AF;
+/* Surfaces */
+--surface-page:#FFFFFF;
+--surface-code:#F6F8FA;
+--surface-inline-code:#EFF1F3;
+--surface-thead:#F1F5F9;
+--surface-zebra:#F8FAFC;
+--surface-info:#EFF6FF;
+/* Borders */
+--border-strong:#D0D7DE;
+--border-default:#E2E8F0;
+--border-subtle:#E5E7EB;
+--border-hr:#D1D5DB;
+/* Semantic */
+--success:#16A34A;--success-text:#15803D;--success-bg:#ECFDF5;
+--warning:#E6A817;--warning-text:#B8860B;--warning-bg:#FFFBEB;
+--danger:#DF2E2E;--danger-text:#DC2626;--danger-bg:#FEF2F2;
+/* Semantic aliases */
+--text-body:var(--ink);
+--text-secondary:var(--gray-600);
+--text-muted:var(--gray-500);
+--text-faint:var(--gray-400);
+--text-link:var(--blue);
+--surface-card:var(--surface-page);
+--action-primary:var(--blue);
+--accent-gradient:linear-gradient(to right,var(--teal),var(--ink));
+}
