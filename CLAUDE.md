@@ -20,8 +20,15 @@ The comparison dimensions that drive every design decision here:
 4. **Consistency/reproducibility** across repeated runs (LLM nondeterminism is itself a result)
 5. **How much hand-encoded logic** is eliminated for equal-or-better output
 
+caruca_v2 serves two objectives: prove an LLM approach can do this at all and demonstrate efficacy
+(near-term), and produce evidence/documentation to revise and resubmit the Caruca white paper — not
+accepted in its original submission — incorporating v2's findings (longer-term). Write evaluation output
+at paper-worthy rigor, not just internal notes.
+
 **Current state:** git repo initialized and pushed to `github.com/tirandagan/caruca_v2` (private). Only
-scaffolding + this file exist so far — no pipeline code yet. The near-term work per the project brief is:
+scaffolding + this file existed at first; the Master Idea Document is now done
+(`ai_docs/prep/master_idea.md` — end goal, stakeholders, evaluation criteria, MVP components, usage
+scenarios). Still no pipeline code. The near-term work per the project brief is:
 understand the baseline, build a **baseline + evaluation harness first**, then the **naive-LLM baseline**
 (see below) — before attempting any agentic pipeline rebuild. Do not skip straight to an agentic rebuild
 without a measurable baseline and a naive-LLM control to compare against.
@@ -56,8 +63,12 @@ naive-LLM baseline alike, per the cost/performance dimension above.
 `ai_docs/refs/caruca white paper.pdf` — *Caruca: Effective and Efficient Specification Mining for Opaque
 Software Components* (Lamprou, Jung, Keoliya, Lazarek, Kallas, **Greenberg**, Vasilakis; arXiv:2510.14279,
 Oct 2025). It is the authoritative statement of design intent and of the numbers this project must
-reproduce or beat. Read it before proposing architecture. Extract text with
-`pdftotext -layout "ai_docs/refs/caruca white paper.pdf" -` (write scratch output outside the repo).
+reproduce or beat. Read it before proposing architecture. A full Markdown transcription — every section,
+Tab. 1, the DSL/math notation, and all figures (cropped out of the PDF's vector content, not full-page
+screenshots) — lives at `ai_docs/refs/caruca_white_paper.md` with images in `ai_docs/refs/images/`; prefer
+reading/grepping that over re-extracting from the PDF. Fall back to
+`pdftotext -layout "ai_docs/refs/caruca white paper.pdf" -` only if the Markdown ever needs to be
+regenerated or cross-checked (write scratch output outside the repo).
 
 Map of the paper to the code: §3 syntax inference → `llm.py` + `ir/syntax.py`; §4 configuration generator →
 `ir/string.py` + `ir/environment.py`; §5 isolated tracing → `tracer/`; §6 specification derivation →
@@ -164,6 +175,10 @@ Isolation backend is selectable via `CARUCA_ISOLATION_METHOD` = `try` (default, 
 `docker` | `none`. Timing comparisons against §7.4 are only meaningful on comparable hardware — record the
 machine.
 
+v2 will likely need stronger isolation than these for destructive commands (e.g. `rm`) and undocumented
+binaries — candidate approaches (Firecracker, gVisor, bubblewrap) are scoped in
+`ai_docs/prep/master_idea.md` under MVP Components; any candidate must preserve strace/ptrace visibility.
+
 `caruca syntax-spec CMD` (the LLM path) **dies at import** against installed DSPy 3.3.1 — the code targets
 DSPy ~2.4 (`dspy.OpenAI`, `dspy.Suggest`, `dspy.predict.Retry`, `assert_transform_module` all removed).
 If the evaluation needs a live baseline LLM step, migrating `llm.py` is a prerequisite, not an afterthought.
@@ -176,19 +191,31 @@ correctness comparison has to separate "better model" from "better method."
 - **Task documents**: numbered markdown in `ai_docs/tasks/` (`NNN_snake_case.md`), created by the
   `task-creator` skill from `ai_docs/dev_templates/task_template.md`. Use them for multi-session work.
 - `ai_docs/refs/` — reference material (the paper, upstream docs, transcripts) pinned for future sessions.
+- `ai_docs/analysis/` — findings/evaluations produced *by this project* (as opposed to `refs/`, which is
+  source material we didn't write). Start at `ai_docs/analysis/README.md` for the index — don't inline
+  analysis content here in `CLAUDE.md`; link out to it instead so routine sessions don't load findings
+  they don't need. Current entry: `evaluation_gaps.md` (v1/paper test-coverage opportunities).
 - `ai_docs/prep/` — project-planning output; `ai_docs/prep_templates/` came from a **Next.js/Drizzle/
   Trigger.dev web-app starter kit** and is being adapted one file at a time for this research project.
-  `01_generate_master_idea.md` has been adapted (strips ShipKit/SaaS framing, reframes around this
-  project's actual goal/stakeholders/components/evaluation criteria) — safe to run. `02` through `10` are
-  still the original ShipKit content (app naming, UI theme, logo, Trigger.dev workflows, Drizzle schemas,
-  etc.) and do **not** apply here as-is; most depend on knowing v2's system design, which isn't settled yet,
-  so don't adapt them speculatively. `.claude/commands/0N_*.md` are thin `@`-reference wrappers around
-  their `ai_docs/prep_templates/` counterparts — editing the template is enough, no need to update both.
+  **Adapted, safe to run**: `01_generate_master_idea.md` (→ `ai_docs/prep/master_idea.md`, done),
+  `05_generate_app_pages_and_functionality.md` (→ component/CLI functionality spec),
+  `08_generate_initial_data_models.md` (→ data & telemetry schemas, extends v1's `Traces` model),
+  `09_generate_system_design.md` (→ system architecture, Foundation-v1/Extensions-v2 framing),
+  `10_generate_build_order_worker.md` (→ roadmap, phases = MVP components done end-to-end). **Still
+  original ShipKit content, do not run as-is**: `02` (app naming — no product needing a market name),
+  `03` (UI theme — no UI exists), `04` (logo — no plausible use), `06` (Trigger.dev workflows — no
+  orchestration mechanism decided yet), `07` (wireframe — blocked on the same undecided web GUI as 03).
+  `.claude/commands/0N_*.md` are thin `@`-reference wrappers around their `ai_docs/prep_templates/`
+  counterparts — editing the template is enough, no need to update both.
   Most of `ai_docs/dev_templates/` (Drizzle migrations, Next.js refactors, Trigger.dev, Stripe/auth setup)
   is also starter-kit-specific and doesn't apply; `task_template.md` is closer to reusable but still has
   stack-specific sections to strip once real implementation starts. Same starter-kit origin for the
   `drizzle` / `typescript-react` / `trigger-dev-task-writer` agents in `.claude/agents/` — ignore them
   unless a task genuinely calls for one.
+- **v1-vs-v2 framing**: in narrative writing for stakeholders (planning docs, paper drafts, advisor
+  summaries), frame v2 as extending v1's capabilities, not fixing v1's flaws — several co-authors/reviewers
+  are v1's own authors. Technical facts (like the DSPy breakage above) still get stated plainly; this is
+  about narrative tone, not suppressing facts.
 - **Measurement discipline**: any claim comparing the two approaches needs recorded evidence — command,
   model ID, seed/temperature, token counts, wall-clock, hardware, and the exact baseline commit. Prefer
   writing results to files under `ai_docs/` or an `eval/` directory over reporting them only in chat.

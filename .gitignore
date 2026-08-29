@@ -16,6 +16,9 @@ outputs/
 traces/
 *.log
 
+# Node
+node_modules/
+
 # Editor / OS
 .vscode/
 .idea/
