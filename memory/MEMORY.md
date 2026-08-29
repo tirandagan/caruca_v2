@@ -3,6 +3,7 @@
 - [Baseline scope](caruca_v2_baseline_scope.md) — near-term deliverable is a naive single-prompt LLM baseline (Eiers' call), not the agentic full-pipeline rebuild
 - [V1/V2 framing](feedback_v1_v2_framing.md) — in stakeholder-facing prose, frame v2 as extending v1's capabilities, not fixing v1's flaws (Greenberg co-authored v1)
 - [Plain language](feedback_plain_language.md) — assume Tiran hasn't read the docs; explain in simple terms; never use bare shorthand like "dimension 6" or "§7.2"; link docs as optional further reading
+- [Handout workflow](feedback_handout_workflow.md) — supporting docs go out as PDFs with presentations; cite documents without file extensions and ship an assembly list
 - [Dual objectives](project_dual_objectives.md) — near-term: prove LLM feasibility; longer-term: resubmit the rejected Caruca white paper using v2 findings
 - [Component functionality spec](component_functionality_spec.md) — shared v1/naive-LLM pipeline seam, v1-faithful/v2-extended dual-profile evaluation, deferred PTY-terminal Web GUI design (see correction note inside)
 - [Build tiering](caruca_v2_build_tiering.md) — Tier 0 (minimal proof, satisfies Eiers) vs Tier 1 (gap-driven extensions, satisfies Greenberg); decided 2026-08-29
