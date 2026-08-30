@@ -39,7 +39,7 @@ export function generateToc(html: string): { tocHtml: string; bodyHtml: string }
 
   const tocHtml = `
     <div class="toc-page">
-      <h2 class="toc-title">Table of Contents</h2>
+      <h2 class="toc-title">Table of contents</h2>
       <ul class="toc-list">
         ${tocItems}
       </ul>
@@ -69,12 +69,29 @@ export const tocStyles = `
     padding: 0;
   }
 
+  /* Matches the page-title treatment: ink, with the brand accent bar beneath. */
   .toc-title {
-    font-size: 20pt;
+    font-size: var(--text-h2);
     font-weight: 700;
-    color: #2563EB;
-    margin-bottom: 1.5em;
+    color: var(--ink);
+    letter-spacing: var(--tracking-heading);
+    margin: 0 0 1.4em 0;
+    padding-bottom: 0.45em;
     border-bottom: none;
+    position: relative;
+  }
+
+  .toc-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--accent-gradient);
+    border-radius: 2px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .toc-list {
@@ -85,22 +102,18 @@ export const tocStyles = `
 
   .toc-item {
     padding: 0.35em 0;
-    border-bottom: 1px dotted #D0D7DE;
-    font-size: 11pt;
+    border-bottom: var(--border-w) solid var(--border-default);
+    font-size: var(--text-body-size);
   }
 
   .toc-item a {
     text-decoration: none;
-    color: #0B1F33;
-  }
-
-  .toc-item a:hover {
-    color: #2563EB;
+    color: var(--ink);
   }
 
   .toc-level-1 {
     font-weight: 700;
-    font-size: 12pt;
+    font-size: var(--text-h4);
     padding-top: 0.5em;
   }
 
@@ -109,13 +122,17 @@ export const tocStyles = `
     font-weight: 600;
   }
 
+  /*
+    Third level is the quiet tier. It was set in #4A4A6A, a violet-gray that
+    appears nowhere in the palette; it now uses the palette's secondary text.
+  */
   .toc-level-3 {
     padding-left: 1.5em;
-    font-size: 10pt;
-    color: #4A4A6A;
+    font-size: var(--text-small);
+    font-weight: 400;
   }
 
   .toc-level-3 a {
-    color: #4A4A6A;
+    color: var(--text-secondary);
   }
 `;

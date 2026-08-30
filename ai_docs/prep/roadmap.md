@@ -23,6 +23,10 @@ Measured against v1 at `~/stevens/caruca/`, not assumed:
   `eval/syntax-spec-correctness.sh` diffs ASP atoms via `clingo` against `benchmarks/gnu-coreutils/asp/*.pl`
   for 5 commands (`rm`, `mv`, `cp`, `cat`, `mkdir`). It needs `clingo` and `jq`, and is also blocked on the
   broken `syntax-spec`. Useful as a cross-check on Phase 3's numbers for those 5 commands.
+- **v1 never explores model or decoding-parameter choice for its one LLM step.** `llm.py` hardcodes
+  `gpt-4o`, sets `seed=42` but no explicit temperature, and extracts code via a fragile regex on fenced
+  code blocks rather than a structured-output mode. No alternative model, temperature, or output-format
+  constraint was ever tried, for v1 or for anything else.
 
 ### The LOC figure that dimension 6 must not be measured against
 
@@ -65,23 +69,54 @@ model" from "better method," and that separation is only possible if this phase 
 
 ### Phase 2: Naive-LLM Baseline
 
-**Goal**: A second system exists to compare against v1 at all.
+**Goal**: A second system exists to compare against v1 at all — and its model/configuration choices are
+selected deliberately, not left as unexamined defaults.
 
 **Depends on**: Phase 1 (for the telemetry record shape proven in practice, and for a working v1 spec to
 compare against). Reads `component_functionality.md` for I/O and CLI surface.
 
+**Why this includes model/configuration selection, not just a prompt**: v1's behavior is fixed by
+hand-written code, so it has no configuration surface at all outside its one LLM call. The moment v2
+replaces hardcoded logic with an NLP-based component, model choice, decoding parameters (e.g. temperature),
+and output-format constraints (e.g. structured/JSON output versus free text) stop being incidental setup
+and become part of the method itself — they directly drive accuracy, consistency, and cost, the same way
+choosing an algorithm did in v1's code. Selecting and documenting them is therefore core scope for this
+phase, not an optional enhancement layered on top of it.
+
 **Work**: A single, few-shot-primed prompt taking a command's binary name plus its documentation and
 emitting a spec in v1's Python-DSL shape. No agentic tool use, no validation or retry loop. Emits the same
-telemetry record shape as Phase 1. Deliberately not engineered for quality, per the scoping guidance in
-`memory/caruca_v2_baseline_scope.md`.
+telemetry record shape as Phase 1. The prompt itself stays deliberately simple, per the scoping guidance in
+`memory/caruca_v2_baseline_scope.md` — what's new is that the model, its decoding parameters, and its
+output-format constraint are chosen through a small, fixed comparison rather than picked arbitrarily.
+
+Before freezing this baseline's exact configuration, compare model choice, decoding parameters, structured
+output (schema-constrained/JSON output versus free text plus regex extraction — the latter being the same
+fragile pattern v1's `extract_code()` uses) and 2-3 prompt-phrasing variants aimed at run-to-run
+consistency, on a held-out command subset (not the full corpus). Freeze the configuration this comparison
+supports, then run it unchanged for every command in Phase 3's actual comparison. This is a fixed, one-time
+selection step, not iterative tuning of the baseline's output to win the comparison — that distinction
+matters and is worth stating explicitly wherever this phase is described, since "no tuning" (the scoping
+guidance's actual constraint) means "not iteratively refined to produce a better answer," not "configured
+without deliberation."
 
 **Exit criteria**: Produces a syntactically valid spec in v1's DSL for a target command set; telemetry
-sidecar per run; the plain-docs condition is labeled distinctly from any future augmented condition.
+sidecar per run; the plain-docs condition is labeled distinctly from any future augmented condition; the
+model/configuration comparison's results (every variant tried, and why the final configuration was chosen)
+are written up before the frozen baseline's full-corpus run begins.
 
-**Validation**: Unlocks dimension 2 for v2, and makes dimension 1 possible in Phase 3.
+**Validation**: Unlocks dimension 2 for v2, and makes dimension 1 possible in Phase 3. Also produces a
+standalone finding, parallel to the cost and repeatability gaps already identified: neither v1 nor the
+originally-scoped naive baseline ever varied model choice, decoding parameters, or output-format
+constraints — because v1's hardcoded design never needed to, and a naive baseline's default config is
+exactly the kind of choice that's easy to leave unexamined. This is the first time it's characterized, for
+either system.
 
 **Paper-readiness note**: Record the exact prompt text, the few-shot examples used, model ID, temperature,
-and seed. The prompt is the method here, so an unrecorded prompt makes the result uncitable.
+and seed — for the frozen baseline **and** for every configuration compared, not just the winner. The
+prompt is the method here, so an unrecorded prompt makes the result uncitable, and a resubmission claim
+about model/parameter choice is only as strong as the record of what else was tried. Framing note for
+whoever writes this up: state plainly that configuration selection is a first-class part of moving from a
+hardcoded to an NLP-based approach, not an afterthought bolted onto the baseline.
 
 ### Phase 3: Evaluation Harness
 
@@ -176,9 +211,9 @@ existing telemetry rather than recomputed.
 | Dimension | Unlocked by | Status |
 |---|---|---|
 | 1. Correctness/fidelity | Phase 3 (Q2-style), Phase 4 (annotation-diff) | Covered |
-| 2. Cost/performance | Phase 1 (v1 side), Phase 2 (v2 side) | Covered |
+| 2. Cost/performance | Phase 1 (v1 side), Phase 2 (v2 side + model/parameter sensitivity sweep) | Covered |
 | 3. Coverage | Phase 4 (execution axis), Phase 5 (documentation axis) | Covered |
-| 4. Consistency/reproducibility | Phase 3 (variance sampling) | Covered |
+| 4. Consistency/reproducibility | Phase 2 (sweep tests which model/params/prompting reduce variance), Phase 3 (repeated-sampling variance on the frozen config) | Covered |
 | 5. Percent-change roll-up | Phase 3 | Covered |
 | 6. Reduction in hand-encoded logic | No phase | **Partially unreachable, see below** |
 
@@ -224,6 +259,10 @@ reporting a narrow number as if it were the broad one is the failure mode to avo
 - ⚠️ The target command set for Phase 2 is unspecified. The 121 available ground-truth specs make the
   full corpus possible, but a smaller starting set would validate the pipeline faster. Left open as an
   implementation decision.
+- ⚠️ Model/configuration selection in Phase 2 is in scope, not scope creep — it's an inherent part of
+  moving from v1's hardcoded pipeline to an NLP-based one. Keep it bounded anyway (a small held-out subset,
+  a short fixed list of variants decided in advance, not an open-ended search), so the distinction from
+  iterative tuning of the baseline's output stays clean and defensible.
 
 **Revisions Made**
 
@@ -233,3 +272,7 @@ reporting a narrow number as if it were the broad one is the failure mode to avo
 - Added explicit exit criteria to every phase, since the tiering decision defined scope but not completion.
 - Moved the annotation-test prerequisite into Phase 4's paper-readiness note, since no passing test
   currently exercises annotation output.
+- Added model/decoding-parameter/output-format selection to Phase 2 as core scope, not an add-on: moving
+  from v1's hardcoded pipeline to an NLP-based component makes these choices a first-class part of the
+  method, not incidental setup. Extends dimension 2 and dimension 4 coverage and produces its own citable
+  finding, while keeping the distinction from iterative output-tuning explicit.

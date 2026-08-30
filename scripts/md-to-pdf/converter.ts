@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { pathToFileURL } from "url";
 import sharp from "sharp";
+import { JSDOM } from "jsdom";
 import crypto from "crypto";
 import MarkdownIt from "markdown-it";
 import footnote from "markdown-it-footnote";
@@ -11,6 +12,7 @@ import container from "markdown-it-container";
 import { createHighlighter, type Highlighter } from "shiki";
 import puppeteer from "puppeteer";
 import { PDFDocument } from "pdf-lib";
+import { carucaSyntaxTheme, CARUCA_THEME_NAME } from "./shiki-theme";
 import { generateToc } from "./toc";
 import { generateCoverHtml } from "./cover";
 import { getHeaderTemplate, getFooterTemplate, wrapBodyHtml } from "./templates";
@@ -38,7 +40,7 @@ export async function convertMarkdownToPdf(options: ConvertOptions): Promise<voi
   // Initialize highlighter
   console.log("  Initializing syntax highlighter...");
   const highlighter = await createHighlighter({
-    themes: ["github-light"],
+    themes: [carucaSyntaxTheme],
     langs: [
       "typescript", "javascript", "bash", "json", "sql",
       "css", "html", "python", "yaml", "markdown", "diff",
@@ -63,11 +65,12 @@ export async function convertMarkdownToPdf(options: ConvertOptions): Promise<voi
   // any leftover empty anchor paragraphs.
   html = normalizeAnchors(html);
 
+  // Mark long code blocks first, so heading grouping can leave the ones that
+  // are allowed to break across pages ungrouped.
+  html = markLongCodeBlocks(html);
+
   // Wrap heading groups (orphan prevention fallback)
   html = wrapHeadingGroups(html);
-
-  // Mark long code blocks
-  html = markLongCodeBlocks(html);
 
   // Generate TOC
   console.log("  Generating table of contents...");
@@ -88,6 +91,7 @@ export async function convertMarkdownToPdf(options: ConvertOptions): Promise<voi
   // when content is injected via setContent (an about:blank origin), so relative
   // image paths only resolve when the document itself is served from file://.
   const tmpHtmlPath = path.join(baseDir, `.md-to-pdf.${process.pid}.tmp.html`);
+  const tmpCoverPath = path.join(baseDir, `.md-to-pdf.cover.${process.pid}.tmp.html`);
   fs.writeFileSync(tmpHtmlPath, bodyHtmlForRender);
 
   // Launch browser
@@ -147,9 +151,18 @@ export async function convertMarkdownToPdf(options: ConvertOptions): Promise<voi
       pageCount: totalPages,
     });
 
+    // Write the cover to a temp file for the same reason the body is written to
+    // one: Chromium blocks file:// subresources from a setContent document,
+    // whose origin is about:blank. The cover loads its typefaces from this
+    // repo, so under setContent every request for Lexend Deca was blocked and
+    // the cover — the most brand-critical page in the document — silently
+    // rendered in a system fallback. Awaiting document.fonts.ready cannot fix
+    // that, because the request is refused rather than slow.
+    fs.writeFileSync(tmpCoverPath, coverHtml);
+
     const coverPage = await browser.newPage();
-    await coverPage.setContent(coverHtml, { waitUntil: "networkidle0" });
-    // Ensure web fonts have finished loading before the cover is snapshotted,
+    await coverPage.goto(pathToFileURL(tmpCoverPath).href, { waitUntil: "networkidle0" });
+    // Ensure the faces have finished loading before the cover is snapshotted,
     // so the title is rendered with the intended typeface (not a fallback).
     await coverPage.evaluate(async () => {
       await document.fonts.ready;
@@ -204,6 +217,7 @@ export async function convertMarkdownToPdf(options: ConvertOptions): Promise<voi
     await browser.close();
     highlighter.dispose();
     if (fs.existsSync(tmpHtmlPath)) fs.unlinkSync(tmpHtmlPath);
+    if (fs.existsSync(tmpCoverPath)) fs.unlinkSync(tmpCoverPath);
     if (imgTempDir && fs.existsSync(imgTempDir)) fs.rmSync(imgTempDir, { recursive: true, force: true });
   }
 }
@@ -304,7 +318,7 @@ function createMarkdownIt(highlighter: Highlighter): MarkdownIt {
         if (loadedLangs.includes(language as never)) {
           const highlighted = highlighter.codeToHtml(code, {
             lang: language,
-            theme: "github-light",
+            theme: CARUCA_THEME_NAME,
           });
           // Add data-language attribute for the CSS label
           return highlighted.replace(
@@ -323,18 +337,28 @@ function createMarkdownIt(highlighter: Highlighter): MarkdownIt {
   md.use(taskLists, { enabled: true, label: true });
   md.use(anchor, { permalink: false });
 
-  // Custom container for callout boxes
+  // Custom container for callout boxes.
+  //
+  // The title defaults to the callout type, and an author can override it by
+  // naming one on the fence: `::: warning Open question`. Callout titles are
+  // brand micro-labels, so the stylesheet uppercases and tracks them out —
+  // author copy stays in sentence case at the source.
+  const defaultCalloutTitles: Record<string, string> = {
+    info: "Info",
+    warning: "Warning",
+    tip: "Tip",
+    danger: "Danger",
+  };
+
   for (const type of ["info", "warning", "tip", "danger"]) {
     md.use(container, type, {
       render(tokens: MarkdownIt.Token[], idx: number): string {
         if (tokens[idx].nesting === 1) {
-          const titleMap: Record<string, string> = {
-            info: "Info",
-            warning: "Warning",
-            tip: "Tip",
-            danger: "Danger",
-          };
-          return `<div class="callout callout-${type}"><div class="callout-title">${titleMap[type]}</div>\n`;
+          const custom = tokens[idx].info.trim().slice(type.length).trim();
+          const title = custom || defaultCalloutTitles[type];
+          return `<div class="callout callout-${type}"><div class="callout-title">${escapeHtml(
+            title
+          )}</div>\n`;
         }
         return "</div>\n";
       },
@@ -345,15 +369,43 @@ function createMarkdownIt(highlighter: Highlighter): MarkdownIt {
 }
 
 /**
- * Wrap each heading and its immediately following sibling in a div
- * to prevent orphaned headings (Chromium's break-after: avoid is unreliable).
+ * Keep each heading on the same page as the block that follows it.
+ *
+ * Chromium honors `break-after: avoid` unreliably, so the heading and its next
+ * sibling are wrapped in a `break-inside: avoid` group instead.
+ *
+ * This was a regex over the serialized HTML, which could not match balanced
+ * tags: `<div>...</div>` and `<ul>...</ul>` were matched non-greedily, so a
+ * callout following a heading was cut at the end of its own title div, and a
+ * list containing a nested list was cut at the end of the nested one. In both
+ * cases the tail of the element was left outside the group and rendered as
+ * loose body text — a callout that spilled its contents, a list that dropped
+ * its last item. Parsing the document makes the boundary exact.
  */
 function wrapHeadingGroups(html: string): string {
-  // Match <hN>...</hN> followed by the next block element
-  return html.replace(
-    /(<h[1-6][^>]*>[\s\S]*?<\/h[1-6]>)\s*(<(?:p|ul|ol|table|pre|div|blockquote)[^>]*>[\s\S]*?<\/(?:p|ul|ol|table|pre|div|blockquote)>)/gi,
-    '<div class="heading-group">$1$2</div>'
-  );
+  const dom = new JSDOM(html);
+  const doc = dom.window.document;
+
+  for (const heading of Array.from(doc.querySelectorAll("h1, h2, h3, h4, h5, h6"))) {
+    const next = heading.nextElementSibling;
+    if (!next) continue;
+
+    // Back-to-back headings have nothing to be kept with.
+    if (/^H[1-6]$/.test(next.tagName)) continue;
+
+    // A block that is explicitly allowed to break across pages must not be
+    // trapped inside a group that forbids it.
+    if (next.classList.contains("long-code")) continue;
+    if (next.classList.contains("footnotes")) continue;
+
+    const group = doc.createElement("div");
+    group.className = "heading-group";
+    heading.parentNode?.insertBefore(group, heading);
+    group.appendChild(heading);
+    group.appendChild(next);
+  }
+
+  return doc.body.innerHTML;
 }
 
 /**
@@ -371,6 +423,13 @@ function markLongCodeBlocks(html: string): string {
     }
     return match;
   });
+}
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 }
 
 function escapeAttr(str: string): string {

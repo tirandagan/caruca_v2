@@ -1,4 +1,5 @@
 import type MarkdownIt from "markdown-it";
+import { TOKENS } from "./tokens";
 
 type Token = MarkdownIt.Token;
 type RenderRule = MarkdownIt.Renderer.RenderRule;
@@ -69,6 +70,54 @@ function collectDiagramBlocks(md: MarkdownIt, markdown: string): DiagramBlock[] 
 }
 
 /**
+ * Mermaid theme variables, in the brand's palette.
+ *
+ * Diagrams are this identity's primary imagery ("diagrams over photos", "cool,
+ * technical, monochrome-plus-blue"), but mermaid's stock theme paints nodes in
+ * pastel yellow and lavender, which belongs to no part of this system. These
+ * variables restate the palette: pale blue node fills with blue borders, ink
+ * text, quiet gray edges, and the document's own surface grays for clusters.
+ *
+ * `fontFamily` is deliberately left as Arial and must stay that way — see
+ * preprocessCode below. Kroki measures label boxes server-side with Liberation
+ * Sans, which is metric-compatible with Arial; naming Lexend Deca here would
+ * make every label overflow the box that was measured for it.
+ */
+export const MERMAID_THEME_VARIABLES = {
+  fontFamily: "arial, helvetica, sans-serif",
+  background: TOKENS.color.surfacePage,
+
+  primaryColor: TOKENS.color.surfaceInfo,
+  primaryBorderColor: TOKENS.color.blue,
+  primaryTextColor: TOKENS.color.ink,
+
+  secondaryColor: TOKENS.color.surfaceCode,
+  secondaryBorderColor: TOKENS.color.borderStrong,
+  secondaryTextColor: TOKENS.color.ink,
+
+  tertiaryColor: TOKENS.color.surfaceThead,
+  tertiaryBorderColor: TOKENS.color.borderDefault,
+  tertiaryTextColor: TOKENS.color.ink,
+
+  mainBkg: TOKENS.color.surfaceInfo,
+  nodeBorder: TOKENS.color.blue,
+  nodeTextColor: TOKENS.color.ink,
+  textColor: TOKENS.color.ink,
+  titleColor: TOKENS.color.ink,
+
+  lineColor: TOKENS.color.gray600,
+  edgeLabelBackground: TOKENS.color.surfacePage,
+
+  clusterBkg: TOKENS.color.surfaceZebra,
+  clusterBorder: TOKENS.color.borderDefault,
+
+  noteBkgColor: TOKENS.color.warningBg,
+  noteBorderColor: TOKENS.color.warning,
+  noteTextColor: TOKENS.color.ink,
+};
+
+
+/**
  * Per-engine tweaks to the diagram source before sending to Kroki.
  *
  * Mermaid defaults to rendering labels as HTML inside `<foreignObject>` with a
@@ -86,7 +135,7 @@ function preprocessCode(krokiType: string, code: string): string {
     // - extra padding      -> a little slack so labels never kiss the box edge.
     const init =
       '%%{init: {"flowchart": {"htmlLabels": false, "padding": 12}, ' +
-      '"themeVariables": {"fontFamily": "arial, helvetica, sans-serif"}} }%%';
+      `"themeVariables": ${JSON.stringify(MERMAID_THEME_VARIABLES)}} }%%`;
     return `${init}\n${code}`;
   }
   return code;

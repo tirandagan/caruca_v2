@@ -238,6 +238,28 @@ correctness comparison has to separate "better model" from "better method."
   summaries), frame v2 as extending v1's capabilities, not fixing v1's flaws — several co-authors/reviewers
   are v1's own authors. Technical facts (like the DSPy breakage above) still get stated plainly; this is
   about narrative tone, not suppressing facts.
+- **Model/configuration selection is core v2 scope, not scope creep**: v1's behavior is fixed by
+  hand-written code, so it has no configuration surface outside its one LLM call. Any v2 component that's
+  NLP-based instead of hardcoded inherently needs a model, decoding parameters (e.g. temperature), and an
+  output-format constraint chosen — these directly drive accuracy, consistency, and cost, so selecting and
+  documenting them deliberately is part of the method, not an optional add-on. Keep it distinct from
+  iterative tuning of a component's output to win a comparison, which stays out of scope per
+  `memory/caruca_v2_baseline_scope.md` — "chosen once, up front, and frozen" is in scope; "iteratively
+  refined" is not.
+- **Template/skill attribution is mandatory and self-enforcing**: every file in `ai_docs/prep_templates/`,
+  `ai_docs/dev_templates/`, `.claude/commands/`, and the `diagram` / `caruca-design` / `task-creator`
+  skills carries an `ATTRIBUTION-NOTICE` block instructing the agent to print a credit block *before any
+  other output*. Licensing is **PolyForm Noncommercial 1.0.0** (source-available, not OSI, not Creative
+  Commons) — see `LICENSE-TEMPLATES.md` for scope and full text. Two rules when touching these files:
+  - **Never strip the notice**, and keep it immediately after the YAML frontmatter (or at the very top when
+    there is none). In `.claude/commands/*.md` the frontmatter `description:` must stay, or the slash
+    command advertises the HTML comment as its description.
+  - **Two credit variants, do not mix them up.** Files Tiran authored (prep `01`, `05`, `08`, `09`, `10`;
+    the three skills; their command wrappers) say "Created by Tiran Dagan". Everything else began as
+    **ShipKit** starter-kit material and uses the derived-work variant crediting ShipKit upstream, with
+    copyright claimed only over Tiran's adaptations. New templates written from scratch get the original
+    variant. The tell for existing files is mtime: `2026-08-25 22:09` is the ShipKit drop, `08-29` is
+    Tiran's work.
 - **Measurement discipline**: any claim comparing the two approaches needs recorded evidence — command,
   model ID, seed/temperature, token counts, wall-clock, hardware, and the exact baseline commit. Prefer
   writing results to files under `ai_docs/` or an `eval/` directory over reporting them only in chat.

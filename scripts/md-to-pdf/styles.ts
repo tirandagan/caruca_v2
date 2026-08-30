@@ -1,35 +1,9 @@
-import path from "path";
-
-const FONTS_DIR = path.resolve(__dirname, "fonts");
+import { fontFaceCss, tokensCss } from "./tokens";
 
 export function getStyles(): string {
-  const fontsDir = FONTS_DIR.replace(/\\/g, "/");
-
   return `
-    @font-face {
-      font-family: 'Lexend Deca';
-      src: url('file://${fontsDir}/LexendDeca-Regular.ttf') format('truetype');
-      font-weight: 400;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Lexend Deca';
-      src: url('file://${fontsDir}/LexendDeca-SemiBold.ttf') format('truetype');
-      font-weight: 600;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Lexend Deca';
-      src: url('file://${fontsDir}/LexendDeca-Bold.ttf') format('truetype');
-      font-weight: 700;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'JetBrains Mono';
-      src: url('file://${fontsDir}/JetBrainsMono-Regular.woff2') format('woff2');
-      font-weight: 400;
-      font-style: normal;
-    }
+    ${fontFaceCss()}
+    ${tokensCss()}
 
     /* ========== BASE ========== */
 
@@ -38,12 +12,11 @@ export function getStyles(): string {
     }
 
     body {
-      font-family: 'Lexend Deca', -apple-system, 'Segoe UI', sans-serif;
-      font-size: 11pt;
-      line-height: 1.5;
-      letter-spacing: 0.01em;
-      word-spacing: 0.05em;
-      color: #0B1F33;
+      font-family: var(--font-sans);
+      font-size: var(--text-body-size);
+      line-height: var(--leading-body);
+      letter-spacing: var(--tracking-body);
+      color: var(--text-body);
       margin: 0;
       padding: 0;
       -webkit-print-color-adjust: exact;
@@ -53,9 +26,9 @@ export function getStyles(): string {
     /* ========== HEADINGS ========== */
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Lexend Deca', -apple-system, 'Segoe UI', sans-serif;
-      letter-spacing: -0.01em;
-      line-height: 1.2;
+      font-family: var(--font-sans);
+      letter-spacing: var(--tracking-heading);
+      line-height: var(--leading-heading);
       page-break-after: avoid;
       break-after: avoid;
       break-inside: avoid;
@@ -69,14 +42,32 @@ export function getStyles(): string {
       break-inside: avoid;
     }
 
+    /*
+      The page title carries the brand's accent bar (80x4, teal to ink) rather
+      than a full-width rule. It is one of the three sanctioned accent motifs,
+      and it is the same mark the cover sets under its title.
+    */
     h1 {
-      font-size: 28pt;
+      font-size: var(--text-display);
       font-weight: 700;
-      color: #0B1F33;
+      color: var(--ink);
       margin-top: 2em;
       margin-bottom: 0.5em;
-      padding-bottom: 0.3em;
-      border-bottom: 2px solid #2563EB;
+      padding-bottom: 0.45em;
+      position: relative;
+    }
+
+    h1::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
     h1:first-child {
@@ -84,47 +75,48 @@ export function getStyles(): string {
     }
 
     h2 {
-      font-size: 20pt;
+      font-size: var(--text-h2);
       font-weight: 700;
-      color: #2563EB;
+      color: var(--blue);
       margin-top: 1.8em;
       margin-bottom: 0.4em;
     }
 
     h3 {
-      font-size: 15pt;
+      font-size: var(--text-h3);
       font-weight: 600;
-      color: #0B1F33;
+      color: var(--ink);
       margin-top: 1.5em;
       margin-bottom: 0.3em;
     }
 
     h4 {
-      font-size: 12pt;
+      font-size: var(--text-h4);
       font-weight: 600;
-      color: #0B1F33;
+      color: var(--ink);
       margin-top: 1.2em;
       margin-bottom: 0.25em;
     }
 
+    /* h5 and h6 are micro-labels: uppercase, tracked out, no heading tightening. */
     h5 {
-      font-size: 11pt;
+      font-size: var(--text-body-size);
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #374151;
-      margin-top: 1em;
-      margin-bottom: 0.2em;
+      letter-spacing: var(--tracking-label);
+      color: var(--gray-700);
+      margin-top: 1.4em;
+      margin-bottom: 0.35em;
     }
 
     h6 {
-      font-size: 9pt;
+      font-size: var(--text-caption);
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #616B73;
-      margin-top: 1em;
-      margin-bottom: 0.2em;
+      letter-spacing: var(--tracking-label);
+      color: var(--text-muted);
+      margin-top: 1.4em;
+      margin-bottom: 0.35em;
     }
 
     /* ========== PARAGRAPHS & TEXT ========== */
@@ -137,16 +129,16 @@ export function getStyles(): string {
 
     strong { font-weight: 700; }
     em { font-style: italic; }
-    del { text-decoration: line-through; color: #616B73; }
+    del { text-decoration: line-through; color: var(--text-muted); }
 
     a {
-      color: #2563EB;
+      color: var(--text-link);
       text-decoration: none;
     }
 
     small {
-      font-size: 9pt;
-      color: #616B73;
+      font-size: var(--text-caption);
+      color: var(--text-muted);
     }
 
     /* ========== LISTS ========== */
@@ -158,7 +150,7 @@ export function getStyles(): string {
 
     li {
       margin-bottom: 0.3em;
-      line-height: 1.5;
+      line-height: var(--leading-body);
     }
 
     li > ul, li > ol {
@@ -174,6 +166,10 @@ export function getStyles(): string {
     ol ol { list-style-type: lower-alpha; }
     ol ol ol { list-style-type: lower-roman; }
 
+    li::marker {
+      color: var(--gray-400);
+    }
+
     /* ========== TASK LISTS ========== */
 
     .task-list-item {
@@ -187,8 +183,8 @@ export function getStyles(): string {
       -webkit-appearance: none;
       width: 14px;
       height: 14px;
-      border: 2px solid #D0D7DE;
-      border-radius: 3px;
+      border: var(--border-w-strong) solid var(--border-strong);
+      border-radius: var(--radius-xs);
       vertical-align: middle;
       margin-right: 0.5em;
       position: relative;
@@ -196,13 +192,13 @@ export function getStyles(): string {
     }
 
     .task-list-item input[type="checkbox"]:checked {
-      background-color: #2563EB;
-      border-color: #2563EB;
+      background-color: var(--blue);
+      border-color: var(--blue);
     }
 
     .task-list-item input[type="checkbox"]:checked::after {
       content: '\\2713';
-      color: white;
+      color: var(--surface-page);
       font-size: 10px;
       position: absolute;
       top: -1px;
@@ -212,9 +208,9 @@ export function getStyles(): string {
     /* ========== CODE ========== */
 
     pre {
-      background-color: #F6F8FA;
-      border: 1px solid #D0D7DE;
-      border-radius: 6px;
+      background-color: var(--surface-code);
+      border: var(--border-w) solid var(--border-strong);
+      border-radius: var(--radius-md);
       padding: 16px;
       margin: 1em 0;
       overflow-x: hidden;
@@ -227,8 +223,8 @@ export function getStyles(): string {
     }
 
     pre code {
-      font-family: 'JetBrains Mono', 'Consolas', monospace;
-      font-size: 9.5pt;
+      font-family: var(--font-mono);
+      font-size: var(--text-code);
       line-height: 1.4;
       background: none;
       padding: 0;
@@ -238,9 +234,9 @@ export function getStyles(): string {
 
     /* Shiki overrides for print */
     pre.shiki {
-      background-color: #F6F8FA !important;
-      border: 1px solid #D0D7DE;
-      border-radius: 6px;
+      background-color: var(--surface-code) !important;
+      border: var(--border-w) solid var(--border-strong);
+      border-radius: var(--radius-md);
       padding: 16px;
       margin: 1em 0;
       overflow-x: hidden;
@@ -249,24 +245,24 @@ export function getStyles(): string {
     }
 
     pre.shiki code {
-      font-family: 'JetBrains Mono', 'Consolas', monospace;
-      font-size: 9.5pt;
+      font-family: var(--font-mono);
+      font-size: var(--text-code);
       line-height: 1.4;
     }
 
-    /* Language label */
+    /* Language label — a micro-label, top right, over a hairline. */
     pre[data-language]::before {
       content: attr(data-language);
       display: block;
       text-align: right;
-      font-family: 'Lexend Deca', sans-serif;
-      font-size: 8pt;
-      color: #656D76;
+      font-family: var(--font-sans);
+      font-size: var(--text-label);
+      color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: var(--tracking-label);
       margin-bottom: 8px;
       padding-bottom: 6px;
-      border-bottom: 1px solid #D0D7DE;
+      border-bottom: var(--border-w) solid var(--border-strong);
     }
 
     /* Long code blocks (>40 lines) can break across pages */
@@ -277,10 +273,10 @@ export function getStyles(): string {
 
     /* Inline code */
     code:not(pre code) {
-      font-family: 'JetBrains Mono', 'Consolas', monospace;
-      background-color: #EFF1F3;
+      font-family: var(--font-mono);
+      background-color: var(--surface-inline-code);
       padding: 0.15em 0.35em;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       font-size: 0.9em;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
@@ -288,12 +284,15 @@ export function getStyles(): string {
 
     /* ========== BLOCKQUOTES ========== */
 
+    /*
+      Lexend Deca ships no italic cut, so italic here would be a synthesized
+      oblique. The bar and the color do the work instead.
+    */
     blockquote {
-      border-left: 3px solid #2563EB;
+      border-left: var(--callout-bar) solid var(--blue);
       margin: 1.5em 0;
       padding: 0.5em 0 0.5em 1.5em;
-      color: #374151;
-      font-style: italic;
+      color: var(--gray-700);
       break-inside: avoid;
     }
 
@@ -304,8 +303,8 @@ export function getStyles(): string {
     /* ========== CALLOUT BOXES ========== */
 
     .callout {
-      border-left: 4px solid;
-      border-radius: 0 6px 6px 0;
+      border-left: var(--callout-bar) solid;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
       padding: 16px 20px;
       margin: 1.5em 0;
       break-inside: avoid;
@@ -313,37 +312,41 @@ export function getStyles(): string {
       print-color-adjust: exact;
     }
 
+    .callout > :last-child {
+      margin-bottom: 0;
+    }
+
     .callout-title {
       font-weight: 600;
-      font-size: 10pt;
+      font-size: var(--text-small);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: var(--tracking-label);
       margin-bottom: 0.5em;
     }
 
     .callout-info {
-      border-color: #2563EB;
-      background: #EFF6FF;
+      border-color: var(--blue);
+      background: var(--surface-info);
     }
-    .callout-info .callout-title { color: #2563EB; }
+    .callout-info .callout-title { color: var(--blue); }
 
     .callout-warning {
-      border-color: #E6A817;
-      background: #FFFBEB;
+      border-color: var(--warning);
+      background: var(--warning-bg);
     }
-    .callout-warning .callout-title { color: #B8860B; }
+    .callout-warning .callout-title { color: var(--warning-text); }
 
     .callout-tip {
-      border-color: #16A34A;
-      background: #ECFDF5;
+      border-color: var(--success);
+      background: var(--success-bg);
     }
-    .callout-tip .callout-title { color: #15803D; }
+    .callout-tip .callout-title { color: var(--success-text); }
 
     .callout-danger {
-      border-color: #DF2E2E;
-      background: #FEF2F2;
+      border-color: var(--danger);
+      background: var(--danger-bg);
     }
-    .callout-danger .callout-title { color: #DC2626; }
+    .callout-danger .callout-title { color: var(--danger-text); }
 
     /* ========== TABLES ========== */
 
@@ -351,12 +354,12 @@ export function getStyles(): string {
       width: 100%;
       border-collapse: collapse;
       margin: 1.5em 0;
-      font-size: 10pt;
+      font-size: var(--text-small);
       break-inside: avoid;
     }
 
     thead {
-      background: #F1F5F9;
+      background: var(--surface-thead);
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
@@ -365,23 +368,43 @@ export function getStyles(): string {
       font-weight: 600;
       text-align: left;
       padding: 10px 12px;
-      border-bottom: 2px solid #334155;
-      font-size: 9pt;
+      border-bottom: var(--border-w-strong) solid var(--border-thead);
+      font-size: var(--text-caption);
       text-transform: uppercase;
-      letter-spacing: 0.03em;
-      color: #475569;
+      letter-spacing: var(--tracking-thead);
+      color: var(--gray-600);
     }
 
     td {
       padding: 8px 12px;
-      border-bottom: 1px solid #E2E8F0;
+      border-bottom: var(--border-w) solid var(--border-default);
       vertical-align: top;
     }
 
     tbody tr:nth-child(even) {
-      background: #F8FAFC;
+      background: var(--surface-zebra);
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
+    }
+
+    /*
+      Measurements set in mono. A right-aligned markdown column (---: in the header rule) is a
+      numeric column by convention, so its figures get the mono face and lining,
+      tabular numerals — digits line up down the column, which is the whole point
+      of a comparison table.
+    */
+    td[style*="text-align:right"] {
+      font-family: var(--font-mono);
+      font-size: 9pt;
+      font-variant-numeric: tabular-nums lining-nums;
+      font-feature-settings: 'tnum' 1, 'lnum' 1;
+      white-space: nowrap;
+    }
+
+    /* A code chip inside a numeric cell is already mono; drop the chip surface. */
+    td[style*="text-align:right"] code:not(pre code) {
+      background: none;
+      padding: 0;
     }
 
     /* ========== HORIZONTAL RULES ========== */
@@ -389,7 +412,7 @@ export function getStyles(): string {
     hr {
       border: none;
       height: 1px;
-      background: linear-gradient(to right, transparent, #D1D5DB, transparent);
+      background: linear-gradient(to right, transparent, var(--border-hr), transparent);
       margin: 2em 0;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
@@ -425,9 +448,9 @@ export function getStyles(): string {
     .footnotes {
       margin-top: 3em;
       padding-top: 1em;
-      border-top: 1px solid #D1D5DB;
-      font-size: 9pt;
-      color: #616B73;
+      border-top: var(--border-w) solid var(--border-hr);
+      font-size: var(--text-caption);
+      color: var(--text-muted);
     }
 
     .footnotes ol {
@@ -441,19 +464,19 @@ export function getStyles(): string {
     .footnote-ref {
       font-size: 0.75em;
       vertical-align: super;
-      color: #2563EB;
+      color: var(--text-link);
       text-decoration: none;
     }
 
     .footnote-backref {
-      color: #2563EB;
+      color: var(--text-link);
       text-decoration: none;
     }
 
     /* ========== PRINT ========== */
 
     @media print {
-      a { color: #2563EB; text-decoration: none; }
+      a { color: var(--text-link); text-decoration: none; }
       * {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;

@@ -30,6 +30,14 @@ can be judged fairly against v1, the evaluation itself needs infrastructure v1 n
 execution environment for destructive commands, and a plan for what auxiliary tooling an LLM would need
 to handle commands outside the man-page-documented, non-destructive sweet spot v1 was designed for.
 
+There's a second, more basic asymmetry worth naming: v1's behavior is fixed by hand-written code, so it has
+no configuration surface at all outside its one LLM call. Once v2 replaces hardcoded logic with an
+NLP-based component, model choice, decoding parameters (e.g. temperature), and output-format constraints
+(e.g. structured/JSON output) stop being incidental setup and become part of the method itself, directly
+shaping accuracy, consistency, and cost. Selecting and documenting them deliberately is core scope for
+v2, not optional tuning bolted on afterward, and characterizing how much they matter is itself new
+evaluative territory nobody has covered for this task.
+
 ### Stakeholders & Consumers
 
 #### Research Stakeholders

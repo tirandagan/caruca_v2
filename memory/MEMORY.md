@@ -10,3 +10,5 @@
 - [v1 eval-tooling notes](caruca_v1_eval_tooling_notes.md) — cmp_specs.py's denominator bug, verified ground-truth provenance for syntax_specs/*.py, Q1 vs Q2 methodology distinction
 - [Paper's unmeasured contributions](caruca_paper_unmeasured_contributions.md) — the paper measures zero LLM cost/tokens and never tests reproducibility; v2 measures both
 - [v1 LOC baseline](caruca_v1_loc_baseline.md) — the paper's 6,520 LOC is ~half generated spec data; dimension 6 must be measured against ~3,456 LOC of hand-written logic
+- [Design authorities](design_authorities.md) — PRODUCT.md + the caruca-design skill govern all UI work; Next.js stack, all four surfaces in scope, Tiran-first audience
+- [NLP config scope](feedback_nlp_config_scope.md) — model/decoding-param/output-format selection is core v2 scope (v1 has no config surface at all), not scope creep or excluded "tuning"
