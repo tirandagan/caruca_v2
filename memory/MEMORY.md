@@ -12,3 +12,4 @@
 - [v1 LOC baseline](caruca_v1_loc_baseline.md) — the paper's 6,520 LOC is ~half generated spec data; dimension 6 must be measured against ~3,456 LOC of hand-written logic
 - [Design authorities](design_authorities.md) — PRODUCT.md + the caruca-design skill govern all UI work; Next.js stack, all four surfaces in scope, Tiran-first audience
 - [NLP config scope](feedback_nlp_config_scope.md) — model/decoding-param/output-format selection is core v2 scope (v1 has no config surface at all), not scope creep or excluded "tuning"
+- [No AI credit](feedback_no_ai_credit.md) — never add Co-Authored-By/Generated-with-Claude lines to commits, PRs, or other outward-facing artifacts, in any repo

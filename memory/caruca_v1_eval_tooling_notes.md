@@ -28,9 +28,13 @@ curated ground truth; don't re-litigate this from the CODE_INSIGHTS.md line alon
 `matched_args/total_args` fraction. The paper's own argument-level 99.7% figure (§2.2, not §7.2) can't be
 reproduced by this field as-is. A derived `exact_match = (diff_count == 0)` is unaffected by the bug and
 safe to compute from the script unmodified — this is exactly how the paper's command-level 116/120 number
-works. Fix needed before caruca_v2 reports any argument-level percentage: correct the denominator to count
-elements, not fields. Not yet fixed — flagged as a concrete task for whenever the Evaluation Harness is
-implemented (see `ai_docs/prep/data_telemetry_schema.md`'s Comparison-Result schema, `method` field).
+works.
+
+**Fixed and submitted upstream, 2026-09-01**: `binpash/caruca#54` (open, not yet merged as of this
+writing). Verified with a synthetic case on `rm`'s ground-truth spec (13 elements) against a copy missing
+3 flags: reported 96.9% before the fix (97-field denominator), 76.9% after (13-element denominator, the
+true value). Once merged, `caruca_v2`'s Evaluation Harness (Phase 3) can rely on `correct_percentage`
+directly instead of working around it — until then, treat it as still unreliable on `main`.
 
 **3. Q1 and Q2 are different methodologies — don't conflate them.** Q2 (§7.2) is argument-by-argument
 syntax-spec diffing — what `cmp_specs.py` does. Q1 (§7.1, "spec quality per consumer": PaSh 52/52, POSH

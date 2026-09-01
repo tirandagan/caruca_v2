@@ -127,10 +127,11 @@ percent-change roll-up become possible for the first time.
 
 **Work**: A typed `sweep`/`compare` function with the CLI as a thin wrapper, so it is callable by an LLM
 agent today without a bespoke tool integration. Reuses `cmp_specs.py` for the command-level exact-match
-tally. Fixes the element-versus-field denominator so an argument-level percentage comparable to the
-paper's 99.7% figure can be reported, and tags which method produced each number. Adds repeated-sampling
-variance runs across both systems. Aggregates JSON sidecars into the derived SQLite layer for roll-up
-queries.
+tally. The element-versus-field denominator bug (see `memory/caruca_v1_eval_tooling_notes.md`) is fixed
+and submitted upstream as `binpash/caruca#54` — open, not yet merged as of 2026-09-01. Until it merges,
+pin to that branch/PR rather than `main` for any argument-level percentage. Tags which method produced
+each number. Adds repeated-sampling variance runs across both systems. Aggregates JSON sidecars into the
+derived SQLite layer for roll-up queries.
 
 **Exit criteria**: A single command produces a per-command comparison record and a corpus-level roll-up;
 variance is reported with a sample count; coverage numbers are disaggregated rather than blended; results
