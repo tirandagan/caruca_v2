@@ -27,3 +27,8 @@ node_modules/
 
 # Claude Code local state
 .claude/settings.local.json
+
+# caruca_v2 run artifacts (task 001, decision 4): raw runs embed text read from v1's
+# private, unlicensed checkout, and metrics.db is a rebuildable per-machine cache.
+eval/runs/
+eval/metrics.db

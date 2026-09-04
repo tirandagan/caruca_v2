@@ -23,8 +23,9 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 
 # Task 001: Naive-LLM Baseline CLI (`caruca-v2 naive-llm`)
 
-> **Status:** Decisions locked 2026-09-03 (Section 2). Implementation not started — paused
-> at Tiran's request; resume at Section 14's workflow, step 2 (implementation options).
+> **Status:** Phases 1-6 and 8 implemented and passing 2026-09-03. **Phase 7 (the one-time
+> configuration selection) is not started — it spends real API money and is blocked on
+> Tiran's approval of the run matrix and cost estimate.** No real API call has been made.
 > **Created:** 2026-09-03 · **Owner:** Tiran Dagan
 > **Source plan:** `ai_docs/prep/roadmap.md` Phase 2 ("Naive-LLM Baseline")
 >
@@ -228,18 +229,25 @@ Roadmap Phase 2 exit criteria, verbatim:
 > run begins."
 
 As checkboxes:
-- [ ] `caruca-v2 naive-llm CMD` produces `<cmd>.py` defining `<cmd>_syntax_spec` in v1's DSL
-- [ ] The spec validates by import through v1's own venv Python (subprocess), and the
+- [x] `caruca-v2 naive-llm CMD` produces `<cmd>.py` defining `<cmd>_syntax_spec` in v1's DSL
+      ✓ 2026-09-03 — `stages/syntax_spec.py`
+- [x] The spec validates by import through v1's own venv Python (subprocess), and the
       pass/fail result is recorded — never used to trigger a retry
-- [ ] Every run writes a telemetry sidecar with **every** schema field populated, plus a
-      run manifest capturing the full decoding configuration
-- [ ] Every completed run appends one row to `eval/metrics.db`, and
+      ✓ 2026-09-03 — `v1.validate_syntax_spec`; verified against v1's real committed
+      `mkdir` spec (passed, 8 elements) and a deliberately broken one (NameError captured)
+- [x] Every run writes a telemetry sidecar with **every** schema field populated, plus a
+      run manifest capturing the full decoding configuration ✓ 2026-09-03 —
+      `test_telemetry.py::test_every_schema_field_survives_a_round_trip` asserts no null field
+- [x] Every completed run appends one row to `eval/metrics.db`, and
       `caruca-v2 metrics rebuild` reproduces the database from the sidecar files alone
-- [ ] Every record carries `component: naive_llm`, `condition: plain`
+      ✓ 2026-09-03 — `metrics_db.py`, covered end to end in `test_cli_end_to_end.py`
+- [x] Every record carries `component: naive_llm`, `condition: plain` ✓ 2026-09-03 —
+      module-level constants in `stages/syntax_spec.py`, asserted in the end-to-end test
 - [ ] The Phase 7 configuration comparison is executed on the held-out subset and written
       up in `ai_docs/analysis/` (every variant, with rationale for the frozen choice)
-      **before** any full-corpus run
-- [ ] Unit tests pass with the LLM mocked; no test spends API money
+      **before** any full-corpus run — **blocked on Tiran's approval of the cost estimate**
+- [x] Unit tests pass with the LLM mocked; no test spends API money ✓ 2026-09-03 —
+      48 tests, `ruff` clean; `conftest.py` overrides the API key so a real one is never used
 
 ---
 
@@ -369,26 +377,33 @@ layout rationale in the design doc).
 
 ### Phase 1: Project scaffold
 **Goal:** a `uv`-managed Python package with a working (stub) entry point
-- [ ] **Task 1.1:** `pyproject.toml` — package `caruca-v2`, `requires-python >= 3.12`,
+- [x] **Task 1.1:** `pyproject.toml` — package `caruca-v2`, `requires-python >= 3.12`,
       script `caruca-v2 = "caruca_v2.cli:main"`; deps per Decision 2 (+ `pydantic`,
       `python-dotenv`, `rich` for the terminal UI); dev deps `pytest`, `ruff`; `uv sync`
-- [ ] **Task 1.2:** `src/caruca_v2/` skeleton + `tests/` with one smoke test
-- [ ] **Task 1.3:** `.gitignore`: add `eval/runs/` and `eval/metrics.db` (per Decision 4);
-      `.env.example` with the Section 13 variables
+      ✓ 2026-09-03 — resolved: openai 3.8.0, pydantic 2.13.5, rich 15.0.0,
+      python-dotenv 1.2.3, pytest 9.1.1, ruff 0.16.6 (`uv.lock`)
+- [x] **Task 1.2:** `src/caruca_v2/` skeleton + `tests/` ✓ 2026-09-03 — 9 modules under
+      `src/caruca_v2/`, 6 test modules under `tests/`
+- [x] **Task 1.3:** `.gitignore`: add `eval/runs/` and `eval/metrics.db` (per Decision 4);
+      `.env.example` with the Section 13 variables ✓ 2026-09-03
 
 ### Phase 2: Documentation ingestion
 **Goal:** the man page for CMD, from the same source v1 uses
-- [ ] **Task 2.1:** `v1.py` (the single v1-boundary module) — resolve `CARUCA_V1_ROOT`
+- [x] **Task 2.1:** `v1.py` (the single v1-boundary module) — resolve `CARUCA_V1_ROOT`
       (env var, default `/Users/tirandagan/dev/stevens/caruca`), read
       `caruca/src/caruca/doc_sources/man/<cmd>.txt`; `--docs PATH` override; clear error
-      naming the exact path tried when missing
-- [ ] **Task 2.2:** tests with a tiny fixture man page (fixture text written by us, not
-      copied from v1)
+      naming the exact path tried when missing ✓ 2026-09-03 — also carries the accessors
+      tasks 002-004 need (`syntax_spec`, `traces_path`, `data_fixture_dir`), so v1 access
+      stays in one module
+- [x] **Task 2.2:** tests with a tiny fixture man page (fixture text written by us, not
+      copied from v1) ✓ 2026-09-03 — `tests/conftest.py` builds a whole fake v1 checkout,
+      so the suite passes on a machine with no v1 clone at all
 
 ### Phase 3: Prompt assembly (the naive prompt)
 **Goal:** v1's prompt, reconstructed without DSPy
-- [ ] **Task 3.1:** exemplar loading in `v1.py` — the four pairs (`touch/rm/mv/ls`: man
-      page + committed spec text) read from `CARUCA_V1_ROOT` at runtime
+- [x] **Task 3.1:** exemplar loading in `v1.py` — the four pairs (`touch/rm/mv/ls`: man
+      page + committed spec text) read from `CARUCA_V1_ROOT` at runtime ✓ 2026-09-03 —
+      `v1.exemplars()`, in v1's own order
 - [ ] **Task 3.2:** create the `prompts/` folder (per
       `ai_docs/prep/llm_pipeline_replication.md`): `prompts/README.md` (conventions,
       `{{placeholder}}` syntax) and `prompts/syntax_spec/system.md` + `user.md` — the
@@ -398,40 +413,66 @@ layout rationale in the design doc).
       the allowed value-type names (`String`, `Integer`, `Regex`, `Signal`, `Glob`, … as
       enumerated in v1's prompt). Committed files contain only our own text; v1-derived
       content (man page, exemplars) is injected at runtime via placeholders
-- [ ] **Task 3.3:** `prompting.py` — load the markdown files verbatim, substitute
+      ✓ 2026-09-03 — `prompts/README.md`, `prompts/syntax_spec/{system,user}.md`. The
+      instruction text is written in our own words rather than copied from v1's DSPy
+      docstring (v1 is unlicensed), but covers the same ground point for point; the type
+      list and the seven arity names are identifiers from v1's DSL and were checked
+      against `ir/environment.py::Arity` — all seven exist
+- [x] **Task 3.3:** `prompting.py` — load the markdown files verbatim, substitute
       placeholders, nothing else. Deterministic assembly → `prompt_hash` = SHA-256 of the
-      final prompt text
-- [ ] **Task 3.4:** golden test asserting prompt determinism (same inputs → same hash)
+      final prompt text ✓ 2026-09-03 — substituted values are never re-scanned, so a man
+      page containing `{{...}}` cannot inject a placeholder; an unfilled placeholder raises
+- [x] **Task 3.4:** golden test asserting prompt determinism (same inputs → same hash)
+      ✓ 2026-09-03 — `tests/test_prompting.py`, including a test that the system/user
+      split is unambiguous in the hash
 
 ### Phase 4: The LLM call + telemetry capture
 **Goal:** exactly one API call, fully measured
-- [ ] **Task 4.1:** `llm.py` — single call through OpenRouter (`openai` SDK,
+- [x] **Task 4.1:** `llm.py` — single call through OpenRouter (`openai` SDK,
       `base_url=https://openrouter.ai/api/v1`) with `model`, `seed`, `temperature`,
       `max_tokens=4096` (v1's value); request OpenRouter's usage accounting so the response
       carries token counts and billed cost; no retries beyond transport-level (this module
       grows the tool loop in task 003 — keep the single-call path a plain function)
-- [ ] **Task 4.2:** `telemetry.py` — pydantic `TelemetryRecord` (+ `decoding_params`),
+      ✓ 2026-09-03 — `extra_body={"usage": {"include": True}}`; `openai/gpt-4o` routing is
+      pinned to OpenAI with `allow_fallbacks: False` so the model matches the paper's
+- [x] **Task 4.2:** `telemetry.py` — pydantic `TelemetryRecord` (+ `decoding_params`),
       populated from the API response; wall-clock around the call; sidecar writer
-- [ ] **Task 4.3:** update `ai_docs/prep/data_telemetry_schema.md` with the additive field
-- [ ] **Task 4.4:** tests with a mocked client — every sidecar field asserted non-null
+      ✓ 2026-09-03 — a response with no usage block raises rather than recording zeros
+- [x] **Task 4.3:** update `ai_docs/prep/data_telemetry_schema.md` with the additive field
+      ✓ 2026-09-03 — `decoding_params`, plus `stage`/`turn` for the 002-004 series, the
+      never-estimate rule, and the `seed_honored` placement note
+- [x] **Task 4.4:** tests with a mocked client — every sidecar field asserted non-null
+      ✓ 2026-09-03 — the assertion loops over `TelemetryRecord.model_fields`, so a field
+      added later is covered without editing the test
 
 ### Phase 5: Output handling
 **Goal:** the three run files, v1-compatible spec on disk
-- [ ] **Task 5.1:** fence extraction mirroring v1's `extract_code` behavior; write
-      `<cmd>.py`, sidecar, and `manifest.json` into the timestamped run dir
-- [ ] **Task 5.2:** malformed output (no fence, empty code) is recorded as-is in the
-      manifest and the run exits non-zero — **never** re-asked
-- [ ] **Task 5.3:** `metrics_db.py` — append the run's row to `eval/metrics.db` once the
+- [x] **Task 5.1:** fence extraction mirroring v1's `extract_code` behavior; write
+      `<cmd>.py`, sidecar, and `manifest.json` into the timestamped run dir ✓ 2026-09-03
+- [x] **Task 5.2:** malformed output (no fence, empty code) is recorded as-is in the
+      manifest and the run exits non-zero — **never** re-asked ✓ 2026-09-03, with one
+      deliberate refinement: v1's `extract_code` *falls back to the whole response* when
+      there is no fence, so we do the same and record `inputs.output_fenced: false` rather
+      than failing on the spot. The exit code is then driven by validation, per Section 6's
+      "exit 0 only when produced AND validated". An unfenced response that is nonetheless
+      valid Python therefore succeeds, exactly as it would have for v1; an unfenced
+      response that is prose fails validation and exits non-zero as this task intended.
+      Empty output still fails immediately, writing no spec file.
+- [x] **Task 5.3:** `metrics_db.py` — append the run's row to `eval/metrics.db` once the
       manifest is written; implement `caruca-v2 metrics rebuild` (re-scan sidecars →
-      regenerate the database); tests for both paths
+      regenerate the database); tests for both paths ✓ 2026-09-03 — keyed on
+      `(run_id, turn)` so the multi-turn stages in tasks 002-004 fit without a migration
 
 ### Phase 6: Validation via v1 (subprocess)
 **Goal:** "syntactically valid spec in v1's DSL", judged by v1 itself
-- [ ] **Task 6.1:** validation in `v1.py` — run `$CARUCA_V1_ROOT/caruca/.venv/bin/python`
+- [x] **Task 6.1:** validation in `v1.py` — run `$CARUCA_V1_ROOT/caruca/.venv/bin/python`
       as a subprocess to import the generated file and check `<cmd>_syntax_spec` exists
       (the import-based check v1's own `llm.py` uses); record pass/fail + traceback in the
-      manifest
-- [ ] **Task 6.2:** test with a hand-written valid spec fixture and a deliberately broken one
+      manifest ✓ 2026-09-03 — "v1 unreachable" is reported as `available: false`, kept
+      distinct from "v1 rejected the spec", and never collapsed into it
+- [x] **Task 6.2:** test with a hand-written valid spec fixture and a deliberately broken one
+      ✓ 2026-09-03 — plus a check against v1's *real* committed `mkdir` spec through v1's
+      real venv (passed, 8 elements)
 
 ### Phase 7: One-time configuration selection (then freeze)
 **Goal:** the "chosen once, up front, frozen" comparison — the only sanctioned comparison work
@@ -449,10 +490,13 @@ layout rationale in the design doc).
       estimate before executing**
 
 ### Phase 8: Tests, docs, wrap-up
-- [ ] **Task 8.1:** end-to-end test with mocked LLM (CLI → run dir with all three files)
-- [ ] **Task 8.2:** `ruff` clean; README section: install (`uv sync`), usage, env vars
-- [ ] **Task 8.3:** update `memory/` if any durable decisions emerged; mark this document's
-      checkboxes complete
+- [x] **Task 8.1:** end-to-end test with mocked LLM (CLI → run dir with all three files)
+      ✓ 2026-09-03 — `tests/test_cli_end_to_end.py`, 13 cases including "exactly one model
+      call is made", multi-word commands, truncation, and the seed-not-honored flag
+- [x] **Task 8.2:** `ruff` clean; README section: install (`uv sync`), usage, env vars
+      ✓ 2026-09-03 — `README.md` created (the repo had none)
+- [x] **Task 8.3:** update `memory/` if any durable decisions emerged; mark this document's
+      checkboxes complete ✓ 2026-09-03
 
 🛑 **CRITICAL WORKFLOW CHECKPOINT** — after the final phase: present the
 "Implementation Complete!" message (Section 14), wait for approval, run the comprehensive
@@ -514,9 +558,10 @@ caruca_v2/
 ```
 
 ### Files to Modify
-- [ ] **`.gitignore`** — add `eval/runs/` and `eval/metrics.db` (Decision 4)
-- [ ] **`ai_docs/prep/data_telemetry_schema.md`** — additive `decoding_params` field (Phase 4)
-- [ ] **`ai_docs/analysis/README.md`** — index the Phase 7 write-up
+- [x] **`.gitignore`** — add `eval/runs/` and `eval/metrics.db` (Decision 4) ✓ 2026-09-03
+- [x] **`ai_docs/prep/data_telemetry_schema.md`** — additive `decoding_params` field (Phase 4)
+      ✓ 2026-09-03
+- [ ] **`ai_docs/analysis/README.md`** — index the Phase 7 write-up (with Phase 7)
 
 ### Dependencies to Add (`pyproject.toml`, exact pins at implementation time)
 - Runtime: `openai` (as the OpenRouter client, pinned), `pydantic`, `python-dotenv`

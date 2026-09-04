@@ -23,7 +23,9 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 
 # Task 002: LLM Config Generation (`caruca-v2 generate`)
 
-> **Status:** Draft — not started. Second stage of the LLM pipeline replication series.
+> **Status:** Implemented 2026-09-03 (phases 1-3). Phase 4 — the held-out-set run and
+> write-up — is **not started: it spends real API money and needs Tiran's approval of the
+> run matrix and cost estimate first.** No real API call has been made.
 > **Created:** 2026-09-03 · **Owner:** Tiran Dagan
 > **Shared design:** `ai_docs/prep/llm_pipeline_replication.md` (read it first — the
 > minimal-instruction principle, prompt-file conventions, telemetry, and logging toggle
@@ -73,8 +75,12 @@ is pure text-to-JSON.
 
 - `--spec` default: v1's committed spec (deterministic comparisons); point it at a task-001
   output to chain the pipeline
-- `--max-arity` default `2` — v1's default bound; the value is stated in the prompt as part
-  of the behavioral contract
+- `--max-arity` default **1**, not 2. Corrected during implementation by reading v1's own
+  CLI (`cli/__init__.py`): `--max-arity` defaults to `1` and `--max-count` (most optional
+  flags combined in one invocation) defaults to `4`. The paper's "two-flag limit" is the
+  `--max-count` knob, not arity — the draft above conflated them. `--max-count` is now a
+  flag here too, since it changes the enumeration size and must match on the v1 side of
+  any comparison. Both values are stated in the prompt and recorded in the manifest
 - `--stdin` / `--content` mirror v1's `generate` knobs and default to v1's defaults;
   **whatever values are used must be identical on the v1 side of any comparison and
   recorded in the manifest** (invocation *strings* are unaffected by these knobs; the
@@ -85,23 +91,52 @@ is pure text-to-JSON.
 - Shared flags per the design doc's CLI-conventions table
 
 ## 3. Success Criteria
-- [ ] For each command in the task-001 held-out set: output parses, and
-      `<cmd>.configs.json` validates against v1's `CommandConfig` model
-- [ ] Invocation-string comparison vs `caruca generate CMD` recorded per command:
-      exact matches, missing, spurious, and totals (v1's `generate --number` gives the
-      denominator — run it first; counts explode on wide-interface commands)
-- [ ] Structural config comparison (files/dirs/stdin requested) recorded per command
-- [ ] Telemetry complete per call; LOC-replaced figure (~715) recorded for the
-      hand-encoded-logic-reduction criterion
-- [ ] Where the LLM cannot enumerate (combinatorially huge commands), the failure is
-      recorded as a result — not patched with retries or hints
+- [x] Output parses, and `<cmd>.configs.json` validates against v1's `CommandConfig`
+      model ✓ 2026-09-03 — validated through v1's own pydantic model in a v1-venv
+      subprocess; verified against the real checkout (51 synthetic configs accepted)
+- [x] Invocation-string comparison vs `caruca generate CMD` recorded per command:
+      exact matches, missing, spurious, and totals ✓ 2026-09-03 —
+      `checks.invocation_comparison` in every run manifest.
+      **Correction to the draft:** `generate --number` is *not* the denominator. v1
+      computes it from a different formula than its enumerator follows — for `mkdir` at
+      arity 1 it reports **280** against **4,240** actual lines (12,720 at arity 2). The
+      comparison uses v1's real line count, records `v1_unique_count` separately (v1 emits
+      duplicates: 4,240 lines, 1,094 unique), and keeps `v1_length_hint` only so the
+      discrepancy stays visible
+- [ ] Structural config comparison (files/dirs/stdin requested) recorded per command —
+      **not implemented.** The invocation set-diff and v1-model validation are in; a
+      field-by-field structural diff of the environment configs is deferred to the
+      evaluation harness, where the same comparison code will serve all four stages
+- [x] Telemetry complete per call; LOC-replaced figure recorded ✓ 2026-09-03 —
+      `inputs.replaces_v1_modules` names the four v1 modules on every run
+- [x] Where the LLM cannot enumerate, the failure is recorded as a result — not patched
+      with retries or hints ✓ 2026-09-03 — continuation happens **only** when the token
+      cap cut the response off; a model that stops on its own is never asked for more, and
+      `checks.parse.hit_turn_cap_while_truncated` separates "the cap bound" from "the
+      model bound"
 
-## 4. Implementation Phases (skeleton — detail at start of work)
-1. `prompts/generate/` files + loader wiring (reuses task 001's prompt plumbing)
-2. `generate` subcommand: spec in → two output files + telemetry (single LLM call; large
-   outputs may need continuation handling — record turn count if so)
-3. Validation via v1 venv; comparison script vs `caruca generate` output
-4. Held-out-set run (cost estimate approved first) + write-up in `ai_docs/analysis/`
+## 4. Implementation Phases
+1. [x] `prompts/generate/` files + loader wiring ✓ 2026-09-03 — `system.md` + `user.md`,
+       reusing task 001's prompt plumbing unchanged
+2. [x] `generate` subcommand: spec in → two output files + telemetry ✓ 2026-09-03 —
+       `src/caruca_v2/stages/generate.py`; **output format is JSON Lines**, one
+       `{"invocation": ..., "config": ...}` object per line. Chosen so a continuation can
+       simply append lines and a truncated final line can be dropped and counted, rather
+       than leaving a half-parsed JSON array to be repaired. A repaired line would be
+       partly our output and partly the model's
+3. [x] Validation via v1 venv; comparison vs `caruca generate` output ✓ 2026-09-03 — both
+       run as part of every `generate` invocation, so the diff is recorded per command
+       without a separate script. `--no-compare` skips v1's enumeration (it is slow on
+       wide-interface commands) and says so in the manifest
+4. [ ] Held-out-set run (cost estimate approved first) + write-up in `ai_docs/analysis/`
+       — 👤 **blocked on Tiran's approval; this is the first step that spends money**
+
+### The probe-value table, as implemented
+Generated at runtime by introspecting `caruca.ir.syntax` inside v1's venv: every
+`ValueArgument` subclass is instantiated and its `syntax()` expansion recorded. 39 types.
+This reproduces v1's quirks rather than correcting them — `Hostname` expands to the nine
+characters of "localhost", because v1's `MetaString(("localhost"))` is missing a trailing
+comma. That is what v1 actually generates, so it is what the comparison target is.
 
 ## 5. Risks / Notes
 - **The probe-value gotcha (found in reflection, 2026-09-03):** v1 expands typed values

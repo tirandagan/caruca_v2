@@ -17,3 +17,4 @@
 - [NLP config scope](feedback_nlp_config_scope.md) — model/decoding-param/output-format selection is core v2 scope (v1 has no config surface at all), not scope creep or excluded "tuning"
 - [No AI credit](feedback_no_ai_credit.md) — never add Co-Authored-By/Generated-with-Claude lines to commits, PRs, or other outward-facing artifacts, in any repo
 - [Mac Lima tracing env](mac_lima_tracing_env.md) — Mac can now run v1 tracing via Lima VM "caruca" (Ubuntu 24.04, userns fix persisted); ls verified end to end 2026-09-03; ops doc in ai_docs/docs
+- [v1 macOS annotate limit](caruca_v1_macos_annotate_limitation.md) — v1's `annotate` cannot run on macOS at all (hardcoded /tmp vs /private/tmp); v1-side annotation diffs must run in the Lima VM

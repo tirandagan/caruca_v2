@@ -23,8 +23,11 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 
 # Task 003: LLM Execution & Tracing (`caruca-v2 trace`)
 
-> **Status:** Draft — not started. Third stage of the LLM pipeline replication series;
-> the only stage where the LLM is given real tools.
+> **Status:** Implemented 2026-09-03 (phases 1-3 and the v1-venv validation half of
+> phase 4). The fidelity comparison against strace ground truth, and the held-out-set run,
+> are **not started: they need Lima-VM strace runs and Tiran's approval of the cost
+> estimate.** No real API call has been made. Third stage of the series; the only stage
+> where the LLM is given real tools.
 > **Created:** 2026-09-03 · **Owner:** Tiran Dagan
 > **Shared design:** `ai_docs/prep/llm_pipeline_replication.md` — the agent loop, the
 > hard-enforced tool surface, environment fidelity, and safety staging are specified
@@ -88,29 +91,64 @@ reproduces v1's exactly: `timeout 2`,
 - `--keep-workspace` preserves the temp dir of failed configs for debugging
 
 ## 3. Success Criteria
-- [ ] Traces file validates against v1's model for every attempted config
+- [x] Traces file validates against v1's model ✓ 2026-09-03 — and more than validates:
+      the envelope is **built by v1's own pydantic models** in a v1-venv subprocess, so a
+      file that comes out is valid by construction rather than by our imitation of the
+      format. Verified against the real checkout with a real `cat` config
 - [ ] Fidelity comparison recorded on identical configs: LLM-observed interactions vs
-      v1's strace-derived `outputs/CMD.json` (field-by-field; the protocol for partial
-      credit is defined in this task before scoring)
-- [ ] Every execution provably stayed inside the workspace and allowlist (executor logs)
-- [ ] Cost/latency per config recorded (multi-turn stages are where cost lives — this
-      number feeds the cost-vs-v1 comparison directly)
-- [ ] Safety staging honored: harmless commands in throwaway dirs on the Mac;
-      `rm`-class/destructive commands only inside the Lima VM `caruca` (the working Linux
-      environment verified 2026-09-03 — `memory/mac_lima_tracing_env.md`)
-- [ ] Strace ground truth generated **locally** for the fidelity comparison by running
-      v1's tracer in the Lima VM on the identical configs (ops doc:
-      `ai_docs/docs/caruca_v1 pipeline instructions.md`) — no remote host needed
+      v1's strace-derived `outputs/CMD.json` — **not implemented.** It needs strace ground
+      truth generated in the Lima VM on the identical configs, and the partial-credit
+      protocol still has to be defined before anything is scored. The raw material is in
+      place: every run records the observations and the assembled Traces file
+- [x] Every execution provably stayed inside the workspace and allowlist ✓ 2026-09-03 —
+      `checks.tool_audit` records every tool call and the executor's decision on it,
+      including every refusal, and `checks.refused_calls` counts them. 21 tests in
+      `tests/test_tool_boundary.py` cover the boundary itself, written and passing before
+      any model was connected to it
+- [ ] Cost/latency per config recorded — **overstated when first marked complete; corrected
+      by the 2026-09-03 code review.** There is one telemetry record per model turn and a
+      per-session entry in `checks.sessions`, but the session entry carries turn counts
+      only (no tokens, cost, or wall-clock) and the telemetry records carry no config
+      index, so a turn cannot be attributed back to a configuration. Cost is therefore
+      recorded per *run*, not per config. Fix: add a `config_index` to the telemetry
+      record and per-session totals to `checks.sessions`
+- [x] Safety staging honored ✓ 2026-09-03 — destructive commands are refused **twice**:
+      `caruca-v2 trace rm` exits before any model call without `--isolation lima`, and the
+      executor refuses `run_command` for a destructive command with no isolation backend
+      even if the first check were bypassed
+- [ ] Strace ground truth generated locally in the Lima VM — not started (pairs with the
+      fidelity comparison above)
 
-## 4. Implementation Phases (skeleton — detail at start of work)
-1. Workspace materializer: `CommandConfig` → temp dir, byte-identical to v1's setup
-   (fixture payloads read from `$CARUCA_V1_ROOT` at runtime); golden tests against a
-   v1-produced workspace listing
-2. Tool executor + agent loop (the design doc's spec): allowlist, jail, timeout, turn
-   cap, per-turn telemetry, conversation logging
-3. `prompts/trace/` files; `trace` subcommand wiring configs → loop → Traces JSON
-4. v1-venv validation + fidelity-comparison script
-5. Held-out-set run on harmless commands (cost estimate approved first) + write-up
+## 4. Implementation Phases
+1. [x] Workspace materializer ✓ 2026-09-03 — `src/caruca_v2/workspace.py`. **It does not
+       reimplement v1's setup**: it hands the config to v1's own `prepare_env` calls in a
+       v1-venv subprocess, so the layout is identical by construction rather than by
+       imitation, and there is no second copy of v1's environment semantics to drift.
+       Verified against the real checkout: a real `cat` config produced the real 849-byte
+       `HUMAN_TEXT` fixture, and `cat relpath_1` ran against it
+2. [x] Tool executor + agent loop ✓ 2026-09-03 — `src/caruca_v2/tools.py` and
+       `llm.run_tool_loop`. Boundaries, all enforced in code: the binary allowlist
+       (`argv` must begin with the command under test); the path jail (every path a tool
+       touches **and every absolute path in an argument vector** must resolve inside the
+       workspace — an absolute path in an argument is the one way a jailed cwd can be
+       escaped); the destructive-command refusal; v1's execution environment verbatim
+       (`PATH`, `SHELL`, `timeout 2`, stdin piped from the config's fixture)
+3. [x] `prompts/trace/` files; `trace` subcommand ✓ 2026-09-03 — one agent session per
+       configuration, `--limit` defaulting to 5 as the cost brake
+4. [x] v1-venv validation ✓ 2026-09-03 · [ ] fidelity-comparison script — see above
+5. [ ] Held-out-set run (cost estimate approved first) + write-up — 👤 **blocked on
+       Tiran's approval; the first step here that spends money**
+
+### Design decisions taken during implementation
+- **Observation is reported through a tool, not parsed from prose.** The model ends its
+  session by calling `report_observations`; the loop stops there. This is a format
+  mechanism, not method coaching — it removes the "did the model finish, and did we parse
+  it right" ambiguity without telling the model anything about how to trace.
+- **Unknown action codes are dropped, never coerced.** An interaction the model labels
+  with something outside v1's seven codes lands in `rejected_interactions` with the
+  reason. Mapping it to a neighbouring code would fabricate an observation.
+- **Path rewriting into `/tmp/sandbox_outer/sandbox_inner`** happens in our code, as the
+  shared design specifies, because v1's annotator hardcodes that prefix.
 
 ## 5. Risks / Notes
 - **This stage executes model-chosen invocations on the dev machine.** The allowlist and

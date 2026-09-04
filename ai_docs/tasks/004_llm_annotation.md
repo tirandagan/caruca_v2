@@ -23,8 +23,10 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 
 # Task 004: LLM Annotation (`caruca-v2 annotate`)
 
-> **Status:** Draft — not started. Final stage of the LLM pipeline replication series
-> (covers v1's stages 4 and 5 together, exactly as v1's own `annotate` command does).
+> **Status:** Implemented 2026-09-03 (phases 1-3). Phase 4 — the held-out-set run, the
+> full-chain demonstration, and the write-up — is **not started: it spends real API money
+> and needs Tiran's approval first.** No real API call has been made. Final stage of the
+> series (covers v1's stages 4 and 5 together, as v1's own `annotate` command does).
 > **Created:** 2026-09-03 · **Owner:** Tiran Dagan
 > **Shared design:** `ai_docs/prep/llm_pipeline_replication.md`. Workflow conventions
 > inherited from task 001.
@@ -74,24 +76,56 @@ Prompt text in `prompts/annotate/system.md` + `user.md`.
   (continuations as in task 002 if output length demands, recorded as turns)
 
 ## 3. Success Criteria
-- [ ] On identical trace inputs (v1's committed traces), per-format diff vs
-      `caruca annotate FORMAT CMD` recorded: exact matches and categorized differences
-- [ ] Diff vs ground truth (`~/…/benchmarks/annotations/pash/*.json`, `posh.txt` —
-      resolve via the per-machine v1 root) recorded, labeled `annotation_diff` in the
-      comparison schema — never presented as the paper's execution-based Q1 numbers
-      (see `memory/caruca_v1_eval_tooling_notes.md`)
-- [ ] End-to-end chain demonstrated for at least a few commands: 001 spec → 002 configs →
-      003 traces → 004 annotation, telemetry summed across stages per command
-- [ ] Telemetry complete; LOC-replaced figure (~850) recorded
+- [x] On identical trace inputs, per-format diff vs `caruca annotate FORMAT CMD` recorded
+      ✓ 2026-09-03 — `checks.comparisons.vs_v1_same_traces`, structural for the three JSON
+      consumers and textual for ShellCheck. v1's own traces are the **default** input, so
+      the A/B-on-identical-input experiment is the default behavior rather than an option
+- [x] Diff vs ground truth recorded, labeled `annotation_diff` ✓ 2026-09-03 —
+      `checks.comparisons.vs_ground_truth` carries `"method": "annotation_diff"` in the
+      record itself, so it cannot be read as the paper's execution-based Q1 numbers
+- [ ] End-to-end chain demonstrated for a few commands — **not done.** Every seam is
+      wired (`--spec`, `--configs`, `--traces` each accept the previous stage's output),
+      but demonstrating the chain means four real model calls per command
+- [x] Telemetry complete; LOC-replaced figure recorded ✓ 2026-09-03 —
+      `inputs.replaces_v1_modules`
 
-## 4. Implementation Phases (skeleton — detail at start of work)
-1. `prompts/annotate/` files; `annotate` subcommand (format arg mirrors v1's CLI)
-2. Format validation: PaSh/POSH/SaSh outputs checked structurally against v1's committed
-   reference files; ShellCheck output checked as parseable Haskell only if cheap, else
-   text-diffed
-3. Comparison scripts: vs v1-on-same-traces, vs ground truth
-4. Held-out-set run (cost estimate approved first) + write-up, including the full-chain
-   demonstration and per-command cost roll-up
+### 🚨 Blocker found during implementation: v1's annotator cannot run on macOS
+
+`caruca annotate` fails on **every** input on this Mac, not just large ones:
+
+```
+ValueError: '/private/tmp/sandbox_outer/sandbox_inner' is not in the subpath of
+            '/tmp/sandbox_outer/sandbox_inner'
+```
+
+`tracer/data.py::__readwrite` resolves each traced path and calls `relative_to` against a
+hardcoded `/tmp/sandbox_outer/sandbox_inner`; macOS resolves `/tmp` to `/private/tmp`, so
+the path leaves the prefix. Verified against v1's own committed `outputs/ls.json` at
+commit `d8032407346aadc135b14c043618c8c1d4f4e0cf`. Recorded in
+`memory/caruca_v1_macos_annotate_limitation.md`.
+
+Consequence: the annotate stage joins the trace stage in needing the Lima VM on the Mac.
+`caruca-v2 annotate` therefore takes `--v1-runner {host,lima}`; on the Mac the v1 side of
+every diff must use `lima`. Note this also means `CLAUDE.md`'s "annotate works fine here"
+is true of the WSL PC but not of the Mac.
+
+## 4. Implementation Phases
+1. [x] `prompts/annotate/` files; `annotate` subcommand ✓ 2026-09-03 — positional
+       `FORMAT CMD`, mirroring v1's own CLI. The output-format definition in the prompt is
+       pulled from v1's own adapters at runtime: the pydantic JSON schema for
+       PaSh/POSH/SaSh, and the rendered empty Haskell module for ShellCheck. Nothing
+       v1-derived is committed
+2. [x] Format validation ✓ 2026-09-03 — the three JSON formats are validated against v1's
+       own models in a v1-venv subprocess. ShellCheck is checked only for being a Caruca
+       module, and the manifest is explicit that this is a **weaker** check rather than an
+       equivalent one
+3. [x] Comparisons: vs v1-on-same-traces, vs ground truth ✓ 2026-09-03 — both run inside
+       the `annotate` command, recorded per run, and kept as separate labeled entries.
+       Diffs report shape (identical / structurally identical / differing line count /
+       bounded sample), never a single similarity score: presentation differences and
+       substantive ones are exactly what the write-up has to keep apart
+4. [ ] Held-out-set run + write-up + full-chain demonstration — 👤 **blocked on Tiran's
+       approval; the first step here that spends money**
 
 ## 5. Risks / Notes
 - **Compare against FRESH v1 output, not committed files (found 2026-09-03):** running
