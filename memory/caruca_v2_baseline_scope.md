@@ -29,3 +29,9 @@ single-prompt baseline (command binary + docs in, downstream spec format out, fe
 the user explicitly asks for the agentic pipeline rebuild. The evaluation is three-way: Caruca vs.
 naive-LLM baseline vs. ground truth (`~/stevens/caruca/benchmarks/annotations/`). This is captured in
 `~/stevens/caruca_v2/CLAUDE.md` under "Two 'LLM approaches' in scope."
+
+**Update 2026-09-03:** Tiran greenlit the full-pipeline LLM replication as tasks 002-004
+(see [[llm-pipeline-replication]]) — alongside this control, not replacing it. The
+guardrail above still binds task 001 exactly as written; the replication series has its
+own principles (minimal per-stage instruction, hard-enforced tools) in
+`ai_docs/prep/llm_pipeline_replication.md`.

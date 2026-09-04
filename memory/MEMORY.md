@@ -10,6 +10,10 @@
 - [v1 eval-tooling notes](caruca_v1_eval_tooling_notes.md) — cmp_specs.py's denominator bug, verified ground-truth provenance for syntax_specs/*.py, Q1 vs Q2 methodology distinction
 - [Paper's unmeasured contributions](caruca_paper_unmeasured_contributions.md) — the paper measures zero LLM cost/tokens and never tests reproducibility; v2 measures both
 - [v1 LOC baseline](caruca_v1_loc_baseline.md) — the paper's 6,520 LOC is ~half generated spec data; dimension 6 must be measured against ~3,456 LOC of hand-written logic
+- [v1 pipeline reference](caruca_v1_pipeline_reference.md) — the five verified phases (modules, CLI commands, LLM boundary), llm.py internals, Traces seam, latent bugs; v1's CLAUDE.md/CODE_INSIGHTS.md exist only on the WSL clone
+- [Dev machine paths](dev_machine_paths.md) — two active machines: the WSL PC uses ~/stevens/..., this Mac uses ~/dev/stevens/...; both paths current, resolve by platform, never hardcode one
+- [LLM pipeline replication](project_llm_pipeline_replication.md) — 2026-09-03: all v1 stages get LLM replication (tasks 002-004) alongside the naive control; own OpenRouter loop, prompts as markdown files, hard tool allowlists, v1-faithful environments
 - [Design authorities](design_authorities.md) — PRODUCT.md + the caruca-design skill govern all UI work; Next.js stack, all four surfaces in scope, Tiran-first audience
 - [NLP config scope](feedback_nlp_config_scope.md) — model/decoding-param/output-format selection is core v2 scope (v1 has no config surface at all), not scope creep or excluded "tuning"
 - [No AI credit](feedback_no_ai_credit.md) — never add Co-Authored-By/Generated-with-Claude lines to commits, PRs, or other outward-facing artifacts, in any repo
+- [Mac Lima tracing env](mac_lima_tracing_env.md) — Mac can now run v1 tracing via Lima VM "caruca" (Ubuntu 24.04, userns fix persisted); ls verified end to end 2026-09-03; ops doc in ai_docs/docs

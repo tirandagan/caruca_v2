@@ -9,6 +9,46 @@ technical layers. Phases 1-3 are Tier 0 and Phases 4-6 are Tier 1, per
 adds what the tiering did not specify: per-phase exit criteria, an evaluation-dimension coverage audit,
 and per-phase recording obligations for the paper resubmission.
 
+> **Revised 2026-09-03** — a new track (the LLM Pipeline Replication, tasks 002-004) was added and the
+> build order re-sequenced by Tiran; see the revision section immediately below. The original phase text
+> is kept intact, with dated amendments where a fact changed.
+
+### Revision 2026-09-03 — the LLM Pipeline Replication track (tasks 002-004)
+
+Tiran directed that v2 replicate **every** hard-coded stage of v1's pipeline with
+minimally-instructed LLMs — not only the syntax-spec step the naive baseline covers. This is the
+originally-deferred "agentic rebuild" question, taken up early in a deliberately minimal form: each
+stage gets a prompt stating only input / expected behavior / output / format, tools where the stage
+must act on the world (hard-enforced allowlists), and v1's own file formats as the seams so every
+stage is measurable against its v1 counterpart in isolation. Authoritative design:
+`ai_docs/prep/llm_pipeline_replication.md`. The naive baseline **remains the first deliverable and
+the control** — the track extends the agreed comparison rather than replacing it.
+
+Task-to-phase mapping after this revision (task documents live in `ai_docs/tasks/`):
+
+| Task | What | Roadmap home |
+|---|---|---|
+| 001 `naive_llm_baseline_cli` | Naive one-prompt control + all shared plumbing (prompts folder, telemetry, metrics.db, logging, terminal UI) | Phase 2 (unchanged) |
+| 002 `llm_config_generation` | LLM replaces `ir/` config generation (~715 LOC) | New track |
+| 003 `llm_execution_tracing` | LLM + hard-allowlisted tools replace the strace tracer (~675 LOC) | New track |
+| 004 `llm_annotation` | LLM replaces property derivation + all four adapters (~850 LOC) | New track |
+| 005 (to be written) | v1 DSPy repair + telemetry — the original Phase 1, re-sequenced after 001 by Tiran's decision | Phase 1 |
+
+Build order: 001 → 002 → 003 → 004 → 005, with 005 required before any *cost* comparison against
+v1's LLM step, and each track task also standalone-runnable on v1-produced inputs.
+
+Two facts that changed since the original text below was written:
+
+- **The Mac can now run v1's trace phase locally** via the Lima VM `caruca` (Ubuntu 24.04; verified
+  end to end for `ls` on 2026-09-03 — see `memory/mac_lima_tracing_env.md` and
+  `ai_docs/docs/caruca_v1 pipeline instructions.md`). Phase 4's "requires a provisioned host"
+  constraint is satisfiable on the Mac, and the track's stage-3 fidelity comparison (LLM-observed vs
+  strace-observed) can produce its ground truth locally.
+- **Evaluation criterion 6 (reduction in hand-encoded logic) now has owning work.** The audit below
+  says it "mostly cannot have a phase" — true for the original scope, superseded by this track:
+  tasks 002-004 replace the downstream stages directly, making the broad criterion-6 measurement
+  (~2,240 of the ~3,456 hand-written LOC in play, plus 001's ~163) reachable without waiting.
+
 ### Baseline facts this roadmap is built on
 
 Measured against v1 at `~/stevens/caruca/`, not assumed:
@@ -151,7 +191,9 @@ covered by `eval/syntax-spec-correctness.sh` against its independent ASP-based m
 annotation-diff comparison becomes possible.
 
 **Depends on**: Phase 3, and on resolving the backend decision that `system_architecture.md` leaves open.
-Requires the provisioned host; this phase cannot run on the current WSL machine.
+Requires the provisioned host; this phase cannot run on the current WSL machine. *(Amended 2026-09-03:
+the Mac now satisfies the host requirement locally via the Lima VM `caruca` — see
+`memory/mac_lima_tracing_env.md`.)*
 
 **Work**: Spike the isolation backend first (Docker/overlayfs extension, Firecracker, or gVisor), gated on
 preserving strace/ptrace visibility. Then build the two fixture profiles: `v1-faithful` as the
@@ -229,6 +271,12 @@ The full dimension-6 claim requires the deferred agentic rebuild, where downstre
 replaced. Recommendation: record the narrow measurement as part of Phase 2's documentation, and state
 plainly in any write-up that the broad claim is out of scope until the agentic rebuild exists. Silently
 reporting a narrow number as if it were the broad one is the failure mode to avoid.
+
+*(Amended 2026-09-03: the LLM Pipeline Replication track — see the revision section at the top —
+takes up exactly that rebuild in minimal form. Tasks 002-004 replace the downstream stages, so the
+broad dimension-6 measurement becomes reachable: per-stage LOC-replaced figures recorded in each
+track task's write-up, summed against the ~3,456 hand-written LOC, with per-stage fidelity/cost
+attached so the claim is "replaced at measured quality," never bare LOC.)*
 
 ---
 
