@@ -588,8 +588,12 @@ caruca_v2/
 ### Edge Cases
 - [ ] Multi-word commands (`git commit` → `git_commit`) end to end
 - [ ] Providers that don't honor `seed` → `seed_honored: false` in manifest
-- [ ] Two runs in the same second → timestamp collision-proof run-dir names (include a
-      short random suffix from `run_id`)
+- [x] Two runs in the same second → timestamp collision-proof run-dir names ✓ 2026-09-03,
+      **strengthened by the same-day review.** The first implementation used a 2-byte
+      suffix: 16 bits, which collides for ~7% of batches of 100 same-second runs and ~71%
+      of batches of 400 — well inside what a full-corpus harness does — and a collision
+      raised an uncaught `FileExistsError`. Now 4 bytes plus a bounded retry, with
+      `exist_ok=False` kept so a directory is still never silently reused
 
 ### Accepted deviations & measurement gotchas (record them, don't hide them)
 - [ ] **Few-shot formatting ≠ DSPy's:** v1 serialized exemplars through DSPy's

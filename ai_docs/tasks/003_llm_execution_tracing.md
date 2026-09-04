@@ -105,13 +105,13 @@ reproduces v1's exactly: `timeout 2`,
       including every refusal, and `checks.refused_calls` counts them. 21 tests in
       `tests/test_tool_boundary.py` cover the boundary itself, written and passing before
       any model was connected to it
-- [ ] Cost/latency per config recorded — **overstated when first marked complete; corrected
-      by the 2026-09-03 code review.** There is one telemetry record per model turn and a
-      per-session entry in `checks.sessions`, but the session entry carries turn counts
-      only (no tokens, cost, or wall-clock) and the telemetry records carry no config
-      index, so a turn cannot be attributed back to a configuration. Cost is therefore
-      recorded per *run*, not per config. Fix: add a `config_index` to the telemetry
-      record and per-session totals to `checks.sessions`
+- [x] Cost/latency per config recorded ✓ 2026-09-03 — **first marked complete in error,
+      caught by the same-day code review, then actually implemented.** The original
+      implementation recorded cost per *run* only: session entries had turn counts but no cost, and
+      telemetry records had no way to name the configuration a turn belonged to. Now
+      `TelemetryRecord.config_index` joins every turn back to its configuration (and
+      `metrics.db` has a matching column), and `checks.sessions` carries per-session
+      token, cost, and wall-clock totals
 - [x] Safety staging honored ✓ 2026-09-03 — destructive commands are refused **twice**:
       `caruca-v2 trace rm` exits before any model call without `--isolation lima`, and the
       executor refuses `run_command` for a destructive command with no isolation backend
@@ -128,11 +128,17 @@ reproduces v1's exactly: `timeout 2`,
        `HUMAN_TEXT` fixture, and `cat relpath_1` ran against it
 2. [x] Tool executor + agent loop ✓ 2026-09-03 — `src/caruca_v2/tools.py` and
        `llm.run_tool_loop`. Boundaries, all enforced in code: the binary allowlist
-       (`argv` must begin with the command under test); the path jail (every path a tool
-       touches **and every absolute path in an argument vector** must resolve inside the
-       workspace — an absolute path in an argument is the one way a jailed cwd can be
-       escaped); the destructive-command refusal; v1's execution environment verbatim
-       (`PATH`, `SHELL`, `timeout 2`, stdin piped from the config's fixture)
+       (`argv` must begin with the command under test); the path jail (**every** argument
+       must resolve inside the workspace, not only the absolute ones — `run_command` sets
+       cwd to the workspace, so `../../etc/hosts` escapes just as well as `/etc/hosts`);
+       the destructive-command refusal; v1's execution environment verbatim
+       (`PATH`, `SHELL`, `TMPDIR`, `timeout 2`, stdin piped from the config's fixture,
+       and **nothing inherited from the parent process**)
+
+       Two of these were wrong on first delivery and fixed by the 2026-09-03 review:
+       the jail checked only absolute arguments (a relative traversal read `/etc/hosts`),
+       and the environment was inherited rather than built from scratch. Both now have
+       regression tests in `tests/test_review_regressions.py`.
 3. [x] `prompts/trace/` files; `trace` subcommand ✓ 2026-09-03 — one agent session per
        configuration, `--limit` defaulting to 5 as the cost brake
 4. [x] v1-venv validation ✓ 2026-09-03 · [ ] fidelity-comparison script — see above
@@ -153,7 +159,13 @@ reproduces v1's exactly: `timeout 2`,
 ## 5. Risks / Notes
 - **This stage executes model-chosen invocations on the dev machine.** The allowlist and
   path jail are the safety boundary — they are tested first, before any model is
-  connected. Destructive commands run only inside the Lima VM (same code path; the
+  connected. (The 2026-09-03 review found the jail admitted relative traversal despite
+  those tests; the lesson is that a boundary needs adversarial tests, not just
+  happy-path ones. `tests/test_review_regressions.py` now carries them.)
+- **Isolated runs need the workspace where the guest can see it.** The Lima VM mounts only
+  `$HOME`, so workspaces for `--isolation lima` are created under `~/.caruca_v2/workspaces`
+  rather than the platform temp directory, and the remote command sets its own `cd` and
+  `env -i` instead of inheriting the guest shell's. Destructive commands run only inside the Lima VM (same code path; the
   executor just runs there via `limactl shell caruca`, since the Mac home is mounted
   read-write at the same path inside the VM).
 - The LLM cannot see syscalls; some Traces fields may be unobservable via the tool

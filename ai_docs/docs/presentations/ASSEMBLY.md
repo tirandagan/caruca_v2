@@ -6,9 +6,26 @@ should find the matching PDF in the package.
 
 Generated 29 August 2026, from `caruca_v2_status.pptx` in this folder.
 
+## File naming
+
+Every generated PDF in this folder is prefixed with the ISO date it was created:
+`YYYY-MM-DD_<name>.pdf`. The folder therefore sorts chronologically, and any handout can be traced
+to the day it was produced without opening it. The numbered reading order below is the package
+order and is deliberately *not* the same as the folder's sort order.
+
+Dates come from when the document was first produced, not from the filesystem — every file on this
+Mac reports a creation date of 2026-09-01, which is only when the repository was cloned here (see
+[`dev_machine_paths`](../../../memory/dev_machine_paths.md) for the two-machine setup). Use the
+first git commit that added the file, or today's date for something new.
+
+Tooling and this index are deliberately unstamped: `build_decks.py` keeps its name so the
+documented command below stays valid, and `ASSEMBLY.md` stays findable.
+
 ## The deck
 
-`caruca_v2_status.pptx` — 26 slides, one deck for both advisors.
+`caruca_v2_status.pptx` — 26 slides, one deck for both advisors. **Not currently present in this
+folder** — it is generated, not committed. Rebuild it with `build_decks.py` (command at the bottom
+of this file) before assembling a package.
 
 **Slides 3 and 4 are background** on what Caruca is and why the comparison is worth running. Skip them
 when presenting live to Michael, who co-authored Caruca and does not need them. Walk through them with
@@ -73,11 +90,39 @@ so you can check nothing is missing.
 - **Covers:** the published paper, for reference.
 - **Cited on slides:** 3, 8, 9, 22
 
+## Addendum — added after the August deck
+
+These two documents postdate `caruca_v2_status.pptx` and are **not cited on any slide**, so they sit
+outside the "every document here is footnoted somewhere in the deck" rule that governs the numbered
+list above. Include them when the conversation is about research framing rather than build status.
+If they later earn slides, move them into the numbered list and record the slide numbers.
+
+### 8. scientific_vs_engineering_contributions
+- **Source:** `ai_docs/analysis/scientific_vs_engineering_contributions.md`
+- **Needs converting.**
+- **Covers:** which v2 directions count as publishable science versus product and engineering work.
+  Nine ranked candidate contributions, a table of necessary-but-uncountable work paired with a
+  salvage framing for each, and two proposed paper structures for the resubmission. Grounded in
+  Shaw's ICSE acceptance data by result and validation type, and the SIGPLAN empirical-evaluation
+  checklist.
+- **Read it with:** `evaluation_gaps` — Part 4 says which of those fourteen gaps can be converted
+  into results and which cannot.
+
+### 9. experiment_designs
+- **Source:** `ai_docs/analysis/experiment_designs.md`
+- **Needs converting.**
+- **Covers:** protocol-level designs for the experiments worth running, each with the infrastructure
+  that already exists in v1, what still needs building, an effort estimate, and the null result that
+  would falsify it. Opens with a blocking reproducibility check on the paper's own `grep`, `ps`, and
+  `cp` claims.
+- **Read it with:** `scientific_vs_engineering_contributions`, which it implements.
+
 ## Summary of what to do
 
 - **Already PDFs, just copy:** `master_idea.pdf`, `caruca white paper.pdf`
 - **Convert these five:** `system_architecture`, `roadmap`, `evaluation_gaps`, `component_functionality`,
   `data_telemetry_schema`
+- **Addendum, also needs converting:** `scientific_vs_engineering_contributions`, `experiment_designs`
 
 ## Suggested order in the package
 
@@ -89,6 +134,11 @@ so you can check nothing is missing.
 6. `component_functionality` — component-level detail
 7. `data_telemetry_schema` — recording and storage detail
 8. `caruca_white_paper` — the original paper, last, as reference
+
+Addendum, after the numbered package (not cited in the deck):
+
+9. `scientific_vs_engineering_contributions` — what would make v2 publishable
+10. `experiment_designs` — the experiments that follow from it
 
 ## Also in this folder
 

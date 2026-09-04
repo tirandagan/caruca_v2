@@ -15,6 +15,7 @@ from __future__ import annotations
 import contextlib
 import json
 import os
+import shlex
 import subprocess
 from dataclasses import dataclass
 from pathlib import Path
@@ -398,17 +399,35 @@ def _caruca_executable() -> Path:
 def reference_invocations(
     command: str,
     *,
-    max_arity: int = 2,
+    max_arity: int = 1,
+    max_count: int = 4,
+    skip: str | None = None,
     timeout: int = 300,
 ) -> ReferenceInvocations:
-    """Run v1's own `generate` for the command, as the comparison target."""
+    """Run v1's own `generate` for the command, as the comparison target.
+
+    **Every bound that was stated to the model has to be passed here too.** They are not
+    cosmetic: `mkdir` at arity 1 yields 44 invocations with `--max-count 1` and 4,240 with
+    v1's default of 4. Generating the reference with different bounds than the prompt
+    stated produces a set-diff that measures the mismatch in bounds, not the model.
+    """
     try:
         executable = _caruca_executable()
     except V1AccessError as exc:
         return ReferenceInvocations.unavailable(str(exc))
 
     package_dir = v1_root() / "caruca"
-    base = [str(executable), "generate", *command.split(), "--max-arity", str(max_arity)]
+    base = [
+        str(executable),
+        "generate",
+        *command.split(),
+        "--max-arity",
+        str(max_arity),
+        "--max-count",
+        str(max_count),
+    ]
+    if skip:
+        base += ["--skip", skip]
 
     try:
         listing = subprocess.run(
@@ -747,10 +766,14 @@ def reference_annotation(
 ) -> ReferenceAnnotation:
     """Run v1's own `annotate` on the same traces, as the A/B comparison target."""
     if runner == "lima":
+        remote = " ".join(
+            shlex.quote(part)
+            for part in ["annotate", fmt, *command.split(), "--input", str(traces_path)]
+        )
         argv = [
             "limactl", "shell", lima_instance, "--",
             "sh", "-lc",
-            f"{LIMA_V1_PYTHON} annotate {fmt} {command} --input {traces_path}",
+            f"{LIMA_V1_PYTHON} {remote}",
         ]
     else:
         try:

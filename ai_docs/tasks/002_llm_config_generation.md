@@ -126,7 +126,12 @@ is pure text-to-JSON.
        partly our output and partly the model's
 3. [x] Validation via v1 venv; comparison vs `caruca generate` output ✓ 2026-09-03 — both
        run as part of every `generate` invocation, so the diff is recorded per command
-       without a separate script. `--no-compare` skips v1's enumeration (it is slow on
+       without a separate script. **Corrected by the 2026-09-03 review:** the reference run
+       originally passed only `--max-arity`, so a non-default `--max-count` or `--skip`
+       produced a diff against the wrong reference (`mkdir` at arity 1 yields 44
+       invocations at `--max-count 1` against 4,240 at v1's default of 4). Every bound
+       stated in the prompt is now passed to v1's own enumeration, and `--skip` mirrors
+       v1's `nargs="?"`/`const` behavior exactly. `--no-compare` skips v1's enumeration (it is slow on
        wide-interface commands) and says so in the manifest
 4. [ ] Held-out-set run (cost estimate approved first) + write-up in `ai_docs/analysis/`
        — 👤 **blocked on Tiran's approval; this is the first step that spends money**

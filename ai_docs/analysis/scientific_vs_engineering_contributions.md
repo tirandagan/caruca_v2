@@ -106,31 +106,58 @@ its seven categories bear directly on Caruca:
 
 ---
 
-## Part 2 — The finding v1 already has, reported as a footnote
+## Part 2 — A result v1 discovered and did not claim
 
-In the section of the paper that evaluates specification correctness (section 7.1), while
-explaining evaluation methodology, Caruca reports this:
+Hand-written command specifications are approximations, and the people who write them know it. The
+PaSh annotation for `grep` at `benchmarks/annotations/pash/grep.json` carries its authors' own
+caveats inline, in comment fields next to the cases they qualify:
 
-> PaSh's specifications "do not always generalize outside of their evaluation benchmark suite;
-> for example, `grep` is marked as always stateless in the original specifications, but in reality
-> it is not if invoked with the `-c` flag… Similar issues affect the ground-truth specifications
+> "This doesn't work if the pattern is given with the -e, -f flags"
+>
+> "In this case this reads directories and that is why we conservatively assume it is
+> side-effectful. It is possible that this could be made more precise to be stateless."
+>
+> "This isn't _quite_ right---we need to identify a pattern somewhere and exclude it from `input`."
+
+That is careful, honest annotation practice — the authors flagging the exact places their model is
+coarser than the command. It is also an open question they had no way to close: until Caruca, there
+was no mechanism for checking an annotation against a command's actual behavior across the whole
+invocation space, so the cost of those approximations could be acknowledged but not measured.
+
+Caruca can measure it. The paper reports an instance in passing, in the section evaluating
+specification correctness (section 7.1), while explaining its methodology:
+
+> PaSh's specifications "do not always generalize outside of their evaluation benchmark suite; for
+> example, `grep` is marked as always stateless in the original specifications, but in reality it
+> is not if invoked with the `-c` flag… Similar issues affect the ground-truth specifications
 > provided alongside PaSh for the commands `ps` (marked as stateless, but in reality being
 > side-effectful) and `cp` (marked as side-effectful, but in reality being pure)."
 
-In plain terms: **a published, state-of-the-art parallelizing shell compiler ships hand-written
-command specifications that are semantically wrong, in ways that can change what a parallelized
-script computes.** Caruca found them automatically. That is a claim about the world, it could have
-come out the other way, and it bears directly on the premise of an entire line of systems research
-— PaSh, POSH, Shseer — that assumes hand-written annotations are trustworthy.
+The paper then compares only against the invocations inside PaSh's own benchmark suite, and reports
+52 of 52. **That is the right call for the question the paper is asking.** If the claim is "Caruca
+reproduces the hand-written ground truth," the ground truth has to be held fixed, and restricting
+to the invocations where it is known to hold is the conservative and defensible choice.
 
-The paper's response is to narrow the evaluation to sidestep the discrepancy — "we compare
-Caruca's generated specifications for those invocations only" — and then report 52/52 (100%) in
-its correctness table.
+The observation for the resubmission is that a *second* question was sitting in the same data, and
+it is the more interesting one. Not "does Caruca agree with the annotations?" but **"how far do the
+annotations hold, and what happens downstream where they don't?"** Answering it needs exactly the
+machinery v1 already built, and it changes the role of the hand-written specifications from the
+yardstick to the object of study.
 
-This is not a criticism of v1. It is an argument that **v1 under-claimed**: it discovered
-something more interesting than the number it chose to report, and the automation is precisely
-what made the discovery possible at all. The resubmission's contribution can be the thing v1
-found and set aside.
+This is a sense in which v1 under-claimed rather than over-claimed. The automation is what made the
+observation possible at all; it entered the paper as a methodological aside because the paper was
+answering the first question. The resubmission can answer the second, and the annotation comments
+above are the argument that the field would welcome it — the annotators asked this question of
+themselves first.
+
+**One caution before building on it.** Checking against the repository's `main` branch raised three
+things that need resolving. The sample annotation in `benchmarks/annotations/pash/grep.json` does
+handle `-c`, as its first case. The generated `cp` annotation on `main` agrees with the hand-written
+one rather than contradicting it. And the paper's runs came from the `caruca-experiments` branch,
+not `main`. The likeliest explanations are benign, and one is actively good news: the annotations
+may have been corrected upstream after Caruca surfaced the divergences, which would mean the
+findings were already adopted. Either way it needs to be pinned and documented rather than assumed.
+That is experiment E0 in [`experiment_designs.md`](experiment_designs.md), and it blocks the rest.
 
 ---
 
@@ -139,21 +166,23 @@ found and set aside.
 Ranked by (new knowledge produced) × (feasibility with infrastructure that already exists). Each
 gives the claim, why it is science rather than engineering, and the experiment.
 
-### S1. Hand-written specifications in deployed systems are wrong — measure the rate and the blast radius
+### S1. How far do hand-written specifications hold, and what happens where they don't?
 
-**Claim:** across PaSh, POSH, Shellcheck, and Shseer, hand-written command specifications contain
-semantic errors at rate *R*, falling into taxonomy *T*, of which *K* are soundness-critical — they
-can make the consuming system produce a wrong answer, not merely miss an optimization.
+**Claim:** across PaSh, POSH, Shellcheck, and Shseer, hand-written command specifications diverge
+from observed command behavior at rate *R*, falling into taxonomy *T*, of which *K* are
+soundness-critical — they can make the consuming system produce a wrong answer, not merely miss an
+optimization.
 
-**Why it's science:** a falsifiable claim about artifacts other people built and depend on. If *R*
-turns out to be near zero, that is *also* a result — it validates the crowd-sourcing premise those
-papers propose. Result type: empirical model plus findings. Validation: analysis and experience.
+**Why it's science:** a falsifiable claim about artifacts the field depends on. If *R* turns out to
+be near zero, that is *also* a result — it validates the crowd-sourcing premise those papers
+propose. Result type: empirical model plus findings. Validation: analysis and experience.
 
 **Experiment:** run Caruca as a *differential oracle* against every hand-written annotation in all
 four systems, not just the ones inside each system's own benchmark suite. For each disagreement,
 construct a **witness** — a real shell script where PaSh with the hand-written specification and
-PaSh with the observed behavior produce different output. Classify each error: over-general flag
-handling, missing flag-conditional behavior, wrong purity class, stale across command versions.
+PaSh with the observed behavior produce different output. Classify each divergence: over-general
+flag handling, missing flag-conditional behavior, imprecise purity class, stale across command
+versions.
 Report the soundness-critical subset separately.
 
 **What it changes:** Caruca becomes the *instrument* rather than the *claim*. The telescope is not
@@ -221,7 +250,7 @@ assumptions rather than a hope.
 **Why it's science:** this is an analytic model — the highest-status result type at a PL venue, and
 the thing the paper conspicuously lacks. It answers the question a PLDI or OOPSLA reviewer asks
 first: *what does it mean for your specification to be correct, given that you showed the
-hand-written ground truth is itself wrong?* At present there is no answer.
+hand-written ground truth is itself approximate?* At present there is no answer.
 
 **What it buys, concretely:**
 
@@ -300,8 +329,8 @@ than a hole a reviewer finds.
 
 ### S7. Measure downstream utility, not specification fidelity
 
-**The problem with the current metric:** Caruca is scored against hand-written specifications that
-S1 shows are wrong. Perfect agreement with a faulty oracle is not a good outcome.
+**The problem with the current metric:** Caruca is scored against hand-written specifications whose
+limits S1 measures. Perfect agreement with an approximate oracle is not, by itself, a good outcome.
 
 **Claim:** with mined specifications, PaSh and Shseer can analyze *N* real-world scripts they
 previously could not, yielding measured speedups and *B* newly-found bugs — and, critically, mined
@@ -363,7 +392,7 @@ Do these; just don't claim them.
 | **Wall-clock speed** | Machine-dependent, and "faster" is expected of a rewrite. | Reframe as query complexity (S4), or as an accuracy-versus-budget Pareto curve. |
 | **Token and dollar cost telemetry** | Measuring your own bill. | Interesting in exactly one framing: the paper claims it "eliminates manual effort" but never prices its own automation against the 80 person-hours it displaces. Make that comparison once, with the cost curve. |
 | **Adding fixture axes** — symlinks, permissions, empty content, wider integers, environment variables, nested directories, correlated multi-file inputs, richer content types (gaps 1, 5, 6, 7, 8, 10, 12, 14) | Individually, each is "we tested more things." Reviewers read a list of eight as a to-do list, not a result. | **One reframe rescues all eight at once: fixture-axis sensitivity.** Ablate each axis and measure *which axes change the inferred property, and for what fraction of commands*. Adding permissions then produces a finding — "permission state changes observed behavior for X% of coreutils; content type for only Y%" — and tells the field where to spend fixture budget. That is an empirical model. |
-| **Running split invocations concurrently to validate parallelizability** (gap 2) | On its own, one more test mode. | Becomes S1's witness generator — it is how you *demonstrate* that a wrong parallelizability annotation causes real divergence. |
+| **Running split invocations concurrently to validate parallelizability** (gap 2) | On its own, one more test mode. | Becomes S1's witness generator — it is how you *demonstrate* that an imprecise parallelizability annotation causes real divergence. |
 | **Web GUI, PTY terminal, configuration surface, model and decoding-parameter selection** | Artifact quality. | Belongs in artifact evaluation, where it genuinely helps. Not in the claims. |
 | **Reproducibility check across repeated runs** (gap 9) | As stated, quality assurance. | Becomes S5 when disagreement is used as a *mechanism* rather than reported as a *caveat*. |
 
@@ -375,8 +404,8 @@ Two coherent papers are available. They are not in conflict, and the second is f
 
 ### Paper A — the resubmission spine: *What does a mined specification guarantee?*
 
-- **Motivating finding:** S1 — hand-written specifications in deployed systems are wrong, at a
-  measured rate, with soundness-critical witnesses.
+- **Motivating finding:** S1 — how far hand-written specifications hold, measured, with witnesses
+  for the cases where the divergence is soundness-critical.
 - **Technical core:** S3 — validity domains derived from the extrapolation lattice already
   implemented in `ir/syntax.py`, giving conditional soundness statements and a typed coverage
   number.
@@ -398,9 +427,10 @@ in the PhD.
 ### The conversation to have with Greenberg
 
 Bring him the `grep` / `ps` / `cp` paragraph from the paper's specification-correctness section and
-one question: *"We found that the hand-written specifications the field depends on are wrong, and
-we narrowed the evaluation to avoid saying so. Should that be the paper?"* That is a research
-question rather than a product question, and it demonstrates the shift he has been asking for.
+one question: *"The annotations the field depends on are approximations, and their authors say so.
+The paper measured how well we match them. Should the resubmission measure how far they hold
+instead?"* That is a research question rather than a product question, and it reframes v1's own
+observation as the starting point rather than as a critique.
 
 ---
 

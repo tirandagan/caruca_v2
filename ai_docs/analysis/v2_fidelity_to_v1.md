@@ -7,7 +7,9 @@
 >
 > **Status:** written 2026-09-03, covering the code delivered by tasks 001-004.
 > **v1 reference commit:** `d8032407346aadc135b14c043618c8c1d4f4e0cf` (`binpash/caruca`).
-> **v2 code reviewed:** `src/caruca_v2/` at 4,251 lines, 120 tests passing.
+> **v2 code reviewed:** `src/caruca_v2/`; the seven defects the review found were fixed
+> the same day, each with a regression test (`tests/test_review_regressions.py`).
+> 149 tests passing, `ruff` clean.
 
 ---
 
@@ -19,8 +21,9 @@ A document asserting *zero* deviation from v1 would not survive review, and it w
 be true. Some deviation is forced (v1's LLM step runs through DSPy 2.4, which no longer
 exists; reproducing its exact wire format would mean depending on a dead library). Some is
 deliberate (v2 measures token cost; v1 measures nothing). And the review that preceded
-this document found four places where v2 diverges by *accident* — those are defects, and
-they are listed as defects.
+this document found seven places where v2 diverged by *accident* — those were defects, not
+design choices, and §8.2 records each one along with the fix and the regression test that
+now pins it down.
 
 So every mechanism below carries one of three verdicts:
 
@@ -28,7 +31,7 @@ So every mechanism below carries one of three verdicts:
 |---|---|
 | **IDENTICAL** | v2 produces the same behavior as v1, and in most cases does so by *calling v1's own code* rather than reimplementing it. |
 | **DELIBERATE** | v2 differs on purpose. The reason and the cost to comparability are stated. |
-| **DEFECT** | v2 differs by accident. This is a bug, listed in §7, not a design choice. |
+| **DEFECT** | v2 differed by accident. All seven found so far are fixed; §8.2 keeps the record of what each one was, because a reviewer is entitled to know what was wrong and when. |
 
 The strongest claim this project can make is not "we reimplemented v1 faithfully." It is
 **"we did not reimplement v1 at all where it mattered."** Wherever fidelity is
@@ -307,7 +310,7 @@ Path(stdin_path).write_bytes(config.stdin.value)   # v1's own Content enum
 | Aspect | v1 (`ir/environment.py:414-420`) | v2 (`workspace.materialize`) | Verdict |
 |---|---|---|---|
 | Directory nesting | `TemporaryDirectory(prefix="toplevel_")` containing `TemporaryDirectory(prefix="sandbox_")` | `mkdtemp(prefix="caruca_v2_toplevel_")` containing `sandbox_inner/` | **IDENTICAL** in structure; names differ, and nothing reads the names |
-| Parent directory | `/tmp` | the platform temp dir | **DEFECT** in the Lima case only — see §7.3 |
+| Parent directory | `/tmp` | the platform temp dir on the host; under `~/.caruca_v2/workspaces` when an isolation backend needs the guest to see it | **DELIBERATE** — nothing reads the location, and the backend dictates it (§8.2 #3) |
 | File contents | `File.prepare_env` writes `content.value` | the same call | **IDENTICAL** |
 | Directories | `Directory` / `NonEmptyDirectory` (the latter creates a `file` inside) | the same calls | **IDENTICAL** |
 | Preconditions | `AlreadyExistantPath` / `NonexistentPath` raise if violated | the same calls; a raise is reported as `workspace_failed` | **IDENTICAL** |
@@ -323,7 +326,8 @@ Verified against the real checkout: a real `cat` config produced the real 849-by
 |---|---|---|---|
 | `PATH` | `/usr/bin:/bin:/usr/local/sbin:/usr/local/bin` (`:55`) | same constant, `v1.EXECUTION_ENV` | **IDENTICAL** value |
 | `SHELL` | `/bin/sh` (`:56`) | same constant | **IDENTICAL** value |
-| Everything else in the environment | **not inherited** — v1 passes only its own dict | **inherited** (`{**os.environ, ...}`) | **DEFECT** — §7.2 |
+| `TMPDIR` | set to a scratch dir outside the sandbox (`tracer.py`, `run()`) | set to `<workspace>/tmp`, outside the sandbox, invisible to a listing | **IDENTICAL** in kind |
+| Everything else in the environment | **not inherited** — v1 builds the dict from scratch | **not inherited** — `tools._execution_env` returns exactly `{PATH, SHELL, TMPDIR}` | **IDENTICAL** (was §8.2 #1) |
 | Timeout | `timeout 2` (`:46`) | `subprocess` timeout of 2s | **IDENTICAL** duration; different mechanism (v1 wraps with the `timeout` binary because strace sits in between) |
 | Working directory | `cwd=sandbox` (`:106`) | `cwd=workspace.sandbox` | **IDENTICAL** |
 | stdin | `input=config.stdin.value` (`:105`) | the bytes v1 wrote for this config | **IDENTICAL** |
@@ -481,20 +485,27 @@ control.
 | 9 | **Set-level `true_str` approximation** (§5.5). | Reconstructing a `CommandInvocation` from its serialised form would mean reimplementing it. | Nil in the normal case; noted so a reviewer can check it. |
 | 10 | **Structural rather than byte comparison for JSON annotations.** | v1 renders `indent=2, by_alias=True`; a model will not match formatting. | Both structural and textual results recorded. |
 
-### 8.2 Accidental — these are defects, found in the 2026-09-03 review
+### 8.2 Accidental — found by the 2026-09-03 review, all seven fixed
 
-These are **not** design choices. Each is a place where v2 currently diverges from v1 by
-mistake, and each is fixable.
+These were **not** design choices. Each was a place where v2 diverged from v1 by mistake.
+All seven were fixed on 2026-09-03, each with a regression test in
+`tests/test_review_regressions.py` — a fix without a test is a defect waiting to come back.
 
-| # | Defect | Fidelity impact |
-|---|---|---|
-| 1 | **Stage 3 inherits the full process environment.** `tools._run` passes `{**os.environ, **v1.EXECUTION_ENV}`; v1 passes *only* `{PATH, SHELL}`. Inherited `LANG`/`LC_ALL`/`HOME`/`COLUMNS` change what `ls`, `sort`, `wc`, and `date` actually do. | **High.** Every stage-3 fidelity comparison would be run against a different environment than v1's. Fix: pass `v1.EXECUTION_ENV` alone. |
-| 2 | **Stage 2 does not pass `--max-count` or `--skip` to the v1 reference run.** The prompt states one bound; `caruca generate` is invoked with v1's defaults. Proven: `--max-count 1` yields 44 invocations, the default 4 yields 4,240. | **High.** Any run with a non-default bound produces a meaningless set-diff. |
-| 3 | **`--isolation lima` cannot work.** Workspaces are created under the platform temp dir (`/var/folders/...` on macOS); the Lima VM mounts only `$HOME`, so the workspace does not exist in the guest and `cwd` points at nothing. | **High.** Destructive commands *require* lima, so `rm`-class tracing is currently impossible. |
-| 4 | **The path jail admits relative traversal.** `tools._check_argv` validates only arguments beginning with `/`. `cat ../../../etc/hosts` executed successfully. | **Safety, not fidelity** — but it is the stated boundary for the one place model-chosen commands reach a shell. |
-| 5 | **Per-configuration cost is not recorded.** `checks.sessions` has turn counts but no tokens/cost/wall-clock, and telemetry records carry no config index. | **Medium.** Task 003's "cost/latency per config recorded" criterion is not actually met. |
-| 6 | **Run-id entropy is 16 bits.** `secrets.token_hex(2)`; ~7% collision at 100 same-second runs, 71% at 400. A collision raises an uncaught `FileExistsError`. | **Medium**, and it will bite the full-corpus harness before it bites the CLI. |
-| 7 | **`ui.detail` mangles bracket-containing invocations.** `find . -name '[a-z]*'` displays as `find . -name '*'`; `cat a[/]b` raises `MarkupError`. | **Low** (presentation), but it silently misreports what was run. |
+| # | Defect | Why it mattered | Fix |
+|---|---|---|---|
+| 1 | **Stage 3 inherited the full process environment.** `tools._run` passed `{**os.environ, **v1.EXECUTION_ENV}`; v1 passes only its own dict. | **High.** Inherited `LANG`/`LC_ALL`/`COLUMNS`/`HOME` change what `ls`, `sort`, `wc`, and `date` do, so every stage-3 comparison would have run in a different environment than v1's. | `tools._execution_env` now returns exactly `{PATH, SHELL, TMPDIR}` and nothing is inherited, on the host path and the isolated path alike. Verified: a traced command sees exactly those three variables. |
+| 2 | **Stage 2 did not pass `--max-count` or `--skip` to the v1 reference run.** | **High.** `mkdir` at arity 1 yields 44 invocations at `--max-count 1` and 4,240 at v1's default of 4 — so any non-default run diffed against the wrong reference. | `v1.reference_invocations` takes `max_count` and `skip` and passes both. `--skip` now also mirrors v1's `nargs="?"`/`const` behavior exactly, so a bare `--skip` means what v1's bare `--skip` means. |
+| 3 | **`--isolation lima` could not work.** Workspaces were created under the platform temp dir; the VM mounts only `$HOME`. | **High.** Destructive commands *require* lima, so `rm`-class tracing was impossible. | `IsolationBackend` now declares a `workspace_root`; the Lima backend points it under `$HOME`, and `workspace.materialize` honours it. The isolated command also sets its own `cd` and `env -i` on the far side rather than inheriting the guest shell's, with paths `shlex`-quoted. |
+| 4 | **The path jail admitted relative traversal.** Only arguments beginning with `/` were checked; `cat ../../../etc/hosts` executed and returned the file. | **Safety.** This is the stated boundary for the one place model-chosen commands reach a shell. | Every argument is now resolved against the workspace, not just absolute ones. Note the subtlety the fix itself tripped over: `PermissionError` subclasses `OSError`, so the catch-all around unresolvable arguments has to re-raise it or the jail silently stops working. There is a test for exactly that. |
+| 5 | **Per-configuration cost was not recorded.** | **Medium.** Task 003's "cost/latency per config" criterion was not actually met. | `TelemetryRecord` gained `config_index` (and `metrics.db` a matching column), and `checks.sessions` now carries per-session token, cost, and wall-clock totals. |
+| 6 | **Run-id entropy was 16 bits.** ~7% collision for 100 same-second runs, 71% for 400; a collision raised an uncaught `FileExistsError`. | **Medium**, and it would have bitten the full-corpus harness first. | 32 bits, plus a bounded retry. `exist_ok=False` is kept, so a directory is still never silently reused — exhausting the retries is an error, not a reuse. |
+| 7 | **`ui.detail` mangled bracket-containing invocations.** `find . -name '[a-z]*'` displayed as `find . -name '*'`; `cat a[/]b` raised `MarkupError` mid-run. | **Low** (presentation) but it silently misreported what was run. | `ui.py` no longer interpolates data into markup at all: plain strings are escaped, and styling is applied by composing `rich.text.Text`. |
+
+**A note on the stale-schema case introduced by #5.** `metrics.db` gained a column, and
+`CREATE TABLE IF NOT EXISTS` will not add one to an existing file. `metrics_db.connect`
+now checks the columns and raises with instructions to run `caruca-v2 metrics rebuild`
+rather than silently writing rows with fields missing. It is a rebuildable cache, so
+regenerating costs nothing — but it is never dropped without saying so.
 
 ### 8.3 A v1 defect that constrains v2
 
@@ -544,6 +555,16 @@ grep -n "PLACEHOLDER_SANDBOX" $V2/src/caruca_v2/v1.py
 # §8.3 — v1's annotate failing on macOS
 cd $CARUCA/caruca && ./.venv/bin/caruca annotate pash ls --input outputs/ls.json
 
+# §8.2 #1 — a traced command sees exactly v1's three variables and nothing else
+cd $V2 && .venv/bin/pytest -q tests/test_review_regressions.py -k environment
+
+# §8.2 #2 — the bounds actually reach v1's enumeration
+$V2/.venv/bin/python -c "from caruca_v2 import v1; print([v1.reference_invocations('mkdir', max_arity=1, max_count=c).count for c in (1, 4)])"
+# [44, 4240]
+
+# §8.2 #4 — the jail holds against relative traversal
+cd $V2 && .venv/bin/pytest -q tests/test_review_regressions.py -k traversal
+
 # The whole v2 suite (no API money, no v1 checkout required)
 cd $V2 && .venv/bin/pytest -q && .venv/bin/ruff check src tests
 ```
@@ -559,7 +580,8 @@ cd $V2 && .venv/bin/pytest -q && .venv/bin/ruff check src tests
    that most threaten stage 1 (few-shot rendering, paraphrased instructions) share one
    mitigation: measure them as an arm of the configuration selection rather than assuming
    they are negligible.
-3. Seven accidental deviations exist today (§8.2). Three of them would corrupt a stage-2 or
-   stage-3 comparison if a run were done now. **No comparison numbers should be generated
-   until items 1-3 of §8.2 are fixed.**
+3. Seven accidental deviations were found by review and all seven are fixed (§8.2), each
+   with a regression test. Three of them would have corrupted a stage-2 or stage-3
+   comparison; the record is kept deliberately, because "we looked, and here is what we
+   found" is a stronger claim than silence.
 4. Every claim above is re-derivable with §9's commands against a pinned v1 commit.

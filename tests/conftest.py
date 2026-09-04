@@ -214,6 +214,10 @@ Traces = RootModel[list[CommandInvocationTraceSet]]
 
 # Stands in for `caruca generate CMD`. Deliberately returns a small, fixed set so the
 # set-diff in the tests has a known answer.
+# Where the fake `caruca` executable records the argument vectors it was invoked with,
+# so a test can assert which bounds reached v1's own enumeration.
+CARUCA_ARGV_LOG = "caruca_argv.log"
+
 FAKE_TRACES = [
     {
         "command": {"name": "mkdir", "body": []},
@@ -233,6 +237,7 @@ FAKE_TRACES = [
 FAKE_CARUCA_INVOCATIONS = ["mkdir relpath_1", "mkdir abspath_1", "mkdir -p relpath_1"]
 
 FAKE_CARUCA_SCRIPT = """#!/bin/sh
+echo "$@" >> "{argv_log}"
 case "$1" in
   annotate)
     cat "{annotation_file}"
@@ -292,7 +297,12 @@ def _write_fake_venv(root: Path) -> None:
     echoes = "\n".join(f'echo "{line}"' for line in FAKE_CARUCA_INVOCATIONS)
     # The hint deliberately disagrees with the line count, as v1's own does.
     caruca.write_text(
-        FAKE_CARUCA_SCRIPT.format(hint=99, echoes=echoes, annotation_file=annotation_file)
+        FAKE_CARUCA_SCRIPT.format(
+            hint=99,
+            echoes=echoes,
+            annotation_file=annotation_file,
+            argv_log=root / CARUCA_ARGV_LOG,
+        )
     )
     caruca.chmod(0o755)
 

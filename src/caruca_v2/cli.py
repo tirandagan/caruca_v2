@@ -158,8 +158,13 @@ def build_parser() -> argparse.ArgumentParser:
     )
     generate.add_argument(
         "--skip",
+        nargs="?",
         default=generate_stage.V1_DEFAULT_SKIP,
-        help="Comma-separated flags to exclude, mirroring v1's knob (default: %(default)s).",
+        const=generate_stage.V1_SKIP_CONST,
+        help="Comma-separated flags to exclude, mirroring v1's knob exactly: given bare it "
+        f"means \"{generate_stage.V1_SKIP_CONST}\", and omitted it skips nothing. Use "
+        "--skip=--foo,--bar for values starting with a dash. Passed to v1's own "
+        "enumeration for the comparison as well.",
     )
     generate.add_argument(
         "--max-turns",

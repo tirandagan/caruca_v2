@@ -43,7 +43,9 @@ V1_DEFAULT_MAX_ARITY = 1
 V1_DEFAULT_MAX_COUNT = 4
 V1_DEFAULT_STDIN = "simple"
 V1_DEFAULT_CONTENT = "simple"
-V1_DEFAULT_SKIP = "none"
+V1_DEFAULT_SKIP: str | None = None  # v1's `--skip` has no default: nothing is skipped
+# What v1's bare `--skip` means (`cli/__init__.py:10`, `const=DEFAULT_SKIP`).
+V1_SKIP_CONST = "--version,--help,--interactive"
 
 DEFAULT_MAX_TURNS = 4
 
@@ -173,7 +175,7 @@ def run(
     max_count: int = V1_DEFAULT_MAX_COUNT,
     stdin_variation: str = V1_DEFAULT_STDIN,
     content_variation: str = V1_DEFAULT_CONTENT,
-    skip_flags: str = V1_DEFAULT_SKIP,
+    skip_flags: str | None = V1_DEFAULT_SKIP,
     compare: bool = True,
     compare_timeout: int = 300,
     out_root: Path = metrics_db.DEFAULT_RUNS_ROOT,
@@ -201,7 +203,7 @@ def run(
             "max_count": str(max_count),
             "stdin_variation": stdin_variation,
             "content_variation": content_variation,
-            "skip_flags": skip_flags,
+            "skip_flags": skip_flags or "(none)",
         },
     )
 
@@ -268,8 +270,13 @@ def run(
 
     comparison: dict[str, Any] = {"available": False, "error": "comparison not requested"}
     if compare:
+        # Same bounds on both sides, or the diff measures the bounds instead of the model.
         reference = v1.reference_invocations(
-            command, max_arity=max_arity, timeout=compare_timeout
+            command,
+            max_arity=max_arity,
+            max_count=max_count,
+            skip=skip_flags,
+            timeout=compare_timeout,
         )
         comparison = compare_invocations(parsed.invocations, reference)
 

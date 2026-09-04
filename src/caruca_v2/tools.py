@@ -258,6 +258,11 @@ class ToolExecutor:
         for argument in argv[len(expected) :]:
             try:
                 self._resolve(argument)
+            except PermissionError:
+                # `PermissionError` is a subclass of `OSError`, so it has to be re-raised
+                # before the catch-all below -- otherwise the refusal is swallowed and the
+                # jail silently stops working.
+                raise
             except (ValueError, OSError):
                 # Not resolvable as a path at all (embedded NUL, absurd length). It cannot
                 # name a file outside the workspace either, so it is not a jail concern.
