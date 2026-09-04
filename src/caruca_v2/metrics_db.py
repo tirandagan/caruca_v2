@@ -15,6 +15,7 @@ import sqlite3
 from dataclasses import dataclass
 from pathlib import Path
 
+from .errors import CarucaV2Error
 from .telemetry import (
     MANIFEST_NAME,
     SIDECAR_SUFFIX,
@@ -32,6 +33,7 @@ SCHEMA = """
 CREATE TABLE IF NOT EXISTS runs (
     run_id             TEXT NOT NULL,
     turn               INTEGER NOT NULL DEFAULT 0,
+    config_index       INTEGER,
     timestamp          TEXT NOT NULL,
     command            TEXT NOT NULL,
     component          TEXT NOT NULL,
@@ -52,11 +54,33 @@ CREATE TABLE IF NOT EXISTS runs (
 """
 
 
+EXPECTED_COLUMNS = (
+    "run_id", "turn", "config_index", "timestamp", "command", "component", "condition",
+    "stage", "model_id", "prompt_tokens", "completion_tokens", "cost_usd",
+    "wall_clock_seconds", "seed", "decoding_params", "prompt_hash", "validation_passed",
+    "run_dir",
+)
+
+
 def connect(db_path: Path = DEFAULT_DB_PATH) -> sqlite3.Connection:
     db_path.parent.mkdir(parents=True, exist_ok=True)
     connection = sqlite3.connect(db_path)
     connection.row_factory = sqlite3.Row
     connection.executescript(SCHEMA)
+
+    # `CREATE TABLE IF NOT EXISTS` will not add a column to a database written by an
+    # earlier version, so a stale file would silently accept rows with fields missing.
+    # This is a rebuildable cache, so the right answer is to say so and let the caller
+    # regenerate it -- never to drop it silently, and never to write partial rows.
+    present = {row["name"] for row in connection.execute("PRAGMA table_info(runs)")}
+    missing = [column for column in EXPECTED_COLUMNS if column not in present]
+    if missing:
+        connection.close()
+        raise CarucaV2Error(
+            f"{db_path} was written by an older schema and is missing {missing}. "
+            "It is a rebuildable cache: run `caruca-v2 metrics rebuild` to regenerate it "
+            "from the telemetry sidecars."
+        )
     return connection
 
 
@@ -72,14 +96,16 @@ def append_run(
         connection.execute(
             """
             INSERT OR REPLACE INTO runs (
-                run_id, turn, timestamp, command, component, condition, stage, model_id,
-                prompt_tokens, completion_tokens, cost_usd, wall_clock_seconds, seed,
-                decoding_params, prompt_hash, validation_passed, run_dir
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                run_id, turn, config_index, timestamp, command, component, condition,
+                stage, model_id, prompt_tokens, completion_tokens, cost_usd,
+                wall_clock_seconds, seed, decoding_params, prompt_hash,
+                validation_passed, run_dir
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 record.run_id,
                 record.turn,
+                record.config_index,
                 record.timestamp,
                 record.command,
                 record.component,

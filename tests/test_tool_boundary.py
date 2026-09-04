@@ -25,12 +25,15 @@ def space(tmp_path: Path) -> Workspace:
     (sandbox / "subdir").mkdir()
     stdin_path = root / "stdin"
     stdin_path.write_bytes(b"standard input\n")
+    scratch = root / "tmp"
+    scratch.mkdir()
     # A file the command must never be able to reach.
     (tmp_path / "outside_the_jail.txt").write_text("secret\n")
     return Workspace(
         root=root,
         sandbox=sandbox,
         stdin_path=stdin_path,
+        scratch=scratch,
         invocation="cat relpath_1",
         stdin_name="HUMAN_TEXT",
         listing=["relpath_1", "subdir"],

@@ -18,7 +18,12 @@ def test_every_schema_field_survives_a_round_trip(tmp_path: Path):
 
     loaded = telemetry.load_sidecar(path)
 
+    # `config_index` is null by design for the stages that run one session per invocation;
+    # everything else is a measurement and must be present.
+    optional = {"config_index"}
     for name in TelemetryRecord.model_fields:
+        if name in optional:
+            continue
         assert getattr(loaded, name) is not None, f"{name} is null in the sidecar"
     assert loaded.decoding_params.temperature == 0.0
     assert loaded.decoding_params.max_tokens == 4096
