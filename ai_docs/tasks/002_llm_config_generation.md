@@ -66,6 +66,24 @@ is pure text-to-JSON.
 - Plus the standard telemetry sidecar, metrics.db row, and (when enabled)
   `conversation.jsonl`.
 
+### CLI arguments
+`caruca-v2 generate CMD [--spec PATH] [--max-arity N] [--stdin MODE] [--content MODE]
+[--max-turns N] [--model ID] [--seed N] [--temperature T] [--out DIR]
+[--log-conversation] [--plain]`
+
+- `--spec` default: v1's committed spec (deterministic comparisons); point it at a task-001
+  output to chain the pipeline
+- `--max-arity` default `2` — v1's default bound; the value is stated in the prompt as part
+  of the behavioral contract
+- `--stdin` / `--content` mirror v1's `generate` knobs and default to v1's defaults;
+  **whatever values are used must be identical on the v1 side of any comparison and
+  recorded in the manifest** (invocation *strings* are unaffected by these knobs; the
+  environment-config comparison is)
+- `--max-turns`: output size for enumeration can exceed one response — plain "continue"
+  continuations are permitted up to this cap (default small, e.g. 4), each turn recorded
+  in telemetry; continuation is *not* a license to re-prompt about content
+- Shared flags per the design doc's CLI-conventions table
+
 ## 3. Success Criteria
 - [ ] For each command in the task-001 held-out set: output parses, and
       `<cmd>.configs.json` validates against v1's `CommandConfig` model
@@ -86,8 +104,18 @@ is pure text-to-JSON.
 4. Held-out-set run (cost estimate approved first) + write-up in `ai_docs/analysis/`
 
 ## 5. Risks / Notes
+- **The probe-value gotcha (found in reflection, 2026-09-03):** v1 expands typed values
+  through fixed probe sets baked into the DSL runtime (`ir/syntax.py:363-425` —
+  `Glob` → `*.txt`/`*.py`/`*.c`/`*.h`, `Signal` → `HUP`/`INT`/…, etc.). The spec file the
+  LLM reads only *names* these types; without the value sets, its invocation strings
+  can't literally match v1's and the set-diff fails on every typed argument.
+  **Decision:** the type→probe-values table goes into the prompt as part of the format
+  definition — it is the DSL's semantics (input material, like the man page), not
+  coaching. The table is generated at runtime from the v1 checkout via `v1.py`, not
+  hand-copied into the committed prompt file.
 - Combinatorial enumeration is a known LLM weakness — that is the experiment, not a bug
-  to engineer around. Output-size limits may bind before reasoning does; record both.
+  to engineer around. Output-size limits may bind before reasoning does; record both
+  (turn counts distinguish them).
 - The `CommandConfig` JSON shape must be extracted by reading v1's model (subprocess
   `model_json_schema()` dump), never by importing v1 into v2.
 - v1's own `generate --full` has a latent argument-order bug

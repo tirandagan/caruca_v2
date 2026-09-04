@@ -259,8 +259,15 @@ As checkboxes:
 - `caruca-v2 naive-llm CMD` — man page in, DSL spec + telemetry out
 - `--docs PATH` overrides the man-page source (default: v1's committed
   `doc_sources/man/<cmd>.txt`, resolved via `CARUCA_V1_ROOT`)
-- `--model MODEL` (default: the frozen choice after Phase 7; before that, explicit) and
-  `--seed N` (default 42, matching v1) are recorded in telemetry verbatim
+- Full argument set (shared-flag semantics defined once in
+  `ai_docs/prep/llm_pipeline_replication.md` § CLI conventions):
+  `caruca-v2 naive-llm CMD [--docs PATH] [--model ID] [--seed N] [--temperature T]
+  [--out DIR] [--log-conversation] [--plain]` — model/seed/temperature recorded in
+  telemetry verbatim (`--seed` default 42, matching v1; model/temperature explicit until
+  Phase 7 freezes them, then the frozen values become the defaults)
+- Terminal output goes through the shared `ui.py` presentation layer (`rich`): spinner
+  during the call, then a compact summary (tokens, cost, wall-clock, validation ✓/✗);
+  `--plain` or non-TTY degrades to plain lines. Machine-readable files are never styled
 - `--out DIR` (default `eval/runs/`) — each run creates `eval/runs/<UTC-timestamp>_<cmd>/`
 - Each completed run appends one row to `eval/metrics.db`; a `caruca-v2 metrics rebuild`
   subcommand regenerates the database from the sidecar files on disk
@@ -349,10 +356,12 @@ telemetry: 6,842 prompt + 1,103 completion tokens · $0.0xx · 14.2s · openai/g
 metrics: row appended to eval/metrics.db
 ```
 
-Internally: `cli.py` parses args and calls `naive_llm.generate_spec(...)` (the typed
-function an agent could call directly); that function loads docs + exemplars, assembles the
-prompt, makes exactly one LLM call, writes the three files, runs validation, and returns a
-result object. ~6 small modules, each doing one thing (tree in Section 11).
+Internally: `cli.py` parses args and calls `stages.syntax_spec.run(...)` (the typed
+function an agent could call directly); that function loads docs + exemplars (via the
+`v1.py` boundary module), assembles the prompt from `prompts/syntax_spec/`, makes exactly
+one LLM call, writes the run files, runs validation, and returns a result object. Small
+flat modules, each doing one thing; presentation confined to `ui.py` (tree in Section 11,
+layout rationale in the design doc).
 
 ---
 
@@ -362,15 +371,15 @@ result object. ~6 small modules, each doing one thing (tree in Section 11).
 **Goal:** a `uv`-managed Python package with a working (stub) entry point
 - [ ] **Task 1.1:** `pyproject.toml` — package `caruca-v2`, `requires-python >= 3.12`,
       script `caruca-v2 = "caruca_v2.cli:main"`; deps per Decision 2 (+ `pydantic`,
-      `python-dotenv`); dev deps `pytest`, `ruff`; `uv sync`
+      `python-dotenv`, `rich` for the terminal UI); dev deps `pytest`, `ruff`; `uv sync`
 - [ ] **Task 1.2:** `src/caruca_v2/` skeleton + `tests/` with one smoke test
 - [ ] **Task 1.3:** `.gitignore`: add `eval/runs/` and `eval/metrics.db` (per Decision 4);
       `.env.example` with the Section 13 variables
 
 ### Phase 2: Documentation ingestion
 **Goal:** the man page for CMD, from the same source v1 uses
-- [ ] **Task 2.1:** `docs_source.py` — resolve `CARUCA_V1_ROOT` (env var, default
-      `/Users/tirandagan/dev/stevens/caruca`), read
+- [ ] **Task 2.1:** `v1.py` (the single v1-boundary module) — resolve `CARUCA_V1_ROOT`
+      (env var, default `/Users/tirandagan/dev/stevens/caruca`), read
       `caruca/src/caruca/doc_sources/man/<cmd>.txt`; `--docs PATH` override; clear error
       naming the exact path tried when missing
 - [ ] **Task 2.2:** tests with a tiny fixture man page (fixture text written by us, not
@@ -378,8 +387,8 @@ result object. ~6 small modules, each doing one thing (tree in Section 11).
 
 ### Phase 3: Prompt assembly (the naive prompt)
 **Goal:** v1's prompt, reconstructed without DSPy
-- [ ] **Task 3.1:** `fewshot.py` — load the four exemplar pairs (`touch/rm/mv/ls`: man page
-      + committed spec text) from `CARUCA_V1_ROOT` at runtime
+- [ ] **Task 3.1:** exemplar loading in `v1.py` — the four pairs (`touch/rm/mv/ls`: man
+      page + committed spec text) read from `CARUCA_V1_ROOT` at runtime
 - [ ] **Task 3.2:** create the `prompts/` folder (per
       `ai_docs/prep/llm_pipeline_replication.md`): `prompts/README.md` (conventions,
       `{{placeholder}}` syntax) and `prompts/syntax_spec/system.md` + `user.md` — the
@@ -396,10 +405,11 @@ result object. ~6 small modules, each doing one thing (tree in Section 11).
 
 ### Phase 4: The LLM call + telemetry capture
 **Goal:** exactly one API call, fully measured
-- [ ] **Task 4.1:** `llm_client.py` — single call through OpenRouter (`openai` SDK,
+- [ ] **Task 4.1:** `llm.py` — single call through OpenRouter (`openai` SDK,
       `base_url=https://openrouter.ai/api/v1`) with `model`, `seed`, `temperature`,
       `max_tokens=4096` (v1's value); request OpenRouter's usage accounting so the response
-      carries token counts and billed cost; no retries beyond transport-level
+      carries token counts and billed cost; no retries beyond transport-level (this module
+      grows the tool loop in task 003 — keep the single-call path a plain function)
 - [ ] **Task 4.2:** `telemetry.py` — pydantic `TelemetryRecord` (+ `decoding_params`),
       populated from the API response; wall-clock around the call; sidecar writer
 - [ ] **Task 4.3:** update `ai_docs/prep/data_telemetry_schema.md` with the additive field
@@ -417,9 +427,10 @@ result object. ~6 small modules, each doing one thing (tree in Section 11).
 
 ### Phase 6: Validation via v1 (subprocess)
 **Goal:** "syntactically valid spec in v1's DSL", judged by v1 itself
-- [ ] **Task 6.1:** `validation.py` — run `$CARUCA_V1_ROOT/caruca/.venv/bin/python` as a
-      subprocess to import the generated file and check `<cmd>_syntax_spec` exists (the
-      import-based check v1's own `llm.py` uses); record pass/fail + traceback in the manifest
+- [ ] **Task 6.1:** validation in `v1.py` — run `$CARUCA_V1_ROOT/caruca/.venv/bin/python`
+      as a subprocess to import the generated file and check `<cmd>_syntax_spec` exists
+      (the import-based check v1's own `llm.py` uses); record pass/fail + traceback in the
+      manifest
 - [ ] **Task 6.2:** test with a hand-written valid spec fixture and a deliberately broken one
 
 ### Phase 7: One-time configuration selection (then freeze)
@@ -477,24 +488,25 @@ caruca_v2/
 │   └── syntax_spec/
 │       ├── system.md              # this stage's system prompt (our text only)
 │       └── user.md                # user-prompt template; v1 content injected at runtime
-├── src/caruca_v2/
-│   ├── __init__.py
-│   ├── cli.py                     # argparse surface — thin wrapper only
-│   ├── naive_llm.py               # generate_spec(...): the typed orchestrating function
-│   ├── docs_source.py             # man-page loading (v1 checkout / --docs)
-│   ├── fewshot.py                 # exemplar pairs, read from v1 at runtime
-│   ├── prompting.py               # prompt assembly + fence extraction + prompt_hash
-│   ├── llm_client.py              # the single LLM call (OpenRouter via openai SDK)
+├── src/caruca_v2/                 # layout per the design doc's "Source layout" section:
+│   ├── __init__.py                #   one module per stage, one per shared concern
+│   ├── cli.py                     # argparse only; dispatches to stages/*.run()
+│   ├── stages/
+│   │   └── syntax_spec.py         # run(...): this task's typed orchestrating function
+│   │                              #   (tasks 002-004 add generate/trace/annotate.py here)
+│   ├── v1.py                      # ALL v1-checkout access in one boundary module:
+│   │                              #   man pages, exemplar pairs, venv-subprocess validation
+│   ├── prompting.py               # load prompts/*.md, {{placeholder}} substitution, hash
+│   ├── llm.py                     # OpenRouter client (single call now; tool loop in 003)
 │   ├── telemetry.py               # TelemetryRecord + sidecar/manifest writers
 │   ├── metrics_db.py              # eval/metrics.db append + rebuild (stdlib sqlite3)
-│   └── validation.py              # subprocess import check via v1's venv
+│   └── ui.py                      # rich-based presentation; zero logic
 ├── tests/
 │   ├── conftest.py                # fixtures: fake man page, fake spec, mock LLM
-│   ├── test_docs_source.py
+│   ├── test_v1_access.py
 │   ├── test_prompting.py
 │   ├── test_telemetry.py
 │   ├── test_metrics_db.py
-│   ├── test_validation.py
 │   └── test_cli_end_to_end.py     # mocked-LLM full run
 └── eval/
     ├── metrics.db                 # SQLite query layer (gitignored, rebuildable)
@@ -533,6 +545,22 @@ caruca_v2/
 - [ ] Providers that don't honor `seed` → `seed_honored: false` in manifest
 - [ ] Two runs in the same second → timestamp collision-proof run-dir names (include a
       short random suffix from `run_id`)
+
+### Accepted deviations & measurement gotchas (record them, don't hide them)
+- [ ] **Few-shot formatting ≠ DSPy's:** v1 serialized exemplars through DSPy's
+      `LabeledFewShot` machinery; we reproduce the exemplar *content* (same four
+      man-page/spec pairs) in our own markdown template, not DSPy's exact wire format.
+      Accepted deviation — state it in the Phase 7 write-up
+- [ ] **`max_tokens=4096` is v1 parity, and it truncates:** option-heavy commands can
+      exceed it, exactly as they could for v1. A truncated spec is recorded (manifest
+      flag) and fails validation honestly — do not raise the limit to "fix" it
+- [ ] **Seeds don't travel across providers:** Anthropic models ignore `seed`, so the
+      Phase 7 cross-model comparison cannot hold seed constant — run-to-run consistency
+      is measured by repeated runs instead (repetition is orchestrated by the evaluation
+      harness later, not by this CLI; the CLI stays strictly one-run-per-invocation)
+- [ ] **Structured-output support varies by model through OpenRouter:** the Phase 7
+      "schema-constrained vs. free text" condition may not be available on every
+      candidate — record availability per model and compare only where supported
 
 ### Security & Cost Review
 - [ ] API keys only via `.env` (already gitignored) / environment — never in code, argv, or

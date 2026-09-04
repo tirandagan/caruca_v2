@@ -56,8 +56,9 @@ of strace orchestration and syscall parsing (`tracer/tracer.py`, `tracer/strace_
 
 **Enforcement (code, not trust):** `run_command` rejects any binary except the command
 under test; observation tools (`list_dir` / `read_file` / `stat_path`) are Python-side and
-jailed to the workspace; no network; `timeout 2` per execution (v1's value); hard cap on
-loop turns.
+jailed to the workspace; no network; hard cap on loop turns. Execution environment
+reproduces v1's exactly: `timeout 2`,
+`PATH=/usr/bin:/bin:/usr/local/sbin:/usr/local/bin`, `SHELL=/bin/sh`.
 
 ## 2. I/O Contract (the v1 seam)
 
@@ -68,6 +69,23 @@ loop turns.
   consume our file, and our annotator (task 004) can consume v1's.
 - Plus per-turn telemetry records sharing one `run_id`, metrics.db rows, and
   `conversation.jsonl` when logging is on (strongly recommended on for this stage).
+- **Division of labor:** one agent conversation per config (isolated, comparable,
+  parallelizable). The LLM emits per-config trace entries; **our code** assembles v1's
+  Traces envelope around them and rewrites workspace paths into v1's sandbox namespace
+  (`/tmp/sandbox_outer/sandbox_inner` — hardcoded in v1's annotator, so seam
+  compatibility requires it). Mechanical format compliance is plumbing; observation is
+  the experiment.
+
+### CLI arguments
+`caruca-v2 trace CMD [--configs PATH] [--limit N] [--max-turns N] [--keep-workspace]
+[--model ID] [--seed N] [--temperature T] [--out DIR] [--log-conversation] [--plain]`
+
+- `--configs` default: the latest `generate` output for CMD under `--out`
+- `--limit` default deliberately small (e.g. 5) — this is the cost brake; a full config
+  set is an explicit choice. The progress bar shows config n/total, running cost, and
+  turns (via `ui.py`)
+- `--max-turns` per config (hard cap on the agent loop, e.g. 15)
+- `--keep-workspace` preserves the temp dir of failed configs for debugging
 
 ## 3. Success Criteria
 - [ ] Traces file validates against v1's model for every attempted config
@@ -77,8 +95,12 @@ loop turns.
 - [ ] Every execution provably stayed inside the workspace and allowlist (executor logs)
 - [ ] Cost/latency per config recorded (multi-turn stages are where cost lives — this
       number feeds the cost-vs-v1 comparison directly)
-- [ ] Safety staging honored: harmless commands only until real isolation exists;
-      `rm`-class commands explicitly deferred
+- [ ] Safety staging honored: harmless commands in throwaway dirs on the Mac;
+      `rm`-class/destructive commands only inside the Lima VM `caruca` (the working Linux
+      environment verified 2026-09-03 — `memory/mac_lima_tracing_env.md`)
+- [ ] Strace ground truth generated **locally** for the fidelity comparison by running
+      v1's tracer in the Lima VM on the identical configs (ops doc:
+      `ai_docs/docs/caruca_v1 pipeline instructions.md`) — no remote host needed
 
 ## 4. Implementation Phases (skeleton — detail at start of work)
 1. Workspace materializer: `CommandConfig` → temp dir, byte-identical to v1's setup
@@ -93,7 +115,9 @@ loop turns.
 ## 5. Risks / Notes
 - **This stage executes model-chosen invocations on the dev machine.** The allowlist and
   path jail are the safety boundary — they are tested first, before any model is
-  connected. Destructive commands wait for Docker or a Linux host.
+  connected. Destructive commands run only inside the Lima VM (same code path; the
+  executor just runs there via `limactl shell caruca`, since the Mac home is mounted
+  read-write at the same path inside the VM).
 - The LLM cannot see syscalls; some Traces fields may be unobservable via the tool
   surface. Where that's so, record the structural gap honestly — it is a finding about
   the approach, not something to fake.

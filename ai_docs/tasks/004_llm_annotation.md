@@ -62,6 +62,17 @@ Prompt text in `prompts/annotate/system.md` + `user.md`.
   shellcheck`.
 - Plus telemetry sidecar, metrics.db row, `conversation.jsonl` when enabled.
 
+### CLI arguments
+`caruca-v2 annotate FORMAT CMD [--traces PATH] [--model ID] [--seed N] [--temperature T]
+[--out DIR] [--log-conversation] [--plain]`
+
+- `FORMAT` positional, `pash | posh | sash | shellcheck` — mirrors v1's CLI exactly
+- `--traces` default: `$CARUCA_V1_ROOT/outputs/<cmd>.json` (v1's own traces — the
+  A/B-on-identical-input experiment is the default behavior); point it at a task-003
+  output to chain the pipeline
+- Shared flags per the design doc's CLI-conventions table; no tools, single call
+  (continuations as in task 002 if output length demands, recorded as turns)
+
 ## 3. Success Criteria
 - [ ] On identical trace inputs (v1's committed traces), per-format diff vs
       `caruca annotate FORMAT CMD` recorded: exact matches and categorized differences
@@ -83,6 +94,18 @@ Prompt text in `prompts/annotate/system.md` + `user.md`.
    demonstration and per-command cost roll-up
 
 ## 5. Risks / Notes
+- **Compare against FRESH v1 output, not committed files (found 2026-09-03):** running
+  v1's own pipeline in the Lima VM produced a `save/ls.json` that differs from the
+  committed one (4 cases vs 6; some `stateless` → `non-pure`) because v1's recent
+  parallelizability-classification fix postdates the committed files. The v1 side of
+  every diff must be **regenerated at the pinned v1 commit** (in the Lima VM), never read
+  from stale `save/*.json`. Record the v1 commit hash with every comparison.
+- **Traces files can exceed the context window:** big commands carry hundreds of configs
+  and thousands of trace entries (`ls`: 682 configs, 17k+ strace events). Start with
+  small-trace commands; a context-limit failure is recorded as a measured boundary of the
+  approach. Any map-reduce workaround (annotate per config, merge) re-implements v1's
+  case collapsing in the harness and is allowed only as a separately-labeled condition
+  with Tiran's explicit approval.
 - v1's splittability heuristic re-runs commands on split inputs; our LLM only sees the
   traces file. If the traces don't contain the evidence, the honest output is "not
   derivable" — record where the seam itself limits the LLM vs. where reasoning fails.
