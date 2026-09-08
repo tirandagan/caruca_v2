@@ -166,6 +166,16 @@ CONTINUE_INSTRUCTION = (
     "Continue from exactly where you stopped. Same format, no repetition, no commentary."
 )
 
+EXHAUST_SENTINEL = "COMPLETE"
+
+# Used only by stages that opt in via `exhaust_instruction`. See `complete_series` for why
+# this is a deliberate departure from the length-only continuation rule, and what it costs.
+EXHAUST_INSTRUCTION = (
+    "If any item required by the task is still missing, continue from exactly where you "
+    "stopped: same format, no repetition, no commentary. If nothing is missing, reply with "
+    f"exactly {EXHAUST_SENTINEL} and nothing else."
+)
+
 
 def complete_series(
     messages: list[dict[str, Any]],
@@ -176,14 +186,24 @@ def complete_series(
     max_tokens: int = DEFAULT_MAX_TOKENS,
     max_turns: int = 1,
     provider: str | None = None,
+    exhaust_instruction: str | None = None,
     client: OpenAI | None = None,
 ) -> list[LLMResponse]:
-    """Call the model, continuing only while the token cap is what stopped it.
+    """Call the model, continuing while the token cap is what stopped it.
 
-    A model that finishes early has finished: it is never nudged for more. Continuation
-    exists solely because a stage's output can be longer than one response, and a
-    length-truncated answer measures the cap rather than the model. Every turn is returned
-    so each can be recorded separately.
+    By default a model that finishes early has finished: it is never nudged for more.
+    Continuation exists so that a stage whose output is longer than one response is not
+    measured by the cap instead of by the model. Every turn is returned so each can be
+    recorded separately.
+
+    `exhaust_instruction` opts a stage out of that default, and is a deliberate trade rather
+    than a bug fix. On an exhaustive-enumeration stage the failure that matters is the model
+    stopping early of its own accord -- `finish_reason` is `stop`, nothing is truncated, and
+    the answer is simply short. Length-only continuation cannot see that case at all. When
+    set, a self-terminated turn is asked once more whether anything is missing, up to
+    `max_turns`, and the series ends when the model answers with the sentinel or adds
+    nothing new. The cost is honest and must be reported with any result: a nudged model is
+    partly measuring the nudge. Nothing here reveals how many items are expected.
     """
     if max_turns < 1:
         raise LLMError(f"max_turns must be at least 1, got {max_turns}.")
@@ -204,11 +224,19 @@ def complete_series(
         )
         responses.append(response)
 
-        if response.finish_reason != "length":
+        if response.finish_reason == "length":
+            instruction = CONTINUE_INSTRUCTION
+        elif exhaust_instruction is not None:
+            # The model stopped on its own. Ask once whether it is actually finished, and
+            # accept the answer: the sentinel, or a turn that adds nothing, ends the series.
+            if response.text.strip() == EXHAUST_SENTINEL or not response.text.strip():
+                break
+            instruction = exhaust_instruction
+        else:
             break
 
         conversation.append({"role": "assistant", "content": response.text})
-        conversation.append({"role": "user", "content": CONTINUE_INSTRUCTION})
+        conversation.append({"role": "user", "content": instruction})
 
     return responses
 

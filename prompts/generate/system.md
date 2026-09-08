@@ -4,7 +4,9 @@ You are given a command's syntax specification and asked to work out how that co
 
 A syntax specification written in a domain-specific language embedded in Python. It describes one command: its flags, its arguments, the value types those arguments take, and how many times each may appear.
 
-The specification names value types but does not list the values they stand for. That table is supplied separately, below. Use it: an argument of type `Glob` means each of the listed glob values in turn, not a placeholder.
+Most value types name a kind without listing the values it stands for. That table is supplied separately, below. Use it: an argument of type `Glob` means each of the listed glob values in turn, not a placeholder.
+
+Two types are the exception. `Selection` and `List` carry their own values inline in the specification, in a `choices=` argument. They appear in the table with an empty list because there is no single global set for them; take their values from the specification itself. A `Selection(flag="--color", choices=["never", "always", "auto"])` means three invocations, one per choice.
 
 ## What to produce
 

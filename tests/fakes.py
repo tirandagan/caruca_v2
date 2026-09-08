@@ -11,6 +11,9 @@ from dataclasses import dataclass, field
 from typing import Any
 
 
+from caruca_v2.llm import EXHAUST_INSTRUCTION, EXHAUST_SENTINEL
+
+
 @dataclass
 class FakeMessage:
     content: str | None
@@ -55,18 +58,37 @@ class FakeCompletion:
 
 @dataclass
 class FakeCompletions:
+    """One canned answer, then the completion sentinel.
+
+    Stages that opt into exhaustive continuation ask a self-terminated model whether
+    anything is missing, so a one-answer fake must be able to say "nothing is". Replying
+    with the sentinel from the second call on models exactly that, and leaves stages that
+    do not opt in untouched -- they never make a second call.
+    """
+
     response_text: str
     finish_reason: str = "stop"
     usage: FakeUsage | None = field(default_factory=FakeUsage)
     calls: list[dict[str, Any]] = field(default_factory=list)
+    follow_up_text: str = EXHAUST_SENTINEL
 
     def create(self, **kwargs: Any) -> FakeCompletion:
         self.calls.append(kwargs)
+        # Answer the completion check by looking at the conversation, not at a call counter:
+        # one client can serve several independent runs (a sweep hands the same one to every
+        # cell), so "how many calls has this client seen" says nothing about where any single
+        # series is. A fake pinned to `length` is never asked -- it keeps being cut off, which
+        # is the truncation case, and a sentinel there would erase it.
+        messages = kwargs.get("messages") or []
+        last = messages[-1].get("content") if messages else None
+        exhausted = last == EXHAUST_INSTRUCTION
         return FakeCompletion(
             choices=[
                 FakeChoice(
-                    message=FakeMessage(content=self.response_text),
-                    finish_reason=self.finish_reason,
+                    message=FakeMessage(
+                        content=self.follow_up_text if exhausted else self.response_text
+                    ),
+                    finish_reason="stop" if exhausted else self.finish_reason,
                 )
             ],
             usage=self.usage,

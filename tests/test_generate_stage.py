@@ -183,11 +183,37 @@ def test_continuation_happens_only_when_the_token_cap_cut_the_response(
     assert client.calls[1]["messages"][-1]["content"] == llm.CONTINUE_INSTRUCTION
 
 
-def test_a_model_that_stops_on_its_own_is_never_asked_for_more(fake_v1_root: Path, invoke):
+def test_a_model_that_stops_on_its_own_is_asked_whether_it_is_finished(
+    fake_v1_root: Path, invoke
+):
+    """This stage deliberately departs from the length-only continuation rule.
+
+    Enumeration's characteristic failure is the model stopping early of its own accord --
+    `finish_reason` is `stop`, nothing is truncated, the answer is merely short. Length-only
+    continuation cannot detect that, so here a self-terminated turn is asked once whether
+    anything is missing and the series ends on the sentinel. The extra call is the price,
+    and it is recorded in the manifest so no result can quietly omit it.
+    """
     _, runs, client = invoke(jsonl("mkdir relpath_1"), "mkdir")
 
-    assert len(client.calls) == 1
-    assert read_manifest(runs[0])["checks"]["parse"]["hit_turn_cap_while_truncated"] is False
+    assert len(client.calls) == 2
+    parse = read_manifest(runs[0])["checks"]["parse"]
+    assert parse["continuation_policy"] == "exhaust"
+    assert parse["model_declared_complete"] is True
+    assert parse["turns_used"] == 2
+    assert parse["hit_turn_cap_while_truncated"] is False
+    assert parse["hit_turn_cap_while_incomplete"] is False
+
+
+def test_the_completion_sentinel_is_not_counted_as_unparseable_output(
+    fake_v1_root: Path, invoke
+):
+    """The sentinel is a control token, not a line the model failed to format."""
+    _, runs, _ = invoke(jsonl("mkdir relpath_1"), "mkdir")
+
+    parse = read_manifest(runs[0])["checks"]["parse"]
+    assert parse["unparseable_lines"] == 0
+    assert parse["objects_parsed"] == 1
 
 
 def test_every_turn_gets_its_own_sidecar_and_metrics_row(
@@ -215,7 +241,8 @@ def test_unusable_output_fails_without_writing_output_files(fake_v1_root: Path, 
     code, runs, client = invoke("I am afraid I cannot enumerate that.\n", "mkdir")
 
     assert code == cli.EXIT_RUN_FAILED
-    assert len(client.calls) == 1
+    # Two calls, not one: the answer, then the completion check this stage opts into.
+    assert len(client.calls) == 2
     assert not (runs[0] / "mkdir.invocations.txt").exists()
     manifest = read_manifest(runs[0])
     assert manifest["status"] == "failed"

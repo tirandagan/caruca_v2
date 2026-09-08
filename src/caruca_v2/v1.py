@@ -277,10 +277,72 @@ print(json.dumps(table))
 
 _CONFIG_SCHEMA_SCRIPT = """
 import json
+
+from pydantic import BaseModel
+
+import caruca.ir.contents as contents_module
+import caruca.ir.environment as environment_module
+from caruca.ir.contents import Content
 from caruca.ir.environment import CommandConfig
 
-print(json.dumps(CommandConfig.model_json_schema()))
+# `SerializableContent` is `Content` behind a pydantic `PlainValidator`, and a
+# `PlainValidator` contributes nothing to `model_json_schema()`. Every field of that type
+# therefore renders as a bare `{"title": ...}` -- an empty schema, which permits any value
+# including `null`, while v1 itself accepts only a `Content` member. Left alone, the model
+# is asked an unanswerable question and every generated config is rejected. Re-attach the
+# enum here, discovering the affected fields by introspection rather than naming them, so
+# a new `Content`-typed field upstream is covered without a change here.
+schema = CommandConfig.model_json_schema()
+member_names = [member.name for member in Content]
+
+content_fields: dict[str, set[str]] = {}
+for module in (environment_module, contents_module):
+    for obj in vars(module).values():
+        if not isinstance(obj, type) or not issubclass(obj, BaseModel):
+            continue
+        named = {
+            field_name
+            for field_name, field in obj.model_fields.items()
+            if field.annotation is Content
+        }
+        if named:
+            content_fields.setdefault(obj.__name__, set()).update(named)
+
+
+def _patch(definition, field_names):
+    properties = definition.get("properties", {})
+    for field_name in field_names:
+        if field_name in properties:
+            properties[field_name] = {
+                "title": properties[field_name].get("title", field_name),
+                "type": "string",
+                "enum": member_names,
+            }
+
+
+for title, field_names in content_fields.items():
+    if schema.get("title") == title:
+        _patch(schema, field_names)
+    definition = schema.get("$defs", {}).get(title)
+    if definition is not None:
+        _patch(definition, field_names)
+
+print(json.dumps(schema))
 """
+
+_CONTENT_VARIATION_SCRIPT = """
+import json
+
+from caruca.ir.contents import Content
+
+# What v1's own `--stdin` / `--content` levels expand to. The prompt states the level; without
+# this table the model is told "simple" and left to guess what that permits.
+print(json.dumps({
+    level: [member.name for member in Content.variation(level)]
+    for level in ("simple", "varied", "split")
+}))
+"""
+
 
 _VALIDATE_CONFIGS_SCRIPT = """
 import json, sys, traceback
@@ -335,6 +397,11 @@ def _run_in_v1_venv(script: str, *args: str, timeout: int = VALIDATION_TIMEOUT_S
 def probe_values() -> dict[str, Any]:
     """Every DSL value type mapped to the concrete values v1 expands it into."""
     return _run_in_v1_venv(_PROBE_VALUES_SCRIPT)
+
+
+def content_variation_values() -> dict[str, list[str]]:
+    """Each `--stdin`/`--content` level mapped to the `Content` members v1 allows for it."""
+    return _run_in_v1_venv(_CONTENT_VARIATION_SCRIPT)
 
 
 def command_config_schema() -> dict[str, Any]:

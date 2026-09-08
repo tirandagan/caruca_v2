@@ -15,6 +15,14 @@ working from the Mac (the WSL PC still cannot trace — see [[dev-machine-paths]
   Enter with `limactl shell caruca`.
 - Linux venv at `~/caruca-venv` **inside the VM** (VM-local disk, editable
   install of v1). The repo's `.venv`/`.venv-llm` are Darwin-only.
+- **The guest home is NOT the mounted Mac home.** Inside the VM, `$HOME` is
+  `/home/tirandagan.guest`; the Mac home is mounted separately at its own
+  `/Users/tirandagan` path. So `~/caruca-venv` is guest-local while the v1
+  checkout is read through the shared mount. Consequence when scripting from
+  the Mac: `limactl shell caruca -- test -x "$HOME/caruca-venv/bin/caruca"`
+  **falsely reports missing**, because the outer shell expands `$HOME` to
+  `/Users/tirandagan` before Lima ever sees it. Quote the tilde or wrap in
+  `bash -lc` so expansion happens guest-side. Verified 2026-09-08.
 - Critical fix applied and persisted (`/etc/sysctl.d/99-caruca-userns.conf`):
   `kernel.apparmor_restrict_unprivileged_userns=0`. Without it every traced
   invocation fails silently (rc=1, zero traces, stderr `unshare: write failed

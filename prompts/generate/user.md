@@ -19,7 +19,9 @@
 - A repeatable argument may appear at most {{max_arity}} time(s).
 - At most {{max_count}} optional flags may be combined in a single invocation.
 - These flags are excluded entirely: {{skip_flags}}
-- Standard input variation: {{stdin_variation}}. File content variation: {{content_variation}}.
+- Standard input variation: {{stdin_variation}} — every `stdin` value must be one of: {{stdin_values}}.
+- File content variation: {{content_variation}} — every file's `content` must be one of: {{content_values}}.
+- `stdin` and `content` are required and may never be null.
 
 ## Now produce the output
 

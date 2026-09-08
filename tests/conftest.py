@@ -91,16 +91,24 @@ class Unconstructable(ValueArgument):
     def __init__(self, required):
         self.required = required
 """,
-    "caruca/ir/environment.py": """
+    # Mirrors real v1's layout: `Content`/`SerializableContent` live in their own module and
+    # `environment.py` imports them. Anything reading v1 by module path depends on that split.
+    "caruca/ir/contents.py": """
 from enum import Enum
-from pathlib import Path
 from typing import Annotated
 
-from pydantic import BaseModel, PlainSerializer, PlainValidator, computed_field
+from pydantic import PlainSerializer, PlainValidator
 
 
 class Content(Enum):
     HUMAN_TEXT = b"standard input\\n"
+    MATH = b"1 + 1\\n"
+
+    @staticmethod
+    def variation(level):
+        if level == "simple":
+            return [Content.HUMAN_TEXT]
+        return [Content.HUMAN_TEXT, Content.MATH]
 
     @classmethod
     def deserialize(cls, item):
@@ -112,6 +120,13 @@ SerializableContent = Annotated[
     PlainSerializer(lambda c: c.name, return_type=str),
     PlainValidator(Content.deserialize),
 ]
+""",
+    "caruca/ir/environment.py": """
+from pathlib import Path
+
+from pydantic import BaseModel, computed_field
+
+from caruca.ir.contents import Content, SerializableContent
 
 
 class ArgumentSequenceWithEnv(BaseModel):

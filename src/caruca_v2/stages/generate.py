@@ -191,6 +191,7 @@ def run(
     specification, spec_source = load_specification(command, spec_path)
     probe_values = v1.probe_values()
     config_schema = v1.command_config_schema()
+    variation_values = v1.content_variation_values()
 
     prompt = prompting.build(
         STAGE,
@@ -203,6 +204,8 @@ def run(
             "max_count": str(max_count),
             "stdin_variation": stdin_variation,
             "content_variation": content_variation,
+            "stdin_values": ", ".join(variation_values.get(stdin_variation, [])) or "(none)",
+            "content_values": ", ".join(variation_values.get(content_variation, [])) or "(none)",
             "skip_flags": skip_flags or "(none)",
         },
     )
@@ -218,6 +221,7 @@ def run(
         max_tokens=max_tokens,
         max_turns=max_turns,
         provider=provider,
+        exhaust_instruction=llm.EXHAUST_INSTRUCTION,
         client=active_client,
     )
 
@@ -229,9 +233,14 @@ def run(
                 messages.append({"role": "user", "content": llm.CONTINUE_INSTRUCTION})
         telemetry.append_conversation(run_dir, messages)
 
-    combined = "\n".join(response.text for response in responses)
+    combined = "\n".join(
+        response.text
+        for response in responses
+        if response.text.strip() != llm.EXHAUST_SENTINEL
+    )
     parsed = parse_jsonl(combined)
     truncated = responses[-1].finish_reason == "length"
+    self_terminated = responses[-1].text.strip() == llm.EXHAUST_SENTINEL
 
     invocations_path: Path | None = None
     configs_path: Path | None = None
@@ -339,6 +348,14 @@ def run(
                 # enumerating. Distinguishing that from a model that simply stopped is
                 # what separates "the cap bound" from "the model bound".
                 "hit_turn_cap_while_truncated": truncated and len(responses) >= max_turns,
+                # Recorded because this stage nudges a self-terminated model for more (see
+                # `llm.complete_series`); a result from it is partly measuring the nudge.
+                "continuation_policy": "exhaust",
+                "turns_used": len(responses),
+                "model_declared_complete": self_terminated,
+                "hit_turn_cap_while_incomplete": (
+                    not self_terminated and not truncated and len(responses) >= max_turns
+                ),
             },
             "invocation_comparison": comparison,
         },
