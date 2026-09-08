@@ -17,6 +17,8 @@ from dotenv import load_dotenv
 from . import llm, metrics_db, tools, v1
 from . import ui as ui_module
 from .errors import CarucaV2Error
+from .harness import score as score_module
+from .harness import sweep as sweep_module
 from .stages import annotate as annotate_stage
 from .stages import generate as generate_stage
 from .stages import syntax_spec
@@ -291,6 +293,67 @@ def build_parser() -> argparse.ArgumentParser:
     rebuild.add_argument("--db", type=Path, default=metrics_db.DEFAULT_DB_PATH)
     rebuild.add_argument("--plain", action="store_true")
     rebuild.set_defaults(handler=_run_metrics_rebuild)
+
+    score = subparsers.add_parser(
+        "score",
+        help="Harness: argument-by-argument comparison of a generated syntax spec "
+        "against v1's committed spec or the hand-annotated ground truth. No model call.",
+    )
+    score.add_argument(
+        "command", nargs="*",
+        help="The command the spec describes. Omit with --self-test.",
+    )
+    score.add_argument("--spec", type=Path, default=None, help="Generated spec file to score.")
+    score.add_argument(
+        "--reference",
+        choices=score_module.REFERENCES,
+        default=score_module.REFERENCE_V1_SPECS,
+        help="What to score against (default: %(default)s — the primary population per E0).",
+    )
+    score.add_argument(
+        "--reference-path", type=Path, default=None,
+        help="Explicit reference spec file (overrides --reference; used by mutation arms).",
+    )
+    score.add_argument(
+        "--transform", type=Path, default=None,
+        help="Rename map (JSON) applied to the reference, for renamed-documentation arms.",
+    )
+    score.add_argument(
+        "--cmp-specs", action="store_true",
+        help="Also run v1's own eval/cmp_specs.py (the paper's Q2 instrument) and report "
+        "its number alongside, denominator caveat attached.",
+    )
+    score.add_argument(
+        "--self-test", action="store_true",
+        help="Score each committed exemplar spec against itself; every cell must be perfect.",
+    )
+    score.add_argument("--json", action="store_true", help="Print the full record as JSON.")
+    score.add_argument("--plain", action="store_true")
+    score.set_defaults(handler=_run_score)
+
+    sweep = subparsers.add_parser(
+        "sweep",
+        help="Harness: run one or more campaign files — (commands × models × "
+        "temperatures × samples) over a stage, with ledger resume, budget brakes, "
+        "the configuration freeze gate, and a per-model comparison rollup.",
+    )
+    sweep.add_argument("campaigns", nargs="+", type=Path, help="Campaign JSON file(s).")
+    sweep.add_argument(
+        "--dry-run", action="store_true",
+        help="Enumerate and print the cells without making any model call.",
+    )
+    sweep.add_argument(
+        "--frozen-config", type=Path, default=sweep_module.DEFAULT_FROZEN_CONFIG_PATH,
+        help="Frozen-configuration record the post-freeze gate checks (default: %(default)s).",
+    )
+    sweep.add_argument(
+        "--ledger-root", type=Path, default=sweep_module.DEFAULT_LEDGER_ROOT,
+        help="Where campaign ledgers and summaries live (default: %(default)s).",
+    )
+    sweep.add_argument("--out", type=Path, default=metrics_db.DEFAULT_RUNS_ROOT)
+    sweep.add_argument("--db", type=Path, default=metrics_db.DEFAULT_DB_PATH)
+    sweep.add_argument("--plain", action="store_true")
+    sweep.set_defaults(handler=_run_sweep)
 
     return parser
 
@@ -585,6 +648,133 @@ def _run_metrics_rebuild(args: argparse.Namespace, ui: ui_module.UI) -> int:
     for note in report.skipped:
         ui.warn(f"skipped {note}")
     return EXIT_OK
+
+
+def _fmt_rate(value: float | None) -> str:
+    return "n/a" if value is None else f"{value:.3f}"
+
+
+def _run_score(args: argparse.Namespace, ui: ui_module.UI) -> int:
+    import json as json_module
+
+    if args.self_test:
+        with ui.working("scoring each exemplar spec against itself"):
+            outcome = score_module.self_test()
+        rows = [
+            (command, "perfect" if result["perfect"] else f"IMPERFECT: {result}")
+            for command, result in outcome["commands"].items()
+        ]
+        ui.summary("score --self-test", rows)
+        if not outcome["all_perfect"]:
+            ui.error("self-test failed: an exemplar spec did not score perfectly against itself")
+        return EXIT_OK if outcome["all_perfect"] else EXIT_RUN_FAILED
+
+    if not args.command or args.spec is None:
+        ui.error("score needs a COMMAND and --spec PATH (or --self-test).")
+        return EXIT_SETUP_ERROR
+
+    command = " ".join(args.command)
+    with ui.working(f"scoring {args.spec} against {args.reference_path or args.reference}"):
+        record = score_module.score_spec(
+            command,
+            args.spec,
+            reference=args.reference,
+            reference_path=args.reference_path,
+            transform_path=args.transform,
+            with_cmp_specs=args.cmp_specs,
+        )
+
+    if args.json:
+        print(json_module.dumps(record, indent=2))
+        return EXIT_OK if record.get("scoreable") else EXIT_RUN_FAILED
+
+    if not record.get("scoreable"):
+        ui.error(record.get("error") or "spec could not be scored")
+        return EXIT_RUN_FAILED
+
+    counts = record["counts"]
+    rows = [
+        ("reference", record["reference_source"]),
+        ("matched", f"{counts['matched']} of {counts['reference_flags']} reference flag(s)"),
+        ("missing", str(counts["missing"])),
+        ("spurious", str(counts["spurious"])),
+        ("exact", _fmt_rate(record.get("exact_argument_rate"))),
+        ("f1", _fmt_rate(record.get("f1"))),
+    ]
+    if record.get("transform"):
+        rows.insert(1, ("transform", record["transform"]))
+    if "cmp_specs" in record:
+        cmp = record["cmp_specs"]
+        rows.append(
+            ("cmp_specs", f"{cmp['correct_percentage']:.3f} (field-denominator caveat)"
+             if cmp.get("available") else f"unavailable ({cmp.get('error')})")
+        )
+    ui.summary(f"score {command}", rows)
+    return EXIT_OK
+
+
+def _run_sweep(args: argparse.Namespace, ui: ui_module.UI) -> int:
+    import json as json_module
+
+    exit_code = EXIT_OK
+    for campaign_path in args.campaigns:
+        campaign = sweep_module.load_campaign(campaign_path)
+        cells = sweep_module.enumerate_cells(campaign)
+
+        if args.dry_run:
+            ui.summary(
+                f"sweep {campaign.campaign_id} (dry run)",
+                [
+                    ("stage", campaign.stage),
+                    ("cells", str(len(cells))),
+                    ("models", ", ".join(campaign.models)),
+                    ("brakes", f"max_runs {campaign.max_runs}, max_usd ${campaign.max_usd}"),
+                ],
+            )
+            for cell in cells:
+                print(f"  {cell.key}")
+            continue
+
+        with ui.working(
+            f"campaign {campaign.campaign_id}: {len(cells)} cell(s) over {campaign.stage}"
+        ):
+            report = sweep_module.run_campaign(
+                campaign,
+                out_root=args.out,
+                db_path=args.db,
+                ledger_root=args.ledger_root,
+                frozen_path=args.frozen_config,
+                progress=None,
+            )
+
+        rows = [
+            ("cells", f"{report.completed} completed, {report.skipped_resumed} resumed, "
+             f"{report.failed_content} failed, {report.errored} errored"),
+            ("retries", str(report.transport_retries)),
+            ("tokens", ui_module.tokens(report.prompt_tokens, report.completion_tokens)),
+            ("cost", ui_module.money(report.cost_usd)),
+            ("ledger", str(report.ledger_path)),
+        ]
+        if report.stopped_reason:
+            rows.append(("stopped", report.stopped_reason))
+        for model, rollup in sweep_module.summarize_by_model(report).items():
+            f1 = rollup["mean_f1"]
+            rows.append(
+                (model,
+                 f"{rollup['ok']}/{rollup['cells']} ok, {rollup['validated']} validated, "
+                 f"${rollup['cost_usd']:.4f}"
+                 + (f", mean F1 {f1:.3f}" if f1 is not None else "")),
+            )
+        ui.summary(f"sweep {campaign.campaign_id}", rows)
+
+        summary_path = args.ledger_root / campaign.campaign_id / "summary.json"
+        if summary_path.is_file():
+            rollup = json_module.loads(summary_path.read_text())["by_model"]
+            print(json_module.dumps(rollup, indent=2))
+
+        if report.stopped_reason or report.errored:
+            exit_code = EXIT_RUN_FAILED
+    return exit_code
 
 
 def main(argv: list[str] | None = None) -> int:

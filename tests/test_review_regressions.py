@@ -397,3 +397,70 @@ def test_a_summary_table_also_escapes_its_values():
 
     rendered = re.sub(r"\x1b\[[0-9;]*m", "", stream.getvalue())
     assert "[a-z]" in rendered
+
+
+# --- 8. Relative --out made validation look in <run_dir>/<relative path>/<spec> ---
+#
+# The validation subprocess runs from the spec's own directory; before the fix it was
+# handed the spec path as given, so the CLI's default (relative) `--out eval/runs`
+# resolved the path against itself. Caught by pilot campaign C0 on 2026-09-08 — the
+# first live run — after 170 absolute-path tests missed it.
+
+
+def test_validation_accepts_a_relative_spec_path(fake_v1_root, tmp_path, monkeypatch):
+    from caruca_v2 import v1 as v1_module
+
+    monkeypatch.chdir(tmp_path)
+    relative_dir = Path("eval/runs/some_run")
+    relative_dir.mkdir(parents=True)
+    spec_path = relative_dir / "mkdir.py"
+    spec_path.write_text('mkdir_syntax_spec = [[[("-a",)], [("PATH",)]]]\n')
+
+    outcome = v1_module.validate_syntax_spec("mkdir", spec_path)
+    assert outcome.available, outcome.error
+    assert outcome.passed, outcome.error
+
+
+# --- 9. A frozen-dataclass exception broke contextlib; a raise at __enter__ escaped ---
+#
+# Both caught live by pilot campaign C0 (2026-09-08), on the first model-generated
+# configuration v1 rejected (stdin: null). MaterializationFailure was a frozen dataclass,
+# so contextlib's re-raise crashed with FrozenInstanceError instead of the real error;
+# and `materialize` raises at __enter__ (it is a generator context manager), which the
+# old try/except in trace_one did not cover — one bad config killed the whole run.
+
+
+def test_materialization_failure_survives_contextlib():
+    import contextlib as contextlib_module
+
+    from caruca_v2 import workspace as workspace_module
+
+    @contextlib_module.contextmanager
+    def raising():
+        raise workspace_module.MaterializationFailure(reason="nope", traceback="tb")
+        yield  # pragma: no cover
+
+    with pytest.raises(workspace_module.MaterializationFailure, match="nope"):
+        with raising():
+            pass  # pragma: no cover
+
+
+def test_trace_one_records_a_config_v1_rejects(fake_v1_root, monkeypatch):
+    import contextlib as contextlib_module
+
+    from caruca_v2 import workspace as workspace_module
+    from caruca_v2.stages import trace as trace_module
+
+    @contextlib_module.contextmanager
+    def rejecting(config, **kwargs):
+        raise workspace_module.MaterializationFailure(reason="v1 said no")
+        yield  # pragma: no cover
+
+    monkeypatch.setattr(trace_module.workspace, "materialize", rejecting)
+    outcome = trace_module.trace_one(
+        "mkdir", {"name": "mkdir"}, 0,
+        model="openai/gpt-4o", temperature=0.0, seed=42, max_tokens=64, max_turns=1,
+        isolation=None, keep_workspace=False, provider=None, client=object(),
+    )
+    assert outcome.status == "workspace_failed"
+    assert "v1 said no" in outcome.error

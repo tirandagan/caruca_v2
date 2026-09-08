@@ -1,0 +1,23 @@
+{
+  "campaign_id": "c0_trace",
+  "description": "C0 pilot, stage 3: calibrate tool-loop token profile per model. Chains from c0_generate's model-produced configs (the only stage-3 input path); non-destructive commands, 2 configurations each to bound cost.",
+  "stage": "trace",
+  "commands": [
+    "mkdir",
+    "cat",
+    "wc"
+  ],
+  "models": [
+    "openai/gpt-4o",
+    "anthropic/claude-haiku-4.5"
+  ],
+  "temperatures": [
+    0.0
+  ],
+  "samples": 1,
+  "max_runs": 6,
+  "max_usd": 3.0,
+  "stage_options": {
+    "limit": 2
+  }
+}

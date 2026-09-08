@@ -1,0 +1,12 @@
+{
+  "campaign_id": "c0_syntax_spec",
+  "description": "C0 pilot, stage 1: calibrate real token/cost per model. 3 commands x 2 models (paper baseline gpt-4o first, then claude-haiku-4.5 for comparison, per Tiran 2026-09-08). Scored immediately against v1's committed specs.",
+  "stage": "syntax_spec",
+  "commands": ["mkdir", "cat", "wc"],
+  "models": ["openai/gpt-4o", "anthropic/claude-haiku-4.5"],
+  "temperatures": [0.0],
+  "samples": 1,
+  "score_after": true,
+  "max_runs": 6,
+  "max_usd": 1.0
+}

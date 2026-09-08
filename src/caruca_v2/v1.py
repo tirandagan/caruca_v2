@@ -195,6 +195,12 @@ def validate_syntax_spec(command: str, spec_path: Path) -> ValidationResult:
     except V1AccessError as exc:
         return ValidationResult.unavailable(str(exc))
 
+    # The subprocess runs from the spec's own directory (below), so a relative spec path
+    # would resolve against itself and point at nothing. Caught live by pilot campaign
+    # C0 on 2026-09-08: the CLI's default `--out eval/runs` is relative, every test path
+    # was absolute, and the very first real run failed validation on a correct spec.
+    spec_path = spec_path.resolve()
+
     # cwd mirrors v1, which validated from the directory holding the spec file.
     # Bytecode writing is disabled so validation leaves no `__pycache__` inside a run
     # directory: run directories are evidence, and nothing but evidence belongs in them.
@@ -837,3 +843,198 @@ def v1_commit() -> str | None:
     except (OSError, subprocess.TimeoutExpired, V1AccessError):
         return None
     return completed.stdout.strip() or None
+
+
+# --- Harness support (task 006): spec inventories, ground truth, and v1's own comparator ---
+
+# Interprets a spec file the same way validation does — through v1's own venv — and walks
+# the resulting DSL value into a flat argument inventory. The walker also accepts plain
+# tuples so the test suite's fake checkout (whose specs are tuples, not DSL objects)
+# exercises the identical subprocess path.
+_DUMP_SPEC_SCRIPT = """
+import importlib.util, json, sys, traceback
+
+spec_path, symbol = sys.argv[1], sys.argv[2]
+result = {"ok": False, "error": None, "traceback": None, "entries": []}
+
+
+def describe(element):
+    if hasattr(element, "flag"):
+        entry = {
+            "kind": type(element).__name__,
+            "flag": element.flag,
+            "alias": [str(a) for a in (getattr(element, "alias", None) or [])],
+            "arity": str(getattr(element, "arity", None)),
+            "flag_followed_by_equals": bool(getattr(element, "flag_followed_by_equals", False)),
+            "takes_value": type(element).__name__ != "Flag",
+        }
+        choices = getattr(element, "choices", None)
+        if choices is not None:
+            entry["choices"] = [str(choice) for choice in choices]
+        return entry
+    if isinstance(element, tuple) and element:
+        head = str(element[0])
+        flag = head if head.startswith("-") else None
+        return {
+            "kind": "raw",
+            "flag": flag,
+            "alias": [],
+            "arity": None,
+            "flag_followed_by_equals": False,
+            "takes_value": False,
+            "value_name": None if flag else head,
+        }
+    return {
+        "kind": type(element).__name__,
+        "flag": None,
+        "alias": [],
+        "arity": None,
+        "flag_followed_by_equals": False,
+        "takes_value": False,
+        "opaque": True,
+    }
+
+
+try:
+    spec = importlib.util.spec_from_file_location("caruca_v2_scored_spec", spec_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    value = getattr(module, symbol)
+    for syntax_index, syntax in enumerate(value):
+        for group_index, group in enumerate(syntax):
+            for element in group:
+                entry = describe(element)
+                entry["syntax_index"] = syntax_index
+                entry["group_index"] = group_index
+                result["entries"].append(entry)
+    result["ok"] = True
+except BaseException as exc:
+    result["error"] = f"{type(exc).__name__}: {exc}"
+    result["traceback"] = traceback.format_exc()
+
+print(json.dumps(result))
+"""
+
+
+@dataclass(frozen=True)
+class SpecInventory:
+    """A spec file flattened to argument entries, as v1's own interpreter read it."""
+
+    ok: bool
+    available: bool
+    entries: list[dict[str, Any]]
+    error: str | None = None
+
+    @classmethod
+    def unavailable(cls, reason: str) -> SpecInventory:
+        return cls(ok=False, available=False, entries=[], error=reason)
+
+
+def dump_spec_inventory(command: str, spec_path: Path) -> SpecInventory:
+    """Ask v1 to interpret a spec file and flatten it into argument entries."""
+    try:
+        data = _run_in_v1_venv(
+            _DUMP_SPEC_SCRIPT, str(spec_path), f"{slug(command)}_syntax_spec"
+        )
+    except (V1AccessError, subprocess.TimeoutExpired) as exc:
+        return SpecInventory.unavailable(str(exc))
+    return SpecInventory(
+        ok=bool(data["ok"]),
+        available=True,
+        entries=list(data["entries"]),
+        error=data["error"],
+    )
+
+
+def ground_truth_flags_path(command: str) -> Path:
+    """The hand-annotated flag inventory (part of the 80-person-hour ground truth)."""
+    return package_root() / "doc_sources" / "ground-truth" / f"{slug(command)}.json"
+
+
+def ground_truth_flags(command: str) -> dict[str, Any] | None:
+    path = ground_truth_flags_path(command)
+    if not path.is_file():
+        return None
+    return json.loads(path.read_text())
+
+
+@dataclass(frozen=True)
+class CmpSpecsResult:
+    """What v1's own `eval/cmp_specs.py` said — the paper's Q2 instrument.
+
+    Kept for comparability with the published number. Its denominator counts dataclass
+    *fields* rather than arguments (`memory/caruca_v1_eval_tooling_notes.md`; fix open
+    upstream as binpash/caruca#54), so this figure and the structural score are reported
+    side by side and never blended.
+    """
+
+    available: bool
+    correct_percentage: float | None = None
+    diff_count: int | None = None
+    reference_fields: int | None = None
+    error: str | None = None
+
+    @classmethod
+    def unavailable(cls, reason: str) -> CmpSpecsResult:
+        return cls(available=False, error=reason)
+
+
+def run_cmp_specs(
+    command: str, generated_path: Path, reference_path: Path, *, timeout: int = 120
+) -> CmpSpecsResult:
+    """Run v1's own spec comparator on two spec files, inside v1's venv."""
+    script = v1_root() / "eval" / "cmp_specs.py"
+    if not script.is_file():
+        return CmpSpecsResult.unavailable(f"v1's comparator not found at {script}.")
+    try:
+        python = venv_python()
+    except V1AccessError as exc:
+        return CmpSpecsResult.unavailable(str(exc))
+
+    # cwd is a scratch directory: the script appends a `correct_specs.txt` beside itself
+    # otherwise, and nothing may write into the v1 checkout.
+    import tempfile
+
+    with tempfile.TemporaryDirectory(prefix="caruca_v2_cmp_specs_") as scratch:
+        try:
+            completed = subprocess.run(
+                [str(python), str(script), slug(command), str(generated_path),
+                 str(reference_path)],
+                capture_output=True,
+                text=True,
+                timeout=timeout,
+                cwd=scratch,
+                env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"},
+            )
+        except subprocess.TimeoutExpired:
+            return CmpSpecsResult.unavailable(f"cmp_specs did not finish within {timeout}s")
+
+    if completed.returncode != 0:
+        return CmpSpecsResult.unavailable(
+            f"cmp_specs exited {completed.returncode}: {completed.stderr.strip()[-500:]}"
+        )
+
+    diff_count: int | None = None
+    reference_fields: int | None = None
+    percentage: float | None = None
+    for line in completed.stdout.splitlines():
+        text = line.strip()
+        with contextlib.suppress(ValueError, IndexError):
+            if text.startswith("Number of different elements:"):
+                diff_count = int(text.split(":")[1])
+            elif text.startswith("Number of elements in ground truth:"):
+                reference_fields = int(text.split(":")[1])
+            elif text.startswith("Correct percentage:"):
+                percentage = float(text.split(":")[1])
+
+    if percentage is None:
+        return CmpSpecsResult.unavailable(
+            f"cmp_specs output carried no `Correct percentage:` line: "
+            f"{completed.stdout.strip()[-300:]}"
+        )
+    return CmpSpecsResult(
+        available=True,
+        correct_percentage=percentage,
+        diff_count=diff_count,
+        reference_fields=reference_fields,
+    )

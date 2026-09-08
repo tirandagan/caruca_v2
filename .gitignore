@@ -32,3 +32,5 @@ node_modules/
 # private, unlicensed checkout, and metrics.db is a rebuildable per-machine cache.
 eval/runs/
 eval/metrics.db
+eval/campaigns/
+eval/docs_variants/

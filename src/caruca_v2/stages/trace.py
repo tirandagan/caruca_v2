@@ -14,6 +14,7 @@ own models to build the file, so it is valid by construction.
 
 from __future__ import annotations
 
+import contextlib
 import json
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -135,18 +136,25 @@ def trace_one(
     client: OpenAI,
 ) -> ConfigOutcome:
     """Run one agent session against one configuration's prepared workspace."""
+    # `materialize` is a generator-based context manager, so its body — including the
+    # failure raise — runs at `__enter__`, not at the call. The enter therefore has to
+    # sit inside the try, or a config v1 rejects crashes the whole run instead of being
+    # recorded as this configuration's outcome. Caught live by pilot campaign C0.
+    stack = contextlib.ExitStack()
     try:
-        context = workspace.materialize(
-            config,
-            keep=keep_workspace,
-            root_dir=isolation.workspace_root if isolation else None,
+        space = stack.enter_context(
+            workspace.materialize(
+                config,
+                keep=keep_workspace,
+                root_dir=isolation.workspace_root if isolation else None,
+            )
         )
     except workspace.MaterializationFailure as exc:
         return ConfigOutcome(
             index=index, invocation=None, status="workspace_failed", error=str(exc)
         )
 
-    with context as space:
+    with stack:
         executor = tools.ToolExecutor(command=command, workspace=space, isolation=isolation)
         prompt = prompting.build(
             STAGE,

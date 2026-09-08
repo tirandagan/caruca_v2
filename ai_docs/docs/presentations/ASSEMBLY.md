@@ -4,7 +4,7 @@ What to hand to Prof. Michael Greenberg and Prof. William Eiers alongside the sl
 listed here is cited by name in a footnote on at least one slide, so a reader who follows a footnote
 should find the matching PDF in the package.
 
-Generated 29 August 2026, from `caruca_v2_status.pptx` in this folder.
+Generated 29 August 2026, from the deck now kept in Dropbox as `2026-08-31 Review.pptx` (see The deck, below).
 
 ## File naming
 
@@ -23,9 +23,18 @@ documented command below stays valid, and `ASSEMBLY.md` stays findable.
 
 ## The deck
 
-`caruca_v2_status.pptx` — 26 slides, one deck for both advisors. **Not currently present in this
-folder** — it is generated, not committed. Rebuild it with `build_decks.py` (command at the bottom
-of this file) before assembling a package.
+26 slides, one deck for both advisors.
+
+**The live deck is in Dropbox, not in this repository:**
+`/03 Academic/Stevens/05 Research/Caruca/2026-08-31 Review.pptx`, with a PDF export
+`2026-08-31 Review.pdf` beside it and the logo and fonts in the same folder. It was renamed from
+`caruca_v2_status.pptx` to the review date when it moved there.
+
+`build_decks.py` in this folder regenerates a deck from scratch as `caruca_v2_status.pptx`, but that
+is **not** a substitute for the Dropbox copy. As the note at the end of this file warns, hand edits
+made in PowerPoint are overwritten by the build script, and keeping a renamed copy is exactly how
+you protect them — which is what the Dropbox filename is. Treat Dropbox as authoritative and the
+script as the way to regenerate structure, not as a source of the current slides.
 
 **Slides 3 and 4 are background** on what Caruca is and why the comparison is worth running. Skip them
 when presenting live to Michael, who co-authored Caruca and does not need them. Walk through them with
@@ -92,7 +101,7 @@ so you can check nothing is missing.
 
 ## Addendum — added after the August deck
 
-These two documents postdate `caruca_v2_status.pptx` and are **not cited on any slide**, so they sit
+These two documents postdate the deck and are **not cited on any slide**, so they sit
 outside the "every document here is footnoted somewhere in the deck" rule that governs the numbered
 list above. Include them when the conversation is about research framing rather than build status.
 If they later earn slides, move them into the numbered list and record the slide numbers.
@@ -126,7 +135,7 @@ If they later earn slides, move them into the numbered list and record the slide
 
 ## Suggested order in the package
 
-1. `caruca_v2_status` — the deck
+1. `2026-08-31 Review` — the deck (from Dropbox)
 2. `master_idea` — the goal and the measures, which frames everything else
 3. `system_architecture` — how the pieces fit
 4. `roadmap` — what gets built and in what order

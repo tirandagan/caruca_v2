@@ -59,12 +59,19 @@ class Workspace:
         return str(Path(v1.PLACEHOLDER_SANDBOX) / relative)
 
 
-@dataclass(frozen=True)
 class MaterializationFailure(Exception):
-    """v1 could not build the working directory for this configuration."""
+    """v1 could not build the working directory for this configuration.
 
-    reason: str
-    traceback: str | None = None
+    A plain exception on purpose: a frozen-dataclass exception cannot have
+    `__traceback__` assigned, which makes `contextlib` explode with a
+    `FrozenInstanceError` that shadows the real failure. Caught live by pilot
+    campaign C0 on 2026-09-08, on the first model-generated config v1 rejected.
+    """
+
+    def __init__(self, reason: str, traceback: str | None = None) -> None:
+        super().__init__(reason)
+        self.reason = reason
+        self.traceback = traceback
 
     def __str__(self) -> str:
         return self.reason

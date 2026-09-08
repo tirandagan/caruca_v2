@@ -1,0 +1,12 @@
+{
+  "campaign_id": "c0_annotate",
+  "description": "C0 pilot, stage 4: calibrate annotation token profile per model. Small-trace commands (fresh E0 traces); v1-side comparison off for the pilot (needs Lima on macOS).",
+  "stage": "annotate",
+  "commands": ["arch", "dirname", "printenv"],
+  "models": ["openai/gpt-4o", "anthropic/claude-haiku-4.5"],
+  "temperatures": [0.0],
+  "samples": 1,
+  "max_runs": 6,
+  "max_usd": 2.0,
+  "stage_options": {"format": "pash", "compare": false}
+}

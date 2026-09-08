@@ -18,3 +18,4 @@
 - [No AI credit](feedback_no_ai_credit.md) — never add Co-Authored-By/Generated-with-Claude lines to commits, PRs, or other outward-facing artifacts, in any repo
 - [Mac Lima tracing env](mac_lima_tracing_env.md) — Mac can now run v1 tracing via Lima VM "caruca" (Ubuntu 24.04, userns fix persisted); ls verified end to end 2026-09-03; ops doc in ai_docs/docs
 - [v1 macOS annotate limit](caruca_v1_macos_annotate_limitation.md) — v1's `annotate` cannot run on macOS at all (hardcoded /tmp vs /private/tmp); v1-side annotation diffs must run in the Lima VM
+- [Experiment program](project_experiment_program.md) — planned end-to-end 2026-09-06; run-matrix approval (implementation plan Part 6) is the single gate; task 006 = harness BUILT, C0 pilot DONE, task 007 = agentic-SDK arm directed into scope 2026-09-08 (4 defects caught+fixed; stage-1 perfect both models; v1 stdin-schema hole found); E0 DONE (analysis/e0_artifact_pinning.md)
