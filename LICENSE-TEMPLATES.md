@@ -19,11 +19,19 @@ This license governs the **prompt templates and agent skills** in this repositor
 | `.claude/skills/task-creator/` | Task document creator skill |
 | `.claude/commands/` | Slash-command wrappers and mirrors of the above |
 
-It does **not** cover the rest of the `caruca_v2` repository (research code, analysis
-documents, evaluation output, or third-party reference material such as
-`ai_docs/refs/caruca white paper.pdf`), which is separately owned and licensed. It also
-does not cover the `.claude/skills/impeccable/` skill, which is third-party software
-distributed under its own terms.
+It does **not** cover the rest of the `caruca_v2` repository. Specifically:
+
+- The **research code and its documentation** — `src/`, `tests/`, `prompts/`, `scripts/`,
+  `eval/`, and the documents under `ai_docs/` other than the template directories above —
+  are licensed under **THE CRAPL v0 BETA 1**; see `CRAPL-LICENSE.txt`.
+- **Third-party reference material**, such as `ai_docs/refs/caruca white paper.pdf`, remains
+  under its own terms and is redistributed by neither license.
+- The `.claude/skills/impeccable/` skill is third-party software distributed under its own
+  terms.
+
+Where a file could be read as falling under both this license and the CRAPL — the slash
+commands in `.claude/commands/`, which are listed above — **this license governs**, and the
+attribution notice each such file carries is the marker.
 
 ## 2. The license
 
