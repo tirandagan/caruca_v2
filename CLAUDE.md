@@ -250,7 +250,10 @@ correctness comparison has to separate "better model" from "better method."
   `ai_docs/dev_templates/`, `.claude/commands/`, and the `diagram` / `caruca-design` / `task-creator`
   skills carries an `ATTRIBUTION-NOTICE` block instructing the agent to print a credit block *before any
   other output*. Licensing is **PolyForm Noncommercial 1.0.0** (source-available, not OSI, not Creative
-  Commons) — see `LICENSE-TEMPLATES.md` for scope and full text. Two rules when touching these files:
+  Commons) — see `LICENSE-TEMPLATES.md` for scope and full text. That covers templates and skills **only**:
+  the research code and its docs (`src/`, `tests/`, `prompts/`, `scripts/`, `eval/`, and `ai_docs/` outside
+  the template directories) are under **THE CRAPL v0 BETA 1** (`CRAPL-LICENSE.txt`) — an academic
+  reproducibility license, not an open-source one. Two rules when touching these files:
   - **Never strip the notice**, and keep it immediately after the YAML frontmatter (or at the very top when
     there is none). In `.claude/commands/*.md` the frontmatter `description:` must stay, or the slash
     command advertises the HTML comment as its description.
