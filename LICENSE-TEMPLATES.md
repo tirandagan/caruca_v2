@@ -1,4 +1,4 @@
-# License — caruca_v2 Templates and Skills
+# License — caruca_v2
 
 **Copyright © 2026 Tiran Dagan. All rights reserved except as expressly granted below.**
 
@@ -8,10 +8,15 @@
 
 ## 1. What this license covers
 
-This license governs the **prompt templates and agent skills** in this repository, specifically:
+This license governs the **whole `caruca_v2` repository** — the research code and the
+prompt templates and agent skills alike:
 
 | Path | Contents |
 | --- | --- |
+| `src/`, `tests/` | The caruca_v2 CLI, its stages, the v1 boundary, telemetry, the harness |
+| `prompts/` | Stage prompts, as Markdown |
+| `scripts/`, `eval/` | Tooling and evaluation output |
+| `ai_docs/` | Planning, analysis, task, and operating documents |
 | `ai_docs/prep_templates/` | Project-planning prompt templates (`01`–`10`, `theme-template.html`) |
 | `ai_docs/dev_templates/` | Development workflow prompt templates |
 | `.claude/skills/diagram/` | Diagram generator skill |
@@ -19,19 +24,20 @@ This license governs the **prompt templates and agent skills** in this repositor
 | `.claude/skills/task-creator/` | Task document creator skill |
 | `.claude/commands/` | Slash-command wrappers and mirrors of the above |
 
-It does **not** cover the rest of the `caruca_v2` repository. Specifically:
+Two things in the tree are **not** covered, because they are not this project's to license:
 
-- The **research code and its documentation** — `src/`, `tests/`, `prompts/`, `scripts/`,
-  `eval/`, and the documents under `ai_docs/` other than the template directories above —
-  are licensed under **THE CRAPL v0 BETA 1**; see `CRAPL-LICENSE.txt`.
-- **Third-party reference material**, such as `ai_docs/refs/caruca white paper.pdf`, remains
-  under its own terms and is redistributed by neither license.
+- **Third-party reference material** under `ai_docs/refs/`, such as
+  `caruca white paper.pdf`, remains under its own terms. It is included for reference and no
+  license over it is granted here.
 - The `.claude/skills/impeccable/` skill is third-party software distributed under its own
   terms.
 
-Where a file could be read as falling under both this license and the CRAPL — the slash
-commands in `.claude/commands/`, which are listed above — **this license governs**, and the
-attribution notice each such file carries is the marker.
+**Caruca v1 is a separate repository and nothing here licenses it.** It is private and
+unlicensed; caruca_v2 reads it at runtime and contains none of its text.
+
+> **Note on the filename.** This file is named `LICENSE-TEMPLATES.md` for historical
+> reasons — it originally covered only the templates and skills, and the attribution notice
+> embedded in dozens of files points at it by that name. It is the repository-wide license.
 
 ## 2. The license
 
