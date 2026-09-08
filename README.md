@@ -1,109 +1,123 @@
 # caruca_v2
 
-A research project, not a product. It asks how much of **Caruca**'s hand-written
-specification-mining pipeline an LLM can replace, and measures the answer against the
-original implementation ("v1") and against human ground truth.
+A research project, not a product. It asks how much of **Caruca**'s specification-mining
+pipeline an LLM can carry out, and measures the answer against the original implementation
+("v1") and against human ground truth.
 
-Planning documents live in `ai_docs/prep/`; `CLAUDE.md` is the orientation document for
-the project as a whole. What follows covers the Python CLI only.
+> **📖 [Pipeline Usage Guide](ai_docs/docs/pipeline_usage_guide.md)** — installation, every
+> command, real terminal output, and how to handle failures. Start there to actually run
+> anything.
+
+---
+
+## Provenance: what v1 established, and what v2 asks
+
+Caruca is a system for mining partial specifications for opaque shell commands. It was
+built by Lamprou, Jung, Keoliya, Lazarek, Kallas, Greenberg, and Vasilakis
+([arXiv:2510.14279](https://arxiv.org/abs/2510.14279), October 2025), and it works: 59 of
+60 commands annotated correctly across four downstream consumers, and 116 of 120 syntax
+specifications matching hand-built ground truth exactly.
+
+v1 reaches those numbers with a deliberately narrow use of an LLM. A model reads a man page
+and emits a syntax specification; **every stage after that is hand-written code** —
+configuration generation, sandboxed execution under `strace`, specification derivation, and
+the four output adapters. The paper is explicit: "the LLM solely generates the syntax
+specification — it is not involved in any remaining components."
+
+That boundary is the opening this project works in. v2 replicates each of v1's stages with
+an LLM standing where the procedural code stands, plus a deliberately naive single-prompt
+control, and measures all three against each other on six dimensions: correctness, cost,
+coverage, reproducibility, the v1→v2 delta per dimension, and how much hand-encoded logic
+is replaced for equal-or-better output.
+
+Two properties of the design follow from that goal:
+
+- **v1 is read at runtime, never imported and never copied.** It is a separate, private
+  repository; caruca_v2 shells out to it and reads its corpus from `CARUCA_V1_ROOT`. None of
+  its text lives in this repository.
+- **v1 validates v2's output, not the other way round.** Every artifact a stage produces is
+  checked by running it through v1's own interpreter and pydantic models. A failed
+  validation is recorded and the run exits non-zero — it never triggers a retry, because a
+  control that quietly re-asks until it succeeds has stopped being a control.
+
+`CLAUDE.md` is the orientation document for the project as a whole; planning documents live
+in `ai_docs/prep/`, findings in `ai_docs/analysis/`.
+
+---
+
+## The pipeline at a glance
+
+| # | Command | In | Out |
+|---|---|---|---|
+| 1 | `naive-llm` | a command's documentation | syntax specification (`<cmd>.py`) |
+| 2 | `generate` | a syntax specification | invocations + configurations |
+| 3 | `trace` | configurations | v1-compatible traces |
+| 4 | `annotate` | traces | one consumer's annotation |
+| 5 | `metrics rebuild` | run directories | `eval/metrics.db` |
+
+Plus two measurement tools that make no model call and cost nothing: `score`
+(argument-by-argument spec comparison) and `sweep --dry-run` (enumerate a campaign before
+paying for it).
+
+Each stage defaults its input to v1's own committed artifact, so every stage is measurable
+independently; pass `--docs`, `--spec`, `--configs`, or `--traces` to chain them instead.
+
+---
 
 ## Install
 
-Requires Python 3.12 or newer and [`uv`](https://docs.astral.sh/uv/).
+**With Claude Code** — the repository ships two slash commands:
+
+```
+/setup_pipeline      detect this machine, validate every prerequisite, install what is missing
+/run_pipeline        walk the pipeline stage by stage, with a cost gate before each model call
+```
+
+`/setup_pipeline` detects which of four machine shapes you are on — macOS host, WSL2,
+native Linux, or inside a Linux guest — because every install recipe differs between them.
+It will also clone and configure the v1 checkout if this machine does not have one. They
+are plain Markdown in `.claude/commands/`, readable and followable by hand.
+
+**Manually** — requires Python 3.12+ and [`uv`](https://docs.astral.sh/uv/):
 
 ```sh
 uv sync
-cp .env.example .env      # then fill in the two required values
+cp .env.example .env      # then fill in OPENROUTER_API_KEY and CARUCA_V1_ROOT
 ```
 
-The CLI is then available as `.venv/bin/caruca-v2` (or `caruca-v2` with the venv active).
+The CLI is then at `.venv/bin/caruca-v2`. A v1 checkout with its own virtualenv is required
+for anything beyond `--help`; see the
+[guide](ai_docs/docs/pipeline_usage_guide.md#the-v1-checkout).
 
-## Environment
-
-| Variable | Required | Meaning |
-|---|---|---|
-| `OPENROUTER_API_KEY` | yes | The single key. Every candidate model is reached through the OpenRouter gateway, so one code path serves them all. |
-| `CARUCA_V1_ROOT` | yes | Path to the caruca v1 checkout — the repository root, the directory containing `caruca/`. Per-machine: `~/dev/stevens/caruca` on the Mac, `~/stevens/caruca` on the WSL PC. |
-| `CARUCA_V2_LOG_CONVERSATION` | no | Set to `1` to write `conversation.jsonl` into every run directory, same as `--log-conversation`. |
-
-v1 is read at runtime and never imported: it is a separate, private repository, and none
-of its text is copied into this one.
-
-## Usage
-
-Every subcommand is a thin wrapper over one typed function in `src/caruca_v2/stages/`,
-so anything the CLI can do can also be called directly.
+## Quick start
 
 ```sh
-# Stage 1 (the naive control): documentation in, a v1-DSL syntax specification out.
-caruca-v2 naive-llm mkdir --model openai/gpt-4o --temperature 0.0
-
-# Stage 2: a syntax specification in, the invocations it allows and their environments out.
-caruca-v2 generate mkdir --model openai/gpt-4o --temperature 0.0
-
-# Stage 3: run each configuration in a prepared workspace, record what the command did.
-caruca-v2 trace cat --limit 5 --model openai/gpt-4o --temperature 0.0
-
-# Stage 4: traces in, one consumer's annotation out (pash | posh | sash | shellcheck).
-caruca-v2 annotate pash ls --model openai/gpt-4o --temperature 0.0
-
-# Regenerate the metrics database from the run directories on disk.
-caruca-v2 metrics rebuild
+caruca-v2 naive-llm mkdir --model openai/gpt-4o --temperature 0.0   # stage 1
+caruca-v2 score mkdir --spec eval/runs/<run-id>/mkdir.py            # free: how good was it?
+caruca-v2 metrics rebuild                                           # free: refresh the database
 ```
 
-Each stage defaults its input to the deterministic v1-sourced artifact, so comparisons
-are reproducible; point `--docs`, `--spec`, `--configs`, or `--traces` at an earlier
-stage's output to chain the pipeline instead.
+`--model` and `--temperature` are required on every stage on purpose: no run is recorded
+without the configuration that produced it being stated.
 
-### Two things that spend money, and two that are refused
+Costs, isolation requirements, and every failure mode are in the
+[Pipeline Usage Guide](ai_docs/docs/pipeline_usage_guide.md).
 
-`trace` opens one model session per configuration, so `--limit` (default 5) is the cost
-brake; running a full configuration set is an explicit choice. `generate` and `annotate`
-continue across turns **only** when the token cap cut a response off — a model that stops
-on its own is never asked for more.
+---
 
-Destructive commands (`rm`, `mv`, `chmod`, and similar) are refused outright by `trace`
-unless `--isolation lima` runs them inside the Lima VM. On macOS, v1's own annotator
-cannot run at all — it resolves paths against a hardcoded `/tmp` prefix that macOS
-rewrites to `/private/tmp` — so the v1 side of an annotation diff needs
-`--v1-runner lima`.
+## Repository layout
 
-`--model` and `--temperature` are required on purpose. They stay explicit until the
-one-time configuration selection freezes a choice, so no run can be recorded without the
-configuration that produced it being stated.
-
-Exit codes: `0` when a specification was produced *and* validated by v1, `1` when the run
-completed but its output was unusable (recorded, not retried), `3` on a configuration
-problem such as a missing key or an unreachable v1 checkout.
-
-## What a run leaves behind
-
-```
-eval/runs/2026-09-04T101530Z_mkdir_a1b2/
-├── mkdir.py                  # the stage's output, in v1's own format
-├── mkdir.telemetry.json      # tokens, cost, wall-clock, model, seed, prompt hash
-├── manifest.json             # the full request, the raw response, the checks that ran
-└── conversation.jsonl        # only with --log-conversation
-```
-
-The multi-turn stages write one telemetry sidecar per model turn
-(`mkdir.turn-00.telemetry.json`, …), all sharing the run id. `manifest.json` carries the
-stage's `checks`: the invocation set-diff for `generate`, the tool audit trail and
-per-session record for `trace`, the two annotation diffs for `annotate`.
-
-Whatever a stage produces is validated by **v1 itself**, in a subprocess against v1's own
-interpreter and pydantic models — never by our imitation of its formats. A failed
-validation is recorded and the run exits non-zero; it never triggers a retry, because a
-weak control that quietly re-asks until it succeeds is no longer a control.
-
-Each completed run also appends a row to `eval/metrics.db`, a SQLite view over those
-files for cross-run queries. The JSON files are the source of truth; the database is a
-cache, and `caruca-v2 metrics rebuild` regenerates it from them.
-
-`eval/runs/` and `eval/metrics.db` are gitignored. Run directories embed prompt text read
-from the private v1 checkout, and a binary database does not merge across machines. What
-gets committed is the write-up in `ai_docs/analysis/`, which ties back to local runs by
-`prompt_hash`.
+| Path | Contents |
+|---|---|
+| `src/caruca_v2/` | the CLI, the four stages, the v1 boundary, telemetry, the harness |
+| `prompts/` | every prompt, as Markdown, one directory per stage |
+| `ai_docs/docs/` | operating instructions for v2 and for v1 |
+| `ai_docs/analysis/` | findings produced by this project |
+| `ai_docs/prep/` | planning: master idea, architecture, telemetry schema, roadmap |
+| `ai_docs/tasks/` | numbered task documents for multi-session work |
+| `.claude/commands/` | slash commands, including setup and pipeline walkthrough |
+| `eval/` | run directories, campaign ledgers, the metrics database (gitignored) |
+| `memory/` | cross-session project memory; `MEMORY.md` is the index |
 
 ## Development
 
@@ -112,5 +126,12 @@ uv run pytest          # the whole suite; every test mocks the model, none spend
 uv run ruff check .
 ```
 
-Two rules the test suite enforces rather than documents: no test can reach OpenRouter,
-and no test needs a v1 checkout (it builds a fake one from text written for the purpose).
+Two rules the test suite enforces rather than documents: no test can reach OpenRouter, and
+no test needs a v1 checkout — it builds a fake one from text written for the purpose.
+
+## License
+
+Templates, prompts, and skills under `ai_docs/*_templates/`, `.claude/commands/`, and
+`.claude/skills/` are licensed under
+[PolyForm Noncommercial 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0);
+see `LICENSE-TEMPLATES.md`.
