@@ -156,9 +156,18 @@ on the profile.
 | `C2` | Lima | `command -v limactl` |
 | `C3` | The `caruca` instance exists | `limactl list` shows it |
 | `C4` | It is running | status is `Running` (if `Stopped`, that is a one-command fix, not a failure) |
-| `C5` | The home mount is writable and at the same path | `limactl shell caruca -- test -w "$HOME"` |
+| `C5` | The Mac home is mounted read-write at the same path | `limactl shell caruca -- test -w "$CARUCA_V1_ROOT"` |
 | `C6` | User namespaces work inside the guest | `limactl shell caruca -- unshare --user --map-root-user true` exits 0 |
-| `C7` | v1 is installed Linux-side | `limactl shell caruca -- test -x ~/caruca-venv/bin/caruca` |
+| `C7` | v1 is installed Linux-side | `limactl shell caruca -- bash -lc 'test -x ~/caruca-venv/bin/caruca'` |
+
+**Quote anything that must expand guest-side.** The guest home is *not* the mounted Mac
+home: inside the VM `$HOME` is `/home/<user>.guest`, while the Mac home is mounted
+separately at its own `/Users/<user>` path. So `~/caruca-venv` is guest-local, but an
+unquoted `~` or `$HOME` in a `limactl shell` command is expanded by the **Mac** shell before
+Lima ever sees it — `C7` written as `limactl shell caruca -- test -x ~/caruca-venv/...`
+checks `/Users/<user>/caruca-venv` and falsely reports the venv missing. Wrap in
+`bash -lc '...'` (single-quoted) so expansion happens on the guest side. The same trap
+applies to every remediation command below.
 
 **Profiles B, C, D (Linux, here) — the same checks without the `limactl shell` prefix:**
 
