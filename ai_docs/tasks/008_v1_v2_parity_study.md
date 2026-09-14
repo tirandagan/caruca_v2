@@ -631,11 +631,39 @@ never re-asked for a better answer.
 ground-truth annotations, so a parity campaign can never use it. `stage_options.traces_pattern`
 now substitutes the command. That attempt cost **$0.00** — the guard fired before any model call.
 
-### Stage 3 — not yet run
+### Stage 3 — execution and tracing: **does not replicate**
 
-The $38 line, and the only stage with no measured cost basis. `rm` and `tee` are on the
-destructive list, so the campaign runs with `isolation: lima` — now wired into the sweep
-runner, which previously hardcoded `isolation=None`.
+27 cells, 12 ok, 15 failed. **$0.940** against a $38 ceiling and a $13.50-47.25 estimate — an
+order-of-magnitude overestimate, corrected by measurement. Ran in Lima (`rm` and `tee` are on
+the destructive list) against **v1's own configuration expansion**, not stage 2's output, so an
+upstream typing error is not scored twice.
+
+**The dominant failure is protocol, not accuracy.** Across 135 tool-loop sessions, **105 (78%)
+ended without calling `report_observations`**: turn 1 runs the command, turn 2 answers in prose,
+the loop ends with thirteen of fifteen turns unused. Every session performed exactly one
+execution. Command-dependence rules out noise — `pwd` 13/15 reporting, `rm` 7/15, `cat` and
+`sha256sum` 4/15, `tail` and `tee` 1/15, `tac`/`uniq`/`wc` **0/15**.
+
+This is **model behaviour, not an instrument defect**: the tool is registered, the system prompt
+asks for it by name, and the request is answerable. (Checked: an early reading suggested a
+tool-name mismatch between `report_observations` and `report_obs`, but that was truncation in a
+diagnostic print, not a real discrepancy.) It is the same shape as stage 2's stop-at-10-of-122,
+which was addressed by asking once whether anything was missing. **Doing the equivalent here is
+deliberately not taken** — it would be the second nudge on the LLM side, and every nudge runs in
+the direction of flattery. Raising it as a scope question rather than fixing it quietly.
+
+Where a session did report, pooled over 17 core and 11 inference units:
+
+| tier | precision | recall |
+|---|---|---|
+| core `{ad md de mo wf rd}` | 0.769 | 0.588 |
+| inference `{rf}` | 1.000 | 0.545 |
+
+Per command the result is bimodal, not middling: `cat`/`pwd`/`sha256sum` 1.000 core recall,
+`tee` 0.250, `rm`/`tail` 0.000. Read the denominators first — v1's projected traces hold **2
+distinct interactions** for most of these commands, so a command scores 1.000 or 0.000 with
+little in between. Seventeen units is thin evidence, and the honest summary is that stage 3
+produced too few usable observations to characterise accuracy — which is itself the result.
 
 ### Spend so far
 
@@ -643,7 +671,7 @@ runner, which previously hardcoded `isolation=None`.
 |---|---|---|
 | stage 1 | $2 | **$0.28** |
 | stage 2 | $9 | **$1.35** |
-| stage 4 | $8 | in progress |
-| stage 3 | $38 | not started |
+| stage 4 | $8 | **$0.920** |
+| stage 3 | $38 | **$0.940** |
 
 Both completed campaigns came in far under their measured-basis estimates.

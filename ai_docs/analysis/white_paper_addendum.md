@@ -63,7 +63,7 @@ Measured on nine commands at a one-flag bound, `gpt-4o`, temperature 0:
 |---|---|---|
 | syntax specification (§3) | $0.284 / 27 runs | — (this *is* the LLM step) |
 | configuration generation (§4) | $1.354 / 27 runs | deterministic, sub-second |
-| execution and tracing (§5) | ~$0.035 per 5 configurations | 17 seconds, **all nine commands** |
+| execution and tracing (§5) | $0.940 / 27 runs | 17 seconds, **all nine commands** |
 | specification derivation (§6) | $0.920 / 27 runs | under a second each |
 
 **The comparison a reviewer will want is not "LLM versus free" but "LLM versus seconds".** v1's
@@ -202,8 +202,17 @@ empirical content, which is publishable in its own right.
 |---|---|---|
 | §3 syntax inference | **yes** | identical flag coverage, marginally worse typing |
 | §4 configuration generation | **partly** | invocations yes (0.878); environments no (0.185) |
-| §5 isolated tracing | **unresolved** | pilot perfect on a 2-interaction trace; wider run pending |
+| §5 isolated tracing | **no** | 78% of sessions never completed the reporting protocol |
 | §6 specification derivation | **no, at scale** | see below |
+
+**§5 was not replaced at all, for a reason worth reporting.** Of 135 tool-loop sessions, **105
+(78%) ended without the model completing its reporting step** — it ran the command once, then
+answered in prose instead of calling the tool it had been given, with thirteen of fifteen turns
+unused. Success was strongly command-dependent (`pwd` 13/15, `tac`/`uniq`/`wc` 0/15), so this is
+not sampling noise. Where a session did report, recovery of the filesystem interactions was
+partial: 0.588 core recall over 17 comparable units. §5's value is not only that interposition
+is *accurate* — it is that interposition **always produces a record**, which a prompted observer
+does not.
 
 **§6 has a ceiling the hand-written implementation does not.** Caruca's traces for `rm` are
 ~211,000 tokens and for `tee` ~149,000, against `gpt-4o`'s 128,000-token window. The LLM
@@ -254,7 +263,8 @@ upstream fixes before the release?
   annotation, and that comparison is not yet made.
 - **No claim the §7.2 measurement was wrong.** §3 reports what the shipped artifacts do, and
   asks a question.
-- **No stage-3 conclusion.** One pilot cell, on the easiest available trace.
+- **No stage-3 accuracy figure.** Only 12 of 27 cells produced a usable observation, and the
+  comparable evidence amounts to 17 filesystem interactions.
 - **Nothing about tuning.** The LLM side was never iterated to improve a score; defects in the
   *request* were fixed, and differences were reported.
 

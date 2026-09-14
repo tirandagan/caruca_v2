@@ -7,12 +7,11 @@
 
 # The v1-vs-v2 Parity Study — Does an LLM Pipeline Reproduce Caruca?
 
-> **Status:** stages 1, 2 and 4 complete; stage 3 is a single-cell pilot with the full
-> campaign still running. Written 2026-09-14.
+> **Status:** all four stages complete. Written 2026-09-14.
 > **v1 reference commit:** `d8032407346aadc135b14c043618c8c1d4f4e0cf`
 > **Model:** `openai/gpt-4o`, temperature 0.0, seed 42, k=3 samples per cell.
 > **Bound:** `--max-arity 1 --max-count 1` on both sides.
-> **Spend:** $2.59 of an approved $60 ceiling.
+> **Spend:** $3.50 of an approved $60 ceiling.
 > **Companion:** [`white_paper_addendum.md`](white_paper_addendum.md) routes these results to
 > the paper. Method and provenance: `ai_docs/tasks/008_v1_v2_parity_study.md`.
 
@@ -29,7 +28,7 @@ do, and are we replicating the results, or are we getting an improvement?*
 |---|---|---|
 | 1. Syntax specification | documentation → flags and types | **Replicates.** Identical coverage; v1 marginally better typing |
 | 2. Configuration generation | spec → invocations + environments | **Diverges.** Near-complete invocation recall, but the *environments* are mostly wrong |
-| 3. Execution and tracing | run it, record what happened | **Pilot only.** 1 of 27 cells; that cell scored perfectly |
+| 3. Execution and tracing | run it, record what happened | **Does not replicate.** 15 of 27 cells produced nothing usable; 78% of sessions never reported |
 | 4. Annotation | traces → consumer specification | **Diverges**, and v2 cannot process the two largest inputs at all |
 
 **The headline is not a number, it is a distinction.** v2 reproduces what v1 *writes* far
@@ -153,40 +152,86 @@ reported separately.
 
 ---
 
-## 4. Stage 3 — execution and tracing: **pilot only**
+## 4. Stage 3 — execution and tracing: **does not replicate**
 
-1 of 27 cells complete; the campaign is still running. Reported because the protocol itself is
-new and this is the first evidence it works end to end.
+Each configuration gets a fresh workspace built from v1's own fixtures, the command runs, and
+what it did is recorded. v2 traced **v1's own configurations**, not its stage-2 output, so an
+upstream typing error is not scored twice.
 
-**`cat`, 4 paired configurations, $0.035:**
+27 cells, **12 produced a usable result and 15 did not**. $0.940.
 
-| tier | precision | recall | F1 |
+### 4.1 The dominant failure is protocol, not accuracy
+
+Across **135 tool-loop sessions**:
+
+| | |
+|---|---|
+| Ended without calling `report_observations` | **105 (78%)** |
+| Used exactly 2 turns of the 15 available | 111 |
+| Executions performed per session | exactly 1, in all 135 |
+
+The shape is consistent: turn 1 calls `run_command`, turn 2 answers **in prose** rather than
+calling the reporting tool, and the loop ends. The tool is registered, the system prompt asks
+for it by name, and the model had thirteen unused turns.
+
+Success is strongly command-dependent, which rules out simple randomness:
+
+| command | sessions reporting |
+|---|---|
+| `pwd` | 13/15 (87%) |
+| `rm` | 7/15 (47%) |
+| `cat`, `sha256sum` | 4/15 (27%) |
+| `tail`, `tee` | 1/15 (7%) |
+| `tac`, `uniq`, `wc` | **0/15** |
+
+**This is model behaviour, not an instrument defect** — the prompt asks for the report and the
+tool exists, so the request is answerable. It is the same *shape* as the stage-2 failure where
+a model stopped at 10 of 122 invocations, which was addressed by asking once whether anything
+was missing. Whether to do the equivalent here is a scope decision, not a bug fix, and it is
+deliberately not taken: it would be the second time the LLM side is nudged, and every nudge
+runs in the direction of flattery.
+
+### 4.2 Where a session did report, recovery is partial
+
+Pooled over the 17 core and 11 inference units that could be compared:
+
+| tier | precision | recall |
+|---|---|---|
+| core `{ad md de mo wf rd}` | 0.769 | **0.588** |
+| inference `{rf}` | **1.000** | 0.545 |
+
+Per command the results are bimodal rather than middling — `cat`, `pwd` and `sha256sum` recover
+everything; `rm` and `tail` recover nothing; `tee` recovers a quarter:
+
+| command | paired configs | v1 distinct interactions | core recall |
 |---|---|---|---|
-| core `{ad md de mo wf rd}` | 1.000 | 1.000 | 1.000 |
-| inference `{rf}` | 1.000 | 1.000 | 1.000 |
+| `cat` | 4 | 2 | 1.000 |
+| `pwd` | 4 | 2 | 1.000 |
+| `sha256sum` | 1 | 2 | 1.000 |
+| `tee` | 1 | 5 | 0.250 |
+| `rm` | 3 | 2 | **0.000** |
+| `tail` | 1 | 2 | **0.000** |
 
-Zero missing, zero spurious; `ceiling_fraction` 1.000 over 4 units.
+**Read these denominators before reading the rates.** v1's projected traces hold 2 distinct
+interactions for most of these commands, so a command scores 1.000 or 0.000 with very little in
+between. Seventeen core units total is thin evidence, and the honest summary is that stage 3
+produced too few usable observations to characterise accuracy at all — which is itself the
+result.
 
-**Do not over-read this.** `cat`'s trace is close to the easiest possible case: v1's 40 raw
-`(action, path)` pairs reduce to **2 distinct interactions** after projection. A perfect score
-over two facts is weak evidence. The value of the pilot is that the protocol runs, pairs
-configurations correctly, and produces an interpretable result.
+### 4.3 Why projection is not optional
 
-**Why projection is not optional.** v1's raw traces are mostly dynamic-loader noise: `ls`
-records 17,512 `(action, path)` pairs that reduce to **20** distinct relevant ones; `dirname`
-records 640 that reduce to **1**. Scored raw, `dirname` recall is capped near 12% however
-perfectly a model observes, because `/usr/lib/.../libc.so.6` is not visible through
-`list_dir`/`read_file`/`stat_path`. Both sides are therefore projected through **v1's own
-relevance filter**, and the projection *is* the ceiling — which is what makes "fraction of the
-recoverability ceiling achieved" a computable quantity rather than a slogan.
+v1's raw traces are mostly dynamic-loader noise: `ls` records 17,512 `(action, path)` pairs that
+reduce to **20** distinct relevant ones; `dirname` records 640 that reduce to **1**. Scored raw,
+`dirname` recall is capped near 12% however perfectly a model observes, because
+`/usr/lib/.../libc.so.6` is not visible through `list_dir`/`read_file`/`stat_path`. Both sides
+are projected through **v1's own relevance filter**, and the projection *is* the ceiling — which
+is what makes "fraction of the recoverability ceiling achieved" computable rather than
+rhetorical.
 
-**Two tiers, never summed.** `core` covers state changes, every one recoverable from a
-pre/post listing or the command's own streams; a miss there is a model failure. `inference`
-covers reads, which leave nothing a prober can see directly; a miss there is partly a limit of
-the observation model. Adding them would make the score a function of how many files the
-command happens to read.
-
----
+**Two tiers, never summed.** `core` covers state changes, every one recoverable from a pre/post
+listing or the command's own streams; a miss there is a model failure. `inference` covers reads,
+which leave nothing a prober can see directly. Adding them would make the score a function of
+how many files the command happens to read.
 
 ## 5. Stage 4 — annotation: **diverges**, and hits a ceiling v1 does not have
 
@@ -271,9 +316,9 @@ the same instrument as v2.** That is the only footing on which the two can be ho
 |---|---|---|---|
 | 1 syntax specification | 27 | $0.284 | free — already committed |
 | 2 configuration generation | 27 | $1.354 | free — deterministic, host-side |
-| 3 execution and tracing | 1 of 27 | $0.035 | 17 seconds, all nine commands |
+| 3 execution and tracing | 27 | $0.940 | 17 seconds, all nine commands |
 | 4 annotation | 27 | $0.920 | under a second each |
-| **total** | | **$2.59** | **~17 seconds of compute** |
+| **total** | | **$3.50** | **~17 seconds of compute** |
 
 Two observations the paper could not make, because it measured neither.
 
@@ -283,8 +328,8 @@ compared against *seconds*.
 
 **Both completed campaigns came in far under estimate.** Stage 2 was priced at $3.77 from C0's
 measured token profile and cost $1.35. Stage 3 was priced at $13.50–47.25 with no measured
-basis; its first cell cost $0.035, which projects to roughly $1 for the campaign — an
-order-of-magnitude overestimate, now corrected by measurement.
+basis and cost **$0.940** — an order-of-magnitude overestimate, now corrected by measurement.
+Part of that is because 78% of its sessions ended after two turns.
 
 ---
 
@@ -309,7 +354,8 @@ A result that does not name what could undermine it is not a result.
 6. **Nine commands, three of them in the reserved held-out set.** `cat`, `uniq` and `wc` are in
    task 001's C1 set. This study tunes nothing, so it cannot leak configuration choices, but
    the overlap is stated.
-7. **Stage 3 is one cell.** Everything in §4 is provisional.
+7. **Stage 3 rests on 17 core units.** Most commands have 2 distinct interactions to
+   recover, so per-command rates are effectively binary.
 
 ---
 
@@ -366,8 +412,9 @@ the argument for building the instrument before running the program.
 
 **Are we doing exactly what v1 does?** At stage 1, yes — identical flag coverage, marginally
 worse typing. At stage 2, v2 finds nearly all of v1's invocations and then asks for the wrong
-world. At stage 4, it produces a different specification and cannot process the largest inputs
-at all. Stage 3 is unanswered.
+world. At stage 3 it mostly does not finish: 78% of sessions execute the command once and then
+answer in prose instead of reporting, so 15 of 27 cells yield nothing. At stage 4 it produces a
+different specification and cannot process the largest inputs at all.
 
 **Are we replicating, or improving?** Neither, yet — and the honest summary is that the study
 mostly measured the instrument. Six defects in v1, three schema-understatement defects, and
