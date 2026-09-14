@@ -157,9 +157,23 @@ is any flag-plus-file pairing for `wc`, `tail`, `tac`, `sha256sum` or `uniq`. At
 default of 4, one slot is still consumed by the operand rather than by a flag — so the effective
 flag budget is one lower than the documentation implies, for most commands in the population.
 
-**Question for the authors:** is that intended? If so, the help text could say "optional
-arguments" rather than "optional flags". If not, excluding positionals from the count would
-widen coverage at every bound, at some cost in enumeration size.
+**§4.1 makes this sharper than a naming question.** The invocation study counts *flags and
+options* — 64.7% of real invocations use none, 29.0% use one, 5.9% use two — and §7.4 selects
+its bound directly from that distribution: four flags covers 99.998%, two covers over 99%. The
+budget is described throughout as a flag budget, and the coverage claim is stated in flag terms.
+
+But because the operand consumes a slot, a command with an optional file argument gets one
+*fewer* flag than the setting implies. At the ≤2 bound whose coverage §7.4 reports as ">99%",
+`cat` is effectively explored at one flag plus its file — so the invocations §4.1 measures at
+5.9% of real usage are not reached for that class of command. The published coverage figure and
+the enumerated space do not quite line up for commands whose file argument is optional, which is
+most of the coreutils population.
+
+**Question for the authors:** is the operand meant to count against `--max-count`? If yes, the
+help text and §4.1's framing could say "optional arguments", and §7.4's coverage claim would
+want a sentence on what it means for commands with optional operands. If no, excluding
+positionals from the count would restore the documented budget at every bound — at some cost in
+enumeration size, which §7.4's timings suggest is affordable at two flags.
 
 **Why this matters to the paper regardless of the LLM work:** §4.3's execution environments are
 where a mined specification acquires its meaning, and the evaluation currently has no measure

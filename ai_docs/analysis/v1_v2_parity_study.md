@@ -397,8 +397,13 @@ A result that does not name what could undermine it is not a result.
    specification appears in the stage-1 prompt. It scores 1.000/1.000 — which is the expected
    upper bound, and confirms the instrument rather than measuring the model. It is excluded
    from any claim about generalisation.
-4. **The bound.** `--max-count 1` throughout. It makes v1 systematically conservative at stage 4
-   (§5) and it is not the paper's two-flag bound.
+4. **The bound is tighter than the paper's, and that was a cost decision rather than a
+   principled one.** `--max-count 1` throughout. The paper's §4.1 invocation study (665,000 real
+   invocations from 49,000 GitHub scripts) reports 64.7% with no flags, 29.0% with one and 5.9%
+   with two — so a one-flag bound reaches roughly 93.7% of real usage where the paper's ≤2
+   reaches 99.6% and its ≤4 default reaches 99.998%. The narrower bound also makes v1
+   systematically conservative at stage 4 (§5). A re-run at the paper's ≤2 is the obvious next
+   step, and §7.4's timings suggest it is affordable.
 5. **One model, one temperature.** `gpt-4o` at 0.0. Nothing here separates "better method" from
    "better model".
 6. **Nine commands, three of them in the reserved held-out set.** `cat`, `uniq` and `wc` are in
