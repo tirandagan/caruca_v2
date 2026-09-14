@@ -505,3 +505,94 @@ it, most specific wins, `"default"` last. The alignment mode is recorded in ever
 (`alignment: "subsumption"` versus `"predicate_key"`), and the `predicate` field is excluded
 from scoring when subsumption is used, since a predicate difference is what the alignment
 already accounts for rather than a disagreement to charge twice.
+
+---
+
+## 12. Phase 3 results — the head-to-head (in progress)
+
+Approved by Tiran 2026-09-14 with a **$60 cap**; four campaigns totalling a $57 ceiling.
+9 commands x k=3 at temperature 0, `openai/gpt-4o`. Campaign files: `campaigns/p1_*.json`.
+
+### Stage 1 — syntax specification: **replicates**
+
+27/27 cells, all validated by v1's interpreter. **$0.28** against a $2 ceiling.
+
+| | v2 (k=3) | v1's own LLM output |
+|---|---|---|
+| F1 | **1.000** | **1.000** |
+| Exact-argument rate | **0.967** | **0.983** |
+| Missing / spurious flags | 0 / 0 | 0 / 0 |
+
+**Verdict: replicates.** Identical flag coverage on all nine commands — neither side misses or
+invents a single flag. v1 is marginally ahead on argument *typing* (`tail` 0.846 vs 0.769;
+`tac` 1.000 vs 0.933). Note the direction: on this set v2 is very slightly *worse* than v1,
+which is worth saying plainly given how often the interesting findings have run the other way.
+
+**A reproducibility result falls out of k=3:** `tac` shows a **0.200 spread** in exact-argument
+rate across three samples at temperature 0. Every other command is stable at spread 0.000. One
+command in nine is enough to justify k>1 for the whole program — a single sample cannot tell
+"v2 differs from v1" from "v2 differs from itself".
+
+### Stage 2 — configuration generation: **diverges, with the cause identified**
+
+27/27 cells, **all 27 configs accepted by v1's `CommandConfig` model** (the schema fixes from
+§1.2 hold at scale). **$1.35** against a $9 ceiling, and against a $3.77 estimate.
+
+| | mean |
+|---|---|
+| Invocation recall (semantic) | **0.878** |
+| Invocation precision | 0.568 |
+| Environments covered | **0.185** |
+
+Two separate things are happening, and they should not be reported as one number.
+
+**`uniq` scores 0.000 recall, and the cause is v1's enumerator, not v2.** v1's `uniq` spec
+declares two positionals, `[Path(), Path()]`, both taking the DSL's default arity
+`Arity.OPTIONAL` (`ir/syntax.py:79`). **v1 never emits both operands when both are optional** —
+verified at `--max-arity 1` *and* `2`, identical 43 lines, max one operand either way. v2
+always emits `uniq relpath_1 abspath_1`, which is `uniq`'s real signature (INPUT OUTPUT) and
+is what v1's own spec describes. `cp`, `mv` and `ln` do not have this problem because each
+declares one mandatory positional (`AT_LEAST_ONE` + `EXACTLY_ONE`), and v1 emits two operands
+for all three. This is a narrow, verified v1 defect, not a general enumerator limitation — and
+the fifth time in this study a scored disagreement has pointed at v1.
+
+**The environment coverage is the real v2 gap.** 0.185 mean, and the systematic cause is the
+one §9 flagged on `grep`: v2 types a plain string operand as an existing *file*. The configs
+validate and the invocation strings are right; the world they ask for is wrong. Nothing
+downstream would object — the traces would simply describe the wrong filesystem.
+
+### Stage 4 — annotation: **in progress**, and it has already produced an architectural finding
+
+**v2's stage 4 has a context ceiling that v1 does not.** `rm`'s traces are ~211,000 tokens and
+`tee`'s ~149,000, against gpt-4o's 128,000-token window. v1's annotator is deterministic code
+and has no such limit: it annotated all nine in under a second each (§11). This is a real
+difference in kind between the two approaches, not a tuning problem, and it is the first
+constraint found that is intrinsic to the LLM approach rather than to the instrument.
+
+**A harness defect found on the way, now fixed.** The first attempt lost 21 of 27 cells: a 400
+`BadRequestError` (context too long) is not a transport error, so it was neither retried nor
+caught — it propagated out of the campaign runner and killed every cell after `rm`. A 4xx is a
+**content** failure by the campaign's own policy: the request was delivered and rejected on its
+merits. It is now recorded per cell and the campaign continues. Pinned by a regression test.
+
+A second, smaller one: `annotate` campaigns needed a per-command traces path. v1's default
+(`caruca/outputs/<cmd>.json`) exists for 18 commands, **none of which overlap** the 13 with
+ground-truth annotations, so a parity campaign can never use it. `stage_options.traces_pattern`
+now substitutes the command. That attempt cost **$0.00** — the guard fired before any model call.
+
+### Stage 3 — not yet run
+
+The $38 line, and the only stage with no measured cost basis. `rm` and `tee` are on the
+destructive list, so the campaign runs with `isolation: lima` — now wired into the sweep
+runner, which previously hardcoded `isolation=None`.
+
+### Spend so far
+
+| campaign | ceiling | actual |
+|---|---|---|
+| stage 1 | $2 | **$0.28** |
+| stage 2 | $9 | **$1.35** |
+| stage 4 | $8 | in progress |
+| stage 3 | $38 | not started |
+
+Both completed campaigns came in far under their measured-basis estimates.

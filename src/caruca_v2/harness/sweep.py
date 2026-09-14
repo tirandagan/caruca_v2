@@ -34,7 +34,7 @@ import openai
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
-from .. import llm, metrics_db, prompting, tools
+from .. import llm, metrics_db, prompting, tools, v1
 from ..errors import CarucaV2Error, SetupError
 from ..stages import annotate as annotate_stage
 from ..stages import generate as generate_stage
@@ -89,6 +89,8 @@ class Campaign(BaseModel):
                 f"campaign {self.campaign_id}: annotate campaigns must set "
                 "stage_options.format (pash|posh|sash|shellcheck)."
             )
+        if self.stage_options.get("traces_pattern") and self.stage != "annotate":
+            raise SetupError(f"campaign {self.campaign_id}: traces_pattern is an annotate option.")
         isolation = self.stage_options.get("isolation")
         if isolation and isolation not in ("host", "lima"):
             raise SetupError(
@@ -247,7 +249,16 @@ def _dispatch(
         )
         records = result.records
     else:  # annotate — validate_shape guarantees format is present
-        traces = options.get("traces")
+        # `traces` names one file; `traces_pattern` names one per command, which is what a
+        # multi-command campaign needs. v1's default (`caruca/outputs/<cmd>.json`) exists for
+        # only 18 commands, and none of them overlap the set that has ground-truth
+        # annotations — so a parity campaign has to point at traces generated for it.
+        pattern = options.get("traces_pattern")
+        traces = (
+            pattern.format(command=v1.slug(cell.command), raw_command=cell.command)
+            if pattern
+            else options.get("traces")
+        )
         result = annotate_stage.run(
             cell.command,
             options["format"],
@@ -426,6 +437,14 @@ def run_campaign(
                         sleeper(backoff)
                         continue
                     if isinstance(exc, CarucaV2Error) or _is_transient(exc):
+                        error = f"{type(exc).__name__}: {exc}"
+                        break
+                    if isinstance(exc, openai.APIStatusError):
+                        # A 4xx is a content failure, not a transport one: the request was
+                        # delivered and rejected on its merits. Retrying cannot help, and
+                        # killing the campaign loses every cell after it -- a single trace
+                        # too long for the context window took out 21 of 27 cells before
+                        # this was recorded rather than raised.
                         error = f"{type(exc).__name__}: {exc}"
                         break
                     raise

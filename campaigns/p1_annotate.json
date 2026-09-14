@@ -2,13 +2,31 @@
   "campaign_id": "p1_annotate",
   "description": "Task 008 parity study, stage 4. Compares against the hand-curated ground truth, where a v1-vs-v2 delta is meaningful because both are scored against a third party. v1's side measured in Phase 2: 20/83 class agreement, 58 of 62 disagreements in the conservative direction.",
   "stage": "annotate",
-  "commands": ["cat", "pwd", "rm", "sha256sum", "tac", "tail", "tee", "uniq", "wc"],
-  "models": ["openai/gpt-4o"],
-  "temperatures": [0.0],
+  "commands": [
+    "cat",
+    "pwd",
+    "rm",
+    "sha256sum",
+    "tac",
+    "tail",
+    "tee",
+    "uniq",
+    "wc"
+  ],
+  "models": [
+    "openai/gpt-4o"
+  ],
+  "temperatures": [
+    0.0
+  ],
   "samples": 3,
   "score_after": true,
   "score_reference": "ground-truth",
   "max_runs": 27,
   "max_usd": 8.0,
-  "stage_options": {"format": "pash", "compare": false}
+  "stage_options": {
+    "format": "pash",
+    "compare": false,
+    "traces_pattern": "/Users/tirandagan/dev/stevens/caruca/caruca/outputs/{command}.parity.json"
+  }
 }

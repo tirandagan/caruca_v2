@@ -247,3 +247,45 @@ def test_prompt_variant_axis(fake_v1_root, tmp_path, valid_spec_response):
 def test_unknown_prompt_variant_is_rejected_before_spending(tmp_path):
     with pytest.raises(SetupError, match="unknown prompt variant"):
         campaign(tmp_path, prompt_variants=["no_such_wording"])
+
+
+def test_a_4xx_is_recorded_as_a_content_failure_not_raised(tmp_path, fake_v1_root):
+    """A request rejected on its merits must not kill the campaign.
+
+    One trace too long for the context window took out 21 of 27 cells before this was
+    handled: the 400 propagated out of the runner instead of being recorded for that cell.
+    """
+    import openai
+
+    class Rejected(openai.APIStatusError):
+        """A 4xx, constructed without the SDK's response plumbing."""
+
+        def __init__(self, message: str):
+            Exception.__init__(self, message)
+            self.status_code = 400
+            self.message = message
+
+        def __str__(self) -> str:
+            return self.message
+
+    class Rejecting:
+        def __init__(self):
+            self.calls = []
+            self.chat = type("Chat", (), {})()
+            self.chat.completions = self
+
+        def create(self, **kwargs):
+            self.calls.append(kwargs)
+            raise Rejected("too long")
+
+    client = Rejecting()
+    c = campaign(tmp_path, commands=["mkdir", "cat"])
+    report = run(c, tmp_path, client)
+
+    assert report.errored == report.cells_total
+    assert report.cells_total == 2
+    lines = ledger_lines(report)
+    assert all(line["status"] == "error" for line in lines)
+    # The point is that the campaign survived and recorded every cell, rather than the
+    # first rejection propagating out and losing the rest.
+    assert all(line.get("error") for line in lines)
