@@ -141,28 +141,38 @@ Mandatory positionals must always appear, so they do not consume the budget; opt
 At `--max-count 2`, v1 emits flag-plus-operand forms for `uniq`, `cat` and `wc` too (48, 24, 14).
 v1's behaviour is correct and internally consistent.
 
-**v2 ignores the bound for positionals.** Across the nine commands, **194 of 285 distinct
-invocations attach an operand to a flag** — `uniq -c relpath_1 abspath_1` is one flag plus two
-operands, three optional elements against a stated bound of one:
+**v2 applies the bound without distinguishing optional from mandatory positionals.** Where a
+positional is *mandatory* it must always appear and does not consume the budget — and there v2
+is exactly right, matching v1's flag-plus-operand count precisely (`rm` 30 = 30, `tee` 18 = 18),
+which is why `rm` scores 1.000 recall *and* 1.000 precision. Where the positional is *optional*,
+v2 attaches it anyway:
 
-| command | bound-violating invocations |
-|---|---|
-| `tee` | 18 / 18 |
-| `uniq` | 24 / 25 |
-| `rm` | 30 / 32 |
-| `tail` | 50 / 77 |
-| `cat`, `sha256sum` | 24 / 39 |
-| `wc` | 14 / 26 |
-| `tac` | 10 / 22 |
-| `pwd` | **0 / 7** |
+| command | positionals | v1 flag+operand | v2 flag+operand | out of bounds |
+|---|---|---|---|---|
+| `rm` | mandatory | 30 | 30 | — legal |
+| `tee` | mandatory | 18 | 18 | — legal |
+| `tail` | optional | 0 | 50 | **50 / 77** |
+| `cat` | optional | 0 | 24 | **24 / 39** |
+| `sha256sum` | optional | 0 | 24 | **24 / 39** |
+| `uniq` | optional | 0 | 24 | **24 / 25** |
+| `wc` | optional | 0 | 14 | **14 / 26** |
+| `tac` | optional | 0 | 10 | **10 / 22** |
+| `pwd` | none | 0 | 0 | — |
+| **total** | | | | **146 / 285** |
 
 This single error explains both stage-2 anomalies at once. **Precision** is low (0.352 on
-`tail`) because the surplus invocations are bound violations, not creative extras. And
-**`uniq` scores 0.000 recall** because 24 of its 25 invocations violate the bound while the two
-legal operand forms v1 emits — `uniq relpath_1` and `uniq abspath_1` — were never produced.
+`tail`) because the surplus invocations are bound violations, not creative extras — and it is
+1.000 on exactly the two commands where the positional is mandatory. And **`uniq` scores 0.000
+recall** because 24 of its 25 invocations violate the bound while the two legal operand-only
+forms v1 emits — `uniq relpath_1` and `uniq abspath_1` — were never produced.
 
 `pwd` is the control: it takes no operands, so there is no bound to violate, and it is the one
 command with nothing to explain.
+
+**Corrected twice.** The first write-up blamed v1's enumerator; the second counted every
+flag-plus-operand invocation as a violation, including the two commands where it is legal. Both
+errors were mine, both were caught by reading the raw outputs, and the second is why the figure
+is 146 rather than 194.
 
 ### 3.3 The real v2 gap is the environment, and the invocation diff cannot see it
 

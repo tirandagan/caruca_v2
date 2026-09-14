@@ -556,11 +556,22 @@ DSL default) yield **0** flag-plus-operand invocations, while `cp`, `mv` and `ln
 `AT_LEAST_ONE`/`EXACTLY_ONE` positionals, which do not consume the budget) yield 232, 88 and 96.
 At `--max-count 2` the first three yield 48, 24 and 14. v1 is correct and consistent.
 
-**v2 attaches operands to flags regardless of the bound**: 194 of 285 distinct invocations
-across the nine commands, from 18/18 on `tee` down to **0/7** on `pwd` — which takes no operands
-and so has no bound to violate. This one error explains both stage-2 anomalies: the low
-precision (the surplus is bound violation, not creativity) and `uniq`'s zero recall (24 of its
-25 invocations violate the bound, and the two legal operand-only forms were never produced).
+**v2 applies the bound without distinguishing optional from mandatory positionals**: 146 of 285
+distinct invocations are out of bounds. Where the positional is mandatory it does not consume
+the budget and v2 is exactly right — `rm` 30 = 30 and `tee` 18 = 18 flag-plus-operand
+invocations, which is why `rm` scores 1.000 recall and 1.000 precision. Where it is optional v2
+attaches it anyway: `tail` 50/77, `cat` and `sha256sum` 24/39, `uniq` 24/25, `wc` 14/26,
+`tac` 10/22. `pwd` takes no operands and is the clean control at 0.
+
+This explains both stage-2 anomalies: the low precision is bound violation rather than
+creativity (and is 1.000 on exactly the two mandatory-positional commands), and `uniq`'s zero
+recall is 24 of 25 invocations out of bounds while the two legal operand-only forms were never
+produced.
+
+**Corrected twice.** The first write-up blamed v1's enumerator. The second counted every
+flag-plus-operand invocation as a violation, including `rm` and `tee` where it is legal, giving
+194 instead of 146. Both errors were caught by reading the raw outputs through
+`scripts/parity_diff.py`.
 
 The withdrawn claim is left visible in §9 of the parity study rather than deleted. It is the one
 place in this study where a v1 defect was asserted and turned out to be a v2 error.

@@ -42,7 +42,7 @@ report), [`e0_artifact_pinning.md`](e0_artifact_pinning.md) (artifact provenance
 | 1 | The LLM step's cost, tokens and reproducibility — currently unmeasured | §7 (new subsection) | no |
 | 2 | Q2 as a *distribution*, not a single run | §7.2 | no |
 | 3 | The shipped artifacts do not reproduce the 116/120 figure | §7.2 | 👤 **yes** |
-| 4 | Specification validity versus specification *meaning* | §4 / §7 | no |
+| 4 | Specification validity versus specification *meaning*, and the implicit bound semantics | §4 / §4.2 / §7 | no |
 | 5 | An enumeration-redundancy and bound-sensitivity note | §4.2 | no |
 | 6 | A soundness note on `Predicate.operator` and `CommandConfig.stdin` | §6.4 | no |
 | 7 | What resists replacement by a model, and why | §8 or a new §9 | no |
@@ -123,7 +123,7 @@ specifications are a later regeneration would close this cleanly.
 
 ---
 
-## 4. A specification can be valid and still mean the wrong thing (§4, §7)
+## 4. A specification can be valid and still mean the wrong thing (§4, §4.2, §7)
 
 The most useful thing this study found is a distinction the paper's evaluation does not
 currently draw.
@@ -137,6 +137,18 @@ types it `no_env`.
 Identical invocation string. Valid configuration. Different world. Nothing downstream objects;
 the traces simply describe a filesystem that was never intended.
 
+**A second, sharper instance of the same distinction.** `--max-count` bounds how many *optional
+elements* an invocation may carry, and an optional positional is one of them — so at a one-flag
+bound Caruca emits a flag or an operand, never both. The replication did not make that
+distinction. Where a positional is **mandatory** it matched Caruca exactly (`rm` 30 = 30
+flag-plus-operand invocations, `tee` 18 = 18); where it is **optional** it attached the operand
+anyway, putting 146 of 285 invocations outside the stated bound. Caruca's behaviour is correct
+and internally consistent; the replication's is not.
+
+This is worth reporting because the bound's semantics are load-bearing and currently implicit.
+A reader of §4.2 would not learn from the paper that an optional positional consumes the same
+budget as an optional flag, and it changes the size of the enumerated space substantially.
+
 **Why this matters to the paper regardless of the LLM work:** §4.3's execution environments are
 where a mined specification acquires its meaning, and the evaluation currently has no measure
 for them. Q1 checks the derived specification against consumers; Q2 checks the *syntax*
@@ -144,8 +156,9 @@ specification against ground truth. Nothing checks that the environment a config
 requests is the environment the command's arguments actually imply.
 
 **Recommendation:** add an environment-level check to §7 — for a sample of commands, whether
-each argument's `arg_type` matches its role. It is cheap, it is orthogonal to the existing
-questions, and it closes a gap a reviewer could otherwise open.
+each argument's `arg_type` matches its role — and state in §4.2 that an optional positional
+counts against `--max-count`. Both are cheap, orthogonal to the existing questions, and close
+gaps a reviewer could otherwise open.
 
 ---
 
@@ -201,7 +214,7 @@ empirical content, which is publishable in its own right.
 | Caruca stage | replaceable? | evidence |
 |---|---|---|
 | §3 syntax inference | **yes** | identical flag coverage, marginally worse typing |
-| §4 configuration generation | **partly** | invocations yes (0.878); environments no (0.185) |
+| §4 configuration generation | **partly** | invocations yes (0.878); bound semantics and environments no (146/285 out of bounds; 0.185 environments) |
 | §5 isolated tracing | **no** | 78% of sessions never completed the reporting protocol |
 | §6 specification derivation | **no, at scale** | see below |
 
