@@ -34,3 +34,4 @@ eval/runs/
 eval/metrics.db
 eval/campaigns/
 eval/docs_variants/
+eval/parity_diffs/

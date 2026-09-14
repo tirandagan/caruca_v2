@@ -46,7 +46,7 @@ report), [`e0_artifact_pinning.md`](e0_artifact_pinning.md) (artifact provenance
 | 5 | An enumeration-redundancy and bound-sensitivity note | §4.2 | no |
 | 6 | A soundness note on `Predicate.operator` and `CommandConfig.stdin` | §6.4 | no |
 | 7 | What resists replacement by a model, and why | §8 or a new §9 | no |
-| 8 | Two specification defects worth correcting | artifact appendix | 👤 **yes** |
+| 8 | One specification defect worth correcting | artifact appendix | 👤 **yes** |
 
 ---
 
@@ -230,16 +230,14 @@ buys*, not as a defence.
 
 ---
 
-## 8. 👤 Two specification defects worth correcting (artifact appendix)
+## 8. 👤 A specification defect worth correcting (artifact appendix)
 
-Found by disagreement, verified against Caruca's own behaviour. Both are small.
+Found by disagreement, verified against Caruca's own behaviour. Small.
 
-**`uniq` never generates its two-operand form.** `syntax_specs/uniq.py` declares
-`[Path(), Path()]`, both taking the DSL's default `Arity.OPTIONAL`. The enumerator never emits
-both operands when both are optional — verified identical at `--max-arity` 1 and 2 (the same 43
-lines, at most one operand). `uniq INPUT OUTPUT` is therefore never traced. `cp`, `mv` and `ln`
-are unaffected because each declares one mandatory positional. Likely fix: give `uniq`'s
-positionals explicit arities.
+_A second item — `uniq` never generating its two-operand form — was listed here in draft and has
+been withdrawn. Caruca was correctly treating an optional positional as one of the optional
+elements `--max-count` bounds; the replication was ignoring the bound. Noted because the
+withdrawal is itself reassuring about the enumerator._
 
 **`grep --include` is typed `String` where its siblings are `Glob`.** `--exclude` and
 `--exclude-dir` are `Glob` in the same specification; `--include` takes a glob in reality.

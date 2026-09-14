@@ -546,15 +546,24 @@ command in nine is enough to justify k>1 for the whole program — a single samp
 
 Two separate things are happening, and they should not be reported as one number.
 
-**`uniq` scores 0.000 recall, and the cause is v1's enumerator, not v2.** v1's `uniq` spec
-declares two positionals, `[Path(), Path()]`, both taking the DSL's default arity
-`Arity.OPTIONAL` (`ir/syntax.py:79`). **v1 never emits both operands when both are optional** —
-verified at `--max-arity 1` *and* `2`, identical 43 lines, max one operand either way. v2
-always emits `uniq relpath_1 abspath_1`, which is `uniq`'s real signature (INPUT OUTPUT) and
-is what v1's own spec describes. `cp`, `mv` and `ln` do not have this problem because each
-declares one mandatory positional (`AT_LEAST_ONE` + `EXACTLY_ONE`), and v1 emits two operands
-for all three. This is a narrow, verified v1 defect, not a general enumerator limitation — and
-the fifth time in this study a scored disagreement has pointed at v1.
+**`uniq` scores 0.000 recall because v2 ignores the enumeration bound — corrected 2026-09-14.**
+This was first written up as a v1 enumerator defect. Reading the raw outputs side by side
+(`scripts/parity_diff.py`) inverted it.
+
+`--max-count 1` bounds **optional elements**, and an optional positional is one. At that bound
+v1 emits a flag *or* an operand, never both: `uniq`, `cat` and `wc` (optional positionals, the
+DSL default) yield **0** flag-plus-operand invocations, while `cp`, `mv` and `ln` (mandatory
+`AT_LEAST_ONE`/`EXACTLY_ONE` positionals, which do not consume the budget) yield 232, 88 and 96.
+At `--max-count 2` the first three yield 48, 24 and 14. v1 is correct and consistent.
+
+**v2 attaches operands to flags regardless of the bound**: 194 of 285 distinct invocations
+across the nine commands, from 18/18 on `tee` down to **0/7** on `pwd` — which takes no operands
+and so has no bound to violate. This one error explains both stage-2 anomalies: the low
+precision (the surplus is bound violation, not creativity) and `uniq`'s zero recall (24 of its
+25 invocations violate the bound, and the two legal operand-only forms were never produced).
+
+The withdrawn claim is left visible in §9 of the parity study rather than deleted. It is the one
+place in this study where a v1 defect was asserted and turned out to be a v2 error.
 
 **The environment coverage is the real v2 gap.** 0.185 mean, and the systematic cause is the
 one §9 flagged on `grep`: v2 types a plain string operand as an existing *file*. The configs

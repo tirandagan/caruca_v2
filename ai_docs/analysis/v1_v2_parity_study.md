@@ -123,17 +123,46 @@ output, even sorting every token after the binary merges **zero** distinct invoc
 (`grep` 73/73, likewise `cat`, `mkdir`, `wc`), so normalization leaves the denominator
 untouched. The pre-normalization figure rides along in every record.
 
-### 3.2 `uniq` scores zero, and the cause is v1's
+### 3.2 v2 does not respect the enumeration bound
 
-v1's `uniq` specification declares two positionals, `[Path(), Path()]`, both taking the DSL's
-default `Arity.OPTIONAL`. **v1's enumerator never emits both operands when both are optional** —
-verified identical at `--max-arity` 1 and 2: the same 43 lines, at most one operand either way.
-v2 emits `uniq relpath_1 abspath_1`, which is `uniq`'s real signature and what v1's own
-specification describes. `cp`, `mv` and `ln` are unaffected because each declares one mandatory
-positional, and v1 emits two operands for all three.
+**Corrected 2026-09-14, after inspecting the raw outputs side by side.** An earlier version of
+this document attributed `uniq`'s zero to a defect in v1's enumerator. That was wrong, and the
+correction inverts the finding.
 
-This is a narrow, verified limitation in v1, not a v2 error, and not a general enumerator
-failure. It is reported here rather than scored away.
+`--max-count 1` bounds how many **optional elements** an invocation may carry — and an optional
+positional is one of them. So at this bound v1 emits a flag *or* an operand, never both:
+
+| command | positionals | v1 invocations combining a flag with an operand |
+|---|---|---|
+| `uniq`, `cat`, `wc` | optional (the DSL default) | **0** |
+| `cp`, `mv`, `ln` | mandatory (`AT_LEAST_ONE`/`EXACTLY_ONE`) | 232 / 88 / 96 |
+
+Mandatory positionals must always appear, so they do not consume the budget; optional ones do.
+At `--max-count 2`, v1 emits flag-plus-operand forms for `uniq`, `cat` and `wc` too (48, 24, 14).
+v1's behaviour is correct and internally consistent.
+
+**v2 ignores the bound for positionals.** Across the nine commands, **194 of 285 distinct
+invocations attach an operand to a flag** — `uniq -c relpath_1 abspath_1` is one flag plus two
+operands, three optional elements against a stated bound of one:
+
+| command | bound-violating invocations |
+|---|---|
+| `tee` | 18 / 18 |
+| `uniq` | 24 / 25 |
+| `rm` | 30 / 32 |
+| `tail` | 50 / 77 |
+| `cat`, `sha256sum` | 24 / 39 |
+| `wc` | 14 / 26 |
+| `tac` | 10 / 22 |
+| `pwd` | **0 / 7** |
+
+This single error explains both stage-2 anomalies at once. **Precision** is low (0.352 on
+`tail`) because the surplus invocations are bound violations, not creative extras. And
+**`uniq` scores 0.000 recall** because 24 of its 25 invocations violate the bound while the two
+legal operand forms v1 emits — `uniq relpath_1` and `uniq abspath_1` — were never produced.
+
+`pwd` is the control: it takes no operands, so there is no bound to violate, and it is the one
+command with nothing to explain.
 
 ### 3.3 The real v2 gap is the environment, and the invocation diff cannot see it
 
@@ -146,9 +175,8 @@ object**, and the traces would simply describe the wrong filesystem. This is the
 important finding in the study, and it was invisible until the comparison task 002 deferred was
 actually built: scored on invocation strings alone, that run reads as a near-success.
 
-Precision below 1.0 (0.352 on `tail`) is the mirror image: v2 *over*-enumerates, emitting
-invocations v1 does not. Under-generation and over-generation are different failures and are
-reported separately.
+Under-generation and over-generation are different failures and are reported separately; §3.2
+shows the over-generation here is a single systematic error rather than a diffuse one.
 
 ---
 
@@ -361,8 +389,13 @@ A result that does not name what could undermine it is not a result.
 
 ## 9. Where v2 looks better because v1 has a defect
 
-Six times in this study a scored disagreement has pointed at v1 rather than v2. Recording them
+Five times in this study a scored disagreement has pointed at v1 rather than v2. Recording them
 so that "v2 improved on v1" is never claimed where "v1 had a bug" is the truth.
+
+**One entry was withdrawn.** `uniq`'s enumeration was listed here until the raw outputs were
+read side by side; v1 was respecting the `--max-count` bound correctly and v2 was not (§3.2).
+It is the one place in this study where a v1 defect was claimed and turned out to be a v2 error,
+and it is left visible rather than quietly deleted.
 
 1. **`--include` typed `String`** where its siblings `--exclude`/`--exclude-dir` are `Glob`, in
    `grep`'s committed specification.
@@ -373,8 +406,7 @@ so that "v2 improved on v1" is never claimed where "v1 had a bug" is the truth.
 4. **`generate --full` renames every configuration it emits** — `to_exec_env("split", "varied")`
    against `(prefix, stdin_variation, content_variation)` puts `"split"` into `prefix`. All 175
    configurations of `cat` come out named `splitcat`.
-5. **`uniq`'s two optional positionals are never both filled** (§3.2).
-6. **v1's own outputs are not stable against themselves** in two places: `Predicate` list fields
+5. **v1's own outputs are not stable against themselves** in two places: `Predicate` list fields
    are built from Python sets (order varies per process), and configuration `identifier`s are
    `random.choices(...)`. A naive comparison reports v1 disagreeing with v1 on every
    configuration.
