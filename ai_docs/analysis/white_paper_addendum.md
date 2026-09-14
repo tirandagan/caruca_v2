@@ -28,7 +28,7 @@ annotator as a comparison. A pipeline that can be reproduced closely enough to d
 this much detail is a pipeline that was built well. Several findings are simply what happens
 when a careful instrument is pointed at a system for the first time.
 
-**Two proposals need the authors' input before they can be written up**, both marked 👤 below.
+**Three proposals need the authors' input before they can be written up**, marked 👤 below.
 
 Supporting detail: [`v1_v2_parity_study.md`](v1_v2_parity_study.md) (technical comparative
 report), [`e0_artifact_pinning.md`](e0_artifact_pinning.md) (artifact provenance).
@@ -44,6 +44,7 @@ report), [`e0_artifact_pinning.md`](e0_artifact_pinning.md) (artifact provenance
 | 3 | The shipped artifacts do not reproduce the 116/120 figure | §7.2 | 👤 **yes** |
 | 4 | Specification validity versus specification *meaning*, and the implicit bound semantics | §4 / §4.2 / §7 | no |
 | 5 | An enumeration-redundancy and bound-sensitivity note | §4.2 | no |
+| 5b | `--max-count` counts optional *arguments*, not optional *flags* as documented | §4.2 | 👤 **yes** |
 | 6 | A soundness note on `Predicate.operator` and `CommandConfig.stdin` | §6.4 | no |
 | 7 | What resists replacement by a model, and why | §8 or a new §9 | no |
 | 8 | One specification defect worth correcting | artifact appendix | 👤 **yes** |
@@ -142,12 +143,23 @@ elements* an invocation may carry, and an optional positional is one of them —
 bound Caruca emits a flag or an operand, never both. The replication did not make that
 distinction. Where a positional is **mandatory** it matched Caruca exactly (`rm` 30 = 30
 flag-plus-operand invocations, `tee` 18 = 18); where it is **optional** it attached the operand
-anyway, putting 146 of 285 invocations outside the stated bound. Caruca's behaviour is correct
-and internally consistent; the replication's is not.
+anyway, putting 146 of 285 invocations outside the stated bound.
 
-This is worth reporting because the bound's semantics are load-bearing and currently implicit.
-A reader of §4.2 would not learn from the paper that an optional positional consumes the same
-budget as an optional flag, and it changes the size of the enumerated space substantially.
+**And chasing that difference turned up something in Caruca worth a look.** The CLI documents
+`--max-count` as *"the maximum number of optional flags to use for a single invocation"*, but
+`ir/syntax.py::__filtered_args` selects over every argument where `is_optional()` holds —
+`Arity.OPTIONAL` or `Arity.ZERO_OR_MORE` — which includes **positionals**. An optional file
+operand therefore consumes one of the slots the help text reserves for flags.
+
+The effect on coverage is not small. **At `--max-count 1`, no flag is ever applied to a file**
+for any command whose file argument is optional: `cat -n relpath_1` is not enumerated, and nor
+is any flag-plus-file pairing for `wc`, `tail`, `tac`, `sha256sum` or `uniq`. At the shipped
+default of 4, one slot is still consumed by the operand rather than by a flag — so the effective
+flag budget is one lower than the documentation implies, for most commands in the population.
+
+**Question for the authors:** is that intended? If so, the help text could say "optional
+arguments" rather than "optional flags". If not, excluding positionals from the count would
+widen coverage at every bound, at some cost in enumeration size.
 
 **Why this matters to the paper regardless of the LLM work:** §4.3's execution environments are
 where a mined specification acquires its meaning, and the evaluation currently has no measure

@@ -139,7 +139,19 @@ positional is one of them. So at this bound v1 emits a flag *or* an operand, nev
 
 Mandatory positionals must always appear, so they do not consume the budget; optional ones do.
 At `--max-count 2`, v1 emits flag-plus-operand forms for `uniq`, `cat` and `wc` too (48, 24, 14).
-v1's behaviour is correct and internally consistent.
+
+**v1's implementation is internally consistent, but it does not match its own documentation.**
+The CLI describes `--max-count` as *"the maximum number of optional flags to use for a single
+invocation"*. The implementation (`ir/syntax.py::__filtered_args`) collects every argument for
+which `is_optional()` holds — `Arity.OPTIONAL` or `Arity.ZERO_OR_MORE` — across all argument
+groups, which sweeps in **positionals**. So an optional file operand silently consumes one of
+the slots the help text reserves for flags.
+
+The practical consequence is larger than it sounds: **at `--max-count 1`, v1 never emits a flag
+applied to a file** for any command whose file argument is optional. `cat -n relpath_1` is not in
+its enumeration, and neither is any other flag-plus-file pairing for `cat`, `wc`, `tail`, `tac`,
+`sha256sum` or `uniq`. At the shipped default of 4, one of the four slots is likewise consumed
+by the operand rather than a flag.
 
 **v2 applies the bound without distinguishing optional from mandatory positionals.** Where a
 positional is *mandatory* it must always appear and does not consume the budget — and there v2
