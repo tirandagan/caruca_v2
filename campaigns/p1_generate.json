@@ -1,0 +1,14 @@
+{
+  "campaign_id": "p1_generate",
+  "description": "Task 008 parity study, stage 2. Bounded at --max-count 1 to match the Phase 2 v1 traces. Scores both methods: invocation_set_diff (semantic) and config_env_diff (the environments requested).",
+  "stage": "generate",
+  "commands": ["cat", "pwd", "rm", "sha256sum", "tac", "tail", "tee", "uniq", "wc"],
+  "models": ["openai/gpt-4o"],
+  "temperatures": [0.0],
+  "samples": 3,
+  "score_after": true,
+  "score_reference": "v1-enumeration",
+  "max_runs": 27,
+  "max_usd": 9.0,
+  "stage_options": {"max_arity": 1, "max_count": 1, "max_turns": 10}
+}

@@ -1,0 +1,33 @@
+{
+  "campaign_id": "p1_trace",
+  "description": "Task 008 parity study, stage 3. The only stage with no measured cost basis before this run: one tool-loop session per configuration, up to 15 turns. --limit 5 is the cost brake. rm and tee are on the destructive list and need Lima.",
+  "stage": "trace",
+  "commands": [
+    "cat",
+    "pwd",
+    "rm",
+    "sha256sum",
+    "tac",
+    "tail",
+    "tee",
+    "uniq",
+    "wc"
+  ],
+  "models": [
+    "openai/gpt-4o"
+  ],
+  "temperatures": [
+    0.0
+  ],
+  "samples": 3,
+  "score_after": true,
+  "score_reference": "v1-strace",
+  "max_runs": 27,
+  "max_usd": 38.0,
+  "stage_options": {
+    "limit": 5,
+    "max_turns": 15,
+    "isolation": "lima",
+    "lima_instance": "caruca"
+  }
+}

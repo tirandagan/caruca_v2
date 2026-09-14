@@ -1,0 +1,13 @@
+{
+  "campaign_id": "p1_syntax_spec",
+  "description": "Task 008 parity study, stage 1. The nine commands with v1's full artifact chain. v1's side is free: its own committed LLM specs at outputs/llm-dsl-generation/, measured at 78/116 across the population by v1's own cmp_specs.",
+  "stage": "syntax_spec",
+  "commands": ["cat", "pwd", "rm", "sha256sum", "tac", "tail", "tee", "uniq", "wc"],
+  "models": ["openai/gpt-4o"],
+  "temperatures": [0.0],
+  "samples": 3,
+  "score_after": true,
+  "score_reference": "v1-specs",
+  "max_runs": 27,
+  "max_usd": 2.0
+}

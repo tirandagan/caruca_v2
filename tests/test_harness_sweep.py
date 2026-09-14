@@ -45,9 +45,7 @@ def run(c: sweep.Campaign, tmp_path: Path, client, **kwargs) -> sweep.CampaignRe
 
 def ledger_lines(report: sweep.CampaignReport) -> list[dict]:
     return [
-        json.loads(line)
-        for line in report.ledger_path.read_text().splitlines()
-        if line.strip()
+        json.loads(line) for line in report.ledger_path.read_text().splitlines() if line.strip()
     ]
 
 
@@ -149,9 +147,7 @@ class FlakyClient:
         return self._inner.calls
 
 
-def test_transport_failure_is_retried_with_backoff(
-    fake_v1_root, tmp_path, valid_spec_response
-):
+def test_transport_failure_is_retried_with_backoff(fake_v1_root, tmp_path, valid_spec_response):
     client = FlakyClient(FakeClient(valid_spec_response), failures=2)
     report = run(campaign(tmp_path), tmp_path, client)
     assert report.completed == 1 and report.errored == 0
@@ -181,13 +177,18 @@ def test_freeze_gate(fake_v1_root, tmp_path, valid_spec_response):
         run(mismatched, tmp_path, FakeClient(valid_spec_response))
 
     cross_model = campaign(
-        tmp_path, campaign_id="t3", post_freeze=True,
+        tmp_path,
+        campaign_id="t3",
+        post_freeze=True,
         models=["openai/gpt-4o", "anthropic/claude-haiku-4.5"],
     )
     with pytest.raises(SetupError, match="frozen_model_only"):
         run(cross_model, tmp_path, FakeClient(valid_spec_response))
     cross_model_allowed = campaign(
-        tmp_path, campaign_id="t4", post_freeze=True, frozen_model_only=False,
+        tmp_path,
+        campaign_id="t4",
+        post_freeze=True,
+        frozen_model_only=False,
         models=["openai/gpt-4o", "anthropic/claude-haiku-4.5"],
     )
     assert run(cross_model_allowed, tmp_path, FakeClient(valid_spec_response)).completed == 2
@@ -198,9 +199,22 @@ def test_annotate_campaign_requires_format(tmp_path):
         campaign(tmp_path, stage="annotate")
 
 
-def test_isolation_is_rejected_for_now(tmp_path):
-    with pytest.raises(SetupError, match="isolation"):
-        campaign(tmp_path, stage="trace", stage_options={"isolation": "lima"})
+def test_isolation_is_accepted_for_trace_campaigns_only():
+    """Wired for task 008: `rm` and `tee` are on the destructive list, so a nine-command
+    parity campaign cannot run on the host alone."""
+    traced = campaign(Path("."), stage="trace")
+    traced.stage_options = {"isolation": "lima", "limit": 2}
+    traced.validate_shape()
+
+    with pytest.raises(SetupError, match="only trace campaigns"):
+        spec = campaign(Path("."), stage="syntax_spec")
+        spec.stage_options = {"isolation": "lima"}
+        spec.validate_shape()
+
+    with pytest.raises(SetupError, match="unknown isolation backend"):
+        bad = campaign(Path("."), stage="trace")
+        bad.stage_options = {"isolation": "firecracker"}
+        bad.validate_shape()
 
 
 def test_committed_c0_campaign_files_load():
@@ -225,7 +239,8 @@ def test_prompt_variant_axis(fake_v1_root, tmp_path, valid_spec_response):
     rollup = sweep.summarize_by_model(report)
     assert set(rollup) == {"openai/gpt-4o", "openai/gpt-4o @ dspy_style"}
     assert [line["prompt_variant"] for line in ledger_lines(report)] == [
-        "default", "dspy_style",
+        "default",
+        "dspy_style",
     ]
 
 

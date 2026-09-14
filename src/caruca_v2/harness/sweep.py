@@ -34,7 +34,7 @@ import openai
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
-from .. import llm, metrics_db, prompting
+from .. import llm, metrics_db, prompting, tools
 from ..errors import CarucaV2Error, SetupError
 from ..stages import annotate as annotate_stage
 from ..stages import generate as generate_stage
@@ -89,11 +89,15 @@ class Campaign(BaseModel):
                 f"campaign {self.campaign_id}: annotate campaigns must set "
                 "stage_options.format (pash|posh|sash|shellcheck)."
             )
-        if self.stage_options.get("isolation"):
+        isolation = self.stage_options.get("isolation")
+        if isolation and isolation not in ("host", "lima"):
             raise SetupError(
-                f"campaign {self.campaign_id}: isolation backends are not wired into "
-                "the sweep runner yet (they arrive with the per-stage campaign C5); "
-                "run isolated traces through the CLI directly."
+                f"campaign {self.campaign_id}: unknown isolation backend {isolation!r}; "
+                "expected 'host' or 'lima'."
+            )
+        if isolation and self.stage != "trace":
+            raise SetupError(
+                f"campaign {self.campaign_id}: only trace campaigns take an isolation backend."
             )
         known = prompting.available_variants(self.stage)
         unknown = [v for v in self.prompt_variants if v not in known]
@@ -226,11 +230,19 @@ def _dispatch(
         )
         records = result.records
     elif campaign.stage == "trace":
+        # Destructive commands are refused outright without a backend, and `rm` and `tee`
+        # are both on that list — so a nine-command parity campaign cannot run on the host
+        # alone. The refusal happens before the API client is built, so a mistake costs $0.
+        backend = options.get("isolation")
         result = trace_stage.run(
             cell.command,
             max_turns=int(options.get("max_turns", trace_stage.DEFAULT_MAX_TURNS)),
             limit=int(options.get("limit", trace_stage.DEFAULT_LIMIT)),
-            isolation=None,
+            isolation=(
+                tools.IsolationBackend.lima(str(options.get("lima_instance", "caruca")))
+                if backend == "lima"
+                else None
+            ),
             **common,
         )
         records = result.records
@@ -458,11 +470,7 @@ def run_campaign(
                     # The headline metric differs per stage, so read the one this row's own
                     # method declares rather than assuming `f1`.
                     metric = score_row.get("method")
-                    key = (
-                        methods.get(metric).primary_metric
-                        if metric in methods.REGISTRY
-                        else "f1"
-                    )
+                    key = methods.get(metric).primary_metric if metric in methods.REGISTRY else "f1"
                     bucket["scores"].append(score_row.get(key))
 
             ledger.write(json.dumps(entry) + "\n")
