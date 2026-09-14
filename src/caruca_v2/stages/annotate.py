@@ -12,7 +12,6 @@ pipeline instead.
 
 from __future__ import annotations
 
-import difflib
 import json
 from dataclasses import dataclass
 from pathlib import Path
@@ -22,6 +21,7 @@ from openai import OpenAI
 
 from .. import llm, metrics_db, prompting, telemetry, v1
 from ..errors import V1AccessError
+from ..harness import annotation as harness_annotation
 from ..telemetry import (
     DecodingParams,
     RunManifest,
@@ -76,63 +76,43 @@ def load_traces(command: str, traces_path: Path | None) -> tuple[str, str]:
     path = traces_path if traces_path is not None else v1.traces_path(command)
     if not path.is_file():
         raise V1AccessError(
-            f"traces file not found at {path}. Pass --traces PATH, or run "
-            "`caruca-v2 trace` first."
+            f"traces file not found at {path}. Pass --traces PATH, or run `caruca-v2 trace` first."
         )
     return path.read_text(), str(path)
 
 
-def compare_text(produced: str, reference: str | None, *, label: str) -> dict[str, Any]:
-    """Diff two annotations, reporting shape rather than a single similarity score.
-
-    Line counts and a bounded diff sample, not a percentage: presentation differences and
-    substantive ones are not interchangeable, and collapsing them into one number would
-    hide exactly the distinction the write-up has to make.
-    """
-    if reference is None:
-        return {"label": label, "available": False}
-
-    produced_lines = produced.splitlines()
-    reference_lines = reference.splitlines()
-    diff = list(
-        difflib.unified_diff(
-            reference_lines, produced_lines, fromfile="v1", tofile="v2", lineterm="", n=1
-        )
+def compare_text(
+    produced: str,
+    reference: str | None,
+    *,
+    label: str,
+    fmt: str = "shellcheck",
+    reference_kind: str = harness_annotation.REFERENCE_V1_SAME_TRACES,
+) -> dict[str, Any]:
+    """Diff two annotations, reporting shape rather than a single similarity score."""
+    return harness_annotation.compare_annotation(
+        fmt, produced, reference, label=label, reference_kind=reference_kind
     )
-    return {
-        "label": label,
-        "available": True,
-        "identical": produced.strip() == reference.strip(),
-        "produced_lines": len(produced_lines),
-        "reference_lines": len(reference_lines),
-        # `---`/`+++` are unified-diff file headers, not differing content lines.
-        "diff_lines": len(
-            [
-                line
-                for line in diff
-                if line.startswith(("+", "-")) and not line.startswith(("---", "+++"))
-            ]
-        ),
-        "diff_sample": diff[:60],
-    }
 
 
-def compare_json(produced: str, reference: str | None, *, label: str) -> dict[str, Any]:
-    """Compare two JSON annotations structurally, falling back to a text diff.
+def compare_json(
+    produced: str,
+    reference: str | None,
+    *,
+    label: str,
+    fmt: str = "pash",
+    reference_kind: str = harness_annotation.REFERENCE_V1_SAME_TRACES,
+) -> dict[str, Any]:
+    """Compare two JSON annotations field by field, plus the text diff shape.
 
-    Structural equality is the meaningful question for the three JSON consumers: key order
-    and indentation are not differences a downstream tool would notice.
+    The comparison lives in `harness/annotation.py`, which owns the ground-truth field
+    projection, the set-versus-ordered treatment of v1's `list(set(...))` fields, and the
+    decision to report an agreement vector rather than one score. The stage calls it so each
+    run still carries its comparison inline in the manifest.
     """
-    result = compare_text(produced, reference, label=label)
-    if not result["available"]:
-        return result
-
-    try:
-        result["structurally_identical"] = json.loads(produced) == json.loads(reference)
-    except (json.JSONDecodeError, TypeError) as exc:
-        result["structurally_identical"] = None
-        result["structural_error"] = f"{type(exc).__name__}: {exc}"
-    return result
+    return harness_annotation.compare_annotation(
+        fmt, produced, reference, label=label, reference_kind=reference_kind
+    )
 
 
 @dataclass(frozen=True)
@@ -254,10 +234,13 @@ def run(
             runner=v1_runner,
             lima_instance=lima_instance,
         )
-        compare_fn = compare_text if fmt == "shellcheck" else compare_json
         if reference.available:
-            comparisons["vs_v1_same_traces"] = compare_fn(
-                annotation, reference.text, label="v1 on identical traces"
+            comparisons["vs_v1_same_traces"] = harness_annotation.compare_annotation(
+                fmt,
+                annotation,
+                reference.text,
+                label="v1 on identical traces",
+                reference_kind=harness_annotation.REFERENCE_V1_SAME_TRACES,
             )
         else:
             comparisons["vs_v1_same_traces"] = {
@@ -270,11 +253,18 @@ def run(
         # Labeled `annotation_diff`, never `q1_execution`: this is a diff against the
         # hand-curated files, not a rerun of the consumers' own test suites, and the two
         # are not interchangeable (`memory/caruca_v1_eval_tooling_notes.md`).
+        # The hand-curated files use their own field names (`class`, `comment`) and one of
+        # their own class spellings (`side-effects`); the harness projects them into v1's
+        # vocabulary and records what it translated. Without that, a perfect answer scores
+        # as a mismatch.
         truth = v1.ground_truth_annotation(command, fmt)
-        comparisons["vs_ground_truth"] = {
-            **compare_fn(annotation, truth, label="hand-curated ground truth"),
-            "method": "annotation_diff",
-        }
+        comparisons["vs_ground_truth"] = harness_annotation.compare_annotation(
+            fmt,
+            annotation,
+            truth,
+            label="hand-curated ground truth",
+            reference_kind=harness_annotation.REFERENCE_GROUND_TRUTH,
+        )
 
     decoding = DecodingParams(temperature=temperature, max_tokens=max_tokens)
     records = [
