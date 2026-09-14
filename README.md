@@ -4,7 +4,7 @@ A research project, not a product. It asks how much of **Caruca**'s specificatio
 pipeline an LLM can carry out, and measures the answer against the original implementation
 ("v1") and against human ground truth.
 
-> **📖 [Pipeline Usage Guide](ai_docs/docs/pipeline_usage_guide.md)** — installation, every
+> **📖 [Pipeline Usage Guide](ai_docs/docs/caruca_v2_pipeline_usage_guide.md)** — installation, every
 > command, real terminal output, and how to handle failures. Start there to actually run
 > anything.
 
@@ -87,7 +87,7 @@ cp .env.example .env      # then fill in OPENROUTER_API_KEY and CARUCA_V1_ROOT
 
 The CLI is then at `.venv/bin/caruca-v2`. A v1 checkout with its own virtualenv is required
 for anything beyond `--help`; see the
-[guide](ai_docs/docs/pipeline_usage_guide.md#the-v1-checkout).
+[guide](ai_docs/docs/caruca_v2_pipeline_usage_guide.md#the-v1-checkout).
 
 ## Quick start
 
@@ -101,7 +101,7 @@ caruca-v2 metrics rebuild                                           # free: refr
 without the configuration that produced it being stated.
 
 Costs, isolation requirements, and every failure mode are in the
-[Pipeline Usage Guide](ai_docs/docs/pipeline_usage_guide.md).
+[Pipeline Usage Guide](ai_docs/docs/caruca_v2_pipeline_usage_guide.md).
 
 ---
 

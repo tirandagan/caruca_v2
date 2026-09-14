@@ -73,3 +73,41 @@ def test_unknown_stage_names_the_missing_file():
     with pytest.raises(PromptError) as excinfo:
         prompting.build("no_such_stage", {})
     assert "no_such_stage" in str(excinfo.value)
+
+
+# --- Prompt variants: the phrasing arm of configuration selection ---
+
+
+def test_default_variant_keeps_its_path_and_hash(fake_v1_root):
+    """Adding the variant mechanism must not change what an unflagged run sends."""
+    values = {"command": "mkdir", "man_page": "m", "few_shot_examples": "e",
+              "spec_symbol": "mkdir_syntax_spec"}
+    default = prompting.build("syntax_spec", values)
+    explicit = prompting.build("syntax_spec", values, variant=prompting.DEFAULT_VARIANT)
+    assert default.prompt_hash == explicit.prompt_hash
+    assert default.variant == "default"
+    assert default.files == (
+        "prompts/syntax_spec/system.md",
+        "prompts/syntax_spec/user.md",
+    )
+
+
+def test_variant_changes_hash_and_records_its_own_files():
+    values = {"command": "mkdir", "man_page": "m", "few_shot_examples": "e",
+              "spec_symbol": "mkdir_syntax_spec"}
+    default = prompting.build("syntax_spec", values)
+    variant = prompting.build("syntax_spec", values, variant="dspy_style")
+    assert variant.variant == "dspy_style"
+    assert variant.prompt_hash != default.prompt_hash
+    assert all("variants/dspy_style" in f for f in variant.files)
+
+
+def test_unknown_variant_names_the_known_ones():
+    with pytest.raises(PromptError, match="Known variants"):
+        prompting.build("syntax_spec", {}, variant="does_not_exist")
+
+
+def test_available_variants_lists_default_first():
+    variants = prompting.available_variants("syntax_spec")
+    assert variants[0] == "default"
+    assert "dspy_style" in variants

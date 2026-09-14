@@ -44,14 +44,28 @@ def extract_code(text: str) -> tuple[str, bool]:
     return match.group(1), True
 
 
-def render_exemplars(exemplars: list[v1.Exemplar]) -> str:
-    """Lay the four few-shot pairs out as Markdown.
+def render_exemplars(
+    exemplars: list[v1.Exemplar], variant: str = prompting.DEFAULT_VARIANT
+) -> str:
+    """Lay the four few-shot pairs out in the framing this prompt variant uses.
 
-    This is a deliberate deviation from v1, which serialized its examples through DSPy's
-    `LabeledFewShot` wire format. The example *content* is identical (same four commands,
-    same man pages, same committed specs); only the framing differs, because reproducing
-    DSPy's rendering would mean depending on DSPy. Stated in the write-up.
+    The example *content* is identical across variants and identical to v1's (same four
+    commands, same man pages, same committed specs); only the framing differs. v1 served
+    them through DSPy's `LabeledFewShot` wire format, which v2 cannot reproduce by calling
+    DSPy — the version it needs no longer exists. The default Markdown framing is therefore
+    a deviation (number 1 in `v2_fidelity_to_v1.md`), and the `dspy_style` variant is the
+    closest hand-reconstruction of v1's wire format, so configuration selection can measure
+    how much the framing is worth instead of assuming it is worth nothing.
     """
+    if variant == "dspy_style":
+        # DSPy rendered labeled demos as field-prefixed blocks separated by rules, and
+        # omitted the Reasoning line on demos supplied without one (LabeledFewShot demos
+        # carry only the signature's input and output fields).
+        return "\n\n".join(
+            f"---\n\nMan Page: {exemplar.man_page}\n\nSyntax Spec: {exemplar.syntax_spec}"
+            for exemplar in exemplars
+        )
+
     blocks = []
     for exemplar in exemplars:
         blocks.append(
@@ -98,6 +112,7 @@ def run(
     seed: int | None = llm.DEFAULT_SEED,
     max_tokens: int = llm.DEFAULT_MAX_TOKENS,
     docs_path: Path | None = None,
+    prompt_variant: str = prompting.DEFAULT_VARIANT,
     out_root: Path = metrics_db.DEFAULT_RUNS_ROOT,
     db_path: Path = metrics_db.DEFAULT_DB_PATH,
     log_conversation: bool = False,
@@ -123,9 +138,10 @@ def run(
         {
             "command": command,
             "man_page": man_page,
-            "few_shot_examples": render_exemplars(exemplars),
+            "few_shot_examples": render_exemplars(exemplars, prompt_variant),
             "spec_symbol": spec_symbol,
         },
+        variant=prompt_variant,
     )
 
     out_root.mkdir(parents=True, exist_ok=True)
@@ -215,7 +231,8 @@ def run(
         decoding_params=decoding,
         response_format="text",
         prompt_hash=prompt.prompt_hash,
-        prompt_files=[f"prompts/{STAGE}/system.md", f"prompts/{STAGE}/user.md"],
+        prompt_files=list(prompt.files),
+        prompt_variant=prompt.variant,
         prompt_system=prompt.system,
         prompt_user=prompt.user,
         raw_response=response.text,

@@ -31,6 +31,9 @@ def prompts_root() -> Path:
     return root
 
 
+DEFAULT_VARIANT = "default"
+
+
 @dataclass(frozen=True)
 class Prompt:
     """An assembled prompt, plus the hash that identifies it in telemetry."""
@@ -38,6 +41,8 @@ class Prompt:
     system: str
     user: str
     prompt_hash: str
+    variant: str = DEFAULT_VARIANT
+    files: tuple[str, ...] = ()
 
     def as_messages(self) -> list[dict[str, str]]:
         return [
@@ -46,10 +51,32 @@ class Prompt:
         ]
 
 
-def _load(stage: str, name: str) -> str:
-    path = prompts_root() / stage / f"{name}.md"
+def variant_dir(stage: str, variant: str) -> Path:
+    """Where a variant's files live.
+
+    The default variant is the stage directory itself, so the frozen prompt keeps its
+    path and its hash: adding this mechanism must not change what an unflagged run sends.
+    """
+    root = prompts_root() / stage
+    return root if variant == DEFAULT_VARIANT else root / "variants" / variant
+
+
+def available_variants(stage: str) -> list[str]:
+    """Every variant name for a stage, default first."""
+    variants = [DEFAULT_VARIANT]
+    container = prompts_root() / stage / "variants"
+    if container.is_dir():
+        variants += sorted(p.name for p in container.iterdir() if p.is_dir())
+    return variants
+
+
+def _load(stage: str, name: str, variant: str = DEFAULT_VARIANT) -> str:
+    path = variant_dir(stage, variant) / f"{name}.md"
     if not path.is_file():
-        raise PromptError(f"prompt file not found at {path}.")
+        known = ", ".join(available_variants(stage))
+        raise PromptError(
+            f"prompt file not found at {path}. Known variants for {stage!r}: {known}."
+        )
     return path.read_text()
 
 
@@ -85,8 +112,27 @@ def hash_prompt(system: str, user: str) -> str:
     return digest.hexdigest()
 
 
-def build(stage: str, values: dict[str, str]) -> Prompt:
-    """Assemble `prompts/<stage>/{system,user}.md` with `values`."""
-    system = substitute(_load(stage, "system"), values)
-    user = substitute(_load(stage, "user"), values)
-    return Prompt(system=system, user=user, prompt_hash=hash_prompt(system, user))
+def build(
+    stage: str, values: dict[str, str], variant: str = DEFAULT_VARIANT
+) -> Prompt:
+    """Assemble a stage's prompt from `variant` with `values`.
+
+    A variant is a different *wording* of the same task, not a different task: it exists so
+    the prompt-phrasing confound recorded as deviation 1 and 5 in `v2_fidelity_to_v1.md`
+    can be measured during configuration selection instead of assumed. The variant name and
+    its files are recorded alongside `prompt_hash`, which already differs per variant.
+    """
+    system = substitute(_load(stage, "system", variant), values)
+    user = substitute(_load(stage, "user", variant), values)
+    directory = variant_dir(stage, variant)
+    files = tuple(
+        str((directory / f"{name}.md").relative_to(prompts_root().parent))
+        for name in ("system", "user")
+    )
+    return Prompt(
+        system=system,
+        user=user,
+        prompt_hash=hash_prompt(system, user),
+        variant=variant,
+        files=files,
+    )

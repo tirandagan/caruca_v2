@@ -97,6 +97,37 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 > table still shows pre-pilot estimates for stages 2-4 — refresh from C0 ledgers when the
 > stdin fix unblocks stage-3 numbers.
 >
+> **Milestone 2 progress (2026-09-08, later).** Two of the three build gaps closed:
+> (a) **Prompt variants** — `prompts/<stage>/variants/<name>/`, a `--prompt-variant` flag,
+> a `prompt_variants` axis on campaigns, per-(model × wording) rollup arms, and the
+> variant recorded in every manifest. The first variant, `dspy_style`, reconstructs v1's
+> actual DSPy wire format (signature docstring, `Man Page:`/`Reasoning:`/`Syntax Spec:`
+> fields, unreasoned demos) from v1's `llm.py`, so deviations 1 and 5 in the fidelity
+> ledger can finally be *measured* rather than assumed. The default path is byte-identical
+> and hash-identical to before — verified by test. (b) **Aggregation** — `caruca-v2 report`
+> (see the criterion above). Suite at 202 tests, ruff clean, at the commit that carries this
+> entry. Note this work landed alongside a concurrent session's (the stdin fix, the exhaust
+> continuation, the usage guide), so the commit spans both.
+> Still open for C1: the mutation harness (needed for the memorization arms C3, not for
+> C1 itself), and the per-argument disagreement sets.
+>
+> **Also recorded 2026-09-08:** the stage-2 `stdin` schema hole is FIXED (v1's schema is
+> re-patched by introspection so every `Content`-typed field carries its enum, plus a
+> variation-level table in the prompt) — Tiran approved this as completing the format
+> description rather than coaching. And a new **deviation 11** was added to the fidelity
+> ledger: stage 2 now nudges a self-terminated model (`EXHAUST_INSTRUCTION`), which is the
+> largest confound in stage 2 and runs in the direction of flattery; stage 1 deliberately
+> does not opt in.
+>
+> **⚠ Retention problem found.** C0's run directories were deleted at some point; only the
+> four ledgers survive. The ledgers still carry status, cost, tokens, and the scores as
+> recorded, so the reported C0 findings stand — but the raw model outputs are gone, so
+> those cells can never be re-scored or re-examined. `eval/runs/` is gitignored for
+> licensing reasons, so there is no backup by design. **Before C1 spends real money, the
+> program needs a retention rule** (at minimum: never clear `eval/runs/` while a campaign
+> is cited by an analysis doc; better: an archive step that copies the scored artifacts
+> somewhere durable). Raised for Tiran's decision.
+>
 > **Forward linkage:** task 007 (created 2026-09-08, Tiran-directed) will extend this
 > harness with an `approach` axis (one-shot vs Claude Agent SDK agentic) — campaign
 > schema, cell keys, and rollups gain a dimension; the extension lands in 007, not here.
@@ -229,10 +260,13 @@ Two further instruments are needed for the no-token Lima track: a semantic annot
 - [ ] `caruca-v2 mutate-docs` emits renamed / permuted / section-ablated variants into
       gitignored `eval/docs_variants/`, with committed seeded rename maps; permutation only
       swaps same-shape flag descriptions; output pages remain well-formed man pages.
-- [ ] `caruca-v2 report` aggregates a campaign into comparison records (schema per
-      `data_telemetry_schema.md`, `method`-tagged), accuracy with CIs over samples,
-      per-argument disagreement sets (intersection/union/disagreement across k samples), and
-      first-pass validity rates.
+- [x] `caruca-v2 report` aggregates a campaign into comparison records (schema per
+      `data_telemetry_schema.md`, `method`-tagged), accuracy with bootstrap intervals and
+      full spreads, consistency across repeated samples, and first-pass validity rates.
+      Also `--rescore`, which re-derives every score from saved artifacts with the current
+      scorer (a scorer fix must not require paying for a campaign twice). Per-argument
+      disagreement sets (the error-localization data) remain to be added — they need the
+      k=10 campaign to be meaningful.
 - [ ] `harness/diff_annotations.py` compares parallelizability semantics case-by-case for E1.
 - [ ] `harness/assumption_sweep.py` re-runs v1 (host or Lima) with one assumed-irrelevant
       dimension varied and records derived-class changes, for E3b/E4.

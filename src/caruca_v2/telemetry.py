@@ -106,6 +106,9 @@ class RunManifest(BaseModel):
 
     prompt_hash: str
     prompt_files: list[str]
+    # Which wording produced this run. `prompt_hash` already distinguishes variants, but a
+    # hash does not say *which* arm it was; configuration selection compares arms by name.
+    prompt_variant: str = "default"
     prompt_system: str
     prompt_user: str
     raw_response: str

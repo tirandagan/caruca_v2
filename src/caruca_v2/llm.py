@@ -168,6 +168,25 @@ CONTINUE_INSTRUCTION = (
 
 EXHAUST_SENTINEL = "COMPLETE"
 
+
+def declares_complete(text: str) -> bool:
+    """Whether a response signals it has nothing left to add.
+
+    Checked as a trailing line rather than as the whole response: a model asked to continue
+    commonly answers with its last items *and* the sentinel in one turn. Matching only whole
+    responses misses that, costing an extra round trip and leaving the sentinel in the output
+    to be counted as an unparseable line.
+    """
+    lines = [line.strip() for line in text.strip().splitlines() if line.strip()]
+    return not lines or lines[-1] == EXHAUST_SENTINEL
+
+
+def strip_sentinel(text: str) -> str:
+    """The response without its control token, so only real output reaches a parser."""
+    return "\n".join(
+        line for line in text.splitlines() if line.strip() != EXHAUST_SENTINEL
+    )
+
 # Used only by stages that opt in via `exhaust_instruction`. See `complete_series` for why
 # this is a deliberate departure from the length-only continuation rule, and what it costs.
 EXHAUST_INSTRUCTION = (
@@ -229,7 +248,7 @@ def complete_series(
         elif exhaust_instruction is not None:
             # The model stopped on its own. Ask once whether it is actually finished, and
             # accept the answer: the sentinel, or a turn that adds nothing, ends the series.
-            if response.text.strip() == EXHAUST_SENTINEL or not response.text.strip():
+            if declares_complete(response.text):
                 break
             instruction = exhaust_instruction
         else:

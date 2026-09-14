@@ -208,3 +208,27 @@ def test_committed_c0_campaign_files_load():
         loaded = sweep.load_campaign(path)
         assert loaded.max_usd <= 3.0, f"{path} pilot brake looks wrong"
         assert loaded.models[0] == "openai/gpt-4o", "paper baseline model runs first"
+
+
+def test_prompt_variant_axis(fake_v1_root, tmp_path, valid_spec_response):
+    """A campaign that varies wording produces one arm per (model, variant)."""
+    c = campaign(tmp_path, prompt_variants=["default", "dspy_style"], score_after=True)
+    cells = sweep.enumerate_cells(c)
+    assert [cell.prompt_variant for cell in cells] == ["default", "dspy_style"]
+    # The default cell's key is unchanged, so ledgers written before the axis existed
+    # still resume instead of re-running.
+    assert cells[0].key == "mkdir|openai/gpt-4o|0.0|0"
+    assert cells[1].key == "mkdir|openai/gpt-4o|0.0|0|dspy_style"
+
+    report = run(c, tmp_path, FakeClient(valid_spec_response))
+    assert report.completed == 2
+    rollup = sweep.summarize_by_model(report)
+    assert set(rollup) == {"openai/gpt-4o", "openai/gpt-4o @ dspy_style"}
+    assert [line["prompt_variant"] for line in ledger_lines(report)] == [
+        "default", "dspy_style",
+    ]
+
+
+def test_unknown_prompt_variant_is_rejected_before_spending(tmp_path):
+    with pytest.raises(SetupError, match="unknown prompt variant"):
+        campaign(tmp_path, prompt_variants=["no_such_wording"])

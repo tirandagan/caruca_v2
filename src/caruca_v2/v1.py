@@ -327,6 +327,41 @@ for title, field_names in content_fields.items():
     if definition is not None:
         _patch(definition, field_names)
 
+
+# Second lossy spot, same shape as the first. A discriminated union resolves its member by
+# reading the tag field, and it does that *before* defaults are applied -- so the tag is
+# mandatory in the input. Pydantic nonetheless gives each tag a default and therefore leaves
+# it out of `required`, which reads as optional to anything working from the schema alone.
+# Omitting it produces `union_tag_not_found` at validation. Mark every discriminator as
+# required, discovering them from the schema's own `discriminator` blocks.
+def _require_discriminators(node):
+    if isinstance(node, list):
+        for item in node:
+            _require_discriminators(item)
+        return
+    if not isinstance(node, dict):
+        return
+
+    discriminator = node.get("discriminator")
+    if isinstance(discriminator, dict):
+        property_name = discriminator.get("propertyName")
+        mapping = discriminator.get("mapping") or {}
+        for ref in mapping.values():
+            title = str(ref).rsplit("/", 1)[-1]
+            definition = schema.get("$defs", {}).get(title)
+            if definition is None or property_name is None:
+                continue
+            if property_name in definition.get("properties", {}):
+                required = definition.setdefault("required", [])
+                if property_name not in required:
+                    required.append(property_name)
+
+    for value in node.values():
+        _require_discriminators(value)
+
+
+_require_discriminators(schema)
+
 print(json.dumps(schema))
 """
 

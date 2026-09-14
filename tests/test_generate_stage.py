@@ -285,3 +285,51 @@ def test_the_knobs_used_are_recorded_so_the_v1_side_can_match_them(fake_v1_root:
     assert inputs["max_count"] == 3
     assert inputs["stdin_variation"] == "varied"
     assert inputs["content_variation"] == "split"
+
+
+def test_the_sentinel_is_recognised_when_it_trails_real_output(fake_v1_root: Path, invoke):
+    """A model commonly answers with its last items and the sentinel in the same turn.
+
+    Matching the sentinel only as a whole response misses that: the series pays for another
+    round trip, and the token lands in the output as an unparseable line.
+    """
+    payload = jsonl("mkdir relpath_1").rstrip("\n") + "\n" + llm.EXHAUST_SENTINEL
+    _, runs, client = invoke(payload, "mkdir")
+
+    parse = read_manifest(runs[0])["checks"]["parse"]
+    assert parse["model_declared_complete"] is True
+    assert parse["turns_used"] == 1  # no redundant nudge
+    assert parse["unparseable_lines"] == 0
+    assert parse["objects_parsed"] == 1
+    assert len(client.calls) == 1
+
+
+def test_equals_and_space_spellings_are_one_invocation():
+    """`--color=always` and `--color always` are the same invocation, not a miss plus a spurious.
+
+    Counting the two spellings separately charges one convention difference to both recall
+    and precision at once, roughly halving each.
+    """
+    assert generate.normalize_invocation("grep --color=always a") == generate.normalize_invocation(
+        "grep --color always a"
+    )
+
+
+def test_quoting_differences_are_one_invocation():
+    assert generate.normalize_invocation("grep --exclude '*.txt' a") == (
+        generate.normalize_invocation("grep --exclude=*.txt a")
+    )
+
+
+def test_a_short_flag_is_not_split_on_an_equals_in_its_value():
+    """Only long options take `--flag=value`; a value containing `=` must survive intact."""
+    assert generate.normalize_invocation("grep -e a=b f") == ("grep", "-e", "a=b", "f")
+
+
+def test_an_unlexable_fragment_is_reported_rather_than_counted_as_a_miss():
+    """v1 emits values containing newlines, and reading its output by line splits them.
+
+    The fragments have unbalanced quotes. Charging them to the model as misses would
+    overstate the gap, so they are excluded from the counts and reported on their own.
+    """
+    assert generate.normalize_invocation("grep --group-separator '") is None

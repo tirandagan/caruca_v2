@@ -239,7 +239,7 @@ def test_nothing_is_skipped_by_default_as_in_v1(
 
 CONFIG = {
     "name": "cat",
-    "body": [{"flag": None, "args": ["relpath_1"]}],
+    "body": [{"flag": None, "args": ["relpath_1"], "node_type": "args"}],
     "string": {"name": "cat", "body": [{"flag": None, "args": ["relpath_1"]}]},
     "stdin": "HUMAN_TEXT",
 }

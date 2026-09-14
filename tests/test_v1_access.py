@@ -107,3 +107,40 @@ def test_validation_leaves_no_bytecode_cache_in_the_run_directory(
 
     # Run directories are evidence; only evidence belongs in them.
     assert sorted(p.name for p in run_dir.iterdir()) == ["mkdir.py"]
+
+
+# The schema handed to the model is v1's own, and pydantic's `model_json_schema()` is lossy
+# in exactly two places that matter. Both cost a paid run to discover; these pin them.
+
+
+def test_content_fields_carry_their_enum_in_the_schema(fake_v1_root: Path):
+    """`SerializableContent` is `Content` behind a `PlainValidator`, which emits no schema.
+
+    Left alone, `stdin` and `File.content` render as bare `{"title": ...}` -- an empty schema,
+    so `null` reads as permitted while v1 accepts only a `Content` member. A model told that
+    cannot produce a valid config no matter how it is prompted.
+    """
+    schema = v1.command_config_schema()
+
+    stdin = schema["properties"]["stdin"]
+    assert "HUMAN_TEXT" in stdin["enum"]
+    assert stdin["type"] == "string"
+    assert "stdin" in schema["required"]
+
+
+def test_discriminator_tags_are_required_in_the_schema(fake_v1_root: Path):
+    """A discriminated union reads its tag before defaults apply, so the tag is mandatory.
+
+    Pydantic still gives each tag a default and omits it from `required`, which reads as
+    optional. Omitting it fails validation with `union_tag_not_found`.
+    """
+    schema = v1.command_config_schema()
+    definitions = schema["$defs"]
+
+    body = schema["properties"]["body"]["items"]
+    discriminator = body["discriminator"]
+    assert discriminator["propertyName"] == "node_type"
+
+    for ref in discriminator["mapping"].values():
+        title = ref.rsplit("/", 1)[-1]
+        assert "node_type" in definitions[title]["required"], title

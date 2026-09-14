@@ -123,8 +123,9 @@ SerializableContent = Annotated[
 """,
     "caruca/ir/environment.py": """
 from pathlib import Path
+from typing import Annotated, Literal, Union
 
-from pydantic import BaseModel, computed_field
+from pydantic import BaseModel, Field, computed_field
 
 from caruca.ir.contents import Content, SerializableContent
 
@@ -132,17 +133,33 @@ from caruca.ir.contents import Content, SerializableContent
 class ArgumentSequenceWithEnv(BaseModel):
     flag: str | None = None
     args: list[str] = []
+    node_type: Literal["args"] = "args"
 
     def prepare(self, sandbox):
         for name in self.args:
             (Path(sandbox) / name).write_text("fixture\\n")
 
 
+class FlagNode(BaseModel):
+    value: str = ""
+    node_type: Literal["flag"] = "flag"
+
+    def prepare(self, sandbox):
+        return None
+
+
+# Real v1 discriminates body nodes on `node_type`. Keeping that here is what lets the
+# schema the model is handed be tested for the tag-is-really-required property.
+BodyNode = Annotated[
+    Union[ArgumentSequenceWithEnv, FlagNode], Field(discriminator="node_type")
+]
+
+
 class CommandConfig(BaseModel):
     name: str
-    body: list[ArgumentSequenceWithEnv] = []
+    body: list[BodyNode] = []
     string: dict = {}
-    stdin: SerializableContent = Content.HUMAN_TEXT
+    stdin: SerializableContent  # no default, as in real v1
 
     @computed_field
     @property

@@ -13,7 +13,7 @@ from fakes import ScriptedClient, tool_call
 
 CONFIG = {
     "name": "cat",
-    "body": [{"flag": None, "args": ["relpath_1"]}],
+    "body": [{"flag": None, "args": ["relpath_1"], "node_type": "args"}],
     "string": {"name": "cat", "body": [{"flag": None, "args": ["relpath_1"]}]},
     "stdin": "HUMAN_TEXT",
 }

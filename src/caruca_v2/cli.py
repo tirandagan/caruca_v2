@@ -14,9 +14,10 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from . import llm, metrics_db, tools, v1
+from . import llm, metrics_db, prompting, tools, v1
 from . import ui as ui_module
 from .errors import CarucaV2Error
+from .harness import report as report_module
 from .harness import score as score_module
 from .harness import sweep as sweep_module
 from .stages import annotate as annotate_stage
@@ -116,6 +117,13 @@ def build_parser() -> argparse.ArgumentParser:
         type=Path,
         default=None,
         help="Documentation file to use instead of v1's committed man page for the command.",
+    )
+    naive.add_argument(
+        "--prompt-variant",
+        default=prompting.DEFAULT_VARIANT,
+        help="Which wording of the stage-1 prompt to use (default: %(default)s). "
+        "`dspy_style` reconstructs v1's DSPy wire format, so the phrasing confound can be "
+        "measured during configuration selection.",
     )
     _add_shared_flags(naive)
     naive.set_defaults(handler=_run_naive_llm)
@@ -355,6 +363,36 @@ def build_parser() -> argparse.ArgumentParser:
     sweep.add_argument("--plain", action="store_true")
     sweep.set_defaults(handler=_run_sweep)
 
+    report = subparsers.add_parser(
+        "report",
+        help="Harness: aggregate a finished campaign into a per-arm comparison table "
+        "with sample spreads, consistency, and cost. No model call.",
+    )
+    report.add_argument("campaign_id", help="Campaign to aggregate (e.g. c1_config_selection).")
+    report.add_argument(
+        "--ledger-root", type=Path, default=sweep_module.DEFAULT_LEDGER_ROOT,
+        help="Where campaign ledgers live (default: %(default)s).",
+    )
+    report.add_argument(
+        "--rescore",
+        nargs="?",
+        const=score_module.REFERENCE_V1_SPECS,
+        default=None,
+        choices=score_module.REFERENCES,
+        help="Re-derive every score from the saved run artifacts with the current scorer, "
+        "instead of using what the ledger recorded at run time. Use after a scorer change "
+        "so a fix does not require paying for the campaign again.",
+    )
+    report.add_argument(
+        "--json", action="store_true", help="Print the full aggregation as JSON."
+    )
+    report.add_argument(
+        "--out", type=Path, default=None,
+        help="Also write the aggregation JSON here (alongside the printed table).",
+    )
+    report.add_argument("--plain", action="store_true")
+    report.set_defaults(handler=_run_report)
+
     return parser
 
 
@@ -369,6 +407,7 @@ def _run_naive_llm(args: argparse.Namespace, ui: ui_module.UI) -> int:
             seed=args.seed,
             max_tokens=args.max_tokens,
             docs_path=args.docs,
+            prompt_variant=args.prompt_variant,
             out_root=args.out,
             db_path=args.db,
             log_conversation=args.log_conversation,
@@ -631,6 +670,39 @@ def _run_annotate(args: argparse.Namespace, ui: ui_module.UI) -> int:
         ui.error(manifest.failure_reason)
 
     return EXIT_OK if result.succeeded else EXIT_RUN_FAILED
+
+
+def _run_report(args: argparse.Namespace, ui: ui_module.UI) -> int:
+    import json as json_module
+
+    with ui.working(f"aggregating campaign {args.campaign_id}"):
+        aggregation = report_module.build(
+            args.campaign_id, ledger_root=args.ledger_root, rescore_with=args.rescore
+        )
+
+    if args.out is not None:
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        args.out.write_text(json_module.dumps(aggregation, indent=2) + "\n")
+
+    if args.json:
+        print(json_module.dumps(aggregation, indent=2))
+        return EXIT_OK
+
+    print(aggregation["table"])
+    print(f"\nscores: {aggregation['scores_from']}")
+    print()
+    for arm, spread in aggregation["consistency"].items():
+        if spread is None:
+            continue
+        print(
+            f"{arm}: {spread['identical_across_samples']}/"
+            f"{spread['commands_sampled_more_than_once']} commands identical across "
+            f"samples, mean spread {spread['mean_spread']:.3f}"
+        )
+    if args.out is not None:
+        ui.summary("report", [("written", str(args.out)),
+                              ("cells", str(aggregation["cells_recorded"]))])
+    return EXIT_OK
 
 
 def _run_metrics_rebuild(args: argparse.Namespace, ui: ui_module.UI) -> int:

@@ -34,7 +34,7 @@ import openai
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
-from .. import llm, metrics_db
+from .. import llm, metrics_db, prompting
 from ..errors import CarucaV2Error, SetupError
 from ..stages import annotate as annotate_stage
 from ..stages import generate as generate_stage
@@ -60,6 +60,10 @@ class Campaign(BaseModel):
     commands: list[str]
     models: list[str]
     temperatures: list[float]
+    # The prompt-phrasing arm of configuration selection. Deviations 1 and 5 in
+    # `v2_fidelity_to_v1.md` are wording changes forced on us (DSPy's renderer is gone; v1's
+    # instructions cannot be copied here), and their size is unknown until measured.
+    prompt_variants: list[str] = Field(default_factory=lambda: ["default"])
     samples: int = 1
     seed: int | None = llm.DEFAULT_SEED
     max_tokens: int = llm.DEFAULT_MAX_TOKENS
@@ -90,6 +94,13 @@ class Campaign(BaseModel):
                 "the sweep runner yet (they arrive with the per-stage campaign C5); "
                 "run isolated traces through the CLI directly."
             )
+        known = prompting.available_variants(self.stage)
+        unknown = [v for v in self.prompt_variants if v not in known]
+        if unknown:
+            raise SetupError(
+                f"campaign {self.campaign_id}: unknown prompt variant(s) {unknown} for "
+                f"stage {self.stage!r}; known: {', '.join(known)}."
+            )
         if not self.commands or not self.models or not self.temperatures:
             raise SetupError(
                 f"campaign {self.campaign_id}: commands, models, and temperatures "
@@ -103,10 +114,14 @@ class Cell:
     model: str
     temperature: float
     sample: int
+    prompt_variant: str = "default"
 
     @property
     def key(self) -> str:
-        return f"{self.command}|{self.model}|{self.temperature}|{self.sample}"
+        # The default variant is omitted so keys written before the prompt-variant axis
+        # existed still match, and a resumed campaign does not re-run finished cells.
+        suffix = "" if self.prompt_variant == "default" else f"|{self.prompt_variant}"
+        return f"{self.command}|{self.model}|{self.temperature}|{self.sample}{suffix}"
 
 
 def load_campaign(path: Path) -> Campaign:
@@ -118,9 +133,16 @@ def load_campaign(path: Path) -> Campaign:
 def enumerate_cells(campaign: Campaign) -> list[Cell]:
     """Model-major order: the whole grid for the first model, then the next model."""
     return [
-        Cell(command=command, model=model, temperature=temperature, sample=sample)
+        Cell(
+            command=command,
+            model=model,
+            temperature=temperature,
+            sample=sample,
+            prompt_variant=variant,
+        )
         for model in campaign.models
         for temperature in campaign.temperatures
+        for variant in campaign.prompt_variants
         for command in campaign.commands
         for sample in range(campaign.samples)
     ]
@@ -184,7 +206,10 @@ def _dispatch(
     if campaign.stage == "syntax_spec":
         docs = options.get("docs")
         result: Any = syntax_stage.run(
-            cell.command, docs_path=None if docs is None else Path(docs), **common
+            cell.command,
+            docs_path=None if docs is None else Path(docs),
+            prompt_variant=cell.prompt_variant,
+            **common,
         )
         records = [result.record]
     elif campaign.stage == "generate":
@@ -253,6 +278,16 @@ class CampaignReport:
     ledger_path: Path | None = None
     by_model: dict[str, dict[str, Any]] = field(default_factory=dict)
     dry_run_cells: list[str] = field(default_factory=list)
+
+
+def arm_name(model: str, prompt_variant: str = "default") -> str:
+    """What a rollup row is called.
+
+    A single-variant campaign rolls up by model, exactly as before the prompt-variant axis
+    existed. Once a campaign varies wording, model alone stops identifying the condition,
+    so the arm carries both.
+    """
+    return model if prompt_variant == "default" else f"{model} @ {prompt_variant}"
 
 
 def _model_bucket(report: CampaignReport, model: str) -> dict[str, Any]:
@@ -352,9 +387,10 @@ def run_campaign(
                 "model": cell.model,
                 "temperature": cell.temperature,
                 "sample": cell.sample,
+                "prompt_variant": cell.prompt_variant,
                 "attempts": 0,
             }
-            bucket = _model_bucket(report, cell.model)
+            bucket = _model_bucket(report, arm_name(cell.model, cell.prompt_variant))
 
             outcome: tuple[str, str, str, bool | None, float, int, int] | None = None
             error: str | None = None
