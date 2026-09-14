@@ -71,6 +71,7 @@ SCORED_FIELDS: dict[str, tuple[str, ...]] = {
 }
 
 ALIGN_BY_PREDICATE = "predicate_key"
+ALIGN_BY_SUBSUMPTION = "subsumption"
 ALIGN_POSITIONAL = "positional"
 ALIGN_TEXT = "text"
 
@@ -91,6 +92,42 @@ def canonical_predicate(predicate: Any) -> Any:
     if isinstance(predicate, list):
         return tuple(canonical_predicate(item) for item in predicate)
     return predicate
+
+
+def predicate_atoms(predicate: Any) -> frozenset[Any] | None:
+    """The set of atomic conditions a predicate requires. `None` for the default case.
+
+    v1's annotator emits a conjunction per observed flag combination -- `(exists "-n") and
+    (len_args_eq 0)`. The hand-curated files write single general conditions -- `exists "-n"`.
+    Flattening both to atom sets is what lets one be related to the other.
+    """
+    if predicate == "default" or predicate is None:
+        return None
+    if isinstance(predicate, dict) and predicate.get("operator") == "and":
+        atoms: set[Any] = set()
+        for operand in predicate.get("operands", []):
+            nested = predicate_atoms(operand)
+            if nested is None:
+                continue
+            atoms |= nested
+        return frozenset(atoms)
+    return frozenset({canonical_predicate(predicate)})
+
+
+def subsumes(general: Any, specific: Any) -> bool:
+    """Whether `general` covers `specific` — every condition it requires is also required.
+
+    The relation PaSh itself applies when selecting a case: a hand-written case for
+    `exists "-n"` governs every observed invocation that has `-n`, whatever else it has.
+    `"default"` covers everything, which is why it is only ever chosen last.
+    """
+    general_atoms = predicate_atoms(general)
+    if general_atoms is None:
+        return True
+    specific_atoms = predicate_atoms(specific)
+    if specific_atoms is None:
+        return False
+    return general_atoms <= specific_atoms
 
 
 def project_ground_truth(fmt: str, payload: Any) -> tuple[Any, dict[str, Any]]:
@@ -161,13 +198,43 @@ def align_cases(
         return {canonical_predicate(case.get("predicate")): case for case in cases}
 
     left_index, right_index = index(left), index(right)
+    exact_hits = sum(1 for key in left_index if key in right_index)
+
+    if exact_hits or not left or not right:
+        pairs = []
+        for key, case in left_index.items():
+            pairs.append((case, right_index.get(key)))
+        for key, case in right_index.items():
+            if key not in left_index:
+                pairs.append((None, case))
+        return pairs, ALIGN_BY_PREDICATE
+
+    # No case matches by key. That happens between v1's own output and the hand-curated
+    # files, which are written at different granularities: v1 emits one conjunction per
+    # observed flag combination (14 cases for `cat`), the humans wrote 3 general conditions.
+    # Key matching yields 0/0 there -- no information at all -- so relate them by the rule
+    # PaSh itself uses to select a case, and record that this is what happened.
     pairs = []
-    for key, case in left_index.items():
-        pairs.append((case, right_index.get(key)))
-    for key, case in right_index.items():
-        if key not in left_index:
+    matched_reference: set[int] = set()
+    for case in left:
+        candidates = [
+            (index_, other)
+            for index_, other in enumerate(right)
+            if subsumes(other.get("predicate"), case.get("predicate"))
+        ]
+        if not candidates:
+            pairs.append((case, None))
+            continue
+        # Most specific wins; "default" (no atoms) is therefore chosen last.
+        index_, best = max(
+            candidates, key=lambda pair: len(predicate_atoms(pair[1].get("predicate")) or ())
+        )
+        matched_reference.add(index_)
+        pairs.append((case, best))
+    for index_, case in enumerate(right):
+        if index_ not in matched_reference:
             pairs.append((None, case))
-    return pairs, ALIGN_BY_PREDICATE
+    return pairs, ALIGN_BY_SUBSUMPTION
 
 
 def _field_equal(field: str, left: Any, right: Any) -> bool:
@@ -262,6 +329,10 @@ def compare_annotation(
     pairs, alignment = align_cases(fmt, produced, reference)
     aligned = [(left, right) for left, right in pairs if left is not None and right is not None]
     fields = SCORED_FIELDS.get(fmt, ())
+    if alignment == ALIGN_BY_SUBSUMPTION:
+        # The predicates are known to differ -- that is what subsumption alignment means --
+        # so scoring them would report a disagreement the alignment already accounts for.
+        fields = tuple(f for f in fields if f != "predicate")
 
     agreement: dict[str, int] = {"comparable": len(aligned)}
     ordered_agreement: dict[str, int] = {}

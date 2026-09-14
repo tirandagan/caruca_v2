@@ -439,3 +439,69 @@ stage-1 v1 side costs nothing**: all nine target commands already have a committ
 spec, so v1's DSPy pipeline never has to be re-run for correctness — only, optionally, for
 fresh cost and latency telemetry. On those nine, v1 scores mean F1 **1.000** and mean exact
 **0.983**, so the target set is favourable to v1 rather than cherry-picked for v2.
+
+---
+
+## 11. Phase 2 results — v1's side, generated 2026-09-14 (no API spend)
+
+All nine commands traced and annotated in the Lima VM at `--max-arity 1 --max-count 1`.
+Artifacts: `caruca/outputs/<cmd>.parity.json` and `<cmd>.parity.pash.json` (untracked).
+
+| command | trace wall | invocation groups | configs | rc==0 | pash cases |
+|---|---|---|---|---|---|
+| cat | 2s | 27 | 35 | 27 | 14 |
+| pwd | 0s | 8 | 8 | 8 | 5 |
+| rm | 7s | 54 | 270 | 78 | 12 |
+| sha256sum | 1s | 27 | 35 | 21 | 8 |
+| tac | 0s | 14 | 22 | 14 | 7 |
+| tail | 1s | 41 | 49 | 26 | 9 |
+| tee | 3s | 30 | 150 | 72 | 7 |
+| uniq | 2s | 43 | 59 | 34 | 12 |
+| wc | 1s | 34 | 50 | 32 | 9 |
+
+**Total: 17 seconds of wall clock for the whole v1 side.** That is v1's cost figure for the
+paper's §7.4 dimension at this bound, and it is the number any "v2 is cheaper/slower" claim
+has to be set against.
+
+`trace --length-only` is unusable as a size estimate — it claimed 32 executions for `pwd`
+(actual 8), 57,344 for `cat` (actual 35) and 42,598,400 for `uniq` (actual 59). Same family
+as E0's finding that `generate --number` disagrees with actual emission for 90 of 90
+commands. Do not plan a run from it.
+
+### v1's own annotator against the hand-curated ground truth
+
+The one place at stage 4 where a v1-versus-v2 delta is meaningful, because both are scored
+against a third party. Aligned by **subsumption** (see below): 83 cases.
+
+| | |
+|---|---|
+| Parallelizability class agreeing | **20 / 83 (24%)** |
+| Every scored field agreeing | **8 / 83 (10%)** |
+
+**This is not "v1 is 24% accurate", and must not be reported that way.** Of 62 class
+disagreements, **58 are v1 being *more conservative* than the humans** — `pure → non-pure`
+×33, `stateless → non-pure` ×16, `pure → side-effectful` ×5 — against only 4 in the other
+direction. E0 predicted exactly this for `grep` at this bound ("diverges in the *conservative*
+direction"); nine commands now confirm it with 58/62 directional consistency. It is a property
+of tracing single-flag invocations, where v1 has less evidence and falls back conservatively,
+not a defect. The four *less* conservative cases (`side-effectful → non-pure`) are the
+interesting ones and get named individually in the report.
+
+Nor is it comparable to the paper's Q1 (PaSh 52/52), which was **execution-based** — rerunning
+PaSh's benchmark suite with output-hash comparison — not a diff against these files. The
+telemetry schema labels this `annotation_diff` precisely to keep the two apart
+(`memory/caruca_v1_eval_tooling_notes.md`).
+
+### A fifth structural difference: the two artifacts are written at different granularities
+
+v1's annotator emits one **conjunction per observed flag combination** — 14 cases for `cat`,
+each of the form `(exists "-n") and (len_args_eq 0)`. The hand-curated file writes **3 general
+atoms** — `exists "-n"`, `len_args_eq 0`, `"default"`. Matching cases by predicate key
+therefore aligns **zero** of them and yields 0/0: no information at all.
+
+Relating them needs a stated rule, so the scorer applies **subsumption** — the same rule PaSh
+itself uses to select a case: a general case governs every observed invocation that satisfies
+it, most specific wins, `"default"` last. The alignment mode is recorded in every record
+(`alignment: "subsumption"` versus `"predicate_key"`), and the `predicate` field is excluded
+from scoring when subsumption is used, since a predicate difference is what the alignment
+already accounts for rather than a disagreement to charge twice.

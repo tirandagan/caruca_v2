@@ -222,3 +222,89 @@ def test_self_test_requires_every_scored_field_to_agree():
     outcome = ann.self_test("pash", pash(v1_case()), reference_kind=ann.REFERENCE_V1_SAME_TRACES)
     assert outcome["passed"] is True
     assert outcome["comparable"] == 1
+
+
+# --- cross-granularity alignment ------------------------------------------------------------
+
+
+def test_v1_conjunctions_and_hand_written_atoms_align_by_subsumption():
+    """The two artifacts are written at different granularities.
+
+    v1 emits one conjunction per observed flag combination (14 cases for `cat`); the
+    hand-curated file writes 3 general atoms. Key matching aligns zero of them and yields
+    0/0 -- no information at all -- so they are related by the rule PaSh itself uses to
+    select a case.
+    """
+    conjunction = {
+        "operator": "and",
+        "operands": [
+            {"operator": "exists", "operands": ["-n"]},
+            {"operator": "len_args_eq", "operands": [0]},
+        ],
+    }
+    result = ann.compare_annotation(
+        "pash",
+        pash(v1_case(predicate=conjunction)),
+        pash(truth_case(predicate={"operator": "exists", "operands": ["-n"]})),
+        label="x",
+        reference_kind=ann.REFERENCE_GROUND_TRUTH,
+    )
+    assert result["alignment"] == ann.ALIGN_BY_SUBSUMPTION
+    assert result["cases"]["aligned"] == 1
+    assert result["agreement"]["pclass"] == 1
+
+
+def test_the_most_specific_covering_case_wins_and_default_is_chosen_last():
+    specific = {"operator": "exists", "operands": ["-n"]}
+    conjunction = {
+        "operator": "and",
+        "operands": [specific, {"operator": "len_args_eq", "operands": [0]}],
+    }
+    assert ann.subsumes(specific, conjunction) is True
+    assert ann.subsumes("default", conjunction) is True
+    # ...but "default" requires nothing, so it ranks below any real condition.
+    assert len(ann.predicate_atoms("default") or ()) == 0
+    assert len(ann.predicate_atoms(specific)) == 1
+
+
+def test_a_general_case_does_not_cover_an_invocation_lacking_its_condition():
+    assert (
+        ann.subsumes(
+            {"operator": "exists", "operands": ["-b"]},
+            {"operator": "exists", "operands": ["-n"]},
+        )
+        is False
+    )
+
+
+def test_predicate_is_not_scored_when_subsumption_did_the_aligning():
+    """A predicate difference is what subsumption accounts for, not a disagreement to
+    charge on top of it."""
+    conjunction = {
+        "operator": "and",
+        "operands": [
+            {"operator": "exists", "operands": ["-n"]},
+            {"operator": "len_args_eq", "operands": [0]},
+        ],
+    }
+    result = ann.compare_annotation(
+        "pash",
+        pash(v1_case(predicate=conjunction)),
+        pash(truth_case(predicate={"operator": "exists", "operands": ["-n"]})),
+        label="x",
+        reference_kind=ann.REFERENCE_GROUND_TRUTH,
+    )
+    assert "predicate" not in result["rates"]
+    assert result["agreement"]["fully_agreeing"] == 1
+
+
+def test_same_granularity_sides_still_align_by_key():
+    """v1 against v1 is the same granularity, so nothing changes there."""
+    result = ann.compare_annotation(
+        "pash",
+        pash(v1_case()),
+        pash(v1_case()),
+        label="x",
+        reference_kind=ann.REFERENCE_V1_SAME_TRACES,
+    )
+    assert result["alignment"] == ann.ALIGN_BY_PREDICATE
