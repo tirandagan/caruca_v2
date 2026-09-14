@@ -1,0 +1,8972 @@
+[
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-i",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-i_DNOLI",
+    "true_string": "-i"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-i",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-i_DNOLI",
+     "identifier": "DNOLI"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -i relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-i",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-i_DNOLI",
+    "true_string": "-i"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-i",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-i_DNOLI",
+     "identifier": "DNOLI"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -i relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-i",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-i_DNOLI",
+    "true_string": "-i"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-i",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-i_DNOLI",
+     "identifier": "DNOLI"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -i relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-i",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-i_DNOLI",
+    "true_string": "-i"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-i",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-i_DNOLI",
+     "identifier": "DNOLI"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -i nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-i",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-i_DNOLI",
+    "true_string": "-i"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-i",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-i_DNOLI",
+     "identifier": "DNOLI"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -i relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-i",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-i_DNOLI",
+    "true_string": "-i"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-i",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-i_DNOLI",
+     "identifier": "DNOLI"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -i sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-i",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-i_DNOLI",
+    "true_string": "-i"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-i",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-i_DNOLI",
+     "identifier": "DNOLI"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -i sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-i",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-i_DNOLI",
+    "true_string": "-i"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-i",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-i_DNOLI",
+     "identifier": "DNOLI"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -i sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-i",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-i_DNOLI",
+    "true_string": "-i"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-i",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-i_DNOLI",
+     "identifier": "DNOLI"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -i sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-i",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-i_DNOLI",
+    "true_string": "-i"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-i",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-i_DNOLI",
+     "identifier": "DNOLI"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -i sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--help",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--help_GSADL",
+    "true_string": "--help"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--help",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--help_GSADL",
+     "identifier": "GSADL"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --help relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--help",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--help_GSADL",
+    "true_string": "--help"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--help",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--help_GSADL",
+     "identifier": "GSADL"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --help relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--help",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--help_GSADL",
+    "true_string": "--help"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--help",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--help_GSADL",
+     "identifier": "GSADL"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --help relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--help",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--help_GSADL",
+    "true_string": "--help"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--help",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--help_GSADL",
+     "identifier": "GSADL"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --help nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--help",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--help_GSADL",
+    "true_string": "--help"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--help",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--help_GSADL",
+     "identifier": "GSADL"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --help relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--help",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--help_GSADL",
+    "true_string": "--help"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--help",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--help_GSADL",
+     "identifier": "GSADL"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --help sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--help",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--help_GSADL",
+    "true_string": "--help"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--help",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--help_GSADL",
+     "identifier": "GSADL"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --help sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--help",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--help_GSADL",
+    "true_string": "--help"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--help",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--help_GSADL",
+     "identifier": "GSADL"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --help sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--help",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--help_GSADL",
+    "true_string": "--help"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--help",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--help_GSADL",
+     "identifier": "GSADL"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --help sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--help",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--help_GSADL",
+    "true_string": "--help"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--help",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--help_GSADL",
+     "identifier": "GSADL"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --help sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-a",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-a_LNROX",
+    "true_string": "-a"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-a",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-a_LNROX",
+     "identifier": "LNROX"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -a relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-a",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-a_LNROX",
+    "true_string": "-a"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-a",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-a_LNROX",
+     "identifier": "LNROX"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -a relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-a",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-a_LNROX",
+    "true_string": "-a"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-a",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-a_LNROX",
+     "identifier": "LNROX"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -a relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-a",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-a_LNROX",
+    "true_string": "-a"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-a",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-a_LNROX",
+     "identifier": "LNROX"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -a nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-a",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-a_LNROX",
+    "true_string": "-a"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-a",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-a_LNROX",
+     "identifier": "LNROX"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -a relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-a",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-a_LNROX",
+    "true_string": "-a"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-a",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-a_LNROX",
+     "identifier": "LNROX"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -a sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-a",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-a_LNROX",
+    "true_string": "-a"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-a",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-a_LNROX",
+     "identifier": "LNROX"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -a sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-a",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-a_LNROX",
+    "true_string": "-a"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-a",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-a_LNROX",
+     "identifier": "LNROX"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -a sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-a",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-a_LNROX",
+    "true_string": "-a"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-a",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-a_LNROX",
+     "identifier": "LNROX"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -a sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-a",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-a_LNROX",
+    "true_string": "-a"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-a",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-a_LNROX",
+     "identifier": "LNROX"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -a sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn",
+      "arg_type": "no_env",
+      "true_string": "warn"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn",
+      "arg_type": "no_env",
+      "true_string": "warn"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn",
+      "arg_type": "no_env",
+      "true_string": "warn"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn",
+      "arg_type": "no_env",
+      "true_string": "warn"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn",
+      "arg_type": "no_env",
+      "true_string": "warn"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn",
+      "arg_type": "no_env",
+      "true_string": "warn"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn",
+      "arg_type": "no_env",
+      "true_string": "warn"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn",
+      "arg_type": "no_env",
+      "true_string": "warn"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn",
+      "arg_type": "no_env",
+      "true_string": "warn"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn",
+      "arg_type": "no_env",
+      "true_string": "warn"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn-nopipe",
+      "arg_type": "no_env",
+      "true_string": "warn-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn-nopipe relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn-nopipe",
+      "arg_type": "no_env",
+      "true_string": "warn-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn-nopipe relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn-nopipe",
+      "arg_type": "no_env",
+      "true_string": "warn-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn-nopipe relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn-nopipe",
+      "arg_type": "no_env",
+      "true_string": "warn-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn-nopipe nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn-nopipe",
+      "arg_type": "no_env",
+      "true_string": "warn-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn-nopipe relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn-nopipe",
+      "arg_type": "no_env",
+      "true_string": "warn-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn-nopipe sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn-nopipe",
+      "arg_type": "no_env",
+      "true_string": "warn-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn-nopipe sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn-nopipe",
+      "arg_type": "no_env",
+      "true_string": "warn-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn-nopipe sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn-nopipe",
+      "arg_type": "no_env",
+      "true_string": "warn-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn-nopipe sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn-nopipe",
+      "arg_type": "no_env",
+      "true_string": "warn-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=warn-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "warn-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=warn-nopipe sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit",
+      "arg_type": "no_env",
+      "true_string": "exit"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit",
+      "arg_type": "no_env",
+      "true_string": "exit"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit",
+      "arg_type": "no_env",
+      "true_string": "exit"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit",
+      "arg_type": "no_env",
+      "true_string": "exit"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit",
+      "arg_type": "no_env",
+      "true_string": "exit"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit",
+      "arg_type": "no_env",
+      "true_string": "exit"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit",
+      "arg_type": "no_env",
+      "true_string": "exit"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit",
+      "arg_type": "no_env",
+      "true_string": "exit"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit",
+      "arg_type": "no_env",
+      "true_string": "exit"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit",
+      "arg_type": "no_env",
+      "true_string": "exit"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit-nopipe",
+      "arg_type": "no_env",
+      "true_string": "exit-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit-nopipe relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit-nopipe",
+      "arg_type": "no_env",
+      "true_string": "exit-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit-nopipe relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit-nopipe",
+      "arg_type": "no_env",
+      "true_string": "exit-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit-nopipe relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit-nopipe",
+      "arg_type": "no_env",
+      "true_string": "exit-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit-nopipe nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit-nopipe",
+      "arg_type": "no_env",
+      "true_string": "exit-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit-nopipe relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit-nopipe",
+      "arg_type": "no_env",
+      "true_string": "exit-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit-nopipe sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit-nopipe",
+      "arg_type": "no_env",
+      "true_string": "exit-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit-nopipe sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit-nopipe",
+      "arg_type": "no_env",
+      "true_string": "exit-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit-nopipe sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit-nopipe",
+      "arg_type": "no_env",
+      "true_string": "exit-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit-nopipe sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit-nopipe",
+      "arg_type": "no_env",
+      "true_string": "exit-nopipe"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--output-error_DBEMD",
+    "true_string": "--output-error=exit-nopipe"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--output-error",
+     "args": [
+      {
+       "value": "exit-nopipe"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--output-error_DBEMD",
+     "identifier": "DBEMD"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --output-error=exit-nopipe sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-p",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-p_YSVGC",
+    "true_string": "-p"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-p",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-p_YSVGC",
+     "identifier": "YSVGC"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -p relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-p",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-p_YSVGC",
+    "true_string": "-p"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-p",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-p_YSVGC",
+     "identifier": "YSVGC"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -p relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-p",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-p_YSVGC",
+    "true_string": "-p"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-p",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-p_YSVGC",
+     "identifier": "YSVGC"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -p relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-p",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-p_YSVGC",
+    "true_string": "-p"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-p",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-p_YSVGC",
+     "identifier": "YSVGC"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -p nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-p",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-p_YSVGC",
+    "true_string": "-p"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-p",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-p_YSVGC",
+     "identifier": "YSVGC"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -p relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-p",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-p_YSVGC",
+    "true_string": "-p"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-p",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-p_YSVGC",
+     "identifier": "YSVGC"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -p sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-p",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-p_YSVGC",
+    "true_string": "-p"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-p",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-p_YSVGC",
+     "identifier": "YSVGC"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -p sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-p",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-p_YSVGC",
+    "true_string": "-p"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-p",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-p_YSVGC",
+     "identifier": "YSVGC"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -p sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-p",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-p_YSVGC",
+    "true_string": "-p"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-p",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-p_YSVGC",
+     "identifier": "YSVGC"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -p sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "-p",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-p_YSVGC",
+    "true_string": "-p"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "-p",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-p_YSVGC",
+     "identifier": "YSVGC"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee -p sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--version",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--version_FWNGY",
+    "true_string": "--version"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--version",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--version_FWNGY",
+     "identifier": "FWNGY"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --version relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--version",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--version_FWNGY",
+    "true_string": "--version"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--version",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--version_FWNGY",
+     "identifier": "FWNGY"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --version relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--version",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--version_FWNGY",
+    "true_string": "--version"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--version",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--version_FWNGY",
+     "identifier": "FWNGY"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --version relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--version",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--version_FWNGY",
+    "true_string": "--version"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--version",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--version_FWNGY",
+     "identifier": "FWNGY"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --version nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--version",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--version_FWNGY",
+    "true_string": "--version"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--version",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--version_FWNGY",
+     "identifier": "FWNGY"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --version relpath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--version",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--version_FWNGY",
+    "true_string": "--version"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--version",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--version_FWNGY",
+     "identifier": "FWNGY"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --version sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--version",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--version_FWNGY",
+    "true_string": "--version"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--version",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--version_FWNGY",
+     "identifier": "FWNGY"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --version sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--version",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--version_FWNGY",
+    "true_string": "--version"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--version",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--version_FWNGY",
+     "identifier": "FWNGY"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --version sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--version",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--version_FWNGY",
+    "true_string": "--version"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--version",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--version_FWNGY",
+     "identifier": "FWNGY"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --version sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--version",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--version_FWNGY",
+    "true_string": "--version"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "+",
+    "symbol": "PATH_EMNMX",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": "--version",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--version_FWNGY",
+     "identifier": "FWNGY"
+    },
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "identifier": "EMNMX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tee --version sandbox_placeholder/abspath_1"
+ }
+]

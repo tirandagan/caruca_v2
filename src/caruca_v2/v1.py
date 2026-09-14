@@ -920,7 +920,35 @@ if fmt == "shellcheck":
         "skeleton": render_shellcheck_module(sys.argv[2], [], missing_destination=None),
     }))
 else:
-    print(json.dumps({"kind": "json", "schema": models[fmt].model_json_schema()}))
+    schema = models[fmt].model_json_schema()
+
+    # `Predicate.operator` is typed `str`, so the schema places no constraint on it at all --
+    # the real vocabulary lives in v1's annotator code, not in its type system. Handed the
+    # bare schema, a model invents its own operators: `{"operator": "eq", "operands":
+    # ["flag", "-b"]}` validates cleanly and is meaningless to PaSh, which understands only
+    # `exists`, `len_args_eq` and `and`. Same failure as `stdin` rendering as an empty
+    # schema. Recover the vocabulary from the annotator's own source rather than restating
+    # it here, so a new operator upstream arrives without a change in this file.
+    definitions = schema.get("$defs", {})
+    if "Predicate" in definitions:
+        import inspect
+        import re
+
+        import caruca.annotator.annotator as annotator_module
+
+        operators = sorted(
+            set(re.findall(r'operator="([a-z_]+)"', inspect.getsource(annotator_module)))
+        )
+        if operators:
+            properties = definitions["Predicate"].setdefault("properties", {})
+            operator = properties.setdefault("operator", {"title": "Operator", "type": "string"})
+            operator["enum"] = operators
+            operator["description"] = (
+                "the only operators v1's annotator emits, recovered from its source; "
+                "any other value validates but is meaningless to the consumer"
+            )
+
+    print(json.dumps({"kind": "json", "schema": schema}))
 """
 
 _VALIDATE_ANNOTATION_SCRIPT = """

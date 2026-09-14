@@ -89,6 +89,10 @@ class Campaign(BaseModel):
                 f"campaign {self.campaign_id}: annotate campaigns must set "
                 "stage_options.format (pash|posh|sash|shellcheck)."
             )
+        if self.stage_options.get("configs_pattern") and self.stage != "trace":
+            raise SetupError(
+                f"campaign {self.campaign_id}: configs_pattern is a trace option."
+            )
         if self.stage_options.get("traces_pattern") and self.stage != "annotate":
             raise SetupError(f"campaign {self.campaign_id}: traces_pattern is an annotate option.")
         isolation = self.stage_options.get("isolation")
@@ -236,8 +240,19 @@ def _dispatch(
         # are both on that list — so a nine-command parity campaign cannot run on the host
         # alone. The refusal happens before the API client is built, so a mistake costs $0.
         backend = options.get("isolation")
+        # `configs_pattern` names one configs file per command. A parity campaign points it
+        # at v1's own expansion so stage 3 is measured on the inputs v1 had, not on stage 2's
+        # output -- otherwise an upstream typing error is scored again downstream, and the
+        # two stages' numbers stop being independent.
+        configs_pattern = options.get("configs_pattern")
+        configs = (
+            configs_pattern.format(command=v1.slug(cell.command), raw_command=cell.command)
+            if configs_pattern
+            else options.get("configs")
+        )
         result = trace_stage.run(
             cell.command,
+            configs_path=None if configs is None else Path(configs),
             max_turns=int(options.get("max_turns", trace_stage.DEFAULT_MAX_TURNS)),
             limit=int(options.get("limit", trace_stage.DEFAULT_LIMIT)),
             isolation=(

@@ -1,0 +1,198 @@
+[
+ {
+  "name": "pwd",
+  "body": [],
+  "string": {
+   "name": "pwd",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "pwd"
+ },
+ {
+  "name": "pwd",
+  "body": [],
+  "string": {
+   "name": "pwd",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "pwd"
+ },
+ {
+  "name": "pwd",
+  "body": [],
+  "string": {
+   "name": "pwd",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "pwd"
+ },
+ {
+  "name": "pwd",
+  "body": [],
+  "string": {
+   "name": "pwd",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "pwd"
+ },
+ {
+  "name": "pwd",
+  "body": [
+   {
+    "flag": "-P",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-P_GOPTA",
+    "true_string": "-P"
+   }
+  ],
+  "string": {
+   "name": "pwd",
+   "body": [
+    {
+     "flag": "-P",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-P_GOPTA",
+     "identifier": "GOPTA"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "pwd -P"
+ },
+ {
+  "name": "pwd",
+  "body": [
+   {
+    "flag": "--help",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--help_ACZIU",
+    "true_string": "--help"
+   }
+  ],
+  "string": {
+   "name": "pwd",
+   "body": [
+    {
+     "flag": "--help",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--help_ACZIU",
+     "identifier": "ACZIU"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "pwd --help"
+ },
+ {
+  "name": "pwd",
+  "body": [
+   {
+    "flag": "--version",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--version_WKDTH",
+    "true_string": "--version"
+   }
+  ],
+  "string": {
+   "name": "pwd",
+   "body": [
+    {
+     "flag": "--version",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--version_WKDTH",
+     "identifier": "WKDTH"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "pwd --version"
+ },
+ {
+  "name": "pwd",
+  "body": [
+   {
+    "flag": "-L",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-L_JFHPG",
+    "true_string": "-L"
+   }
+  ],
+  "string": {
+   "name": "pwd",
+   "body": [
+    {
+     "flag": "-L",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-L_JFHPG",
+     "identifier": "JFHPG"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "pwd -L"
+ }
+]

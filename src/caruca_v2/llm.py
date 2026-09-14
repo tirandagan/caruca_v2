@@ -44,6 +44,19 @@ def seed_is_honored(model: str) -> bool:
     return not model.startswith(SEEDLESS_MODEL_PREFIXES)
 
 
+#: Seconds to wait on one request before giving up. The SDK's default is 600 with two silent
+#: retries, so a stalled request can occupy 30 minutes on its own -- and under a campaign's
+#: own backoff, a single cell can hang for hours. Observed: one annotate cell blocked a
+#: campaign for 27 minutes with no output and no error.
+REQUEST_TIMEOUT_SECONDS = 180.0
+
+#: Retries are the caller's business, not the SDK's. Leaving the SDK default of 2 puts a
+#: second, silent retry layer underneath the campaign runner's documented backoff, which
+#: double-counts attempts and makes the recorded `transport_retries` wrong. This does not
+#: touch the content-retry guardrail -- a model is still never re-asked for a better answer.
+CLIENT_MAX_RETRIES = 0
+
+
 def build_client(api_key: str | None = None) -> OpenAI:
     """An OpenAI SDK client pointed at OpenRouter. Fails at startup, not mid-run."""
     key = api_key or os.environ.get(API_KEY_VAR)
@@ -52,7 +65,12 @@ def build_client(api_key: str | None = None) -> OpenAI:
             f"No OpenRouter API key. Set {API_KEY_VAR} in the environment or in .env "
             "(see .env.example)."
         )
-    return OpenAI(api_key=key, base_url=OPENROUTER_BASE_URL)
+    return OpenAI(
+        api_key=key,
+        base_url=OPENROUTER_BASE_URL,
+        timeout=REQUEST_TIMEOUT_SECONDS,
+        max_retries=CLIENT_MAX_RETRIES,
+    )
 
 
 @dataclass(frozen=True)
@@ -183,9 +201,8 @@ def declares_complete(text: str) -> bool:
 
 def strip_sentinel(text: str) -> str:
     """The response without its control token, so only real output reaches a parser."""
-    return "\n".join(
-        line for line in text.splitlines() if line.strip() != EXHAUST_SENTINEL
-    )
+    return "\n".join(line for line in text.splitlines() if line.strip() != EXHAUST_SENTINEL)
+
 
 # Used only by stages that opt in via `exhaust_instruction`. See `complete_series` for why
 # this is a deliberate departure from the length-only continuation rule, and what it costs.
@@ -332,9 +349,7 @@ def run_tool_loop(
                 content = json.dumps({"error": f"arguments were not valid JSON: {exc}"})
             else:
                 content = execute(function["name"], arguments)
-            conversation.append(
-                {"role": "tool", "tool_call_id": call["id"], "content": content}
-            )
+            conversation.append({"role": "tool", "tool_call_id": call["id"], "content": content})
 
         if is_finished():
             stop_reason = "finished"

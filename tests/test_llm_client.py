@@ -70,3 +70,19 @@ def test_a_response_without_usage_is_an_error_not_a_zero():
 def test_seed_support_is_declared_per_model_family():
     assert llm.seed_is_honored("openai/gpt-4o")
     assert not llm.seed_is_honored("anthropic/claude-sonnet-4")
+
+
+def test_the_client_bounds_a_request_and_leaves_retries_to_the_caller(monkeypatch):
+    """A stalled request must not be able to occupy a campaign indefinitely.
+
+    The SDK defaults to a 600s timeout with two silent retries, so one request can hold a
+    slot for 30 minutes; underneath the campaign runner's own backoff that compounds into
+    hours. Observed once: an annotate cell blocked a campaign for 27 minutes with no output
+    and no error. Setting max_retries to 0 also removes a second, silent retry layer that
+    made the recorded transport_retries count wrong -- it does not touch the content-retry
+    guardrail, which is about never re-asking a model for a better answer.
+    """
+    monkeypatch.setenv(llm.API_KEY_VAR, "test-key")
+    client = llm.build_client()
+    assert client.timeout == llm.REQUEST_TIMEOUT_SECONDS
+    assert client.max_retries == 0

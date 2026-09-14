@@ -1,0 +1,732 @@
+[
+ {
+  "name": "tac",
+  "body": [],
+  "string": {
+   "name": "tac",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac"
+ },
+ {
+  "name": "tac",
+  "body": [],
+  "string": {
+   "name": "tac",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac"
+ },
+ {
+  "name": "tac",
+  "body": [],
+  "string": {
+   "name": "tac",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac"
+ },
+ {
+  "name": "tac",
+  "body": [],
+  "string": {
+   "name": "tac",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac"
+ },
+ {
+  "name": "tac",
+  "body": [],
+  "string": {
+   "name": "tac",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac"
+ },
+ {
+  "name": "tac",
+  "body": [],
+  "string": {
+   "name": "tac",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": "-r",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-r_LUYLS",
+    "true_string": "-r"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": "-r",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-r_LUYLS",
+     "identifier": "LUYLS"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac -r"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": "--version",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--version_NGLRK",
+    "true_string": "--version"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": "--version",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--version_NGLRK",
+     "identifier": "NGLRK"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac --version"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": "-b",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-b_ZAXAJ",
+    "true_string": "-b"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": "-b",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-b_ZAXAJ",
+     "identifier": "ZAXAJ"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac -b"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": "--help",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--help_JWQRX",
+    "true_string": "--help"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": "--help",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--help_JWQRX",
+     "identifier": "JWQRX"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac --help"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": "-s",
+    "args": [
+     {
+      "value": ",",
+      "arg_type": "no_env",
+      "true_string": ","
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "_STRING-s_TIIUV",
+    "true_string": "-s ,"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": "-s",
+     "args": [
+      {
+       "value": ","
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "_STRING-s_TIIUV",
+     "identifier": "TIIUV"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac -s ,"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": "-s",
+    "args": [
+     {
+      "value": "\n\t",
+      "arg_type": "no_env",
+      "true_string": "\n\t"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "_STRING-s_TIIUV",
+    "true_string": "-s '\n\t'"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": "-s",
+     "args": [
+      {
+       "value": "\n\t"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "_STRING-s_TIIUV",
+     "identifier": "TIIUV"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac -s '\n\t'"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "*",
+    "symbol": "PATH_MCYAE",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "*",
+     "symbol": "PATH_MCYAE",
+     "identifier": "MCYAE"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac relpath_1"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "*",
+    "symbol": "PATH_MCYAE",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "*",
+     "symbol": "PATH_MCYAE",
+     "identifier": "MCYAE"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac relpath_1"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "*",
+    "symbol": "PATH_MCYAE",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "*",
+     "symbol": "PATH_MCYAE",
+     "identifier": "MCYAE"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac relpath_1"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "*",
+    "symbol": "PATH_MCYAE",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "*",
+     "symbol": "PATH_MCYAE",
+     "identifier": "MCYAE"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac nonexistent_path/relpath_1"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "*",
+    "symbol": "PATH_MCYAE",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "*",
+     "symbol": "PATH_MCYAE",
+     "identifier": "MCYAE"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac relpath_1"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "*",
+    "symbol": "PATH_MCYAE",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "*",
+     "symbol": "PATH_MCYAE",
+     "identifier": "MCYAE"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "*",
+    "symbol": "PATH_MCYAE",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "*",
+     "symbol": "PATH_MCYAE",
+     "identifier": "MCYAE"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "*",
+    "symbol": "PATH_MCYAE",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "*",
+     "symbol": "PATH_MCYAE",
+     "identifier": "MCYAE"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "*",
+    "symbol": "PATH_MCYAE",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "*",
+     "symbol": "PATH_MCYAE",
+     "identifier": "MCYAE"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "*",
+    "symbol": "PATH_MCYAE",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "tac",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "*",
+     "symbol": "PATH_MCYAE",
+     "identifier": "MCYAE"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "tac sandbox_placeholder/abspath_1"
+ }
+]

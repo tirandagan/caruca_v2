@@ -1,6 +1,6 @@
 {
   "campaign_id": "p1_trace",
-  "description": "Task 008 parity study, stage 3. The only stage with no measured cost basis before this run: one tool-loop session per configuration, up to 15 turns. --limit 5 is the cost brake. rm and tee are on the destructive list and need Lima.",
+  "description": "Task 008 parity study, stage 3. Traces v1's OWN configuration expansion rather than stage 2's output, so stage 3 is measured on the inputs v1 had and an upstream typing error is not scored twice. The only stage with no measured cost basis before this run: one tool-loop session per configuration, up to 15 turns. --limit 5 is the cost brake. rm and tee are on the destructive list and need Lima.",
   "stage": "trace",
   "commands": [
     "cat",
@@ -28,6 +28,7 @@
     "limit": 5,
     "max_turns": 15,
     "isolation": "lima",
-    "lima_instance": "caruca"
+    "lima_instance": "caruca",
+    "configs_pattern": "/Users/tirandagan/dev/stevens/caruca_v2/eval/v1_configs/{command}.configs.json"
   }
 }

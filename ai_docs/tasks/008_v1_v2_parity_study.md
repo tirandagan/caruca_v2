@@ -561,7 +561,48 @@ one §9 flagged on `grep`: v2 types a plain string operand as an existing *file*
 validate and the invocation strings are right; the world they ask for is wrong. Nothing
 downstream would object — the traces would simply describe the wrong filesystem.
 
-### Stage 4 — annotation: **in progress**, and it has already produced an architectural finding
+### Stage 4 — annotation: **diverges**, plus one architectural finding
+
+27 cells, 21 ok, **$0.92** against an $8 ceiling. The six failures are `rm` and `tee`, both
+at the context limit (below).
+
+Both sides scored by the same instrument against the same third party, the hand-curated
+ground truth:
+
+| | aligned cases | pclass agreement |
+|---|---|---|
+| **v2** | 33 | **10 (30%)** |
+| **v1** | 64 | 11 (17%) |
+
+**Verdict: diverges, in an interesting direction.** v2 agrees with the humans on
+parallelizability class at nearly twice v1's rate, but over half as many aligned cases — it
+derives fewer cases per command (`cat` 2 against v1's 14, `uniq` 2 against 12) while
+occasionally producing more (`tail` 14 against 9). Both rates are low, and both are dominated
+by the conservative-direction bias §11 documents: at `--max-count 1` v1 has less evidence and
+falls back to `non-pure`. Neither number should be read as an accuracy figure for either
+system, and neither is comparable to the paper's execution-based Q1.
+
+#### The third instance of one root cause — and it was silently wrong until this run
+
+v2's first stage-4 output was **structurally valid and semantically meaningless**. It emitted
+predicates like `{"operator": "eq", "operands": ["flag", "-b"]}` where v1 emits
+`{"operator": "exists", "operands": ["-b"]}`. v1's validator accepted every one of them,
+because `Predicate.operator` is typed **`str`** — no enum, no constraint — while v1's
+annotator only ever emits three operators (`and`, `exists`, `len_args_eq`). **The prompt never
+named `exists` or `len_args_eq` at all.** Only the `default` case could be aligned, so the
+comparison was reduced to one case per command.
+
+This is the same defect as `stdin` rendering as an empty schema and the discriminator tags
+being omitted from `required`: **v1's pydantic schema understates what v1 expects, because the
+real constraint lives in v1's code rather than its type system.** Three instances now, each
+found only by measuring. The vocabulary is recovered from v1's annotator source rather than
+restated in v2, so a new operator upstream arrives without a change here. After the fix v2
+emits `exists`, and the aligned-case count rises from 7 to 33.
+
+The pre-fix ledger is kept at `eval/campaigns/p1_annotate/ledger.pre-operator-vocabulary.jsonl`
+as evidence of the defect.
+
+#### An architectural finding
 
 **v2's stage 4 has a context ceiling that v1 does not.** `rm`'s traces are ~211,000 tokens and
 `tee`'s ~149,000, against gpt-4o's 128,000-token window. v1's annotator is deterministic code
@@ -569,13 +610,23 @@ and has no such limit: it annotated all nine in under a second each (§11). This
 difference in kind between the two approaches, not a tuning problem, and it is the first
 constraint found that is intrinsic to the LLM approach rather than to the instrument.
 
-**A harness defect found on the way, now fixed.** The first attempt lost 21 of 27 cells: a 400
+#### Three harness defects found on the way, all fixed
+
+**A 400 killed the campaign.** The first attempt lost 21 of 27 cells: a 400
 `BadRequestError` (context too long) is not a transport error, so it was neither retried nor
 caught — it propagated out of the campaign runner and killed every cell after `rm`. A 4xx is a
 **content** failure by the campaign's own policy: the request was delivered and rejected on its
 merits. It is now recorded per cell and the campaign continues. Pinned by a regression test.
 
-A second, smaller one: `annotate` campaigns needed a per-command traces path. v1's default
+**A stalled request could hang a campaign indefinitely.** One annotate cell blocked the run
+for **27 minutes** with no output and no error: `build_client` set no timeout, so the SDK's
+600-second default applied, and its two silent retries sat *underneath* the campaign runner's
+own five-attempt backoff. Two stacked retry layers also made the recorded `transport_retries`
+wrong. The client now bounds a request at 180 seconds and sets `max_retries=0`, leaving
+retries to the caller. This does not touch the content-retry guardrail — a model is still
+never re-asked for a better answer.
+
+**A per-command traces path.** `annotate` campaigns needed one. v1's default
 (`caruca/outputs/<cmd>.json`) exists for 18 commands, **none of which overlap** the 13 with
 ground-truth annotations, so a parity campaign can never use it. `stage_options.traces_pattern`
 now substitutes the command. That attempt cost **$0.00** — the guard fired before any model call.

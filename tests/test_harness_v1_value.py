@@ -156,3 +156,41 @@ def test_stage_two_keeps_its_second_method_whole_rather_than_flattening_it():
     assert entry["f1"] == 0.9
     assert entry["config_comparison"]["method"] == methods.CONFIG_ENV_DIFF.method
     assert entry["config_comparison"]["env_covered_rate"] == 0.0
+
+
+def test_every_declared_metric_is_a_real_path_into_its_record():
+    """A metric name that does not resolve extracts `None` silently.
+
+    Both the trace and annotation registries shipped bare names for fields that live one or
+    two levels down, and the ledgers filled with nulls rather than failing.
+    """
+    from caruca_v2.harness import rescore
+
+    samples = {
+        methods.TRACE_RECOVERY_DIFF.method: {
+            "core": {"micro": {"f1": 1, "recall": 1, "precision": 1}},
+            "inference": {"micro": {"f1": 1}},
+            "ceiling_fraction": 1,
+        },
+        methods.ANNOTATION_DIFF.method: {
+            "agreement": {
+                "fully_agreeing": 1,
+                "pclass": 1,
+                "inputs": 1,
+                "outputs": 1,
+                "comparable": 1,
+            }
+        },
+        methods.INVOCATION_SET_DIFF.method: {"f1": 1, "recall": 1, "precision": 1},
+        methods.CONFIG_ENV_DIFF.method: {"env_covered_rate": 1},
+        methods.Q2_SYNTAX_DIFF.method: {
+            "f1": 1,
+            "exact_argument_rate": 1,
+            "precision": 1,
+            "recall": 1,
+        },
+    }
+    for method, body in samples.items():
+        entry = rescore.ledger_entry({"method": method, "scoreable": True, **body})
+        for metric in methods.get(method).metrics:
+            assert entry[metric] is not None, f"{method}.{metric} did not resolve"

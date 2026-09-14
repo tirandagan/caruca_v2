@@ -1,0 +1,1960 @@
+[
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [],
+  "string": {
+   "name": "uniq",
+   "body": []
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-d",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-d_LAIKU",
+    "true_string": "-d"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-d",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-d_LAIKU",
+     "identifier": "LAIKU"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -d"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-s",
+    "args": [
+     {
+      "value": "-1",
+      "arg_type": "no_env",
+      "true_string": "-1"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "INTEGER-s_VCSII",
+    "true_string": "-s=-1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-s",
+     "args": [
+      {
+       "value": "-1"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "INTEGER-s_VCSII",
+     "identifier": "VCSII"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -s=-1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-s",
+    "args": [
+     {
+      "value": "0",
+      "arg_type": "no_env",
+      "true_string": "0"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "INTEGER-s_VCSII",
+    "true_string": "-s=0"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-s",
+     "args": [
+      {
+       "value": "0"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "INTEGER-s_VCSII",
+     "identifier": "VCSII"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -s=0"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-s",
+    "args": [
+     {
+      "value": "1",
+      "arg_type": "no_env",
+      "true_string": "1"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "INTEGER-s_VCSII",
+    "true_string": "-s=1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-s",
+     "args": [
+      {
+       "value": "1"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "INTEGER-s_VCSII",
+     "identifier": "VCSII"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -s=1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-f",
+    "args": [
+     {
+      "value": "-1",
+      "arg_type": "no_env",
+      "true_string": "-1"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "INTEGER-f_XJTHS",
+    "true_string": "-f=-1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-f",
+     "args": [
+      {
+       "value": "-1"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "INTEGER-f_XJTHS",
+     "identifier": "XJTHS"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -f=-1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-f",
+    "args": [
+     {
+      "value": "0",
+      "arg_type": "no_env",
+      "true_string": "0"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "INTEGER-f_XJTHS",
+    "true_string": "-f=0"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-f",
+     "args": [
+      {
+       "value": "0"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "INTEGER-f_XJTHS",
+     "identifier": "XJTHS"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -f=0"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-f",
+    "args": [
+     {
+      "value": "1",
+      "arg_type": "no_env",
+      "true_string": "1"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "INTEGER-f_XJTHS",
+    "true_string": "-f=1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-f",
+     "args": [
+      {
+       "value": "1"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "INTEGER-f_XJTHS",
+     "identifier": "XJTHS"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -f=1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-w",
+    "args": [
+     {
+      "value": "-1",
+      "arg_type": "no_env",
+      "true_string": "-1"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "INTEGER-w_FGZUT",
+    "true_string": "-w=-1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-w",
+     "args": [
+      {
+       "value": "-1"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "INTEGER-w_FGZUT",
+     "identifier": "FGZUT"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -w=-1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-w",
+    "args": [
+     {
+      "value": "0",
+      "arg_type": "no_env",
+      "true_string": "0"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "INTEGER-w_FGZUT",
+    "true_string": "-w=0"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-w",
+     "args": [
+      {
+       "value": "0"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "INTEGER-w_FGZUT",
+     "identifier": "FGZUT"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -w=0"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-w",
+    "args": [
+     {
+      "value": "1",
+      "arg_type": "no_env",
+      "true_string": "1"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "INTEGER-w_FGZUT",
+    "true_string": "-w=1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-w",
+     "args": [
+      {
+       "value": "1"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "INTEGER-w_FGZUT",
+     "identifier": "FGZUT"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -w=1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-c",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-c_WVMRY",
+    "true_string": "-c"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-c",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-c_WVMRY",
+     "identifier": "WVMRY"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -c"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_GAPHP",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_GAPHP",
+     "identifier": "GAPHP"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq relpath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_GAPHP",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_GAPHP",
+     "identifier": "GAPHP"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq relpath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_GAPHP",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_GAPHP",
+     "identifier": "GAPHP"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq relpath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_GAPHP",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_GAPHP",
+     "identifier": "GAPHP"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq nonexistent_path/relpath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_GAPHP",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_GAPHP",
+     "identifier": "GAPHP"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq relpath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_SJMYW",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_SJMYW",
+     "identifier": "SJMYW"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq relpath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_SJMYW",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_SJMYW",
+     "identifier": "SJMYW"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq relpath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_SJMYW",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_SJMYW",
+     "identifier": "SJMYW"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq relpath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "nonexistent_path/relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_SJMYW",
+    "true_string": "nonexistent_path/relpath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_SJMYW",
+     "identifier": "SJMYW"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq nonexistent_path/relpath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "relpath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_SJMYW",
+    "true_string": "relpath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_SJMYW",
+     "identifier": "SJMYW"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq relpath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_GAPHP",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_GAPHP",
+     "identifier": "GAPHP"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_GAPHP",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_GAPHP",
+     "identifier": "GAPHP"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_GAPHP",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_GAPHP",
+     "identifier": "GAPHP"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_GAPHP",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_GAPHP",
+     "identifier": "GAPHP"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_GAPHP",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_GAPHP",
+     "identifier": "GAPHP"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "content": "HUMAN_TEXT",
+      "arg_type": "file",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_SJMYW",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_SJMYW",
+     "identifier": "SJMYW"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_empty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_SJMYW",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_SJMYW",
+     "identifier": "SJMYW"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "directory_nonempty",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_SJMYW",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_SJMYW",
+     "identifier": "SJMYW"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "nonexistent_path/abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": false,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_SJMYW",
+    "true_string": "sandbox_placeholder/nonexistent_path/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_SJMYW",
+     "identifier": "SJMYW"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq sandbox_placeholder/nonexistent_path/abspath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "parent_exists": true,
+      "arg_type": "nonexistent",
+      "true_string": "sandbox_placeholder/abspath_1"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "PATH_SJMYW",
+    "true_string": "sandbox_placeholder/abspath_1"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "abspath_1",
+       "relative": false,
+       "relation": "child"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "PATH_SJMYW",
+     "identifier": "SJMYW"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq sandbox_placeholder/abspath_1"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--all-repeated",
+    "args": [
+     {
+      "value": "none",
+      "arg_type": "no_env",
+      "true_string": "none"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--all-repeated_LPGHJ",
+    "true_string": "--all-repeated=none"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "--all-repeated",
+     "args": [
+      {
+       "value": "none"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--all-repeated_LPGHJ",
+     "identifier": "LPGHJ"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq --all-repeated=none"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--all-repeated",
+    "args": [
+     {
+      "value": "prepend",
+      "arg_type": "no_env",
+      "true_string": "prepend"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--all-repeated_LPGHJ",
+    "true_string": "--all-repeated=prepend"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "--all-repeated",
+     "args": [
+      {
+       "value": "prepend"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--all-repeated_LPGHJ",
+     "identifier": "LPGHJ"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq --all-repeated=prepend"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--all-repeated",
+    "args": [
+     {
+      "value": "separate",
+      "arg_type": "no_env",
+      "true_string": "separate"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--all-repeated_LPGHJ",
+    "true_string": "--all-repeated=separate"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "--all-repeated",
+     "args": [
+      {
+       "value": "separate"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--all-repeated_LPGHJ",
+     "identifier": "LPGHJ"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq --all-repeated=separate"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-z",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-z_VXVIZ",
+    "true_string": "-z"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-z",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-z_VXVIZ",
+     "identifier": "VXVIZ"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -z"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-i",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-i_OAGXR",
+    "true_string": "-i"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-i",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-i_OAGXR",
+     "identifier": "OAGXR"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -i"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--version",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--version_JMRDA",
+    "true_string": "--version"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "--version",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--version_JMRDA",
+     "identifier": "JMRDA"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq --version"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-D",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-D_ZUOMP",
+    "true_string": "-D"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-D",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-D_ZUOMP",
+     "identifier": "ZUOMP"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -D"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--group",
+    "args": [
+     {
+      "value": "separate",
+      "arg_type": "no_env",
+      "true_string": "separate"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--group_EAOHB",
+    "true_string": "--group=separate"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "--group",
+     "args": [
+      {
+       "value": "separate"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--group_EAOHB",
+     "identifier": "EAOHB"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq --group=separate"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--group",
+    "args": [
+     {
+      "value": "prepend",
+      "arg_type": "no_env",
+      "true_string": "prepend"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--group_EAOHB",
+    "true_string": "--group=prepend"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "--group",
+     "args": [
+      {
+       "value": "prepend"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--group_EAOHB",
+     "identifier": "EAOHB"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq --group=prepend"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--group",
+    "args": [
+     {
+      "value": "append",
+      "arg_type": "no_env",
+      "true_string": "append"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--group_EAOHB",
+    "true_string": "--group=append"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "--group",
+     "args": [
+      {
+       "value": "append"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--group_EAOHB",
+     "identifier": "EAOHB"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq --group=append"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--group",
+    "args": [
+     {
+      "value": "both",
+      "arg_type": "no_env",
+      "true_string": "both"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "SELECTION--group_EAOHB",
+    "true_string": "--group=both"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "--group",
+     "args": [
+      {
+       "value": "both"
+      }
+     ],
+     "flag_followed_by_equals": true,
+     "arity": "?",
+     "symbol": "SELECTION--group_EAOHB",
+     "identifier": "EAOHB"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq --group=both"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-u",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG-u_TBNJZ",
+    "true_string": "-u"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "-u",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG-u_TBNJZ",
+     "identifier": "TBNJZ"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq -u"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--help",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env",
+      "true_string": ""
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "node_type": "args",
+    "arity": "?",
+    "symbol": "FLAG--help_FXJZR",
+    "true_string": "--help"
+   }
+  ],
+  "string": {
+   "name": "uniq",
+   "body": [
+    {
+     "flag": "--help",
+     "args": [
+      {
+       "value": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "arity": "?",
+     "symbol": "FLAG--help_FXJZR",
+     "identifier": "FXJZR"
+    }
+   ]
+  },
+  "stdin": "HUMAN_TEXT",
+  "true_string": "uniq --help"
+ }
+]

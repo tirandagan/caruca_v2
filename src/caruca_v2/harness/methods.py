@@ -95,7 +95,15 @@ ANNOTATION_DIFF = Method(
     # No single similarity score, on purpose: a presentation difference and a
     # parallelizability-class disagreement are not interchangeable, and this stage has no
     # defensible way to weight them against each other.
-    metrics=("fully_agreeing", "pclass", "inputs_as_set", "outputs_as_set"),
+    # Paths into the record, not bare names: these live under `agreement`, and a bare
+    # "pclass" silently extracts nothing.
+    metrics=(
+        "agreement.fully_agreeing",
+        "agreement.pclass",
+        "agreement.inputs",
+        "agreement.outputs",
+        "agreement.comparable",
+    ),
     denominator="cases aligned between the two annotations",
 )
 
