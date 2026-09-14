@@ -17,7 +17,7 @@ import json
 import os
 import shlex
 import subprocess
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -379,6 +379,39 @@ print(json.dumps({
 """
 
 
+_REFERENCE_CONFIGS_SCRIPT = """
+import json, sys
+
+from caruca.cli.generate import string_invocations
+
+command, path, skip, max_arity, max_count, stdin_variation, content_variation = (
+    sys.argv[1],
+    sys.argv[2] or None,
+    sys.argv[3] or None,
+    int(sys.argv[4]),
+    int(sys.argv[5]),
+    sys.argv[6],
+    sys.argv[7],
+)
+
+# `to_exec_env` is called directly rather than through `caruca generate --full`. v1's own
+# CLI calls `inv.to_exec_env("split", "varied")` against the signature
+# `(prefix, stdin_variation, content_variation)`, so "split" lands in `prefix` and every
+# emitted config is renamed -- `splitcat`, not `cat`, verified for all 175 of cat's configs.
+# Scoring a model against that would score it against a typo.
+by_invocation = {}
+total = 0
+for invocation in string_invocations(command, path, skip, max_arity, False, max_count):
+    key = str(invocation)
+    for config in invocation.to_exec_env("", stdin_variation, content_variation):
+        by_invocation.setdefault(key, []).append(json.loads(config.model_dump_json()))
+        total += 1
+
+print(json.dumps({"by_invocation": by_invocation, "count": total,
+                  "invocation_count": len(by_invocation)}))
+"""
+
+
 _VALIDATE_CONFIGS_SCRIPT = """
 import json, sys, traceback
 
@@ -504,6 +537,60 @@ def _caruca_executable() -> Path:
     return path
 
 
+@dataclass(frozen=True)
+class ReferenceConfigs:
+    """v1's own `CommandConfig` expansion, grouped by the invocation that produced it.
+
+    One invocation expands to *several* configurations -- `grep a relpath_1` yields five,
+    one per environment variant of the path (existing file, directory, non-empty directory,
+    nonexistent with and without a parent). The stage-2 prompt asks for one config per
+    invocation, so this is deliberately not a 1:1 comparison; see `harness/config_env.py`.
+    """
+
+    by_invocation: dict[str, list[dict[str, Any]]] = field(default_factory=dict)
+    count: int = 0
+    invocation_count: int = 0
+    available: bool = True
+    error: str | None = None
+
+    @classmethod
+    def unavailable(cls, reason: str) -> ReferenceConfigs:
+        return cls(available=False, error=reason)
+
+
+def reference_configs(
+    command: str,
+    *,
+    spec_path: Path | None = None,
+    max_arity: int = 1,
+    max_count: int = 4,
+    skip: str | None = None,
+    stdin_variation: str = "simple",
+    content_variation: str = "simple",
+    timeout: int = 600,
+) -> ReferenceConfigs:
+    """The environments v1 would build for each invocation, as the comparison target."""
+    try:
+        payload = _run_in_v1_venv(
+            _REFERENCE_CONFIGS_SCRIPT,
+            command,
+            str(spec_path) if spec_path else "",
+            skip or "",
+            str(max_arity),
+            str(max_count),
+            stdin_variation,
+            content_variation,
+            timeout=timeout,
+        )
+    except (V1AccessError, subprocess.TimeoutExpired) as exc:
+        return ReferenceConfigs.unavailable(f"{type(exc).__name__}: {exc}")
+    return ReferenceConfigs(
+        by_invocation=payload["by_invocation"],
+        count=payload["count"],
+        invocation_count=payload["invocation_count"],
+    )
+
+
 def reference_invocations(
     command: str,
     *,
@@ -542,7 +629,10 @@ def reference_invocations(
             base, capture_output=True, text=True, timeout=timeout, cwd=str(package_dir)
         )
         counting = subprocess.run(
-            [*base, "--number"], capture_output=True, text=True, timeout=timeout,
+            [*base, "--number"],
+            capture_output=True,
+            text=True,
+            timeout=timeout,
             cwd=str(package_dir),
         )
     except subprocess.TimeoutExpired:
@@ -879,8 +969,12 @@ def reference_annotation(
             for part in ["annotate", fmt, *command.split(), "--input", str(traces_path)]
         )
         argv = [
-            "limactl", "shell", lima_instance, "--",
-            "sh", "-lc",
+            "limactl",
+            "shell",
+            lima_instance,
+            "--",
+            "sh",
+            "-lc",
             f"{LIMA_V1_PYTHON} {remote}",
         ]
     else:
@@ -940,7 +1034,10 @@ def v1_commit() -> str | None:
     try:
         completed = subprocess.run(
             ["git", "rev-parse", "HEAD"],
-            capture_output=True, text=True, timeout=30, cwd=str(v1_root()),
+            capture_output=True,
+            text=True,
+            timeout=30,
+            cwd=str(v1_root()),
         )
     except (OSError, subprocess.TimeoutExpired, V1AccessError):
         return None
@@ -1035,9 +1132,7 @@ class SpecInventory:
 def dump_spec_inventory(command: str, spec_path: Path) -> SpecInventory:
     """Ask v1 to interpret a spec file and flatten it into argument entries."""
     try:
-        data = _run_in_v1_venv(
-            _DUMP_SPEC_SCRIPT, str(spec_path), f"{slug(command)}_syntax_spec"
-        )
+        data = _run_in_v1_venv(_DUMP_SPEC_SCRIPT, str(spec_path), f"{slug(command)}_syntax_spec")
     except (V1AccessError, subprocess.TimeoutExpired) as exc:
         return SpecInventory.unavailable(str(exc))
     return SpecInventory(
@@ -1100,8 +1195,7 @@ def run_cmp_specs(
     with tempfile.TemporaryDirectory(prefix="caruca_v2_cmp_specs_") as scratch:
         try:
             completed = subprocess.run(
-                [str(python), str(script), slug(command), str(generated_path),
-                 str(reference_path)],
+                [str(python), str(script), slug(command), str(generated_path), str(reference_path)],
                 capture_output=True,
                 text=True,
                 timeout=timeout,
