@@ -174,7 +174,9 @@ def check_freeze_gate(campaign: Campaign, frozen_path: Path) -> None:
 def _is_transient(exc: BaseException) -> bool:
     if isinstance(
         exc,
-        openai.APIConnectionError | openai.APITimeoutError | openai.RateLimitError
+        openai.APIConnectionError
+        | openai.APITimeoutError
+        | openai.RateLimitError
         | openai.InternalServerError,
     ):
         return True
@@ -398,7 +400,10 @@ def run_campaign(
                 entry["attempts"] = attempt + 1
                 try:
                     outcome = _dispatch(
-                        campaign, cell, out_root=out_root, db_path=db_path,
+                        campaign,
+                        cell,
+                        out_root=out_root,
+                        db_path=db_path,
                         client=active_client,
                     )
                     break

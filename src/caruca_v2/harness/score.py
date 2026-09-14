@@ -146,9 +146,7 @@ class MatchReport:
         f1 = None
         if precision and recall and (precision + recall):
             f1 = 2 * precision * recall / (precision + recall)
-        exact_rate = (
-            self.fully_agreeing / self.reference_flags if self.reference_flags else None
-        )
+        exact_rate = self.fully_agreeing / self.reference_flags if self.reference_flags else None
         return {
             "counts": {
                 "generated_flags": self.generated_flags,
@@ -290,8 +288,7 @@ def _reference_entries(
         inventory = v1.dump_spec_inventory(command, path)
         if not inventory.ok:
             raise SetupError(
-                f"v1's committed spec for {command!r} could not be interpreted: "
-                f"{inventory.error}"
+                f"v1's committed spec for {command!r} could not be interpreted: {inventory.error}"
             )
         return entries_from_inventory(inventory.entries), str(path)
 
@@ -340,13 +337,9 @@ def score_spec(
         return record
 
     generated = entries_from_inventory(inventory.entries)
-    reference_entries, reference_source = _reference_entries(
-        command, reference, reference_path
-    )
+    reference_entries, reference_source = _reference_entries(command, reference, reference_path)
     if transform_path is not None:
-        reference_entries = apply_transform(
-            reference_entries, load_transform(transform_path)
-        )
+        reference_entries = apply_transform(reference_entries, load_transform(transform_path))
 
     record["scoreable"] = True
     record["reference_source"] = reference_source
@@ -362,8 +355,7 @@ def score_spec(
                 "diff_count": outcome.diff_count,
                 "reference_fields": outcome.reference_fields,
                 "error": outcome.error,
-                "caveat": "denominator counts dataclass fields, not arguments "
-                "(binpash/caruca#54)",
+                "caveat": "denominator counts dataclass fields, not arguments (binpash/caruca#54)",
             }
         else:
             record["cmp_specs"] = {

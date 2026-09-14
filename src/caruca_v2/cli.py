@@ -172,7 +172,7 @@ def build_parser() -> argparse.ArgumentParser:
         default=generate_stage.V1_DEFAULT_SKIP,
         const=generate_stage.V1_SKIP_CONST,
         help="Comma-separated flags to exclude, mirroring v1's knob exactly: given bare it "
-        f"means \"{generate_stage.V1_SKIP_CONST}\", and omitted it skips nothing. Use "
+        f'means "{generate_stage.V1_SKIP_CONST}", and omitted it skips nothing. Use '
         "--skip=--foo,--bar for values starting with a dash. Passed to v1's own "
         "enumeration for the comparison as well.",
     )
@@ -308,7 +308,8 @@ def build_parser() -> argparse.ArgumentParser:
         "against v1's committed spec or the hand-annotated ground truth. No model call.",
     )
     score.add_argument(
-        "command", nargs="*",
+        "command",
+        nargs="*",
         help="The command the spec describes. Omit with --self-test.",
     )
     score.add_argument("--spec", type=Path, default=None, help="Generated spec file to score.")
@@ -319,20 +320,26 @@ def build_parser() -> argparse.ArgumentParser:
         help="What to score against (default: %(default)s — the primary population per E0).",
     )
     score.add_argument(
-        "--reference-path", type=Path, default=None,
+        "--reference-path",
+        type=Path,
+        default=None,
         help="Explicit reference spec file (overrides --reference; used by mutation arms).",
     )
     score.add_argument(
-        "--transform", type=Path, default=None,
+        "--transform",
+        type=Path,
+        default=None,
         help="Rename map (JSON) applied to the reference, for renamed-documentation arms.",
     )
     score.add_argument(
-        "--cmp-specs", action="store_true",
+        "--cmp-specs",
+        action="store_true",
         help="Also run v1's own eval/cmp_specs.py (the paper's Q2 instrument) and report "
         "its number alongside, denominator caveat attached.",
     )
     score.add_argument(
-        "--self-test", action="store_true",
+        "--self-test",
+        action="store_true",
         help="Score each committed exemplar spec against itself; every cell must be perfect.",
     )
     score.add_argument("--json", action="store_true", help="Print the full record as JSON.")
@@ -347,15 +354,20 @@ def build_parser() -> argparse.ArgumentParser:
     )
     sweep.add_argument("campaigns", nargs="+", type=Path, help="Campaign JSON file(s).")
     sweep.add_argument(
-        "--dry-run", action="store_true",
+        "--dry-run",
+        action="store_true",
         help="Enumerate and print the cells without making any model call.",
     )
     sweep.add_argument(
-        "--frozen-config", type=Path, default=sweep_module.DEFAULT_FROZEN_CONFIG_PATH,
+        "--frozen-config",
+        type=Path,
+        default=sweep_module.DEFAULT_FROZEN_CONFIG_PATH,
         help="Frozen-configuration record the post-freeze gate checks (default: %(default)s).",
     )
     sweep.add_argument(
-        "--ledger-root", type=Path, default=sweep_module.DEFAULT_LEDGER_ROOT,
+        "--ledger-root",
+        type=Path,
+        default=sweep_module.DEFAULT_LEDGER_ROOT,
         help="Where campaign ledgers and summaries live (default: %(default)s).",
     )
     sweep.add_argument("--out", type=Path, default=metrics_db.DEFAULT_RUNS_ROOT)
@@ -370,7 +382,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     report.add_argument("campaign_id", help="Campaign to aggregate (e.g. c1_config_selection).")
     report.add_argument(
-        "--ledger-root", type=Path, default=sweep_module.DEFAULT_LEDGER_ROOT,
+        "--ledger-root",
+        type=Path,
+        default=sweep_module.DEFAULT_LEDGER_ROOT,
         help="Where campaign ledgers live (default: %(default)s).",
     )
     report.add_argument(
@@ -383,11 +397,11 @@ def build_parser() -> argparse.ArgumentParser:
         "instead of using what the ledger recorded at run time. Use after a scorer change "
         "so a fix does not require paying for the campaign again.",
     )
+    report.add_argument("--json", action="store_true", help="Print the full aggregation as JSON.")
     report.add_argument(
-        "--json", action="store_true", help="Print the full aggregation as JSON."
-    )
-    report.add_argument(
-        "--out", type=Path, default=None,
+        "--out",
+        type=Path,
+        default=None,
         help="Also write the aggregation JSON here (alongside the printed table).",
     )
     report.add_argument("--plain", action="store_true")
@@ -494,10 +508,16 @@ def _run_generate(args: argparse.Namespace, ui: ui_module.UI) -> int:
         )
 
     if comparison.get("available"):
+        counts = comparison["counts"]
+        # The headline is the semantic instrument; the literal figure rides alongside so the
+        # pre-normalization number is visible at a glance, not only in the manifest.
+        literal = comparison.get("secondary", {}).get("literal", {})
         against_v1 = (
-            f"{comparison['matched']} matched, {comparison['missing']} missing, "
-            f"{comparison['spurious']} spurious (v1 produced {comparison['v1_count']})"
+            f"{counts['matched']} matched, {counts['missing']} missing, "
+            f"{counts['spurious']} spurious (v1 produced {counts['v1_lines']})"
         )
+        if literal.get("matched") is not None and literal["matched"] != counts["matched"]:
+            against_v1 += f" — {literal['matched']} matched before normalization"
     else:
         against_v1 = f"unavailable ({comparison.get('error')})"
 
@@ -700,8 +720,9 @@ def _run_report(args: argparse.Namespace, ui: ui_module.UI) -> int:
             f"samples, mean spread {spread['mean_spread']:.3f}"
         )
     if args.out is not None:
-        ui.summary("report", [("written", str(args.out)),
-                              ("cells", str(aggregation["cells_recorded"]))])
+        ui.summary(
+            "report", [("written", str(args.out)), ("cells", str(aggregation["cells_recorded"]))]
+        )
     return EXIT_OK
 
 
@@ -778,8 +799,12 @@ def _run_score(args: argparse.Namespace, ui: ui_module.UI) -> int:
     if "cmp_specs" in record:
         cmp = record["cmp_specs"]
         rows.append(
-            ("cmp_specs", f"{cmp['correct_percentage']:.3f} (field-denominator caveat)"
-             if cmp.get("available") else f"unavailable ({cmp.get('error')})")
+            (
+                "cmp_specs",
+                f"{cmp['correct_percentage']:.3f} (field-denominator caveat)"
+                if cmp.get("available")
+                else f"unavailable ({cmp.get('error')})",
+            )
         )
     ui.summary(f"score {command}", rows)
     return EXIT_OK
@@ -820,8 +845,11 @@ def _run_sweep(args: argparse.Namespace, ui: ui_module.UI) -> int:
             )
 
         rows = [
-            ("cells", f"{report.completed} completed, {report.skipped_resumed} resumed, "
-             f"{report.failed_content} failed, {report.errored} errored"),
+            (
+                "cells",
+                f"{report.completed} completed, {report.skipped_resumed} resumed, "
+                f"{report.failed_content} failed, {report.errored} errored",
+            ),
             ("retries", str(report.transport_retries)),
             ("tokens", ui_module.tokens(report.prompt_tokens, report.completion_tokens)),
             ("cost", ui_module.money(report.cost_usd)),
@@ -832,10 +860,12 @@ def _run_sweep(args: argparse.Namespace, ui: ui_module.UI) -> int:
         for model, rollup in sweep_module.summarize_by_model(report).items():
             f1 = rollup["mean_f1"]
             rows.append(
-                (model,
-                 f"{rollup['ok']}/{rollup['cells']} ok, {rollup['validated']} validated, "
-                 f"${rollup['cost_usd']:.4f}"
-                 + (f", mean F1 {f1:.3f}" if f1 is not None else "")),
+                (
+                    model,
+                    f"{rollup['ok']}/{rollup['cells']} ok, {rollup['validated']} validated, "
+                    f"${rollup['cost_usd']:.4f}"
+                    + (f", mean F1 {f1:.3f}" if f1 is not None else ""),
+                ),
             )
         ui.summary(f"sweep {campaign.campaign_id}", rows)
 

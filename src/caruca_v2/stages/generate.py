@@ -16,8 +16,6 @@ page in stage 1 — not a hint about method.
 from __future__ import annotations
 
 import json
-import shlex
-from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -26,6 +24,7 @@ from openai import OpenAI
 
 from .. import llm, metrics_db, prompting, telemetry, v1
 from ..errors import V1AccessError
+from ..harness import invocation as harness_invocation
 from ..telemetry import (
     DecodingParams,
     RunManifest,
@@ -106,103 +105,24 @@ def parse_jsonl(text: str) -> ParsedOutput:
     )
 
 
-def normalize_invocation(invocation: str) -> tuple[str, ...] | None:
-    """An invocation reduced to its argument vector, or `None` if it will not lex.
-
-    Two spellings of the same invocation must not count as both a miss and a spurious.
-    `--color=always` and `--color always` are one invocation; so are `--exclude '*.txt'` and
-    `--exclude=*.txt`, which differ only in shell quoting. Lexing the string and splitting
-    long options on `=` collapses both differences without either side being told the
-    other's convention.
-
-    `None` marks a string that does not lex at all. v1 emits invocations whose values contain
-    newlines (`--group-separator` takes one), and reading its output line by line splits those
-    into fragments with unbalanced quotes. Counting them as ordinary misses would overstate
-    the gap, so they are reported separately instead.
-    """
-    try:
-        tokens = shlex.split(invocation)
-    except ValueError:
-        return None
-
-    argv: list[str] = []
-    for token in tokens:
-        if token.startswith("--") and "=" in token:
-            flag, _, value = token.partition("=")
-            argv.extend((flag, value))
-        else:
-            argv.append(token)
-    return tuple(argv)
-
-
-def _index_by_argv(invocations: Iterable[str]) -> tuple[dict[tuple[str, ...], str], list[str]]:
-    """Map each normalized argument vector to one original spelling; collect what won't lex."""
-    index: dict[tuple[str, ...], str] = {}
-    unlexable: list[str] = []
-    for invocation in invocations:
-        argv = normalize_invocation(invocation)
-        if argv is None:
-            unlexable.append(invocation)
-        else:
-            index.setdefault(argv, invocation)
-    return index, unlexable
-
-
-def compare_invocations(produced: list[str], reference: v1.ReferenceInvocations) -> dict[str, Any]:
+def compare_invocations(
+    produced: list[str],
+    reference: v1.ReferenceInvocations,
+    *,
+    command: str,
+    bounds: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     """Set-diff the model's invocation strings against `caruca generate CMD`.
 
-    The headline figures are normalized (see `normalize_invocation`); the literal
-    string-equality figures are reported alongside under `raw`, so the normalization is
-    visible rather than absorbed.
-
-    The denominator is v1's actual line count, never its `--number` length hint: those
-    disagree (280 against 12,720 for `mkdir` at arity 1), and the hint is recorded only so
-    the discrepancy stays visible.
+    The comparison itself lives in `harness/invocation.py`, which owns every stage-2
+    measurement decision (the equivalence relation, the injectivity guard, the argv and
+    literal figures reported alongside). The stage calls it so that each run still carries
+    its own comparison inline in the manifest, rather than the number existing only after a
+    separate scoring pass.
     """
-    if not reference.available:
-        return {"available": False, "error": reference.error}
-
-    produced_index, produced_unlexable = _index_by_argv(produced)
-    reference_index, reference_unlexable = _index_by_argv(reference.invocations)
-
-    produced_keys = set(produced_index)
-    reference_keys = set(reference_index)
-    matched = produced_keys & reference_keys
-    missing = reference_keys - produced_keys
-    spurious = produced_keys - reference_keys
-
-    raw_produced = set(produced)
-    raw_reference = set(reference.invocations)
-    raw_matched = raw_produced & raw_reference
-
-    return {
-        "available": True,
-        "normalization": "argv (shlex lexing; long options split on '=')",
-        "v1_count": reference.count,
-        "v1_unique_count": len(reference_keys),
-        "v1_length_hint": reference.length_hint,
-        "produced_count": len(produced),
-        "produced_unique_count": len(produced_keys),
-        "matched": len(matched),
-        "missing": len(missing),
-        "spurious": len(spurious),
-        "recall": len(matched) / len(reference_keys) if reference_keys else None,
-        "precision": len(matched) / len(produced_keys) if produced_keys else None,
-        "missing_sample": sorted(reference_index[key] for key in missing)[:20],
-        "spurious_sample": sorted(produced_index[key] for key in spurious)[:20],
-        # Fragments of multi-line invocations, excluded from the counts above rather than
-        # charged to either side. A non-zero count here means v1's output was split by line
-        # through a value containing a newline.
-        "unlexable_reference_lines": len(reference_unlexable),
-        "unlexable_produced_lines": len(produced_unlexable),
-        "raw": {
-            "matched": len(raw_matched),
-            "missing": len(raw_reference - raw_produced),
-            "spurious": len(raw_produced - raw_reference),
-            "recall": len(raw_matched) / len(raw_reference) if raw_reference else None,
-            "precision": len(raw_matched) / len(raw_produced) if raw_produced else None,
-        },
-    }
+    return harness_invocation.compare_invocation_sets(
+        produced, reference, command=command, bounds=bounds
+    )
 
 
 def load_specification(command: str, spec_path: Path | None) -> tuple[str, str]:
@@ -357,7 +277,18 @@ def run(
             skip=skip_flags,
             timeout=compare_timeout,
         )
-        comparison = compare_invocations(parsed.invocations, reference)
+        comparison = compare_invocations(
+            parsed.invocations,
+            reference,
+            command=command,
+            bounds={
+                "max_arity": max_arity,
+                "max_count": max_count,
+                "skip": skip_flags,
+                "stdin_variation": stdin_variation,
+                "content_variation": content_variation,
+            },
+        )
 
     decoding = DecodingParams(temperature=temperature, max_tokens=max_tokens)
     records = [

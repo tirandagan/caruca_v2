@@ -63,22 +63,23 @@ def test_comparison_reports_matches_misses_and_spurious_invocations():
         invocations=["a", "b", "c"], count=3, length_hint=99, available=True
     )
 
-    result = generate.compare_invocations(["a", "b", "z"], reference)
+    result = generate.compare_invocations(["a", "b", "z"], reference, command="a")
 
-    assert result["matched"] == 2
-    assert result["missing"] == 1
-    assert result["spurious"] == 1
+    counts = result["counts"]
+    assert counts["matched"] == 2
+    assert counts["missing"] == 1
+    assert counts["spurious"] == 1
     assert result["recall"] == pytest.approx(2 / 3)
     assert result["precision"] == pytest.approx(2 / 3)
     # v1's own length hint disagrees with its line count; it is reported, never divided by.
-    assert result["v1_count"] == 3
+    assert counts["v1_lines"] == 3
     assert result["v1_length_hint"] == 99
 
 
 def test_comparison_records_unavailability_rather_than_scoring_zero():
     reference = v1.ReferenceInvocations.unavailable("v1 enumeration timed out")
 
-    result = generate.compare_invocations(["a"], reference)
+    result = generate.compare_invocations(["a"], reference, command="a")
 
     assert result["available"] is False
     assert "timed out" in result["error"]
@@ -101,10 +102,14 @@ def invoke(monkeypatch: pytest.MonkeyPatch, tmp_path: Path):
         argv = [
             "generate",
             *args,
-            "--model", "openai/gpt-4o",
-            "--temperature", "0.0",
-            "--out", str(tmp_path / "runs"),
-            "--db", str(tmp_path / "metrics.db"),
+            "--model",
+            "openai/gpt-4o",
+            "--temperature",
+            "0.0",
+            "--out",
+            str(tmp_path / "runs"),
+            "--db",
+            str(tmp_path / "metrics.db"),
             "--plain",
         ]
         code = cli.main(argv)
@@ -157,11 +162,17 @@ def test_the_invocation_set_diff_against_v1_is_recorded(fake_v1_root: Path, invo
 
     comparison = read_manifest(runs[0])["checks"]["invocation_comparison"]
     assert comparison["available"] is True
-    assert comparison["v1_count"] == 3
-    assert comparison["matched"] == 2
-    assert comparison["missing"] == 1
-    assert comparison["spurious"] == 1
+    assert comparison["method"] == "invocation_set_diff"
+    assert comparison["instrument"] == "semantic"
+    counts = comparison["counts"]
+    assert counts["v1_lines"] == 3
+    assert counts["matched"] == 2
+    assert counts["missing"] == 1
+    assert counts["spurious"] == 1
     assert comparison["v1_length_hint"] == 99
+    # The pre-normalization figure rides along in every record, so a semantic score can
+    # always be checked against the literal one without re-running anything.
+    assert comparison["secondary"]["literal"]["matched"] == 2
 
 
 def test_no_compare_skips_v1s_enumeration_and_says_so(fake_v1_root: Path, invoke):
@@ -171,9 +182,7 @@ def test_no_compare_skips_v1s_enumeration_and_says_so(fake_v1_root: Path, invoke
     assert comparison["available"] is False
 
 
-def test_continuation_happens_only_when_the_token_cap_cut_the_response(
-    fake_v1_root: Path, invoke
-):
+def test_continuation_happens_only_when_the_token_cap_cut_the_response(fake_v1_root: Path, invoke):
     _, runs, client = invoke(jsonl("mkdir relpath_1"), "mkdir", finish_reason="length")
 
     manifest = read_manifest(runs[0])
@@ -183,9 +192,7 @@ def test_continuation_happens_only_when_the_token_cap_cut_the_response(
     assert client.calls[1]["messages"][-1]["content"] == llm.CONTINUE_INSTRUCTION
 
 
-def test_a_model_that_stops_on_its_own_is_asked_whether_it_is_finished(
-    fake_v1_root: Path, invoke
-):
+def test_a_model_that_stops_on_its_own_is_asked_whether_it_is_finished(fake_v1_root: Path, invoke):
     """This stage deliberately departs from the length-only continuation rule.
 
     Enumeration's characteristic failure is the model stopping early of its own accord --
@@ -205,9 +212,7 @@ def test_a_model_that_stops_on_its_own_is_asked_whether_it_is_finished(
     assert parse["hit_turn_cap_while_incomplete"] is False
 
 
-def test_the_completion_sentinel_is_not_counted_as_unparseable_output(
-    fake_v1_root: Path, invoke
-):
+def test_the_completion_sentinel_is_not_counted_as_unparseable_output(fake_v1_root: Path, invoke):
     """The sentinel is a control token, not a line the model failed to format."""
     _, runs, _ = invoke(jsonl("mkdir relpath_1"), "mkdir")
 
@@ -276,8 +281,16 @@ def test_the_spec_override_lets_the_two_stages_be_chained(
 
 def test_the_knobs_used_are_recorded_so_the_v1_side_can_match_them(fake_v1_root: Path, invoke):
     _, runs, _ = invoke(
-        jsonl("mkdir relpath_1"), "mkdir",
-        "--max-arity", "2", "--max-count", "3", "--stdin", "varied", "--content", "split",
+        jsonl("mkdir relpath_1"),
+        "mkdir",
+        "--max-arity",
+        "2",
+        "--max-count",
+        "3",
+        "--stdin",
+        "varied",
+        "--content",
+        "split",
     )
 
     inputs = read_manifest(runs[0])["inputs"]
@@ -302,34 +315,3 @@ def test_the_sentinel_is_recognised_when_it_trails_real_output(fake_v1_root: Pat
     assert parse["unparseable_lines"] == 0
     assert parse["objects_parsed"] == 1
     assert len(client.calls) == 1
-
-
-def test_equals_and_space_spellings_are_one_invocation():
-    """`--color=always` and `--color always` are the same invocation, not a miss plus a spurious.
-
-    Counting the two spellings separately charges one convention difference to both recall
-    and precision at once, roughly halving each.
-    """
-    assert generate.normalize_invocation("grep --color=always a") == generate.normalize_invocation(
-        "grep --color always a"
-    )
-
-
-def test_quoting_differences_are_one_invocation():
-    assert generate.normalize_invocation("grep --exclude '*.txt' a") == (
-        generate.normalize_invocation("grep --exclude=*.txt a")
-    )
-
-
-def test_a_short_flag_is_not_split_on_an_equals_in_its_value():
-    """Only long options take `--flag=value`; a value containing `=` must survive intact."""
-    assert generate.normalize_invocation("grep -e a=b f") == ("grep", "-e", "a=b", "f")
-
-
-def test_an_unlexable_fragment_is_reported_rather_than_counted_as_a_miss():
-    """v1 emits values containing newlines, and reading its output by line splits them.
-
-    The fragments have unbalanced quotes. Charging them to the model as misses would
-    overstate the gap, so they are excluded from the counts and reported on their own.
-    """
-    assert generate.normalize_invocation("grep --group-separator '") is None

@@ -41,9 +41,7 @@ def load_ledger(
     """Every recorded cell for a campaign, in the order it ran."""
     path = ledger_root / campaign_id / "ledger.jsonl"
     if not path.is_file():
-        raise CarucaV2Error(
-            f"no ledger at {path}. Run the campaign first, or pass --ledger-root."
-        )
+        raise CarucaV2Error(f"no ledger at {path}. Run the campaign first, or pass --ledger-root.")
     return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
 
 
@@ -171,9 +169,7 @@ def aggregate(rows: Iterable[dict[str, Any]]) -> list[Arm]:
             row.get("prompt_variant", "default"),
             float(row.get("temperature", 0.0)),
         )
-        arm = arms.setdefault(
-            key, Arm(model=key[0], prompt_variant=key[1], temperature=key[2])
-        )
+        arm = arms.setdefault(key, Arm(model=key[0], prompt_variant=key[1], temperature=key[2]))
         arm.cells += 1
 
         status = row.get("status")
@@ -194,9 +190,7 @@ def aggregate(rows: Iterable[dict[str, Any]]) -> list[Arm]:
         if score.get("scoreable") and score.get("f1") is not None:
             arm.scoreable += 1
             arm.f1.values.append(float(score["f1"]))
-            arm.per_command.setdefault(row.get("command", "?"), []).append(
-                float(score["f1"])
-            )
+            arm.per_command.setdefault(row.get("command", "?"), []).append(float(score["f1"]))
             if score.get("exact_argument_rate") is not None:
                 arm.exact.values.append(float(score["exact_argument_rate"]))
 
@@ -210,9 +204,7 @@ def consistency(arm: Arm) -> dict[str, Any] | None:
     v1 is deterministic given its inputs, so any spread here is a cost of the LLM approach
     that v1 does not pay. Only commands sampled more than once contribute.
     """
-    repeated = {
-        command: values for command, values in arm.per_command.items() if len(values) > 1
-    }
+    repeated = {command: values for command, values in arm.per_command.items() if len(values) > 1}
     if not repeated:
         return None
     spreads = [max(values) - min(values) for values in repeated.values()]
