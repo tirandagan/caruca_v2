@@ -24,8 +24,14 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 # Task 002: LLM Config Generation (`caruca-v2 generate`)
 
 > **Status:** Implemented 2026-09-03 (phases 1-3). Phase 4 — the held-out-set run and
-> write-up — is **not started: it spends real API money and needs Tiran's approval of the
-> run matrix and cost estimate first.** No real API call has been made.
+> write-up — remains **not started: it needs Tiran's approval of the run matrix and cost
+> estimate first.**
+> **Updated 2026-09-14:** the first real API calls have now been made, as **exploratory
+> `/run_pipeline` walkthrough runs on `grep` only** — not held-out-set runs, and not
+> reportable as experiment results. They surfaced three defects that made a valid answer
+> impossible, all now fixed; see §6 Run log. As of the last run the stage **passes v1
+> validation end to end** (63/63 configs accepted). Total spend so far: **$0.56** across
+> four `generate` runs.
 > **Created:** 2026-09-03 · **Owner:** Tiran Dagan
 > **Shared design:** `ai_docs/prep/llm_pipeline_replication.md` (read it first — the
 > minimal-instruction principle, prompt-file conventions, telemetry, and logging toggle
@@ -93,7 +99,11 @@ is pure text-to-JSON.
 ## 3. Success Criteria
 - [x] Output parses, and `<cmd>.configs.json` validates against v1's `CommandConfig`
       model ✓ 2026-09-03 — validated through v1's own pydantic model in a v1-venv
-      subprocess; verified against the real checkout (51 synthetic configs accepted)
+      subprocess; verified against the real checkout (51 synthetic configs accepted).
+      ✓ 2026-09-14 — now also verified against **real model output**: `grep` at
+      `--max-count 1`, 63/63 generated configs accepted by v1. Getting there required
+      fixing two places where the schema handed to the model understated v1's real
+      constraints (§6) — until then no prompt could have produced a valid config
 - [x] Invocation-string comparison vs `caruca generate CMD` recorded per command:
       exact matches, missing, spurious, and totals ✓ 2026-09-03 —
       `checks.invocation_comparison` in every run manifest.
@@ -113,7 +123,19 @@ is pure text-to-JSON.
       with retries or hints ✓ 2026-09-03 — continuation happens **only** when the token
       cap cut the response off; a model that stops on its own is never asked for more, and
       `checks.parse.hit_turn_cap_while_truncated` separates "the cap bound" from "the
-      model bound"
+      model bound".
+      **Amended 2026-09-14 — deliberate scope change, approved by Tiran, not a bug fix.**
+      Length-only continuation cannot see this stage's characteristic failure: the model
+      stopping early of its own accord (`finish_reason` `stop`, nothing truncated, the
+      answer merely short — the first `grep` run returned **10** of 122 invocations that
+      way). `generate` now opts into `llm.complete_series(exhaust_instruction=...)`: a
+      self-terminated turn is asked **once** whether anything is missing, and the series
+      ends on a `COMPLETE` sentinel or when nothing new is added. The model is never told
+      how many items to expect — that would leak v1's answer. **The cost is real and must
+      be stated with any result from this stage: a nudged model is partly measuring the
+      nudge.** Every run records `checks.parse.continuation_policy`, `turns_used`,
+      `model_declared_complete`, and `hit_turn_cap_while_incomplete` so no result can omit
+      it. Effect on the same command: 10 → 75 invocations
 
 ## 4. Implementation Phases
 1. [x] `prompts/generate/` files + loader wiring ✓ 2026-09-03 — `system.md` + `user.md`,
@@ -134,7 +156,11 @@ is pure text-to-JSON.
        v1's `nargs="?"`/`const` behavior exactly. `--no-compare` skips v1's enumeration (it is slow on
        wide-interface commands) and says so in the manifest
 4. [ ] Held-out-set run (cost estimate approved first) + write-up in `ai_docs/analysis/`
-       — 👤 **blocked on Tiran's approval; this is the first step that spends money**
+       — 👤 **still blocked on Tiran's approval of the run matrix.** The exploratory `grep`
+       runs of 2026-09-14 (§6) do **not** discharge this: one command, one bound, one
+       model, and the prompt changed between runs, so nothing from them is a held-out-set
+       result. What they did buy is a stage that actually validates, and a corrected
+       comparison instrument to run the real matrix with
 
 ### The probe-value table, as implemented
 Generated at runtime by introspecting `caruca.ir.syntax` inside v1's venv: every
@@ -156,8 +182,92 @@ comma. That is what v1 actually generates, so it is what the comparison target i
 - Combinatorial enumeration is a known LLM weakness — that is the experiment, not a bug
   to engineer around. Output-size limits may bind before reasoning does; record both
   (turn counts distinguish them).
+  **Qualified 2026-09-14 (§6):** on `grep` at one-flag depth neither bound is what limited
+  the first run — the model stopped voluntarily, well short, untruncated, and reached full
+  coverage once it was asked whether it had finished. Treat "enumeration is where it fails"
+  as a hypothesis still to be tested across the population, not as settled.
 - The `CommandConfig` JSON shape must be extracted by reading v1's model (subprocess
   `model_json_schema()` dump), never by importing v1 into v2.
 - v1's own `generate --full` has a latent argument-order bug
   (`memory/caruca_v1_pipeline_reference.md`) — compare against what v1 *does*, and note
   where v1's behavior itself is buggy rather than scoring the LLM against a bug.
+
+## 6. Run log — exploratory `grep` walkthrough, 2026-09-14
+
+Four `generate` runs on `grep` at `--max-arity 1 --max-count 1`, `openai/gpt-4o`,
+temperature 0.0, seed 42. **Exploratory only** (see §Status). v1's reference enumeration at
+this bound is 122 lines / 73 unique normalized invocations; the unbounded space is
+1,426,920, which is why the paper's default `--max-count 4` is unusable here.
+
+| # | Run | Produced | v1 verdict | Cost |
+|---|---|---|---|---|
+| A | `2026-09-08T201630Z_grep_48518d16` | 10 | rejected — `stdin` was `null` | $0.023 |
+| B | `2026-09-08T212418Z_grep_bc23303e` | 63 | rejected — `node_type` missing | $0.160 |
+| C | `2026-09-14T012157Z_grep_8fd9db95` | 75 | rejected — `node_type` missing | $0.185 |
+| D | `2026-09-14T021315Z_grep_ae36dea0` | 63 | **accepted, 63/63** | $0.153 |
+
+### Three defects, all in the instrument rather than the model
+
+1. **`SerializableContent` renders as an empty schema.** `stdin` and `File.content` are
+   `Content` behind a pydantic `PlainValidator`, and a `PlainValidator` contributes nothing
+   to `model_json_schema()`. Both fields therefore reached the model as bare
+   `{"title": ...}` — an empty schema, which permits *any* value including `null`, while v1
+   accepts only a `Content` member. The prompt also stated the variation level ("simple")
+   without ever saying it means `HUMAN_TEXT`; the string appeared nowhere in the 7,919-char
+   prompt. **No wording of that prompt could have produced a valid config.** Fixed in
+   `v1.py` by re-attaching the enum, discovering the affected fields by introspection
+   (`field.annotation is Content`) rather than naming them.
+2. **Discriminator tags are not marked required.** `node_type` / `arg_type` carry pydantic
+   defaults, so they are excluded from `required` and read as optional — but a discriminated
+   union resolves its member by reading the tag *before* defaults apply, so the tag is
+   mandatory in the input. Omitting it fails with `union_tag_not_found`. Fixed by marking
+   every discriminator required, discovered from the schema's own `discriminator` blocks.
+   Verified offline: patching `node_type` into run C's 75 configs makes v1 accept **all 75**,
+   which is how we knew there was no third hole before paying for run D.
+3. **The prompt contradicted the spec on `Selection`.** `system.md` asserted that value
+   types are never listed in the specification, but `Selection`/`List` carry their values
+   inline in `choices=` and appear in the probe table as empty lists — so the model was
+   pointed at an empty table for exactly the flags whose values it already had. Corrected.
+
+Both schema defects are pinned by regression tests in `tests/test_v1_access.py`. The fake v1
+in `tests/conftest.py` was made faithful to real v1 on both points (its own `ir/contents.py`
+module, a discriminated `body` union, and `stdin` with no default) so those tests are not
+vacuous.
+
+### A fourth defect, in the comparison rather than the prompt
+
+The set-diff compared invocation strings literally, so one convention difference was charged
+to recall *and* precision at once: `--color=always` vs `--color always` scored as both a miss
+and a spurious. `compare_invocations` now normalizes to an argument vector (shlex lexing,
+long options split on `=`) and reports the literal figures alongside under `raw`. On run C:
+
+| | raw | normalized |
+|---|---|---|
+| matched / missing / spurious | 54 / 21 / 21 | **73 / 0 / 2** |
+| recall / precision | 0.72 / 0.72 | **1.00 / 0.97** |
+
+**Missing: zero.** At this bound the model enumerated every invocation v1 produced. That is
+one command at one-flag depth and should be re-checked more widely before being leaned on,
+but it is evidence against the assumption in §5 that combinatorial enumeration is where an
+LLM must fail — the earlier 10-of-122 collapse was the length-only continuation policy, not
+the model's reach.
+
+Two invocations remain "spurious" and both are worth keeping rather than scoring away:
+- `grep --group-separator=$'\n\t' a` — v1 emits this too, but the value contains a newline
+  and v1's output is read line by line, so its version arrives as two fragments with
+  unbalanced quotes. Now counted explicitly as `unlexable_reference_lines` instead of
+  silently inflating "missing".
+- `grep a -` — the bare-dash stdin form. v1's own spec marks the positional
+  `dash_as_stdin=True`, yet v1's enumerator never emits it.
+
+### Run-to-run instability at temperature 0
+
+Runs C and D used different prompts (D adds the discriminator requirement) and produced
+**different argument orderings**: C wrote `grep --color=always a`, matching v1's
+flags-before-positional order; D wrote `grep a --color=always`. Semantically equivalent for
+GNU option permutation, but a different token sequence, which collapsed D's normalized match
+count to 3 of 73 despite D being the run that *passes validation*. Argument order is
+deliberately **not** normalized away — reordering is unsafe in general (`cp a b` ≠ `cp b a`),
+and widening the normalizer until the model scores well is the tuning this project excludes.
+Record it as what it is: a dimension-4 (consistency/reproducibility) observation, and a
+reason the run matrix needs repeated samples per cell rather than one shot.
