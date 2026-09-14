@@ -20,3 +20,4 @@
 - [v1 macOS annotate limit](caruca_v1_macos_annotate_limitation.md) — v1's `annotate` cannot run on macOS at all (hardcoded /tmp vs /private/tmp); v1-side annotation diffs must run in the Lima VM
 - [Experiment program](project_experiment_program.md) — planned end-to-end 2026-09-06; run-matrix approval (implementation plan Part 6) is the single gate; task 006 = harness BUILT, C0 pilot DONE, task 007 = agentic-SDK arm directed into scope 2026-09-08 (4 defects caught+fixed; stage-1 perfect both models; v1 stdin-schema hole found); E0 DONE (analysis/e0_artifact_pinning.md)
 - [Instrument defect vs tuning](feedback_instrument_defect_vs_tuning.md) — fixing a prompt/schema that makes a valid answer impossible is repair, not the excluded tuning; check the request before judging the model
+- [v1 stage-1 baseline](caruca_v1_stage1_baseline.md) — v1's own shipped LLM specs score 78/116 by v1's own instrument, not the paper's 116/120; use 78/116 as the stage-1 baseline

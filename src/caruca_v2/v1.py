@@ -125,9 +125,27 @@ def exemplars(commands: tuple[str, ...] = EXEMPLAR_COMMANDS) -> list[Exemplar]:
     ]
 
 
-def venv_python() -> Path:
-    """v1's own interpreter (3.12), the only thing that can import a v1-DSL spec."""
-    path = v1_root() / "caruca" / ".venv" / "bin" / "python"
+#: v1's default environment: DSPy 3.x, which its own `llm.py` cannot import. Everything
+#: except v1's LLM stage runs here.
+VENV_DEFAULT = ".venv"
+#: The environment v1's LLM stage actually runs in. `caruca/src/caruca/llm.py` targets
+#: DSPy ~2.4 (`dspy.OpenAI`, `dspy.Suggest`, `dspy.predict.Retry`), all removed in 3.x, so
+#: `caruca syntax-spec` dies at import against `.venv`. `.venv-llm` holds dspy-ai 2.4.9 and
+#: imports `caruca.llm` cleanly — which is what makes a live v1-versus-v2 stage-1 comparison
+#: possible without migrating v1 at all.
+VENV_LLM = ".venv-llm"
+VENVS = (VENV_DEFAULT, VENV_LLM)
+
+
+def venv_python(venv: str = VENV_DEFAULT) -> Path:
+    """v1's own interpreter (3.12), the only thing that can import a v1-DSL spec.
+
+    `venv` is explicit rather than inferred: the two environments hold different DSPy
+    majors, so which one produced an artifact is a fact a result has to carry.
+    """
+    if venv not in VENVS:
+        raise V1AccessError(f"unknown v1 virtualenv {venv!r}; expected one of {', '.join(VENVS)}")
+    path = v1_root() / "caruca" / venv / "bin" / "python"
     if not path.is_file():
         raise V1AccessError(
             f"v1's virtualenv interpreter not found at {path}. "
@@ -530,11 +548,37 @@ class ReferenceInvocations:
         return cls(invocations=[], count=0, length_hint=None, available=False, error=reason)
 
 
-def _caruca_executable() -> Path:
-    path = v1_root() / "caruca" / ".venv" / "bin" / "caruca"
+def _caruca_executable(venv: str = VENV_DEFAULT) -> Path:
+    if venv not in VENVS:
+        raise V1AccessError(f"unknown v1 virtualenv {venv!r}; expected one of {', '.join(VENVS)}")
+    path = v1_root() / "caruca" / venv / "bin" / "caruca"
     if not path.is_file():
         raise V1AccessError(f"v1's `caruca` entry point not found at {path}.")
     return path
+
+
+def llm_stage_available() -> bool:
+    """Whether v1's own LLM stage can run here.
+
+    It cannot in `.venv` (DSPy 3.x removed the API `llm.py` uses) but can in `.venv-llm`.
+    Checked rather than assumed, because a stage-1 v1-versus-v2 comparison depends on it.
+    """
+    try:
+        return _caruca_executable(VENV_LLM).is_file()
+    except V1AccessError:
+        return False
+
+
+def generated_spec_path(command: str) -> Path:
+    """A specification v1's *own* LLM step produced, if one was committed.
+
+    They are the v1 side of the only stage where a v1-versus-v2 delta is meaningful — the
+    one stage where v1 also uses a model — and using them costs nothing.
+
+    Note the path: v1 has **two** `outputs/` directories. Traces live under the package
+    (`caruca/outputs/`); these specs live at the repository root (`outputs/`).
+    """
+    return v1_root() / "outputs" / "llm-dsl-generation" / f"{slug(command)}.py"
 
 
 @dataclass(frozen=True)

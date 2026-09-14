@@ -24,7 +24,13 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 # Task 008: The v1-vs-v2 Parity Study (`caruca-v2 score <stage>`)
 
 > **Status:** Created 2026-09-14, directed by Tiran in-session and approved the same day.
-> Phase 1 (instrument) in progress. **Created:** 2026-09-14 · **Owner:** Tiran Dagan
+> **Phase 1 substantially built** — all four per-stage scorers done, tested, and committed
+> (see §9 Progress). Phase 1f-1h (`v1_value` wiring, per-stage sweep scoring) in progress.
+> Nothing spent: Phases 1 and 2 make no API calls.
+> **Headline finding so far (§10):** v1's own shipped LLM output scores **78/116** against
+> v1's own ground truth by v1's own instrument, not the paper's 116/120. That, not the
+> published figure, is the stage-1 baseline v2 gets compared against.
+> **Created:** 2026-09-14 · **Owner:** Tiran Dagan
 > **Depends on:** task 006 (harness — `score`/`sweep`/`report` built 2026-09-08; this task
 > extends all three). Task 005 remains reserved for v1 instrumentation.
 > **Gates:** Phases 1 and 2 spend nothing and need no approval. Phase 3 is the only phase
@@ -95,8 +101,9 @@ spent** — which is the argument for building the instrument first.
   true of `$V1/caruca/.venv` — but **`$V1/caruca/.venv-llm` holds dspy-ai 2.4.9, imports
   `caruca.llm` cleanly, and ships its own `caruca` entry point** (verified 2026-09-14).
   `v1.py` hardcodes `.venv` in `venv_python()` and `_caruca_executable()`, which is the only
-  reason v2 cannot reach it. Better still, v1's **118 already-generated specs** sit at
-  `outputs/llm-dsl-generation/*.py`, so the stage-1 v1 side costs nothing; re-running is
+  reason v2 cannot reach it. Better still, v1's **117 already-generated specs** sit at
+  `outputs/llm-dsl-generation/*.py` — note the path: that is the **repository root**, not
+  `caruca/outputs/`, which holds traces. So the stage-1 v1 side costs nothing; re-running is
   needed only for fresh cost/latency telemetry. **Update `CLAUDE.md` when this lands** — the
   current wording overstates the blocker.
 - **No command has v1's full artifact chain.** v1's 18 committed traces and its 13 PaSh
@@ -327,3 +334,108 @@ measures that the paper never did — LLM cost/tokens and reproducibility
   grep at this bound). Recorded only so the discrepancy stays visible.
 - This is **not** the experiment program (C1-C6). It is the parity gate that precedes it, and
   it tunes no prompt to improve agreement.
+
+---
+
+## 9. Progress
+
+### Phase 1 — the instrument (no API spend)
+
+| Item | Module | State |
+|---|---|---|
+| 1a Method registry | `harness/methods.py` | ✅ one `method` per stage; `envelope()` refuses an instrument the method does not define; `are_comparable` is false across methods |
+| 1b Stage-2 invocations | `harness/invocation.py` | ✅ semantic / argv / literal, spec-driven option table, `form_notes`, injectivity guard |
+| 1c Stage-2 environments | `harness/config_env.py` | ✅ task 002's deferral discharged; `v1.reference_configs()` added |
+| 1d Stage-3 traces | `harness/trace_recovery.py` | ✅ task 003's undefined protocol defined; projection + two tiers |
+| 1e Stage-4 annotations | `harness/annotation.py` | ✅ agreement vector; two shipped defects fixed |
+| 1g `.venv-llm` selector | `v1.py` | ✅ `venv_python(venv)`, `llm_stage_available()`, `generated_spec_path()` |
+| 1f `v1_value` wiring | `harness/report.py` | ⏳ in progress |
+| 1h Per-stage sweep scoring | `harness/sweep.py`, `harness/rescore.py` | ⏳ in progress |
+| 1i Retention rule | — | 👤 Tiran's decision, needed before Phase 3 |
+
+Suite: **261 tests**, ruff clean. Every scorer self-tests v1's artifacts against themselves
+and requires a perfect result; all pass against the real checkout.
+
+### What the instruments found before any money was spent
+
+1. **Stage 2 scores 0.863 on invocation strings and 0.000 on environments** (grep, run
+   `2026-09-14T021315Z`). All 63 configs type grep's regex `a` as `arg_type: "already"` —
+   asking the sandbox to contain a *file* named `a` — where v1 types it `no_env`. v1's
+   validator accepts them, so nothing downstream objects; the traces would simply describe
+   the wrong world. **Scoring invocation strings alone called that run a near-success.**
+   This is exactly the blind spot task 002's deferred instrument existed to close.
+2. **The literal invocation diff halved both recall and precision.** One convention
+   difference (`--color always` vs `--color=always`) scored as a miss *and* a spurious.
+   Semantic scoring moves the same run from 0.041 to 0.863 recall. Justified by injectivity,
+   not by the score: even sorting every token after the binary merges **zero** distinct v1
+   invocations for grep (73/73), cat, mkdir, or wc, so the denominator is unchanged.
+3. **Stage 4's ground-truth comparison diffed two different schemas.** Demonstrated on the
+   real `benchmarks/annotations/pash/cat.json`: an answer agreeing on every field scored
+   `pclass` **0 of 3**. With the projection, 3 of 3.
+4. **v1's PaSh output is not byte-stable against itself** (`list(set(...))` + hash
+   randomization), so an ordered comparison can report v1 differing from v1.
+5. **v1's config `identifier` is random per process** (`ir/syntax.py:87`). Two semantically
+   identical configs from two v1 processes are unequal as dicts — a naive comparison would
+   report v1 disagreeing with itself on 100% of configs. The config self-test therefore runs
+   **two separate v1 processes**; it passes 145/145.
+6. **`caruca generate --full` renames every config it emits.** `to_exec_env("split", "varied")`
+   against `(prefix, stdin_variation, content_variation)` puts `"split"` into `prefix`.
+   Verified by execution: all 175 configs from `generate cat --full` come out `splitcat`.
+7. **`grep.json` case 2 of the hand-curated ground truth** is classed `side-effects`, which is
+   not in v1's `Parallelizability` enum, and omits `inputs`/`outputs` entirely.
+8. **v1's raw traces are mostly loader noise.** `ls`: 17,512 raw `(action, path)` pairs → 20
+   distinct after v1's own relevance filter. `dirname`: 640 → 1. Unprojected, `dirname` recall
+   is capped near 12% however perfectly a model observes.
+9. **v1 leaks relative system paths into its own traces.** `groups` ran with cwd `/` and
+   recorded `('rf','etc')`, `('rf','lib')`, `('rf','run')`, `('rf','usr')`. Counted as
+   `suspected_reference_leakage` rather than charged to the model as misses.
+10. **v1 has two `outputs/` directories.** The LLM-generated specs are at the repository root
+    (`outputs/llm-dsl-generation/`, 117 files); `caruca/outputs/` holds traces. Using the
+    wrong one silently reports zero specs.
+
+---
+
+## 10. The stage-1 baseline — v1 measured on today's artifacts
+
+Recorded in full at `memory/caruca_v1_stage1_baseline.md`.
+
+v1's own committed LLM output (`outputs/llm-dsl-generation/*.py`, 117 specs) scored against
+v1's own committed ground truth (`syntax_specs/*.py`), at v1 commit `d8032407`:
+
+| Instrument | Result |
+|---|---|
+| v1's own `eval/cmp_specs.py` — the paper's Q2 tool, `diff_count == 0` | **78 / 116** |
+| caruca_v2's structural scorer — no option **and** no type errors | **83 / 116** |
+| The paper §7.2 — "116/120 exact: 1 type misclassification, 3 missing/spurious options" | **116 / 120** |
+
+**The instrument is sound**: v1's ground truth scored against *itself* is **117/117** exact,
+and two independently built instruments land within five of each other. The gap is not a
+scoring artifact.
+
+The signature is typing rather than coverage: 105/116 commands have no missing or spurious
+options, but only 86/116 have no type misclassification (the paper reports 3 and 1). Worst
+cases: `stty` (34 spurious), `iconv` (14 diffs), `pandoc` (9), `od` (6). `mogrify` does not
+interpret at all.
+
+**Candidate explanations, none confirmed — a question for Greenberg, in the same class as
+E0's `ps` and `cp` findings:**
+1. The committed set is *a* run, not necessarily the run the paper reported. Most likely.
+2. Ground truth was revised afterwards — but this explains less than it appears: the LLM set
+   and the ground truth were committed a day apart (2024-11-10/11) and only two
+   `syntax_specs/` commits postdate it.
+3. A different model or decoding configuration produced the paper's run.
+
+**Consequence for this task.** v2's stage-1 result is compared against **78/116** — v1
+measured on today's artifacts with today's instrument — and the paper's 116/120 is reported
+alongside with the discrepancy named. Comparing v2 against a figure the shipped artifacts do
+not reproduce would be comparing against something unverifiable. Per
+`memory/feedback_v1_v2_framing.md` this is a reproducibility gap in the artifact set, stated
+plainly, not a claim that the paper is wrong.
+
+**Two things this also settles.** Scoring against `syntax_specs/*.py` is *not* circular —
+`memory/caruca_v1_eval_tooling_notes.md` records the provenance audit (92 commits, 4 authors
+including a paper co-author, messages reading "Fix ground truths" / "revise gt"). And **the
+stage-1 v1 side costs nothing**: all nine target commands already have a committed v1 LLM
+spec, so v1's DSPy pipeline never has to be re-run for correctness — only, optionally, for
+fresh cost and latency telemetry. On those nine, v1 scores mean F1 **1.000** and mean exact
+**0.983**, so the target set is favourable to v1 rather than cherry-picked for v2.

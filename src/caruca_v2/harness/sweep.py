@@ -40,6 +40,7 @@ from ..stages import annotate as annotate_stage
 from ..stages import generate as generate_stage
 from ..stages import syntax_spec as syntax_stage
 from ..stages import trace as trace_stage
+from . import methods, rescore
 from . import score as score_module
 
 DEFAULT_FROZEN_CONFIG_PATH = Path("eval_config.frozen.json")
@@ -451,10 +452,18 @@ def run_campaign(
                 if validated:
                     bucket["validated"] += 1
 
-                if campaign.score_after and campaign.stage == "syntax_spec":
+                if campaign.score_after:
                     entry["score"] = _score_cell(cell, run_dir, campaign)
-                    f1 = (entry["score"] or {}).get("f1")
-                    bucket["scores"].append(f1)
+                    score_row = entry["score"] or {}
+                    # The headline metric differs per stage, so read the one this row's own
+                    # method declares rather than assuming `f1`.
+                    metric = score_row.get("method")
+                    key = (
+                        methods.get(metric).primary_metric
+                        if metric in methods.REGISTRY
+                        else "f1"
+                    )
+                    bucket["scores"].append(score_row.get(key))
 
             ledger.write(json.dumps(entry) + "\n")
             ledger.flush()
@@ -478,20 +487,14 @@ def run_campaign(
 
 
 def _score_cell(cell: Cell, run_dir: str, campaign: Campaign) -> dict[str, Any] | None:
-    """Score a syntax-spec cell right after it ran. Failures are recorded, not raised."""
-    spec_path = _spec_path_of(run_dir, cell.command)
-    if not spec_path.is_file():
-        return {"scoreable": False, "error": "no spec file was written"}
-    try:
-        record = score_module.score_spec(
-            cell.command, spec_path, reference=campaign.score_reference
-        )
-    except CarucaV2Error as exc:
-        return {"scoreable": False, "error": str(exc)}
-    return {
-        "scoreable": record.get("scoreable"),
-        "f1": record.get("f1"),
-        "exact_argument_rate": record.get("exact_argument_rate"),
-        "counts": record.get("counts"),
-        "error": record.get("error"),
-    }
+    """Score a cell right after it ran, whichever stage it was.
+
+    Previously gated to `syntax_spec`, which is why the C0 ledgers carry scores for stage 1
+    and none for stages 2-4 — the comparison data existed only inside each run's manifest and
+    was never rolled up. `rescore.score_run` dispatches per stage; failures are recorded, not
+    raised, so one unscoreable cell cannot sink a campaign.
+    """
+    record = rescore.score_run(
+        Path(run_dir), stage=campaign.stage, reference=campaign.score_reference
+    )
+    return rescore.ledger_entry(record)

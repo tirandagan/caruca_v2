@@ -27,6 +27,7 @@ from typing import Any
 
 from .. import v1
 from ..errors import CarucaV2Error
+from . import methods
 from . import score as score_module
 from . import sweep as sweep_module
 
@@ -218,20 +219,111 @@ def consistency(arm: Arm) -> dict[str, Any] | None:
     }
 
 
+#: Why a v1 number is or is not present, and whether a delta may be derived from it.
+V1_REFERENCE = "reference"  # v1 *defines* the scale; it scores 1.0 by construction
+V1_MEASURED = "measured"  # v1 was measured independently, by the same method
+V1_CONSTANT = "constant"  # v1 is deterministic here, so the value is known without measuring
+V1_UNAVAILABLE = "unavailable"  # the v1 side has not been measured yet
+
+#: Methods where v1 is the reference. A percent change against a reference is an identity
+#: wearing a hat: v1 scores 1.0 by construction, so `(v2 - 1) / 1` is just `v2 - 1`, and
+#: publishing it invites "v2 is N% worse than v1" claims derived from nothing.
+REFERENCE_METHODS = frozenset(
+    {
+        methods.INVOCATION_SET_DIFF.method,
+        methods.CONFIG_ENV_DIFF.method,
+        methods.TRACE_RECOVERY_DIFF.method,
+    }
+)
+
+_REFERENCE_NOTE = (
+    "v1's own output defines the reference set for this method; v1 scores 1.0 by "
+    "construction, so a percent change against it is an identity, not a comparison"
+)
+
+
+@dataclass(frozen=True)
+class V1Side:
+    """The v1 half of a comparison, and whether a delta may be computed from it."""
+
+    value: float | None
+    kind: str
+    source: str | None = None
+    note: str | None = None
+
+
+def v1_side(
+    method: str,
+    *,
+    reference_kind: str | None = None,
+    measured: float | None = None,
+    source: str | None = None,
+) -> V1Side:
+    """Resolve what belongs in `v1_value` for one method.
+
+    The rule this encodes: **a percent change is meaningful only when both sides are
+    independently measured values of the same quantity by the same method, and the v1 side
+    is not the reference that defines the scale.**
+
+    Where a delta IS meaningful:
+
+    * `q2_syntax_diff` — v1 has its own LLM step, and its output is committed at
+      `outputs/llm-dsl-generation/`. Measured 2026-09-14 it scores **78/116** by v1's own
+      `cmp_specs`, not the paper's 116/120; see `memory/caruca_v1_stage1_baseline.md`.
+    * `annotation_diff` against **ground truth** — both annotators are scored against a third
+      party, and v1 is not guaranteed 1.0: E0 found v1 on `main` deriving "side-effectful"
+      for `cp` where the paper says "pure".
+    * cost and wall-clock, once v1's side has actually been measured.
+    """
+    if method in REFERENCE_METHODS:
+        return V1Side(value=None, kind=V1_REFERENCE, note=_REFERENCE_NOTE)
+
+    if method == methods.ANNOTATION_DIFF.method and reference_kind != "ground_truth":
+        return V1Side(value=None, kind=V1_REFERENCE, note=_REFERENCE_NOTE)
+
+    if measured is None:
+        return V1Side(
+            value=None,
+            kind=V1_UNAVAILABLE,
+            note="the v1 side of this method has not been measured yet",
+        )
+    return V1Side(value=measured, kind=V1_MEASURED, source=source)
+
+
+def percent_change(side: V1Side, v2_value: float | None) -> float | None:
+    """A delta, or `None` when one would be meaningless.
+
+    Enforcement rather than a docstring promise: there is no path through this function that
+    produces a number for a method where v1 is the reference.
+    """
+    if side.kind != V1_MEASURED or not side.value or v2_value is None:
+        return None
+    return (v2_value - side.value) / side.value
+
+
 def comparison_records(
-    arms: Sequence[Arm], campaign_id: str, method: str = score_module.METHOD
+    arms: Sequence[Arm],
+    campaign_id: str,
+    method: str = score_module.METHOD,
+    *,
+    reference_kind: str | None = None,
+    v1_measured: float | None = None,
+    v1_source: str | None = None,
 ) -> list[dict[str, Any]]:
     """Arms rendered as the comparison records the telemetry schema defines.
 
-    `v1_value` is deliberately absent: this module compares v2 arms with each other. A
-    v1-versus-v2 percent change is only meaningful once the v1 side has been measured by the
-    same `method`, and inventing a denominator here would produce exactly the blended
-    figure the schema's `method` tag exists to prevent.
+    `v1_value` is filled only where it can be filled honestly. `v1_value_kind` says which
+    case applies, so an absent number reads as a decision rather than an oversight.
     """
     commit = v1.v1_commit()
+    spec = methods.get(method)
+    side = v1_side(
+        method, reference_kind=reference_kind, measured=v1_measured, source=v1_source
+    )
     records = []
     for arm in arms:
         summary = arm.f1.summary()
+        v2_value = None if summary is None else summary["mean"]
         records.append(
             {
                 "campaign_id": campaign_id,
@@ -240,11 +332,17 @@ def comparison_records(
                 "comparison_system": "caruca_v2",
                 "profile": "v1_faithful",
                 "method": method,
-                "v1_value": None,
-                "v2_value": None if summary is None else summary["mean"],
+                "instrument": spec.primary_instrument,
+                "denominator": spec.denominator,
+                "v1_value": side.value,
+                "v1_value_kind": side.kind,
+                "v1_value_source": side.source,
+                "v1_value_note": side.note,
+                "v2_value": v2_value,
+                "match_rate": v2_value,
                 "n_samples": 0 if summary is None else summary["n"],
                 "exact_match": None if summary is None else summary["min"] == 1.0,
-                "percent_change": None,
+                "percent_change": percent_change(side, v2_value),
                 "caruca_v1_commit": commit,
                 "evidence_refs": [f"eval/campaigns/{campaign_id}/ledger.jsonl"],
             }

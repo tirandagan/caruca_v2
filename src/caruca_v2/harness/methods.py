@@ -75,7 +75,16 @@ TRACE_RECOVERY_DIFF = Method(
     method="trace_recovery_diff",
     stage="trace",
     instruments=("projected_fs_interactions",),
-    metrics=("core.f1", "core.recall", "core.precision", "inference.f1", "ceiling_fraction"),
+    # Micro (pooled over interactions) rather than macro (mean over configurations): named
+    # in full because the two diverge sharply when one configuration has 1 projected pair
+    # and another has 20, and a bare "core.f1" would hide which was meant.
+    metrics=(
+        "core.micro.f1",
+        "core.micro.recall",
+        "core.micro.precision",
+        "inference.micro.f1",
+        "ceiling_fraction",
+    ),
     denominator="distinct (action, path) pairs surviving v1's own relevance projection",
 )
 
