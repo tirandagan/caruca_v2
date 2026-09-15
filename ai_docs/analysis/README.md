@@ -15,5 +15,9 @@ itself so routine sessions don't load analysis content they don't need; link in 
 | [`v1_v2_parity_study.md`](v1_v2_parity_study.md) | The v1-vs-v2 parity study (task 008, 2026-09-14): per-stage verdicts of replicates / diverges / improves on nine commands, with both sides measured by the same instrument at the same bound. Stage 1 replicates (identical flag coverage); stage 2 diverges (0.878 invocation recall but 0.185 environment coverage); stage 4 diverges and cannot process the two largest traces at all. Includes every confound, the six places a disagreement pointed at v1 rather than v2, and why no figure is compared against a published one. |
 | [`white_paper_addendum.md`](white_paper_addendum.md) | Proposed additions for the resubmission, written for the co-authors and following the paper's own section order. Eight proposals, two needing the authors' input: the shipped artifacts score 78/116 by Caruca's own cmp_specs against the published 116/120, and two specification defects (uniq's two-operand form is never generated; grep --include is typed String where its siblings are Glob). |
 
+See also [`../docs/v2_chain_vs_v1.md`](../docs/v2_chain_vs_v1.md): one command followed
+through both pipelines stage by stage — what each step reads, what it writes, where the file
+lives and what is inside it. The concrete counterpart to the parity study's scores.
+
 Add new analysis docs here as they're produced, with a one-line description — don't inline their
 content in `CLAUDE.md`.

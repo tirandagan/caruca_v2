@@ -219,14 +219,20 @@ call them, so every run keeps its inline comparison); `v1.py` (add `reference_co
   telemetry (which carry the comparison data) and drop only the raw prompt text that carries
   v1 material.
 
-CLI extends `score` with sub-verbs rather than adding four commands;
-`caruca-v2 score CMD --spec PATH` keeps working unchanged:
+**CLI sub-verbs: planned, NOT built.** `caruca-v2 score CMD --spec PATH` is unchanged and
+remains the only scoring verb. The per-stage dispatcher exists as
+`harness/rescore.score_run(run_dir)` and is what the sweep runner calls, but nothing exposes it
+on the command line. The intended surface was:
 
 ```
 caruca-v2 score syntax|invocations|configs|traces|annotation CMD …
 caruca-v2 score run RUN_DIR          # dispatch on the manifest's stage
 caruca-v2 score --self-test [--stage …]
 ```
+
+Not blocking — campaigns score through the sweep runner, and `scripts/parity_diff.py` covers
+ad-hoc inspection — but it is the one item from Phase 1's plan left undone, and the exit
+criterion was written in terms of it.
 
 **Exit criterion:** `caruca-v2 score run <RUN_DIR>` produces a scored comparison for all four
 stages from artifacts already on disk, with **no new model calls**.
