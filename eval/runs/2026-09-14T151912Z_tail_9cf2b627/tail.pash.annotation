@@ -1,0 +1,72 @@
+{
+  "command": "tail",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tail",
+      "comments": "The command reads from stdin and writes to stdout. It does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "and",
+        "operands": [
+          {
+            "operator": "not",
+            "operands": [
+              {
+                "operator": "equals",
+                "operands": [
+                  "flag",
+                  "-f"
+                ]
+              }
+            ]
+          },
+          {
+            "operator": "not",
+            "operands": [
+              {
+                "operator": "equals",
+                "operands": [
+                  "flag",
+                  "-F"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "file"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tail [FILE]",
+      "comments": "The command reads from a specified file and writes to stdout. It does not modify any files or directories."
+    }
+  ],
+  "options": [
+    "-f",
+    "-F",
+    "--retry",
+    "--max-unchanged-stats",
+    "--pid",
+    "-s",
+    "-c",
+    "-n",
+    "-q",
+    "-v",
+    "-z",
+    "--help",
+    "--version"
+  ]
+}

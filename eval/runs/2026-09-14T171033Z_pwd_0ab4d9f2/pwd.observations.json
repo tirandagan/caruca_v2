@@ -1,0 +1,131 @@
+[
+ {
+  "config": {
+   "name": "pwd",
+   "body": [],
+   "string": {
+    "name": "pwd",
+    "body": []
+   },
+   "stdin": "HUMAN_TEXT",
+   "true_string": "pwd"
+  },
+  "return_code": 0,
+  "stdout": "/Users/tirandagan/.caruca_v2/workspaces/caruca_v2_toplevel_71llk4g_/sandbox_inner\n",
+  "stderr": "",
+  "traces": [],
+  "rejected_interactions": []
+ },
+ {
+  "config": {
+   "name": "pwd",
+   "body": [],
+   "string": {
+    "name": "pwd",
+    "body": []
+   },
+   "stdin": "HUMAN_TEXT",
+   "true_string": "pwd"
+  },
+  "return_code": 0,
+  "stdout": "/Users/tirandagan/.caruca_v2/workspaces/caruca_v2_toplevel_uzq91ypm/sandbox_inner\n",
+  "stderr": "",
+  "traces": [
+   [
+    "wf",
+    "stdout"
+   ]
+  ],
+  "rejected_interactions": []
+ },
+ {
+  "config": {
+   "name": "pwd",
+   "body": [],
+   "string": {
+    "name": "pwd",
+    "body": []
+   },
+   "stdin": "HUMAN_TEXT",
+   "true_string": "pwd"
+  },
+  "return_code": 0,
+  "stdout": "/Users/tirandagan/.caruca_v2/workspaces/caruca_v2_toplevel_y1hoqzmv/sandbox_inner\n",
+  "stderr": "",
+  "traces": [
+   [
+    "wf",
+    "stdout"
+   ]
+  ],
+  "rejected_interactions": []
+ },
+ {
+  "config": {
+   "name": "pwd",
+   "body": [],
+   "string": {
+    "name": "pwd",
+    "body": []
+   },
+   "stdin": "HUMAN_TEXT",
+   "true_string": "pwd"
+  },
+  "return_code": 0,
+  "stdout": "/Users/tirandagan/.caruca_v2/workspaces/caruca_v2_toplevel_qproch_t/sandbox_inner\n",
+  "stderr": "",
+  "traces": [],
+  "rejected_interactions": []
+ },
+ {
+  "config": {
+   "name": "pwd",
+   "body": [
+    {
+     "flag": "-P",
+     "args": [
+      {
+       "value": "",
+       "arg_type": "no_env",
+       "true_string": ""
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "node_type": "args",
+     "arity": "?",
+     "symbol": "FLAG-P_GOPTA",
+     "true_string": "-P"
+    }
+   ],
+   "string": {
+    "name": "pwd",
+    "body": [
+     {
+      "flag": "-P",
+      "args": [
+       {
+        "value": ""
+       }
+      ],
+      "flag_followed_by_equals": false,
+      "arity": "?",
+      "symbol": "FLAG-P_GOPTA",
+      "identifier": "GOPTA"
+     }
+    ]
+   },
+   "stdin": "HUMAN_TEXT",
+   "true_string": "pwd -P"
+  },
+  "return_code": 0,
+  "stdout": "/Users/tirandagan/.caruca_v2/workspaces/caruca_v2_toplevel_j_bz3f86/sandbox_inner\n",
+  "stderr": "",
+  "traces": [
+   [
+    "wf",
+    "stdout"
+   ]
+  ],
+  "rejected_interactions": []
+ }
+]

@@ -1,0 +1,860 @@
+[
+ {
+  "name": "cat",
+  "body": [],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-A",
+    "node_type": "flag",
+    "alias": [
+     "--show-all"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-b",
+    "node_type": "flag",
+    "alias": [
+     "--number-nonblank"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-e",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-E",
+    "node_type": "flag",
+    "alias": [
+     "--show-ends"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-n",
+    "node_type": "flag",
+    "alias": [
+     "--number"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-s",
+    "node_type": "flag",
+    "alias": [
+     "--squeeze-blank"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-t",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-T",
+    "node_type": "flag",
+    "alias": [
+     "--show-tabs"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-u",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-v",
+    "node_type": "flag",
+    "alias": [
+     "--show-nonprinting"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "--help",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "--version",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-A",
+    "node_type": "flag",
+    "alias": [
+     "--show-all"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-A",
+    "node_type": "flag",
+    "alias": [
+     "--show-all"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-b",
+    "node_type": "flag",
+    "alias": [
+     "--number-nonblank"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-b",
+    "node_type": "flag",
+    "alias": [
+     "--number-nonblank"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-e",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-e",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-E",
+    "node_type": "flag",
+    "alias": [
+     "--show-ends"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-E",
+    "node_type": "flag",
+    "alias": [
+     "--show-ends"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-n",
+    "node_type": "flag",
+    "alias": [
+     "--number"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-n",
+    "node_type": "flag",
+    "alias": [
+     "--number"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-s",
+    "node_type": "flag",
+    "alias": [
+     "--squeeze-blank"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-s",
+    "node_type": "flag",
+    "alias": [
+     "--squeeze-blank"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-t",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-t",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-T",
+    "node_type": "flag",
+    "alias": [
+     "--show-tabs"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-T",
+    "node_type": "flag",
+    "alias": [
+     "--show-tabs"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-u",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-u",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-v",
+    "node_type": "flag",
+    "alias": [
+     "--show-nonprinting"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "-v",
+    "node_type": "flag",
+    "alias": [
+     "--show-nonprinting"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "--help",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "--help",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "--version",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "cat",
+  "body": [
+   {
+    "value": "--version",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ }
+]

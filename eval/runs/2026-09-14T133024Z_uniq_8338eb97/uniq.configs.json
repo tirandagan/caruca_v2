@@ -1,0 +1,919 @@
+[
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "value": "-c",
+    "node_type": "flag",
+    "alias": [
+     "--count"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "value": "-d",
+    "node_type": "flag",
+    "alias": [
+     "--repeated"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "value": "-D",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--all-repeated",
+    "args": [
+     {
+      "value": "none",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--all-repeated",
+    "args": [
+     {
+      "value": "prepend",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--all-repeated",
+    "args": [
+     {
+      "value": "separate",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-f",
+    "args": [
+     {
+      "value": "-1",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-f",
+    "args": [
+     {
+      "value": "0",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-f",
+    "args": [
+     {
+      "value": "1",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--group",
+    "args": [
+     {
+      "value": "separate",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--group",
+    "args": [
+     {
+      "value": "prepend",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--group",
+    "args": [
+     {
+      "value": "append",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "--group",
+    "args": [
+     {
+      "value": "both",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "value": "-i",
+    "node_type": "flag",
+    "alias": [
+     "--ignore-case"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-s",
+    "args": [
+     {
+      "value": "-1",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-s",
+    "args": [
+     {
+      "value": "0",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-s",
+    "args": [
+     {
+      "value": "1",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "value": "-u",
+    "node_type": "flag",
+    "alias": [
+     "--unique"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "value": "-z",
+    "node_type": "flag",
+    "alias": [
+     "--zero-terminated"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-w",
+    "args": [
+     {
+      "value": "-1",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-w",
+    "args": [
+     {
+      "value": "0",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "flag": "-w",
+    "args": [
+     {
+      "value": "1",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": 1,
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "value": "--help",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "uniq",
+  "body": [
+   {
+    "value": "--version",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     },
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": 2,
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ }
+]

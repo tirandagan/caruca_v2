@@ -1,0 +1,129 @@
+{
+  "command": "sha256sum",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "sha256sum",
+      "comments": "The command reads from stdin and writes the SHA256 checksum to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-c"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stderr"
+      ],
+      "true_str": "sha256sum -c",
+      "comments": "The command checks checksums from stdin and writes errors to stderr."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--help"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "sha256sum --help",
+      "comments": "The command outputs help information to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--version"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "sha256sum --version",
+      "comments": "The command outputs version information to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-b"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "sha256sum -b",
+      "comments": "The command reads from stdin in binary mode and writes the SHA256 checksum to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-z"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "sha256sum -z",
+      "comments": "The command reads from stdin and writes the SHA256 checksum to stdout, ending lines with NUL."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--tag"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "sha256sum --tag",
+      "comments": "The command reads from stdin and writes the SHA256 checksum in BSD-style to stdout."
+    }
+  ],
+  "options": [
+    "-c",
+    "--help",
+    "--version",
+    "-b",
+    "-z",
+    "--tag"
+  ]
+}

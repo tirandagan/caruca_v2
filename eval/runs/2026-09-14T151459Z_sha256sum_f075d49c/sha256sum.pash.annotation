@@ -1,0 +1,148 @@
+{
+  "command": "sha256sum",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "sha256sum",
+      "comments": "Computes SHA256 checksum from standard input and writes to standard output."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-c"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stderr"
+      ],
+      "true_str": "sha256sum -c",
+      "comments": "Verifies checksums from standard input, writes errors to standard error."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--help"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "sha256sum --help",
+      "comments": "Displays help information."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--version"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "sha256sum --version",
+      "comments": "Displays version information."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-b"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "sha256sum -b",
+      "comments": "Computes SHA256 checksum in binary mode from standard input."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-t"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "sha256sum -t",
+      "comments": "Computes SHA256 checksum in text mode from standard input."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-z"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "sha256sum -z",
+      "comments": "Computes SHA256 checksum with NUL-terminated output."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--tag"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "sha256sum --tag",
+      "comments": "Computes SHA256 checksum with BSD-style output."
+    }
+  ],
+  "options": [
+    "-c",
+    "--help",
+    "--version",
+    "-b",
+    "-t",
+    "-z",
+    "--tag"
+  ]
+}

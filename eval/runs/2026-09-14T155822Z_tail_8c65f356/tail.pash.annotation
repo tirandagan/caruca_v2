@@ -1,0 +1,160 @@
+{
+  "command": "tail",
+  "cases": [
+    {
+      "predicate": {
+        "operator": "len_args_eq",
+        "operands": [0]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail",
+      "comments": "Handles input from stdin and outputs to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-f", "--follow"]
+      },
+      "pclass": "non-pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail -f",
+      "comments": "Handles input from stdin and outputs to stdout with follow option."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--version"]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": ["stdout"],
+      "true_str": "tail --version",
+      "comments": "Outputs version information to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--help"]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": ["stdout"],
+      "true_str": "tail --help",
+      "comments": "Outputs help information to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-n", "--lines", "-c", "--bytes"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail -n",
+      "comments": "Handles input from stdin and outputs to stdout with line or byte count options."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-z", "--zero-terminated"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail -z",
+      "comments": "Handles input from stdin and outputs to stdout with zero-terminated option."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-v", "--verbose"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail -v",
+      "comments": "Handles input from stdin and outputs to stdout with verbose option."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-q", "--quiet", "--silent"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail -q",
+      "comments": "Handles input from stdin and outputs to stdout with quiet option."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--retry"]
+      },
+      "pclass": "non-pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail --retry",
+      "comments": "Handles input from stdin and outputs to stdout with retry option."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--max-unchanged-stats"]
+      },
+      "pclass": "non-pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail --max-unchanged-stats",
+      "comments": "Handles input from stdin and outputs to stdout with max-unchanged-stats option."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--pid"]
+      },
+      "pclass": "non-pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail --pid",
+      "comments": "Handles input from stdin and outputs to stdout with pid option."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-s", "--sleep-interval"]
+      },
+      "pclass": "non-pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail -s",
+      "comments": "Handles input from stdin and outputs to stdout with sleep-interval option."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-F"]
+      },
+      "pclass": "non-pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail -F",
+      "comments": "Handles input from stdin and outputs to stdout with -F option."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["PATH_LHNPJ"]
+      },
+      "pclass": "pure",
+      "inputs": ["PATH_LHNPJ"],
+      "outputs": ["stdout"],
+      "true_str": "tail PATH_LHNPJ",
+      "comments": "Handles input from file paths and outputs to stdout."
+    }
+  ],
+  "options": []
+}

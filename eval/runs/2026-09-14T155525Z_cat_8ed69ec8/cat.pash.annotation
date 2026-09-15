@@ -1,0 +1,48 @@
+{
+  "command": "cat",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat",
+      "comments": "The command reads from stdin and writes to stdout. It is pure as it does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": [
+          "PATH_HECYP"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "PATH_HECYP"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat PATH_HECYP",
+      "comments": "The command reads from the specified file paths and writes to stdout. It is pure as it does not modify any files or directories."
+    }
+  ],
+  "options": [
+    "-b",
+    "-n",
+    "-s",
+    "-T",
+    "-E",
+    "-v",
+    "-A",
+    "-e",
+    "-t",
+    "-u",
+    "--help",
+    "--version"
+  ]
+}

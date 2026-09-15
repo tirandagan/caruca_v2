@@ -1,0 +1,15 @@
+sha256sum
+sha256sum -b
+sha256sum -c
+sha256sum --tag
+sha256sum -t
+sha256sum -z
+sha256sum --ignore-missing
+sha256sum --quiet
+sha256sum --status
+sha256sum --strict
+sha256sum -w
+sha256sum --help
+sha256sum --version
+sha256sum relpath_1
+sha256sum abspath_1

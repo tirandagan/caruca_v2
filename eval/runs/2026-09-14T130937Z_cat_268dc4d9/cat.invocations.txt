@@ -1,0 +1,39 @@
+cat
+cat -A
+cat -b
+cat -e
+cat -E
+cat -n
+cat -s
+cat -t
+cat -T
+cat -u
+cat -v
+cat --help
+cat --version
+cat relpath_1
+cat abspath_1
+cat -A relpath_1
+cat -A abspath_1
+cat -b relpath_1
+cat -b abspath_1
+cat -e relpath_1
+cat -e abspath_1
+cat -E relpath_1
+cat -E abspath_1
+cat -n relpath_1
+cat -n abspath_1
+cat -s relpath_1
+cat -s abspath_1
+cat -t relpath_1
+cat -t abspath_1
+cat -T relpath_1
+cat -T abspath_1
+cat -u relpath_1
+cat -u abspath_1
+cat -v relpath_1
+cat -v abspath_1
+cat --help relpath_1
+cat --help abspath_1
+cat --version relpath_1
+cat --version abspath_1

@@ -1,0 +1,121 @@
+[
+ {
+  "name": "tac",
+  "body": [],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "value": "-b",
+    "node_type": "flag",
+    "alias": [
+     "--before"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "value": "-r",
+    "node_type": "flag",
+    "alias": [
+     "--regex"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": "-s",
+    "args": [
+     {
+      "value": ",",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "1",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "value": "--help",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "value": "--version",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tac",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ }
+]

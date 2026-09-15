@@ -1,0 +1,8 @@
+tac
+tac -b
+tac -r
+tac -s ,
+tac --help
+tac --version
+tac relpath_1
+tac abspath_1

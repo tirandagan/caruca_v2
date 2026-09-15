@@ -1,0 +1,66 @@
+[
+ {
+  "config": {
+   "name": "tee",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "sandbox": "sandbox_placeholder",
+       "content": "HUMAN_TEXT",
+       "arg_type": "file",
+       "true_string": "relpath_1"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "node_type": "args",
+     "arity": "+",
+     "symbol": "PATH_EMNMX",
+     "true_string": "relpath_1"
+    }
+   ],
+   "string": {
+    "name": "tee",
+    "body": [
+     {
+      "flag": null,
+      "args": [
+       {
+        "value": "relpath_1",
+        "relative": true,
+        "relation": "child"
+       }
+      ],
+      "flag_followed_by_equals": false,
+      "arity": "+",
+      "symbol": "PATH_EMNMX",
+      "identifier": "EMNMX"
+     }
+    ]
+   },
+   "stdin": "HUMAN_TEXT",
+   "true_string": "tee relpath_1"
+  },
+  "return_code": 0,
+  "stdout": "c\na\nr\nu\nc\na\n\nHi\nHello\n\nThe quick brown fox jumped over the lazy dog.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nHere's some punctuation characters like \" or ; or |. How about { or ]!\nHere's even more such as %, ^ and @. Maybe | and ; one more time\nb\nr\no\nw\nn\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nSentence without the first letter \nfoo\nbarbaz\nThere's some punctuation characters like \" or ' or |. How about } and [?\nThere's even more such as %, ^ and @. Maybe \" and ' one more time\n",
+  "stderr": "",
+  "traces": [
+   [
+    "rf",
+    "stdin"
+   ],
+   [
+    "wf",
+    "stdout"
+   ],
+   [
+    "mo",
+    "relpath_1"
+   ]
+  ],
+  "rejected_interactions": []
+ }
+]

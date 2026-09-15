@@ -1,0 +1,61 @@
+{
+  "command": "wc",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "wc",
+      "comments": "Handles counting lines, words, and bytes from stdin."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": [
+          "PATH_YXVFO"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "PATH_YXVFO"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "wc relpath_1",
+      "comments": "Handles counting lines, words, and bytes from a file."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": [
+          "PATH--files0-from_OTWXL"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "PATH--files0-from_OTWXL"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "wc --files0-from relpath_1",
+      "comments": "Handles counting from files specified in a file."
+    }
+  ],
+  "options": [
+    "-m",
+    "-w",
+    "-c",
+    "-l",
+    "-L",
+    "--version",
+    "--help",
+    "--files0-from"
+  ]
+}

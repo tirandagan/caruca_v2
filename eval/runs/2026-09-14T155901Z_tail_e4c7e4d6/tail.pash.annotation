@@ -1,0 +1,138 @@
+{
+  "command": "tail",
+  "cases": [
+    {
+      "predicate": {
+        "operator": "len_args_eq",
+        "operands": [0]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail",
+      "comments": "Reads from stdin and writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-f", "--follow"]
+      },
+      "pclass": "non-pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail -f",
+      "comments": "The -f option makes tail non-pure as it follows the file descriptor."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--help"]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": ["stdout"],
+      "true_str": "tail --help",
+      "comments": "Displays help information."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--version"]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": ["stdout"],
+      "true_str": "tail --version",
+      "comments": "Displays version information."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-n", "--lines", "-c", "--bytes"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail -n or tail -c",
+      "comments": "Reads from stdin and writes to stdout with specified number of lines or bytes."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-z", "--zero-terminated"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail -z",
+      "comments": "Uses NUL as line delimiter."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-q", "--quiet", "--silent"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail -q",
+      "comments": "Suppresses headers."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-v", "--verbose"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail -v",
+      "comments": "Always outputs headers."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--retry"]
+      },
+      "pclass": "non-pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail --retry",
+      "comments": "Retries opening files."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--max-unchanged-stats"]
+      },
+      "pclass": "non-pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail --max-unchanged-stats",
+      "comments": "Reopens files after a number of unchanged stats."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--pid"]
+      },
+      "pclass": "non-pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail --pid",
+      "comments": "Terminates after a process ID dies."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-s", "--sleep-interval"]
+      },
+      "pclass": "non-pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail -s",
+      "comments": "Sleeps for a specified interval between iterations."
+    }
+  ],
+  "options": []
+}

@@ -1,0 +1,204 @@
+[
+ {
+  "name": "sha256sum",
+  "body": [],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "value": "-b",
+    "node_type": "flag",
+    "alias": [
+     "--binary"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "value": "-c",
+    "node_type": "flag",
+    "alias": [
+     "--check"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "value": "--tag",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "value": "-t",
+    "node_type": "flag",
+    "alias": [
+     "--text"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "value": "-z",
+    "node_type": "flag",
+    "alias": [
+     "--zero"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "value": "--ignore-missing",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "value": "--quiet",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "value": "--status",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "value": "--strict",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "value": "-w",
+    "node_type": "flag",
+    "alias": [
+     "--warn"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "value": "--help",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "value": "--version",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "sha256sum",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "content": "HUMAN_TEXT",
+      "arg_type": "file"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ }
+]

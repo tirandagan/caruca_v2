@@ -1,0 +1,84 @@
+[
+ {
+  "name": "pwd",
+  "body": [],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "pwd",
+  "body": [
+   {
+    "value": "-L",
+    "node_type": "flag",
+    "alias": [
+     "--logical"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "pwd",
+  "body": [
+   {
+    "value": "--logical",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "pwd",
+  "body": [
+   {
+    "value": "-P",
+    "node_type": "flag",
+    "alias": [
+     "--physical"
+    ]
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "pwd",
+  "body": [
+   {
+    "value": "--physical",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "pwd",
+  "body": [
+   {
+    "value": "--help",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "pwd",
+  "body": [
+   {
+    "value": "--version",
+    "node_type": "flag",
+    "alias": []
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ }
+]

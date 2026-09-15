@@ -1,0 +1,21 @@
+{
+  "run_id": "2026-09-14T132657Z_tee_9ce55bef",
+  "command": "tee",
+  "component": "llm_pipeline",
+  "condition": "plain",
+  "stage": "generate",
+  "model_id": "openai/gpt-4o",
+  "prompt_tokens": 6028,
+  "completion_tokens": 2,
+  "cost_usd": 0.00789,
+  "wall_clock_seconds": 1.135883625014685,
+  "seed": 42,
+  "prompt_hash": "f0738ea0fb8b20dbc50df1aa804c93f11f178ea4f5ce7aebea9ebcb2fdbedda6",
+  "timestamp": "2026-09-14T13:26:57.886086Z",
+  "decoding_params": {
+    "temperature": 0.0,
+    "max_tokens": 4096
+  },
+  "turn": 1,
+  "config_index": null
+}

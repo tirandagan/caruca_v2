@@ -1,0 +1,7 @@
+pwd
+pwd -L
+pwd --logical
+pwd -P
+pwd --physical
+pwd --help
+pwd --version

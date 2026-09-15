@@ -1,0 +1,41 @@
+{
+  "command": "tac",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tac",
+      "comments": "The command reads from stdin and writes to stdout, reversing the order of lines."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": [
+          "PATH_ABHEX"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "PATH_ABHEX"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tac relpath_1",
+      "comments": "The command reads from a file specified by a path and writes to stdout, reversing the order of lines."
+    }
+  ],
+  "options": [
+    "-r",
+    "-b",
+    "-s",
+    "--version",
+    "--help"
+  ]
+}

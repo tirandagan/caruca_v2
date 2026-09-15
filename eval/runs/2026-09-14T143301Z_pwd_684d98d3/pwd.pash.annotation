@@ -1,0 +1,21 @@
+{
+  "command": "pwd",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "stateless",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "pwd",
+      "comments": "The `pwd` command outputs the current working directory to stdout. It does not take any input files or modify any files."
+    }
+  ],
+  "options": [
+    "-P",
+    "-L",
+    "--help",
+    "--version"
+  ]
+}

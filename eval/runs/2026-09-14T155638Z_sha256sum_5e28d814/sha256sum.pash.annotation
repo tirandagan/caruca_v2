@@ -1,0 +1,173 @@
+{
+  "command": "sha256sum",
+  "cases": [
+    {
+      "predicate": {
+        "operator": "len_args_eq",
+        "operands": [0]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "sha256sum",
+      "comments": "Reads from stdin and writes the SHA256 checksum to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-c"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stderr"],
+      "true_str": "sha256sum -c",
+      "comments": "Verifies checksums from stdin, outputs errors to stderr."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--help"]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": ["stdout"],
+      "true_str": "sha256sum --help",
+      "comments": "Displays help information."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--version"]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": ["stdout"],
+      "true_str": "sha256sum --version",
+      "comments": "Displays version information."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-z"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "sha256sum -z",
+      "comments": "Outputs checksum with NUL terminator."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-b"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "sha256sum -b",
+      "comments": "Reads input in binary mode."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--tag"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "sha256sum --tag",
+      "comments": "Outputs checksum in BSD-style format."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-t"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "sha256sum -t",
+      "comments": "Reads input in text mode (default)."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["-w"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stderr"],
+      "true_str": "sha256sum -w",
+      "comments": "Warns about improperly formatted checksum lines."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--quiet"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stderr"],
+      "true_str": "sha256sum --quiet",
+      "comments": "Suppresses output for successfully verified files."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--ignore-missing"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stderr"],
+      "true_str": "sha256sum --ignore-missing",
+      "comments": "Ignores missing files when verifying checksums."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--strict"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stderr"],
+      "true_str": "sha256sum --strict",
+      "comments": "Exits non-zero for improperly formatted checksum lines."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["--status"]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stderr"],
+      "true_str": "sha256sum --status",
+      "comments": "Suppresses all output, status code indicates success."
+    },
+    {
+      "predicate": {
+        "operator": "len_args_eq",
+        "operands": [1]
+      },
+      "pclass": "pure",
+      "inputs": ["file"],
+      "outputs": ["stdout"],
+      "true_str": "sha256sum [FILE]",
+      "comments": "Reads from a file and writes the SHA256 checksum to stdout."
+    }
+  ],
+  "options": [
+    "-c",
+    "--help",
+    "--version",
+    "-z",
+    "-b",
+    "--tag",
+    "-t",
+    "-w",
+    "--quiet",
+    "--ignore-missing",
+    "--strict",
+    "--status"
+  ]
+}

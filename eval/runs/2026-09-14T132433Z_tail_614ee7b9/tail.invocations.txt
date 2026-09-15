@@ -1,0 +1,76 @@
+tail -c=0
+tail -c=+10
+tail -c=10
+tail -f=descriptor
+tail -f=name
+tail -f=
+tail -F
+tail -n=0
+tail -n=+10
+tail -n=10
+tail --max-unchanged-stats=-1
+tail --max-unchanged-stats=0
+tail --max-unchanged-stats=1
+tail --pid=-1
+tail --pid=0
+tail --pid=1
+tail -q
+tail --retry
+tail -s=-1
+tail -s=0
+tail -s=1
+tail -v
+tail -z
+tail --help
+tail --version
+tail relpath_1
+tail abspath_1
+tail -c=0 relpath_1
+tail -c=0 abspath_1
+tail -c=+10 relpath_1
+tail -c=+10 abspath_1
+tail -c=10 relpath_1
+tail -c=10 abspath_1
+tail -f=descriptor relpath_1
+tail -f=descriptor abspath_1
+tail -f=name relpath_1
+tail -f=name abspath_1
+tail -f= relpath_1
+tail -f= abspath_1
+tail -F relpath_1
+tail -F abspath_1
+tail -n=0 relpath_1
+tail -n=0 abspath_1
+tail -n=+10 relpath_1
+tail -n=+10 abspath_1
+tail -n=10 relpath_1
+tail -n=10 abspath_1
+tail --max-unchanged-stats=-1 relpath_1
+tail --max-unchanged-stats=-1 abspath_1
+tail --max-unchanged-stats=0 relpath_1
+tail --max-unchanged-stats=0 abspath_1
+tail --max-unchanged-stats=1 relpath_1
+tail --max-unchanged-stats=1 abspath_1
+tail --pid=-1 relpath_1
+tail --pid=0 relpath_1
+tail --pid=0 abspath_1
+tail --pid=1 relpath_1
+tail --pid=1 abspath_1
+tail -q relpath_1
+tail -q abspath_1
+tail --retry relpath_1
+tail --retry abspath_1
+tail -s=-1 relpath_1
+tail -s=-1 abspath_1
+tail -s=0 relpath_1
+tail -s=0 abspath_1
+tail -s=1 relpath_1
+tail -s=1 abspath_1
+tail -v relpath_1
+tail -v abspath_1
+tail -z relpath_1
+tail -z abspath_1
+tail --help relpath_1
+tail --help abspath_1
+tail --version relpath_1
+tail --version abspath_1

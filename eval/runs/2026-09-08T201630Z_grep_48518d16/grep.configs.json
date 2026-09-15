@@ -1,0 +1,333 @@
+[
+ {
+  "name": "grep",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "a",
+      "relative": false,
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": null
+ },
+ {
+  "name": "grep",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "a",
+      "relative": false,
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": null
+ },
+ {
+  "name": "grep",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "a",
+      "relative": false,
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": null
+ },
+ {
+  "name": "grep",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "a",
+      "relative": false,
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "-",
+      "relative": false,
+      "sandbox": "sandbox_placeholder",
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "simple"
+ },
+ {
+  "name": "grep",
+  "body": [
+   {
+    "value": "--help",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "a",
+      "relative": false,
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": null
+ },
+ {
+  "name": "grep",
+  "body": [
+   {
+    "value": "-V",
+    "node_type": "flag",
+    "alias": [
+     "--version"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "a",
+      "relative": false,
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": null
+ },
+ {
+  "name": "grep",
+  "body": [
+   {
+    "value": "-E",
+    "node_type": "flag",
+    "alias": [
+     "--extended-regexp"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "a",
+      "relative": false,
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": null
+ },
+ {
+  "name": "grep",
+  "body": [
+   {
+    "value": "-F",
+    "node_type": "flag",
+    "alias": [
+     "--fixed-strings"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "a",
+      "relative": false,
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": null
+ },
+ {
+  "name": "grep",
+  "body": [
+   {
+    "value": "-G",
+    "node_type": "flag",
+    "alias": [
+     "--basic-regexp"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "a",
+      "relative": false,
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": null
+ },
+ {
+  "name": "grep",
+  "body": [
+   {
+    "value": "-P",
+    "node_type": "flag",
+    "alias": [
+     "--perl-regexp"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "a",
+      "relative": false,
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [],
+    "flag_followed_by_equals": false,
+    "arity": "*",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": null
+ }
+]

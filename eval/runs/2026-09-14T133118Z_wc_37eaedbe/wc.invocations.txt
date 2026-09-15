@@ -1,0 +1,26 @@
+wc
+wc relpath_1
+wc abspath_1
+wc -c
+wc -m
+wc -l
+wc -L
+wc -w
+wc --help
+wc --version
+wc -c relpath_1
+wc -c abspath_1
+wc -m relpath_1
+wc -m abspath_1
+wc -l relpath_1
+wc -l abspath_1
+wc -L relpath_1
+wc -L abspath_1
+wc -w relpath_1
+wc -w abspath_1
+wc --help relpath_1
+wc --help abspath_1
+wc --version relpath_1
+wc --version abspath_1
+wc --files0-from=relpath_1
+wc --files0-from=abspath_1

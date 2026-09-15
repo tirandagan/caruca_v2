@@ -1,0 +1,41 @@
+{
+  "command": "tail",
+  "cases": [
+    {
+      "predicate": {
+        "operator": "len_args_eq",
+        "operands": [0]
+      },
+      "pclass": "pure",
+      "inputs": ["stdin"],
+      "outputs": ["stdout"],
+      "true_str": "tail",
+      "comments": "Handles input from stdin and outputs to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": ["PATH_LHNPJ"]
+      },
+      "pclass": "pure",
+      "inputs": ["PATH_LHNPJ"],
+      "outputs": ["stdout"],
+      "true_str": "tail [FILE]...",
+      "comments": "Reads from specified files and outputs to stdout."
+    }
+  ],
+  "options": [
+    "-f",
+    "--retry",
+    "--max-unchanged-stats",
+    "--pid",
+    "-q",
+    "-v",
+    "-z",
+    "-c",
+    "-n",
+    "-s",
+    "--help",
+    "--version"
+  ]
+}

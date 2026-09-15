@@ -1,0 +1,21 @@
+{
+  "run_id": "2026-09-14T151459Z_sha256sum_f075d49c",
+  "command": "sha256sum",
+  "component": "llm_pipeline",
+  "condition": "plain",
+  "stage": "annotate",
+  "model_id": "openai/gpt-4o",
+  "prompt_tokens": 21787,
+  "completion_tokens": 750,
+  "cost_usd": 0.0619675,
+  "wall_clock_seconds": 28.541925125056878,
+  "seed": 42,
+  "prompt_hash": "35cb901c6ea619dd4f9005a3450b4902437893cc92f985d999eae06ad598ce77",
+  "timestamp": "2026-09-14T15:14:59.100875Z",
+  "decoding_params": {
+    "temperature": 0.0,
+    "max_tokens": 4096
+  },
+  "turn": 0,
+  "config_index": null
+}

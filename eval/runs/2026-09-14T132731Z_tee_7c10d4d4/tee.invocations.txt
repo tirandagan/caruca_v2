@@ -1,0 +1,20 @@
+tee relpath_1
+tee abspath_1
+tee -a relpath_1
+tee -a abspath_1
+tee -i relpath_1
+tee -i abspath_1
+tee -p relpath_1
+tee -p abspath_1
+tee --output-error=warn relpath_1
+tee --output-error=warn abspath_1
+tee --output-error=warn-nopipe relpath_1
+tee --output-error=warn-nopipe abspath_1
+tee --output-error=exit relpath_1
+tee --output-error=exit abspath_1
+tee --output-error=exit-nopipe relpath_1
+tee --output-error=exit-nopipe abspath_1
+tee --help relpath_1
+tee --help abspath_1
+tee --version relpath_1
+tee --version abspath_1

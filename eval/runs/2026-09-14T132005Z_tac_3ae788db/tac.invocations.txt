@@ -1,0 +1,24 @@
+tac
+tac -b
+tac -r
+tac -s ,
+tac -s 
+	
+tac --help
+tac --version
+tac relpath_1
+tac abspath_1
+tac -b relpath_1
+tac -b abspath_1
+tac -r relpath_1
+tac -r abspath_1
+tac -s , relpath_1
+tac -s , abspath_1
+tac -s 
+	 relpath_1
+tac -s 
+	 abspath_1
+tac --help relpath_1
+tac --help abspath_1
+tac --version relpath_1
+tac --version abspath_1

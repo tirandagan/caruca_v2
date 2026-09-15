@@ -1,0 +1,556 @@
+[
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "value": "-a",
+    "node_type": "flag",
+    "alias": [
+     "--append"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "value": "-a",
+    "node_type": "flag",
+    "alias": [
+     "--append"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "value": "-i",
+    "node_type": "flag",
+    "alias": [
+     "--ignore-interrupts"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "value": "-i",
+    "node_type": "flag",
+    "alias": [
+     "--ignore-interrupts"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "value": "-p",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "value": "-p",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn-nopipe",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "warn-nopipe",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit-nopipe",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "flag": "--output-error",
+    "args": [
+     {
+      "value": "exit-nopipe",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "value": "--help",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "value": "--help",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "value": "--version",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "tee",
+  "body": [
+   {
+    "value": "--version",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ }
+]

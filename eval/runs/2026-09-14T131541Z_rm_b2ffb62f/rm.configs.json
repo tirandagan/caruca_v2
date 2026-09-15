@@ -1,0 +1,880 @@
+[
+ {
+  "name": "rm",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "-f",
+    "node_type": "flag",
+    "alias": [
+     "--force"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "-f",
+    "node_type": "flag",
+    "alias": [
+     "--force"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "-i",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "-i",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "-I",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "-I",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "flag": "--interactive",
+    "args": [
+     {
+      "value": "never",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "flag": "--interactive",
+    "args": [
+     {
+      "value": "never",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "flag": "--interactive",
+    "args": [
+     {
+      "value": "once",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "flag": "--interactive",
+    "args": [
+     {
+      "value": "once",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "flag": "--interactive",
+    "args": [
+     {
+      "value": "always",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "flag": "--interactive",
+    "args": [
+     {
+      "value": "always",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "--one-file-system",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "--one-file-system",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "--no-preserve-root",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "--no-preserve-root",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "flag": "--preserve-root",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "flag": "--preserve-root",
+    "args": [
+     {
+      "value": "",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "flag": "--preserve-root",
+    "args": [
+     {
+      "value": "all",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "flag": "--preserve-root",
+    "args": [
+     {
+      "value": "all",
+      "arg_type": "no_env"
+     }
+    ],
+    "flag_followed_by_equals": true,
+    "arity": "1",
+    "node_type": "args"
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "-r",
+    "node_type": "flag",
+    "alias": [
+     "-R",
+     "--recursive"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "-r",
+    "node_type": "flag",
+    "alias": [
+     "-R",
+     "--recursive"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "-d",
+    "node_type": "flag",
+    "alias": [
+     "--dir"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "-d",
+    "node_type": "flag",
+    "alias": [
+     "--dir"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "-v",
+    "node_type": "flag",
+    "alias": [
+     "--verbose"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "-v",
+    "node_type": "flag",
+    "alias": [
+     "--verbose"
+    ]
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "--help",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "--help",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "--version",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "relpath_1",
+      "relative": true,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ },
+ {
+  "name": "rm",
+  "body": [
+   {
+    "value": "--version",
+    "node_type": "flag",
+    "alias": []
+   },
+   {
+    "flag": null,
+    "args": [
+     {
+      "value": "abspath_1",
+      "relative": false,
+      "arg_type": "already"
+     }
+    ],
+    "flag_followed_by_equals": false,
+    "arity": "+",
+    "node_type": "args"
+   }
+  ],
+  "string": {},
+  "stdin": "HUMAN_TEXT"
+ }
+]

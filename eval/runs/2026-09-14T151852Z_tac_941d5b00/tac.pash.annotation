@@ -1,0 +1,139 @@
+{
+  "command": "tac",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tac",
+      "comments": "The command reads from stdin and writes to stdout, reversing the order of lines."
+    },
+    {
+      "predicate": {
+        "operator": "flag",
+        "operands": [
+          "--version"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tac --version",
+      "comments": "Outputs version information to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "flag",
+        "operands": [
+          "--help"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tac --help",
+      "comments": "Outputs help information to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "flag",
+        "operands": [
+          "-r"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tac -r",
+      "comments": "Reverses the order of lines using regex as the separator."
+    },
+    {
+      "predicate": {
+        "operator": "flag",
+        "operands": [
+          "-b"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tac -b",
+      "comments": "Attaches the separator before instead of after."
+    },
+    {
+      "predicate": {
+        "operator": "flag",
+        "operands": [
+          "-s"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tac -s",
+      "comments": "Uses a custom separator instead of newline."
+    },
+    {
+      "predicate": {
+        "operator": "file",
+        "operands": [
+          "relpath_1"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "relpath_1"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tac relpath_1",
+      "comments": "Reads from a file and writes the reversed content to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "file",
+        "operands": [
+          "abspath_1"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "abspath_1"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tac abspath_1",
+      "comments": "Reads from an absolute path file and writes the reversed content to stdout."
+    }
+  ],
+  "options": [
+    "-r",
+    "-b",
+    "-s",
+    "--version",
+    "--help"
+  ]
+}

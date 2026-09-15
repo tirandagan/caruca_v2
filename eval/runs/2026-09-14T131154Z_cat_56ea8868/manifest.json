@@ -1,0 +1,171 @@
+{
+  "run_id": "2026-09-14T131154Z_cat_56ea8868",
+  "timestamp": "2026-09-14T13:11:54.281746Z",
+  "command": "cat",
+  "component": "llm_pipeline",
+  "condition": "plain",
+  "stage": "generate",
+  "status": "ok",
+  "failure_reason": null,
+  "model_requested": "openai/gpt-4o",
+  "model_reported": "openai/gpt-4o",
+  "provider": "OpenAI",
+  "seed": 42,
+  "seed_honored": true,
+  "decoding_params": {
+    "temperature": 0.0,
+    "max_tokens": 4096
+  },
+  "response_format": "jsonl",
+  "prompt_hash": "4e1ef0b45fff7e739d49424d83a97c89cbd6c0525ef9309c43aaf25f9b66079a",
+  "prompt_files": [
+    "prompts/generate/system.md",
+    "prompts/generate/user.md"
+  ],
+  "prompt_variant": "default",
+  "prompt_system": "You are given a command's syntax specification and asked to work out how that command can actually be invoked, and what has to exist on disk for each invocation to run.\n\n## Input\n\nA syntax specification written in a domain-specific language embedded in Python. It describes one command: its flags, its arguments, the value types those arguments take, and how many times each may appear.\n\nMost value types name a kind without listing the values it stands for. That table is supplied separately, below. Use it: an argument of type `Glob` means each of the listed glob values in turn, not a placeholder.\n\nTwo types are the exception. `Selection` and `List` carry their own values inline in the specification, in a `choices=` argument. They appear in the table with an empty list because there is no single global set for them; take their values from the specification itself. A `Selection(flag=\"--color\", choices=[\"never\", \"always\", \"auto\"])` means three invocations, one per choice.\n\n## What to produce\n\nEvery concrete invocation the specification allows within the stated bounds, and for each one, the environment it needs in order to run: the files, directories, and standard input that must be present.\n\n## Bounds\n\nStay within the bounds given below. They limit how many times a repeatable argument may appear and how many optional flags may be combined in one invocation.\n\n## Output format\n\nJSON Lines: one JSON object per line, no surrounding array, no commas between lines, and no prose, headings, or code fences anywhere in the response. Each line has exactly two keys:\n\n    {\"invocation\": \"<the full command string>\", \"config\": <a CommandConfig object>}\n\n`invocation` is the command exactly as it would be typed, including the command name.\n\n`config` conforms to this JSON schema:\n\n```json\n{\n \"$defs\": {\n  \"AlreadyExistantPath\": {\n   \"properties\": {\n    \"value\": {\n     \"title\": \"Value\",\n     \"type\": \"string\"\n    },\n    \"relative\": {\n     \"title\": \"Relative\",\n     \"type\": \"boolean\"\n    },\n    \"sandbox\": {\n     \"default\": \"sandbox_placeholder\",\n     \"format\": \"path\",\n     \"title\": \"Sandbox\",\n     \"type\": \"string\"\n    },\n    \"arg_type\": {\n     \"const\": \"already\",\n     \"default\": \"already\",\n     \"title\": \"Arg Type\",\n     \"type\": \"string\"\n    }\n   },\n   \"required\": [\n    \"value\",\n    \"relative\",\n    \"arg_type\"\n   ],\n   \"title\": \"AlreadyExistantPath\",\n   \"type\": \"object\"\n  },\n  \"ArgumentSequenceWithEnv\": {\n   \"properties\": {\n    \"flag\": {\n     \"anyOf\": [\n      {\n       \"type\": \"string\"\n      },\n      {\n       \"type\": \"null\"\n      }\n     ],\n     \"title\": \"Flag\"\n    },\n    \"args\": {\n     \"items\": {\n      \"discriminator\": {\n       \"mapping\": {\n        \"already\": \"#/$defs/AlreadyExistantPath\",\n        \"directory_empty\": \"#/$defs/Directory\",\n        \"directory_nonempty\": \"#/$defs/NonEmptyDirectory\",\n        \"file\": \"#/$defs/File\",\n        \"no_env\": \"#/$defs/NoEnvironmentModification\",\n        \"nonexistent\": \"#/$defs/NonexistentPath\"\n       },\n       \"propertyName\": \"arg_type\"\n      },\n      \"oneOf\": [\n       {\n        \"$ref\": \"#/$defs/AlreadyExistantPath\"\n       },\n       {\n        \"$ref\": \"#/$defs/File\"\n       },\n       {\n        \"$ref\": \"#/$defs/Directory\"\n       },\n       {\n        \"$ref\": \"#/$defs/NonexistentPath\"\n       },\n       {\n        \"$ref\": \"#/$defs/NoEnvironmentModification\"\n       },\n       {\n        \"$ref\": \"#/$defs/NonEmptyDirectory\"\n       }\n      ]\n     },\n     \"title\": \"Args\",\n     \"type\": \"array\"\n    },\n    \"flag_followed_by_equals\": {\n     \"title\": \"Flag Followed By Equals\",\n     \"type\": \"boolean\"\n    },\n    \"node_type\": {\n     \"const\": \"args\",\n     \"default\": \"args\",\n     \"title\": \"Node Type\",\n     \"type\": \"string\"\n    },\n    \"arity\": {\n     \"anyOf\": [\n      {\n       \"$ref\": \"#/$defs/Arity\"\n      },\n      {\n       \"type\": \"integer\"\n      }\n     ],\n     \"title\": \"Arity\"\n    },\n    \"symbol\": {\n     \"default\": \"\",\n     \"title\": \"Symbol\",\n     \"type\": \"string\"\n    }\n   },\n   \"required\": [\n    \"flag\",\n    \"args\",\n    \"flag_followed_by_equals\",\n    \"arity\",\n    \"node_type\"\n   ],\n   \"title\": \"ArgumentSequenceWithEnv\",\n   \"type\": \"object\"\n  },\n  \"Arity\": {\n   \"enum\": [\n    \"*\",\n    \"1\",\n    2,\n    \"+\",\n    \"+\",\n    \"?\",\n    \"?\"\n   ],\n   \"title\": \"Arity\"\n  },\n  \"Directory\": {\n   \"properties\": {\n    \"value\": {\n     \"title\": \"Value\",\n     \"type\": \"string\"\n    },\n    \"relative\": {\n     \"title\": \"Relative\",\n     \"type\": \"boolean\"\n    },\n    \"sandbox\": {\n     \"default\": \"sandbox_placeholder\",\n     \"format\": \"path\",\n     \"title\": \"Sandbox\",\n     \"type\": \"string\"\n    },\n    \"arg_type\": {\n     \"const\": \"directory_empty\",\n     \"default\": \"directory_empty\",\n     \"title\": \"Arg Type\",\n     \"type\": \"string\"\n    }\n   },\n   \"required\": [\n    \"value\",\n    \"relative\",\n    \"arg_type\"\n   ],\n   \"title\": \"Directory\",\n   \"type\": \"object\"\n  },\n  \"File\": {\n   \"properties\": {\n    \"value\": {\n     \"title\": \"Value\",\n     \"type\": \"string\"\n    },\n    \"relative\": {\n     \"title\": \"Relative\",\n     \"type\": \"boolean\"\n    },\n    \"sandbox\": {\n     \"default\": \"sandbox_placeholder\",\n     \"format\": \"path\",\n     \"title\": \"Sandbox\",\n     \"type\": \"string\"\n    },\n    \"content\": {\n     \"title\": \"Content\",\n     \"type\": \"string\",\n     \"enum\": [\n      \"HUMAN_TEXT_1\",\n      \"HUMAN_TEXT_2\",\n      \"HUMAN_TEXT\",\n      \"MATH_1\",\n      \"MATH_2\",\n      \"MATH\",\n      \"TIME_1\",\n      \"TIME_2\",\n      \"TIME\",\n      \"JSON\",\n      \"IMAGE\"\n     ]\n    },\n    \"arg_type\": {\n     \"const\": \"file\",\n     \"default\": \"file\",\n     \"title\": \"Arg Type\",\n     \"type\": \"string\"\n    }\n   },\n   \"required\": [\n    \"value\",\n    \"relative\",\n    \"content\",\n    \"arg_type\"\n   ],\n   \"title\": \"File\",\n   \"type\": \"object\"\n  },\n  \"Flag\": {\n   \"properties\": {\n    \"value\": {\n     \"title\": \"Value\",\n     \"type\": \"string\"\n    },\n    \"node_type\": {\n     \"const\": \"flag\",\n     \"default\": \"flag\",\n     \"title\": \"Node Type\",\n     \"type\": \"string\"\n    },\n    \"alias\": {\n     \"items\": {\n      \"type\": \"string\"\n     },\n     \"title\": \"Alias\",\n     \"type\": \"array\"\n    }\n   },\n   \"required\": [\n    \"value\",\n    \"node_type\"\n   ],\n   \"title\": \"Flag\",\n   \"type\": \"object\"\n  },\n  \"NoEnvironmentModification\": {\n   \"properties\": {\n    \"value\": {\n     \"title\": \"Value\",\n     \"type\": \"string\"\n    },\n    \"arg_type\": {\n     \"const\": \"no_env\",\n     \"default\": \"no_env\",\n     \"title\": \"Arg Type\",\n     \"type\": \"string\"\n    }\n   },\n   \"required\": [\n    \"value\",\n    \"arg_type\"\n   ],\n   \"title\": \"NoEnvironmentModification\",\n   \"type\": \"object\"\n  },\n  \"NonEmptyDirectory\": {\n   \"properties\": {\n    \"value\": {\n     \"title\": \"Value\",\n     \"type\": \"string\"\n    },\n    \"relative\": {\n     \"title\": \"Relative\",\n     \"type\": \"boolean\"\n    },\n    \"sandbox\": {\n     \"default\": \"sandbox_placeholder\",\n     \"format\": \"path\",\n     \"title\": \"Sandbox\",\n     \"type\": \"string\"\n    },\n    \"arg_type\": {\n     \"const\": \"directory_nonempty\",\n     \"default\": \"directory_nonempty\",\n     \"title\": \"Arg Type\",\n     \"type\": \"string\"\n    }\n   },\n   \"required\": [\n    \"value\",\n    \"relative\",\n    \"arg_type\"\n   ],\n   \"title\": \"NonEmptyDirectory\",\n   \"type\": \"object\"\n  },\n  \"NonexistentPath\": {\n   \"properties\": {\n    \"value\": {\n     \"title\": \"Value\",\n     \"type\": \"string\"\n    },\n    \"relative\": {\n     \"title\": \"Relative\",\n     \"type\": \"boolean\"\n    },\n    \"sandbox\": {\n     \"default\": \"sandbox_placeholder\",\n     \"format\": \"path\",\n     \"title\": \"Sandbox\",\n     \"type\": \"string\"\n    },\n    \"parent_exists\": {\n     \"title\": \"Parent Exists\",\n     \"type\": \"boolean\"\n    },\n    \"arg_type\": {\n     \"const\": \"nonexistent\",\n     \"default\": \"nonexistent\",\n     \"title\": \"Arg Type\",\n     \"type\": \"string\"\n    }\n   },\n   \"required\": [\n    \"value\",\n    \"relative\",\n    \"parent_exists\",\n    \"arg_type\"\n   ],\n   \"title\": \"NonexistentPath\",\n   \"type\": \"object\"\n  }\n },\n \"properties\": {\n  \"name\": {\n   \"title\": \"Name\",\n   \"type\": \"string\"\n  },\n  \"body\": {\n   \"items\": {\n    \"discriminator\": {\n     \"mapping\": {\n      \"args\": \"#/$defs/ArgumentSequenceWithEnv\",\n      \"flag\": \"#/$defs/Flag\"\n     },\n     \"propertyName\": \"node_type\"\n    },\n    \"oneOf\": [\n     {\n      \"$ref\": \"#/$defs/ArgumentSequenceWithEnv\"\n     },\n     {\n      \"$ref\": \"#/$defs/Flag\"\n     }\n    ]\n   },\n   \"title\": \"Body\",\n   \"type\": \"array\"\n  },\n  \"string\": {\n   \"additionalProperties\": true,\n   \"title\": \"String\",\n   \"type\": \"object\"\n  },\n  \"stdin\": {\n   \"title\": \"Stdin\",\n   \"type\": \"string\",\n   \"enum\": [\n    \"HUMAN_TEXT_1\",\n    \"HUMAN_TEXT_2\",\n    \"HUMAN_TEXT\",\n    \"MATH_1\",\n    \"MATH_2\",\n    \"MATH\",\n    \"TIME_1\",\n    \"TIME_2\",\n    \"TIME\",\n    \"JSON\",\n    \"IMAGE\"\n   ]\n  }\n },\n \"required\": [\n  \"name\",\n  \"body\",\n  \"string\",\n  \"stdin\"\n ],\n \"title\": \"CommandConfig\",\n \"type\": \"object\"\n}\n```\n\nIf you cannot fit every invocation in one response, stop at the end of a complete line and say nothing else; you will be asked to continue from there. Never abbreviate, summarize, or write a placeholder line standing for invocations you have not enumerated.\n",
+  "prompt_user": "## Command\n\n`cat`\n\n## Syntax specification\n\n```python\nfrom caruca.ir.syntax import *\n\ncat_syntax_spec: list[SyntaxSpecification] = [\n    [\n        [\n            Flag(\"-A\", alias=[\"--show-all\"]),\n            Flag(\"-b\", alias=[\"--number-nonblank\"]),\n            Flag(\"-e\"),\n            Flag(\"-E\", alias=[\"--show-ends\"]),\n            Flag(\"-n\", alias=[\"--number\"]),\n            Flag(\"-s\", alias=[\"--squeeze-blank\"]),\n            Flag(\"-t\"),\n            Flag(\"-T\", alias=[\"--show-tabs\"]),\n            Flag(\"-u\"),\n            Flag(\"-v\", alias=[\"--show-nonprinting\"]),\n            Flag(\"--help\"),\n            Flag(\"--version\"),\n        ],\n        [Path(arity=Arity.ZERO_OR_MORE)],\n    ]\n]\n\n```\n\n## Value types and the values they stand for\n\n```json\n{\n \"Char\": [\n  \"a\",\n  \"b\",\n  \"c\",\n  \"d\",\n  \"e\"\n ],\n \"Command\": [\n  \"ls\",\n  \"pwd\"\n ],\n \"Date\": [\n  \"2021-01-01\",\n  \"tommorrow\",\n  \"yesterday\"\n ],\n \"DateFormat\": [\n  \"%Y-%m-%d\",\n  \"%Y-%m-%d %H:%M:%S\"\n ],\n \"DateTime\": [\n  \"2021-01-01\",\n  \"tommorrow\",\n  \"yesterday\"\n ],\n \"Delimiter\": [\n  \",\",\n  \"\\n\\t\"\n ],\n \"Duration\": [\n  \"-1\",\n  \"0\",\n  \"1\"\n ],\n \"Expression\": [\n  \"1+1\",\n  \"2-1\",\n  \"3*3\",\n  \"4/2\"\n ],\n \"Filesystem\": [\n  \"ext4\",\n  \"vfat\"\n ],\n \"Format\": [\n  \"string\"\n ],\n \"Geometry\": [\n  \"50%\",\n  \"100x100\"\n ],\n \"Glob\": [\n  \"*.txt\",\n  \"*.py\",\n  \"*.c\",\n  \"*.h\"\n ],\n \"Group\": [\n  \"root\",\n  \"wheel\",\n  \"nobody\"\n ],\n \"Hostname\": [\n  \"l\",\n  \"o\",\n  \"c\",\n  \"a\",\n  \"l\",\n  \"h\",\n  \"o\",\n  \"s\",\n  \"t\"\n ],\n \"Int\": [\n  \"-1\",\n  \"0\",\n  \"1\"\n ],\n \"Integer\": [\n  \"-1\",\n  \"0\",\n  \"1\"\n ],\n \"List\": [],\n \"Number\": [\n  \"-1\",\n  \"0\",\n  \"1\"\n ],\n \"Other\": [\n  \"string\"\n ],\n \"OwnerGroup\": [\n  \"root:root\",\n  \"nobody:nogroup\",\n  \"wheel:wheel\"\n ],\n \"Path\": [\n  \"relpath_1\",\n  \"abspath_1\"\n ],\n \"Permission\": [\n  \"u+r\",\n  \"g-w\",\n  \"o+x\",\n  \"a=rwx\",\n  \"0755\",\n  \"u+s\",\n  \"g-s\",\n  \"o+t\"\n ],\n \"Pid\": [\n  \"-1\",\n  \"0\",\n  \"1\"\n ],\n \"PrintfFormat\": [\n  \"%d\",\n  \"%s\",\n  \"%f\"\n ],\n \"Range\": [\n  \"1\",\n  \"1-\",\n  \"1-2\",\n  \"-2\",\n  \"1,3\"\n ],\n \"Regex\": [\n  \"a\"\n ],\n \"SecurityContext\": [\n  \"user_u:object_r:user_tmp_t:s0\",\n  \"default\"\n ],\n \"SecurityRange\": [\n  \"s0\",\n  \"s0-s1\",\n  \"s0:c0.c255\"\n ],\n \"SecurityRole\": [\n  \"role1\",\n  \"role2\",\n  \"role3\"\n ],\n \"SecurityType\": [\n  \"type1\",\n  \"type2\",\n  \"type3\"\n ],\n \"Selection\": [],\n \"Separator\": [\n  \",\",\n  \"\\n\\t\"\n ],\n \"Signal\": [\n  \"\",\n  \"HUP\",\n  \"INT\",\n  \"KILL\",\n  \"STOP\",\n  \"CONT\",\n  \"0\"\n ],\n \"Size\": [\n  \"1b\",\n  \"1k\",\n  \"1m\",\n  \"1g\",\n  \"1t\"\n ],\n \"SprintfFormat\": [\n  \"%d\",\n  \"%s\",\n  \"%f\"\n ],\n \"String\": [\n  \"string\"\n ],\n \"TimeStyle\": [\n  \"full-iso\",\n  \"long-iso\",\n  \"iso\",\n  \"locale\",\n  \"full-locale\",\n  \"posix-iso\",\n  \"+%b %e  %Y$newline%b %e %H:%M\"\n ],\n \"User\": [\n  \"string\"\n ],\n \"Variable\": [\n  \"HOME\",\n  \"PWD\"\n ]\n}\n```\n\n## Bounds\n\n- A repeatable argument may appear at most 1 time(s).\n- At most 1 optional flags may be combined in a single invocation.\n- These flags are excluded entirely: (none)\n- Standard input variation: simple — every `stdin` value must be one of: HUMAN_TEXT.\n- File content variation: simple — every file's `content` must be one of: HUMAN_TEXT.\n- `stdin` and `content` are required and may never be null.\n\n## Now produce the output\n\nOne JSON object per line, in the format given above, for `cat`.\n",
+  "raw_response": "{\"invocation\": \"cat\", \"config\": {\"name\": \"cat\", \"body\": [], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -A\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-A\", \"node_type\": \"flag\", \"alias\": [\"--show-all\"]}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -b\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-b\", \"node_type\": \"flag\", \"alias\": [\"--number-nonblank\"]}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -e\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-e\", \"node_type\": \"flag\", \"alias\": []}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -E\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-E\", \"node_type\": \"flag\", \"alias\": [\"--show-ends\"]}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -n\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-n\", \"node_type\": \"flag\", \"alias\": [\"--number\"]}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -s\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-s\", \"node_type\": \"flag\", \"alias\": [\"--squeeze-blank\"]}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -t\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-t\", \"node_type\": \"flag\", \"alias\": []}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -T\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-T\", \"node_type\": \"flag\", \"alias\": [\"--show-tabs\"]}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -u\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-u\", \"node_type\": \"flag\", \"alias\": []}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -v\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-v\", \"node_type\": \"flag\", \"alias\": [\"--show-nonprinting\"]}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat --help\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"--help\", \"node_type\": \"flag\", \"alias\": []}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat --version\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"--version\", \"node_type\": \"flag\", \"alias\": []}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat relpath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"flag\": null, \"args\": [{\"value\": \"relpath_1\", \"relative\": true, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat abspath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"flag\": null, \"args\": [{\"value\": \"abspath_1\", \"relative\": false, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -A relpath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-A\", \"node_type\": \"flag\", \"alias\": [\"--show-all\"]}, {\"flag\": null, \"args\": [{\"value\": \"relpath_1\", \"relative\": true, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -A abspath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-A\", \"node_type\": \"flag\", \"alias\": [\"--show-all\"]}, {\"flag\": null, \"args\": [{\"value\": \"abspath_1\", \"relative\": false, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -b relpath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-b\", \"node_type\": \"flag\", \"alias\": [\"--number-nonblank\"]}, {\"flag\": null, \"args\": [{\"value\": \"relpath_1\", \"relative\": true, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -b abspath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-b\", \"node_type\": \"flag\", \"alias\": [\"--number-nonblank\"]}, {\"flag\": null, \"args\": [{\"value\": \"abspath_1\", \"relative\": false, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -e relpath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-e\", \"node_type\": \"flag\", \"alias\": []}, {\"flag\": null, \"args\": [{\"value\": \"relpath_1\", \"relative\": true, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -e abspath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-e\", \"node_type\": \"flag\", \"alias\": []}, {\"flag\": null, \"args\": [{\"value\": \"abspath_1\", \"relative\": false, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -E relpath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-E\", \"node_type\": \"flag\", \"alias\": [\"--show-ends\"]}, {\"flag\": null, \"args\": [{\"value\": \"relpath_1\", \"relative\": true, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -E abspath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-E\", \"node_type\": \"flag\", \"alias\": [\"--show-ends\"]}, {\"flag\": null, \"args\": [{\"value\": \"abspath_1\", \"relative\": false, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -n relpath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-n\", \"node_type\": \"flag\", \"alias\": [\"--number\"]}, {\"flag\": null, \"args\": [{\"value\": \"relpath_1\", \"relative\": true, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -n abspath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-n\", \"node_type\": \"flag\", \"alias\": [\"--number\"]}, {\"flag\": null, \"args\": [{\"value\": \"abspath_1\", \"relative\": false, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -s relpath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-s\", \"node_type\": \"flag\", \"alias\": [\"--squeeze-blank\"]}, {\"flag\": null, \"args\": [{\"value\": \"relpath_1\", \"relative\": true, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -s abspath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-s\", \"node_type\": \"flag\", \"alias\": [\"--squeeze-blank\"]}, {\"flag\": null, \"args\": [{\"value\": \"abspath_1\", \"relative\": false, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -t relpath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-t\", \"node_type\": \"flag\", \"alias\": []}, {\"flag\": null, \"args\": [{\"value\": \"relpath_1\", \"relative\": true, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -t abspath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-t\", \"node_type\": \"flag\", \"alias\": []}, {\"flag\": null, \"args\": [{\"value\": \"abspath_1\", \"relative\": false, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -T relpath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-T\", \"node_type\": \"flag\", \"alias\": [\"--show-tabs\"]}, {\"flag\": null, \"args\": [{\"value\": \"relpath_1\", \"relative\": true, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -T abspath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-T\", \"node_type\": \"flag\", \"alias\": [\"--show-tabs\"]}, {\"flag\": null, \"args\": [{\"value\": \"abspath_1\", \"relative\": false, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -u relpath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-u\", \"node_type\": \"flag\", \"alias\": []}, {\"flag\": null, \"args\": [{\"value\": \"relpath_1\", \"relative\": true, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -u abspath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-u\", \"node_type\": \"flag\", \"alias\": []}, {\"flag\": null, \"args\": [{\"value\": \"abspath_1\", \"relative\": false, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -v relpath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-v\", \"node_type\": \"flag\", \"alias\": [\"--show-nonprinting\"]}, {\"flag\": null, \"args\": [{\"value\": \"relpath_1\", \"relative\": true, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat -v abspath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"-v\", \"node_type\": \"flag\", \"alias\": [\"--show-nonprinting\"]}, {\"flag\": null, \"args\": [{\"value\": \"abspath_1\", \"relative\": false, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat --help relpath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"--help\", \"node_type\": \"flag\", \"alias\": []}, {\"flag\": null, \"args\": [{\"value\": \"relpath_1\", \"relative\": true, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat --help abspath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"--help\", \"node_type\": \"flag\", \"alias\": []}, {\"flag\": null, \"args\": [{\"value\": \"abspath_1\", \"relative\": false, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat --version relpath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"--version\", \"node_type\": \"flag\", \"alias\": []}, {\"flag\": null, \"args\": [{\"value\": \"relpath_1\", \"relative\": true, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}\n{\"invocation\": \"cat --version abspath_1\", \"config\": {\"name\": \"cat\", \"body\": [{\"value\": \"--version\", \"node_type\": \"flag\", \"alias\": []}, {\"flag\": null, \"args\": [{\"value\": \"abspath_1\", \"relative\": false, \"content\": \"HUMAN_TEXT\", \"arg_type\": \"file\"}], \"flag_followed_by_equals\": false, \"arity\": \"*\", \"node_type\": \"args\"}], \"string\": {}, \"stdin\": \"HUMAN_TEXT\"}}",
+  "finish_reason": "stop",
+  "output_truncated": false,
+  "turns": 2,
+  "output_paths": [
+    "eval/runs/2026-09-14T131154Z_cat_56ea8868/cat.invocations.txt",
+    "eval/runs/2026-09-14T131154Z_cat_56ea8868/cat.configs.json"
+  ],
+  "validation": {
+    "passed": true,
+    "available": true,
+    "error": null,
+    "traceback": null,
+    "elements": 39
+  },
+  "checks": {
+    "parse": {
+      "lines_returned": 39,
+      "objects_parsed": 39,
+      "unparseable_lines": 0,
+      "unparseable_sample": [],
+      "malformed_objects": 0,
+      "hit_turn_cap_while_truncated": false,
+      "continuation_policy": "exhaust",
+      "turns_used": 2,
+      "model_declared_complete": true,
+      "hit_turn_cap_while_incomplete": false
+    },
+    "invocation_comparison": {
+      "method": "invocation_set_diff",
+      "instrument": "semantic",
+      "stage": "generate",
+      "denominator": "distinct invocations v1's own enumeration produced",
+      "caruca_v1_commit": "d8032407346aadc135b14c043618c8c1d4f4e0cf",
+      "available": true,
+      "command": "cat",
+      "equivalence": "options compared as a multiset of (flag, value) — order-insensitive; operands compared as an ordered sequence; '=' joining, attached short values, and short bundles normalized; shell quoting removed by shlex",
+      "parse_mode": "spec_driven",
+      "option_table_source": "/Users/tirandagan/dev/stevens/caruca/caruca/src/caruca/syntax_specs/cat.py",
+      "option_table_error": null,
+      "bounds": {
+        "max_arity": 1,
+        "max_count": 1,
+        "skip": null,
+        "stdin_variation": "simple",
+        "content_variation": "simple"
+      },
+      "counts": {
+        "v1_lines": 27,
+        "v1_unique": 15,
+        "produced_lines": 39,
+        "produced_unique": 39,
+        "matched": 15,
+        "missing": 0,
+        "spurious": 24
+      },
+      "recall": 1.0,
+      "precision": 0.38461538461538464,
+      "f1": 0.5555555555555556,
+      "missing_sample": [],
+      "spurious_sample": [
+        "cat --help abspath_1",
+        "cat --help relpath_1",
+        "cat --version abspath_1",
+        "cat --version relpath_1",
+        "cat -A abspath_1",
+        "cat -A relpath_1",
+        "cat -E abspath_1",
+        "cat -E relpath_1",
+        "cat -T abspath_1",
+        "cat -T relpath_1",
+        "cat -b abspath_1",
+        "cat -b relpath_1",
+        "cat -e abspath_1",
+        "cat -e relpath_1",
+        "cat -n abspath_1",
+        "cat -n relpath_1",
+        "cat -s abspath_1",
+        "cat -s relpath_1",
+        "cat -t abspath_1",
+        "cat -t relpath_1"
+      ],
+      "form_notes": {
+        "matched": 15,
+        "form_identical": 15,
+        "form_identical_rate": 1.0,
+        "differs_in_form": 0,
+        "differs_equals_style": 0,
+        "differs_short_form": 0,
+        "differs_token_order_only": 0,
+        "note": "a match counted here agreed on flags, values and operand order but was spelled differently; the spelling difference is reported, never scored"
+      },
+      "parse_health": {
+        "unlexable_reference_lines": 0,
+        "unlexable_produced_lines": 0,
+        "unlexable_reference_sample": [],
+        "unknown_option_tokens_reference": 0,
+        "unknown_option_tokens_produced": 0,
+        "binary_mismatch_produced": 0,
+        "reference_keys_collapsing_multiple_spellings": 0,
+        "injectivity_note": "0 means the equivalence relation merges no two distinct v1 invocations, so the denominator is unchanged by normalization"
+      },
+      "secondary": {
+        "argv": {
+          "matched": 15,
+          "missing": 0,
+          "spurious": 24,
+          "recall": 1.0,
+          "precision": 0.38461538461538464,
+          "f1": 0.5555555555555556
+        },
+        "literal": {
+          "matched": 15,
+          "missing": 0,
+          "spurious": 24,
+          "recall": 1.0,
+          "precision": 0.38461538461538464,
+          "f1": 0.5555555555555556
+        }
+      },
+      "v1_length_hint": 12
+    }
+  },
+  "prompt_tokens": 11019,
+  "completion_tokens": 3801,
+  "cost_usd": 0.0527575,
+  "wall_clock_seconds": 58.965664666029625,
+  "inputs": {
+    "spec_source": "/Users/tirandagan/dev/stevens/caruca/caruca/src/caruca/syntax_specs/cat.py",
+    "caruca_v1_root": "/Users/tirandagan/dev/stevens/caruca",
+    "max_arity": 1,
+    "max_count": 1,
+    "stdin_variation": "simple",
+    "content_variation": "simple",
+    "skip_flags": null,
+    "max_turns": 10,
+    "replaces_v1_modules": [
+      "ir/string.py",
+      "ir/environment.py",
+      "ir/contents.py",
+      "ir/mixin.py"
+    ]
+  }
+}

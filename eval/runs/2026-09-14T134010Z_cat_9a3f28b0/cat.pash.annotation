@@ -1,0 +1,315 @@
+{
+  "command": "cat",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat",
+      "comments": "The command reads from stdin and writes to stdout. It is pure as it does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-b"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat -b",
+      "comments": "The command with -b flag numbers non-empty output lines. It reads from stdin and writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-n"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat -n",
+      "comments": "The command with -n flag numbers all output lines. It reads from stdin and writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-T"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat -T",
+      "comments": "The command with -T flag displays TAB characters as ^I. It reads from stdin and writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-A"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat -A",
+      "comments": "The command with -A flag is equivalent to -vET. It reads from stdin and writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-E"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat -E",
+      "comments": "The command with -E flag displays $ at the end of each line. It reads from stdin and writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-v"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat -v",
+      "comments": "The command with -v flag uses ^ and M- notation, except for LFD and TAB. It reads from stdin and writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-t"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat -t",
+      "comments": "The command with -t flag is equivalent to -vT. It reads from stdin and writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-e"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat -e",
+      "comments": "The command with -e flag is equivalent to -vE. It reads from stdin and writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-s"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat -s",
+      "comments": "The command with -s flag suppresses repeated empty output lines. It reads from stdin and writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-u"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat -u",
+      "comments": "The command with -u flag is ignored. It reads from stdin and writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--help"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat --help",
+      "comments": "The command with --help flag displays help information. It writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--version"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat --version",
+      "comments": "The command with --version flag displays version information. It writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "arg_type",
+          "file"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "file"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat <file>",
+      "comments": "The command reads from a file and writes to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "arg_type",
+          "directory_empty"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "directory_empty"
+      ],
+      "outputs": [
+        "stderr"
+      ],
+      "true_str": "cat <directory_empty>",
+      "comments": "The command attempts to read from an empty directory and writes an error to stderr."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "arg_type",
+          "directory_nonempty"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "directory_nonempty"
+      ],
+      "outputs": [
+        "stderr"
+      ],
+      "true_str": "cat <directory_nonempty>",
+      "comments": "The command attempts to read from a non-empty directory and writes an error to stderr."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "arg_type",
+          "nonexistent"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "nonexistent"
+      ],
+      "outputs": [
+        "stderr"
+      ],
+      "true_str": "cat <nonexistent>",
+      "comments": "The command attempts to read from a nonexistent file or directory and writes an error to stderr."
+    }
+  ],
+  "options": [
+    "-b",
+    "-n",
+    "-T",
+    "-A",
+    "-E",
+    "-v",
+    "-t",
+    "-e",
+    "-s",
+    "-u",
+    "--help",
+    "--version"
+  ]
+}

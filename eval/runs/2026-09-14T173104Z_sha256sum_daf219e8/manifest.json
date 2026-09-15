@@ -1,0 +1,251 @@
+{
+  "run_id": "2026-09-14T173104Z_sha256sum_daf219e8",
+  "timestamp": "2026-09-14T17:31:04.455475Z",
+  "command": "sha256sum",
+  "component": "llm_pipeline",
+  "condition": "plain",
+  "stage": "trace",
+  "status": "ok",
+  "failure_reason": null,
+  "model_requested": "openai/gpt-4o",
+  "model_reported": "openai/gpt-4o",
+  "provider": "OpenAI",
+  "seed": 42,
+  "seed_honored": true,
+  "decoding_params": {
+    "temperature": 0.0,
+    "max_tokens": 4096
+  },
+  "response_format": "tool_calls",
+  "prompt_hash": "77059f3c009de31d5be9d4562264ec3b142becb9b6738d4b467294ab7a5cdef2",
+  "prompt_files": [
+    "prompts/trace/system.md",
+    "prompts/trace/user.md"
+  ],
+  "prompt_variant": "default",
+  "prompt_system": "You are running one shell command in a prepared working directory and reporting what it\ndid to the file system.\n\n## What you may do\n\nYou may run `sha256sum` and nothing else. Any attempt to run another program will be\nrefused. To look at the working directory, use the observation tools provided\n(`list_dir`, `read_file`, `stat_path`) — they do not run any program.\n\nEverything you touch must be inside the working directory.\n\n## What to do\n\nLook at the working directory. Run the invocation given below, once, exactly as given.\nLook at the working directory again. Then report what happened.\n\n## What to report\n\nCall `report_observations` with:\n\n- every file-system interaction the command performed, as an action and a path\n- the command's exit code\n- everything it wrote to standard output\n- everything it wrote to standard error\n\nThe actions are:\n\n| Action | Meaning |\n|---|---|\n| `rf` | read a file |\n| `wf` | wrote to a file |\n| `ad` | created a file |\n| `mo` | modified an existing file |\n| `de` | deleted a file |\n| `md` | created a directory |\n| `rd` | replaced something with a directory |\n\nA path is either a path in the working directory or one of `stdin`, `stdout`, `stderr`.\nReport `wf stdout` when the command wrote to standard output, and `rf stdin` when it read\nstandard input.\n\nReport what you observed. Do not report interactions you did not observe, and do not omit\nones you did.\n",
+  "prompt_user": "## Invocation to run\n\n```\nsha256sum\n```\n\n## Working directory\n\nBefore you run anything, it contains:\n\n```\n(empty)\n```\n\nStandard input is supplied to the command automatically; it holds the fixture named\n`HUMAN_TEXT`. You do not need to redirect it.\n\nRun the invocation and report what it did.\n",
+  "raw_response": "[\n {\n  \"index\": 0,\n  \"report\": {\n   \"config\": {\n    \"name\": \"sha256sum\",\n    \"body\": [],\n    \"string\": {\n     \"name\": \"sha256sum\",\n     \"body\": []\n    },\n    \"stdin\": \"HUMAN_TEXT\",\n    \"true_string\": \"sha256sum\"\n   },\n   \"return_code\": 0,\n   \"stdout\": \"07caa3c0d683fd90d19a43658bb7c6c6ed2589aaad4ed87315327084a663f46e  -\\n\",\n   \"stderr\": \"\",\n   \"traces\": [\n    [\n     \"rf\",\n     \"stdin\"\n    ],\n    [\n     \"wf\",\n     \"stdout\"\n    ]\n   ],\n   \"rejected_interactions\": []\n  }\n }\n]",
+  "finish_reason": "stop",
+  "output_truncated": false,
+  "turns": 10,
+  "output_paths": [
+    "eval/runs/2026-09-14T173104Z_sha256sum_daf219e8/sha256sum.traces.json"
+  ],
+  "validation": {
+    "passed": true,
+    "available": true,
+    "error": null,
+    "traceback": null,
+    "elements": 1
+  },
+  "checks": {
+    "configs": {
+      "available": 35,
+      "attempted": 5,
+      "reported": 1,
+      "limit": 5
+    },
+    "sessions": [
+      {
+        "index": 0,
+        "invocation": "sha256sum",
+        "status": "ok",
+        "prompt_hash": "4fc9f9439becdf44e3b8f8c0ff2ee5514fafa8ae1e293688a8b7943bf5226793",
+        "turns": 2,
+        "stop_reason": "finished",
+        "executions": 1,
+        "prompt_tokens": 1513,
+        "completion_tokens": 103,
+        "cost_usd": 0.0048125,
+        "wall_clock_seconds": 2.8964510419173166,
+        "interactions": 2,
+        "rejected_interactions": [],
+        "error": null
+      },
+      {
+        "index": 1,
+        "invocation": "sha256sum",
+        "status": "no_report",
+        "prompt_hash": "4fc9f9439becdf44e3b8f8c0ff2ee5514fafa8ae1e293688a8b7943bf5226793",
+        "turns": 2,
+        "stop_reason": "no_tool_calls",
+        "executions": 1,
+        "prompt_tokens": 1513,
+        "completion_tokens": 141,
+        "cost_usd": 0.0051925,
+        "wall_clock_seconds": 2.27051512489561,
+        "interactions": 0,
+        "rejected_interactions": [],
+        "error": "the session ended (no_tool_calls) without calling report_observations"
+      },
+      {
+        "index": 2,
+        "invocation": "sha256sum",
+        "status": "no_report",
+        "prompt_hash": "4fc9f9439becdf44e3b8f8c0ff2ee5514fafa8ae1e293688a8b7943bf5226793",
+        "turns": 2,
+        "stop_reason": "no_tool_calls",
+        "executions": 1,
+        "prompt_tokens": 1513,
+        "completion_tokens": 130,
+        "cost_usd": 0.0050825,
+        "wall_clock_seconds": 2.3779500840464607,
+        "interactions": 0,
+        "rejected_interactions": [],
+        "error": "the session ended (no_tool_calls) without calling report_observations"
+      },
+      {
+        "index": 3,
+        "invocation": "sha256sum",
+        "status": "no_report",
+        "prompt_hash": "4fc9f9439becdf44e3b8f8c0ff2ee5514fafa8ae1e293688a8b7943bf5226793",
+        "turns": 2,
+        "stop_reason": "no_tool_calls",
+        "executions": 1,
+        "prompt_tokens": 1513,
+        "completion_tokens": 154,
+        "cost_usd": 0.0053225,
+        "wall_clock_seconds": 2.8070810419740155,
+        "interactions": 0,
+        "rejected_interactions": [],
+        "error": "the session ended (no_tool_calls) without calling report_observations"
+      },
+      {
+        "index": 4,
+        "invocation": "sha256sum",
+        "status": "no_report",
+        "prompt_hash": "4fc9f9439becdf44e3b8f8c0ff2ee5514fafa8ae1e293688a8b7943bf5226793",
+        "turns": 2,
+        "stop_reason": "no_tool_calls",
+        "executions": 1,
+        "prompt_tokens": 1513,
+        "completion_tokens": 139,
+        "cost_usd": 0.0051725,
+        "wall_clock_seconds": 3.043530666967854,
+        "interactions": 0,
+        "rejected_interactions": [],
+        "error": "the session ended (no_tool_calls) without calling report_observations"
+      }
+    ],
+    "tool_audit": [
+      {
+        "index": 0,
+        "calls": [
+          {
+            "tool": "run_command",
+            "arguments": {
+              "argv": [
+                "sha256sum"
+              ]
+            },
+            "allowed": true,
+            "reason": null
+          },
+          {
+            "tool": "report_observations",
+            "arguments": {
+              "interactions": [
+                {
+                  "action": "rf",
+                  "path": "stdin"
+                },
+                {
+                  "action": "wf",
+                  "path": "stdout"
+                }
+              ],
+              "return_code": 0,
+              "stdout": "07caa3c0d683fd90d19a43658bb7c6c6ed2589aaad4ed87315327084a663f46e  -\n",
+              "stderr": ""
+            },
+            "allowed": true,
+            "reason": null
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "calls": [
+          {
+            "tool": "run_command",
+            "arguments": {
+              "argv": [
+                "sha256sum"
+              ]
+            },
+            "allowed": true,
+            "reason": null
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "calls": [
+          {
+            "tool": "run_command",
+            "arguments": {
+              "argv": [
+                "sha256sum"
+              ]
+            },
+            "allowed": true,
+            "reason": null
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "calls": [
+          {
+            "tool": "run_command",
+            "arguments": {
+              "argv": [
+                "sha256sum"
+              ]
+            },
+            "allowed": true,
+            "reason": null
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "calls": [
+          {
+            "tool": "run_command",
+            "arguments": {
+              "argv": [
+                "sha256sum"
+              ]
+            },
+            "allowed": true,
+            "reason": null
+          }
+        ]
+      }
+    ],
+    "refused_calls": 0
+  },
+  "prompt_tokens": 7565,
+  "completion_tokens": 667,
+  "cost_usd": 0.0255825,
+  "wall_clock_seconds": 13.395527959801257,
+  "inputs": {
+    "configs_source": "/Users/tirandagan/dev/stevens/caruca_v2/eval/v1_configs/sha256sum.configs.json",
+    "caruca_v1_root": "/Users/tirandagan/dev/stevens/caruca",
+    "isolation": "lima:caruca",
+    "max_turns": 15,
+    "limit": 5,
+    "execution_env": {
+      "PATH": "/usr/bin:/bin:/usr/local/sbin:/usr/local/bin",
+      "SHELL": "/bin/sh"
+    },
+    "execution_timeout_seconds": 2,
+    "placeholder_sandbox": "/tmp/sandbox_outer/sandbox_inner",
+    "replaces_v1_modules": [
+      "tracer/tracer.py",
+      "tracer/strace_parser.py"
+    ]
+  }
+}

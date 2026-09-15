@@ -1,0 +1,84 @@
+{
+  "command": "tail",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tail",
+      "comments": "The command reads from stdin and writes to stdout. It is pure as it does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "and",
+        "operands": [
+          {
+            "operator": "exists",
+            "operands": [
+              "relpath_1"
+            ]
+          },
+          {
+            "operator": "not",
+            "operands": [
+              {
+                "operator": "is_directory",
+                "operands": [
+                  "relpath_1"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "relpath_1"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tail relpath_1",
+      "comments": "The command reads from a file specified by a relative path and writes to stdout. It is pure as it does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "and",
+        "operands": [
+          {
+            "operator": "exists",
+            "operands": [
+              "abspath_1"
+            ]
+          },
+          {
+            "operator": "not",
+            "operands": [
+              {
+                "operator": "is_directory",
+                "operands": [
+                  "abspath_1"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "abspath_1"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tail abspath_1",
+      "comments": "The command reads from a file specified by an absolute path and writes to stdout. It is pure as it does not modify any files or directories."
+    }
+  ],
+  "options": []
+}

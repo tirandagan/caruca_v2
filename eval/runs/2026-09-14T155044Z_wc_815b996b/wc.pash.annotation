@@ -1,0 +1,149 @@
+{
+  "command": "wc",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "wc",
+      "comments": "Counts lines, words, and bytes from stdin and outputs the result to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-m"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "wc -m",
+      "comments": "Counts characters from stdin and outputs the result to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-w"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "wc -w",
+      "comments": "Counts words from stdin and outputs the result to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-c"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "wc -c",
+      "comments": "Counts bytes from stdin and outputs the result to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-L"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "wc -L",
+      "comments": "Outputs the length of the longest line from stdin to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--version"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "wc --version",
+      "comments": "Outputs version information to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--help"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "wc --help",
+      "comments": "Outputs help information to stdout."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--files0-from"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "file"
+      ],
+      "outputs": [
+        "stdout",
+        "stderr"
+      ],
+      "true_str": "wc --files0-from",
+      "comments": "Reads file names from a file and counts lines, words, and bytes for each file, outputting results to stdout and errors to stderr."
+    }
+  ],
+  "options": [
+    "-m",
+    "-w",
+    "-c",
+    "-L",
+    "--version",
+    "--help",
+    "--files0-from"
+  ]
+}

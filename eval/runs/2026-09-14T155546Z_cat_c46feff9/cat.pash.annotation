@@ -1,0 +1,48 @@
+{
+  "command": "cat",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat",
+      "comments": "Handles standard input and outputs to standard output."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": [
+          "PATH_HECYP"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "PATH_HECYP"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "cat PATH_HECYP",
+      "comments": "Reads from specified file paths and outputs to standard output."
+    }
+  ],
+  "options": [
+    "-b",
+    "-n",
+    "-s",
+    "-T",
+    "-E",
+    "-v",
+    "-A",
+    "-e",
+    "-t",
+    "-u",
+    "--help",
+    "--version"
+  ]
+}

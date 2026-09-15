@@ -1,0 +1,39 @@
+sha256sum
+sha256sum -b
+sha256sum -c
+sha256sum --tag
+sha256sum -t
+sha256sum -z
+sha256sum --ignore-missing
+sha256sum --quiet
+sha256sum --status
+sha256sum --strict
+sha256sum -w
+sha256sum --help
+sha256sum --version
+sha256sum relpath_1
+sha256sum abspath_1
+sha256sum -b relpath_1
+sha256sum -b abspath_1
+sha256sum -c relpath_1
+sha256sum -c abspath_1
+sha256sum --tag relpath_1
+sha256sum --tag abspath_1
+sha256sum -t relpath_1
+sha256sum -t abspath_1
+sha256sum -z relpath_1
+sha256sum -z abspath_1
+sha256sum --ignore-missing relpath_1
+sha256sum --ignore-missing abspath_1
+sha256sum --quiet relpath_1
+sha256sum --quiet abspath_1
+sha256sum --status relpath_1
+sha256sum --status abspath_1
+sha256sum --strict relpath_1
+sha256sum --strict abspath_1
+sha256sum -w relpath_1
+sha256sum -w abspath_1
+sha256sum --help relpath_1
+sha256sum --help abspath_1
+sha256sum --version relpath_1
+sha256sum --version abspath_1

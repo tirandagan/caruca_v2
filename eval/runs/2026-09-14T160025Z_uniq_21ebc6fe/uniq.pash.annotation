@@ -1,0 +1,49 @@
+{
+  "command": "uniq",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "uniq",
+      "comments": "The command reads from stdin and writes to stdout. It is pure as it does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "exists",
+        "operands": [
+          "PATH_JYTVH"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "PATH_JYTVH"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "uniq relpath_1",
+      "comments": "When a file path is provided, uniq reads from the file and writes to stdout. It is pure as it does not modify any files or directories."
+    }
+  ],
+  "options": [
+    "-d",
+    "-s",
+    "-f",
+    "-w",
+    "-c",
+    "-z",
+    "-i",
+    "--all-repeated",
+    "--group",
+    "-u",
+    "--help",
+    "--version",
+    "-D"
+  ]
+}

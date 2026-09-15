@@ -1,0 +1,129 @@
+{
+  "command": "tail",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tail",
+      "comments": "The command reads from stdin and writes to stdout. It is pure as it does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "and",
+        "operands": [
+          {
+            "operator": "eq",
+            "operands": [
+              "flag",
+              "--version"
+            ]
+          }
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tail --version",
+      "comments": "The command outputs version information to stdout and does not require any input files."
+    },
+    {
+      "predicate": {
+        "operator": "and",
+        "operands": [
+          {
+            "operator": "eq",
+            "operands": [
+              "flag",
+              "--help"
+            ]
+          }
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tail --help",
+      "comments": "The command outputs help information to stdout and does not require any input files."
+    },
+    {
+      "predicate": {
+        "operator": "and",
+        "operands": [
+          {
+            "operator": "eq",
+            "operands": [
+              "flag",
+              "-f"
+            ]
+          }
+        ]
+      },
+      "pclass": "non-pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tail -f",
+      "comments": "The command follows the input and outputs appended data as the file grows. It is non-pure due to its continuous monitoring nature."
+    },
+    {
+      "predicate": {
+        "operator": "and",
+        "operands": [
+          {
+            "operator": "eq",
+            "operands": [
+              "flag",
+              "-F"
+            ]
+          }
+        ]
+      },
+      "pclass": "non-pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tail -F",
+      "comments": "The command follows the input by name and retries if the file is inaccessible. It is non-pure due to its continuous monitoring nature."
+    },
+    {
+      "predicate": {
+        "operator": "and",
+        "operands": [
+          {
+            "operator": "eq",
+            "operands": [
+              "flag",
+              "-z"
+            ]
+          }
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "tail -z",
+      "comments": "The command uses NUL as the line delimiter instead of newline."
+    }
+  ],
+  "options": []
+}

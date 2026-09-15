@@ -1,0 +1,223 @@
+{
+  "run_id": "2026-09-14T170832Z_cat_2223f3df",
+  "timestamp": "2026-09-14T17:08:32.489422Z",
+  "command": "cat",
+  "component": "llm_pipeline",
+  "condition": "plain",
+  "stage": "trace",
+  "status": "failed",
+  "failure_reason": "no configuration produced a usable observation report (5 attempted)",
+  "model_requested": "openai/gpt-4o",
+  "model_reported": "openai/gpt-4o",
+  "provider": "OpenAI",
+  "seed": 42,
+  "seed_honored": true,
+  "decoding_params": {
+    "temperature": 0.0,
+    "max_tokens": 4096
+  },
+  "response_format": "tool_calls",
+  "prompt_hash": "c9240c3ab2667c6d5ef0ea85293fc42cb29fd0eb87f14ae2454789e7de894f96",
+  "prompt_files": [
+    "prompts/trace/system.md",
+    "prompts/trace/user.md"
+  ],
+  "prompt_variant": "default",
+  "prompt_system": "You are running one shell command in a prepared working directory and reporting what it\ndid to the file system.\n\n## What you may do\n\nYou may run `cat` and nothing else. Any attempt to run another program will be\nrefused. To look at the working directory, use the observation tools provided\n(`list_dir`, `read_file`, `stat_path`) — they do not run any program.\n\nEverything you touch must be inside the working directory.\n\n## What to do\n\nLook at the working directory. Run the invocation given below, once, exactly as given.\nLook at the working directory again. Then report what happened.\n\n## What to report\n\nCall `report_observations` with:\n\n- every file-system interaction the command performed, as an action and a path\n- the command's exit code\n- everything it wrote to standard output\n- everything it wrote to standard error\n\nThe actions are:\n\n| Action | Meaning |\n|---|---|\n| `rf` | read a file |\n| `wf` | wrote to a file |\n| `ad` | created a file |\n| `mo` | modified an existing file |\n| `de` | deleted a file |\n| `md` | created a directory |\n| `rd` | replaced something with a directory |\n\nA path is either a path in the working directory or one of `stdin`, `stdout`, `stderr`.\nReport `wf stdout` when the command wrote to standard output, and `rf stdin` when it read\nstandard input.\n\nReport what you observed. Do not report interactions you did not observe, and do not omit\nones you did.\n",
+  "prompt_user": "## Invocation to run\n\n```\ncat\n```\n\n## Working directory\n\nBefore you run anything, it contains:\n\n```\n(empty)\n```\n\nStandard input is supplied to the command automatically; it holds the fixture named\n`HUMAN_TEXT`. You do not need to redirect it.\n\nRun the invocation and report what it did.\n",
+  "raw_response": "[]",
+  "finish_reason": "stop",
+  "output_truncated": false,
+  "turns": 10,
+  "output_paths": [],
+  "validation": null,
+  "checks": {
+    "configs": {
+      "available": 35,
+      "attempted": 5,
+      "reported": 0,
+      "limit": 5
+    },
+    "sessions": [
+      {
+        "index": 0,
+        "invocation": "cat",
+        "status": "no_report",
+        "prompt_hash": "aedd555028554cf99e84d0522783cebc3183f076d9737fcc057a43026dca08f6",
+        "turns": 2,
+        "stop_reason": "no_tool_calls",
+        "executions": 1,
+        "prompt_tokens": 1672,
+        "completion_tokens": 340,
+        "cost_usd": 0.00758,
+        "wall_clock_seconds": 6.421068832045421,
+        "interactions": 0,
+        "rejected_interactions": [],
+        "error": "the session ended (no_tool_calls) without calling report_observations"
+      },
+      {
+        "index": 1,
+        "invocation": "cat",
+        "status": "no_report",
+        "prompt_hash": "aedd555028554cf99e84d0522783cebc3183f076d9737fcc057a43026dca08f6",
+        "turns": 2,
+        "stop_reason": "no_tool_calls",
+        "executions": 1,
+        "prompt_tokens": 1672,
+        "completion_tokens": 324,
+        "cost_usd": 0.00742,
+        "wall_clock_seconds": 7.905686458107084,
+        "interactions": 0,
+        "rejected_interactions": [],
+        "error": "the session ended (no_tool_calls) without calling report_observations"
+      },
+      {
+        "index": 2,
+        "invocation": "cat",
+        "status": "no_report",
+        "prompt_hash": "aedd555028554cf99e84d0522783cebc3183f076d9737fcc057a43026dca08f6",
+        "turns": 2,
+        "stop_reason": "no_tool_calls",
+        "executions": 1,
+        "prompt_tokens": 1672,
+        "completion_tokens": 307,
+        "cost_usd": 0.00725,
+        "wall_clock_seconds": 7.432629832997918,
+        "interactions": 0,
+        "rejected_interactions": [],
+        "error": "the session ended (no_tool_calls) without calling report_observations"
+      },
+      {
+        "index": 3,
+        "invocation": "cat",
+        "status": "no_report",
+        "prompt_hash": "aedd555028554cf99e84d0522783cebc3183f076d9737fcc057a43026dca08f6",
+        "turns": 2,
+        "stop_reason": "no_tool_calls",
+        "executions": 1,
+        "prompt_tokens": 1672,
+        "completion_tokens": 329,
+        "cost_usd": 0.00747,
+        "wall_clock_seconds": 6.791240207967348,
+        "interactions": 0,
+        "rejected_interactions": [],
+        "error": "the session ended (no_tool_calls) without calling report_observations"
+      },
+      {
+        "index": 4,
+        "invocation": "cat",
+        "status": "no_report",
+        "prompt_hash": "aedd555028554cf99e84d0522783cebc3183f076d9737fcc057a43026dca08f6",
+        "turns": 2,
+        "stop_reason": "no_tool_calls",
+        "executions": 1,
+        "prompt_tokens": 1672,
+        "completion_tokens": 307,
+        "cost_usd": 0.00725,
+        "wall_clock_seconds": 5.649147750111297,
+        "interactions": 0,
+        "rejected_interactions": [],
+        "error": "the session ended (no_tool_calls) without calling report_observations"
+      }
+    ],
+    "tool_audit": [
+      {
+        "index": 0,
+        "calls": [
+          {
+            "tool": "run_command",
+            "arguments": {
+              "argv": [
+                "cat"
+              ]
+            },
+            "allowed": true,
+            "reason": null
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "calls": [
+          {
+            "tool": "run_command",
+            "arguments": {
+              "argv": [
+                "cat"
+              ]
+            },
+            "allowed": true,
+            "reason": null
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "calls": [
+          {
+            "tool": "run_command",
+            "arguments": {
+              "argv": [
+                "cat"
+              ]
+            },
+            "allowed": true,
+            "reason": null
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "calls": [
+          {
+            "tool": "run_command",
+            "arguments": {
+              "argv": [
+                "cat"
+              ]
+            },
+            "allowed": true,
+            "reason": null
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "calls": [
+          {
+            "tool": "run_command",
+            "arguments": {
+              "argv": [
+                "cat"
+              ]
+            },
+            "allowed": true,
+            "reason": null
+          }
+        ]
+      }
+    ],
+    "refused_calls": 0
+  },
+  "prompt_tokens": 8360,
+  "completion_tokens": 1607,
+  "cost_usd": 0.03697,
+  "wall_clock_seconds": 34.19977308122907,
+  "inputs": {
+    "configs_source": "/Users/tirandagan/dev/stevens/caruca_v2/eval/v1_configs/cat.configs.json",
+    "caruca_v1_root": "/Users/tirandagan/dev/stevens/caruca",
+    "isolation": "lima:caruca",
+    "max_turns": 15,
+    "limit": 5,
+    "execution_env": {
+      "PATH": "/usr/bin:/bin:/usr/local/sbin:/usr/local/bin",
+      "SHELL": "/bin/sh"
+    },
+    "execution_timeout_seconds": 2,
+    "placeholder_sandbox": "/tmp/sandbox_outer/sandbox_inner",
+    "replaces_v1_modules": [
+      "tracer/tracer.py",
+      "tracer/strace_parser.py"
+    ]
+  }
+}

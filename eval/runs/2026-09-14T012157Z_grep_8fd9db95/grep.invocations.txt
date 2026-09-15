@@ -1,0 +1,76 @@
+grep a
+grep a relpath_1
+grep a abspath_1
+grep a -
+grep --help a
+grep -V a
+grep -E a
+grep -F a
+grep -G a
+grep -P a
+grep -e a a
+grep -f relpath_1 a
+grep -f abspath_1 a
+grep -i a
+grep --no-ignore-case a
+grep -v a
+grep -w a
+grep -x a
+grep -c a
+grep --color=never a
+grep --color=always a
+grep --color=auto a
+grep -L a
+grep -l a
+grep -m -1 a
+grep -m 0 a
+grep -m 1 a
+grep -o a
+grep -q a
+grep -s a
+grep -b a
+grep -H a
+grep -h a
+grep --label=string a
+grep -n a
+grep -T a
+grep -Z a
+grep -A -1 a
+grep -A 0 a
+grep -A 1 a
+grep -B -1 a
+grep -B 0 a
+grep -B 1 a
+grep -C -1 a
+grep -C 0 a
+grep -C 1 a
+grep --group-separator=, a
+grep --group-separator=
+	 a
+grep --no-group-separator a
+grep -a a
+grep --binary-files=binary a
+grep --binary-files=without-match a
+grep --binary-files=text a
+grep -D read a
+grep -D skip a
+grep -d read a
+grep -d skip a
+grep -d recurse a
+grep --exclude=*.txt a
+grep --exclude=*.py a
+grep --exclude=*.c a
+grep --exclude=*.h a
+grep --exclude-from=relpath_1 a
+grep --exclude-from=abspath_1 a
+grep --exclude-dir=*.txt a
+grep --exclude-dir=*.py a
+grep --exclude-dir=*.c a
+grep --exclude-dir=*.h a
+grep -I a
+grep --include=string a
+grep -r a
+grep -R a
+grep --line-buffered a
+grep -U a
+grep -z a

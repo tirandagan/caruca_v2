@@ -1,0 +1,36 @@
+[
+ {
+  "command": {
+   "body": [],
+   "name": "sha256sum"
+  },
+  "true_str": "sha256sum",
+  "configs": [
+   {
+    "command": {
+     "name": "sha256sum",
+     "body": [],
+     "string": {
+      "name": "sha256sum",
+      "body": []
+     },
+     "stdin": "HUMAN_TEXT",
+     "true_string": "sha256sum"
+    },
+    "return_code": 0,
+    "stdout": "07caa3c0d683fd90d19a43658bb7c6c6ed2589aaad4ed87315327084a663f46e  -\n",
+    "stderr": "",
+    "traces": [
+     [
+      "rf",
+      "stdin"
+     ],
+     [
+      "wf",
+      "stdout"
+     ]
+    ]
+   }
+  ]
+ }
+]

@@ -1,0 +1,10 @@
+grep a
+grep a relpath_1
+grep a abspath_1
+grep a -
+grep --help a
+grep -V a
+grep -E a
+grep -F a
+grep -G a
+grep -P a

@@ -1,0 +1,58 @@
+[
+ {
+  "config": {
+   "name": "rm",
+   "body": [
+    {
+     "flag": null,
+     "args": [
+      {
+       "value": "relpath_1",
+       "relative": true,
+       "sandbox": "sandbox_placeholder",
+       "content": "HUMAN_TEXT",
+       "arg_type": "file",
+       "true_string": "relpath_1"
+      }
+     ],
+     "flag_followed_by_equals": false,
+     "node_type": "args",
+     "arity": "+",
+     "symbol": "PATH_PLDPF",
+     "true_string": "relpath_1"
+    }
+   ],
+   "string": {
+    "name": "rm",
+    "body": [
+     {
+      "flag": null,
+      "args": [
+       {
+        "value": "relpath_1",
+        "relative": true,
+        "relation": "child"
+       }
+      ],
+      "flag_followed_by_equals": false,
+      "arity": "+",
+      "symbol": "PATH_PLDPF",
+      "identifier": "PLDPF"
+     }
+    ]
+   },
+   "stdin": "HUMAN_TEXT",
+   "true_string": "rm relpath_1"
+  },
+  "return_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "traces": [
+   [
+    "de",
+    "relpath_1"
+   ]
+  ],
+  "rejected_interactions": []
+ }
+]

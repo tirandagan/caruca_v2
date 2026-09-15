@@ -1,0 +1,63 @@
+grep a
+grep a relpath_1
+grep a abspath_1
+grep a -E
+grep a -F
+grep a -G
+grep a -P
+grep a -e a
+grep a -f relpath_1
+grep a -f abspath_1
+grep a -i
+grep a --no-ignore-case
+grep a -v
+grep a -w
+grep a -x
+grep a -c
+grep a --color=never
+grep a --color=always
+grep a --color=auto
+grep a -L
+grep a -l
+grep a -m 1
+grep a -o
+grep a -q
+grep a -s
+grep a -b
+grep a -H
+grep a -h
+grep a --label=string
+grep a -n
+grep a -T
+grep a -Z
+grep a -A 1
+grep a -B 1
+grep a -C 1
+grep a --group-separator=,
+grep a --no-group-separator
+grep a -a
+grep a --binary-files=binary
+grep a --binary-files=without-match
+grep a --binary-files=text
+grep a -D read
+grep a -D skip
+grep a -d read
+grep a -d skip
+grep a -d recurse
+grep a --exclude=*.txt
+grep a --exclude=*.py
+grep a --exclude=*.c
+grep a --exclude=*.h
+grep a --exclude-from=relpath_1
+grep a --exclude-from=abspath_1
+grep a --exclude-dir=*.txt
+grep a --exclude-dir=*.py
+grep a --exclude-dir=*.c
+grep a --exclude-dir=*.h
+grep a -I
+grep a --include=string
+grep a -r
+grep a -R
+grep a --line-buffered
+grep a -U
+grep a -z

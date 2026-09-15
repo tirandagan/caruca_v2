@@ -1,0 +1,186 @@
+{
+  "command": "uniq",
+  "cases": [
+    {
+      "predicate": "default",
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "uniq",
+      "comments": "The command reads from stdin and writes to stdout. It does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-d"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "uniq -d",
+      "comments": "The command with -d flag reads from stdin and writes to stdout. It does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-c"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "uniq -c",
+      "comments": "The command with -c flag reads from stdin and writes to stdout. It does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-u"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "uniq -u",
+      "comments": "The command with -u flag reads from stdin and writes to stdout. It does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-i"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "uniq -i",
+      "comments": "The command with -i flag reads from stdin and writes to stdout. It does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "-z"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "uniq -z",
+      "comments": "The command with -z flag reads from stdin and writes to stdout. It does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--all-repeated"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "uniq --all-repeated",
+      "comments": "The command with --all-repeated flag reads from stdin and writes to stdout. It does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--group"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [
+        "stdin"
+      ],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "uniq --group",
+      "comments": "The command with --group flag reads from stdin and writes to stdout. It does not modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--help"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "uniq --help",
+      "comments": "The command with --help flag writes help information to stdout. It does not read from stdin or modify any files or directories."
+    },
+    {
+      "predicate": {
+        "operator": "eq",
+        "operands": [
+          "flag",
+          "--version"
+        ]
+      },
+      "pclass": "pure",
+      "inputs": [],
+      "outputs": [
+        "stdout"
+      ],
+      "true_str": "uniq --version",
+      "comments": "The command with --version flag writes version information to stdout. It does not read from stdin or modify any files or directories."
+    }
+  ],
+  "options": [
+    "-d",
+    "-c",
+    "-u",
+    "-i",
+    "-z",
+    "--all-repeated",
+    "--group",
+    "--help",
+    "--version"
+  ]
+}

@@ -1,0 +1,32 @@
+rm relpath_1
+rm abspath_1
+rm -f relpath_1
+rm -f abspath_1
+rm -i relpath_1
+rm -i abspath_1
+rm -I relpath_1
+rm -I abspath_1
+rm --interactive=never relpath_1
+rm --interactive=never abspath_1
+rm --interactive=once relpath_1
+rm --interactive=once abspath_1
+rm --interactive=always relpath_1
+rm --interactive=always abspath_1
+rm --one-file-system relpath_1
+rm --one-file-system abspath_1
+rm --no-preserve-root relpath_1
+rm --no-preserve-root abspath_1
+rm --preserve-root= relpath_1
+rm --preserve-root= abspath_1
+rm --preserve-root=all relpath_1
+rm --preserve-root=all abspath_1
+rm -r relpath_1
+rm -r abspath_1
+rm -d relpath_1
+rm -d abspath_1
+rm -v relpath_1
+rm -v abspath_1
+rm --help relpath_1
+rm --help abspath_1
+rm --version relpath_1
+rm --version abspath_1
