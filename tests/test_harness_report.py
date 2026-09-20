@@ -23,6 +23,7 @@ def cell(**overrides) -> dict:
         "cost_usd": 0.01,
         "prompt_tokens": 100,
         "completion_tokens": 10,
+        "stage": "syntax_spec",
         "run_dir": "eval/runs/whatever",
         "score": {"scoreable": True, "f1": 1.0, "exact_argument_rate": 1.0},
     }
@@ -127,7 +128,52 @@ def test_rescore_marks_missing_artifacts_unscoreable(fake_v1_root, tmp_path):
     rows = [cell(run_dir=str(tmp_path / "gone"))]
     rescored = report.rescore(rows, "v1-specs")
     assert rescored[0]["score"]["scoreable"] is False
-    assert "no output at" in rescored[0]["score"]["error"]
+    assert "no spec file" in rescored[0]["score"]["error"]
+
+
+def test_rescore_covers_every_stage_not_only_syntax_specs(fake_v1_root, tmp_path):
+    """Until 2026-09-20 this was syntax-spec-only, so a scorer fix could not be applied to an
+    existing stage-2/3/4 campaign at all — the choice was re-running it, or re-deriving the
+    numbers by hand outside the harness. Stage 3's figures were published that way once."""
+    run_dir = tmp_path / "run"
+    run_dir.mkdir()
+    (run_dir / "mkdir.traces.json").write_text(
+        '[{"command": {"name": "mkdir", "body": []}, "true_str": "mkdir", "configs": ['
+        '{"command": {"name": "mkdir", "body": []}, "return_code": 0, "stdout": "", '
+        '"stderr": "", "traces": [["wf", "stdout"]]}]}]'
+    )
+    reference = tmp_path / "mkdir.parity.json"
+    reference.write_text((run_dir / "mkdir.traces.json").read_text())
+
+    rows = [cell(stage="trace", run_dir=str(run_dir), score={"scoreable": True, "f1": 0.1})]
+    rescored = report.rescore(
+        rows, stage="trace", reference_path_pattern=str(tmp_path / "{command}.parity.json")
+    )
+    score = rescored[0]["score"]
+    assert score["method"] == "trace_recovery_diff"
+    assert score["core.micro.recall"] == 1.0
+
+
+def test_aggregation_reads_the_metric_each_method_declares(fake_v1_root):
+    """Stage 3's headline is `core.micro.f1` and stage 4's is `agreement.fully_agreeing`.
+
+    A hardcoded `f1` lookup silently dropped every non-stage-1 cell from the aggregation, so
+    `report` showed nothing at all for those campaigns.
+    """
+    rows = [
+        cell(
+            stage="trace",
+            score={
+                "scoreable": True,
+                "method": "trace_recovery_diff",
+                "core.micro.f1": 0.8,
+                "core.micro.recall": 0.7,
+            },
+        )
+    ]
+    (arm,) = report.aggregate(rows)
+    assert arm.scoreable == 1
+    assert arm.f1.values == [0.8]
 
 
 def test_rescore_uses_the_current_scorer_on_saved_output(fake_v1_root, tmp_path):
@@ -140,6 +186,7 @@ def test_rescore_uses_the_current_scorer_on_saved_output(fake_v1_root, tmp_path)
     rows = [cell(run_dir=str(run_dir), score={"scoreable": True, "f1": 0.1})]
     rescored = report.rescore(rows, "v1-specs")
     assert rescored[0]["score"]["f1"] == 1.0
+    assert rescored[0]["score"]["method"] == "q2_syntax_diff"
 
 
 def test_build_reports_where_scores_came_from(fake_v1_root, tmp_path):

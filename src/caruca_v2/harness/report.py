@@ -28,8 +28,13 @@ from typing import Any
 from .. import v1
 from ..errors import CarucaV2Error
 from . import methods
+from . import rescore as rescore_module
 from . import score as score_module
 from . import sweep as sweep_module
+
+#: Passed to `--rescore` when the caller wants each stage's own default reference rather than
+#: naming one. Stage 1 has two (`v1-specs`, `ground-truth`); the others have exactly one.
+RESCORE_DEFAULT = "stage-default"
 
 # Fixed so an aggregation is reproducible: the same ledger yields the same interval.
 BOOTSTRAP_SEED = 20260908
@@ -188,14 +193,46 @@ def aggregate(rows: Iterable[dict[str, Any]]) -> list[Arm]:
         arm.completion_tokens += int(row.get("completion_tokens") or 0)
 
         score = row.get("score") or {}
-        if score.get("scoreable") and score.get("f1") is not None:
+        # Read the metric this row's own method declares, not `f1`. Stage 3's headline is
+        # `core.micro.f1` and stage 4's is `agreement.fully_agreeing`; neither has an `f1`
+        # key, so a hardcoded lookup silently drops every non-stage-1 cell from the
+        # aggregation — which is why `report` showed nothing for those campaigns.
+        headline = _headline_metric(score)
+        if score.get("scoreable") and headline is not None:
             arm.scoreable += 1
-            arm.f1.values.append(float(score["f1"]))
-            arm.per_command.setdefault(row.get("command", "?"), []).append(float(score["f1"]))
-            if score.get("exact_argument_rate") is not None:
-                arm.exact.values.append(float(score["exact_argument_rate"]))
+            arm.f1.values.append(headline)
+            arm.per_command.setdefault(row.get("command", "?"), []).append(headline)
+            secondary = _secondary_metric(score)
+            if secondary is not None:
+                arm.exact.values.append(secondary)
 
     return list(arms.values())
+
+
+def _metric(score: dict[str, Any], index: int) -> float | None:
+    """The score's own method's metric at `index`, as a float, or None.
+
+    A ledger row carries whichever metrics its method declares; `methods.REGISTRY` says which
+    one leads. Falling back to `f1` keeps rows written before methods were tagged readable.
+    """
+    method = score.get("method")
+    if method in methods.REGISTRY:
+        names = methods.get(method).metrics
+        if index < len(names):
+            value = score.get(names[index])
+            return None if value is None else float(value)
+        return None
+    legacy = ("f1", "exact_argument_rate")
+    value = score.get(legacy[index]) if index < len(legacy) else None
+    return None if value is None else float(value)
+
+
+def _headline_metric(score: dict[str, Any]) -> float | None:
+    return _metric(score, 0)
+
+
+def _secondary_metric(score: dict[str, Any]) -> float | None:
+    return _metric(score, 1)
 
 
 def consistency(arm: Arm) -> dict[str, Any] | None:
@@ -301,6 +338,24 @@ def percent_change(side: V1Side, v2_value: float | None) -> float | None:
     return (v2_value - side.value) / side.value
 
 
+def method_of(rows: Sequence[dict[str, Any]]) -> str:
+    """The comparison method a campaign's rows were scored by.
+
+    Read from the rows rather than defaulting to stage 1's: a report that labels a trace
+    campaign `q2_syntax_diff` is claiming a denominator of "arguments in the reference
+    specification" for a number counted in filesystem interactions.
+    """
+    for row in rows:
+        method = (row.get("score") or {}).get("method")
+        if method in methods.REGISTRY:
+            return method
+    for row in rows:
+        primary = methods.PRIMARY_BY_STAGE.get(row.get("stage") or "")
+        if primary:
+            return primary
+    return score_module.METHOD
+
+
 def comparison_records(
     arms: Sequence[Arm],
     campaign_id: str,
@@ -386,14 +441,29 @@ def render_table(arms: Sequence[Arm]) -> str:
     return "\n".join(lines)
 
 
-def rescore(rows: Iterable[dict[str, Any]], reference: str) -> list[dict[str, Any]]:
-    """Re-run the current scorer over each cell's saved output.
+def rescore(
+    rows: Iterable[dict[str, Any]],
+    reference: str | None = None,
+    *,
+    stage: str | None = None,
+    reference_path_pattern: str | None = None,
+) -> list[dict[str, Any]]:
+    """Re-run the current scorer over each cell's saved output, whatever stage produced it.
 
     A ledger's `score` is whatever the scorer said on the day the campaign ran, so a later
     scorer fix would otherwise be invisible until the campaign was re-run — paying again for
     model output that is already on disk. The artifacts are the durable record; scores are
     derived. Cells whose output is gone are marked unscoreable rather than silently kept at
     their old value.
+
+    This dispatches through `rescore_module.score_run`, so it covers all four stages. It was
+    syntax-spec-only until 2026-09-20, which meant a scorer change could not be applied to an
+    existing stage-2/3/4 campaign at all: the choice was re-running it or re-deriving the
+    numbers by hand outside the harness. Stage 3's figures were published that way once.
+
+    `reference_path_pattern` names v1's side per command for stages where it cannot be
+    inferred — `{command}` is substituted. Stage 3 needs it because v1's default trace path
+    exists for only 18 commands, none of which have hand-curated annotations.
     """
     rescored = []
     for row in rows:
@@ -405,24 +475,24 @@ def rescore(rows: Iterable[dict[str, Any]], reference: str) -> list[dict[str, An
             rescored.append(updated)
             continue
 
-        spec_path = Path(run_dir) / f"{v1.slug(command)}.py"
-        if not spec_path.is_file():
-            updated["score"] = {"scoreable": False, "error": f"no output at {spec_path}"}
-            rescored.append(updated)
-            continue
-
-        try:
-            record = score_module.score_spec(command, spec_path, reference=reference)
-        except CarucaV2Error as exc:
-            updated["score"] = {"scoreable": False, "error": str(exc)}
-        else:
-            updated["score"] = {
-                "scoreable": record.get("scoreable"),
-                "f1": record.get("f1"),
-                "exact_argument_rate": record.get("exact_argument_rate"),
-                "counts": record.get("counts"),
-                "error": record.get("error"),
-            }
+        reference_path = (
+            Path(reference_path_pattern.format(command=v1.slug(command), raw_command=command))
+            if reference_path_pattern
+            else None
+        )
+        # Prefer the reference this cell was actually scored against. Falling through to a
+        # stage's first reference silently changes the question: an annotate campaign run
+        # against the hand-curated ground truth would otherwise be rescored against v1's own
+        # annotator, which needs Lima and answers something else entirely.
+        recorded = (row.get("score") or {}).get("reference")
+        record = rescore_module.score_run(
+            Path(run_dir),
+            stage=stage or row.get("stage"),
+            reference=reference or recorded,
+            reference_path=reference_path,
+            command=command,
+        )
+        updated["score"] = rescore_module.ledger_entry(record)
         rescored.append(updated)
     return rescored
 
@@ -432,6 +502,8 @@ def build(
     ledger_root: Path = sweep_module.DEFAULT_LEDGER_ROOT,
     *,
     rescore_with: str | None = None,
+    rescore_stage: str | None = None,
+    reference_path_pattern: str | None = None,
 ) -> dict[str, Any]:
     """The full aggregation for one campaign.
 
@@ -440,7 +512,12 @@ def build(
     """
     rows = load_ledger(campaign_id, ledger_root)
     if rescore_with is not None:
-        rows = rescore(rows, rescore_with)
+        rows = rescore(
+            rows,
+            None if rescore_with == RESCORE_DEFAULT else rescore_with,
+            stage=rescore_stage,
+            reference_path_pattern=reference_path_pattern,
+        )
     arms = aggregate(rows)
     return {
         "campaign_id": campaign_id,
@@ -452,6 +529,6 @@ def build(
         ),
         "arms": [arm.as_dict() for arm in arms],
         "consistency": {arm.name: consistency(arm) for arm in arms},
-        "comparison_records": comparison_records(arms, campaign_id),
+        "comparison_records": comparison_records(arms, campaign_id, method_of(rows)),
         "table": render_table(arms),
     }

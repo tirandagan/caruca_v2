@@ -390,12 +390,21 @@ def build_parser() -> argparse.ArgumentParser:
     report.add_argument(
         "--rescore",
         nargs="?",
-        const=score_module.REFERENCE_V1_SPECS,
+        const=report_module.RESCORE_DEFAULT,
         default=None,
-        choices=score_module.REFERENCES,
+        choices=(report_module.RESCORE_DEFAULT, *score_module.REFERENCES),
         help="Re-derive every score from the saved run artifacts with the current scorer, "
         "instead of using what the ledger recorded at run time. Use after a scorer change "
-        "so a fix does not require paying for the campaign again.",
+        "so a fix does not require paying for the campaign again. Works for every stage; "
+        "bare, each cell uses its own stage's default reference.",
+    )
+    report.add_argument(
+        "--reference-traces",
+        metavar="PATTERN",
+        default=None,
+        help="Where v1's reference traces live, with {command} substituted — needed to "
+        "rescore a trace campaign, because v1's default trace path exists for only 18 "
+        "commands and none of them have hand-curated annotations.",
     )
     report.add_argument("--json", action="store_true", help="Print the full aggregation as JSON.")
     report.add_argument(
@@ -697,7 +706,10 @@ def _run_report(args: argparse.Namespace, ui: ui_module.UI) -> int:
 
     with ui.working(f"aggregating campaign {args.campaign_id}"):
         aggregation = report_module.build(
-            args.campaign_id, ledger_root=args.ledger_root, rescore_with=args.rescore
+            args.campaign_id,
+            ledger_root=args.ledger_root,
+            rescore_with=args.rescore,
+            reference_path_pattern=args.reference_traces,
         )
 
     if args.out is not None:

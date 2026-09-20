@@ -92,9 +92,13 @@ class UI:
 
     @contextmanager
     def working(self, message: str) -> Iterator[None]:
-        """A spinner while something slow happens; a plain line when not a TTY."""
+        """A spinner while something slow happens; a plain line when not a TTY.
+
+        Progress goes to stderr, never stdout: a subcommand run with `--json` has to emit
+        JSON and nothing else, or its output cannot be piped into anything that parses it.
+        """
         if self.plain:
-            self.console.print(Text(f"{message}..."))
+            print(f"{message}...", file=sys.stderr, flush=True)
             yield
             return
         with self.console.status(Text(message, style="muted"), spinner="dots"):

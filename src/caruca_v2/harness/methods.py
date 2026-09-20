@@ -97,11 +97,15 @@ ANNOTATION_DIFF = Method(
     # defensible way to weight them against each other.
     # Paths into the record, not bare names: these live under `agreement`, and a bare
     # "pclass" silently extracts nothing.
+    # Rates first, counts after. An aggregation averages the leading metric across
+    # commands, and `agreement.fully_agreeing` is a count of cases -- averaging "8 cases"
+    # with "1 case" produces a number with no denominator behind it. The counts stay
+    # available for anyone reading a single record.
     metrics=(
+        "rates.fully_agreeing",
+        "rates.pclass",
         "agreement.fully_agreeing",
         "agreement.pclass",
-        "agreement.inputs",
-        "agreement.outputs",
         "agreement.comparable",
     ),
     denominator="cases aligned between the two annotations",

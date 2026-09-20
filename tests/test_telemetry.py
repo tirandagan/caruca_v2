@@ -59,3 +59,19 @@ def test_conversation_log_is_one_json_object_per_message(tmp_path: Path):
     lines = path.read_text().strip().splitlines()
     assert len(lines) == 3
     assert '"role": "assistant"' in lines[-1]
+
+
+def test_progress_never_lands_on_stdout(capsys):
+    """`--json` must emit JSON and nothing else, or its output cannot be piped.
+
+    A progress line printed to stdout ahead of the payload made `report --json` and
+    `score --json` unparseable without stripping the first line by hand.
+    """
+    from caruca_v2 import ui as ui_module
+
+    surface = ui_module.UI(plain=True)
+    with surface.working("doing something slow"):
+        pass
+    captured = capsys.readouterr()
+    assert "doing something slow" in captured.err
+    assert captured.out == ""

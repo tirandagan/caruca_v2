@@ -173,13 +173,10 @@ def test_every_declared_metric_is_a_real_path_into_its_record():
             "ceiling_fraction": 1,
         },
         methods.ANNOTATION_DIFF.method: {
-            "agreement": {
-                "fully_agreeing": 1,
-                "pclass": 1,
-                "inputs": 1,
-                "outputs": 1,
-                "comparable": 1,
-            }
+            # Rates lead, because aggregation averages the first metric and a count of
+            # cases has no denominator to average against.
+            "rates": {"fully_agreeing": 1.0, "pclass": 1.0},
+            "agreement": {"fully_agreeing": 1, "pclass": 1, "comparable": 1},
         },
         methods.INVOCATION_SET_DIFF.method: {"f1": 1, "recall": 1, "precision": 1},
         methods.CONFIG_ENV_DIFF.method: {"env_covered_rate": 1},

@@ -187,6 +187,7 @@ def score_run(
     stage: str | None = None,
     reference: str | None = None,
     reference_path: Path | None = None,
+    command: str | None = None,
 ) -> dict[str, Any]:
     """Re-derive a run's comparison from its artifacts.
 
@@ -194,13 +195,18 @@ def score_run(
     campaign's aggregation.
     """
     run_dir = Path(run_dir)
+    # The manifest is the normal source of stage and command, but it is not required when the
+    # caller already knows them — a ledger row carries both. That lets a run directory pruned
+    # down to its artifact still be re-scored, which matters while the retention rule is open.
     try:
         manifest = _manifest(run_dir)
     except CarucaV2Error as exc:
-        return {"scoreable": False, "error": str(exc)}
+        if not (stage and command):
+            return {"scoreable": False, "error": str(exc)}
+        manifest = {}
 
     resolved_stage = stage or manifest.get("stage")
-    command = manifest.get("command")
+    command = command or manifest.get("command")
     if resolved_stage not in _DISPATCH:
         return {"scoreable": False, "error": f"no scorer for stage {resolved_stage!r}"}
     if not command:
