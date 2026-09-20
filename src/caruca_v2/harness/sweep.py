@@ -89,6 +89,10 @@ class Campaign(BaseModel):
                 f"campaign {self.campaign_id}: annotate campaigns must set "
                 "stage_options.format (pash|posh|sash|shellcheck)."
             )
+        if self.stage_options.get("reference_traces_pattern") and self.stage != "trace":
+            raise SetupError(
+                f"campaign {self.campaign_id}: reference_traces_pattern is a trace option."
+            )
         if self.stage_options.get("configs_pattern") and self.stage != "trace":
             raise SetupError(
                 f"campaign {self.campaign_id}: configs_pattern is a trace option."
@@ -536,7 +540,16 @@ def _score_cell(cell: Cell, run_dir: str, campaign: Campaign) -> dict[str, Any] 
     was never rolled up. `rescore.score_run` dispatches per stage; failures are recorded, not
     raised, so one unscoreable cell cannot sink a campaign.
     """
+    pattern = campaign.stage_options.get("reference_traces_pattern")
+    reference_path = (
+        Path(pattern.format(command=v1.slug(cell.command), raw_command=cell.command))
+        if pattern
+        else None
+    )
     record = rescore.score_run(
-        Path(run_dir), stage=campaign.stage, reference=campaign.score_reference
+        Path(run_dir),
+        stage=campaign.stage,
+        reference=campaign.score_reference,
+        reference_path=reference_path,
     )
     return rescore.ledger_entry(record)

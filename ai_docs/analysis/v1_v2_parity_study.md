@@ -243,12 +243,22 @@ runs in the direction of flattery.
 
 ### 4.2 Where a session did report, recovery is partial
 
-Pooled over the 17 core and 11 inference units that could be compared:
+Pooled over all 12 scored cells — 33 core and 23 inference units:
 
 | tier | precision | recall |
 |---|---|---|
-| core `{ad md de mo wf rd}` | 0.769 | **0.588** |
-| inference `{rf}` | **1.000** | 0.545 |
+| core `{ad md de mo wf rd}` | 0.800 | **0.606** |
+| inference `{rf}` | **1.000** | 0.391 |
+
+*(Corrected 2026-09-20. The first published figures — 0.769/0.588 and 1.000/0.545 — were
+computed from one cell per command rather than all three samples, because the campaign ledger
+carried no stage-3 scores at all and the numbers were derived by hand. See §4.4.)*
+
+**A second reproducibility result, from the samples the first pass skipped.** `pwd` scores
+1.000, 1.000 and **0.600** across its three samples at temperature 0 — a 0.400 spread. Every
+other command is stable across its samples (`rm` 0.000 ×3, `sha256sum` 1.000 ×3). Taken with
+`tac`'s 0.200 spread at stage 1, two of the four stages now show run-to-run variation at
+temperature 0 on at least one command.
 
 Per command the results are bimodal rather than middling — `cat`, `pwd` and `sha256sum` recover
 everything; `rm` and `tail` recover nothing; `tee` recovers a quarter:
@@ -268,7 +278,22 @@ between. Seventeen core units total is thin evidence, and the honest summary is 
 produced too few usable observations to characterise accuracy at all — which is itself the
 result.
 
-### 4.3 Why projection is not optional
+### 4.3 The stage-3 scores were not in the ledger until after publication
+
+Worth recording as a process failure, not just a number change. The campaign runner scored
+every stage-3 cell as **unscoreable**: `rescore._score_trace` looked for v1's default trace
+path, `caruca/outputs/<cmd>.json`, which exists for only 18 commands — none of them in this
+study's set. Phase 2 had written the references as `<cmd>.parity.json`, and the scorer had no
+way to be told so. The `annotate` stage had been given a `traces_pattern` option for exactly
+this reason; the trace scorer never got the equivalent.
+
+The consequence: the stage-3 figures in the first version of this document came from ad-hoc
+Python run by hand over one cell per command. They were not reproducible from the recorded
+data, and they were computed over half the available evidence. A `reference_traces_pattern`
+option now exists, the ledger has been re-scored from the artifacts at no cost, and the
+figures above come from the ledger.
+
+### 4.4 Why projection is not optional
 
 v1's raw traces are mostly dynamic-loader noise: `ls` records 17,512 `(action, path)` pairs that
 reduce to **20** distinct relevant ones; `dirname` records 640 that reduce to **1**. Scored raw,

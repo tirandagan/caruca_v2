@@ -113,17 +113,27 @@ def _score_generate(run_dir: Path, manifest: dict, command: str, reference: str)
     return record
 
 
-def _score_trace(run_dir: Path, manifest: dict, command: str, reference: str) -> dict:
+def _score_trace(
+    run_dir: Path, manifest: dict, command: str, reference: str, reference_path: Path | None = None
+) -> dict:
+    """Score v2's observed interactions against v1's strace record.
+
+    `reference_path` is explicit because v1's default (`caruca/outputs/<cmd>.json`) exists for
+    only 18 commands, none of which overlap the set that has ground-truth annotations. A
+    parity campaign traces commands whose v1 reference had to be generated for it, so without
+    a way to name that file every cell scores as unscoreable — which is exactly what happened
+    to all 12 successful stage-3 cells of the first run.
+    """
     produced = _artifact(run_dir, f"{v1.slug(command)}.traces.json")
     if produced is None:
         return {"scoreable": False, "error": "no traces file was written"}
-    reference_path = v1.traces_path(command)
-    payload = json.loads(reference_path.read_text()) if reference_path.is_file() else None
+    resolved = reference_path or v1.traces_path(command)
+    payload = json.loads(resolved.read_text()) if resolved.is_file() else None
     return trace_recovery.compare_traces(
         json.loads(produced.read_text()),
         payload,
         command=command,
-        reference_source=str(reference_path) if payload is not None else None,
+        reference_source=str(resolved) if payload is not None else None,
     )
 
 
@@ -172,7 +182,11 @@ _DISPATCH = {
 
 
 def score_run(
-    run_dir: Path, *, stage: str | None = None, reference: str | None = None
+    run_dir: Path,
+    *,
+    stage: str | None = None,
+    reference: str | None = None,
+    reference_path: Path | None = None,
 ) -> dict[str, Any]:
     """Re-derive a run's comparison from its artifacts.
 
@@ -193,8 +207,10 @@ def score_run(
         return {"scoreable": False, "error": "the manifest does not record a command"}
 
     resolved_reference = reference or default_reference(resolved_stage)
+    scorer = _DISPATCH[resolved_stage]
+    extra = {"reference_path": reference_path} if resolved_stage == "trace" else {}
     try:
-        record = _DISPATCH[resolved_stage](run_dir, manifest, command, resolved_reference)
+        record = scorer(run_dir, manifest, command, resolved_reference, **extra)
     except CarucaV2Error as exc:
         return {"scoreable": False, "error": str(exc)}
     except Exception as exc:  # noqa: BLE001 - a scorer crash is a result, not a run failure

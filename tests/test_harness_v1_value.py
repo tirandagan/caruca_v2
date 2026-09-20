@@ -194,3 +194,32 @@ def test_every_declared_metric_is_a_real_path_into_its_record():
         entry = rescore.ledger_entry({"method": method, "scoreable": True, **body})
         for metric in methods.get(method).metrics:
             assert entry[metric] is not None, f"{method}.{metric} did not resolve"
+
+
+def test_the_trace_scorer_can_be_told_where_the_v1_reference_lives(tmp_path):
+    """v1's default trace path exists for 18 commands, none of which have ground truth.
+
+    A parity campaign traces commands whose v1 reference had to be generated for it, so
+    without a way to name that file every cell scores unscoreable — which is what happened
+    to all 12 successful stage-3 cells until a `reference_traces_pattern` existed.
+    """
+    from caruca_v2.harness import rescore
+
+    run = tmp_path / "run"
+    run.mkdir()
+    (run / "manifest.json").write_text('{"stage": "trace", "command": "cat"}')
+    (run / "cat.traces.json").write_text(
+        '[{"command": {"name": "cat", "body": []}, "true_str": "cat", "configs": ['
+        '{"command": {"name": "cat", "body": []}, "return_code": 0, "stdout": "", '
+        '"stderr": "", "traces": [["wf", "stdout"]]}]}]'
+    )
+
+    # Without a reference the cell is unscoreable rather than silently zero.
+    absent = rescore.score_run(run, stage="trace")
+    assert absent.get("available") is False
+
+    reference = tmp_path / "cat.parity.json"
+    reference.write_text((run / "cat.traces.json").read_text())
+    scored = rescore.score_run(run, stage="trace", reference_path=reference)
+    assert scored["available"] is True
+    assert scored["core"]["micro"]["recall"] == 1.0

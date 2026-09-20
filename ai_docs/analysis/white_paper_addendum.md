@@ -249,7 +249,7 @@ empirical content, which is publishable in its own right.
 answered in prose instead of calling the tool it had been given, with thirteen of fifteen turns
 unused. Success was strongly command-dependent (`pwd` 13/15, `tac`/`uniq`/`wc` 0/15), so this is
 not sampling noise. Where a session did report, recovery of the filesystem interactions was
-partial: 0.588 core recall over 17 comparable units. §5's value is not only that interposition
+partial: 0.606 core recall over 33 comparable units. §5's value is not only that interposition
 is *accurate* — it is that interposition **always produces a record**, which a prompted observer
 does not.
 
@@ -301,7 +301,7 @@ upstream fixes before the release?
 - **No claim the §7.2 measurement was wrong.** §3 reports what the shipped artifacts do, and
   asks a question.
 - **No stage-3 accuracy figure.** Only 12 of 27 cells produced a usable observation, and the
-  comparable evidence amounts to 17 filesystem interactions.
+  comparable evidence amounts to 33 filesystem interactions.
 - **Nothing about tuning.** The LLM side was never iterated to improve a score; defects in the
   *request* were fixed, and differences were reported.
 

@@ -678,12 +678,23 @@ which was addressed by asking once whether anything was missing. **Doing the equ
 deliberately not taken** — it would be the second nudge on the LLM side, and every nudge runs in
 the direction of flattery. Raising it as a scope question rather than fixing it quietly.
 
-Where a session did report, pooled over 17 core and 11 inference units:
+Where a session did report, pooled over all 12 scored cells (33 core, 23 inference units):
 
 | tier | precision | recall |
 |---|---|---|
-| core `{ad md de mo wf rd}` | 0.769 | 0.588 |
-| inference `{rf}` | 1.000 | 0.545 |
+| core `{ad md de mo wf rd}` | 0.800 | 0.606 |
+| inference `{rf}` | 1.000 | 0.391 |
+
+**Corrected 2026-09-20.** The first figures (0.769/0.588, 1.000/0.545) were computed by hand
+over one cell per command, because the campaign runner scored every stage-3 cell as
+unscoreable: `rescore._score_trace` looked for v1's default trace path, which exists for only
+18 commands and none of this study's set, while Phase 2 had written `<cmd>.parity.json`. The
+annotate stage had a `traces_pattern` option for exactly this reason; the trace scorer had no
+equivalent until now. The ledger has been re-scored from artifacts at no cost.
+
+Re-scoring also surfaced a stage-3 reproducibility result the hand computation had skipped:
+`pwd` scores 1.000, 1.000 and **0.600** across three samples at temperature 0 (spread 0.400),
+while `rm` and `sha256sum` are stable across theirs.
 
 Per command the result is bimodal, not middling: `cat`/`pwd`/`sha256sum` 1.000 core recall,
 `tee` 0.250, `rm`/`tail` 0.000. Read the denominators first — v1's projected traces hold **2
