@@ -1,0 +1,1 @@
+{"defaultMode":{"editor":"enum","options":["simultaneous","sequential"],"default":"simultaneous","tsType":"string","section":"Execution"},"streamSpeed":{"editor":"range","min":80,"max":700,"step":20,"default":300,"unit":"ms","tsType":"number","section":"Execution"}}
