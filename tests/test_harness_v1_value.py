@@ -148,14 +148,14 @@ def test_stage_two_keeps_its_second_method_whole_rather_than_flattening_it():
             "f1": 0.9,
             "config_comparison": {
                 "method": methods.CONFIG_ENV_DIFF.method,
-                "env_covered_rate": 0.0,
+                "env_agreement_rate": 0.0,
                 "rates": {"arg_type": 0.0},
             },
         }
     )
     assert entry["f1"] == 0.9
     assert entry["config_comparison"]["method"] == methods.CONFIG_ENV_DIFF.method
-    assert entry["config_comparison"]["env_covered_rate"] == 0.0
+    assert entry["config_comparison"]["env_agreement_rate"] == 0.0
 
 
 def test_every_declared_metric_is_a_real_path_into_its_record():
@@ -179,7 +179,7 @@ def test_every_declared_metric_is_a_real_path_into_its_record():
             "agreement": {"fully_agreeing": 1, "pclass": 1, "comparable": 1},
         },
         methods.INVOCATION_SET_DIFF.method: {"f1": 1, "recall": 1, "precision": 1},
-        methods.CONFIG_ENV_DIFF.method: {"env_covered_rate": 1},
+        methods.CONFIG_ENV_DIFF.method: {"env_agreement_rate": 1},
         methods.Q2_SYNTAX_DIFF.method: {
             "f1": 1,
             "exact_argument_rate": 1,

@@ -108,7 +108,7 @@ the committed ground truth (`caruca/src/caruca/syntax_specs/*.py`), at `d8032407
 
 The instrument checks out: ground truth scored against *itself* is **117/117**, and two
 independently built scorers land within five of each other. The signature is typing rather than
-coverage — 105/116 commands have no missing or spurious options, but only 86/116 have no type
+missing flags — 105/116 commands have no missing or spurious options, but only 86/116 have no type
 misclassification, against the paper's reported 3 and 1.
 
 **The most likely explanation is simply that the committed set is not the run the paper
@@ -130,7 +130,8 @@ The most useful thing this study found is a distinction the paper's evaluation d
 currently draw.
 
 A model asked to reproduce §4's configuration generation produced invocation strings matching
-Caruca's enumeration at **0.878 mean recall** — and environments matching at **0.185**. Every one
+Caruca's enumeration at **0.878 mean recall** — and environments agreeing with Caruca's at
+**0.208**, over the 24 cells where a comparison was possible. Every one
 of its configurations passed `CommandConfig` validation. On `grep a relpath_1` it typed the
 regex `a` as an *existing file*, asking the sandbox to contain a file named `a`, where Caruca
 types it `no_env`.
@@ -239,8 +240,8 @@ empirical content, which is publishable in its own right.
 
 | Caruca stage | replaceable? | evidence |
 |---|---|---|
-| §3 syntax inference | **yes** | identical flag coverage, marginally worse typing |
-| §4 configuration generation | **partly** | invocations yes (0.878); bound semantics and environments no (146/285 out of bounds; 0.185 environments) |
+| §3 syntax inference | **yes** | identical flag recall, marginally worse typing |
+| §4 configuration generation | **partly** | invocations yes (0.878); bound semantics and environments no (146/285 out of bounds; 0.208 environment agreement) |
 | §5 isolated tracing | **no** | 78% of sessions never completed the reporting protocol |
 | §6 specification derivation | **no, at scale** | see below |
 

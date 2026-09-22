@@ -26,7 +26,7 @@ do, and are we replicating the results, or are we getting an improvement?*
 
 | Stage | What it does | Verdict |
 |---|---|---|
-| 1. Syntax specification | documentation → flags and types | **Replicates.** Identical coverage; v1 marginally better typing |
+| 1. Syntax specification | documentation → flags and types | **Replicates.** Identical flag recall; v1 marginally better typing |
 | 2. Configuration generation | spec → invocations + environments | **Diverges.** Near-complete invocation recall, but the *environments* are mostly wrong |
 | 3. Execution and tracing | run it, record what happened | **Does not replicate.** 15 of 27 cells produced nothing usable; 78% of sessions never reported |
 | 4. Annotation | traces → consumer specification | **Diverges**, and v2 cannot process the two largest inputs at all |
@@ -40,6 +40,29 @@ parity; scored on what those artifacts commit the system to, it does not.
 ---
 
 ## 1. How to read every number here
+
+### What the words mean
+
+Several of these terms have ordinary meanings that differ from how this study uses them, and
+one of them — *coverage* — is used in the paper for something specific. Each is used below in
+exactly one sense.
+
+| term | means | example |
+|---|---|---|
+| **coverage** | how much of a command's **real-world behaviour** a specification reaches. The paper's sense (§4.1, §7.3 Q3) and this project's evaluation dimension 3. **Used only in that sense.** | the paper's ≤2-flag bound reaches 99.6% of the invocations in its GitHub study |
+| **flag recall** | of the flags v1's specification declares, the fraction the other side also declares | stage 1: 1.000 — every flag found |
+| **invocation recall / precision** | of v1's distinct invocations, the fraction v2 also produced / of v2's, the fraction v1 also produced | stage 2: 0.878 / 0.568 |
+| **environment agreement** | of the environments v2 asked for, the fraction that v1 would also have built for that invocation. A **correctness** rate, not a reach figure | stage 2: 0.208 — so 79% of v2's requests are wrong |
+| **recovery** (core / inference) | of the filesystem interactions v1 recorded, after projection, the fraction v2 also reported | stage 3: 0.606 core |
+| **configurations attempted** | of v1's configurations for a command, how many v2 actually traced | stage 3: 4 of 35 for `cat` |
+| **agreement** (annotation) | of the cases aligned between two annotations, the fraction that agree on a given field | stage 4: 10 of 33 on parallelizability class |
+
+**A rate is only computed over the cases where it is defined.** A command whose invocations
+matched nothing has no environments to compare; it is excluded from the environment-agreement
+denominator, never counted as zero. (An earlier version of this document broke that rule and
+published 0.185 — see §3.3.)
+
+### Reading the comparison
 
 **Both sides are measured with the same instrument, at the same bound, today.** No figure in
 this document is compared against a published one. That is deliberate, and §6 explains why it
@@ -72,7 +95,7 @@ uses a model, so this is the one like-for-like comparison in the study.
 | Flags invented | **0** | **0** |
 
 Per command, the two systems are identical on seven of nine. They differ on two, and both
-differences are *typing*, not coverage:
+differences are *typing*, not missing flags:
 
 | command | v2 exact | v1 exact |
 |---|---|---|
@@ -99,7 +122,7 @@ needs. v1 does this with roughly 715 lines of nested combinatorial Python.
 All 27 cells produced configurations **accepted by v1's own `CommandConfig` model**. Validity
 is not the issue.
 
-| command | invocation recall | precision | **environments covered** |
+| command | invocation recall | precision | **environment agreement** |
 |---|---|---|---|
 | `cat` | 1.000 | 0.385 | 0.200 |
 | `pwd` | 1.000 | 0.714 | 0.200 |
@@ -108,9 +131,9 @@ is not the issue.
 | `tac` | 1.000 | 0.614 | 0.500 |
 | `tail` | 0.964 | 0.352 | **0.000** |
 | `tee` | 0.933 | 1.000 | 0.148 |
-| `uniq` | **0.000** | 0.000 | — |
+| `uniq` | **0.000** | 0.000 | — *(undefined: nothing matched)* |
 | `wc` | 1.000 | 0.462 | 0.417 |
-| **mean** | **0.878** | 0.568 | **0.185** |
+| **mean** | **0.878** | 0.568 | **0.208** (24 cells) |
 
 Three separate things are happening and they must not be averaged into one verdict.
 
@@ -188,7 +211,12 @@ is 146 rather than 194.
 
 ### 3.3 The real v2 gap is the environment, and the invocation diff cannot see it
 
-**0.185 mean coverage.** The systematic cause: v2 types a plain string operand as an existing
+**0.208 mean environment agreement** — so 79% of the environments v2 requested are ones v1
+would not build. *(Corrected 2026-09-22 from 0.185, which summed 24 cells and divided by
+27: `uniq`'s three cells have no environment figure at all, because none of its invocations
+matched v1's, and they were silently counted as zeros. Undefined is not zero.)*
+
+The systematic cause: v2 types a plain string operand as an existing
 *file*. On `grep a relpath_1` it emits `arg_type: "already"` for the regex `a` — asking the
 sandbox to contain a file named `a` — where v1 emits `no_env`.
 
@@ -371,7 +399,7 @@ committed ground truth (`syntax_specs/*.py`):
 
 **The instrument is sound.** v1's ground truth scored against *itself* is **117/117**, and two
 independently built scorers land within five of each other. The signature is typing rather than
-coverage: 105/116 commands have no missing or spurious options, but only 86/116 have no type
+missing flags: 105/116 commands have no missing or spurious options, but only 86/116 have no type
 misclassification.
 
 **This is not a claim that the paper is wrong.** The most likely explanation is that the
@@ -494,7 +522,7 @@ the argument for building the instrument before running the program.
 
 ## 11. The answer, stated plainly
 
-**Are we doing exactly what v1 does?** At stage 1, yes — identical flag coverage, marginally
+**Are we doing exactly what v1 does?** At stage 1, yes — identical flag recall, marginally
 worse typing. At stage 2, v2 finds nearly all of v1's invocations and then asks for the wrong
 world. At stage 3 it mostly does not finish: 78% of sessions execute the command once and then
 answer in prose instead of reporting, so 15 of 27 cells yield nothing. At stage 4 it produces a

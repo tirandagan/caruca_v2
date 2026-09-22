@@ -67,7 +67,7 @@ CONFIG_ENV_DIFF = Method(
     method="config_env_diff",
     stage="generate",
     instruments=("env_request",),
-    metrics=("env_covered_rate",),
+    metrics=("env_agreement_rate",),
     denominator="invocations matched by invocation_set_diff",
 )
 

@@ -48,22 +48,22 @@ def test_the_right_invocation_with_the_wrong_environment_is_caught():
         reference({"grep a": [config(arg("a", "no_env"))]}),
         command="grep",
     )
-    assert result["env_covered_rate"] == 0.0
+    assert result["env_agreement_rate"] == 0.0
     assert result["rates"]["arg_type"] == 0.0
     assert result["mismatch_sample"][0]["differing_fields"] == ["arg_type", "relative"]
 
 
-def test_an_environment_v1_would_have_produced_counts_as_covered():
+def test_an_environment_v1_would_have_produced_counts_as_agreeing():
     result = ce.compare_config_sets(
         {"grep a": [config(arg("a", "no_env"))]},
         reference({"grep a": [config(arg("a", "no_env"))]}),
         command="grep",
     )
-    assert result["env_covered_rate"] == 1.0
+    assert result["env_agreement_rate"] == 1.0
     assert result["rates"]["fully_agreeing"] == 1.0
 
 
-def test_matching_any_one_of_v1s_variants_is_enough_to_be_covered():
+def test_matching_any_one_of_v1s_variants_is_enough_to_agree():
     """v1 expands one invocation into every environment variant of its paths.
 
     The prompt asks for one config, so asking for *a* variant v1 would build is the fair
@@ -77,7 +77,7 @@ def test_matching_any_one_of_v1s_variants_is_enough_to_be_covered():
     result = ce.compare_config_sets(
         {"grep f": [variants[1]]}, reference({"grep f": variants}), command="grep"
     )
-    assert result["env_covered_rate"] == 1.0
+    assert result["env_agreement_rate"] == 1.0
     assert result["counts"]["v1_configs"] == 3
     assert result["counts"]["produced_configs"] == 1
 
@@ -131,8 +131,8 @@ def test_node_grouping_is_scored_but_kept_out_of_the_key():
     result = ce.compare_config_sets(
         {"grep a f": [one_node]}, reference({"grep a f": [two_nodes]}), command="grep"
     )
-    # Same demands, so the environment is covered...
-    assert result["env_covered_rate"] == 1.0
+    # Same demands, so the environment agrees...
+    assert result["env_agreement_rate"] == 1.0
     # ...but the grouping difference is reported rather than lost.
     assert result["rates"]["node_grouping"] == 0.0
 
@@ -153,7 +153,7 @@ def test_an_invocation_v1_never_produced_is_counted_apart_from_a_wrong_environme
         command="grep",
     )
     assert result["counts"]["unmatched_invocation"] == 1
-    assert result["counts"]["env_not_covered"] == 0
+    assert result["counts"]["env_disagreeing"] == 0
 
 
 def test_the_record_names_its_method_and_what_it_dropped():

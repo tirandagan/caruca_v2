@@ -10,9 +10,15 @@ On `grep a relpath_1` a model produced the right string while typing the pattern
 environment variant of its paths: `grep a relpath_1` yields five configurations (existing
 file, empty directory, non-empty directory, nonexistent with a parent, nonexistent without).
 The stage-2 prompt asks the model for one config per invocation. So the fair headline is
-`env_covered_rate` — *is the environment the model asked for one that v1 would have
+`env_agreement_rate` — *is the environment the model asked for one that v1 would have
 produced?* — and `env_variant_recall` ships with a caveat saying it describes the prompt
 rather than the model.
+
+Named *agreement*, not *coverage*, on purpose. This is a correctness rate over the
+environments v2 requested: 0.185 means 81.5% of them are wrong. "Coverage" is reserved in
+this project for how much of a command's real behaviour a specification reaches (evaluation
+dimension 3; the paper's Q3), and borrowing the word here made a failure rate read like a
+reach figure.
 
 Three fields are dropped before comparison, each for a stated reason. The important one is
 `identifier`: v1 generates it with ``random.choices(ascii_uppercase, k=5)``
@@ -169,7 +175,7 @@ def compare_config_sets(
     for text, configs in reference.by_invocation.items():
         reference_index.setdefault(semantic(text), []).extend(env_request(c) for c in configs)
 
-    covered = not_covered = unmatched = 0
+    agreeing = disagreeing = unmatched = 0
     agreement = {field: 0 for field in DEMAND_FIELDS}
     agreement.update({"comparable": 0, "stdin": 0, "node_grouping": 0, "fully_agreeing": 0})
     mismatches: list[dict[str, Any]] = []
@@ -185,9 +191,9 @@ def compare_config_sets(
             produced_total += 1
             request = env_request(config)
             if request.key in variant_keys:
-                covered += 1
+                agreeing += 1
             else:
-                not_covered += 1
+                disagreeing += 1
 
             closest = _closest(request, variants)
             if closest is None:
@@ -238,13 +244,13 @@ def compare_config_sets(
                 "v1_configs": reference.count,
                 "v1_invocations_with_configs": reference.invocation_count,
                 "produced_configs": produced_total,
-                "env_covered": covered,
-                "env_not_covered": not_covered,
+                "env_agreeing": agreeing,
+                "env_disagreeing": disagreeing,
                 "unmatched_invocation": unmatched,
             },
-            "env_covered_rate": (covered / produced_total) if produced_total else None,
+            "env_agreement_rate": (agreeing / produced_total) if produced_total else None,
             "env_variant_recall": {
-                "value": (covered / reference.count) if reference.count else None,
+                "value": (agreeing / reference.count) if reference.count else None,
                 "caveat": (
                     "the stage-2 prompt asks for one config per invocation; v1 emits every "
                     "environment variant of each. This ratio describes the prompt, not the "
@@ -284,9 +290,9 @@ def self_test(command: str = "grep", *, max_arity: int = 1, max_count: int = 1) 
         "command": command,
         "two_process": True,
         "comparable": comparable,
-        "env_covered_rate": result["env_covered_rate"],
+        "env_agreement_rate": result["env_agreement_rate"],
         "passed": (
-            result["env_covered_rate"] == 1.0
+            result["env_agreement_rate"] == 1.0
             and comparable > 0
             and agreement["fully_agreeing"] == comparable
         ),

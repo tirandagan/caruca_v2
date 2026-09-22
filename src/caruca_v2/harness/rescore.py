@@ -254,7 +254,7 @@ def ledger_entry(record: dict[str, Any]) -> dict[str, Any]:
     if "config_comparison" in record:
         entry["config_comparison"] = {
             "method": record["config_comparison"].get("method"),
-            "env_covered_rate": record["config_comparison"].get("env_covered_rate"),
+            "env_agreement_rate": record["config_comparison"].get("env_agreement_rate"),
             "rates": record["config_comparison"].get("rates"),
         }
     return entry

@@ -138,7 +138,7 @@ Extends the existing `method`/`instrument` convention in `score.py` and `annotat
 |---|---|---|---|
 | 1 syntax_spec | `q2_syntax_diff` *(exists)* | `f1`, `exact_argument_rate` | reference arguments |
 | 2 generate | `invocation_set_diff` | `recall`, `precision`, `f1` | v1's unique invocations |
-| 2 generate | `config_env_diff` | `env_covered_rate` | matched invocations |
+| 2 generate | `config_env_diff` | `env_agreement_rate` | matched invocations |
 | 3 trace | `trace_recovery_diff` | `core.{p,r,f1}`, `inference.{p,r,f1}` | projected `(action, path)` pairs |
 | 4 annotate | `annotation_diff` *(in schema)* | `agreement{…}` vector — **no single score** | aligned cases |
 | — | `measured_cost`, `measured_wall_clock` | USD, seconds | — |
@@ -186,7 +186,8 @@ never-blend-methods rule is a file boundary rather than a comment**:
 - **5.3 `config_env.py`** — discharges task 002's deferral. Normalizes each config to an
   `EnvRequest` (files/dirs/stdin requested), dropping `symbol`/`identifier` (defect 3),
   `string`, `true_string`, `sandbox`, each with its reason emitted. Headline
-  `env_covered_rate`; `env_variant_recall` ships **with a caveat string** saying it describes
+  `env_agreement_rate` (renamed from `env_covered_rate`: it is a correctness rate, and
+  *coverage* is reserved for real-world reach); `env_variant_recall` ships **with a caveat string** saying it describes
   the prompt (which asks for one config) rather than the model (v1 emits up to five
   environment variants per invocation). Calls `to_exec_env` directly, avoiding defect 4.
 - **5.4 `trace_recovery.py`** — the partial-credit protocol task 003 says is undefined.
@@ -418,7 +419,7 @@ v1's own committed ground truth (`syntax_specs/*.py`), at v1 commit `d8032407`:
 and two independently built instruments land within five of each other. The gap is not a
 scoring artifact.
 
-The signature is typing rather than coverage: 105/116 commands have no missing or spurious
+The signature is typing rather than missing flags: 105/116 commands have no missing or spurious
 options, but only 86/116 have no type misclassification (the paper reports 3 and 1). Worst
 cases: `stty` (34 spurious), `iconv` (14 diffs), `pandoc` (9), `od` (6). `mogrify` does not
 interpret at all.
@@ -529,7 +530,7 @@ Approved by Tiran 2026-09-14 with a **$60 cap**; four campaigns totalling a $57 
 | Exact-argument rate | **0.967** | **0.983** |
 | Missing / spurious flags | 0 / 0 | 0 / 0 |
 
-**Verdict: replicates.** Identical flag coverage on all nine commands — neither side misses or
+**Verdict: replicates.** Identical flag recall on all nine commands — neither side misses or
 invents a single flag. v1 is marginally ahead on argument *typing* (`tail` 0.846 vs 0.769;
 `tac` 1.000 vs 0.933). Note the direction: on this set v2 is very slightly *worse* than v1,
 which is worth saying plainly given how often the interesting findings have run the other way.
@@ -548,7 +549,7 @@ command in nine is enough to justify k>1 for the whole program — a single samp
 |---|---|
 | Invocation recall (semantic) | **0.878** |
 | Invocation precision | 0.568 |
-| Environments covered | **0.185** |
+| Environment agreement | **0.208** (24 of 27 cells; `uniq` undefined) |
 
 Two separate things are happening, and they should not be reported as one number.
 
@@ -582,7 +583,9 @@ flag-plus-operand invocation as a violation, including `rm` and `tee` where it i
 The withdrawn claim is left visible in §9 of the parity study rather than deleted. It is the one
 place in this study where a v1 defect was asserted and turned out to be a v2 error.
 
-**The environment coverage is the real v2 gap.** 0.185 mean, and the systematic cause is the
+**Environment agreement is the real v2 gap.** 0.208 mean over the 24 cells where it is defined
+(corrected from 0.185, which divided by 27 and counted `uniq`'s undefined cells as zeros), and
+the systematic cause is the
 one §9 flagged on `grep`: v2 types a plain string operand as an existing *file*. The configs
 validate and the invocation strings are right; the world they ask for is wrong. Nothing
 downstream would object — the traces would simply describe the wrong filesystem.

@@ -173,7 +173,7 @@ def stage2(command: str) -> str:
         out.append(
             f"### Environments requested\n\n"
             f"* v2 configurations covered by one v1 would build: "
-            f"**{config.get('env_covered_rate')}**\n"
+            f"**{config.get('env_agreement_rate')}**\n"
             f"* agreement by field: `{json.dumps(config.get('rates'))}`\n\n"
         )
         for mismatch in (config.get("mismatch_sample") or [])[:6]:
