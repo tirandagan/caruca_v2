@@ -23,10 +23,12 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 
 # Task 003: LLM Execution & Tracing (`caruca-v2 trace`)
 
-> **Status:** Implemented 2026-09-03 (phases 1-3 and the v1-venv validation half of
-> phase 4). The fidelity comparison against strace ground truth, and the held-out-set run,
-> are **not started: they need Lima-VM strace runs and Tiran's approval of the cost
-> estimate.** No real API call has been made. Third stage of the series; the only stage
+> **Status:** Implemented 2026-09-03 (phases 1-4). The strace ground truth and the fidelity
+> comparison were done under task 008 (2026-09-14, re-scored 2026-09-20): stage 3 **does not
+> replicate** v1 — 78% of sessions never call `report_observations`. See §6. The
+> held-out-set run is still not started (needs Tiran's cost approval). **Open decision
+> (2026-09-22):** whether the traces file should carry the command's real captured output
+> instead of the model's retyped copy — see §6. Third stage of the series; the only stage
 > where the LLM is given real tools.
 > **Created:** 2026-09-03 · **Owner:** Tiran Dagan
 > **Shared design:** `ai_docs/prep/llm_pipeline_replication.md` — the agent loop, the
@@ -95,11 +97,11 @@ reproduces v1's exactly: `timeout 2`,
       the envelope is **built by v1's own pydantic models** in a v1-venv subprocess, so a
       file that comes out is valid by construction rather than by our imitation of the
       format. Verified against the real checkout with a real `cat` config
-- [ ] Fidelity comparison recorded on identical configs: LLM-observed interactions vs
-      v1's strace-derived `outputs/CMD.json` — **not implemented.** It needs strace ground
-      truth generated in the Lima VM on the identical configs, and the partial-credit
-      protocol still has to be defined before anything is scored. The raw material is in
-      place: every run records the observations and the assembled Traces file
+- [x] Fidelity comparison recorded on identical configs ✓ 2026-09-14, under task 008 —
+      the partial-credit protocol is `harness/trace_recovery.py` (projection plus two tiers,
+      core `{ad md de mo wf rd}` and inference `{rf}`), scored against v1's strace traces
+      on v1's own configurations. First published figures were wrong; corrected by the
+      2026-09-20 re-score (`c2d94b7`). Results in §6
 - [x] Every execution provably stayed inside the workspace and allowlist ✓ 2026-09-03 —
       `checks.tool_audit` records every tool call and the executor's decision on it,
       including every refusal, and `checks.refused_calls` counts them. 21 tests in
@@ -116,8 +118,8 @@ reproduces v1's exactly: `timeout 2`,
       `caruca-v2 trace rm` exits before any model call without `--isolation lima`, and the
       executor refuses `run_command` for a destructive command with no isolation backend
       even if the first check were bypassed
-- [ ] Strace ground truth generated locally in the Lima VM — not started (pairs with the
-      fidelity comparison above)
+- [x] Strace ground truth generated locally in the Lima VM ✓ 2026-09-14, under task 008 —
+      for the nine parity commands, written to v1's `outputs/<cmd>.parity.json` (`a9dabda`)
 
 ## 4. Implementation Phases
 1. [x] Workspace materializer ✓ 2026-09-03 — `src/caruca_v2/workspace.py`. **It does not
@@ -141,9 +143,13 @@ reproduces v1's exactly: `timeout 2`,
        regression tests in `tests/test_review_regressions.py`.
 3. [x] `prompts/trace/` files; `trace` subcommand ✓ 2026-09-03 — one agent session per
        configuration, `--limit` defaulting to 5 as the cost brake
-4. [x] v1-venv validation ✓ 2026-09-03 · [ ] fidelity-comparison script — see above
+4. [x] v1-venv validation ✓ 2026-09-03 · [x] fidelity-comparison script ✓ 2026-09-14,
+       under task 008 (`harness/trace_recovery.py`)
 5. [ ] Held-out-set run (cost estimate approved first) + write-up — 👤 **blocked on
        Tiran's approval; the first step here that spends money**
+6. [ ] Record the command's real captured output in the traces file, keeping the model's
+       copy beside it as a measured check (§6, 2026-09-22) — 👤 **awaiting Tiran's
+       decision; nothing implemented**
 
 ### Design decisions taken during implementation
 - **Observation is reported through a tool, not parsed from prose.** The model ends its
@@ -173,3 +179,53 @@ reproduces v1's exactly: `timeout 2`,
   the approach, not something to fake.
 - Workspace fidelity is load-bearing for every downstream comparison; the golden tests
   in phase 1 are not optional.
+
+## 6. Progress Log
+
+### 2026-09-14 → 09-20 — first real runs, measured under task 008
+Nine commands × 3 samples = 27 cells, `openai/gpt-4o` at temperature 0, in the Lima VM,
+against **v1's own configuration expansion** (so a stage-2 error is not scored twice).
+12 cells usable, 15 not; **$0.940** total. Of 135 tool-loop sessions, **105 (78%) ended
+without calling `report_observations`**: turn 1 runs the command, turn 2 answers in prose.
+Where a session did report: core precision 0.800 / recall 0.606, inference (`rf`)
+precision 1.000 / recall 0.391, over thin denominators (17 core units). Full write-up:
+the stage 3 section of `ai_docs/analysis/v1_v2_parity_study.md`.
+
+### 2026-09-22 — review of how stage 3 handles the command's output (no code changed)
+Started from Tiran's question of why stage 3 runs the same binaries as v1.
+
+- **Same binaries, by design.** Stage 3 has to run the command to learn what it does; an
+  LLM that doesn't run it is only guessing, which is the naive control's job. In the parity
+  campaign both sides ran the same GNU binaries in the same Lima VM
+  (`campaigns/p1_trace.json`, `"isolation": "lima"`). The LLM replaces the *observer*
+  (strace plus `tracer.py` / `strace_parser.py`), not the command.
+- **The output is already observed, but the wrong copy is kept.** `tools._run` captures
+  the real stdout, stderr and exit code and hands them to the model, which is asked to
+  report them. The traces file then stores the model's **retyped** copy
+  (`stages/trace.py:221`); the captured bytes are discarded. `audit_trail()` keeps only
+  tool, arguments, allowed and reason, and conversation logging was off in every saved run.
+- **Why that matters.** v1's annotator uses the exact output text, not just the fact that
+  output happened (`tracer/data.py::to_annotation`): `__is_similar` requires the outputs
+  on two partial inputs to concatenate *exactly* to the output on the whole input — the
+  parallelizability decision; `__preserves_line_order` compares output lines to fixture
+  lines; `input_geq_output` compares lengths; `return_code == 0` decides which runs count
+  as successful. One dropped character in a retyped copy flips a command to
+  non-parallelizable.
+- **Evidence so far: no transcription errors.** 19 reported entries matched by config to
+  v1's `outputs/<cmd>.parity.json` (same binaries, same VM, same fixtures): exit code
+  19/19, stderr 19/19, stdout 9/9 exact outside `pwd`. The 10 `pwd` mismatches are
+  expected — `pwd` prints the workspace path, which differs by design
+  (`/tmp/toplevel_*` vs `~/.caruca_v2/workspaces/*`). Small sample, short outputs.
+- **No published result is affected.** The stage 4 parity campaign scored v1's traces
+  (`campaigns/p1_annotate.json` → `*.parity.json`), and the stage 3 scorer compares
+  interactions only.
+- **Proposal — awaiting Tiran (phase 6):** write the harness-captured stdout, stderr and
+  exit code into `<cmd>.traces.json`; keep the model's reported copy in
+  `<cmd>.observations.json` and record a copy-match check in the manifest. The
+  interactions list (`rf stdin`, `wf stdout`, `wf stderr`, file actions) stays the
+  model's judgment. Rationale: the output is not hidden from v2 the way syscalls are, so
+  retyping it adds noise unrelated to the question stage 3 asks; it also costs output
+  tokens and breaks on long output (the 4,096-token response limit) or binary output.
+  This is repair of the instrument, not tuning (`memory/feedback_instrument_defect_vs_tuning.md`).
+  If adopted, earlier stage 3 runs must be labelled as pre-change or rerun. It does not
+  touch the 78% no-report failure.

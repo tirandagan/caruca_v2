@@ -47,5 +47,14 @@ output-hash comparison, ShellCheck's actual 2.2K-test suite rerun ("passing all 
 (matching the paper's 52/52-style numbers) is separate, heavier infrastructure, deferred to
 [[caruca-v2-build-tiering]]'s Tier 1.
 
+**Correction (2026-09-22, re-read of the paper's §7.1 text + Tab. 1):** the "PaSh 52/52" is NOT the
+execution check. The scored 52 is a per-command *manual comparison* of Caruca's annotation against
+PaSh's hand-written one (streams + class, parallelizable/non-parallelizable pure counted as equal),
+restricted to invocations appearing in PaSh's benchmark suite (Tab. 1's column literally reads "PaSh
+hand-made specifications"). The benchmark-suite rerun with hash comparison is a *separate*
+corroborating sentence with no number, run by hand on CloudLab node `caruca-pash-run` (v1 commits
+`d2f975d4b`/`4df4d35be`, Nov 2024) and never committed. A paper-comparable PaSh result needs both;
+task 012 builds both. ShellCheck (full 2.2K-test rerun) and Shseer claims above are unchanged.
+
 **How to apply:** whenever implementing or citing the Evaluation Harness's correctness numbers, check
 which of these three a given number actually is before presenting it as paper-comparable.

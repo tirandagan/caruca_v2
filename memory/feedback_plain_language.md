@@ -31,6 +31,13 @@ When giving Tiran information, follow these rules:
    missing on both sides as the two sides agreeing (`None == None`). Undefined is neither; leave
    it out of the denominator.
 
+7. **Questions are held to the same standard, and more strictly.** When asking Tiran to decide
+   something, never open with a section reference, a lettered sub-question, or a tool name he has
+   not been introduced to. Each question must stand on its own: say in plain words what the thing
+   is, what is actually being chosen between, and what changes depending on the answer. A question
+   is a worse place for shorthand than a statement, because he cannot skip past it — he has to
+   answer it.
+
 **Why:** Tiran asked for this explicitly on 2026-08-29, right after two exchanges where the shorthand
 failed. He had to ask "what is dimension 6?" and then "I don't understand your statement about 3,456
 versus 3,130" — both times because a numbered item from a project document and a set of raw measurements
@@ -46,9 +53,23 @@ elsewhere. Pinning the definitions down also exposed a real error: the stage-2 f
 as 24 values divided by 27, silently counting `uniq`'s undefined cells as zeros. Correct figure 0.208,
 not 0.185. Imprecise vocabulary was hiding an arithmetic mistake, not just causing confusion.
 
+Rule 7 added 2026-09-22, when Tiran said: "Whenever you ask me a question, please qualify and explain it
+in simple, non-technical terms. You can't just introduce me to Section C of the document I didn't review."
+The trigger was a four-part decision prompt during task 010 (the execution console) that asked him to
+confirm "decision 6" and "the field list from §6.6", and to choose a line counter by naming `cloc`, `scc`
+and `tokei` with no word on what a line counter was for. Every option was written from inside a task
+document he had not read. Rules 1-3 already covered this; the failure was applying them to prose but not
+to the questions themselves.
+
 **How to apply:** applies to all conversational replies, summaries, and status updates. It does *not* mean
 dumbing down the technical substance or hiding detail — the analysis stays rigorous, the *explanation* gets
 plainer. Written artifacts (planning docs, analysis docs) may still use precise numbered/sectioned
 conventions internally, since that is what makes them citable for the paper; but when talking *about* those
-artifacts in conversation, translate. Related: [[feedback-v1-v2-framing]] covers a different kind of
-framing rule (tone toward v1), not this one.
+artifacts in conversation, translate.
+
+Rule 7 also binds the **skills that ask Tiran questions**, not just conversation. On 2026-09-22 he asked
+for it to be carried into the `task-creator` skill specifically, since writing a task document always
+means asking him to decide things. That skill now has an "Asking Tiran questions" section stating the
+rule inline, so it applies even in a session that never loads this memory. Any other skill that puts
+questions to him should carry the same section. Related: [[feedback-v1-v2-framing]] covers a different
+kind of framing rule (tone toward v1), not this one.

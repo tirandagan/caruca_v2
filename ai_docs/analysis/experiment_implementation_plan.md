@@ -356,6 +356,9 @@ Unchanged (run PaSh/Shseer over the 177-script corpus with mined specifications;
 analyzable scripts with measured speedups, and — the number that matters — *E*, the cases where a
 mined specification changes a script's output). Still last: it wants E1's witness machinery and
 E3's typed specifications settled first. Two to three weeks, mostly harness and runtime.
+**Update 2026-09-22:** a bounded first slice (PaSh only, the nine parity commands, v1 vs v2
+annotations, output-hash correctness under a canary-checked instrument) is specified as
+`ai_docs/tasks/012_pash_downstream_study.md`. It does not wait on E1/E3.
 
 ### S5 — Treat sampling disagreement as signal, not noise
 

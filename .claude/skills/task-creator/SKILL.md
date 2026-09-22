@@ -71,12 +71,41 @@ The task template contains comprehensive instructions in section 16 (AI Agent In
 
 Simply follow the task template's workflow exactly as documented.
 
+## Asking Tiran questions
+
+Creating a task document always means asking Tiran to decide things. **Every question must stand
+on its own.** He has not read the document being written, he will not go look things up to follow
+a question, and a question is a worse place for shorthand than a statement, because he cannot skip
+past it.
+
+Before asking anything, check the question against these:
+
+- **Never name a section, decision number, phase letter or sub-question he has not been introduced
+  to.** No "confirm decision 6", no "the fields in §6.6", no "Phase 0 item (c)". If the question is
+  about something written down, say what the thing *is* in the question itself.
+- **Never name a tool, library, format or technique without saying what it does and why it is
+  being considered.** Not "cloc, scc or tokei" but "a program that counts lines of code, so we can
+  say how much hand-written code the new approach replaces".
+- **Say what actually changes depending on the answer.** If nothing visible changes either way,
+  pick the sensible default and mention it instead of asking.
+- **Give the real trade-off in each option**, in ordinary words — what it costs, what it risks,
+  what it makes harder later. Not just the label.
+- **Set up the background in prose first**, then ask. A couple of plain sentences explaining what
+  is being built and why this choice arises is usually the difference between a question he can
+  answer and one he has to decode.
+- **Ask only what is genuinely his to decide.** Anything answerable by reading the code, running a
+  command or checking a file is yours to go answer, not his to adjudicate.
+
+This applies to every question the skill asks, including quick confirmations. The full rule, with
+the history behind it, is in `memory/feedback_plain_language.md`.
+
 ## Key Points
 
 - **Auto-numbering is mandatory**: Always find and use the next sequential number
 - **File location**: Always create in `ai_docs/tasks/` directory
 - **Follow template workflow**: After creating the file, follow the task template's instructions exactly
 - **The template does the heavy lifting**: Don't reinvent the workflow - delegate to the template
+- **Questions stand alone**: Never ask Tiran to confirm a section, decision number or tool name he has not been introduced to - see "Asking Tiran questions" above
 
 ## Example Usage
 
@@ -95,3 +124,4 @@ Simply follow the task template's workflow exactly as documented.
 - ✅ File placed in `ai_docs/tasks/` directory
 - ✅ Basic sections populated from user's request
 - ✅ Task template workflow followed for remainder of process
+- ✅ Every question asked along the way was self-contained and in plain language
