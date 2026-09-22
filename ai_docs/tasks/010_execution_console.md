@@ -31,17 +31,22 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 > **Depends on:** tasks 002-004 (the four v2 stages), 006 (the harness: `score`, `sweep`,
 > `report`) and 008 (the per-stage scorers, the glossary, the parity campaigns). Task 005 stays
 > reserved for v1 instrumentation, and §9 names the two places this console needs it. Task 009
-> (stage 1 sends v1's prompt word for word) runs in parallel and changes stage 1's options;
-> the option table in §7 follows each CLI's `--help`, so those options arrive without redesign.
+> (stage 1 sends v1's prompt word for word) runs in parallel and changes stage 1's options.
+> The option table in §7 follows each CLI's `--help`, so those options arrive without redesign.
 >
-> **Scope was set in two passes on 2026-09-22.** First, the mockup at
-> `https://caruca.tirandagan.com/` built for real, to this brief: *"make the console easy to
-> use and mimic the full functionality of the CLI we built (and v1's existing CLI)."* Then
-> Tiran asked four questions of that first pass. Does it serve the follow-up to the white
-> paper? Is it strong tooling for comparing v1 with v2? Does it let us look inside v2 (the
-> prompts, the code, all the performance metrics)? Can our findings, now and later, live in
-> the console and feed the paper? The first pass answered only the second, and only partly.
-> §5, §6.4, §6.5 and §6.6 are the answer to all four.
+> **Scope was set in three passes on 2026-09-22.**
+> 1. The mockup at `https://caruca.tirandagan.com/`, built for real to this brief: *"make the
+>    console easy to use and mimic the full functionality of the CLI we built (and v1's
+>    existing CLI)."*
+> 2. Tiran asked four questions of that first pass. Does it serve the follow-up to the white
+>    paper? Is it strong tooling for comparing v1 with v2? Does it let us look inside v2 (the
+>    prompts, the code, all the performance metrics)? Can our findings, now and later, live in
+>    the console and feed the paper? §5, §6.4, §6.5 and §6.6 are the answers.
+> 3. Tiran asked whether it runs v1 loyally in its own environment, and whether v1 appears as
+>    a terminal on the left. It did neither. The first version never said how v1 must be run,
+>    and in two places it would have run v1 wrongly or overwritten its data. It also showed
+>    each side as a list of output lines. Decision 4 now gives each side a real terminal, and
+>    decision 7, §3, §6.1-§6.3, §7 and §10 fix how v1 is run.
 >
 > **Note on template adaptation:** created from `ai_docs/dev_templates/task_template.md`.
 > Web-stack sections are reduced to what a local, single-user research tool needs, as in
@@ -53,12 +58,14 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 
 One local web page with two jobs:
 
-1. **Run and watch.** Everything both CLIs do, v1 beside v2, without remembering a flag.
+1. **Run and watch.** Everything both CLIs do, v1 beside v2, each in a real terminal, without
+   remembering a flag. v1 runs exactly as the parity study ran it.
 2. **Explain and record.** For every number, show where it came from and which items it
    counts. Show what the two systems did differently, and what v2 did inside. Keep the
    project's findings, each tied to its evidence and to the part of the paper it changes.
 
-The first job makes the tooling usable. The second is what the paper follow-up needs.
+The first job makes the tooling usable and faithful. The second is what the paper follow-up
+needs.
 
 ---
 
@@ -69,9 +76,11 @@ The first job makes the tooling usable. The second is what the paper follow-up n
 | 1 | **Runs locally on the Mac only.** The Vercel deployment stays a mockup | v1 traces inside the Lima VM, and v2 needs the local v1 checkout and the API key. Run data embeds v1's man pages and specifications, which must never reach a public location |
 | 2 | **Replay first, live second** | Everything the paper needs is already on disk. Live execution is the riskiest part and the least needed for writing |
 | 3 | **v2 shows all four stages** | The mockup draws only stage 1 |
-| 4 | **Structured events, not terminals** | This settles the question `PRODUCT.md` left open. A locally run Next.js server can start processes and stream what they write, so no separate long-running service is needed |
+| 4 | **A real terminal on each side, v1 on the left and v2 on the right, with structured events beside them.** *Reversed on 2026-09-22 at Tiran's direction; the first version showed each side as a list of output lines* | Only a real terminal shows what each program shows a person. Line lists break in three places: v1's tracer redraws a progress bar in place, Python holds output back when it isn't writing to a terminal, and v2 switches to plain output when it isn't on one. The events stay because numbers must come from files, never from reading terminal text. This also settles the question `PRODUCT.md` left open: the local server owns each running process, so a run survives closing or reloading the page |
 | 5 | **Easy to use, and every function of both CLIs reachable** | The design brief |
 | 6 | **Findings are Markdown files in the repo, which the console reads and writes.** *Proposed; confirm in Phase 0* | Git history, co-author review and the existing Markdown-to-PDF pipeline all work on files. A database would be a second source of truth |
+| 7 | **v1 runs exactly as the parity study ran it, and never writes into its own checkout** | A v1 run started from the console must be the same kind of run the measurements came from. v1's default output folder holds reference data that git cannot restore (§3) |
+| 8 | **v1's LLM step reaches OpenAI through OpenRouter, not a separate OpenAI account.** *Tiran's direction, 2026-09-22* | One account and one key for both sides. Both sides then take the same route to the same model, which is what makes their cost comparable. It also gives v1's LLM step token and cost figures for the first time — neither v1 nor the paper records any. It needs no change to v1's code: two environment variables do it (§6.2). *Phase 0(g) went further than expected — the model identifier needs no rewriting either, so nothing stands between v1 and the provider but a meter* |
 
 ---
 
@@ -81,15 +90,39 @@ The first job makes the tooling usable. The second is what the paper follow-up n
   where its README records the provenance. Its design-system bundle is byte-identical to
   `.claude/skills/caruca-design/_ds_bundle.js`, and its screens are the `eval-console/` kit
   beside it. Only the page definition is new. Its scripted values are wrong in the ways listed
-  in §8.
+  in §8. The original August design (`ai_docs/prep/component_functionality.md`) also had real
+  terminals, v1 on the left, so decision 4 returns to it.
 - **Look and feel.** The `caruca-design` skill is binding (`PRODUCT.md`,
   `memory/design_authorities.md`).
 - **The two CLIs.**
-  - v1's `caruca` runs from `$CARUCA_V1_ROOT/caruca/.venv/bin/caruca`. Its `syntax-spec`
-    works only from `.venv-llm`, because the `.venv` copy dies at import against DSPy 3.3.1.
+  - v1's `caruca` runs from `$CARUCA_V1_ROOT/caruca/.venv/bin/caruca` on the Mac, and from
+    `~/caruca-venv/bin/caruca` inside the Lima VM `caruca`. Its `syntax-spec` works only from
+    `.venv-llm`, because the `.venv` copy dies at import against DSPy 3.3.1.
   - v2's `caruca-v2` runs from `.venv/bin/caruca-v2`.
   - The v1 checkout is pinned at commit `d8032407`.
-- **Run data.** All of it is gitignored and local only.
+- **How the parity study ran v1.** These are the forms the console must reproduce (decision 7).
+  They come from `src/caruca_v2/v1.py` and the reproduction commands in
+  `ai_docs/docs/v2_chain_vs_v1.md`:
+
+  | stage | how it ran |
+  |---|---|
+  | `generate` | on the Mac: `$CARUCA_V1_ROOT/caruca/.venv/bin/caruca generate CMD …`, from `$CARUCA_V1_ROOT/caruca` (`v1.py::reference_invocations`, `reference_configs`) |
+  | `trace` | in the VM: `limactl shell caruca -- ~/caruca-venv/bin/caruca trace CMD … --output FILE`, from `$CARUCA_V1_ROOT/caruca`, under v1's default isolation (`CARUCA_ISOLATION_METHOD` unset, which means `try`) |
+  | `annotate` | in the VM: `limactl shell caruca -- sh -lc "~/caruca-venv/bin/caruca annotate FORMAT CMD --input FILE"`, from `$CARUCA_V1_ROOT/caruca` (`v1.py::reference_annotation`) |
+  | `syntax-spec` | **never run live.** The parity study used v1's archived LLM output, `$CARUCA_V1_ROOT/outputs/llm-dsl-generation/CMD.py`. The console can run it live, from `.venv-llm`, through OpenRouter (§6.2) |
+
+- **Three v1 quirks the console must respect.**
+  - `generate` accepts `--output` but never uses it: `cli/generate.py` only prints.
+  - `trace --output` takes a *file* path, although its help text says directory
+    (`cli/trace.py`, line 10).
+  - `generate --number` is not a count: see §6.2.
+- **v1's working files, which nothing can restore.** `$CARUCA_V1_ROOT/caruca/outputs/` holds
+  36 files, including the parity study's v1 traces and annotations (`*.parity.json`,
+  `*.parity.pash.json`) and v1's older reference traces. The harness depends on them. The
+  folder is gitignored in v1, and v1's `trace` and `annotate` default to it, relative to where
+  they run.
+- **Run data.** Committed to this private repo since Tiran's commit `eedd91a` (2026-09-15).
+  Only `eval/campaigns/` is still gitignored.
   - `eval/runs/<run_id>/`: 163 run directories today. Each has a `manifest.json` recording:
     - the model requested and the model reported, and the provider
     - the seed and whether it was honored, and the decoding parameters
@@ -99,7 +132,8 @@ The first job makes the tooling usable. The second is what the paper follow-up n
 
     Each also has per-turn `*.telemetry.json` files and the stage's outputs.
   - `eval/campaigns/<id>/`: `ledger.jsonl` (one scored row per cell) and `summary.json`. There
-    are eight campaigns: the C0 pilot and the P1 parity study, one per stage each.
+    are eight campaigns: the C0 pilot and the P1 parity study, one per stage each. These are
+    not committed.
   - `eval/metrics.db`: its `runs` table has one row per model turn (511 rows today).
 - **Prompts.** `prompts/<stage>/system.md` and `user.md` for all four stages, plus
   `prompts/syntax_spec/variants/dspy_style/`, a reconstruction of v1's DSPy wire format.
@@ -109,7 +143,7 @@ The first job makes the tooling usable. The second is what the paper follow-up n
   - `harness/rescore.py::score_run`: re-derives any run's comparison from its artifacts.
   - `harness/report.py`: aggregates a campaign, with a percent change only where one is valid.
   - `scripts/parity_diff.py`: a per-command side-by-side of what each system emitted, written
-    to the gitignored `eval/parity_diffs/`.
+    to `eval/parity_diffs/`.
 - **Findings, today scattered across prose.**
   - `ai_docs/analysis/v1_v2_parity_study.md`
   - `white_paper_addendum.md` (eight proposals, in the paper's own section order)
@@ -119,7 +153,8 @@ The first job makes the tooling usable. The second is what the paper follow-up n
 - **What v1 material may be shown.** Per `memory/project_v1_prompt_licensing.md`, v1's
   *prompts* may be copied verbatim. v1's other material (man pages, specifications, fixtures)
   is read at runtime and never put anywhere public. The console is local, so it may display
-  both. It marks the second kind wherever it appears, and nothing leaves the machine carrying it.
+  both. It marks the second kind wherever it appears, and its exports flag anything containing
+  it.
 
 ---
 
@@ -131,8 +166,8 @@ default, is taken from each CLI's own `--help` (collected 2026-09-22).
 | v1 `caruca` | v2 `caruca-v2` | console screen |
 |---|---|---|
 | `syntax-spec CMD`: `--fetch`, `--json` | `naive-llm CMD`: `--docs`, `--prompt-variant` | Pipeline, stage 1 |
-| `generate CMD`: `--skip`, `--max-arity`, `--elaborate-relations`, `--stdin`, `--content`, `--max-count`, `--path`, `--number`, `--output`, `--full` | `generate CMD`: `--spec`, `--max-arity` (1), `--max-count` (4), `--stdin`, `--content`, `--skip`, `--max-turns` (4), `--no-compare`, `--compare-timeout` (300) | Pipeline, stage 2 |
-| `trace CMD`: the generation options, plus `--prefix`, `--output`, `--parallel`, `--pash`, `--posh`, `--length-only` | `trace CMD`: `--configs`, `--limit` (5), `--max-turns` (15), `--isolation` (`host` or `lima`), `--lima-instance`, `--keep-workspace` | Pipeline, stage 3 |
+| `generate CMD`: `--skip`, `--max-arity`, `--elaborate-relations`, `--stdin`, `--content`, `--max-count`, `--path`, `--number`, `--output` (accepted, unused), `--full` | `generate CMD`: `--spec`, `--max-arity` (1), `--max-count` (4), `--stdin`, `--content`, `--skip`, `--max-turns` (4), `--no-compare`, `--compare-timeout` (300) | Pipeline, stage 2 |
+| `trace CMD`: the generation options, plus `--prefix`, `--output` (a file), `--parallel`, `--pash`, `--posh`, `--length-only` | `trace CMD`: `--configs`, `--limit` (5), `--max-turns` (15), `--isolation` (`host` or `lima`), `--lima-instance`, `--keep-workspace` | Pipeline, stage 3 |
 | `annotate FORMAT CMD`: `--input`, `--human`, `--hide-trivial`, `--include-all-traces` | `annotate FORMAT CMD`: `--traces`, `--max-turns` (4), `--no-compare`, `--v1-runner` (`host` or `lima`), `--lima-instance` | Pipeline, stage 4 |
 | `oracle`: `--no-strat`, `--full-match-only`, `--exclude`, `--summary` (reads invocations from standard input) | none | Tools |
 | none | `score`: `--spec`, `--reference`, `--reference-path`, `--transform`, `--cmp-specs`, `--self-test`, `--json` | Compare, Tools |
@@ -158,7 +193,7 @@ dimensions (defined in `ai_docs/prep/master_idea.md`).
 | **Q2: accuracy of the LLM's syntax specifications** (the paper reports 116 of 120 exact) | Stage-1 results per command and per argument. Four figures side by side: the paper's; v1's shipped specifications measured today (78 of 116 by v1's own `eval/cmp_specs.py`, 83 of 116 by v2's scorer); and v2's | Nothing |
 | **Q1: specification quality per consumer** (the paper ran PaSh, POSH, ShellCheck and Shseer with the annotations) | Stage-4 agreement with the hand-curated ground truth, for both sides. v2 agrees on the parallelizability class in 10 of 33 aligned cases; v1 in 11 of 64 | These are not comparable to Q1, because the paper ran the consumers. Running them is Tier 1 work |
 | **Q3: real-world coverage** (the paper reports 97.78% of 666,468 invocations) | v1: `caruca oracle` over the corpus | **v2 has no instrument.** `oracle` reads only v1's committed specifications and has no option to point it at another, so measuring a v2 specification's reach is a separate harness task. The corpus is `eval/user-scripts/invocations.txt` in v1's checkout (665,628 lines, 840 fewer than the paper's count, unexplained), built and scored by `eval/user-scripts/completeness_accumulate.sh`. Several project documents name `eval/command-invocations.txt` instead, a separate 659-line file (§13) |
-| **Q4: cost** (the paper reports hours per command) | v2: tokens, dollars and seconds per turn, run, stage and campaign. v1: seconds, as measured by the console when it runs v1 | The paper never costed its LLM step, and v1's LLM step records no tokens. Recording them is task 005 |
+| **Q4: cost** (the paper reports hours per command) | v2: tokens, dollars and seconds per turn, run, stage and campaign. v1: seconds, from the run record the console writes for every v1 run it starts (§7). For a live v1 stage 1, also its tokens and cost, which the OpenRouter forwarder records (decision 8) — the first time v1's LLM step has been metered | The paper never costed its LLM step. v1 still records nothing itself, so a v1 run started outside the console has no figures: that is task 005 |
 | Dimension 1: correctness | Compare, down to the items (§6.4) | Nothing |
 | Dimension 2: cost and performance | As for Q4 | As for Q4 |
 | Dimension 3: coverage (real-world reach only) | As for Q3 | As for Q3 |
@@ -186,39 +221,108 @@ the `caruca-design` skill.
 
 ### 6.1 Pipeline (the home screen): build a run
 
-- There are four stage rows, with v1 on the left and v2 on the right.
+- **Four stage rows, with v1 on the left and v2 on the right.**
 - **The five shared generation options appear once and apply to both sides:** `--max-arity`,
   `--max-count`, `--stdin`, `--content` and `--skip`. Different limits on each side would
   measure the limits rather than the systems, which is why `harness/rescore.py::_bounds`
   exists. Options only one side has sit under that side.
-- **Each stage's input defaults to the previous stage's output on the same side.** One switch
-  instead gives both sides v1's artifact, for a comparison on identical input. This is already
-  `caruca-v2 annotate`'s default.
-- Run v1, v2 or both, one after the other or at the same time.
+- **Each side's data flow is drawn as it really is.** The two differ:
+
+  | side | flow |
+  |---|---|
+  | v2 | specification → `generate` (invocations and configurations) → `trace --configs` → `annotate --traces` |
+  | v1 | specification → `trace` → `annotate --input` |
+
+  v1's `trace` works out its own invocations from the specification and the generation
+  options. v1's `generate` feeds nothing: it prints the invocations `trace` will run, so the
+  console shows it as stage 3's preview and count.
+- **Identical input, one switch per stage.** For a comparison on the same input, v2 can take
+  v1's artifact instead of its own:
+
+  | stage | v2 takes | note |
+  |---|---|---|
+  | `generate` | v1's committed specification | already the default |
+  | `trace` | v1's own configuration expansion, `eval/v1_configs/CMD.configs.json` | as the parity study did |
+  | `annotate` | v1's traces | already the default |
+
+- **Run v1, v2 or both.** One after the other is the default. Both at once is allowed, but
+  flagged (§6.3).
 
 ### 6.2 Pre-flight: shown before anything runs
 
-- **Counts first.** Run v1's own `generate CMD --number` and `trace CMD --length-only` at the
-  chosen limits, because counts explode: `mkdir` goes from 44 invocations at `--max-count 1`
-  to 4,240 at 4.
-- **Where each side runs**, chosen automatically:
-  - v1's `syntax-spec` runs from `.venv-llm`.
-  - v1's `trace` and `annotate` run in the Lima VM `caruca`.
+- **Counts first, taken from what v1 actually prints.**
+  - Run v1's `generate` at the chosen limits (it executes nothing), then count the lines it
+    prints and how many of them are distinct.
+  - **Never use `generate --number`.** The E0 check (`ai_docs/analysis/e0_artifact_pinning.md`)
+    found it disagrees with what v1 prints on all 90 commands checked. It crashes outright on
+    14 commands, including `pwd`, which is in the parity set.
+  - Show `trace --length-only` for what it is: the executions v1 will perform, duplicates
+    included. At v1's defaults, `mkdir` prints 4,240 lines, only 1,094 of them distinct, and
+    tracing them takes 10,368 executions.
+  - Stop generation at a line cap and a time limit (16 commands exceed E0's 500,000-line cap),
+    and say when a cap was hit.
+- **Where each side runs, chosen automatically.**
+  - v1 always uses the forms in §3.
   - v2's `trace` runs in Lima for any command in `tools.py::DESTRUCTIVE_COMMANDS`, because the
     host refuses it.
   - v2's `annotate` uses `--v1-runner lima` on macOS.
-- **Which steps call a paid model, and an estimate.** The estimate comes from measured runs of
-  the same stage and model, and states its basis. With no measured runs, the pre-flight says
+- **Where v1's output goes.** Always into the run's own folder (§7). The pre-flight refuses any
+  v1 command line whose output would land inside v1's checkout.
+- **v1's stage 1 runs through OpenRouter** (decision 8), with no change to v1's code.
+  - **How.** v1's `llm.py` reads `OPENAI_API_KEY` and has `gpt-4o` fixed in its code. Two
+    environment variables redirect it: `OPENAI_API_KEY` set to the OpenRouter key, and
+    `OPENAI_BASE_URL` set to the console's local forwarder (§7). Checked on 2026-09-22: the
+    client in v1's `.venv-llm` (openai 1.109.1) honours `OPENAI_BASE_URL`, and nothing else
+    about the run changes.
+  - **Why a forwarder, now that the model identifier needs no rewriting.** *Corrected
+    2026-09-22 by Phase 0(g), which reversed this paragraph's original reasoning.* OpenRouter's
+    catalogue lists no bare `gpt-4o` — 453 identifiers, every one provider-prefixed — but a live
+    request naming `gpt-4o` is **accepted** and resolves to `openai/gpt-4o`. Those are two
+    different questions, and only the second one matters here. So the forwarder does not touch
+    the request: v1 could reach OpenRouter with the two environment variables alone. It exists
+    solely to **meter** the call — to record the tokens and cost OpenRouter reports back, which
+    v1's code never reads — and that is worth a component, because it is the first time v1's LLM
+    step has been costed at all.
+  - **The pre-flight still offers the free alternatives**, each labelled as not a live run:
+    v1's archived LLM output (what the parity study used), or `syntax-spec --fetch` (v1's
+    committed, hand-checked specification).
+  - **It is a paid call**, so it asks first, like any other.
+- **Which v2 steps call a paid model, and an estimate.** The estimate comes from measured runs
+  of the same stage and model, and states its basis. With no measured runs, the pre-flight says
   so rather than guessing.
-- **Environment checks.** Lima is running. The API key is present (presence only, never the
-  value). The v1 checkout is at the pinned commit.
+- **Environment checks.** Lima is running. Each API key a step needs is present (presence
+  only, never the value). The v1 checkout is at the pinned commit.
 
 ### 6.3 Run: replay and live
 
-- **The two sides' event streams side by side**, with a stage rail across the top.
-- **An artifacts panel** naming each file written and which stage reads it next.
-- **Replay speed**, and a marker wherever a timing is reconstructed rather than recorded (§9,
-  Phase 0).
+- **A real terminal on each side, v1 on the left and v2 on the right.**
+  - Each program runs in a pseudo-terminal: the same kind of connection a terminal window gives
+    it. So it behaves exactly as it does in Tiran's own terminal: v1's progress bar redraws in
+    place, output appears as it is written rather than in bursts, and v2 shows its normal
+    display.
+  - The console shows each one in a terminal view you can watch but not type into.
+  - Each terminal's title line shows the exact command and where it runs: this Mac, or the
+    Lima VM `caruca`.
+- **Everything each terminal shows is recorded with its timing**, in the run's folder, in the
+  asciicast format (a standard format for terminal recordings). Replay plays it back exactly,
+  at any speed.
+- **Beside each terminal, the events.**
+  - a stage rail
+  - per-turn tokens, cost and seconds
+  - tool calls
+  - an artifacts panel naming each file written and which stage reads it next
+
+  Numbers come from files, never from reading terminal text.
+- **Runs made before the console** (all 163 today) have no terminal recording. For those, the
+  pane says so, shows the command line, and plays the events. Where the manifest does not
+  record the exact command line, it is labelled "reconstructed".
+- **Stop ends the program on the Mac and, for Lima runs, inside the VM too.** After a stop,
+  the console checks the VM and says if anything is still running.
+- **Both at once.** The two sides then share the Mac's processors, and the VM when both are
+  tracing. Wall-clock times from such runs are flagged, and left out of timing comparisons
+  unless asked for.
+- **Closing or reloading the page does not stop a run.** The local server owns the process,
+  and reopening the page reattaches to the live terminal.
 
 ### 6.4 Compare: every number, and the items behind it
 
@@ -273,17 +377,20 @@ are counted with one counter. Three rules apply:
   the systems and is not part of either pipeline. `v1.py` is v2's glue for calling v1.
 - **Prompt lines count as hand-written.** Moving logic from code into a prompt does not
   remove it.
-- **No figure is quoted until Phase 0 fixes the counter.** The v1 baseline (about 3,456
-  lines of hand-written logic, `memory/caruca_v1_loc_baseline.md`) was counted with a method
-  it does not record, so both sides are recounted.
+- **The counter is fixed, and so is the baseline.** Phase 0(c) settled it: cloc 2.10, code
+  lines only, with the version recorded beside every figure. Counting v1 that way gives
+  **2,698 code lines** of hand-written pipeline logic. The older 3,456 was the same code
+  counted as physical lines, blanks and comments included, so the two must never be mixed
+  (`memory/caruca_v1_loc_baseline.md`).
 
 **v1's side of Inspect:**
 
-- v1's stage-1 prompt: task 009 commits it verbatim, and until then the `dspy_style`
+- **For a v1 run the console started:** its full run record and terminal recording (§7).
+- **v1's stage-1 prompt:** task 009 commits it verbatim. Until then, the `dspy_style`
   reconstruction is shown, labelled as one.
-- v1's module map, counted the same way.
-- The per-step telemetry v1 does not record. The screen says "not recorded", never zero,
-  until task 005 adds it.
+- **v1's module map**, counted the same way as v2's.
+- **What v1 does not record** (per-step timing and its LLM step's tokens) shows as "not
+  recorded", never zero, until task 005 adds it.
 
 ### 6.6 Findings: the project's insights, tied to evidence and to the paper
 
@@ -317,7 +424,8 @@ are counted with one counter. Three rules apply:
 
 ### 6.7 Runs and campaigns
 
-- Browse every run and campaign, and filter by stage, command, model and status.
+- Browse every run and campaign, v1's and v2's, and filter by side, stage, command, model and
+  status.
 - Open any run in Run or Inspect.
 - Preview a campaign with `sweep --dry-run`, then run it with its own brakes (`max_runs`,
   `max_usd`).
@@ -333,25 +441,68 @@ are counted with one counter. Three rules apply:
 
 ## 7. Architecture
 
-- **A Next.js app in a new `console/` folder**, in TypeScript with its own `package.json`,
-  run locally. It is never deployed.
-- **Server-side routes start the CLIs as processes.** They pass argument lists, never a shell
-  string, and start only executables on a fixed list. The server listens on 127.0.0.1 only.
+- **A Next.js app in a new `console/` folder**, in TypeScript with its own `package.json`. It
+  runs on the Mac as one long-lived local server and is never deployed. The server, not the
+  browser, holds each running process and its terminal. The server listens on 127.0.0.1 only.
+- **Terminals.**
+  - Each process runs in a pseudo-terminal created with `node-pty`.
+  - The page shows it with `xterm.js`, fed over a WebSocket.
+  - There is no path from the page into a terminal's input: the page cannot type.
+  - Each run's terminal size is fixed and recorded, because v1's progress bar sizes itself to
+    the width.
+  - The server records every byte each terminal shows, with its timing, as an asciicast file
+    in the run's folder.
+- **Processes are started from argument lists, never a shell string**, and only from a fixed
+  list: v1's two virtual environments, `caruca-v2`, and `limactl`. One form needs a shell:
+  v1's `annotate` inside the VM, which `v1.py` already passes to `sh -lc`, quoted part by part.
+  The console copies that form rather than inventing one.
+- **v1's argument lists are defined in one place**, and a test checks them against the forms
+  in §3.
+- **The OpenRouter meter for v1's stage 1** (decision 8). A small local forwarder on
+  127.0.0.1, started only for a live v1 stage-1 run and stopped with it. **It does not modify
+  the request**, which is what Phase 0(g) changed: v1's `gpt-4o` goes through as written. It:
+  - forwards each request to OpenRouter byte for byte
+  - records each call's tokens and cost, as OpenRouter reports them, into the v1 run record
+  - never writes the key anywhere
+
+  Passing the request through untouched is the point, not an economy. A forwarder that rewrote
+  a field would make a live v1 stage-1 run differ from what v1 itself would send, and the whole
+  reason for running v1 from the console is that it runs the way it really runs (decision 7).
+
+  It is the only network path the console opens on v1's behalf, and v1's own source is not
+  touched: the run differs from a terminal run only by `OPENAI_API_KEY` and
+  `OPENAI_BASE_URL`, both recorded by name.
+- **The environment is the one a login shell gives Tiran's terminal.** v2 loads `.env`
+  itself. The console adds nothing beyond the pseudo-terminal's own `TERM`, and leaves v1's
+  defaults, such as `CARUCA_ISOLATION_METHOD`, unset unless the form sets them. The run record
+  lists variable names, never values.
+- **Every run the console starts gets its own folder.**
+  - v2 already writes `eval/runs/<run_id>/`. The console adds its terminal recording there.
+  - v1 runs get `eval/v1_runs/<run_id>/`, holding a manifest, the terminal recording, and
+    every output. The manifest records:
+    - the command line, where it ran, which virtual environment, and the working directory
+    - v1's commit, and environment variable names
+    - start and end times, exit code, machine and terminal size
+    - whether another run was going at the same time
+  - v1 is always given an output path inside that folder: `trace --output FILE` and
+    `annotate --input FILE`. What `generate` prints is saved there too. The Mac home folder is
+    mounted at the same path inside the VM, so one path works on both sides.
 - **One event format serves replay and live.** The event kinds are:
   - run start (the argument list, and where it runs)
+  - terminal output (recorded bytes, for playback)
   - prompt sent, and response received
-  - output line
   - model turn (tokens, cost, seconds)
   - tool call (allowed or refused, and why)
   - stage-3 session
   - artifact written
   - check
   - run end
-- **v2's events come from files each run already writes:** `manifest.json`, the per-turn
-  `*.telemetry.json` files, `checks.sessions`, `checks.tool_audit`, and the outputs.
-- **v1 writes no event log** (that is task 005's job). A v1 replay therefore shows v1's
-  artifacts only, and says so. A live v1 run gets its output lines and timing from the console
-  that started it.
+- **Where events come from.**
+  - v2's come from files each run already writes: `manifest.json`, the per-turn
+    `*.telemetry.json` files, `checks.sessions`, `checks.tool_audit`, and the outputs.
+  - v1 writes no event log of its own (that is task 005's job). For v1 runs the console
+    starts, its own run record fills that gap. Older v1 runs show their artifacts only, and say
+    so.
 - **One option table, mirroring both CLIs,** drives the forms, the command-line preview and
   the input checks.
 - **Findings are read from and written to their Markdown files.** Re-checking a finding calls
@@ -370,7 +521,7 @@ are counted with one counter. Three rules apply:
 | `docker` and `firecracker` backends | the real choices are `host` and `lima` |
 | v1's annotation is written to the ground-truth path | it is not |
 | "coverage" for a count of permutations | coverage means real-world reach only |
-| v1 is 1,240 lines of code | about 3,456 hand-written, to be recounted (§6.5) |
+| v1 is 1,240 lines of code | 2,698 code lines of hand-written pipeline logic, counted with cloc 2.10 (§6.5) |
 | a percent change on every measure | only where `report.py` produces one |
 | a `caruca-v2 compare` subcommand, a `v2-extended` profile, `--augmented-docs` | none of these exist |
 | v2 as stage 1 only | v2 has all four stages |
@@ -379,37 +530,98 @@ are counted with one counter. Three rules apply:
 
 ## 9. Phases
 
-- [ ] **Phase 0: decisions and questions, answered before any code**
-  - [ ] **(a) When is each turn's telemetry file written?** Does v2 write it when the turn
-    ends, or only when the run ends? Within one run, every turn file carries the same
-    `timestamp`: all ten turns of `2026-09-14T163935Z_cat_a3ea2a72` read 16:39:35. So that
-    field is the run's start time, and replay timing must be rebuilt from each turn's
-    `wall_clock_seconds`. The design of live mode depends on the answer.
-  - [ ] **(b) Do manifests record the exact argument list?** If not, replay labels its
-    command line "reconstructed".
-  - [ ] **(c) The line counter for dimension 6.** Choose one tool and one rule for blank
-    lines, comments and docstrings, apply it to both sides, and record it with every result.
-  - [ ] **(d) Confirm decision 6** (findings as files) and the fields a finding file carries.
+- [x] **Phase 0: decisions and questions — all seven answered 2026-09-22. Nothing else was built.**
+  - [x] **(a) Telemetry is written at the end of the run, not the end of each turn.** Every
+    `write_sidecar` call sits in a `for record in records:` loop immediately before
+    `write_manifest`, in all four stages (`trace.py:474`, `generate.py:386`, `annotate.py:339`,
+    `syntax_spec.py:250`). Every record is built with `timestamp=run_dir.timestamp`, which is why
+    all ten turns of `2026-09-14T163935Z_cat_a3ea2a72` read 16:39:35: that field is the run's start
+    time, for every turn. **Consequences.** Replay timing is rebuilt by accumulating each turn's
+    `wall_clock_seconds`. The live event panel cannot be fed by watching the run directory, because
+    nothing appears there until the run is over — so during a live run the terminal is the only
+    thing moving, and the events fill in at the end. That is a display limitation, not a data one.
+    It is what open question 2 is about.
+  - [x] **(b) No manifest records the argument list. Replay labels its command line
+    "reconstructed".** `sys.argv` is not recorded anywhere in `src/caruca_v2/`. The reconstruction
+    is faithful rather than approximate: `inputs` carries every option-bearing field, and the
+    top-level fields carry the rest. A stage-3 manifest, for example, holds `configs_source`,
+    `isolation: "lima:caruca"`, `max_turns: 15` and `limit: 5`, alongside `model_requested`,
+    `decoding_params` and `seed` — which is the whole command line. The label is honesty about
+    provenance, not a warning about accuracy.
+  - [x] **(c) The counter is cloc 2.10, code lines only, and it recovered the lost method.**
+    Installed via Homebrew at Tiran's direction. The rule: **blank lines and comment lines
+    excluded, the same tool and rule on both sides, the cloc version recorded beside every
+    result.** Running it on v1 reproduced the 2026-08-29 memo digit for digit and so revealed what
+    the unrecorded method had been — physical lines, counting blanks and comments:
+
+    | v1 area | physical | code |
+    |---|---|---|
+    | `ir` | 1,249 | 973 |
+    | `tracer` | 946 | 781 |
+    | `annotator` | 586 | 428 |
+    | `cli` | 354 | 302 |
+    | package-level (`llm.py`, `oracle.py`, `querier.py`, `error.py`, `__init__.py`) | 321 | 214 |
+    | **total** | **3,456** | **2,698** |
+
+    The first four match the memo's `ir` 1,249 · `tracer` 946 · `annotator` 586 · `cli` 354
+    exactly, and the total lands on 3,456. **So the v1 baseline is 2,698 code lines, not 3,456.**
+    Quoting 3,456 against a cloc-counted v2 figure would overstate the reduction by about 28% — the
+    same kind of error, in the same direction, as measuring against the paper's 6,520. Recorded in
+    `memory/caruca_v1_loc_baseline.md`.
+  - [x] **(d) Decision 6 confirmed by Tiran**, with the fields as specified in §6.6. Findings are
+    one Markdown file each in `ai_docs/analysis/findings/`.
+  - [x] **(e) `node-pty` runs on this Mac, and needs no compiler.** It ships a `darwin-arm64`
+    prebuilt binary that loads under the installed Node 26.5.0, so Xcode's command-line tools are
+    not on the critical path after all. **But there is a trap, and `console/` must handle it.** npm
+    blocks the package's install scripts by default, and one of those scripts is what makes
+    `spawn-helper` executable. Without it the file sits at `-rw-r--r--` and every single spawn
+    fails with `Error: posix_spawnp failed.` — an error that says nothing about permissions. After
+    `chmod 755`, a test pseudo-terminal behaved correctly: `tput cols` returned the 117 columns it
+    was given and `test -t 1` succeeded, confirming the program on the far end sees a real
+    terminal. `console/` carries its own postinstall step to do that chmod.
+  - [x] **(f) Terminal recordings are committed**, Tiran's decision, following the same rule
+    `eval/runs/` has had since `eedd91a`. Measured sizes: a `generate mkdir` preview is 170,352
+    bytes of output; a long trace redrawing its progress bar is roughly 5-7 MB. `eval/runs/` is
+    10 MB today and the whole git history is 21 MB. The reasoning: a recording is the evidence a
+    replay is argued from, so a recording that exists only on one Mac makes that run
+    unreproducible anywhere else.
+  - [x] **(g) OpenRouter accepts the bare `gpt-4o`. No rewrite is needed, and the forwarder gets
+    simpler.** Settled by one live request on Tiran's go-ahead, costing **$0.000045**: HTTP 200,
+    `model` reported back as `openai/gpt-4o`, usage 14 prompt and 1 completion token. **This
+    corrects the assumption recorded in decision 8 and §6.2.** The catalogue really does list no
+    bare `gpt-4o` — 453 identifiers, all provider-prefixed — but OpenRouter resolves the short form
+    at request time anyway. The mistake was inferring "a request naming X will fail" from "X is not
+    catalogued under that name"; those are different questions. **What changes:** v1's stage 1
+    needs only two environment variables and nothing in between. The local forwarder stays, but
+    purely to *record* the tokens and cost OpenRouter reports, since v1's code reads neither — it
+    no longer alters the request, so it cannot alter what v1 sends.
 - [ ] **Phase 1: the data layer**
-  - Read runs, campaigns, the metrics database and finding files.
-  - Build the event adapters.
-  - Test everything on synthetic fixtures. Real run data stays out of git because it embeds
-    v1's man pages and specifications.
-- [ ] **Phase 2: replay and inspect.** The Run and Inspect screens, and the visual design,
-  following the `caruca-design` skill.
+  - Read runs (v1's and v2's), campaigns, the metrics database and finding files.
+  - Build the event adapters, and the reader for terminal recordings.
+  - Test the adapters on the committed run directories. Campaign ledgers are not committed,
+    so Compare's tests use small synthetic ledgers.
+- [ ] **Phase 2: replay and inspect.** The Run screen, with terminal playback and events, the
+  Inspect screen, and the visual design, following the `caruca-design` skill.
 - [ ] **Phase 3: compare and findings.**
   - Compare: the matrix, drill-downs, arms, consistency, roll-up and rescore.
   - Findings: read, re-check, record, the paper view and export.
   - The backfill.
-- [ ] **Phase 4: the Pipeline builder and pre-flight, still without execution.** Includes a
-  test that fails when the option table and either CLI's `--help` disagree, so the console
-  cannot silently drift from the CLIs.
-- [ ] **Phase 5: live runs.** Start, stream, cancel, one after the other or together, with
-  the paid-call confirmation. This is the only phase that can spend money.
+- [ ] **Phase 4: the Pipeline builder and pre-flight, still without execution.** Three tests:
+  - the option table against each CLI's `--help`, so the console cannot silently drift from
+    the CLIs
+  - v1's argument lists against the forms in §3
+  - the guard that refuses any v1 output path inside v1's checkout
+- [ ] **Phase 5: live runs.**
+  - Pseudo-terminals, recording, and the v1 run record.
+  - The OpenRouter forwarder for a live v1 stage 1.
+  - Stop, on the Mac and in the VM.
+  - Reattaching after a page reload.
+  - Running one after the other or both at once, with the concurrency flag.
+  - The paid-call confirmation. This is the only phase that can spend money.
 - [ ] **Phase 6: campaigns and tools.**
 
-**Where task 005 is needed:** v1's per-step timing in replay, and its LLM step's token counts.
-Until task 005 adds them, the console shows "not recorded" for both, never zero.
+**Where task 005 is needed:** v1's per-step timing inside a run, and its LLM step's token
+counts. Until task 005 adds them, the console shows "not recorded" for both, never zero.
 
 ---
 
@@ -433,6 +645,38 @@ Until task 005 adds them, the console shows "not recorded" for both, never zero.
 | 3 | Core precision 0.800 and recall 0.606 |
 | 4 | v2 10 of 33, v1 11 of 64 |
 
+**v1 runs loyally, and leaves its own files alone:**
+
+- **A console run of v1 matches the parity study's v1 run.** Run v1's `trace cat --max-count 1`
+  from the console and compare it with the parity study's v1 traces for `cat`, using the
+  stage-3 trace comparison. It must agree completely. If v1's per-process random names
+  (`ir/syntax.py`, line 87) prevent an exact match, the difference is explained and recorded,
+  not waved through.
+- **v1's working files are untouched.** The sha256 of all 36 files in
+  `$CARUCA_V1_ROOT/caruca/outputs/` is the same before and after a console run of every v1
+  stage.
+- **A v1 run can be replayed.** After that run, it appears in Runs with its record. Replaying
+  it shows v1's progress bar redrawing in place, byte for byte as recorded.
+- **The counts are v1's real ones.**
+  - For `pwd`, the pre-flight gives a count, where `generate --number` crashes.
+  - For `mkdir` at v1's defaults, it shows 4,240 printed lines, 1,094 distinct, and 10,368
+    executions.
+- **v1's stage 1 runs through OpenRouter, and is metered.** A live run for one command
+  succeeds with v1's source untouched. Its record shows the model as v1 sent it (`gpt-4o`) and
+  as it was routed (`openai/gpt-4o`), the two environment variables by name, and the tokens and
+  cost OpenRouter reported — figures v1 has never produced before.
+- **Without a key, v1's stage 1 is not started.** The pre-flight offers the archived output or
+  `--fetch` instead.
+
+**The terminals behave like terminals:**
+
+- **Stop:** stopping a Lima trace leaves no v1 process running in the VM.
+- **Reload:** reloading the page during a live run reattaches to the same terminal, without
+  interrupting the run.
+- **Both at once:** the run records say the two runs overlapped, and Compare leaves their
+  wall-clock times out of timing comparisons unless asked.
+- **No input path:** the page cannot type into a terminal.
+
 **It must also pass these checks:**
 
 - The consistency view shows the spread for every metric. Two cases the existing report's
@@ -443,8 +687,8 @@ Until task 005 adds them, the console shows "not recorded" for both, never zero.
     which is the spread in F1.
 - A backfilled finding that was later corrected is marked "changed" against its first value
   and "matches" against its correction.
-- The option-table test passes against both CLIs.
-- Free live runs stream correctly: `caruca generate cat --number` and
+- The three Phase 4 tests pass.
+- Two free live runs stream in their terminals: `caruca generate cat --max-count 1` and
   `caruca-v2 score --self-test`.
 - A destructive command set to run on the host is stopped at pre-flight, before any process
   starts.
@@ -457,7 +701,7 @@ Until task 005 adds them, the console shows "not recorded" for both, never zero.
 ## 11. Out of scope
 
 - Deploying anywhere, including Vercel.
-- Real terminals.
+- Typing into the terminals. They are for watching.
 - The features §8 lists as not existing.
 - Logins.
 - **A v2 real-world coverage instrument.** A separate harness task; the console shows the gap.
@@ -468,7 +712,7 @@ Until task 005 adds them, the console shows "not recorded" for both, never zero.
 
 ## 12. Open questions
 
-1. Phase 0's four answers.
+1. Phase 0's six answers.
 2. If turn files are written only at the end of a run, should `caruca-v2` gain a small
    event-stream option? It would be a pipeline change, so it is Tiran's call.
 3. Should the paper view carry the addendum's text, or only link to it? Proposed: link. The
@@ -476,6 +720,9 @@ Until task 005 adds them, the console shows "not recorded" for both, never zero.
 4. Four places in three analysis documents still name the 659-line
    `eval/command-invocations.txt` as the real-world corpus (§13). Correct them, once Tiran
    agrees. `CLAUDE.md` was corrected on 2026-09-22.
+5. *Answered 2026-09-22.* v1's stage 1 runs live through OpenRouter, not a separate OpenAI
+   account (decision 8). Its request goes through untouched, and the forwarder only records
+   what comes back (§6.2).
 
 ---
 
@@ -505,3 +752,63 @@ Until task 005 adds them, the console shows "not recorded" for both, never zero.
   `ai_docs/docs/caruca_v1 pipeline instructions.md` also lists it among the corpora used to
   score completeness, but v1's own scripts use only `eval/user-scripts/invocations.txt` for
   that. All five are left for Tiran's go-ahead (§12, question 4).
+- **2026-09-22: third pass, at Tiran's direction. Real terminals, and v1 run loyally.**
+  Decision 4 is reversed: real terminals on both sides, recorded for replay, with events
+  beside them. Decision 7 is added, with its fixes through §3, §6.1-§6.3, §7, §9 and §10:
+  - v1 is run in exactly the forms the parity study used, checked by a test.
+  - Every v1 run writes into its own folder, never v1's `caruca/outputs/`, which gitignore
+    means cannot be restored.
+  - Every v1 run the console starts is recorded, so it can be replayed and compared.
+  - v1's stage 1 needs `OPENAI_API_KEY`, which is not set.
+  - Counts come from what `generate` prints, not from `--number`.
+  - v1's real data flow is drawn: its `trace` does not read `generate`'s output.
+  - Stopping a run reaches inside the VM.
+  - Simultaneous runs are flagged for timing.
+
+  **Also corrected:** the first version said run data is gitignored. It has been committed
+  since Tiran's commit `eedd91a` (2026-09-15); only `eval/campaigns/` is still ignored.
+  Phase 1 now tests on the committed run directories.
+- **2026-09-22: v1's LLM step goes through OpenRouter** (decision 8, Tiran's direction).
+  Checked the same day, without making any call:
+  - v1's `llm.py` reads `OPENAI_API_KEY` and fixes the model as `gpt-4o` in its code.
+  - The client in v1's `.venv-llm` (openai 1.109.1) honours `OPENAI_BASE_URL`, so two
+    environment variables redirect v1 with no change to its source.
+  - OpenRouter's published model list has no bare `gpt-4o`; its catalogue identifier is
+    `openai/gpt-4o`. Checking the list instead of spending anything was Tiran's suggestion, and
+    it was the right first move: all 453 identifiers carry a provider prefix, and none of the 18
+    aliases it lists points at `gpt-4o`. On that basis §6.2 and §7 called for a forwarder that
+    rewrites the field. **Phase 0(g) later overturned that conclusion — see the entry below.**
+
+  This turns the "v1's LLM step is unmetered" gap into a measurement for every live v1 stage-1
+  run the console starts (§5, Q4).
+
+- **2026-09-22: Phase 0 done. All seven questions answered; no code written.** Four were settled
+  by reading and testing what is already on disk, three by Tiran's decision, and one of those
+  needed a paid call. The full answers are in §9. Three of them changed the specification:
+  - **The `~3,456` line count for v1 was physical lines, not code lines.** Phase 0(c) set the
+    counter to cloc 2.10, code lines only, and running it reproduced the old memo's per-directory
+    figures exactly (`ir` 1,249 · `tracer` 946 · `annotator` 586 · `cli` 354, total 3,456) — which
+    is how the lost method was identified. The comparable code-line baseline is **2,698**. Quoting
+    3,456 against a cloc-counted v2 figure would have overstated the reduction by about 28%, the
+    same kind of error as measuring against the paper's 6,520. `memory/caruca_v1_loc_baseline.md`
+    updated.
+  - **The OpenRouter forwarder no longer rewrites anything.** Phase 0(g), one request costing
+    $0.000045: OpenRouter accepts the bare `gpt-4o` and resolves it to `openai/gpt-4o` itself,
+    although its catalogue lists no such identifier. The earlier reasoning inferred "a request
+    naming X will fail" from "X is not catalogued under that name", which does not follow. This is
+    a better outcome than the one it replaces: a forwarder that rewrote a field would have made a
+    live v1 stage-1 run differ from what v1 itself sends, which is at odds with decision 7. The
+    forwarder now only meters. §6.2, §7, decision 8 and open question 5 updated.
+  - **`node-pty` needs no compiler, but it does need a postinstall step.** Phase 0(e): the
+    `darwin-arm64` prebuilt binary loads under Node 26.5.0, so Xcode's tools are not on the
+    critical path. npm's default script blocking, however, leaves `spawn-helper` non-executable and
+    every spawn fails with `posix_spawnp failed`, which names nothing useful. `console/` carries
+    its own chmod. Verified afterwards that the child really sees a terminal: `tput cols` returned
+    the 117 columns it was given, and `test -t 1` succeeded.
+
+  **Two of §10's acceptance figures were re-verified against v1 rather than taken on trust, and
+  both hold:** `generate mkdir` at defaults emits 4,240 lines / 170,352 bytes / 1,094 distinct,
+  and `generate pwd --number` dies with `ValueError: max() iterable argument is empty` while
+  `generate pwd` prints 16 lines. Decision 4's premise was also confirmed at the source: v2's
+  `ui.py` (line 60) degrades to plain output on `not stream.isatty()`, so a pipe really would
+  change what v2 displays.
