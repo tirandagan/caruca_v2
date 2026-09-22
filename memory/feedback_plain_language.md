@@ -26,7 +26,10 @@ When giving Tiran information, follow these rules:
    sense and evaluation dimension 3. For anything else say what it actually is: *flag recall*,
    *invocation recall*, *environment agreement*, *recovery*, *configurations attempted*. When
    stating any rate, say what is counted over what, and exclude cases where it is undefined rather
-   than scoring them as zero.
+   than scoring them as zero — or as agreement. The same error has run both ways: stage 2 once
+   counted undefined cells as zeros (0.185, really 0.208), and stage 4 once scored a field
+   missing on both sides as the two sides agreeing (`None == None`). Undefined is neither; leave
+   it out of the denominator.
 
 **Why:** Tiran asked for this explicitly on 2026-08-29, right after two exchanges where the shorthand
 failed. He had to ask "what is dimension 6?" and then "I don't understand your statement about 3,456

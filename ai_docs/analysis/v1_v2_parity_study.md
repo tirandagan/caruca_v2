@@ -54,7 +54,7 @@ exactly one sense.
 | **invocation recall / precision** | of v1's distinct invocations, the fraction v2 also produced / of v2's, the fraction v1 also produced | stage 2: 0.878 / 0.568 |
 | **environment agreement** | of the environments v2 asked for, the fraction that v1 would also have built for that invocation. A **correctness** rate, not a reach figure | stage 2: 0.208 — so 79% of v2's requests are wrong |
 | **recovery** (core / inference) | of the filesystem interactions v1 recorded, after projection, the fraction v2 also reported | stage 3: 0.606 core |
-| **configurations attempted** | of v1's configurations for a command, how many v2 actually traced | stage 3: 4 of 35 for `cat` |
+| **configurations attempted** | of v1's configurations for a command, how many v2 actually traced | stage 3: 5 of 35 for `cat` (the `--limit 5` cap); 4, 0 and 0 of them reported across the three samples |
 | **agreement** (annotation) | of the cases aligned between two annotations, the fraction that agree on a given field | stage 4: 10 of 33 on parallelizability class |
 
 **A rate is only computed over the cases where it is defined.** A command whose invocations

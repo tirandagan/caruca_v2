@@ -27,6 +27,12 @@ logic rather than removing it. The honest in-scope measurement is narrow: how mu
 scaffolding, retry logic, and prompt engineering a single prompt replaces. The broad claim needs the
 deferred agentic rebuild.
 
+**Update 2026-09-22 — the second finding is out of date.** Since 2026-09-03 every v1 stage has an LLM
+replication (tasks 002-004, [[llm-pipeline-replication]]), so dimension 6 can now be measured
+stage by stage. Task 010's code map does that. Two cautions carry over: the ~3,456 figure's counting
+method was never recorded, so both sides get recounted with one counter; and prompt lines count as
+hand-written, because moving logic into a prompt does not remove it.
+
 **How to apply:** when writing any dimension-6 result, state the narrow scope explicitly and never present
 it as the broad "we eliminated N% of Caruca's code" claim. Full reasoning and the phase assignment live in
 `ai_docs/prep/roadmap.md` (Dimension 6 section + coverage audit).

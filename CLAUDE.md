@@ -180,7 +180,13 @@ Evaluation assets to reuse rather than rebuild:
 - `~/stevens/caruca/benchmarks/MILESTONES` — checklist of which PaSh commands are done
 - `~/stevens/caruca/eval/cmp_specs.py` — argument-by-argument diff of two syntax specs (the §7.2 method)
 - `~/stevens/caruca/eval/llm_correctness.sh` — batch-runs `cmp_specs.py` over all commands (needs GNU `parallel`)
-- `~/stevens/caruca/eval/command-invocations.txt` — real-world invocation corpus behind the §7.3 numbers
+- `~/stevens/caruca/eval/user-scripts/invocations.txt` — the real-world invocation corpus behind the §7.3
+  coverage numbers: 665,628 lines, against the paper's 666,468 (the 840-line gap is unexplained).
+  `eval/user-scripts/completeness_accumulate.sh` rebuilds it from `ShellExtractResults/` with the Go parser
+  in `parser/`, runs `caruca oracle --full-match-only` over it into `oracle_results.txt`, then removes one
+  normalization strategy at a time to get the per-level counts in `command_counts/`. Not
+  `eval/command-invocations.txt`: that is a separate 659-line file of benchmark-script fragments
+  (e.g. `[ ! -d ${IN}/bio ]`).
 - `~/stevens/caruca/outputs/llm-dsl-generation/*.py` — the LLM's previously generated specs (a free comparison set)
 - `~/stevens/caruca/caruca/save/*.json` — committed reference PaSh annotations
 
