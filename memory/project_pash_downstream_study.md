@@ -66,3 +66,18 @@ shapes at all (`NonEmptyDirectory.prepare_env` = one directory, one child; no re
 in v1 — gap 5 in `evaluation_gaps.md`). This is the concrete instance of that document's gap 2, and
 **POSH, not PaSh, is where it is the native failure mode** (POSH splits by argument list; Caruca
 emits `args_split`) — a reason to make POSH the next consumer studied.
+
+**Repo-wide accuracy audit, 2026-09-22.** Tiran asked for every past analysis and presentation to
+be re-checked and corrected. Two errors were systemic and are now fixed at source in ten documents
+(each carries a dated "Version 1.1 / corrected 22 September 2026" note): (1) the paper's PaSh 52/52
+described as execution-based; (2) v1's conservative parallelizability classes blamed on the
+`--max-count 1` bound rather than the `--stdin simple` trace mode. Numbers re-derived from the
+stored campaign that day and now authoritative: stage-4 class agreement against the hand-curated
+ground truth is **v2 25/77 (32.5%) strict, 68/77 (88.3%) under the paper's pure≡non-pure rule**;
+**v1 20/83 (24.1%) strict, 53/83 (63.9%) relaxed**; the published 10/33 was run 1 only and 11/64
+was the seven-command subset. v1's disagreements: **63 total, 58 conservative, of which 33 are
+`pure → non-pure` that the paper counts as correct.** v2's one unsafe-direction error: **`pwd`
+classed `stateless` where truth is `side-effectful`, in all three runs.** Nine PDFs were reissued
+as `_v1.1` beside the originals; see `ai_docs/docs/presentations/ASSEMBLY.md`. Still unreconciled
+by deliberate choice: `CLAUDE.md` and `PRODUCT.md` (same Q1 wording, WSL-only machine description),
+and the live Dropbox deck, which the repo cannot edit.

@@ -1,0 +1,603 @@
+/**
+ * The console's own styles, on top of the caruca-design tokens.
+ *
+ * The design system is binding (PRODUCT.md, memory/design_authorities.md). Everything here is
+ * expressed in its tokens; no colour, size or radius is invented. Its rules, applied:
+ *
+ *   - flat white pages, hairline borders doing the separating, no shadows except overlays
+ *   - sentence case everywhere; uppercase only for micro-labels at 11px / 0.05em
+ *   - mono for every command, flag, file and number
+ *   - H2s are blue - the tic carried over from the paper styling
+ *   - motion restrained to 120-160ms colour and opacity
+ *
+ * One deliberate extension: the terminal surface. The design system has no dark surface, but a
+ * terminal must be one - it is showing a program's real output, and `#0B1F33` is the system's
+ * own ink, so the terminal is the ink colour used as a background rather than a new colour.
+ */
+
+@import "./fonts.css";
+@import "./colors.css";
+@import "./typography.css";
+@import "./spacing.css";
+
+:root {
+  /* The terminal surface: the system's ink, used as a background. */
+  --term-bg: var(--ink);
+  --term-fg: #d7e3f0;
+  --term-dim: #9cb0c4;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--surface-page);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--blue-hover);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-heading);
+  margin: 0;
+}
+h1 {
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+}
+/* Blue H2s: the distinctive tic from the paper styling. */
+h2 {
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  color: var(--blue);
+}
+
+code,
+kbd,
+pre,
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-code);
+}
+
+/* ---- micro-label: the only place uppercase is allowed ---- */
+.label {
+  font-size: var(--text-label);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--gray-600);
+}
+
+/* ---- app shell ---- */
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  padding: 14px 28px 0;
+  border-bottom: 1px solid var(--border-default);
+}
+.masthead__logo {
+  height: 34px;
+  width: auto;
+}
+.masthead__titles {
+  margin-right: auto;
+  padding-bottom: 12px;
+}
+.masthead__title {
+  font-size: 17px;
+  font-weight: var(--weight-bold);
+  line-height: 1;
+}
+.masthead__title span {
+  font-weight: var(--weight-regular);
+  color: var(--gray-500);
+}
+.masthead__tagline {
+  font-size: var(--text-label);
+  font-style: italic;
+  color: var(--gray-500);
+  margin-top: 3px;
+}
+/* Stated, not implied: this page is local and talks to nothing. */
+.masthead__scope {
+  padding-bottom: 12px;
+  font-size: var(--text-caption);
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+}
+
+.nav {
+  display: flex;
+  gap: 2px;
+}
+.nav__item {
+  padding: 8px 14px;
+  font-size: var(--text-small);
+  color: var(--gray-600);
+  border-bottom: 2px solid transparent;
+  transition: color 140ms ease-out, border-color 140ms ease-out;
+}
+.nav__item:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav__item--active {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+  font-weight: var(--weight-semibold);
+}
+
+.page {
+  flex: 1;
+  width: 100%;
+  max-width: 1224px;
+  margin: 0 auto;
+  padding: 22px 28px 56px;
+}
+.page--wide {
+  max-width: 1560px;
+}
+
+.page__head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.page__sub {
+  color: var(--text-secondary);
+  font-size: var(--text-small);
+  margin: 0 0 20px;
+}
+
+/* ---- accent bar: 80x4, teal to ink ---- */
+.accent-bar {
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--accent-gradient);
+  margin-bottom: 14px;
+}
+
+/* ---- card ---- */
+.card {
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  background: var(--surface-card);
+}
+.card__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-default);
+  background: var(--surface-thead);
+  border-radius: 6px 6px 0 0;
+}
+.card__body {
+  padding: 16px;
+}
+.card__body--flush {
+  padding: 0;
+}
+
+/* ---- badge ---- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: var(--text-label);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.03em;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.badge--mono {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.badge--ok {
+  background: var(--success-bg);
+  color: var(--success-text);
+  border-color: var(--success);
+}
+.badge--warn {
+  background: var(--warning-bg);
+  color: var(--warning-text);
+  border-color: var(--warning);
+}
+.badge--bad {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+  border-color: var(--danger);
+}
+.badge--info {
+  background: var(--surface-info);
+  color: var(--blue);
+  border-color: var(--blue);
+}
+.badge--muted {
+  background: var(--surface-thead);
+  color: var(--gray-600);
+  border-color: var(--border-strong);
+}
+.badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ---- table ---- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-small);
+}
+.table th {
+  text-align: left;
+  font-size: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--gray-600);
+  background: var(--surface-thead);
+  border-bottom: 2px solid #334155;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+.table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-default);
+  vertical-align: top;
+}
+.table tbody tr:nth-child(even) {
+  background: var(--surface-zebra);
+}
+.table tbody tr:hover {
+  background: var(--surface-info);
+}
+.table .num {
+  font-family: var(--font-mono);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ---- metric ---- */
+.metrics {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.metric__label {
+  font-size: var(--text-label);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--gray-600);
+}
+.metric__value {
+  font-family: var(--font-mono);
+  font-size: var(--text-h3);
+  color: var(--ink);
+  line-height: 1.25;
+}
+.metric__value--absent {
+  color: var(--text-faint);
+  font-size: var(--text-body);
+  font-family: var(--font-sans);
+  font-style: italic;
+}
+.metric__basis {
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+}
+
+/* ---- callout: 4px left border, rounded right only ---- */
+.callout {
+  border-left: 4px solid var(--blue);
+  background: var(--surface-info);
+  border-radius: 0 6px 6px 0;
+  padding: 12px 16px;
+}
+.callout__title {
+  font-size: var(--text-label);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--blue);
+  margin-bottom: 4px;
+}
+.callout--warn {
+  border-left-color: var(--warning);
+  background: var(--warning-bg);
+}
+.callout--warn .callout__title {
+  color: var(--warning-text);
+}
+.callout--neutral {
+  border-left-color: var(--gray-400);
+  background: var(--surface-code);
+}
+.callout--neutral .callout__title {
+  color: var(--gray-600);
+}
+.callout p {
+  margin: 0;
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+}
+.callout p + p {
+  margin-top: 8px;
+}
+
+/* ---- code block ---- */
+.codeblock {
+  background: var(--surface-code);
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  padding: 12px 14px;
+  overflow-x: auto;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.code-inline {
+  background: var(--surface-inline-code);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+/* ---- terminal ---- */
+.terminal {
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.terminal__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--surface-thead);
+  border-bottom: 1px solid var(--border-default);
+}
+.terminal__where {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  color: var(--gray-500);
+  margin-left: auto;
+}
+.terminal__body {
+  background: var(--term-bg);
+  color: var(--term-fg);
+  padding: 12px 14px;
+  min-height: 320px;
+  overflow: auto;
+}
+/*
+ * xterm draws its own screen element with a light default border, which shows as a box inside
+ * the dark surface. The terminal's frame is the panel around it, not anything xterm draws.
+ */
+.terminal__body .xterm,
+.terminal__body .xterm-screen,
+.terminal__body .xterm-viewport {
+  border: 0;
+  background: transparent;
+}
+.terminal__body .xterm-viewport {
+  scrollbar-width: thin;
+}
+
+.terminal__empty {
+  background: var(--term-bg);
+  color: var(--term-dim);
+  padding: 28px 22px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* ---- split: v1 left, v2 right (decision 4) ---- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 1100px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.run-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 1240px) {
+  .run-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---- event rail ---- */
+.events {
+  display: flex;
+  flex-direction: column;
+}
+.event {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 10px;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border-default);
+  font-size: var(--text-small);
+}
+.event:last-child {
+  border-bottom: none;
+}
+.event__at {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+  text-align: right;
+  white-space: nowrap;
+}
+/* A derived timing is marked, so it is never read as measured (Phase 0(a)). */
+.event__at--derived {
+  border-bottom: 1px dotted var(--gray-400);
+  cursor: help;
+}
+.event__kind {
+  font-size: var(--text-label);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--gray-600);
+}
+.event__detail {
+  color: var(--text-secondary);
+  font-size: var(--text-caption);
+  margin-top: 2px;
+  /*
+   * Tool arguments are JSON with no spaces in it, so there is nothing for normal wrapping to
+   * break on and the text runs straight out of the panel. `anywhere` lets it break mid-token,
+   * which is the right trade for an argument dump.
+   */
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.event__detail .mono {
+  font-size: var(--text-caption);
+}
+.event--refused .event__kind {
+  color: var(--danger-text);
+}
+.event--end .event__kind {
+  color: var(--ink);
+  font-weight: var(--weight-semibold);
+}
+
+/* ---- key/value rows ---- */
+.kv {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 6px 16px;
+  font-size: var(--text-small);
+}
+.kv__k {
+  color: var(--gray-600);
+}
+.kv__v {
+  font-family: var(--font-mono);
+  word-break: break-word;
+}
+.kv__v--absent {
+  font-family: var(--font-sans);
+  font-style: italic;
+  color: var(--text-faint);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.spacer {
+  margin-left: auto;
+}
+.muted {
+  color: var(--text-muted);
+}
+.faint {
+  color: var(--text-faint);
+}
+
+/* ---- button ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px;
+  border-radius: 6px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-page);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: var(--text-small);
+  cursor: pointer;
+  transition: background-color 140ms ease-out, color 140ms ease-out,
+    border-color 140ms ease-out;
+}
+.btn:hover:not(:disabled) {
+  background: var(--surface-thead);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn--primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+.btn--primary:hover:not(:disabled) {
+  background: var(--blue-hover);
+  border-color: var(--blue-hover);
+}

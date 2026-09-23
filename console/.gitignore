@@ -1,0 +1,7 @@
+# Next.js build output and caches. The console is never deployed; builds are local only.
+.next/
+out/
+next-env.d.ts
+
+# Vitest / tsc
+*.tsbuildinfo

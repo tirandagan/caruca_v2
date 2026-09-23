@@ -1,0 +1,2 @@
+{"version":2,"width":117,"height":30,"timestamp":1790110326,"command":"/Users/tirandagan/dev/stevens/caruca/caruca/.venv/bin/caruca generate cat --max-count 1","caruca":{"side":"v1","runId":"sample","host":"mac"}}
+[0.24,"o","cat\r\ncat -b\r\ncat\r\ncat -T\r\ncat\r\ncat -n\r\ncat\r\ncat --help\r\ncat\r\ncat -A\r\ncat\r\ncat -E\r\ncat\r\ncat -v\r\ncat\r\ncat -t\r\ncat\r\ncat -e\r\ncat\r\ncat -s\r\ncat\r\ncat relpath_1\r\ncat abspath_1\r\ncat\r\ncat -u\r\ncat\r\ncat --version\r\n"]

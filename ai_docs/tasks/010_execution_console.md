@@ -123,7 +123,14 @@ needs.
   they run.
 - **Run data.** Committed to this private repo since Tiran's commit `eedd91a` (2026-09-15).
   Only `eval/campaigns/` is still gitignored.
-  - `eval/runs/<run_id>/`: 163 run directories today. Each has a `manifest.json` recording:
+  - `eval/runs/<run_id>/`: 163 run directories today, of which **135 hold a `manifest.json`
+    and 28 are completely empty**. *Corrected 2026-09-22 in Phase 1; this previously read
+    "Each has a manifest.json".* The empty ones follow from Phase 0(a): the directory is
+    created when a run starts and the manifest is written only when it ends, so a run that
+    dies in between leaves a shell. They are `rm`, `tee`, `tail`, `sha256sum` and `cat` - the
+    commands stage 3 has most trouble with - and the console counts them as
+    started-and-died rather than hiding them, because a failure rate that cannot be seen
+    cannot be reported. Each of the 135 records:
     - the model requested and the model reported, and the provider
     - the seed and whether it was honored, and the decoding parameters
     - the prompts sent and the raw response
@@ -595,22 +602,120 @@ are counted with one counter. Three rules apply:
     needs only two environment variables and nothing in between. The local forwarder stays, but
     purely to *record* the tokens and cost OpenRouter reports, since v1's code reads neither — it
     no longer alters the request, so it cannot alter what v1 sends.
-- [ ] **Phase 1: the data layer**
-  - Read runs (v1's and v2's), campaigns, the metrics database and finding files.
-  - Build the event adapters, and the reader for terminal recordings.
-  - Test the adapters on the committed run directories. Campaign ledgers are not committed,
-    so Compare's tests use small synthetic ledgers.
-- [ ] **Phase 2: replay and inspect.** The Run screen, with terminal playback and events, the
-  Inspect screen, and the visual design, following the `caruca-design` skill.
-- [ ] **Phase 3: compare and findings.**
-  - Compare: the matrix, drill-downs, arms, consistency, roll-up and rescore.
-  - Findings: read, re-check, record, the paper view and export.
-  - The backfill.
-- [ ] **Phase 4: the Pipeline builder and pre-flight, still without execution.** Three tests:
-  - the option table against each CLI's `--help`, so the console cannot silently drift from
-    the CLIs
-  - v1's argument lists against the forms in §3
-  - the guard that refuses any v1 output path inside v1's checkout
+- [x] **Phase 1: the data layer — done 2026-09-22.** `console/src/data/`, 59 tests, no UI.
+  - [x] Readers for v2 runs, v1 run records, campaigns, the metrics database and finding files.
+  - [x] The event adapters and the reader and writer for terminal recordings.
+  - [x] Tested on the committed run directories, with small synthetic ledgers for Compare, as
+    specified. The two consistency cases §10 names are checked against the real campaigns where
+    this machine has them, and skip with a message where it does not, rather than passing
+    silently on a fresh clone.
+  - **Next.js is deliberately absent.** It arrives in Phase 2, when there is a screen to draw.
+    The readers are plain TypeScript so they can be tested without it.
+  - **Three things the data disagreed with, all now reflected in the code and in §3:**
+    - **28 of the 163 run directories are empty**; 135 hold a manifest. The console reports
+      them as started-and-died rather than dropping them.
+    - **The metrics database knows 25 runs whose directories are gone**, all from 2026-09-08.
+      Their turn-level numbers survive; their prompts and outputs do not. So Runs has three
+      possible denominators - directories, manifests, database rows - and no two agree. Every
+      screen must say which it is using.
+    - **`harness/` is not at the repo root.** It is `src/caruca_v2/harness/`. The paths in this
+      document (`harness/methods.py`, `harness/rescore.py`, `harness/report.py`) do not exist
+      as written; add the prefix when following them.
+  - **One dependency choice worth recording.** `better-sqlite3` does not build against the
+    installed Node 26, so the metrics database is read through Node's built-in `node:sqlite`
+    instead. That is the better answer regardless: the console carries no compiled dependency,
+    so a Node upgrade cannot cost us the ability to read the evidence.
+- [x] **Phase 2: replay and inspect — done 2026-09-22.** Three screens, the visual design, and
+  a working terminal player. 74 tests.
+  - [x] **Run** (`/runs/<run_id>`): the terminal beside the events. A recorded run replays in a
+    real terminal emulator; a run without a recording says so and shows its reconstructed
+    command line instead of an empty black rectangle.
+  - [x] **Inspect** (`/runs/<run_id>/inspect`): prompts as sent, raw response, per-turn
+    figures, tracing sessions with their tool calls and arguments, run settings, and what v1
+    said about the artifact.
+  - [x] **Runs** (`/`): the way in, and the place the three different run counts are stated
+    side by side rather than one of them being quoted as "the" number.
+  - [x] The design follows the `caruca-design` skill: its tokens, its fonts served from our own
+    files, blue H2s, hairline borders, uppercase only for micro-labels, mono for every command
+    and number. One extension was needed and is noted in the stylesheet - the design system has
+    no dark surface, and a terminal must be one, so the terminal uses the system's own ink
+    colour as its background rather than introducing a colour.
+  - **The terminal player is verified end to end, not just compiled.** `node-pty` recorded a
+    real session of `caruca generate cat --max-count 1` (free: it executes nothing and calls no
+    model), and headless Chrome confirmed the page mounts a 30-row terminal, starts empty, and
+    on Play replays v1's actual output - `cat`, `cat -b`, `cat -T` … `cat --version` - with the
+    CRLF line endings a pseudo-terminal really produces. The recording is kept as a test
+    fixture, so replay is tested against output a program actually emitted.
+  - **Phase 0(e)'s trap confirmed in practice.** Installing `node-pty` left `spawn-helper` at
+    mode 644 exactly as predicted; the postinstall step written in Phase 1 fixed it
+    automatically and printed what it did.
+  - **The prompt-drift check turned out to be the one hard piece, and both obvious methods are
+    wrong.** A run records the *rendered* prompt while the files are *templates* full of
+    `{{placeholder}}`s, so comparing them directly reports drift on all 135 runs; and
+    `prompt_hash` hashes the rendered text, so it cannot detect a template edit either. The
+    check now matches the literal text between placeholders, in order, and reports the point at
+    which today's wording stops agreeing. Reasoning is in `console/src/data/promptDrift.ts`.
+    - **It found a real one.** `2026-09-08T201630Z_grep_48518d16` ran against a
+      `prompts/generate/` that has since gained wording it never received - the two agree up to
+      "…how many times each may appear", after which today's file adds "Most value types name a
+      kind without listing the values it stands for." That run's numbers describe the older
+      prompt. Every other run on disk is clean, and **this one appears in no campaign ledger**,
+      so no published figure rests on it.
+  - **One dependency fact.** `better-sqlite3` does not build against Node 26, so Phase 1 reads
+    the metrics database through Node's built-in `node:sqlite`. Next's bundler also needed to
+    be told that `.js` imports resolve to `.ts` sources, which is what `tsc` and vitest already
+    assume; the alternative was rewriting every import into a form the type-checker rejects.
+- [x] **Phase 3: compare and findings — done 2026-09-22.** 118 tests.
+  - [x] **Compare**: the matrix, the per-stage summary, filters, and the drill-down. The
+    drill-down renders what `scripts/parity_diff.py` already wrote rather than recomputing,
+    and the aggregates come from `caruca-v2 report --json`.
+  - [x] **Findings**: eleven files backfilled from the parity study, the E0 report and the
+    stage-1 baseline memo, each with its claim, its evidence, its denominators, its
+    corrections and a plain-language explanation. The screen re-checks them on demand.
+  - [x] **The re-check works and is honest about its own strength.** A campaign-level check
+    runs `report --rescore`, which re-derives every score from the run artifacts with today's
+    scorer; that call is read-only, so re-checking cannot alter the evidence. Each result says
+    how it was obtained and whether the number was genuinely re-derived or only re-read.
+  - **Five of the eleven findings carry re-derivable numbers, and all five match today.**
+  - *Remaining, and smaller than it looked:* the arms view (two models or variants side by
+    side) and a dedicated rescore screen. Both are presentation over data that Compare and the
+    re-check already produce.
+- [x] **Phase 4: the Pipeline builder and pre-flight — done 2026-09-23.** Still no execution.
+  199 tests. All three tests §9 asks for are in place and passing:
+  - [x] **The option table against each CLI's `--help`.** Checked in both directions, against
+    the live programs: a flag the table invents and a flag a CLI adds are both failures. The
+    extraction reads only *declared* options — scanning the help text for `--word` also picks
+    up the five flags that appear in prose (`--skip`'s default names three, v2's example names
+    `--foo` and `--bar`) and reports the table as missing flags that do not exist.
+  - [x] **v1's argument lists against the forms in §3.** One definition of each form, checked
+    against the table: `generate` on the Mac from `.venv`, `trace` in the VM with an explicit
+    `--output` file, `annotate` in the VM through `sh -lc`, `syntax-spec` from `.venv-llm`. The
+    `annotate` form is asserted to be exactly seven argv elements, so the shell string stays
+    one argument rather than being split.
+  - [x] **The guard that refuses any v1 output path inside v1's checkout.** Compared on
+    resolved paths with a trailing separator, so `..` cannot escape into it and
+    `outputs-backup` is not mistaken for `outputs` — the test asserts on *which* rule refused
+    it, because a `startsWith` bug would otherwise look like a pass. Unsafe paths are refused
+    when the invocation is constructed, so an unsafe form cannot be built at all.
+  - **The pre-flight counts by running v1's `generate` and counting the lines**, never
+    `--number`. Verified through the page: `mkdir` at `--max-count 4` gives 4,240 printed,
+    1,094 distinct, 74% duplicates, with the exact command shown. `pwd` gives 16, where
+    `--number` crashes. Counting stops at a line cap and a time limit and says which.
+  - **Cost estimates come from measured runs, with the range stated.** Stage 1 $0.0117 from 36
+    runs ($0.0086–$0.0368), stage 2 $0.0686 from 34, stage 3 $0.0348 from 27, stage 4 $0.0468
+    from 51. With no measured run it says there is nothing to estimate from rather than
+    guessing.
+  - **Environment checks** cover both CLIs, v1's pinned commit, the Lima VM and the keys. Keys
+    are checked in the shell **and in `.env`**, because `caruca-v2` loads `.env` itself — a key
+    present only there is perfectly usable, and calling it missing sends someone hunting a
+    problem that is not there. Only variable *names* are read from that file.
+  - **Each side's real data flow is drawn.** v1's `generate` is shown as not a step in v1's
+    chain, because v1's `trace` works out its own invocations; it is stage 3's preview and
+    count. The three places v2 can take v1's artifact instead are marked on their stages.
+  - **The previewed v2 command matches where the step would run.** A stage-3 row that says
+    "lima vm" now shows `--isolation lima --lima-instance caruca`, and stage 4 shows
+    `--v1-runner lima`. The first version showed a command that would not have done what the
+    row beside it said.
 - [ ] **Phase 5: live runs.**
   - Pseudo-terminals, recording, and the v1 run record.
   - The OpenRouter forwarder for a live v1 stage 1.
@@ -812,3 +917,191 @@ counts. Until task 005 adds them, the console shows "not recorded" for both, nev
   `generate pwd` prints 16 lines. Decision 4's premise was also confirmed at the source: v2's
   `ui.py` (line 60) degrades to plain output on `not stream.isatty()`, so a pipe really would
   change what v2 displays.
+
+- **2026-09-22: Phase 1 done. The data layer, in `console/`, with 59 tests.** No screens and no
+  Next.js yet — those are Phase 2. The readers are plain TypeScript so they could be tested on
+  the committed run directories rather than on fixtures, which is what turned up the
+  corrections below.
+
+  Ten modules under `console/src/data/`: the run readers for both sides, the command-line
+  reconstruction, the metrics database, campaigns, per-metric consistency, terminal recordings,
+  the one event format, and the findings store. Three rules run through all of them — numbers
+  come from files and never from terminal text; absent is never rendered as zero; and every
+  rate carries its denominator, which the findings schema now *enforces* rather than
+  recommends.
+
+  **Three corrections to this document, all found by reading the data:**
+  - **28 of the 163 run directories are empty** — §3 said all 163 held a manifest. Now fixed
+    there. It follows directly from Phase 0(a), and it means the console has to distinguish a
+    run that died from a run that is missing.
+  - **The metrics database knows 25 runs whose directories no longer exist.** So "how many
+    runs are there" has three different answers — 163 directories, 135 manifests, 160 database
+    entries — and any screen quoting a run count has to say which it means.
+  - **`harness/` is not at the repo root**, it is `src/caruca_v2/harness/`. Every reference in
+    this document is missing that prefix. Mentioned rather than rewritten throughout, since the
+    intent is unambiguous.
+
+  **Two of §10's acceptance figures are now checked automatically**, against the real
+  campaigns: `tac`'s exact-argument rate spreads by 0.200 while F1 does not move, and `pwd`'s
+  core recall spreads by 0.400 where the existing report shows 0.25. Both reproduce exactly.
+  The four `cat` runs in §10's replay table are pinned as tests too, down to the token counts
+  and the one stage-3 session that ended without reporting.
+
+- **2026-09-22: Phase 2 done. Three screens, the design, and a terminal that really replays.**
+  74 tests. `npm run dev` in `console/` serves it on 127.0.0.1:4317 and nothing else.
+
+  Run, Inspect and Runs are built to the `caruca-design` skill, with its fonts served from the
+  app's own files so the page makes no outside request. The one place the design system had to
+  be extended is written down in the stylesheet: it has no dark surface, and a terminal must be
+  one, so the terminal uses the system's own ink colour rather than a new colour.
+
+  **The replay path is verified against a real program, not a fixture someone typed.**
+  `node-pty` recorded `caruca generate cat --max-count 1` — free, since v1's `generate`
+  executes nothing and calls no model — and headless Chrome confirmed the page mounts a 30-row
+  terminal, starts blank, and on Play replays v1's own output with the CRLF endings a
+  pseudo-terminal really produces. That recording is now a test fixture.
+
+  **The prompt-drift check is the piece worth reading about**, because the two obvious ways of
+  doing it are both wrong, and both fail silently in the direction that looks reassuring or
+  looks alarming rather than erroring:
+  - Comparing the prompt file to the recorded prompt reports drift on *all* 135 runs. The files
+    are templates with `{{placeholder}}`s; the manifests record rendered text.
+  - Comparing `prompt_hash` cannot work either: `prompting.py::hash_prompt` hashes the rendered
+    messages, so it distinguishes two prompts from each other but says nothing about whether a
+    template was edited afterwards.
+
+  What works is matching the literal text *between* the placeholders, in order. A changed
+  template cannot escape it, because new wording cannot appear in an older rendering.
+  **It found one real case:** `2026-09-08T201630Z_grep_48518d16` ran against a
+  `prompts/generate/` that has since gained a sentence it never received. The screen reports
+  where the two stop agreeing rather than quoting the start of the file, which reads as a false
+  alarm when the opening words are identical — as they were here. That run is in no campaign
+  ledger, so nothing published depends on it; the check is worth having for the next one.
+
+  **Three of §10's replay figures are now visible on screen and pinned by tests:** the `cat`
+  stage-3 run shows 10 turns, $0.0353, five sessions with one that ended without calling the
+  reporting tool, and four calls to `report_observations` — which cross-checks the session
+  count against the tool audit, two independently recorded parts of the same manifest.
+
+- **2026-09-22: Phase 3 part one — Compare is built, plus run deletion and the READMEs.**
+  102 tests. Findings has a screen but not yet its re-check or the backfill; those and the
+  arms/rescore views are what remains of Phase 3.
+
+  **Compare** (`/compare`, and `/compare/<stage>/<command>`) shows one row per command and one
+  column per stage, every figure beside what it is counted over, and links through to the items
+  behind it. The drill-down does not recompute anything: it renders the section of
+  `eval/parity_diffs/<command>.md` that `scripts/parity_diff.py` already wrote, which is the
+  strongest available form of §6.4's requirement that the console and the script cannot
+  disagree. Aggregates come from `caruca-v2 report --json`, not from a second implementation.
+
+  **Four measurement mistakes were found and fixed while building it, each of which produced a
+  plausible-looking wrong number:**
+  - **The ledger schema silently dropped 6 of `p1_annotate`'s 27 cells.** It required
+    `cost_usd` and token counts, which an errored cell does not carry, so every failed `rm` and
+    `tee` cell vanished and stage 4 looked like it had nine working commands. It has seven.
+    `rm` fails because its prompt is **224,394 tokens against a 128,000 limit** — an instrument
+    limit, not a model result, and worth stating that way in the write-up.
+  - **Stage 4's "agreement" is a count, not a rate.** `agreement.pclass` counts agreeing cases
+    and `agreement.comparable` counts aligned ones. Averaging the first gives 1.19. The matrix
+    now pools numerator over denominator, across samples and across commands.
+  - **§10's stage-4 figure, "v2 10 of 33", is sample 0 alone.** The three samples give 10/33,
+    9/30 and 6/14; pooled, it is **25 of 77 (0.325)**. The denominator moves because it counts
+    cases that aligned at all, which depends on what v2 produced — so this stage's sample
+    variation lives in the denominator as much as the numerator. This is the same one-sample
+    error the parity study already corrected once at stage 3.
+  - **Ranking metric spreads together compared counts with rates**, reporting stage 4's widest
+    variation as "12.000". Only rates are ranked now, and a count-based headline is shown as
+    its per-sample counts rather than given a meaningless spread.
+
+  **Run deletion, at Tiran's request.** The Runs page allows multi-select deletion of runs —
+  directory, files and metrics-database rows. His two calls on 2026-09-22: a run that something
+  depends on is **warned about clearly and then allowed through**, not refused; and every
+  deletion is **logged** to `eval/deleted_runs.jsonl`. Three things are built in:
+  - **An impact report before anything happens**, naming every scored campaign cell and written
+    finding that cites each run. That is the failure worth preventing: deleting a run does not
+    change the documents that quote it, it makes their numbers impossible to re-derive, and
+    nothing complains until someone tries.
+  - **A containment check on the resolved real path**, so neither `..` nor a symbolic link can
+    point the deletion outside `eval/runs/` and `eval/v1_runs/`. Tested.
+  - **An honest statement of what deletion does not do.** `eval/runs/` is committed — 769 files
+    — so deleted files remain in git history. That makes an accident recoverable and means this
+    is not a way to make something go away. The screen says both.
+
+  **Also worth recording:** `caruca-v2 metrics rebuild` regenerates the database from the
+  telemetry files, so deleting database rows alone accomplishes nothing — a later rebuild
+  restores them. The delete path removes files and rows together.
+
+  **Documentation.** The root `README.md` now covers the whole repository: the three
+  independently installable parts (the pipeline, the console, the document pipeline), every
+  folder with a pointer to its own README, what is committed and what is not, and a
+  "where to read next" table. `console/README.md` covers installing and running the console,
+  its screens, and what to know before deleting anything.
+
+- **2026-09-22: Phase 3 finished — the re-check works, and it found things.** 118 tests.
+  Eleven findings now live in `ai_docs/analysis/findings/`, backfilled from the parity study,
+  the E0 report and the stage-1 baseline memo.
+
+  **Three defects in the harness's reporting, found by building the re-check against it.**
+  None of them is in the console; all three affect anything that reads `report --json`.
+
+  1. **`report --json` labels every campaign's metrics with stage-1 names.** `Arm.as_dict`
+     emits its two metric slots as `"f1"` and `"exact_argument_rate"` whatever the stage,
+     filling them from the method's own list. So `report p1_generate --json` publishes
+     **invocation recall (0.878) under the key `exact_argument_rate`**, and `report p1_trace`
+     publishes core recall under it. A figure copied from that JSON into a document would carry
+     the wrong name. The console resolves the slot via each method's declared metric list; the
+     fix in `report.py` would be to emit the real names.
+  2. **`report p1_annotate` produces no numbers at all.** `annotation_diff` declares
+     `rates.fully_agreeing` and `rates.pclass` as its leading metrics, but the ledger's
+     flattened score carries only the `agreement.*` counts — the `rates` the scorer computes
+     are dropped on the way in. The report prints `Mean F1 | n/a | n/a | n/a`. The method's own
+     comment shows the intent was right ("averaging '8 cases' with '1 case' produces a number
+     with no denominator behind it"); the keys just do not survive. **Stage 4 has never been
+     aggregatable by the harness**, which is presumably why the study's stage-4 figures were
+     derived another way.
+  3. **The stage-3 ledger records rates but no unit counts** (`counts` is null on every row),
+     so the study's pooled core recall of 0.606 cannot be recomputed from the campaign at all.
+     `report` gives 0.623 — the mean of the twelve per-cell rates, which weights a cell with
+     one interaction the same as a cell with eight. Both figures are defensible and they are
+     not interchangeable. The finding now records both, and says the pooled one is checkable
+     only against whatever produced it. Recording per-cell unit counts would fix it, and is
+     worth doing before any stage-3 number goes into the resubmission.
+
+  **Two things the re-check itself had to get right**, both found by running it against the
+  real findings rather than fixtures:
+  - **A number in a document is rounded.** Comparing the study's 0.606 against a scorer's
+    0.6062992125984252 marks every written-down number as "changed". Comparison now happens at
+    the precision the number was stated to.
+  - **A rate stored as `1.0` parses as `1`**, losing its decimals, and comparing it as a whole
+    number would let a recomputed 0.999 pass as a match. Rates get three places; genuine counts
+    (25 aligned cases, 224,394 tokens) are compared as whole numbers.
+
+  **Also corrected while backfilling.** §5 and §10 of this document state stage 4 as
+  "v2 10 of 33, v1 11 of 64". 10 of 33 is v2's **first run only** — the figure first published
+  and superseded on 22 September. The parity study itself carries the correct pooled 25 of 77.
+  The v1 figure, 11 of 64, is current. Those two places should be updated.
+
+- **2026-09-23: Phase 4 done. The Pipeline screen and the pre-flight, with nothing executed.**
+  199 tests. `/pipeline` shows what a run would consist of: the command picker with the parity
+  study's nine pinned, the five bounds set once for both sides, a count of what v1 would
+  actually enumerate, what the v2 stages would cost, every command line in full, and the
+  environment each side needs.
+
+  **§9's three Phase 4 tests all pass**, and two of them found something while being written:
+  - Extracting flags from `--help` by scanning for `--word` picks up flags mentioned in *prose*
+    — `--skip`'s help names `--version,--help,--interactive` and v2's names `--foo,--bar` — and
+    reports the option table as missing five flags that do not exist. Only declared options
+    count.
+  - The output guard's test for "a directory whose name merely starts the same"
+    (`outputs-backup`) passed for the wrong reason: that path is refused because it is inside
+    v1's checkout, not because of the prefix rule. It now asserts *which* rule refused it, so a
+    `startsWith` bug cannot hide behind a passing test.
+
+  **Verified through the page, not just in tests:** counting `mkdir` gives 4,240 printed and
+  1,094 distinct, which is §10's figure, and v1's `outputs/` still holds its 36 files
+  afterwards — v1's `generate` prints and writes nothing, as §3 says.
+
+  **One correctness fix worth noting.** The first version of the v2 preview showed
+  `caruca-v2 trace rm --model … --temperature 0.0` on a row that said the step must run in the
+  Lima VM. The command shown would have run on the host and been refused. The preview is now
+  built from the same decision that places the step, so the two cannot disagree.

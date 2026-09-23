@@ -1,0 +1,94 @@
+"use server";
+
+/**
+ * The console's only mutating operations.
+ *
+ * Kept in one file so that "what can this page change" has a single answer. Everything else in
+ * the console reads.
+ */
+import { revalidatePath } from "next/cache";
+import { analyzeDeletion, deleteRuns, type DeletionAnalysis, type DeletionResult } from "../data/deleteRuns.js";
+import { listFindings } from "../data/findings.js";
+import { recheckEvidence, recipeOf, type RecheckOutcome } from "../data/recheck.js";
+import { countEnumeration } from "../data/preflight.js";
+
+/** What deleting these runs would cost. Reads only. */
+export async function previewDeletion(runIds: string[]): Promise<DeletionAnalysis> {
+  return analyzeDeletion(runIds);
+}
+
+/**
+ * Delete runs. Irreversible on disk, though the files remain in git history.
+ *
+ * The analysis is re-run inside `deleteRuns`, so a confirmation built from a stale page cannot
+ * cause something other than what it described to be removed.
+ */
+export async function confirmDeletion(
+  runIds: string[],
+  reason: string,
+): Promise<DeletionResult> {
+  const trimmed = reason.trim();
+  const result = deleteRuns(runIds, trimmed ? { reason: trimmed } : {});
+  revalidatePath("/");
+  return result;
+}
+
+export interface FindingRecheck {
+  readonly findingId: string;
+  readonly outcomes: (RecheckOutcome & { label: string })[];
+}
+
+/**
+ * Re-derive every number in one finding and report whether each still holds.
+ *
+ * Slow on purpose: a campaign-level check re-scores the whole campaign from its run artifacts
+ * with today's scorer, which takes tens of seconds. That is the price of an answer that means
+ * something. Nothing is written - `report --rescore` recomputes in memory, so a re-check
+ * cannot alter the evidence it is checking.
+ */
+export async function recheckFinding(findingId: string): Promise<FindingRecheck> {
+  const finding = listFindings().findings.find(
+    (candidate) => candidate.frontmatter.id === findingId,
+  );
+  if (!finding) throw new Error(`No finding named ${findingId}.`);
+
+  const outcomes: (RecheckOutcome & { label: string })[] = [];
+  for (const evidence of finding.frontmatter.evidence) {
+    const outcome = await recheckEvidence(evidence, recipeOf(evidence));
+    outcomes.push({ ...outcome, label: evidence.label });
+  }
+  return { findingId, outcomes };
+}
+
+export interface CountResult {
+  readonly printed: number;
+  readonly distinct: number;
+  readonly executions: number | null;
+  readonly capped: boolean;
+  readonly cappedReason: string | null;
+  readonly argv: string[];
+  readonly seconds: number;
+}
+
+/**
+ * Count what v1 would enumerate, by running its `generate` and counting the lines.
+ *
+ * Free and safe: `generate` prints invocation strings and executes nothing. `--number` is
+ * never used — it disagrees with actual emission on every command checked.
+ */
+export async function countInvocations(
+  command: string,
+  maxArity: number,
+  maxCount: number,
+): Promise<CountResult> {
+  const result = await countEnumeration(command, { maxArity, maxCount });
+  return {
+    printed: result.printed,
+    distinct: result.distinct,
+    executions: result.executions,
+    capped: result.capped,
+    cappedReason: result.cappedReason,
+    argv: [...result.argv],
+    seconds: result.seconds,
+  };
+}

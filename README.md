@@ -4,9 +4,12 @@ A research project, not a product. It asks how much of **Caruca**'s specificatio
 pipeline an LLM can carry out, and measures the answer against the original implementation
 ("v1") and against human ground truth.
 
-> **📖 [Pipeline Usage Guide](ai_docs/docs/caruca_v2_pipeline_usage_guide.md)** — installation, every
-> command, real terminal output, and how to handle failures. Start there to actually run
-> anything.
+> **To run the pipeline:** [Pipeline Usage Guide](ai_docs/docs/caruca_v2_pipeline_usage_guide.md)
+> — installation, every command, real terminal output, and how to handle failures.
+>
+> **To look at what it produced:** [the execution console](console/README.md) — a local web page
+> that replays any run in a real terminal, compares v1 against v2 stage by stage, and shows
+> where every number came from. `cd console && npm install && npm run dev`.
 
 ---
 
@@ -55,9 +58,11 @@ in `ai_docs/prep/`, findings in `ai_docs/analysis/`.
 | 4 | `annotate` | traces | one consumer's annotation |
 | 5 | `metrics rebuild` | run directories | `eval/metrics.db` |
 
-Plus two measurement tools that make no model call and cost nothing: `score`
-(argument-by-argument spec comparison) and `sweep --dry-run` (enumerate a campaign before
-paying for it).
+Plus three measurement tools that make no model call and cost nothing: `score`
+(argument-by-argument spec comparison), `sweep --dry-run` (enumerate a campaign before paying
+for it), and `report` (aggregate a finished campaign, with a percent change only where one is
+valid). The console calls `report` rather than recomputing anything, so the two cannot
+disagree.
 
 Each stage defaults its input to v1's own committed artifact, so every stage is measurable
 independently; pass `--docs`, `--spec`, `--configs`, or `--traces` to chain them instead.
@@ -66,6 +71,16 @@ independently; pass `--docs`, `--spec`, `--configs`, or `--traces` to chain them
 
 ## Install
 
+Three independent parts. Install only what you need.
+
+| part | what it is | install | needs |
+|---|---|---|---|
+| **The pipeline** (`caruca-v2`) | the four stages and the measurement harness | `uv sync` | Python 3.12+, [`uv`](https://docs.astral.sh/uv/), a v1 checkout, an OpenRouter key |
+| **The execution console** (`console/`) | a local web page for replaying, comparing and explaining runs | `cd console && npm install` | Node 22.5+, and the pipeline installed |
+| **The document pipeline** (`scripts/md-to-pdf/`) | turns Markdown into the project's branded PDFs | `npm install` at the root | Node |
+
+### The pipeline
+
 **With Claude Code** — the repository ships two slash commands:
 
 ```
@@ -73,21 +88,48 @@ independently; pass `--docs`, `--spec`, `--configs`, or `--traces` to chain them
 /run_pipeline        walk the pipeline stage by stage, with a cost gate before each model call
 ```
 
-`/setup_pipeline` detects which of four machine shapes you are on — macOS host, WSL2,
-native Linux, or inside a Linux guest — because every install recipe differs between them.
-It will also clone and configure the v1 checkout if this machine does not have one. They
-are plain Markdown in `.claude/commands/`, readable and followable by hand.
+`/setup_pipeline` detects which of four machine shapes you are on — macOS host, WSL2, native
+Linux, or inside a Linux guest — because every install recipe differs between them. It will
+also clone and configure the v1 checkout if this machine does not have one. They are plain
+Markdown in `.claude/commands/`, readable and followable by hand.
 
-**Manually** — requires Python 3.12+ and [`uv`](https://docs.astral.sh/uv/):
+**By hand:**
 
 ```sh
 uv sync
 cp .env.example .env      # then fill in OPENROUTER_API_KEY and CARUCA_V1_ROOT
+uv run pytest             # check it works; nothing in the suite spends money
 ```
 
 The CLI is then at `.venv/bin/caruca-v2`. A v1 checkout with its own virtualenv is required
 for anything beyond `--help`; see the
 [guide](ai_docs/docs/caruca_v2_pipeline_usage_guide.md#the-v1-checkout).
+
+**Tracing needs a Linux kernel.** On macOS that means the Lima VM named `caruca`, and v1's
+`annotate` cannot run on macOS at all. `/setup_pipeline` sets this up; the operating
+instructions are in `ai_docs/docs/`.
+
+### The execution console
+
+```sh
+cd console
+npm install          # also fixes a file permission npm leaves broken
+npm run dev          # then open http://127.0.0.1:4317
+```
+
+It reads the evidence already in `eval/` and needs no API key. It binds to `127.0.0.1` only
+and makes no outside requests. Full details, including what to do when something goes wrong,
+in [`console/README.md`](console/README.md).
+
+### The document pipeline
+
+```sh
+npm install                              # at the repository root
+npm run convert -- <input.md> [output.pdf] [--title "…"] [--subtitle "…"]
+```
+
+Produces the branded PDFs that go to advisors alongside presentations. It shares its visual
+identity with the console: both are built from the `caruca-design` skill.
 
 ## Quick start
 
@@ -103,31 +145,78 @@ without the configuration that produced it being stated.
 Costs, isolation requirements, and every failure mode are in the
 [Pipeline Usage Guide](ai_docs/docs/caruca_v2_pipeline_usage_guide.md).
 
+Then look at what happened:
+
+```sh
+cd console && npm run dev     # http://127.0.0.1:4317
+```
+
+The run appears in the list. Opening it shows what it cost, what it sent, what came back, and
+— for a run the console started itself — a replay of the terminal.
+
 ---
 
 ## Repository layout
 
-| Path | Contents |
+Every folder, and which README covers it in depth.
+
+| Path | Contents | Its own README |
+|---|---|---|
+| `src/caruca_v2/` | the CLI, the four stages, the v1 boundary, telemetry, the measurement harness (`src/caruca_v2/harness/`) | — |
+| `console/` | the execution console: a local Next.js page that replays runs, compares v1 with v2, and explains every number | [`console/README.md`](console/README.md) |
+| `prompts/` | every instruction given to a model, as Markdown, one directory per stage; loaded verbatim at runtime | [`prompts/README.md`](prompts/README.md) |
+| `tests/` | the Python suite. No test reaches the network; none needs a v1 checkout | — |
+| `eval/` | the evidence: run directories, the metrics database, campaign ledgers, generated drill-downs | — |
+| `campaigns/` | campaign definitions — the grids `sweep` runs (`c0_*` pilot, `p1_*` parity study) | — |
+| `scripts/` | `parity_diff.py` (the per-command v1-vs-v2 drill-down) and `md-to-pdf/` (the branded PDF pipeline) | — |
+| `ai_docs/` | everything this project has written down | [`ai_docs/README.md`](ai_docs/README.md) |
+| `ai_docs/analysis/` | findings produced by this project | [`ai_docs/analysis/README.md`](ai_docs/analysis/README.md) |
+| `ai_docs/refs/` | source material we did not write, including the paper. Third-party, excluded from this licence | — |
+| `ai_docs/tasks/` | numbered task documents for multi-session work | — |
+| `ai_docs/prep/` | planning: master idea, architecture, telemetry schema, roadmap | — |
+| `memory/` | cross-session project memory | `memory/MEMORY.md` is the index |
+| `.claude/commands/` | slash commands, including `/setup_pipeline` and `/run_pipeline` | — |
+| `.claude/skills/` | `caruca-design` (the binding visual system), `task-creator`, `diagram` | — |
+
+### What is committed, and what is not
+
+Worth knowing before you go looking for something that is not there:
+
+- **`eval/runs/` and `eval/metrics.db` are committed** (since `eedd91a`, 15 September 2026).
+  The evidence travels with the repository.
+- **`eval/campaigns/` is not.** The scored campaign ledgers are local to whichever machine ran
+  them. The console works without them; its comparison screens say so rather than showing
+  empty tables.
+- **v1's corpus is never copied here.** Man pages, syntax specifications, fixtures and
+  ground-truth annotations are read from the v1 checkout at runtime and stay there.
+
+### Where to read next
+
+| If you want to… | Read |
 |---|---|
-| `src/caruca_v2/` | the CLI, the four stages, the v1 boundary, telemetry, the harness |
-| `prompts/` | every prompt, as Markdown, one directory per stage |
-| `ai_docs/docs/` | operating instructions for v2 and for v1 |
-| `ai_docs/analysis/` | findings produced by this project |
-| `ai_docs/prep/` | planning: master idea, architecture, telemetry schema, roadmap |
-| `ai_docs/tasks/` | numbered task documents for multi-session work |
-| `.claude/commands/` | slash commands, including setup and pipeline walkthrough |
-| `eval/` | run directories, campaign ledgers, the metrics database (gitignored) |
-| `memory/` | cross-session project memory; `MEMORY.md` is the index |
+| run the pipeline | [Pipeline Usage Guide](ai_docs/docs/caruca_v2_pipeline_usage_guide.md) |
+| look at results, replay a run, compare v1 and v2 | [`console/README.md`](console/README.md) |
+| find out what this project has concluded so far | [`ai_docs/analysis/README.md`](ai_docs/analysis/README.md) |
+| find any document at all | [`ai_docs/README.md`](ai_docs/README.md) |
+| see exactly what a model is asked | [`prompts/README.md`](prompts/README.md) |
+| understand the original system | `ai_docs/refs/caruca_white_paper.md`, and v1's own checkout |
+| pick up a piece of work in progress | `ai_docs/tasks/` |
 
 ## Development
 
 ```sh
-uv run pytest          # the whole suite; every test mocks the model, none spends money
+uv run pytest                      # the Python suite
 uv run ruff check .
+
+cd console && npm test             # the console's suite
+cd console && npm run typecheck
 ```
 
-Two rules the test suite enforces rather than documents: no test can reach OpenRouter, and
-no test needs a v1 checkout — it builds a fake one from text written for the purpose.
+Two rules the Python suite enforces rather than documents: no test can reach OpenRouter, and
+no test needs a v1 checkout — it builds a fake one from text written for the purpose. The
+console's suite runs against the committed run directories, so it checks the readers against
+real evidence rather than fixtures; the tests that need campaign ledgers skip themselves with
+a message when those are not on the machine.
 
 ## License
 
