@@ -17,6 +17,7 @@
  *      list. The one exception is `annotate` inside the VM, which `v1.py` already passes to
  *      `sh -lc`; the console copies that form rather than inventing one, and quotes each part.
  */
+import { execFileSync } from "node:child_process";
 import { join, resolve, sep } from "node:path";
 import { v1Root, v1ProtectedOutputs, repoPaths } from "./paths.js";
 
@@ -26,8 +27,47 @@ export class UnsafeV1OutputError extends Error {}
 export const VENV_DEFAULT = ".venv";
 export const VENV_LLM = ".venv-llm";
 
-/** v1's entry point inside the Lima VM, as `v1.py::LIMA_V1_PYTHON` has it. */
+/**
+ * v1's entry point inside the Lima VM, as `v1.py::LIMA_V1_PYTHON` writes it.
+ *
+ * Note the tilde. `v1.py` only ever uses this inside `sh -lc`, where the guest's shell expands
+ * it. Passed as a bare argv element it does not work: `limactl` quotes each argument, so bash
+ * in the guest receives a literal `~/caruca-venv/bin/caruca` and reports
+ * `No such file or directory`. Expanding it on the Mac is no better — that gives the Mac's
+ * home, and v1's virtualenv lives under the guest's.
+ *
+ * So a form that does not use a shell has to use the absolute guest path, which
+ * `limaCarucaPath` resolves.
+ */
 export const LIMA_V1_CARUCA = "~/caruca-venv/bin/caruca";
+
+/** Where the guest's home is, resolved once per instance. */
+const limaHomeCache = new Map<string, string>();
+
+/**
+ * v1's absolute path inside the VM.
+ *
+ * Resolved from the guest rather than assumed, because the guest's home is not the Mac's:
+ * on this machine it is `/home/tirandagan.guest`, which no amount of local expansion would
+ * produce. Cached, since it cannot change while the VM is up.
+ */
+export function limaCarucaPath(instance: string): string {
+  const cached = limaHomeCache.get(instance);
+  if (cached) return cached;
+
+  const home = execFileSync("limactl", ["shell", instance, "--", "printenv", "HOME"], {
+    encoding: "utf8",
+    timeout: 30_000,
+  }).trim();
+
+  if (!home.startsWith("/")) {
+    throw new Error(`Could not resolve the home directory inside the Lima VM "${instance}".`);
+  }
+
+  const resolved = `${home}/caruca-venv/bin/caruca`;
+  limaHomeCache.set(instance, resolved);
+  return resolved;
+}
 
 export type V1Subcommand = "syntax-spec" | "generate" | "trace" | "annotate" | "oracle";
 export type Where = "mac" | "lima";
@@ -162,8 +202,10 @@ export function v1Trace(
   const instance = options.limaInstance ?? "caruca";
   const output = refuseUnsafeOutput(outputFile, root);
 
+  // The absolute guest path, not the tilde form: see `limaCarucaPath`. This keeps `trace` an
+  // argument list with no shell involved, which is the rule everywhere except `annotate`.
   const inner = [
-    LIMA_V1_CARUCA,
+    limaCarucaPath(instance),
     "trace",
     command,
     ...boundsArgs(bounds),
@@ -177,7 +219,7 @@ export function v1Trace(
     where: "lima",
     limaInstance: instance,
     cwd: v1Cwd(root),
-    venv: LIMA_V1_CARUCA,
+    venv: limaCarucaPath(instance),
     usesShell: false,
     outputPath: options.lengthOnly ? null : output,
   };

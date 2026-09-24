@@ -62,6 +62,19 @@ export const v1RunManifestSchema = z
     started_at: z.string(),
     ended_at: z.string().nullable().default(null),
     exit_code: z.number().int().nullable().default(null),
+
+    /**
+     * How the run ended.
+     *
+     * Recorded separately from `exit_code`, because a run killed with SIGTERM can still report
+     * 0 — so a stopped run's record is otherwise indistinguishable from one that finished. The
+     * difference matters: a stopped run's outputs are incomplete, and anything derived from
+     * them is partial.
+     */
+    outcome: z.enum(["finished", "stopped", "failed", "unknown"]).default("unknown"),
+
+    /** True when the recording stopped before the run did, because it reached its size cap. */
+    recording_truncated: z.boolean().default(false),
     machine: z.string(),
     /** v1's progress bar sizes itself to the width, so a replay needs the original size. */
     terminal_size: z.object({ cols: z.number().int(), rows: z.number().int() }),

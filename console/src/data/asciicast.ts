@@ -114,15 +114,33 @@ export function outputText(recording: Recording): string {
  * Appends line by line and flushes as it goes, so a recording is replayable even if the run is
  * killed - which matters, because the runs most worth watching again are the ones that failed.
  */
+/**
+ * How large a recording may grow before it stops recording.
+ *
+ * Recordings are committed (Phase 0(f)), and a runaway run can produce an unreasonable amount
+ * of output: v1's `generate grep` at its defaults prints about three million lines in six
+ * seconds, which produced a 33 MB recording from twelve seconds of running. Past this point
+ * the recording stops taking output and says so in the file, while the run itself carries on
+ * untouched — a recording is evidence about a run, and it must never be the reason a run is
+ * cut short.
+ *
+ * 16 MB is chosen against what these are for: replaying a run. A trace's progress bar over an
+ * hour is well inside it, and anything larger is a wall of enumeration nobody will watch.
+ */
+export const RECORDING_CAP_BYTES = 16 * 1024 * 1024;
+
 export class RecordingWriter {
   private readonly stream: WriteStream;
   private readonly startedAt: number;
   private closed = false;
+  private written = 0;
+  private capped = false;
 
   constructor(
     private readonly path: string,
     header: Omit<AsciicastHeader, "version" | "timestamp">,
     startedAt = Date.now(),
+    private readonly cap: number = RECORDING_CAP_BYTES,
   ) {
     this.startedAt = startedAt;
     const full: AsciicastHeader = {
@@ -137,8 +155,32 @@ export class RecordingWriter {
   /** Record bytes the terminal showed, timestamped relative to the start of the recording. */
   write(data: string, at = Date.now()): void {
     if (this.closed) throw new Error(`Recording ${this.path} is already closed.`);
+    if (this.capped) return;
+
     const seconds = (at - this.startedAt) / 1000;
-    this.stream.write(`${JSON.stringify([seconds, "o", data])}\n`);
+    const line = `${JSON.stringify([seconds, "o", data])}\n`;
+    this.written += line.length;
+
+    if (this.written > this.cap) {
+      // Say so in the recording itself, so a replay shows the truncation rather than simply
+      // ending. The run is not affected.
+      this.capped = true;
+      this.stream.write(
+        `${JSON.stringify([
+          seconds,
+          "m",
+          `recording stopped at ${Math.round(this.cap / (1024 * 1024))} MB; the run continued`,
+        ])}\n`,
+      );
+      return;
+    }
+
+    this.stream.write(line);
+  }
+
+  /** True once the recording stopped taking output. The run itself was not interrupted. */
+  get isCapped(): boolean {
+    return this.capped;
   }
 
   /** A named point in the recording: a stage boundary, a turn, a tool call. */

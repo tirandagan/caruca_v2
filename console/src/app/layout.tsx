@@ -38,6 +38,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link className="nav__item" href="/pipeline">
                 Pipeline
               </Link>
+              <Link className="nav__item" href="/live">
+                Live
+              </Link>
               <Link className="nav__item" href="/compare">
                 Compare
               </Link>

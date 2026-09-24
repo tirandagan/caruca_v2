@@ -191,3 +191,36 @@ describe("tool calls", () => {
     expect(refused).toHaveLength(0);
   });
 });
+
+describe("a recording that would grow without limit", () => {
+  it("stops recording at the cap, marks the file, and lets the run continue", async () => {
+    // v1's `generate grep` at its defaults prints about three million lines in six seconds.
+    // A recording is evidence about a run; it must never be the reason a run is cut short.
+    const dir = mkdtempSync(join(tmpdir(), "caruca-cap-"));
+    const path = join(dir, "big.cast");
+    const started = Date.now();
+    const writer = new RecordingWriter(path, { width: 80, height: 24 }, started, 2048);
+
+    for (let i = 0; i < 200; i += 1) writer.write("x".repeat(100), started + i);
+    expect(writer.isCapped).toBe(true);
+    writer.write("more output after the cap", started + 500);
+    await writer.close();
+
+    const recording = readRecording(path);
+    const markers = recording.events.filter((event) => event.kind === "m");
+    expect(markers).toHaveLength(1);
+    expect(markers[0]!.data).toContain("the run continued");
+    // Nothing recorded after the cap.
+    expect(outputText(recording)).not.toContain("more output after the cap");
+  });
+
+  it("records everything when the cap is not reached", async () => {
+    const dir = mkdtempSync(join(tmpdir(), "caruca-cap-"));
+    const path = join(dir, "small.cast");
+    const writer = new RecordingWriter(path, { width: 80, height: 24 });
+    writer.write("hello");
+    expect(writer.isCapped).toBe(false);
+    await writer.close();
+    expect(outputText(readRecording(path))).toBe("hello");
+  });
+});

@@ -1,0 +1,21 @@
+{
+  "run_id": "2026-09-24T164219Z_cat_0c81e1eb",
+  "command": "cat",
+  "component": "naive_llm",
+  "condition": "plain",
+  "stage": "syntax_spec",
+  "model_id": "openai/gpt-4o",
+  "prompt_tokens": 6376,
+  "completion_tokens": 152,
+  "cost_usd": 0.01746,
+  "wall_clock_seconds": 3.9797383750556037,
+  "seed": 42,
+  "prompt_hash": "5766d01928394d825d17db66c05c9f768624ec7f4fed4e79cbac0fb4cefcfee4",
+  "timestamp": "2026-09-24T16:42:19.243427Z",
+  "decoding_params": {
+    "temperature": 0.0,
+    "max_tokens": 4096
+  },
+  "turn": 0,
+  "config_index": null
+}

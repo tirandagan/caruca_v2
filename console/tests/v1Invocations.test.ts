@@ -43,16 +43,27 @@ describe("the forms §3 records", () => {
   });
 
   it("trace runs inside the Lima VM, with an explicit output file", () => {
-    // §3: `limactl shell caruca -- ~/caruca-venv/bin/caruca trace CMD … --output FILE`
+    // §3 writes this as `limactl shell caruca -- ~/caruca-venv/bin/caruca trace CMD …`, but
+    // that form does not run: `limactl` quotes each argument, so the guest's bash gets a
+    // literal `~` and reports "No such file or directory". Expanding it here would give the
+    // Mac's home, and v1's virtualenv is under the guest's. The absolute guest path is used
+    // instead, and the invocation is otherwise identical.
     const out = join(RUN_DIR, "cat.json");
     const invocation = v1Trace("cat", out, { maxCount: 1 });
     expect(invocation.where).toBe("lima");
     expect(invocation.limaInstance).toBe("caruca");
     expect(invocation.argv.slice(0, 4)).toEqual(["limactl", "shell", "caruca", "--"]);
-    expect(invocation.argv[4]).toBe(LIMA_V1_CARUCA);
+    expect(invocation.argv[4]).toMatch(/^\/.*\/caruca-venv\/bin\/caruca$/);
+    expect(invocation.argv[4]).not.toContain("~");
     expect(invocation.argv.slice(5, 7)).toEqual(["trace", "cat"]);
     expect(invocation.argv).toContain("--output");
     expect(invocation.outputPath).toBe(out);
+  });
+
+  it("resolves v1's path from the guest, not from the Mac's home", () => {
+    // The two differ: the guest's home is not /Users/<name>.
+    const invocation = v1Trace("cat", join(RUN_DIR, "cat.json"));
+    expect(invocation.argv[4]).not.toContain(process.env.HOME ?? "/Users");
   });
 
   it("trace passes no isolation variable, so v1 uses its own default", () => {

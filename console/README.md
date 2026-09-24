@@ -25,8 +25,8 @@ must not reach a public location. The server listens on 127.0.0.1 only.
 | 1 | The data layer: readers, event adapters, recordings, findings | **done** — `src/data/` |
 | 2 | Replay and Inspect screens, and the visual design | **done** |
 | 3 | Compare and Findings, and the backfill | **done** |
-| 4 | The Pipeline builder and pre-flight, still without execution | **done** — 199 tests |
-| 5 | Live runs: pseudo-terminals, recording, stop, reattach | not started |
+| 4 | The Pipeline builder and pre-flight, still without execution | **done** |
+| 5 | Live runs: pseudo-terminals, recording, stop, reattach | **done** — 216 tests |
 | 6 | Campaigns and tools | not started |
 
 ## Installing and running it
@@ -80,6 +80,7 @@ a run that finishes while the page is open shows up when you reload.
 | `/compare/<stage>/<command>` | The items behind one number, from the generated drill-down |
 | `/findings` | Findings. Each claim, its numbers, and a button that re-derives them |
 | `/pipeline` | Pipeline. What a run would consist of, and what it would cost. Executes nothing |
+| `/live` | Live. Start runs and watch them, v1 left and v2 right, in real terminals |
 
 A recorded run replays in a real terminal emulator, at 0.5x to 8x, seekable. A run without a
 recording — which is all 135 of them today — says so and shows its reconstructed command line,
@@ -134,7 +135,34 @@ src/data/
   v1Invocations.ts v1's argument lists, in the forms the parity study used
   preflight.ts     counts, environment checks, cost estimates from measured runs
   pipelinePlan.ts  what a run would consist of, built without running anything
+
+src/server/
+  processes.ts     the registry: every running process, its terminal and its recording
+  startRun.ts      building a run, and the confirmation a paid one needs first
+server.ts          Next plus the WebSocket that carries a live terminal
 ```
+
+### Running things
+
+`/live` starts runs and shows them, v1 on the left and v2 on the right, each in a real
+terminal. What to know:
+
+- **The server owns every process, not the page.** Closing or reloading the tab leaves a run
+  going; coming back reattaches and replays what you missed. That is why the console has a
+  custom server rather than plain `next dev`: Next's route handlers cannot hold a WebSocket
+  open.
+- **Nothing that costs money starts without being asked for by name.** Every v2 stage calls a
+  model, and so does a live v1 stage 1. The confirmation carries the estimate and what it is
+  based on, and the run is refused if that figure has moved since it was shown.
+- **The page cannot type into a terminal.** No input path exists, in either direction.
+- **Stop reaches inside the VM.** For a Lima run the console kills the process in the guest as
+  well, then checks and reports anything that survived rather than assuming.
+- **Only four programs can be started**, checked on the resolved path: `caruca-v2`, v1's
+  `caruca` from either virtualenv, and `limactl`.
+
+Free things to try, which call no model: v1's `generate` (prints invocations, executes
+nothing), `syntax-spec --fetch` (reads v1's committed specification), v1's `trace` (executes
+under strace in the VM), and `caruca-v2 score --self-test`.
 
 ### The pipeline screen
 
@@ -221,6 +249,12 @@ Found while building Phase 1, and worth knowing before reading the code:
   `rates.*` metrics that the ledger does not carry; only the `agreement.*` counts survive
   flattening. Stage 4's figures are computed by the console from the ledger instead, and
   labelled as re-read rather than re-derived.
+- **v1 cannot be started in the VM with `~/caruca-venv/bin/caruca` as an argument.** `limactl`
+  quotes each argument, so the guest's bash gets a literal `~`. `v1.py` only uses that form
+  inside `sh -lc`. The console resolves the absolute guest path from the VM instead.
+- **A process killed with SIGTERM can still report exit code 0**, so how a run ended is
+  recorded separately from its exit code. Without that, a stopped run's record is
+  indistinguishable from one that finished, and its partial outputs look complete.
 - **Stage 3's pooled figures cannot be rebuilt from a campaign.** The ledger records each
   cell's rate but not its unit counts, and a pooled rate cannot be rebuilt from rates. The
   study's 0.606 (pooled over 33 units) and the report's 0.623 (mean over 12 cells) are both

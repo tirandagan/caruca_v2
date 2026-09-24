@@ -24,7 +24,7 @@
  */
 import { createRequire } from "node:module";
 import { execFile } from "node:child_process";
-import { mkdirSync } from "node:fs";
+import { mkdirSync, renameSync, rmdirSync, existsSync, readdirSync } from "node:fs";
 import { basename, join } from "node:path";
 import { promisify } from "node:util";
 import { RecordingWriter } from "../data/asciicast.js";
@@ -129,6 +129,16 @@ export interface StartSpec {
   /** A v1 run record to write when the run ends. v2 writes its own manifest. */
   readonly v1Manifest?: Omit<V1RunManifest, "ended_at" | "exit_code" | "concurrent_with"> | null;
   readonly title?: string;
+  /**
+   * For v2: move the recording into the run directory v2 makes for itself.
+   *
+   * v2 mints its own run id and writes `eval/runs/<its id>/`. The console cannot know that id
+   * in advance, so it records into a directory of its own and adopts v2's afterwards — v2
+   * prints the path on its last few lines. Without this the recording ends up orphaned in a
+   * directory holding nothing else, and the Run screen, which looks a run up by v2's id, finds
+   * no recording for a run that was recorded.
+   */
+  readonly adoptV2RunDir?: boolean;
 }
 
 export interface LiveRun {
@@ -277,12 +287,24 @@ export function start(spec: StartSpec): LiveRun {
     info.exitCode = exitCode;
     void recording.close();
 
+    if (spec.adoptV2RunDir) adoptRunDirectory(entry, spec.runDir);
+
     if (entry.manifest) {
       try {
         writeV1Manifest(spec.runDir, {
           ...entry.manifest,
           ended_at: new Date().toISOString(),
           exit_code: exitCode,
+          // A run killed with SIGTERM can still report exit code 0, so how it ended is
+          // recorded in its own right. Otherwise a stopped run's record reads as a clean
+          // finish, and its incomplete outputs look like complete ones.
+          outcome:
+            info.state === "stopped"
+              ? "stopped"
+              : info.state === "failed"
+                ? "failed"
+                : "finished",
+          recording_truncated: recording.isCapped,
           concurrent_with: info.concurrentWith,
         } as V1RunManifest);
       } catch {
@@ -396,6 +418,47 @@ export async function stop(runId: string): Promise<StopResult> {
         ? `stopped on this Mac and in the VM "${instance}"`
         : `stopped here, but ${surviving.length} process(es) are still running in "${instance}"`,
   };
+}
+
+/**
+ * v2 prints its run directory as `run      eval/runs/<id>` in its summary.
+ *
+ * Read from the recorded output rather than guessed at, and matched on the whole line so a
+ * path appearing elsewhere in the output cannot be mistaken for it.
+ */
+export function parseV2RunDir(output: string): string | null {
+  // Strip the escape sequences the live display emits before matching.
+  const plain = output.replace(/\u001b\[[0-9;?]*[A-Za-z]/g, "");
+  const match = /^\s*run\s+(eval\/runs\/[^\s]+)\s*$/m.exec(plain);
+  return match?.[1] ?? null;
+}
+
+/**
+ * Move the recording into the run directory v2 made, and remove the console's own.
+ *
+ * Failures here are deliberately quiet: the recording is already safely on disk, and a run
+ * that succeeded must not be reported as failed because its recording could not be filed.
+ */
+function adoptRunDirectory(entry: Entry, consoleRunDir: string): void {
+  try {
+    const target = parseV2RunDir(entry.buffer);
+    if (!target) return;
+
+    const paths = repoPaths();
+    const targetDir = join(paths.root, target);
+    if (!existsSync(targetDir)) return;
+
+    const from = join(consoleRunDir, V1_RECORDING_NAME);
+    if (!existsSync(from)) return;
+
+    renameSync(from, join(targetDir, V1_RECORDING_NAME));
+
+    // The console's directory has done its job. Removed only if empty, so nothing that
+    // happened to be written there is lost.
+    if (readdirSync(consoleRunDir).length === 0) rmdirSync(consoleRunDir);
+  } catch {
+    // The recording stays where it is; the run's own evidence is unaffected.
+  }
 }
 
 /** Forget a finished run. Its recording and record stay on disk. */

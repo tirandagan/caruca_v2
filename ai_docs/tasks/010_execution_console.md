@@ -107,7 +107,7 @@ needs.
   | stage | how it ran |
   |---|---|
   | `generate` | on the Mac: `$CARUCA_V1_ROOT/caruca/.venv/bin/caruca generate CMD …`, from `$CARUCA_V1_ROOT/caruca` (`v1.py::reference_invocations`, `reference_configs`) |
-  | `trace` | in the VM: `limactl shell caruca -- ~/caruca-venv/bin/caruca trace CMD … --output FILE`, from `$CARUCA_V1_ROOT/caruca`, under v1's default isolation (`CARUCA_ISOLATION_METHOD` unset, which means `try`) |
+  | `trace` | in the VM: `limactl shell caruca -- <guest path>/caruca-venv/bin/caruca trace CMD … --output FILE`, from `$CARUCA_V1_ROOT/caruca`, under v1's default isolation (`CARUCA_ISOLATION_METHOD` unset, which means `try`). **Corrected 2026-09-23:** this was written with `~/caruca-venv/bin/caruca`, which does not run. `limactl` quotes each argument, so the guest's bash receives a literal `~` and reports `No such file or directory`; expanding it on the Mac gives the Mac's home, and v1's virtualenv is under the guest's (`/home/<user>.guest`). `v1.py` only ever uses the tilde form inside `sh -lc`, where the guest's shell expands it. The console resolves the absolute guest path instead, which keeps `trace` an argument list with no shell involved |
   | `annotate` | in the VM: `limactl shell caruca -- sh -lc "~/caruca-venv/bin/caruca annotate FORMAT CMD --input FILE"`, from `$CARUCA_V1_ROOT/caruca` (`v1.py::reference_annotation`) |
   | `syntax-spec` | **never run live.** The parity study used v1's archived LLM output, `$CARUCA_V1_ROOT/outputs/llm-dsl-generation/CMD.py`. The console can run it live, from `.venv-llm`, through OpenRouter (§6.2) |
 
@@ -716,13 +716,32 @@ are counted with one counter. Three rules apply:
     "lima vm" now shows `--isolation lima --lima-instance caruca`, and stage 4 shows
     `--v1-runner lima`. The first version showed a command that would not have done what the
     row beside it said.
-- [ ] **Phase 5: live runs.**
-  - Pseudo-terminals, recording, and the v1 run record.
-  - The OpenRouter forwarder for a live v1 stage 1.
-  - Stop, on the Mac and in the VM.
-  - Reattaching after a page reload.
-  - Running one after the other or both at once, with the concurrency flag.
-  - The paid-call confirmation. This is the only phase that can spend money.
+- [x] **Phase 5: live runs — done 2026-09-23, except the one paid run.** 211 tests. Everything
+  below was verified by driving the page in a browser, not only by unit test.
+  - [x] **Pseudo-terminals, recording, and the v1 run record.** `server.ts` is a custom Next
+    server that also carries the WebSocket: Next's route handlers cannot hold one open, and §7
+    asks for one long-lived local server that owns each process. It listens on 127.0.0.1 only.
+  - [x] **Stop, on the Mac and in the VM.** Verified on a live Lima trace at 98%: the console
+    reported "stopped on this Mac and in the VM \"caruca\"", and an independent `pgrep` inside
+    the guest afterwards found no v1 process and no `strace`.
+  - [x] **Reattaching after a page reload.** Verified mid-run: the terminal held 847 characters
+    before a full reload and 2,032 after, still showing "live". The run never noticed.
+  - [x] **Running both at once, with the concurrency flag.** Verified: the second run's record
+    names the first, and the terminal carries the warning that wall-clock time from
+    overlapping runs is not comparable.
+  - [x] **The paid-call confirmation.** Every v2 stage and a live v1 stage 1 are refused
+    without an explicit go-ahead, and refused again if the estimate has moved by more than a
+    cent since it was shown — nobody agrees to one figure and is charged against another.
+  - [x] **The paid live run** (§10: stage 1 on `cat`, under two cents) — done 2026-09-24 on
+    Tiran's go-ahead. **$0.01746**, 6,376 prompt and 152 completion tokens, seed honoured,
+    validated. A second was run to check the recording is filed correctly: **$0.00978**, same
+    tokens. Both under two cents; $0.02724 spent in total.
+  - **Both free live runs from §10 work.** `caruca generate cat --max-count 1` streamed v1's
+    invocations, and `caruca-v2 score --self-test` streamed `touch perfect / rm perfect /
+    mv perfect / ls perfect`.
+  - **Decision 4 is vindicated by the trace run.** v1's tqdm progress bar redraws in place in
+    the terminal — `100%|████…| 220/220 [00:05<00:00, 36.85it/s]`. A list of output lines would
+    have turned that single bar into hundreds of lines.
 - [ ] **Phase 6: campaigns and tools.**
 
 **Where task 005 is needed:** v1's per-step timing inside a run, and its LLM step's token
@@ -1105,3 +1124,81 @@ counts. Until task 005 adds them, the console shows "not recorded" for both, nev
   `caruca-v2 trace rm --model … --temperature 0.0` on a row that said the step must run in the
   Lima VM. The command shown would have run on the host and been refused. The preview is now
   built from the same decision that places the step, so the two cannot disagree.
+
+- **2026-09-23: Phase 5 done, bar the one paid run.** 211 tests. The console now starts runs,
+  streams them into real terminals, records them, and stops them — on the Mac and inside the
+  VM. `npm run dev` runs `server.ts`, a custom Next server that also carries the WebSocket,
+  because Next's route handlers cannot hold one open and §7 asks for one long-lived local
+  server that owns each process. It binds to 127.0.0.1 only.
+
+  **§3's `trace` form does not run as written, and is now corrected there.** It gives
+  `limactl shell caruca -- ~/caruca-venv/bin/caruca trace …`. `limactl` quotes each argument,
+  so the guest's bash receives a literal `~` and answers `No such file or directory`; expanding
+  it on the Mac is no better, because that yields the Mac's home while v1's virtualenv lives
+  under the guest's (`/home/<user>.guest`). `v1.py` only ever uses the tilde form inside
+  `sh -lc`. The console resolves the absolute guest path from the VM instead, which keeps
+  `trace` an argument list with no shell involved — the rule everywhere except `annotate`.
+
+  **Three things found by running it rather than reasoning about it:**
+  - **A run that finishes in 200ms was invisible.** Only running terminals were shown, so
+    v1's `generate` flashed past and vanished. The server now tells a late joiner that the run
+    has already ended, and finished terminals stay on screen with their output.
+  - **A stopped run recorded `exit_code: 0`,** which reads as a clean finish. A process killed
+    with SIGTERM can still report 0, so how a run ended is now recorded in its own right
+    (`outcome`). It matters: a stopped run's outputs are incomplete, and anything derived from
+    them is partial.
+  - **Twelve seconds of `generate grep` produced a 33 MB recording.** Recordings are committed
+    (Phase 0(f)), so that is not sustainable. Recording now stops at 16 MB and says so in the
+    file, while the run itself carries on untouched — a recording is evidence about a run and
+    must never be the reason a run is cut short. The run record notes the truncation.
+
+  **What the safety rules look like in practice.** Only four programs may be started, checked
+  on the resolved path, so `/tmp/evil/caruca-v2` is refused. Nothing a page sends reaches a
+  process: there is no input path at all. v1's output always lands in the run's own folder, and
+  the guard refuses anything inside v1's checkout before a process could exist.
+
+- **2026-09-24: the paid live run, and the most interesting thing the console has found yet.**
+  Stage 1 on `cat`, started from the console with Tiran's go-ahead: **$0.01746**, 6,376 prompt
+  and 152 completion tokens, seed 42 honoured, validated, 13 elements — the same token counts
+  as the acceptance run in §10. A second run followed, to check the recording was filed in the
+  right place: **$0.00978**. $0.02724 spent in total, both runs under §10's two-cent bound.
+
+  **The confirmation behaved as designed.** Clicking the stage-1 button opened a dialogue
+  naming the estimate and its basis — "$0.0117, mean of 36 measured runs, observed range
+  $0.0086 to $0.0368" — and started nothing until it was accepted. The estimate updated to
+  $0.0119 over 37 runs before the second, which is the estimator learning from the first.
+
+  **Decision 4's second premise is confirmed.** The recording shows v2's spinner animating —
+  `⠋⠙⠹⠸ asking openai/gpt-4o for a syntax specification for cat` — which a pipe would have
+  suppressed entirely, because v2 switches to plain output when it is not on a terminal. Both
+  premises of the real-terminal decision have now been seen: v1's progress bar redrawing in
+  place, and v2's live display running.
+
+  **A design flaw the first paid run exposed.** v2 mints its own run id and writes
+  `eval/runs/<its id>/`, so the console's invented directory left the recording orphaned beside
+  a directory holding nothing else — and the Run screen, which looks a run up by v2's id, found
+  no recording for a run that had been recorded. v2 prints its run directory in its summary, so
+  the console now reads it from the output and moves the recording in, removing its own
+  directory if nothing else was written there. Verified on the second run: one directory,
+  holding the manifest, the telemetry, the spec and the recording. The whole loop then closes —
+  a run made live replays on the Run screen.
+
+  **Cost is not reproducible, and the project cannot currently say why.** Three runs of stage 1
+  on `cat` — same model, same provider, seed honoured, **byte-identical 6,376 + 152 tokens** —
+  cost $0.01746, $0.01746 and $0.00978. A **1.79x spread** with nothing the project controls
+  having changed. The likely cause is provider-side prompt caching: the cheap run followed an
+  identical one by two minutes, while the expensive pair are ten days apart. OpenRouter reports
+  `prompt_tokens_details.cached_tokens` on every response, but `llm.py` does not read it and
+  `telemetry.py` has no field for it, so **no run on disk records whether its prompt was
+  cached**.
+
+  This bears directly on evaluation dimension 2 and the paper's Q4:
+  - A campaign runs each cell three times in quick succession, so **mean cost per cell
+    understates the cost of running that cell once** — the figure anyone actually wants.
+  - **A v1-versus-v2 cost comparison must control for cache state**, or it partly measures how
+    recently something similar ran.
+
+  Recording `cached_tokens` would settle it: a small change in `llm.py` and one additive field
+  in `telemetry.py`. Written up in
+  `ai_docs/analysis/findings/cost-is-not-reproducible-at-identical-tokens.md` and
+  `memory/project_cost_not_reproducible.md`.
