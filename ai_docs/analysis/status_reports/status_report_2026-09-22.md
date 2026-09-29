@@ -9,7 +9,7 @@
 
 **To:** Prof. William Eiers, Prof. Michael Greenberg  
 **From:** Tiran Dagan  
-**Date:** 22 September 2026  
+**Date:** 22 September 2026 · **Version 1.1**, reissued the same day  
 **Status:** interim. Every number below is reproducible from committed run records at Caruca commit `d8032407`, model `gpt-4o`, temperature 0, three samples per cell.
 
 ---
@@ -83,11 +83,11 @@ Nine commands (`cat`, `pwd`, `rm`, `sha256sum`, `tac`, `tail`, `tee`, `uniq`, `w
 
 The stage-3 prompt tightening is the cheapest test and the one most likely to move the headline. It is still a scope change: the naive control was deliberately not told how to behave beyond naming the tool, and every instruction added runs in the direction of flattery. So it runs as an arm, and both numbers are reported.
 
-**Two smaller findings.** Temperature 0 did not give repeatable answers: `tac` varied across runs at stage 1, and `pwd` at stage 3, so every model step must be run more than once. And Caruca's cautious direction is consistent: of its 63 class disagreements with the human annotators, 58 are it being more conservative, which is the right way to be wrong when evidence is thin. Two stage-2 causes are now diagnosed: 403 of v2's 414 extra command lines come from the prompt stating the bound as Caruca's documentation describes it rather than as its code enforces it, and about half the environment mismatches are notation rather than substance, leaving one real residual, a path type the schema never explains.
+**Two smaller findings.** Temperature 0 did not give repeatable answers: `tac` varied across runs at stage 1, and `pwd` at stage 3, so every model step must be run more than once. And Caruca's cautious direction is consistent: of its 63 class differences from the human annotators, 58 are it answering more cautiously. Two things have to be said alongside that number, both established on 22 September. First, **33 of those 58 are not errors at all by the paper's own scoring rule**, which counts "pure" and "not-splittably-pure" as the same answer because telling them apart would mean writing a merge function, something the paper puts out of scope. Measured the paper's way, Caruca agrees on 53 of 83 cases (64%), not 20 of 83 (24%). Second, the caution is not thin evidence: Caruca's annotator never produces the answer "pure" at all, and produces "safe to split" only when it has traced a command on both a whole input and that input cut into pieces, which requires a tracing option this study did not use. No flag budget would have changed it. Two stage-2 causes are now diagnosed: 403 of v2's 414 extra command lines come from the prompt stating the bound as Caruca's documentation describes it rather than as its code enforces it, and about half the environment mismatches are notation rather than substance, leaving one real residual, a path type the schema never explains.
 
 **A reproducibility finding about the artifacts.** Caruca's committed model output, scored against its committed ground truth with Caruca's own comparison script, gives 78 of 116 exact, against the paper's 116 of 120. An independent scorer gives 83 of 116, and the ground truth scored against itself is perfect, so the instrument is sound. The likely explanation is that the committed output is a different run from the one the paper reported. A question for the authors, not a claim that the paper is wrong.
 
-*Correction note: the parity study document quotes v2's stage-4 agreement from its first run only (10 of 33) and Caruca's disagreement count as 62. Both were re-checked against the stored results today; the figures above are the corrected ones and the documents will be updated.*
+*Correction note (22 September 2026). The parity study document, as first written, quoted v2's stage-4 agreement from its first run only (10 of 33), quoted Caruca's figure over a smaller set of commands (11 of 64 rather than 20 of 83), and put Caruca's difference count at 62 rather than 63. Everything was recomputed from the stored results today, the figures in the table above are the corrected ones, and **the parity study and the co-author addendum have now been updated with a dated corrections list.** Two further corrections landed with them: the rate under the paper's own scoring rule is reported alongside the strict rate, and the cause of Caruca's caution was traced to the tracing configuration rather than to the flag budget.*
 
 ## 5. Problems, and what we did about them
 
@@ -122,7 +122,7 @@ These are additions the original evaluation could not make because the measureme
 
 - An agentic arm: the same stages driven by a tool-using agent rather than one prompt, with the same information budget, to measure what the agent harness buys. Already specified, not run.
 - Whether a single "did you report everything?" prompt fixes the stage-3 reporting failure, and what that does to every other number. Deliberately not done here because each nudge runs in the direction of flattery.
-- Running the actual consumers (PaSh, POSH, ShellCheck) on v2's annotations, which is the paper's first evaluation question and a heavier task.
+- Running the actual consumers (PaSh, POSH, ShellCheck) on v2's annotations. Worth being exact about what the paper did here, because we had it wrong until today: for PaSh, its headline 52-out-of-52 is a **hand comparison** of Caruca's annotation against PaSh's own hand-written one, on the command forms that appear in PaSh's test scripts. The authors did also swap Caruca's annotations into PaSh and re-run its scripts to check the output was unchanged, but they report no number for that and the harness was never published. POSH was never run at all — the paper says so. Only ShellCheck and Shseer were genuinely re-run. So this item is two pieces of work, not one, and it is now specified in full.
 - Storing the real captured command output next to the model's retyped copy in stage 3, to measure copying fidelity. Checked on 19 cases so far with no errors, but the sample is small.
 
 ## 8. Questions for this meeting

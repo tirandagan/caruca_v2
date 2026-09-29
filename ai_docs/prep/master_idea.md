@@ -1,5 +1,10 @@
 ## Master Idea Document
 
+> **Version 1.1 — corrected 22 September 2026.** The 6,520 LOC figure was quoted bare as the size of
+> the hand-written pipeline. About half of it is generated specification data; the hand-written figure
+> is ~3,456. Corrected inline. Nothing else in this document changed.
+
+
 ### End Goal
 
 With caruca_v2, I want to determine, through rigorous instrumented comparison, whether an LLM-based
@@ -17,7 +22,7 @@ submission), incorporating v2's findings and a clear account of what changed bet
 ### Specific Problem
 
 Today's only option for Caruca-style specification mining is v1's hand-written, hard-to-extend pipeline
-(6,520 LOC; the LLM is used only for syntax-spec inference, and even that step is currently broken
+(6,520 LOC published — of which roughly 3,130 is LLM-generated specification data, so the hand-written pipeline is about **3,456 LOC**; measured 2026-08-29, see `memory/caruca_v1_loc_baseline.md`. Any claim about replacing hand-written logic must use 3,456, not 6,520; the LLM is used only for syntax-spec inference, and even that step is currently broken
 against modern DSPy). This leads to slow iteration and no existing measurement of what an LLM-first
 approach would cost or how well it would work.
 

@@ -56,6 +56,18 @@ lock files, or PID-derived paths wouldn't surface in sequential tracing.
 commands classified as parallelizable by actually launching their split invocations concurrently and
 diffing the result against the sequential prediction.
 
+**Added 22 September 2026 — the operational consequence, which several project documents needed and
+did not have.** The split traces this mechanism compares exist only when tracing runs with
+`--stdin split --content split`. At the `simple` default **no invocation of any command can be
+classified `stateless`**, at any flag bound — and `tracer/data.py:215-225` never assigns `pure` in
+any mode at all, only `stateless`, `non-pure` or `side-effectful`. v1's own PaSh pipeline
+(`caruca/run.sh`) therefore runs in split mode. Any comparison of derived parallelizability classes
+made at the default is measuring the trace configuration as much as the annotator. A second,
+sharper concurrency hazard belongs beside this gap: a class describes one invocation and cannot
+express a precondition on the *relationship between* the items being split, so `find dir -depth |
+xargs rmdir` is correct sequentially and unsafe when split (see
+`ai_docs/tasks/012_pash_downstream_study.md` §10).
+
 ### 3. The sandboxing/tracing stack is Linux-specific, while the paper's own motivation cites cross-platform differences **[NOVEL]**
 The Introduction motivates the problem partly with *"differences across command versions on Linux,
 macOS, BSD, etc."* (§1, p.2) as a reason handwritten specs don't scale. But the tracer relies on

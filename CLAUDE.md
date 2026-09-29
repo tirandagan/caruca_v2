@@ -41,15 +41,18 @@ caruca_v2 serves two objectives: prove an LLM approach can do this at all and de
 accepted in its original submission — incorporating v2's findings (longer-term). Write evaluation output
 at paper-worthy rigor, not just internal notes.
 
-**Current state:** git repo initialized and pushed to `github.com/tirandagan/caruca_v2` (private). Still no
-pipeline code, but the planning passes are done: `ai_docs/prep/master_idea.md` (end goal, stakeholders,
-evaluation criteria, MVP components, usage scenarios), `component_functionality.md` (per-component I/O +
-CLI surface), `data_telemetry_schema.md` (telemetry/comparison record shapes, extends v1's `Traces`), and
-`system_architecture.md` (Foundation-v1/Extensions-v2, with a rendered diagram in `ai_docs/diagrams/`).
+**Current state (2026-09-22).** The planning passes are done (`ai_docs/prep/`: `master_idea.md`,
+`component_functionality.md`, `data_telemetry_schema.md`, `system_architecture.md`, `roadmap.md`), **and so
+is the pipeline.** All four v2 stages are built and run live (`src/caruca_v2/`, CLI `caruca-v2`, tasks
+001-004), the measurement harness is built (`src/caruca_v2/harness/`: `score`, `sweep`, `report`, per-stage
+scorers, task 006), the C0 pilot and the nine-command parity campaigns have been run against real models,
+and the results are written up in `ai_docs/analysis/`. Spend so far is a few dollars. What has *not* run is
+the experiment programme's campaigns C1-C6. Start any orientation at `ai_docs/analysis/README.md` and the
+task list, not at this paragraph.
 
 Work is staged into **Tier 0** (Baseline Instrumentation + naive-LLM baseline, plain docs + Evaluation
 Harness's Q2-style comparison + telemetry + variance — no sandbox needed) and **Tier 1** (Secure Sandbox
-both profiles, tool-augmentation, real execution-based Q1, Web GUI); see `memory/caruca_v2_build_tiering.md`
+both profiles, tool-augmentation, real execution-based per-consumer checks, Web GUI); see `memory/caruca_v2_build_tiering.md`
 for why. Tier 0 is the near-term deliverable, and the DSPy migration on v1's `llm.py` is its hard
 prerequisite. Do not skip straight to an agentic rebuild without a measurable baseline and a naive-LLM
 control to compare against.
@@ -99,8 +102,8 @@ Map of the paper to the code: §3 syntax inference → `llm.py` + `ir/syntax.py`
 
 | Question | Result |
 |---|---|
-| Q1 spec quality per consumer | PaSh 52/52, POSH 16/17, ShellCheck 6/6, Shseer 18/18; 59/60 commands overall |
-| Q2 LLM syntax-spec accuracy | 116/120 exact vs. ground truth (1 type misclassification, 3 missing/spurious options) |
+| Q1 spec quality per consumer | PaSh 52/52, POSH 16/17, ShellCheck 6/6, Shseer 18/18; 59/60 commands overall. **Four numbers, three methods — never describe Q1 as "execution-based".** PaSh's 52/52 is a per-command *hand comparison* against PaSh's own hand-written annotations, restricted to invocations in PaSh's benchmark suite, counting parallelizable-pure and non-parallelizable-pure as one answer; POSH was diff-only ("we were unable to run it"); only ShellCheck (full 2.2K-test suite) and Shseer were genuinely re-run. A separate, **unnumbered** check swapped Caruca's annotations into PaSh and confirmed the suite's output by hash. Verified 2026-09-22 against §7.1 and Tab. 1; `ai_docs/tasks/012_pash_downstream_study.md` builds both halves |
+| Q2 LLM syntax-spec accuracy | 116/120 exact vs. ground truth (1 type misclassification, 3 missing/spurious options). **Not reproducible from the shipped artifacts:** v1's own committed LLM specs score **78/116** by v1's own `cmp_specs.py` and 83/116 by an independent scorer (`memory/caruca_v1_stage1_baseline.md`). Use 78/116 as the stage-1 baseline; cite 116/120 only as the published figure |
 | Q3 real-world coverage | 651,733/666,468 invocations (97.78%) with normalization; 66,882 (10%) exact match |
 | Q4 cost | ≤2-flag limit: 103/120 commands < 1 hr, all but `convert` < 1 day. ≤4 flags: 80 < 1 hr, 24 > 1 day |
 
@@ -190,14 +193,33 @@ Evaluation assets to reuse rather than rebuild:
 - `~/stevens/caruca/outputs/llm-dsl-generation/*.py` — the LLM's previously generated specs (a free comparison set)
 - `~/stevens/caruca/caruca/save/*.json` — committed reference PaSh annotations
 
-## Environment constraints on this machine
+## Environment constraints — resolve by machine, there are two
 
-This WSL box **cannot run the trace phase**: `strace`, `mergerfs`/overlayfs, `docker`, and GNU `parallel`
-are all missing, and system Python is 3.11 (the package needs ≥3.12 — `tracer/tracer.py` uses a PEP 701
-nested f-string). `generate`, `annotate`, and `oracle` work fine here.
+**Check which machine you are on before applying anything in this section** (`memory/dev_machine_paths.md`).
+The WSL PC uses `~/stevens/...`; this Mac uses `~/dev/stevens/...`. Paths elsewhere in this file are written
+in the WSL form.
 
-Plan accordingly: do generation, annotation, spec-diffing, and analysis locally; run tracing on a
-provisioned host (see `~/stevens/caruca/caruca/cloudlab-setup.sh`) and ship the `Traces` JSON back.
+**The WSL PC** cannot run the trace phase: `strace`, `mergerfs`/overlayfs, `docker` and GNU `parallel` are
+missing and system Python is 3.11 (the package needs ≥3.12 — `tracer/tracer.py` uses a PEP 701 nested
+f-string). There, `generate`, `annotate` and `oracle` run fine.
+
+**The Mac** can run everything, but only inside the Lima VM named `caruca` (Ubuntu 24.04; set up 2026-09-03,
+`memory/mac_lima_tracing_env.md`, full operating instructions in `ai_docs/docs/caruca_v1 pipeline instructions.md`).
+Two Mac-specific facts that contradict the WSL paragraph above: **`caruca annotate` cannot run on macOS at
+all, on any input** (`tracer/data.py::__readwrite` resolves `/tmp` to `/private/tmp`, then calls
+`relative_to("/tmp/sandbox_outer/sandbox_inner")` — `memory/caruca_v1_macos_annotate_limitation.md`), so
+v2's `annotate` takes `--v1-runner lima`; and tracing needs no remote host.
+
+**One trace-mode fact that is load-bearing for any parallelizability comparison, on either machine.** v1's
+annotator assigns only `stateless`, `non-pure` or `side-effectful` — it never emits `pure`
+(`tracer/data.py:215-225`) — and reaches `stateless` only from split-input traces. Those exist only under
+`caruca trace --stdin split --content split`, which is what v1's own PaSh pipeline (`caruca/run.sh`) uses.
+**At the `simple` default no command can be classified `stateless`, at any `--max-count`.** Comparisons made
+at the default measure the trace configuration as much as the annotator.
+
+Plan accordingly: do generation, spec-diffing and analysis locally; run tracing (and, on the Mac,
+annotation) in Lima or on a provisioned host (see `cloudlab-setup.sh` in v1's tree) and ship the `Traces`
+JSON back.
 Isolation backend is selectable via `CARUCA_ISOLATION_METHOD` = `try` (default, vendored overlayfs script) |
 `docker` | `none`. Timing comparisons against §7.4 are only meaningful on comparable hardware — record the
 machine.
@@ -217,11 +239,15 @@ correctness comparison has to separate "better model" from "better method."
 
 - **Task documents**: numbered markdown in `ai_docs/tasks/` (`NNN_snake_case.md`), created by the
   `task-creator` skill from `ai_docs/dev_templates/task_template.md`. Use them for multi-session work.
+- **`ai_docs/README.md` is the map of every document in the project** — which folder answers which
+  question, what each one is for, and the naming and corrections conventions. Written 2026-09-22 when the
+  document set was reorganised. Read it before hunting through folders.
 - `ai_docs/refs/` — reference material (the paper, upstream docs, transcripts) pinned for future sessions.
 - `ai_docs/analysis/` — findings/evaluations produced *by this project* (as opposed to `refs/`, which is
   source material we didn't write). Start at `ai_docs/analysis/README.md` for the index — don't inline
   analysis content here in `CLAUDE.md`; link out to it instead so routine sessions don't load findings
-  they don't need. Current entry: `evaluation_gaps.md` (v1/paper test-coverage opportunities).
+  they don't need. Ten documents live there now, including the parity study, the co-author addendum and the
+  experiment programme — the index describes each one, so read it rather than guessing from filenames.
 - `ai_docs/prep/` — project-planning output; `ai_docs/prep_templates/` came from a **Next.js/Drizzle/
   Trigger.dev web-app starter kit** and is being adapted one file at a time for this research project.
   **Adapted, safe to run**: `01_generate_master_idea.md` (→ `ai_docs/prep/master_idea.md`, **done**),
@@ -229,17 +255,16 @@ correctness comparison has to separate "better model" from "better method."
   `08_generate_initial_data_models.md` (→ `data_telemetry_schema.md`, **done**),
   `09_generate_system_design.md` (→ `system_architecture.md` + `ai_docs/diagrams/`, **done**),
   `10_generate_build_order_worker.md` (→ `roadmap.md`, phases = MVP components done end-to-end, **done**).
-  All five adapted passes are now complete; implementation starts at the roadmap's Phase 1. **Still
-  original ShipKit content, do not run as-is**: `02` (app naming — no product needing a market name),
-  `03` (UI theme — no UI exists), `04` (logo — no plausible use), `06` (Trigger.dev workflows — no
-  orchestration mechanism decided yet), `07` (wireframe — blocked on the same undecided web GUI as 03).
-  `.claude/commands/0N_*.md` are thin `@`-reference wrappers around their `ai_docs/prep_templates/`
-  counterparts — editing the template is enough, no need to update both.
-  Most of `ai_docs/dev_templates/` (Drizzle migrations, Next.js refactors, Trigger.dev, Stripe/auth setup)
-  is also starter-kit-specific and doesn't apply; `task_template.md` is closer to reusable but still has
-  stack-specific sections to strip once real implementation starts. Same starter-kit origin for the
-  `drizzle` / `typescript-react` / `trigger-dev-task-writer` agents in `.claude/agents/` — ignore them
-  unless a task genuinely calls for one.
+  All five adapted passes are complete. **The starter-kit material that never applied was archived on
+  2026-09-22** to `ai_docs/_archive/shipkit/` (see its README): prep passes `02`, `03`, `04`, `06`, `07`
+  and the theme HTML, 17 of the 18 `ai_docs/dev_templates/`, the 22 slash commands that wrapped them, and
+  all three `.claude/agents/`. **Do not go looking in the archive for guidance** — it is kept for the
+  licence's attribution requirement and for provenance, nothing else. What remains is live:
+  `ai_docs/prep_templates/` holds the five adapted passes, `ai_docs/dev_templates/` holds
+  `task_template.md` (which the `task-creator` skill builds task documents from, and which still has
+  stack-specific sections to strip), and `.claude/commands/` holds seven commands — the five prep
+  wrappers plus `run_pipeline` and `setup_pipeline`. The `0N_*.md` wrappers are thin `@`-references to
+  their `ai_docs/prep_templates/` counterparts; editing the template is enough.
 - **v1-vs-v2 framing**: in narrative writing for stakeholders (planning docs, paper drafts, advisor
   summaries), frame v2 as extending v1's capabilities, not fixing v1's flaws — several co-authors/reviewers
   are v1's own authors. Technical facts (like the DSPy breakage above) still get stated plainly; this is

@@ -7,6 +7,12 @@ experiment builds on the paper's three specification-divergence claims (`grep`/`
 exactly which artifact revisions they refer to and confirm what reproduces. This note reports
 the findings; each of the three claims ends in a definite state.
 
+> **Version 1.1 — corrected 22 September 2026.** Two reasoning defects in the `cp` and `grep`
+> findings, both about parallelizability classes: "zero `pure`" was cited as evidence when v1
+> cannot emit `pure` at all, `non-pure` cases were counted as disagreeing with a "pure" claim
+> that the paper's own rule says they satisfy, and the trace mode was missing from the candidate
+> causes. All three claims' verdicts are unchanged. Corrections are marked inline.
+
 **Pinned artifact set for everything below:**
 
 | Artifact | Revision |
@@ -64,7 +70,11 @@ default in the *conservative* direction. Whether that reflects v1's post-paper
 classification fix (the same one that makes committed `save/*.json` stale — see
 [`../..//memory/mac_lima_tracing_env.md`](../../memory/mac_lima_tracing_env.md)) or the
 reduced evidence of a bounded run is a one-experiment follow-up: rerun at the paper's
-two-flag bound and diff. Commands: `caruca trace grep --max-count 1 --output
+two-flag bound and diff. **(Corrected 22 September 2026: a third candidate was missing and
+is the most likely one — the trace mode. `stateless` requires split-input traces, produced
+only by `--stdin split --content split`; this run used the `simple` default, so no case could
+have been classified `stateless` at any bound. The bound re-run alone cannot separate the
+three causes; vary the trace mode too.)** Commands: `caruca trace grep --max-count 1 --output
 outputs/grep.maxcount1.json && caruca annotate pash grep --input outputs/grep.maxcount1.json`
 (artifacts kept at v1's `caruca/outputs/{grep.maxcount1.json,e0_grep_pash.json}`, untracked).
 
@@ -102,15 +112,32 @@ The paper: *"`cp` (marked as side-effectful, but in reality being pure)."*
   a missed-optimization cost, not an unsoundness.
 - **Behavioral half does not reproduce on `main`.** Fresh v1 (Lima, `--max-count 1`,
   368 invocations of the 736,560 unbounded): 26 of 29 derived cases **`side-effectful`**,
-  3 `non-pure`, zero `pure` (artifacts at `caruca/outputs/{cp.maxcount1.json,e0_cp_pash.json}`;
+  3 `non-pure` (artifacts at `caruca/outputs/{cp.maxcount1.json,e0_cp_pash.json}`;
   3 `--reflink never` invocation groups produced no successful runs and are excluded by v1
   itself). This **agrees** with v1's own committed `eval/pash-annotations/cp.json` (all cases
-  side-effectful) and **disagrees** with the paper's "in reality being pure." Definite state:
+  side-effectful). **26 of the 29 contradict the paper's "in reality being pure"; the other 3 do
+  not** — see the correction below. Definite state:
   the cp claim reflects some other revision or derivation logic than `main`'s. **Question for
   the team/Greenberg: which run produced "cp is pure"?** (Candidate explanation: v1's
   parallelizability-classification logic changed post-paper — the same change that makes
   `save/ls.json` stale; if the paper's cp run predates it, the claim and `main` can both be
   faithful to their own revisions. That is precisely why E0 exists.)
+
+> **Corrected 22 September 2026 — two flaws in how this bullet was argued.** The verdict is
+> unchanged (26 of 29 cases are `side-effectful`, which does contradict "pure"), but the
+> supporting reasoning was wrong twice.
+>
+> 1. The bullet cited **"zero `pure`"** as evidence against the paper. That observation carries
+>    no information: `tracer/data.py:215-225` assigns only `stateless`, `non-pure` or
+>    `side-effectful` — **v1 cannot emit `pure` in any run, on any command, at any bound.**
+> 2. The 3 `non-pure` cases were counted on the "disagrees" side. By the paper's own scoring
+>    rule (§7.1) `non-pure` *is* the pure answer, since Caruca is not required to tell
+>    parallelizable from non-parallelizable pure. **Those 3 cases agree with the paper's claim.**
+>
+> Also add to the candidate explanations for the original "cp is pure" run: the trace mode.
+> `stateless` requires split-input traces (`--stdin split --content split`), which this run did
+> not use, and v1's own PaSh pipeline `run.sh` does. Asking Greenberg which *trace configuration*
+> produced the paper's cp run is at least as informative as asking which revision.
 
 ---
 
@@ -170,7 +197,9 @@ and CSV in the session scratchpad, key numbers reproduced here:
    secondary, 107-command overlap).
 4. **Bounded-vs-paper-bounds check** added to E1's protocol: rerun grep at `--max-count 2`
    and diff classifications against this run before treating conservative-direction
-   divergences as findings.
+   divergences as findings. **Amended 22 September 2026: also vary the trace mode
+   (`--stdin split --content split`), which is what actually gates the `stateless` class. A
+   bound-only control cannot detect that confound, and E1 would inherit it.**
 5. Fresh default-bounds traces for 13 small commands (`arch groups tsort unlink cksum
    nohup sleep users dirname expr factor link printenv`) were generated into v1's
    `caruca/outputs/` during the same VM session — these are the stage-3/stage-4

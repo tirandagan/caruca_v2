@@ -149,6 +149,44 @@ Addendum, after the numbered package (not cited in the deck):
 9. `scientific_vs_engineering_contributions` — what would make v2 publishable
 10. `experiment_designs` — the experiments that follow from it
 
+## Reissued 22 September 2026 — version 1.1 PDFs
+
+An accuracy audit that day found a recurring factual error across the project's documents and
+corrected it at source. **Nine PDFs were regenerated.** The originals are kept, unchanged, so
+anything already handed out remains identifiable; the reissues carry `_v1.1` and today's date, and
+each one's cover subtitle and opening note say what changed.
+
+**Where they live:** the reissues sit in this folder; the nine documents they replace were moved to
+[`archive/`](archive/) on the same day, with a README there repeating this table. Everything at the top
+level of this folder is current and safe to hand out.
+
+| Reissued (hand out this one) | Supersedes (now in `archive/`) | What changed |
+|---|---|---|
+| `2026-09-22_status_report_v1.1.pdf` | `2026-09-22_status_report.pdf` | The correction note now covers all four superseded stage-4 figures; the paper's PaSh method restated; Caruca's caution explained by trace configuration, not flag budget |
+| `2026-09-22_master_idea_v1.1.pdf` | `2026-08-30_master_idea.pdf` | 6,520 LOC no longer quoted bare as the hand-written pipeline's size (~3,456 is the hand-written part) |
+| `2026-09-22_component_functionality_v1.1.pdf` | `2026-08-30_component_functionality.pdf` | Three passages called the paper's Q1 results execution-verified test-suite reruns |
+| `2026-09-22_data_telemetry_schema_v1.1.pdf` | `2026-08-30_data_telemetry_schema.pdf` | The `q1_execution` comparison-method tag was defined on the same wrong premise |
+| `2026-09-22_system_architecture_v1.1.pdf` | `2026-08-30_system_architecture.pdf` | One line claimed the deferred execution work "matches the paper's own Q1" |
+| `2026-09-22_roadmap_v1.1.pdf` | `2026-08-30_roadmap.pdf` | "`annotate` works today" is true on the WSL PC only; on the Mac it cannot run at all |
+| `2026-09-22_evaluation_gaps_v1.1.pdf` | `2026-08-30_evaluation_gaps.pdf` | Added what the `simple` trace defaults cost (no `stateless` class is reachable), plus the cross-chunk ordering hazard |
+| `2026-09-22_experiment_designs_v1.1.pdf` | `2026-09-03_experiment_designs.pdf` | E0's motivating bullets marked superseded; the hash-comparison and speedup framings clarified |
+| `2026-09-22_scientific_vs_engineering_contributions_v1.1.pdf` | `2026-09-03_scientific_vs_engineering_contributions.pdf` | No claim was wrong; note added that its three open "cautions" were since resolved |
+
+**The recurring error, in one sentence:** the paper's headline PaSh quality figure (52 of 52) was
+described throughout as an execution test — the benchmark suite re-run with outputs compared by
+hash — when it is a per-command hand comparison against PaSh's own hand-written annotations. A
+second error travelled with it: Caruca's cautious parallelizability classes were blamed on the
+one-flag budget when the cause is the tracing configuration.
+
+**Two documents still to reconcile, not done here:** `CLAUDE.md` and `PRODUCT.md` repeat the same
+Q1 description and describe the development machine as WSL only. They are project instructions
+rather than handouts, so they were left for a deliberate decision.
+
+**The deck itself needs a manual edit.** `build_decks.py` has been corrected (appendix slide, "How
+correctness gets compared"), but the live deck is the Dropbox copy `2026-08-31 Review.pptx`, which
+this repository cannot touch. Re-running the script would overwrite hand edits, so apply the
+correction to that slide by hand, or regenerate and re-apply the edits.
+
 ## Also in this folder
 
 - `build_decks.py` — regenerates the deck from a single content definition. Run it with the project's

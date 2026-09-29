@@ -112,7 +112,7 @@ appended.
   none of them is measured or hashed: `.claude/commands/*.md` (29 files, including the
   project-specific `run_pipeline.md` and `setup_pipeline.md`), `.claude/skills/`
   (`caruca-design`, `diagram`, `task-creator`, `impeccable`), `ai_docs/prep_templates/`
-  (11 files), and `ai_docs/dev_templates/`.
+  (now 5 files; the rest were archived 2026-09-22), and `ai_docs/dev_templates/` (now `task_template.md` only).
 
 ---
 

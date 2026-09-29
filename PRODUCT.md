@@ -21,9 +21,9 @@ custom Next server, a sidecar Node service, or a different arrangement is undeci
 
 **Primary — Tiran Dagan, operating the tooling.** A PhD student running specification-mining comparisons
 day to day. His job: generate a spec for a shell command by two different methods, diff both against
-ground truth, and record what each run cost. He works from a WSL machine that cannot run the trace phase
-(see Capabilities and Constraints), so the loop is: generate and analyze locally, ship tracing to a
-provisioned host, bring results back. Optimize for his success first — dense telemetry, fast scanning,
+ground truth, and record what each run cost. He works from **two machines** (see Capabilities and Constraints): a WSL PC that cannot run the
+trace phase, and a Mac that can, through a Lima VM. The loop is: generate and analyze locally, run
+tracing in the VM or on a provisioned host, bring results back. Optimize for his success first — dense telemetry, fast scanning,
 repeated comparison runs.
 
 **Secondary — advisors and reviewers.** Prof. Michael Greenberg (PhD advisor; also PI/advisor for Caruca
@@ -105,9 +105,12 @@ global memory store.
 
 ## Capabilities and Constraints
 
-**Built today:** nothing of the pipeline. The planning passes are complete (master idea, component
-functionality, telemetry schema, system architecture, roadmap) and the branded document/deck pipeline
-works. Implementation starts at the roadmap's Phase 1.
+**Built today (2026-09-22):** the whole four-stage pipeline and its measurement harness. `caruca-v2`
+runs `naive-llm`, `generate`, `trace`, `annotate`, plus `score`, `sweep`, `report` and `metrics rebuild`
+(`src/caruca_v2/`, tasks 001-004 and 006). Live model runs have happened: the C0 pilot and the
+nine-command parity campaigns, written up in `ai_docs/analysis/`. The planning passes are complete and
+the branded document/deck pipeline works. What has not run is the experiment programme's campaigns
+C1-C6, and four task documents (009-012) are specified but unbuilt.
 
 **Two distinct "LLM approaches" are in scope and must never be conflated:**
 
@@ -129,10 +132,13 @@ work, but never in prose for a human reader without saying what the number means
 5. Percent-change roll-up — one headline delta per dimension above
 6. Reduction in hand-encoded logic
 
-**Hard environment constraints.** The dev machine is WSL and **cannot run the trace phase**: `strace`,
-`mergerfs`/overlayfs, `docker`, and GNU `parallel` are absent, and system Python is 3.11 while v1 needs
-≥3.12. `generate`, `annotate`, and `oracle` run fine locally. Tracing runs on a provisioned host; the
-`Traces` JSON file is the seam that carries results back. Any sandbox backend must preserve
+**Hard environment constraints — two machines, different limits.** The **WSL PC cannot run the trace
+phase**: `strace`, `mergerfs`/overlayfs, `docker` and GNU `parallel` are absent, and system Python is
+3.11 while v1 needs ≥3.12. There, `generate`, `annotate` and `oracle` run fine locally. The **Mac** runs
+the full pipeline, but only inside the Lima VM `caruca`; and on macOS **`annotate` cannot run at all, on
+any input**, because v1 resolves `/tmp` to `/private/tmp` and then compares against a hardcoded `/tmp`
+prefix — so v2's `annotate` takes `--v1-runner lima`. Tracing otherwise runs in the VM or on a
+provisioned host; the `Traces` JSON file is the seam that carries results back. Any sandbox backend must preserve
 strace/ptrace-level syscall visibility.
 
 **Known blocker.** v1's `caruca syntax-spec CMD` — its only LLM step — dies at import against DSPy 3.3.1
@@ -183,9 +189,13 @@ Real, verified, reusable. Do not fabricate substitutes for anything absent here.
 - **The paper.** `ai_docs/refs/caruca white paper.pdf`, fully transcribed to
   `ai_docs/refs/caruca_white_paper.md` with figures in `ai_docs/refs/images/`. Authoritative for design
   intent and for the numbers this project must reproduce or beat.
-- **Published baseline results** (GPT-4o, Xeon E5-2667 v2, Python 3.11): spec quality — PaSh 52/52, POSH
-  16/17, ShellCheck 6/6, Shseer 18/18, 59/60 commands overall. LLM syntax-spec accuracy — 116/120 exact
-  vs. ground truth. Real-world coverage — 651,733/666,468 invocations (97.78%) with normalization; 66,882
+- **Published baseline results, as published** (GPT-4o, Xeon E5-2667 v2, Python 3.11) — these are the
+  paper's figures, not this project's verification of them: spec quality — PaSh 52/52, POSH 16/17,
+  ShellCheck 6/6, Shseer 18/18, 59/60 commands overall. **Three different methods sit behind those four
+  numbers:** PaSh's is a per-command hand comparison against PaSh's own hand-written annotations, POSH's
+  is diff-only, and only ShellCheck and Shseer were genuinely re-run. Never call them execution-based.
+  LLM syntax-spec accuracy — 116/120 exact vs. ground truth, **which does not reproduce from the shipped
+  artifacts**: the committed specs score 78/116 by v1's own instrument. Real-world coverage — 651,733/666,468 invocations (97.78%) with normalization; 66,882
   (10%) exact match. Cost — with a ≤2-flag limit, 103/120 commands under an hour.
 - **Ground truth, the most expensive input to the whole evaluation.** Two graduate students spent
   **80 person-hours** hand-annotating man pages. Concretely: 121 curated syntax specs, 54 committed
@@ -194,16 +204,19 @@ Real, verified, reusable. Do not fabricate substitutes for anything absent here.
 - **Existing evaluation tooling to reuse:** `eval/cmp_specs.py` (argument-by-argument spec diff — note its
   known denominator bug), `eval/llm_correctness.sh`, `eval/syntax-spec-correctness.sh` (an independent
   ASP/clingo cross-check for `rm`, `mv`, `cp`, `cat`, `mkdir`), and
-  `eval/command-invocations.txt` (the real-world invocation corpus).
+  `eval/user-scripts/invocations.txt` (the real-world invocation corpus, 665,628 lines — **not**
+  `eval/command-invocations.txt`, which is a 659-line file of benchmark-script fragments).
 - **A free comparison set:** `~/stevens/caruca/outputs/llm-dsl-generation/*.py`, specs the v1 LLM step
   produced previously.
 - **v1's true LOC split**, measured rather than taken from the paper: ~3,456 lines of hand-written
   pipeline logic and ~3,130 lines of generated spec data. The published 6,520 figure is roughly the sum.
   Dimension 6 ("reduction in hand-encoded logic") must be stated against ~3,456, with the split disclosed;
   measuring against 6,520 overstates the reduction by about 2×.
-- **Absent — never invent:** cost, token, or wall-clock numbers for v1 (none exist anywhere yet; this is
-  precisely what Phase 1 creates), reproducibility/variance figures for either system, pricing, licensing,
-  deployment claims, user counts, or testimonials.
+- **Measured since, so no longer absent:** v2's cost, tokens and wall-clock per stage, and v2's
+  run-to-run variance at temperature 0 — both recorded per run and reported in `ai_docs/analysis/`.
+- **Absent — never invent:** cost, token or wall-clock numbers **for v1** (still none anywhere; task 005
+  is reserved for creating them), reproducibility figures for v1, pricing, licensing, deployment claims,
+  user counts, or testimonials.
 
 ## Product Principles
 

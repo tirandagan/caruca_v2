@@ -1,5 +1,15 @@
 # Experiment Designs — Turning the Scientific Candidates Into Runnable Work
 
+> **Version 1.1 — note added 22 September 2026.** Two clarifications, no design changed. (1) E0's
+> three motivating bullets below were **superseded** by [`e0_artifact_pinning.md`](e0_artifact_pinning.md),
+> which retired the diverged-branch worry and resolved the `grep` provenance; read that document's
+> findings, not these bullets, as the current state. (2) Where these designs call output-hash
+> comparison "the same method the paper already uses", that refers to the paper's *unnumbered*
+> PaSh re-run check — **not** to the method behind its 52/52 figure, which is a per-command hand
+> comparison against PaSh's hand-written annotations. And because the paper reports no performance
+> figure anywhere (the word "speedup" does not occur in it), E6's speedup results are a wholly new
+> measurement with no published baseline, not a reproduction.
+
 Protocol-level designs for the contributions identified in
 [`scientific_vs_engineering_contributions.md`](scientific_vs_engineering_contributions.md). That
 document argues *what would count as science*; this one says *what to actually run*, what already

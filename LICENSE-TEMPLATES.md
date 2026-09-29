@@ -18,7 +18,7 @@ prompt templates and agent skills alike:
 | `scripts/`, `eval/` | Tooling and evaluation output |
 | `ai_docs/` | Planning, analysis, task, and operating documents |
 | `ai_docs/prep_templates/` | Project-planning prompt templates (`01`–`10`, `theme-template.html`) |
-| `ai_docs/dev_templates/` | Development workflow prompt templates |
+| `ai_docs/dev_templates/` | Development workflow prompt templates (most archived 2026-09-22 to `ai_docs/_archive/shipkit/`, still covered by this licence) |
 | `.claude/skills/diagram/` | Diagram generator skill |
 | `.claude/skills/caruca-design/` | Caruca design system skill |
 | `.claude/skills/task-creator/` | Task document creator skill |

@@ -7,6 +7,10 @@
 
 # The v1-vs-v2 Parity Study — Does an LLM Pipeline Reproduce Caruca?
 
+> **Version 1.1 — corrected 22 September 2026.** First edition 14 September 2026. Stage 4's
+> figures were recomputed and four statements were corrected; nothing in stages 1-3 changed.
+> The list is in [Corrections](#corrections-22-september-2026) at the end. **Do not quote the
+> first edition's stage-4 table.**
 > **Status:** all four stages complete. Written 2026-09-14.
 > **v1 reference commit:** `d8032407346aadc135b14c043618c8c1d4f4e0cf`
 > **Model:** `openai/gpt-4o`, temperature 0.0, seed 42, k=3 samples per cell.
@@ -55,7 +59,7 @@ exactly one sense.
 | **environment agreement** | of the environments v2 asked for, the fraction that v1 would also have built for that invocation. A **correctness** rate, not a reach figure | stage 2: 0.208 — so 79% of v2's requests are wrong |
 | **recovery** (core / inference) | of the filesystem interactions v1 recorded, after projection, the fraction v2 also reported | stage 3: 0.606 core |
 | **configurations attempted** | of v1's configurations for a command, how many v2 actually traced | stage 3: 5 of 35 for `cat` (the `--limit 5` cap); 4, 0 and 0 of them reported across the three samples |
-| **agreement** (annotation) | of the cases aligned between two annotations, the fraction that agree on a given field | stage 4: 10 of 33 on parallelizability class |
+| **agreement** (annotation) | of the cases aligned between two annotations, the fraction that agree on a given field | stage 4: v2 agrees on parallelizability class in 25 of 77 aligned cases across three runs (§5) |
 
 **A rate is only computed over the cases where it is defined.** A command whose invocations
 matched nothing has no environments to compare; it is excluded from the environment-agreement
@@ -342,22 +346,63 @@ Traces in, a consumer specification out. 21 of 27 cells produced an annotation; 
 failures are `rm` and `tee`** (§5.2).
 
 Both sides scored by the same instrument against the same third party, the hand-curated
-ground truth:
+ground truth. **Every figure in this table was recomputed on 22 September 2026; the first
+edition of this document reported only the left-hand column, and only v2's first run
+(see [Corrections](#corrections-22-september-2026)).**
 
-| | aligned cases | parallelizability class agreeing |
-|---|---|---|
-| **v2** | 33 | **10 (30%)** |
-| **v1** | 64 | 11 (17%) |
+| | aligned cases | class agrees, **strict** | class agrees, **under the paper's own rule** |
+|---|---|---|---|
+| **v2**, all three runs | 77 | **25 (32.5%)** | **68 (88.3%)** |
+| **v2**, first run only *(the figure first published)* | 33 | 10 (30.3%) | — |
+| **v1**, the same seven commands | 64 | 11 (17.2%) | 42 (65.6%) |
+| **v1**, all nine commands | 83 | 20 (24.1%) | 53 (63.9%) |
 
-v2 agrees with the humans at nearly twice v1's rate, over half as many aligned cases. Its case
-counts swing widely — 2 for `cat` where v1 derives 14, but 14 for `sha256sum` where v1 derives 8.
+**"The paper's own rule" is the relaxation Caruca's own evaluation applies.** §7.1: *"we
+consider it correct if Caruca can determine that a command is pure without requiring that it
+distinguishes between parallelizable and non-parallelizable pure."* Caruca cannot tell the two
+apart, because that means synthesizing an aggregator, which §6.1 puts out of scope. Under that
+rule a `pure` ↔ `non-pure` difference is not an error, and **both systems score roughly three
+times higher.** The strict column is this project's own, stricter instrument. Neither column may
+be quoted without saying which it is.
 
-**Both rates are low, and neither is an accuracy figure.** Of v1's 62 class disagreements with
-the ground truth, **58 are v1 being *more conservative* than the humans** (`pure → non-pure` ×33,
-`stateless → non-pure` ×16) against 4 in the other direction. E0 predicted exactly this for
-`grep` at this bound; nine commands confirm it with 58/62 directional consistency. At
-`--max-count 1` v1 sees only single-flag invocations, has less evidence, and falls back
-conservatively. Neither figure is comparable to the paper's Q1, which was execution-based.
+On the strict instrument v2 agrees with the humans at nearly twice v1's rate on the same seven
+commands (32.5% against 17.2%). **Under the paper's rule the gap narrows to about 1.3×**
+(88.3% against 65.6%). The "nearly twice" claim is therefore a property of the strict
+instrument, not a stable fact. v2's case counts also swing widely — 2 for `cat` where v1
+derives 14, 14 for `sha256sum` where v1 derives 8 — and v2 is not stable across runs at
+temperature 0: `tail` aligns 14, 12 and 2 cases on the three runs, and **17 of v2's 25 strict
+agreements come from `tail` alone.**
+
+**Direction of the disagreements.** v1 has 63 class disagreements over the nine commands
+(uncapped count; the first edition said 62, from a per-command sample capped at 20), of which
+**58 are v1 being more conservative than the humans**: `pure → non-pure` ×33,
+`stateless → non-pure` ×16, `pure → side-effectful` ×5, `stateless → side-effectful` ×4,
+against 5 in the other direction. **33 of those 58 are the `pure → non-pure` kind the paper
+counts as correct**, so a little over half of v1's apparent conservatism is not an error at all
+by Caruca's own standard.
+
+**One v2 disagreement runs in the unsafe direction and v1 has none like it.** v2 classes `pwd`
+as `stateless` — safe to split and concatenate — where the ground truth says `side-effectful`.
+It does so in all three runs, and the paper itself names `pwd` as its example of a
+side-effectful command (§6.1). v2's other 49 disagreements are `non-pure → pure` ×32 and
+`pure → non-pure` ×11, both inside the paper's relaxation, and `stateless → pure` ×6.
+
+**Why v1 never says `stateless` here, and why that is not a bound effect.** v1's annotator
+assigns only `stateless`, `non-pure` or `side-effectful` — it never emits `pure` in any mode
+(`tracer/data.py:215-225`). It reaches `stateless` only when `__is_splittable` holds, and that
+test needs traces of the command on a whole input *and* on that input cut into parts, which
+exist only under `caruca trace --stdin split --content split`. These traces used the `simple`
+default, so **v1 could not have produced a `stateless` case at any flag bound.** The first
+edition attributed the conservatism to the `--max-count 1` bound alone. The bound may
+contribute; the trace mode is structural. Confirmed against v1's own artifacts from the paper's
+run, which used `run.sh`'s split mode and do contain `stateless` cases (`cat` 1, `uniq` 2,
+`tail` 1 in `eval/pash-annotations/`).
+
+**Neither figure is comparable to the paper's Tab. 1 result for PaSh (52/52).** The first
+edition said that result was "execution-based". It is not: it is a per-command manual
+comparison against PaSh's hand-written annotations, restricted to the invocations appearing in
+PaSh's benchmark suite. The authors separately re-ran the suite and checked outputs matched by
+hash, but attached no number to that check. See [Corrections](#corrections-22-september-2026).
 
 ### 5.1 The two artifacts are written at different granularities
 
@@ -454,9 +499,13 @@ A result that does not name what could undermine it is not a result.
    principled one.** `--max-count 1` throughout. The paper's §4.1 invocation study (665,000 real
    invocations from 49,000 GitHub scripts) reports 64.7% with no flags, 29.0% with one and 5.9%
    with two — so a one-flag bound reaches roughly 93.7% of real usage where the paper's ≤2
-   reaches 99.6% and its ≤4 default reaches 99.998%. The narrower bound also makes v1
-   systematically conservative at stage 4 (§5). A re-run at the paper's ≤2 is the obvious next
-   step, and §7.4's timings suggest it is affordable.
+   reaches 99.6% and its ≤4 default reaches 99.998%. A re-run at the paper's ≤2 is the obvious
+   next step, and the paper's own §7.4 timings suggest it is affordable.
+   *(Corrected 22 September 2026: this item also said the narrower bound "makes v1
+   systematically conservative at stage 4". It does not — v1 never emits `pure`, and cannot
+   reach `stateless` without split-mode traces, at any bound. A wider bound would not change
+   the class distribution. See §5 and the Corrections table. The cross-reference was also
+   pointing at a §7.4 of this document, which does not exist; the paper's §7.4 is meant.)*
 5. **One model, one temperature.** `gpt-4o` at 0.0. Nothing here separates "better method" from
    "better model".
 6. **Nine commands, three of them in the reserved held-out set.** `cat`, `uniq` and `wc` are in
@@ -537,6 +586,35 @@ The numbers that survive say: **v2 reproduces v1's surface faithfully and its in
 error, not a diffuse weakness — the model does not know that a regex pattern is not a filename.
 That is the first thing to test on a wider command set. Whether fixing it is instrument repair
 or tuning is a judgement call that should be made explicitly, before it is made accidentally.
+
+---
+
+## Corrections, 22 September 2026
+
+Version 1.1. Each item below was wrong or incomplete in the first edition (14 September 2026),
+was re-verified against the committed artifacts on 22 September 2026, and is corrected in §5.
+Stages 1, 2 and 3 are unchanged. The recomputation script and its output are reproducible from
+`eval/campaigns/p1_annotate/ledger.jsonl` and `src/caruca_v2/harness/annotation.py`.
+
+| # | First edition said | Correct statement | Why it was wrong |
+|---|---|---|---|
+| 1 | v2: 33 aligned cases, 10 agreeing (30%) | **77 aligned, 25 agreeing (32.5%)** across all three runs. 33/10 is run 1 alone | A single run was reported as the study's figure, although the study ran three. The rate barely moves; the evidence base more than doubles |
+| 2 | v1: 64 aligned, 11 agreeing (17%) | Correct **for the seven commands v2 also annotated**, which the table did not say. Over all nine: **83 aligned, 20 agreeing (24.1%)** | The two rows had different denominators and were presented as one comparison |
+| 3 | Only a strict class-match rate was given | Added the rate **under the paper's own scoring rule** (`pure` ≡ `non-pure`): v1 **63.9%**, v2 **88.3%** | Caruca's evaluation (§7.1) explicitly counts `non-pure` as correct where the truth is `pure`, because aggregator synthesis is out of scope (§6.1). Scoring that as an error is stricter than the paper's own standard and made both systems look far worse than the paper's method would |
+| 4 | "v2 agrees with the humans at nearly twice v1's rate" | True on the strict instrument (32.5% vs 17.2%); **about 1.3× under the paper's rule** (88.3% vs 65.6%) | The claim is a property of the instrument, not a stable fact |
+| 5 | "62 class disagreements … 58/62 directional consistency" | **63 disagreements, 58 conservative** | The per-command disagreement list is capped at 20 entries, so the total was undercounted |
+| 6 | The conservatism was attributed to the `--max-count 1` bound | The bound may contribute, but the cause is **structural**: v1 never emits `pure` at all, and reaches `stateless` only from split-input traces, which these traces are not | Verified in `tracer/data.py:215-225` and `ir/contents.py`, and against v1's own paper-run artifacts, which used split mode and do contain `stateless` |
+| 7 | "the paper's Q1, which was execution-based" | The paper's PaSh result (52/52) is a **per-command manual comparison** against PaSh's hand-written annotations, restricted to invocations in PaSh's benchmark suite. A suite re-run with output-hash comparison was done separately and **carries no number** | Misreading of §7.1 and Tab. 1, whose benchmark-suite column reads "PaSh hand-made specifications". (ShellCheck's 6/6 *was* a full test-suite re-run; only the PaSh characterization was wrong) |
+| 8 | Not stated | **v2 classes `pwd` as `stateless` where the ground truth says `side-effectful`, in all three runs** — the unsafe direction. v1 has no disagreement of that kind. Also: **17 of v2's 25 agreements come from `tail` alone**, and v2 is unstable at temperature 0 (`tail` aligns 14, 12 and 2 cases across runs) | Omission. The headline compared rates without reporting that v2's errors include one that would be unsafe downstream, or how concentrated and unstable its agreements are |
+
+Items 1, 2, 5 and 8 were identified in `ai_docs/tasks/011_v2_improvement_program.md` §3 and are
+independently re-verified here. Items 3, 6 and 7 were found while specifying
+`ai_docs/tasks/012_pash_downstream_study.md`.
+
+**What did not change.** The stage-4 verdict stands: the two annotators write specifications of
+different shapes and different content, and v2 cannot process the two largest traces at all.
+Items 3 and 8 push in opposite directions — the paper's rule is kinder to both systems, and v2's
+`pwd` error is worse than the first edition implied.
 
 ---
 

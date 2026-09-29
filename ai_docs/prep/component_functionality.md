@@ -1,5 +1,10 @@
 ## Component & Functionality Spec
 
+> **Version 1.1 — corrected 22 September 2026.** Three passages described the paper's Q1 results as
+> execution-verified test-suite reruns. That is right for ShellCheck and Shseer and wrong for PaSh,
+> whose 52/52 is a hand comparison against its own hand-written annotations, and for POSH, which the
+> paper never ran. Each correction is marked inline. No component's inputs, outputs or CLI changed.
+
 ### Components Covered
 
 Five priority components, built in this order per CLAUDE.md's stated build order (baseline + evaluation
@@ -22,7 +27,7 @@ priority components stage into two tiers, not one flat MVP. **Tier 0** (Baseline
 Naive-LLM Baseline, plain docs only + Evaluation Harness's Q2-style command-level comparison + telemetry
 + variance sampling) is the actual minimal deliverable answering Eiers' "does a naive prompt work, and at
 what cost" mandate — no sandbox required. **Tier 1** (Secure Sandbox both profiles, LLM Tool-Augmentation,
-real execution-based Q1, Web GUI) is the gap-driven extension path. Full sequencing/roadmap detail belongs
+real execution-based per-consumer checks, Web GUI) is the gap-driven extension path. Full sequencing/roadmap detail belongs
 in the `10_generate_build_order_worker.md` pass, not here — this note just flags that I/O mappings below
 aren't meant to be built in one flat pass.
 
@@ -50,9 +55,15 @@ aren't meant to be built in one flat pass.
     `cmp_specs.py`, no tracing needed
   - Annotation-diff comparison (a Q1-*adjacent* check, not the paper's actual Q1 methodology — see Open
     Questions): naive-LLM's spec, run through the same config-gen/trace/annotate stages as v1's, producing
-    a final annotation diffable against `benchmarks/annotations/`. The paper's real Q1 numbers (PaSh
-    52/52, ShellCheck 6/6, Shseer 18/18) are execution-verified — real test suites rerun with Caruca's
-    output plugged in, not diffed — which this does not attempt; that's a distinct, heavier Tier 1 task
+    a final annotation diffable against `benchmarks/annotations/`. The paper's Q1 numbers are not
+    all of one kind (**corrected 22 September 2026**; this passage previously said all three were
+    "execution-verified — real test suites rerun with Caruca's output plugged in, not diffed"):
+    **PaSh 52/52 is itself a diff** — a per-command hand comparison against PaSh's hand-written
+    annotations, on benchmark-suite invocations only — while ShellCheck 6/6 reran the full 2.2K-test
+    suite and Shseer 18/18 reran bug scripts, and POSH 16/17 was diff-only ("we were unable to run it").
+    A separate, unnumbered check swapped Caruca's annotations into PaSh and confirmed the suite's output
+    by hash. So the heavier Tier 1 task is the *execution* half; the diff half is closer to what this
+    component already does, differing in scope and reference rather than in kind
   Plus a telemetry record (tokens/cost/wall-clock/model-ID/seed).
 - Naive-LLM (augmented docs) is tracked as a **distinct, separately labeled condition** from Naive-LLM
   (plain docs) throughout — never blended into one baseline number, per the explicit scoping decision that
@@ -175,11 +186,16 @@ pass (`08_generate_initial_data_models.md`), not designed field-by-field here.
   explicit dependency for trustworthy v2-extended annotation-diff numbers, not a blocker for building the
   rest of the spec — where the unmodified annotator mishandles a v2-extended shape, that's itself a
   reportable coverage-gap finding (dimension 3), not a defect to hide.
-- **Real execution-based Q1** (Tier 1, deferred): the paper's actual Q1 methodology reruns PaSh's
-  benchmark suite, ShellCheck's 2.2K-test suite, and Shseer's 12 bug-scripts against Caruca's output — not
-  a diff against stored ground truth. The annotation-diff comparison above is a real, useful, but distinct
-  and lighter check. Building true per-consumer execution parity (matching the paper's 52/52-style
-  numbers exactly) is separate, heavier infrastructure, explicitly out of scope until Tier 1.
+- **Real execution-based Q1** (Tier 1, deferred): rerunning PaSh's benchmark suite, ShellCheck's
+  2.2K-test suite, and Shseer's bug-scripts against Caruca's output, rather than diffing against stored
+  ground truth. The annotation-diff comparison above is a real, useful, but distinct and lighter check.
+  **Corrected 22 September 2026:** this item previously called execution "the paper's actual Q1
+  methodology" and described the goal as "matching the paper's 52/52-style numbers exactly". That is not
+  achievable by execution, because **52/52 was not produced by execution** — it is a per-command hand
+  comparison against PaSh's hand-written annotations, restricted to benchmark-suite invocations, with
+  parallelizable-pure and non-parallelizable-pure counted as one answer. Reproducing the paper's PaSh
+  figure therefore needs the *comparison* half; the execution half is the separate, heavier, genuinely
+  new measurement. Both are specified in `ai_docs/tasks/012_pash_downstream_study.md`.
 - **Extended Traces JSON schema versioning**: strict superset of v1's `Traces` model vs. an explicitly
   versioned schema — needs a decision before the extended fixture fields are implemented, since v1's own
   tracer/annotator code reads this JSON directly.

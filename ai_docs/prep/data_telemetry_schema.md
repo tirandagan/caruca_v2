@@ -1,5 +1,10 @@
 ## Data & Telemetry Schema
 
+> **Version 1.1 — corrected 22 September 2026.** One correction, to the `q1_execution` comparison-method
+> tag: it described the paper's PaSh quality result as an execution check with output-hash comparison.
+> That result is a manual per-command comparison; the execution check is separate and carries no number.
+> The full statement is inline at that tag. No schema field changed.
+
 Produced via the `08_generate_initial_data_models` planning pass, corrected per the audit in
 `~/.claude/plans/review-our-progress-so-delightful-token.md` (2026-08-29) before being saved — see that
 plan for the full reasoning behind the corrections noted inline below.
@@ -77,9 +82,19 @@ different methodologies):
   verified as genuinely hand-curated via git history on `syntax_specs/*.py`)
 - `annotation_diff` — post-annotation diff against `benchmarks/annotations/` (Tier 1, what this project
   designed in the component-functionality pass; a real check, but NOT the paper's Q1 methodology)
-- `q1_execution` — real PaSh/ShellCheck/Shseer suite reruns against generated output (Tier 1, matches the
-  paper's actual Q1 methodology: PaSh's benchmark suite with output-hash comparison, ShellCheck's 2.2K-test
-  suite, Shseer's 12 bug-scripts — not implemented until Tier 1)
+- `q1_execution` — real PaSh/ShellCheck/Shseer suite reruns against generated output (Tier 1, not
+  implemented until Tier 1). **Corrected 22 September 2026:** this tag was described here as matching
+  "the paper's actual Q1 methodology: PaSh's benchmark suite with output-hash comparison". That is wrong
+  for PaSh. The paper's PaSh result (52/52) is a **per-command manual comparison** of Caruca's annotation
+  against PaSh's hand-written one — same input/output streams and parallelizability class, with
+  parallelizable-pure and non-parallelizable-pure counted as one answer — restricted to the invocations
+  appearing in PaSh's benchmark suite. Tab. 1's column heading is "PaSh hand-made specifications". The
+  authors *also* swapped in Caruca's annotations, re-ran the suite and confirmed identical output by hash,
+  but attached **no number** to that check and never published its harness. ShellCheck's 6/6 *was* a rerun
+  of the full 2.2K-test suite and Shseer's was a rerun of bug scripts, so those halves of the description
+  stand; POSH was diff-only. So `q1_execution` is the **execution half only**, and a result comparable to
+  the paper's PaSh figure needs the manual-comparison half as well. Both are specified in
+  `ai_docs/tasks/012_pash_downstream_study.md`.
 
 `profile` is explicit `n/a` (not omitted) for dimensions that don't route through the sandbox — cost, and
 Q2-style syntax correctness, both need no tracing.

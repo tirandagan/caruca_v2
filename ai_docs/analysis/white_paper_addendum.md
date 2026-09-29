@@ -11,7 +11,9 @@
 **From:** Tiran Dagan (Stevens), with Prof. Greenberg and Prof. Eiers
 **Re:** arXiv:2510.14279, *Caruca: Effective and Efficient Specification Mining for Opaque
 Software Components*
-**Date:** 2026-09-14 · **Status:** draft for discussion, not a submission
+**Date:** 2026-09-14 · **Version 1.1, corrected 22 September 2026**
+**Status:** draft for discussion, not a submission. Section 5 was corrected and re-framed; see
+[Corrections](#corrections-22-september-2026) at the end.
 
 ---
 
@@ -43,7 +45,7 @@ report), [`e0_artifact_pinning.md`](e0_artifact_pinning.md) (artifact provenance
 | 2 | Q2 as a *distribution*, not a single run | §7.2 | no |
 | 3 | The shipped artifacts do not reproduce the 116/120 figure | §7.2 | 👤 **yes** |
 | 4 | Specification validity versus specification *meaning*, and the implicit bound semantics | §4 / §4.2 / §7 | no |
-| 5 | An enumeration-redundancy and bound-sensitivity note | §4.2 | no |
+| 5 | An enumeration-redundancy note, and the trace configuration the PaSh adapter requires | §4.2 / §5 | no |
 | 5b | `--max-count` counts optional *arguments*, not optional *flags* as documented | §4.2 | 👤 **yes** |
 | 6 | A soundness note on `Predicate.operator` and `CommandConfig.stdin` | §6.4 | no |
 | 7 | What resists replacement by a model, and why | §8 or a new §9 | no |
@@ -189,7 +191,7 @@ gaps a reviewer could otherwise open.
 
 ---
 
-## 5. Enumeration redundancy and bound sensitivity (§4.2)
+## 5. Enumeration redundancy and trace-configuration sensitivity (§4.2, §5)
 
 Two measurements that bear on §4.2's combinatorics, both from Caruca's own enumerator:
 
@@ -197,17 +199,37 @@ Two measurements that bear on §4.2's combinatorics, both from Caruca's own enum
 which 562,789 are distinct — **82.7% duplicates** (median 75.7%, max 92.9% on `who`). The tracer
 inherits the duplicated stream. `--number` disagrees with actual emission for **90 of 90**.
 
-**Bound sensitivity in the derived specification.** At a one-flag bound, Caruca's derived PaSh
-annotations disagree with the hand-curated ones on parallelizability class in 62 of 83 cases —
-and **58 of those 62 are Caruca being *more conservative* than the human annotators**
-(`pure → non-pure` ×33, `stateless → non-pure` ×16) against 4 in the other direction. With less
-evidence the system falls back conservatively, which is the right direction to fail in, but it
-means a derived class is a function of the bound as much as of the command.
+**Configuration sensitivity in the derived specification.** *(Corrected and re-framed
+22 September 2026 — the first edition of this section reported this as bound sensitivity and
+overstated the disagreement. See [Corrections](#corrections-22-september-2026).)*
 
-**Recommendation:** report the distinct-invocation count alongside the emitted count in §4.2,
-and state in §6 that derived classes tighten with bound width. Both make the system look more
-carefully characterised, not less capable — conservatism under thin evidence is a feature worth
-claiming.
+Run outside `run.sh`'s configuration — that is, without `--stdin split --content split` — and at
+a one-flag bound, Caruca's derived PaSh annotations differ from the hand-curated ones on
+parallelizability class in 63 of 83 aligned cases. **Measured by the paper's own criterion, the
+picture is very different: 53 of 83 agree (63.9%).** §7.1 already states the rule — *"we
+consider it correct if Caruca can determine that a command is pure without requiring that it
+distinguishes between parallelizable and non-parallelizable pure"* — and **33 of the 63
+differences are exactly that `pure → non-pure` case**, so more than half of them are not errors
+by the paper's own standard.
+
+The remaining pattern is a **configuration dependency worth documenting, not a weakness**. Of
+the 63, 58 are Caruca answering more conservatively than the human annotators. The mechanism is
+precise rather than diffuse: `to_annotation` assigns only `stateless`, `non-pure` or
+`side-effectful` — never `pure` — and reaches `stateless` only when `__is_splittable` holds,
+which requires traces of a command on a whole input *and* on that input split into parts. Those
+partial traces exist only under `--stdin split --content split`. Outside that mode **no
+invocation of any command can be classified `stateless`, at any bound.** Caruca's own PaSh
+pipeline uses the split mode, and its shipped annotations bear this out: `cat`, `uniq` and
+`tail` all carry `stateless` cases in `eval/pash-annotations/`.
+
+**Recommendation:** report the distinct-invocation count alongside the emitted count in §4.2;
+and in §5 or §6, state the trace configuration the PaSh adapter requires, and that
+parallelizability classes are derived only within it. This is a precondition the artifact
+already honours and the text does not yet state — documenting it makes the system easier to
+reproduce, and pre-empts a reviewer who runs the tool at its defaults and sees no `stateless`
+classes. Worth adding alongside it: conservatism under thin evidence is the right direction to
+fail in, and the paper's own pure/non-pure relaxation is the reason the raw difference count
+overstates the gap.
 
 ---
 
@@ -305,6 +327,29 @@ upstream fixes before the release?
   comparable evidence amounts to 33 filesystem interactions.
 - **Nothing about tuning.** The LLM side was never iterated to improve a score; defects in the
   *request* were fixed, and differences were reported.
+
+---
+
+## Corrections, 22 September 2026
+
+Version 1.1. Section 5's second half was wrong in the first edition (14 September 2026) in a way
+that **understated Caruca**, and is corrected above. Re-verified against the committed artifacts
+on 22 September 2026.
+
+| # | First edition said | Correct statement |
+|---|---|---|
+| 1 | Caruca's derived annotations "disagree with the hand-curated ones … in 62 of 83 cases" | **63 of 83** on a strict class match (the earlier count came from a per-command list capped at 20 entries) — but **53 of 83 agree (63.9%) under the criterion §7.1 already states**, because 33 of the differences are the `pure → non-pure` case the paper explicitly counts as correct |
+| 2 | The conservatism was presented as **bound sensitivity** ("a derived class is a function of the bound as much as of the command") | The cause is the **trace configuration**. `to_annotation` never emits `pure`, and reaches `stateless` only from split-input traces, which require `--stdin split --content split`. Outside that mode no invocation can be classified `stateless` at any bound. Caruca's own PaSh pipeline (`run.sh`) uses the split mode, and its shipped annotations contain `stateless` cases |
+| 3 | The recommendation was to "state in §6 that derived classes tighten with bound width" | The useful recommendation is to **state the trace configuration the PaSh adapter requires**, a precondition the artifact honours and the text does not yet mention |
+
+A related correction, carried in [`v1_v2_parity_study.md`](v1_v2_parity_study.md) rather than
+here: that document described the paper's PaSh result (52/52) as "execution-based". It is a
+per-command comparison against the hand-written annotations, restricted to invocations in PaSh's
+benchmark suite; the suite re-run with output-hash comparison is reported separately and carries
+no number. Nothing in this addendum depended on that description.
+
+**Nothing else in this addendum changed.** Proposals 1-4, 5b, and 6-8, and all three items
+marked as needing the authors, stand as written.
 
 ---
 

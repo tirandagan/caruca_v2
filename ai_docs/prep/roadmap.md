@@ -57,6 +57,11 @@ Measured against v1 at `~/stevens/caruca/`, not assumed:
   annotations, 13 benchmark ground-truth annotations, plus `eval/cmp_specs.py` and the real-world
   invocation corpus.
 - **`generate`, `annotate`, and `oracle` work today**; `syntax-spec` does not (DSPy 3.3.1 import failure).
+  *(Corrected 22 September 2026: true on the WSL PC, where this was measured. **On the Mac `annotate`
+  cannot run at all, on any input** — `tracer/data.py::__readwrite` resolves `/tmp` to `/private/tmp`
+  and then calls `relative_to("/tmp/sandbox_outer/sandbox_inner")`. Verified 2026-09-03; see
+  `memory/caruca_v1_macos_annotate_limitation.md`. On the Mac both `trace` and `annotate` run in the
+  Lima VM `caruca`.)*
 - **No cost or wall-clock telemetry exists anywhere.** `eval/performance/` holds invocation counting, not
   timing. Dimension 2 starts from zero, which is what makes Phase 1 the first phase.
 - **A second, independent correctness methodology exists** beyond `cmp_specs.py`:

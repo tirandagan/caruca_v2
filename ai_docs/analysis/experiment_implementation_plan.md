@@ -147,7 +147,7 @@ build order:
    has *v1 itself* interpret it (the same subprocess pattern as `src/caruca_v2/v1.py` — v2 never
    re-implements v1 formats), normalizes it to an argument inventory (flags, aliases, arity,
    value types), and diffs that against a chosen reference. Two references, both supported:
-   v1's 121 committed specifications and the 108 hand-annotated ground-truth JSON files
+   v1's committed specifications (121 files, 120 real once `__init__` is excluded — the pin is in `e0_artifact_pinning.md`; corrected 22 September 2026 from "121") and the 108 hand-annotated ground-truth JSON files
    (which population the paper's "120 commands" denominators refer to is pinned in E0).
    Two instruments, both reported and tagged: this structural diff (primary), and v1's own
    `eval/cmp_specs.py` (the paper's instrument — kept for comparability, with its known
@@ -621,6 +621,17 @@ comparison the original paper gestures at but never makes). The per-stage study 
 for the line-count framing, not a vehicle for it. And every number this program publishes carries
 its comparison-method tag (`q2_syntax_diff` / `annotation_diff` / `q1_execution`) — the three are
 never blended.
+
+**Correction, 22 September 2026.** The tag names encode a misreading that has now been fixed
+everywhere else in this repository: `q1_execution` was named on the belief that the paper's Q1
+results came from re-running the consumers' test suites. That is true of ShellCheck (its full
+2.2K-test suite) and Shseer, but **not of PaSh**, whose 52/52 is a per-command hand comparison
+against PaSh's own hand-written annotations, restricted to benchmark-suite invocations — and not
+of POSH, which the paper says it could not run. So a v2 result reproducing the paper's PaSh
+figure belongs, methodologically, closer to `annotation_diff` than to `q1_execution`. The tag
+name is kept for continuity with records already written under it; what it means is stated in
+`ai_docs/prep/data_telemetry_schema.md` and in `ai_docs/tasks/012_pash_downstream_study.md`,
+which builds both halves of the PaSh comparison.
 
 ---
 

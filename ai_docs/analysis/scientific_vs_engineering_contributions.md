@@ -1,5 +1,14 @@
 # Scientific vs. Engineering Contributions — Framing v2 for Publication
 
+> **Version 1.1 — note added 22 September 2026.** No claim in this document was found to be wrong;
+> its account of the paper's PaSh comparison (§"the right call for the question the paper is asking")
+> is the one the rest of the repository has now been corrected to match. Two updates: the three
+> "cautions before building on it" were since **resolved** by
+> [`e0_artifact_pinning.md`](e0_artifact_pinning.md) — the branch worry is closed, and there is no
+> hand-written `cp` annotation for the generated one to agree with — and where the paper's 116/120 is
+> cited, note that the shipped artifacts score 78/116 by Caruca's own instrument
+> ([`white_paper_addendum.md`](white_paper_addendum.md) §3).
+
 A working answer to a question Prof. Greenberg has raised repeatedly: which v2 directions
 constitute a *scientific* contribution, and which are product/engineering improvements that will
 not survive review at a top-tier venue no matter how well executed. Written for the resubmission

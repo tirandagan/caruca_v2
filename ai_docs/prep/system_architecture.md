@@ -1,5 +1,9 @@
 ## System Architecture
 
+> **Version 1.1 — corrected 22 September 2026.** One line in the Extensions-v2 block described the
+> deferred per-consumer execution work as matching the paper's own Q1 method. That holds for
+> ShellCheck and Shseer, not for PaSh or POSH. Corrected inline; no architectural element changed.
+
 Produced via the `09_generate_system_design` planning pass. Reads on from
 `ai_docs/prep/component_functionality.md` (per-component I/O and CLI surface) and
 `ai_docs/prep/data_telemetry_schema.md` (what gets recorded), and anchors the build-order pass next.
@@ -35,7 +39,10 @@ v2 TIER 1 — GAP-DRIVEN EXTENSIONS (new)
                     (profiles: v1-faithful | v2-extended; backend still open)
                   → v1's annotator, reused unmodified
                   → annotation-diff comparison vs. benchmarks/annotations
-  real execution-based Q1 (PaSh/ShellCheck/Shseer suite reruns) — deferred, matches the paper's own Q1
+  real execution-based per-consumer checks (PaSh/ShellCheck/Shseer suite reruns) — deferred.
+  NOTE (22 Sep 2026): this line previously read "matches the paper's own Q1". It matches the
+  paper's ShellCheck and Shseer method only; its PaSh 52/52 is a hand comparison against PaSh's
+  hand-written annotations, and POSH was never run.
   Web GUI — a PTY wrapper that spawns the CLI subcommands above; presentation only
 
 CROSS-CUTTING

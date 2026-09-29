@@ -1,5 +1,9 @@
 # The Pipeline Chain — v2 Beside v1, Stage by Stage
 
+> **Version 1.1 — corrected 22 September 2026.** One item in the stage-4 section scored v1 wrong
+> on a case the paper's own criterion scores right, and misattributed the cause to the flag
+> bound. Corrected in place and marked. Nothing about the plumbing changed.
+
 This document follows one command, `cat`, all the way through both pipelines: what each stage
 reads, what it writes, where that file lives, what it looks like inside, and how it is handed to
 the next stage. It is the concrete counterpart to
@@ -260,10 +264,26 @@ campaign can never use it.)
 1. **Granularity.** v1 emits one conjunction per observed flag combination (14); the humans
    wrote 3 general atoms. Matching by predicate key aligns **zero** of them, which is why the
    scorer falls back to *subsumption* — the rule PaSh itself uses to select a case.
-2. **The conservative bias, concretely.** On plain `cat`, v1 says **`non-pure`** and v2 says
-   **`pure`**. The humans agree with v2. This is one of the 58-of-62 disagreements where bounded
-   tracing leaves v1 with less evidence and it falls back cautiously — a property of
-   `--max-count 1`, not a defect.
+2. **The class difference, concretely — and what it is not.** On plain `cat`, v1 says
+   **`non-pure`** and v2 says **`pure`**.
+
+   *(Corrected 22 September 2026. This item previously said "The humans agree with v2 … one of
+   the 58-of-62 disagreements where bounded tracing leaves v1 with less evidence and it falls
+   back cautiously — a property of `--max-count 1`". Three things were wrong.)*
+
+   - **By the paper's own scoring rule this is not a disagreement.** §7.1: *"we consider it
+     correct if Caruca can determine that a command is pure without requiring that it
+     distinguishes between parallelizable and non-parallelizable pure."* `pure` and `non-pure`
+     are one answer, because separating them means synthesising an aggregator, which §6.1 puts
+     out of scope. So v1 is **right** here by Caruca's own standard.
+   - **It is not a bound effect.** v1's annotator never emits `pure` in any mode
+     (`tracer/data.py:215-225` assigns only `stateless`, `non-pure`, `side-effectful`). There is
+     no evidence level at which `--max-count` would have produced `pure`. What the defaults *do*
+     suppress is `stateless`, which needs split-input traces (`--stdin split --content split`).
+   - **The count was 63, not 62** — the per-command disagreement list is capped at 20 entries.
+
+   The honest reading of this one case: the two systems use different vocabularies for the same
+   judgement, and the instrument, not either annotator, created the appearance of a gap.
 3. **Field names.** v1 serialises `pclass`/`comments`/`true_str`; the ground truth uses
    `class`/`comment`/`aggregate`. Compared raw, a *perfect* answer scores zero. The scorer
    projects across the gap and records what it translated.

@@ -1062,10 +1062,13 @@ APPENDIX = [
             ("Specification comparison",
              "Compares the final specifications after running the commands. Heavier; needs the sandbox."),
             ("Running real test suites",
-             "What the paper's own headline quality figures use: the consuming tools' actual tests are re-run. "
-             "Heaviest, and deferred."),
+             "The consuming tools' actual tests are re-run with our output plugged in. Heaviest, and deferred. "
+             "Corrected 22 Sep 2026: the paper used this for ShellCheck and Shseer only. Its PaSh figure "
+             "(52 of 52) is a hand comparison against PaSh's own written-by-hand answers, and POSH was "
+             "never run."),
             ("Why it matters",
-             "Reporting a lighter method's number as if it were the heaviest method's would not survive review."),
+             "Reporting a lighter method's number as if it were the heaviest method's would not survive "
+             "review — and neither would assuming the published figure used the heaviest method."),
         ],
         "row_h": 0.85,
         "sources": ["roadmap", "component_functionality"],

@@ -5,11 +5,18 @@
 > reviewer: *when v2 and v1 disagree, is that the LLM disagreeing, or is it the harness
 > disagreeing?* Every row below is an answer to that question.
 >
+> **Version 1.2 — 22 September 2026.** Three changes: the description of how the paper
+> measured its PaSh quality result was wrong and is corrected in §8; a note was added to
+> §4.1 recording that the `--stdin`/`--content` `simple` defaults make the `stateless` class
+> unreachable, which several sibling documents had misexplained as a flag-bound effect; and
+> an eighth accidental deviation was found and fixed in stage 3 — the traces file carried the
+> model's retyped copy of the command's output instead of the captured bytes (§5.3, §8.2 #8).
 > **Status:** written 2026-09-03, covering the code delivered by tasks 001-004.
 > **v1 reference commit:** `d8032407346aadc135b14c043618c8c1d4f4e0cf` (`binpash/caruca`).
-> **v2 code reviewed:** `src/caruca_v2/`; the seven defects the review found were fixed
-> the same day, each with a regression test (`tests/test_review_regressions.py`).
-> 149 tests passing, `ruff` clean.
+> **v2 code reviewed:** `src/caruca_v2/`; the seven defects the 2026-09-03 review found were
+> fixed the same day, each with a regression test (`tests/test_review_regressions.py`); the
+> eighth, found 2026-09-22, is pinned by `tests/test_trace_stage.py`.
+> 292 tests passing, `ruff` clean.
 
 ---
 
@@ -21,9 +28,9 @@ A document asserting *zero* deviation from v1 would not survive review, and it w
 be true. Some deviation is forced (v1's LLM step runs through DSPy 2.4, which no longer
 exists; reproducing its exact wire format would mean depending on a dead library). Some is
 deliberate (v2 measures token cost; v1 measures nothing). And the review that preceded
-this document found seven places where v2 diverged by *accident* — those were defects, not
-design choices, and §8.2 records each one along with the fix and the regression test that
-now pins it down.
+this document found seven places where v2 diverged by *accident*, with an eighth found on
+2026-09-22 — those were defects, not design choices, and §8.2 records each one along with
+the fix and the regression test that now pins it down.
 
 So every mechanism below carries one of three verdicts:
 
@@ -31,7 +38,7 @@ So every mechanism below carries one of three verdicts:
 |---|---|
 | **IDENTICAL** | v2 produces the same behavior as v1, and in most cases does so by *calling v1's own code* rather than reimplementing it. |
 | **DELIBERATE** | v2 differs on purpose. The reason and the cost to comparability are stated. |
-| **DEFECT** | v2 differed by accident. All seven found so far are fixed; §8.2 keeps the record of what each one was, because a reviewer is entitled to know what was wrong and when. |
+| **DEFECT** | v2 differed by accident. All eight found so far are fixed; §8.2 keeps the record of what each one was, because a reviewer is entitled to know what was wrong and when. |
 
 The strongest claim this project can make is not "we reimplemented v1 faithfully." It is
 **"we did not reimplement v1 at all where it mattered."** Wherever fidelity is
@@ -223,10 +230,28 @@ additive; it changes nothing about what is sent to the model.
 | Spec source | `syntax_specs/<cmd>.py`, imported reflectively | The same file's **text**, read at runtime | **IDENTICAL** input; v2 reads it as text because the LLM reads text |
 | `--max-arity` | default **1** (`cli/__init__.py:29`) | default 1 (`generate.V1_DEFAULT_MAX_ARITY`) | **IDENTICAL** |
 | `--max-count` | default **4** (`cli/__init__.py:54`) | default 4 | **IDENTICAL** |
-| `--stdin` | default `simple` (`cli/__init__.py:40`) | default `simple` | **IDENTICAL** |
-| `--content` | default `simple` (`cli/__init__.py:47`) | default `simple` | **IDENTICAL** |
+| `--stdin` | default `simple` (`cli/__init__.py:40`) | default `simple` | **IDENTICAL** — but see the note below |
+| `--content` | default `simple` (`cli/__init__.py:47`) | default `simple` | **IDENTICAL** — but see the note below |
 | `--skip` | no default → nothing skipped; `--skip` bare means `--version,--help,--interactive` | default: nothing skipped | **IDENTICAL** in effect |
 | `--elaborate-relations` | flag, default off | not exposed; the probe table is extracted with it off | **IDENTICAL** at the default; the non-default path is not reachable in v2 |
+
+> **Added 22 September 2026 — what the `simple` defaults cost downstream, on both sides.**
+> The two rows above are faithful, but the default they faithfully copy has a consequence no
+> document recorded until now, and several documents then misexplained (see the parity study's
+> and the addendum's corrections of the same date).
+>
+> v1's annotator assigns only `stateless`, `non-pure` or `side-effectful`
+> (`tracer/data.py:215-225`) — **it never emits `pure` in any mode.** It reaches `stateless`
+> only when `__is_splittable` holds, and that test compares a full run's stdout against the
+> concatenated stdout of *partial* runs. Partial runs are the traces whose stdin content is named
+> `…_1` / `…_2`, and those exist only under `--stdin split --content split`
+> (`ir/contents.py::Content.variation`).
+>
+> **So at the `simple` default, no invocation of any command can be classified `stateless`, at
+> any `--max-count`.** v1's own PaSh pipeline (`caruca/run.sh`) therefore runs
+> `--pash --stdin split --content split`, and its shipped annotations do contain `stateless`
+> cases. Any comparison of derived parallelizability classes made at the `simple` default is
+> measuring the trace configuration as much as the annotator, and must say so.
 
 Every one of these is recorded in `manifest.inputs`, because a v1/v2 comparison is only
 meaningful when both sides used the same bounds.
@@ -347,6 +372,21 @@ fidelity is that everything *around* the observation is identical, which §5.1, 
 Observation deliberately does not spawn a binary, so "you may only use `cat`" survives the
 model looking around. Enforced in code, and tested: `test_observation_tools_do_not_spawn_a_binary`.
 
+**What is the model's observation, and what is not (corrected 2026-09-22).** The interactions
+— which actions, on which paths — are the model's alone, and they are the experiment. The exit
+code, stdout and stderr are **not** in that category: the harness runs the command, so it holds
+those bytes verbatim, and the entry now carries the capture (`trace.reconcile_output`) rather
+than the model's retyped copy of what the tool result showed it. v1 records what it captured
+too, so this is a fidelity repair, not a new liberty — see §8.2 #8 for what went wrong and why
+it mattered, given that v1's annotator compares stdout byte-for-byte to decide
+parallelizability.
+
+The model is still asked to report all three, and the agreement between its copy and the
+capture is recorded per session and rolled up as `checks.output_transcription`. That converts
+a former silent assumption into a measurement: how faithfully does a model relay output it was
+shown verbatim? The prompt was **not** changed, because reducing what the model is asked to do
+would change the experiment rather than the instrument.
+
 ### 5.4 Trace encoding and the sandbox namespace
 
 | Aspect | v1 | v2 | Verdict |
@@ -422,9 +462,25 @@ The ShellCheck check is weaker (it verifies the output is a Caruca module) and t
 says so rather than presenting it as equivalent.
 
 **Ground-truth diffs are labelled `annotation_diff` in the record itself**, never
-`q1_execution`. The paper's Q1 numbers come from re-running PaSh/ShellCheck/Shseer's own
-test suites; a diff against `benchmarks/annotations/` is a different methodology and the
-two must never be blended (`memory/caruca_v1_eval_tooling_notes.md`).
+`q1_execution`, and the two must never be blended.
+
+> **Corrected 22 September 2026.** This paragraph previously read: *"The paper's Q1 numbers
+> come from re-running PaSh/ShellCheck/Shseer's own test suites."* That is wrong for PaSh,
+> which supplies 52 of the paper's Q1 results. **The PaSh number is a per-command manual
+> comparison of Caruca's annotation against PaSh's hand-written annotation**, restricted to
+> invocations appearing in PaSh's benchmark suite — methodologically close to the very
+> `annotation_diff` this sentence was distinguishing it from. Tab. 1's column heading reads
+> "PaSh hand-made specifications". The authors separately swapped in Caruca's annotations,
+> re-ran the suite and confirmed identical output by hash, but published **no number** for that
+> check and never committed its harness. ShellCheck's 6/6 *was* a rerun of the full 2.2K-test
+> suite and Shseer's 18/18 reran bug scripts, so those are described correctly; POSH was
+> diff-only, the paper stating *"we were unable to run it"*.
+>
+> **What still stands:** keeping `annotation_diff` and `q1_execution` separate is still right,
+> and a v2 ground-truth diff is still not the paper's PaSh result — but the reason is the
+> *scope and the reference* (their comparison is restricted to benchmark-suite invocations and
+> counts parallelizable-pure and non-parallelizable-pure as one answer), not that theirs was an
+> execution test. `ai_docs/tasks/012_pash_downstream_study.md` builds both halves.
 
 ---
 
@@ -486,11 +542,13 @@ control.
 | 10 | **Structural rather than byte comparison for JSON annotations.** | v1 renders `indent=2, by_alias=True`; a model will not match formatting. | Both structural and textual results recorded. |
 | 11 | **Stage 2 nudges a self-terminated model** (`llm.EXHAUST_INSTRUCTION`, added 2026-09-08). Every other stage keeps the default rule — continuation only while the token cap is what stopped the response. | Pilot campaign C0 measured the failure this addresses: on `mkdir` both models stopped *voluntarily* (`finish_reason: stop`, nothing truncated) at 18 and 84 of 1,094 unique invocations. Length-only continuation cannot see that case, so the recorded number would have measured the model's willingness to keep listing rather than its ability to enumerate. | **The largest confound in stage 2, and it runs in the direction of flattery.** A nudged model is partly measuring the nudge, so every stage-2 recall figure must be reported as produced under the exhaust policy and is not comparable to a single-shot number. Mitigated by recording, per run: `continuation_policy`, `turns_used`, `model_declared_complete`, and `hit_turn_cap_while_incomplete` — so a result bounded by the turn cap is visible rather than silent. The instruction never states how many items are expected. Stage 1 (the naive control) does **not** opt in, and must not: nudging it would void the Eiers guardrail in deviation 3. |
 
-### 8.2 Accidental — found by the 2026-09-03 review, all seven fixed
+### 8.2 Accidental — seven found by the 2026-09-03 review, an eighth on 2026-09-22; all fixed
 
 These were **not** design choices. Each was a place where v2 diverged from v1 by mistake.
-All seven were fixed on 2026-09-03, each with a regression test in
+The first seven were fixed on 2026-09-03, each with a regression test in
 `tests/test_review_regressions.py` — a fix without a test is a defect waiting to come back.
+The eighth was found on 2026-09-22 and fixed the same day, with its tests in
+`tests/test_trace_stage.py`.
 
 | # | Defect | Why it mattered | Fix |
 |---|---|---|---|
@@ -501,6 +559,7 @@ All seven were fixed on 2026-09-03, each with a regression test in
 | 5 | **Per-configuration cost was not recorded.** | **Medium.** Task 003's "cost/latency per config" criterion was not actually met. | `TelemetryRecord` gained `config_index` (and `metrics.db` a matching column), and `checks.sessions` now carries per-session token, cost, and wall-clock totals. |
 | 6 | **Run-id entropy was 16 bits.** ~7% collision for 100 same-second runs, 71% for 400; a collision raised an uncaught `FileExistsError`. | **Medium**, and it would have bitten the full-corpus harness first. | 32 bits, plus a bounded retry. `exist_ok=False` is kept, so a directory is still never silently reused — exhausting the retries is an error, not a reuse. |
 | 7 | **`ui.detail` mangled bracket-containing invocations.** `find . -name '[a-z]*'` displayed as `find . -name '*'`; `cat a[/]b` raised `MarkupError` mid-run. | **Low** (presentation) but it silently misreported what was run. | `ui.py` no longer interpolates data into markup at all: plain strings are escaped, and styling is applied by composing `rich.text.Text`. |
+| 8 | **Stage 3's traces carried the model's retyped copy of the command's output, not the bytes the command produced.** `tools._run` captured stdout/stderr/return code, showed them to the model, and then discarded them; the entry took `executor.report`'s values (`stages/trace.py`). Found 2026-09-22. | **High, and silent.** v1 stores what it captured. Worse, v1's annotator reads stdout *literally*: `__is_similar` requires the outputs of two partial invocations to concatenate **exactly** to the whole invocation's output, and that comparison is what decides parallelizability; `__preserves_line_order`, `input_geq_output` and the `return_code == 0` success filter also read these fields. One dropped newline in a retyped copy answers a research question by accident. Retyping also costs completion tokens, is bounded by the 4,096-token response cap, and cannot represent binary output at all. **Nothing published was affected** — the stage-4 parity campaign scored v1's traces, and the stage-3 scorer compares interactions only. | The entry's `return_code`/`stdout`/`stderr` now come from the capture (`trace.reconcile_output`); the model's copy is kept in v2's `<cmd>.observations.json` and its agreement with the capture is recorded per session and rolled up as `checks.output_transcription` — so transcription fidelity becomes a measurement instead of an assumption. The fallback when no execution happened is the reported copy, labelled `source: "reported"`, rather than a fabricated capture. Which argument vector the model actually ran, and whether it equals the configuration's invocation, is recorded too. **Interactions remain entirely the model's observation** — that is still the experiment (§5.3). Verified against the real checkout: v1 assembles and validates the file, and it contains only v1's five keys. |
 
 **A note on the stale-schema case introduced by #5.** `metrics.db` gained a column, and
 `CREATE TABLE IF NOT EXISTS` will not add one to an existing file. `metrics_db.connect`
@@ -566,6 +625,9 @@ $V2/.venv/bin/python -c "from caruca_v2 import v1; print([v1.reference_invocatio
 # §8.2 #4 — the jail holds against relative traversal
 cd $V2 && .venv/bin/pytest -q tests/test_review_regressions.py -k traversal
 
+# §5.3 / §8.2 #8 — the traces file carries the captured output, not the model's copy
+cd $V2 && .venv/bin/pytest -q tests/test_trace_stage.py -k "output or capture"   # 9 tests
+
 # The whole v2 suite (no API money, no v1 checkout required)
 cd $V2 && .venv/bin/pytest -q && .venv/bin/ruff check src tests
 ```
@@ -581,8 +643,8 @@ cd $V2 && .venv/bin/pytest -q && .venv/bin/ruff check src tests
    that most threaten stage 1 (few-shot rendering, paraphrased instructions) share one
    mitigation: measure them as an arm of the configuration selection rather than assuming
    they are negligible.
-3. Seven accidental deviations were found by review and all seven are fixed (§8.2), each
-   with a regression test. Three of them would have corrupted a stage-2 or stage-3
-   comparison; the record is kept deliberately, because "we looked, and here is what we
-   found" is a stronger claim than silence.
+3. Eight accidental deviations have been found and all eight are fixed (§8.2), each with a
+   regression test. Four of them would have corrupted a stage-2 or stage-3 comparison; the
+   record is kept deliberately, because "we looked, and here is what we found" is a stronger
+   claim than silence.
 4. Every claim above is re-derivable with §9's commands against a pinned v1 commit.

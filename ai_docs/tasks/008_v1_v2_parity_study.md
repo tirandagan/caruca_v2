@@ -494,10 +494,17 @@ of tracing single-flag invocations, where v1 has less evidence and falls back co
 not a defect. The four *less* conservative cases (`side-effectful → non-pure`) are the
 interesting ones and get named individually in the report.
 
-Nor is it comparable to the paper's Q1 (PaSh 52/52), which was **execution-based** — rerunning
-PaSh's benchmark suite with output-hash comparison — not a diff against these files. The
-telemetry schema labels this `annotation_diff` precisely to keep the two apart
-(`memory/caruca_v1_eval_tooling_notes.md`).
+Nor is it comparable to the paper's Q1 (PaSh 52/52) — but **not for the reason given here
+originally.** *(Corrected 22 September 2026; this passage said the paper's figure was
+"execution-based — rerunning PaSh's benchmark suite with output-hash comparison".)* The PaSh
+52/52 is a **per-command hand comparison against PaSh's own hand-written annotations**,
+restricted to invocations appearing in PaSh's benchmark suite, counting parallelizable-pure and
+non-parallelizable-pure as one answer. The suite re-run with output-hash comparison was done
+separately and carries no number. So it is methodologically *close* to this diff; what differs
+is the scope (benchmark-suite invocations only) and the reference (PaSh's annotations, not the
+80-hour ground truth). Keeping `annotation_diff` and `q1_execution` apart is still right, for
+those reasons. Full statement: `ai_docs/analysis/v1_v2_parity_study.md` corrections table, and
+`ai_docs/tasks/012_pash_downstream_study.md` §1.1.
 
 ### A fifth structural difference: the two artifacts are written at different granularities
 
@@ -606,10 +613,19 @@ ground truth:
 **Verdict: diverges, in an interesting direction.** v2 agrees with the humans on
 parallelizability class at nearly twice v1's rate, but over half as many aligned cases — it
 derives fewer cases per command (`cat` 2 against v1's 14, `uniq` 2 against 12) while
-occasionally producing more (`tail` 14 against 9). Both rates are low, and both are dominated
-by the conservative-direction bias §11 documents: at `--max-count 1` v1 has less evidence and
-falls back to `non-pure`. Neither number should be read as an accuracy figure for either
-system, and neither is comparable to the paper's execution-based Q1.
+occasionally producing more (`tail` 14 against 9). Both rates are low. Neither number should be read as an accuracy
+figure for either system.
+
+*(Corrected 22 September 2026, three ways. **The figures are superseded**: v2's are from run 1
+only — across all three runs it is 25 of 77 (32.5%) — and v1's 11 of 64 covers only the seven
+commands v2 also annotated, against 20 of 83 over all nine. **The cause was misattributed**:
+the conservative direction is not `--max-count 1` leaving v1 with less evidence; v1's annotator
+never emits `pure` in any mode and cannot reach `stateless` without split-input traces
+(`--stdin split --content split`), which this study did not use. **And the metric is stricter
+than the paper's**: 33 of v1's 58 conservative differences are the `pure → non-pure` case that
+§7.1 explicitly counts as correct, so under the paper's own rule v1 scores 53 of 83 (63.9%) and
+v2 68 of 77 (88.3%). See the corrections table in
+`ai_docs/analysis/v1_v2_parity_study.md`.)*
 
 #### The third instance of one root cause — and it was silently wrong until this run
 
