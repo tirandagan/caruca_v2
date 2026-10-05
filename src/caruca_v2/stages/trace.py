@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import contextlib
 import json
+import shlex
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -59,6 +60,8 @@ class ConfigOutcome:
     error: str | None = None
     messages: list[dict[str, Any]] = field(default_factory=list)
     prompt: prompting.Prompt | None = None
+    #: Where the entry's output fields came from, and how the model's copy compared.
+    output_check: dict[str, Any] | None = None
 
 
 def load_configs(command: str, configs_path: Path | None, out_root: Path) -> tuple[list[dict], str]:
@@ -118,6 +121,93 @@ def normalize_interactions(
         pairs.append([action, space.rewrite(path)])
 
     return pairs, rejected
+
+
+def reconcile_output(
+    run: dict[str, Any] | None, report: dict[str, Any], invocation: str | None
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """v1's three output fields for the trace entry, plus how the model's copy compared.
+
+    The model is asked to report the exit code, stdout and stderr, and it does — but what it
+    reports is retyped from what the tool result showed it. v1's annotator reads stdout
+    literally: `__is_similar` requires the outputs of two partial invocations to concatenate
+    *exactly* to the whole invocation's output, and that comparison decides
+    parallelizability. A dropped newline in a retyped copy silently answers a research
+    question. So the entry carries the bytes the harness captured, and the model's copy is
+    kept beside it (in v2's own observations file, never in the v1-format traces file) as a
+    measurement of how faithfully a model relays what it was shown.
+
+    Observation is still the model's: which interactions happened, and on what paths, comes
+    from the report alone. Only the three fields the harness already holds verbatim are taken
+    from the capture.
+
+    `source` is `"reported"` when there is nothing to take — the command never ran, or the
+    attempt produced no result at all — because inventing a capture would be worse than
+    recording the model's account of a run that did not happen.
+    """
+    reported = {
+        "return_code": report.get("return_code"),
+        "stdout": report.get("stdout"),
+        "stderr": report.get("stderr"),
+    }
+    result = (run or {}).get("result") or {}
+    # A timeout is a captured outcome: v1 records what the timed-out run produced, and so do
+    # we. An `error` result means the execution never happened, so there is nothing captured.
+    usable = bool(run) and "error" not in result and "return_code" in result
+
+    argv = list(run["argv"]) if run else None
+    try:
+        intended = shlex.split(invocation) if invocation else None
+    except ValueError:
+        intended = None
+
+    check: dict[str, Any] = {
+        "source": "captured" if usable else "reported",
+        "argv": argv,
+        # Recorded, not enforced. If the model ran a different argument vector than the
+        # configuration describes, the captured bytes belong to that other invocation, and
+        # the entry says so rather than quietly attributing them to the configuration.
+        "argv_matches_invocation": (None if argv is None or intended is None else argv == intended),
+        "timed_out": bool(result.get("timed_out")) if usable else None,
+        "execution_error": result.get("error"),
+    }
+
+    if not usable:
+        check["matches"] = None
+        return reported, check
+
+    captured = {
+        "return_code": result.get("return_code"),
+        "stdout": result.get("stdout"),
+        "stderr": result.get("stderr"),
+    }
+    check["matches"] = {
+        field_name: reported[field_name] == captured[field_name] for field_name in captured
+    }
+    check["reported_stdout_chars"] = len(reported["stdout"] or "")
+    check["captured_stdout_chars"] = len(captured["stdout"] or "")
+    return captured, check
+
+
+def _transcription_summary(outcomes: list[ConfigOutcome]) -> dict[str, Any]:
+    """Roll the per-session output checks up over a run."""
+    checks = [o.output_check for o in outcomes if o.output_check]
+    compared = [c for c in checks if c.get("matches")]
+    return {
+        "sessions_with_output": len(checks),
+        "from_captured": sum(1 for c in checks if c["source"] == "captured"),
+        "from_reported": sum(1 for c in checks if c["source"] == "reported"),
+        "compared": len(compared),
+        "return_code_exact": sum(1 for c in compared if c["matches"]["return_code"]),
+        "stdout_exact": sum(1 for c in compared if c["matches"]["stdout"]),
+        "stderr_exact": sum(1 for c in compared if c["matches"]["stderr"]),
+        "argv_matched_invocation": sum(
+            1 for c in checks if c.get("argv_matches_invocation") is True
+        ),
+        "argv_differed_from_invocation": sum(
+            1 for c in checks if c.get("argv_matches_invocation") is False
+        ),
+    }
 
 
 def trace_one(
@@ -215,13 +305,24 @@ def trace_one(
         pairs, rejected = normalize_interactions(
             executor.report.get("interactions") or [], space
         )
+        values, output_check = reconcile_output(
+            executor.first_run, executor.report, space.invocation
+        )
+        outcome.output_check = output_check
         outcome.entry = {
             "config": config,
-            "return_code": executor.report.get("return_code"),
-            "stdout": executor.report.get("stdout"),
-            "stderr": executor.report.get("stderr"),
+            # v1's four fields, and the only ones `v1.assemble_traces` reads.
+            "return_code": values["return_code"],
+            "stdout": values["stdout"],
+            "stderr": values["stderr"],
             "traces": pairs,
+            # v2's own record, kept in the observations file. The assembler ignores keys it
+            # does not know, so none of this reaches the v1-format traces file.
             "rejected_interactions": rejected,
+            "reported_return_code": executor.report.get("return_code"),
+            "reported_stdout": executor.report.get("stdout"),
+            "reported_stderr": executor.report.get("stderr"),
+            "output": output_check,
         }
         return outcome
 
@@ -440,6 +541,9 @@ def run(
                     "rejected_interactions": (
                         outcome.entry["rejected_interactions"] if outcome.entry else []
                     ),
+                    # Where this session's output fields came from, and whether the model's
+                    # retyped copy of them matched the bytes it was shown.
+                    "output": outcome.output_check,
                     "error": outcome.error,
                 }
                 for outcome in outcomes
@@ -452,6 +556,10 @@ def run(
             "refused_calls": sum(
                 1 for outcome in outcomes for call in outcome.audit if not call["allowed"]
             ),
+            # How faithfully the model relayed output it had been shown verbatim. A finding
+            # in its own right: the entries use the captured bytes, so this measures the
+            # model without depending on it.
+            "output_transcription": _transcription_summary(outcomes),
         },
         prompt_tokens=sum(response.prompt_tokens for response in responses),
         completion_tokens=sum(response.completion_tokens for response in responses),

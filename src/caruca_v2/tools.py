@@ -224,10 +224,25 @@ class ToolExecutor:
     calls: list[ToolCallRecord] = field(default_factory=list)
     report: dict[str, Any] | None = None
     executions: int = 0
+    #: What each allowed `run_command` actually produced, in order: the argument vector and
+    #: the captured result. The model is handed these bytes and asked to report them; this
+    #: keeps the originals, because v1's annotator reads stdout literally (exact
+    #: concatenation decides parallelizability) and a retyped copy is not the same evidence.
+    runs: list[dict[str, Any]] = field(default_factory=list)
 
     @property
     def command_argv(self) -> list[str]:
         return self.command.split()
+
+    @property
+    def first_run(self) -> dict[str, Any] | None:
+        """The first real execution — v1 runs each configuration exactly once.
+
+        A later execution is the model choosing to run again; `executions` records that it
+        happened, and the extra runs stay in `runs`, but the trace entry describes the same
+        single run v1 would have performed.
+        """
+        return self.runs[0] if self.runs else None
 
     def _resolve(self, path: str) -> Path:
         """Resolve a path inside the workspace, or refuse."""
@@ -320,6 +335,7 @@ class ToolExecutor:
 
         self.executions += 1
         completed = _run(argv, self.workspace, self.isolation)
+        self.runs.append({"argv": list(argv), "result": completed})
         return self._record("run_command", {"argv": argv}, True, None, completed)
 
     def _list_dir(self, arguments: dict[str, Any]) -> dict[str, Any]:

@@ -9,6 +9,7 @@ import pytest
 
 from caruca_v2 import cli, llm, v1, workspace
 from caruca_v2.stages import trace as trace_stage
+from caruca_v2.stages.trace import reconcile_output
 from fakes import ScriptedClient, tool_call
 
 CONFIG = {
@@ -272,3 +273,156 @@ def test_conversation_logging_captures_tool_calls_and_results(fake_v1_root: Path
     assert all(line["config_index"] == 0 for line in lines)
     # The executor's answer to the model is in the log verbatim.
     assert any("fixture" in (line.get("content") or "") for line in lines if line["role"] == "tool")
+
+
+# --- The output of record: captured bytes, not the model's retyped copy -------------------
+#
+# v1's annotator reads stdout literally (exact concatenation decides parallelizability), so
+# the entry has to carry what the command actually produced. The model is still asked to
+# report it, and how well it does is measured rather than trusted.
+
+MISREPORTED = {
+    "interactions": [
+        {"action": "rf", "path": "relpath_1"},
+        {"action": "wf", "path": "stdout"},
+    ],
+    # The workspace file holds "fixture\n" and the command succeeds; this report is wrong on
+    # every field a model could get wrong: paraphrased output, and an invented exit code.
+    "return_code": 1,
+    "stdout": "fixture",
+    "stderr": "cat: something went wrong\n",
+}
+
+
+def test_the_traces_file_carries_the_captured_output_not_the_models_copy(
+    fake_v1_root: Path, invoke
+):
+    code, runs, _ = invoke(session(report=MISREPORTED))
+
+    assert code == cli.EXIT_OK
+    traces = json.loads((runs[0] / "cat.traces.json").read_text())
+    entry = traces[0]["configs"][0]
+
+    # What `cat relpath_1` really did, not what the model said it did.
+    assert entry["return_code"] == 0
+    assert entry["stdout"] == "fixture\n"
+    assert entry["stderr"] == ""
+    # Observation stays the model's: the interactions are its report.
+    assert entry["traces"] == [["rf", "relpath_1"], ["wf", "stdout"]]
+
+
+def test_the_models_copy_is_kept_beside_the_capture_and_the_mismatch_is_recorded(
+    fake_v1_root: Path, invoke
+):
+    _, runs, _ = invoke(session(report=MISREPORTED))
+
+    observations = json.loads((runs[0] / "cat.observations.json").read_text())
+    assert observations[0]["reported_stdout"] == "fixture"
+    assert observations[0]["reported_return_code"] == 1
+
+    check = read_manifest(runs[0])["checks"]["sessions"][0]["output"]
+    assert check["source"] == "captured"
+    assert check["matches"] == {"return_code": False, "stdout": False, "stderr": False}
+    assert check["reported_stdout_chars"] == 7
+    assert check["captured_stdout_chars"] == 8
+
+    summary = read_manifest(runs[0])["checks"]["output_transcription"]
+    assert summary == {
+        "sessions_with_output": 1,
+        "from_captured": 1,
+        "from_reported": 0,
+        "compared": 1,
+        "return_code_exact": 0,
+        "stdout_exact": 0,
+        "stderr_exact": 0,
+        "argv_matched_invocation": 1,
+        "argv_differed_from_invocation": 0,
+    }
+
+
+def test_a_faithful_report_of_the_output_is_recorded_as_matching(fake_v1_root: Path, invoke):
+    _, runs, _ = invoke(session())
+
+    check = read_manifest(runs[0])["checks"]["sessions"][0]["output"]
+    assert check["matches"] == {"return_code": True, "stdout": True, "stderr": True}
+
+
+def test_an_argument_vector_other_than_the_configurations_is_recorded_with_the_output(
+    fake_v1_root: Path, invoke
+):
+    turns = [
+        # `cat` with no argument: allowed by the jail, but not the invocation the
+        # configuration describes. The captured bytes then belong to a different run.
+        [tool_call("run_command", {"argv": ["cat"]}, "c1")],
+        [tool_call("report_observations", REPORT, "c2")],
+    ]
+    _, runs, _ = invoke(turns)
+
+    check = read_manifest(runs[0])["checks"]["sessions"][0]["output"]
+    assert check["argv"] == ["cat"]
+    assert check["argv_matches_invocation"] is False
+    assert read_manifest(runs[0])["checks"]["output_transcription"][
+        "argv_differed_from_invocation"
+    ] == 1
+
+
+def test_a_report_with_no_execution_behind_it_keeps_the_reported_output(
+    fake_v1_root: Path, invoke
+):
+    # The model reports without ever running the command. There is nothing captured, so the
+    # entry keeps its account rather than a fabricated capture — and says which it is.
+    _, runs, _ = invoke([[tool_call("report_observations", MISREPORTED, "c1")]])
+
+    entry = json.loads((runs[0] / "cat.traces.json").read_text())[0]["configs"][0]
+    assert entry["return_code"] == 1
+    assert entry["stdout"] == "fixture"
+
+    check = read_manifest(runs[0])["checks"]["sessions"][0]["output"]
+    assert check["source"] == "reported"
+    assert check["matches"] is None
+    assert check["argv"] is None
+
+
+def test_an_execution_that_failed_to_start_is_not_treated_as_a_capture():
+    # Unit-level, because a `FileNotFoundError` from the launcher is not reachable through
+    # the scripted client: `_run` returns an error with no output fields at all.
+    values, check = reconcile_output(
+        {"argv": ["cat", "relpath_1"], "result": {"error": "could not execute: cat"}},
+        MISREPORTED,
+        "cat relpath_1",
+    )
+
+    assert values["stdout"] == "fixture"
+    assert check["source"] == "reported"
+    assert check["execution_error"] == "could not execute: cat"
+
+
+def test_a_timed_out_run_is_a_capture_because_v1_records_one_too():
+    values, check = reconcile_output(
+        {
+            "argv": ["cat", "relpath_1"],
+            "result": {"return_code": None, "stdout": None, "stderr": None, "timed_out": True},
+        },
+        MISREPORTED,
+        "cat relpath_1",
+    )
+
+    assert values == {"return_code": None, "stdout": None, "stderr": None}
+    assert check["source"] == "captured"
+    assert check["timed_out"] is True
+
+
+def test_only_the_first_execution_supplies_the_output(fake_v1_root: Path, invoke):
+    # v1 runs each configuration exactly once. A model that runs twice does not get two
+    # entries, and the second run does not overwrite the first.
+    turns = [
+        [tool_call("run_command", {"argv": ["cat", "relpath_1"]}, "c1")],
+        [tool_call("run_command", {"argv": ["cat"]}, "c2")],
+        [tool_call("report_observations", REPORT, "c3")],
+    ]
+    _, runs, _ = invoke(turns)
+
+    session_record = read_manifest(runs[0])["checks"]["sessions"][0]
+    assert session_record["executions"] == 2
+    assert session_record["output"]["argv"] == ["cat", "relpath_1"]
+    assert session_record["output"]["argv_matches_invocation"] is True

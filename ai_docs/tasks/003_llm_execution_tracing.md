@@ -26,10 +26,10 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 > **Status:** Implemented 2026-09-03 (phases 1-4). The strace ground truth and the fidelity
 > comparison were done under task 008 (2026-09-14, re-scored 2026-09-20): stage 3 **does not
 > replicate** v1 — 78% of sessions never call `report_observations`. See §6. The
-> held-out-set run is still not started (needs Tiran's cost approval). **Open decision
-> (2026-09-22):** whether the traces file should carry the command's real captured output
-> instead of the model's retyped copy — see §6. Third stage of the series; the only stage
-> where the LLM is given real tools.
+> held-out-set run is still not started (needs Tiran's cost approval). **2026-09-22:** the
+> traces file now carries the command's real captured output instead of the model's retyped
+> copy, and how faithfully the model relayed it is measured — phase 6, §6. Third stage of the
+> series; the only stage where the LLM is given real tools.
 > **Created:** 2026-09-03 · **Owner:** Tiran Dagan
 > **Shared design:** `ai_docs/prep/llm_pipeline_replication.md` — the agent loop, the
 > hard-enforced tool surface, environment fidelity, and safety staging are specified
@@ -147,9 +147,10 @@ reproduces v1's exactly: `timeout 2`,
        under task 008 (`harness/trace_recovery.py`)
 5. [ ] Held-out-set run (cost estimate approved first) + write-up — 👤 **blocked on
        Tiran's approval; the first step here that spends money**
-6. [ ] Record the command's real captured output in the traces file, keeping the model's
-       copy beside it as a measured check (§6, 2026-09-22) — 👤 **awaiting Tiran's
-       decision; nothing implemented**
+6. [x] Record the command's real captured output in the traces file, keeping the model's
+       copy beside it as a measured check ✓ 2026-09-22 — approved by Tiran in-session and
+       implemented the same turn; nine tests, full suite green, verified against the real
+       v1 checkout. Details in §6
 
 ### Design decisions taken during implementation
 - **Observation is reported through a tool, not parsed from prose.** The model ends its
@@ -219,7 +220,7 @@ Started from Tiran's question of why stage 3 runs the same binaries as v1.
 - **No published result is affected.** The stage 4 parity campaign scored v1's traces
   (`campaigns/p1_annotate.json` → `*.parity.json`), and the stage 3 scorer compares
   interactions only.
-- **Proposal — awaiting Tiran (phase 6):** write the harness-captured stdout, stderr and
+- **Proposal — approved and implemented the same day, see below:** write the harness-captured stdout, stderr and
   exit code into `<cmd>.traces.json`; keep the model's reported copy in
   `<cmd>.observations.json` and record a copy-match check in the manifest. The
   interactions list (`rf stdin`, `wf stdout`, `wf stderr`, file actions) stays the
@@ -229,3 +230,55 @@ Started from Tiran's question of why stage 3 runs the same binaries as v1.
   This is repair of the instrument, not tuning (`memory/feedback_instrument_defect_vs_tuning.md`).
   If adopted, earlier stage 3 runs must be labelled as pre-change or rerun. It does not
   touch the 78% no-report failure.
+
+### 2026-09-22 (same day) — implemented: the output of record is the capture
+Approved by Tiran in-session. Classified as an accidental deviation from v1, not a design
+change: v1 stores the bytes it captured, and v2 was storing a retyped copy. Recorded as
+deviation #8 in `ai_docs/analysis/v2_fidelity_to_v1.md` §8.2, with the mechanism in §5.3.
+
+**What changed**
+
+- `tools.ToolExecutor` keeps every allowed execution in `runs` (argument vector plus the
+  captured result), and exposes `first_run`. The first execution is the one that describes
+  the entry, because v1 runs each configuration exactly once; `executions` still counts the
+  rest, and they stay in `runs`.
+- `trace.reconcile_output(run, report, invocation)` returns v1's three output fields for the
+  entry plus the record of how the model's copy compared. Kept as a separate function so the
+  cases that cannot be reached through a scripted session — a launcher failure, a timeout —
+  are unit-testable.
+- The entry carries the capture in `return_code` / `stdout` / `stderr`, and the model's copy
+  in `reported_*` plus an `output` block. `v1.assemble_traces` reads only the four fields it
+  knows, so **none of the v2-only keys reach the v1-format traces file** — deviation #7's
+  rule ("never written into a v1-format file") still holds, verified by execution.
+- `manifest.json` gains `checks.sessions[].output` and a run-level
+  `checks.output_transcription` roll-up: how many sessions used a capture, how many matched
+  on each field, and how often the model's argument vector differed from the configuration's
+  invocation.
+
+**Decisions inside the change**
+
+- **The prompt is unchanged.** The model is still asked for the exit code, stdout and stderr.
+  Removing that would change the experiment; keeping it turns a silent assumption into a
+  measurement of how faithfully a model relays what it was shown.
+- **A timeout is a capture** (`return_code: null`), because v1 records the timed-out run too.
+  An execution that never started is not: `source` is then `"reported"`, since inventing a
+  capture would be worse than labelling the model's account of a run that did not happen.
+- **A wrong argument vector is recorded, not corrected.** If the model runs something other
+  than the configuration's invocation, the captured bytes belong to that other run;
+  `argv_matches_invocation` says so. Falling back to the model's copy would not help — its
+  copy is of the same wrong run.
+- **Not rewritten: paths inside stdout.** v1 does not rewrite its own stdout into the
+  placeholder namespace either (its `pwd` output holds the real `/tmp/toplevel_*` path), so
+  neither does v2. This is why `pwd` output legitimately differs between the two systems.
+
+**Verification** — `.venv/bin/pytest -q` 292 passed, `ruff` clean. Nine tests in
+`tests/test_trace_stage.py` (selector: `-k "output or capture"`). Against the **real** v1
+checkout, not the test fake: an entries file carrying the new keys assembled through v1's own
+models, v1 validated the result, and the produced file contained only v1's five keys
+(`command`, `return_code`, `stdout`, `stderr`, `traces`).
+
+**Consequences for earlier results.** Stage 3 runs before this change recorded the model's
+copy; their `manifest.json` has no `output_transcription` block, which is how to tell them
+apart. Nothing published needs revising — the stage-4 parity campaign scored v1's traces, and
+the stage-3 scorer compares interactions only. The 78% no-report failure is untouched by this
+change.
