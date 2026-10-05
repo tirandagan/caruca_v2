@@ -28,6 +28,16 @@ Tiran drew this line explicitly on 2026-09-14 while debugging `generate` on `gre
   `model_declared_complete`, and any result from that stage must state that a nudged model is
   partly measuring the nudge.
 
+**A fourth category, added 2026-09-22 — recording the wrong copy of a quantity we already
+hold.** Stage 3 wrote the model's *retyped* stdout/stderr/exit code into the traces file while
+discarding the bytes the harness had captured. Approved and fixed the same day as an accidental
+deviation from v1 (v1 stores what it captured), not a design change. The rule it generalizes
+to: **"the model observes; our code packages" extends to every quantity the harness already
+holds verbatim.** Ask the model for it anyway when that makes its fidelity measurable — the
+prompt was deliberately left unchanged, and the agreement between the model's copy and the
+capture is now reported as `checks.output_transcription`. What the model alone can supply
+(here, which file interactions happened) stays the experiment. Full record: task 003 §6.
+
 **Why:** the naive control (task 001) exists to be weak and must never be engineered. The
 replication arms are different — they are meant to test whether an LLM *can* do v1's work, and
 a question the model cannot answer tests nothing. Conflating the two either flatters the model

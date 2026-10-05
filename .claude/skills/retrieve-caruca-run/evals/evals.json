@@ -1,0 +1,56 @@
+{
+  "skill_name": "retrieve-caruca-run",
+  "evals": [
+    {
+      "id": 0,
+      "name": "cat-bound-divergence",
+      "prompt": "Look at the comparison run for \"cat\": http://localhost:4317/compare/generate/cat\n\nI'm noticing that v1 emits only single argument versions while v2 adds a second argument (abspath_1, relpath_1). Does this go against the requirements set up in the original article and codebase? This is the reason for the divergence.",
+      "expected_output": "Identifies that --max-count counts optional ELEMENTS (including the optional Path operand) in v1's code but only 'optional flags' in v1's CLI help text, which is what v2's prompt repeats verbatim. Concludes: violates v1's code, but not v1's documentation and not the paper (\u00a74.1/\u00a74.2 count flags and options, positionals are a separate axis). Cites the 0.556 F1 with recall 1.000 / precision 0.385 over v1's 15 distinct invocations. Ideally confirms empirically by re-running v1 at --max-count 2. Notes that the parity study \u00a73.2 and task 011 disagree, and 011 is current.",
+      "files": [],
+      "assertions": [
+        "Reports the stage-2 figure correctly: invocation F1 0.556, recall 1.000, precision 0.385 (or the counts 15 matched / 0 missing / 24 spurious)",
+        "States the denominator: v1's 15 distinct invocations at --max-arity 1 --max-count 1",
+        "Identifies that v1's --max-count counts optional ELEMENTS including the optional positional operand, not only flags",
+        "Points to v1's actual implementation (ir/syntax.py __filtered_args / is_optional) as the evidence, not just a description",
+        "Identifies that v2's prompt repeats v1's CLI help-text wording ('optional flags'), so the model followed the instruction it was given",
+        "Reaches the split verdict: contradicts v1's code, but NOT v1's documentation and NOT the paper",
+        "Grounds the paper side in the actual text (flags-and-options counting in the invocation study, positionals as a separate axis)",
+        "Empirically confirms by re-running v1's enumeration at a looser bound and showing the surplus is v1's own output",
+        "Notes that the existing write-ups disagree about the cause and that task 011 holds the current view",
+        "Does NOT conclude simply that v2/the model is wrong or broken"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "uniq-zero-recall",
+      "prompt": "uniq is scoring 0.000 invocation F1 at stage 2 in the parity study - literally zero matched out of 27. Every other command gets something. Is v2 just completely broken on uniq, or is something else going on? I need to know before I write this up.",
+      "expected_output": "Retrieves the real counts (v1_unique 27, produced_unique 25, matched 0, missing 27, spurious 25). Identifies the same root cause as cat: v2 attached a file operand to every invocation, so none of v1's bare forms match, and the two legal operand-only forms were never produced. Concludes it is the prompt's bound wording, not a broken model. Should NOT conclude v2 is broken.",
+      "files": [],
+      "assertions": [
+        "Reports the real counts: v1_unique 27, produced_unique 25, matched 0, missing 27, spurious 25",
+        "Concludes v2 is NOT broken on uniq",
+        "Identifies the cause as v2 attaching a file operand to essentially every invocation",
+        "Explains specifically why RECALL is zero: v1's bare forms (and its operand-only forms) were never produced, so nothing aligns",
+        "Connects it to the same --max-count bound-semantics issue affecting other commands, rather than treating uniq as unique",
+        "Distinguishes this from a model capability failure (e.g. notes determinism across samples, or that the flags themselves are right)",
+        "Gives the user something citable for the write-up: file paths, run ids, or named documents"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "tail-stage3-absent-not-zero",
+      "prompt": "What happened in stage 3 for tail? I want the tracing numbers, how many configurations it attempted, whether any sessions failed, and what it cost.",
+      "expected_output": "Reports that 2 of 3 cells are unscoreable ('no traces file was written') and 1 cell WAS scored but with core.micro.f1 undefined (0/0) and recall 0.0. Must NOT report the headline as 0.0 or claim an F1 figure. Reports configs available/attempted/reported, session statuses, and cost/tokens from the manifests.",
+      "files": [],
+      "assertions": [
+        "Does NOT report the stage-3 headline figure as 0.0 or as any concrete F1 value",
+        "States that 2 of 3 scored cells are unscoreable with the reason 'no traces file was written'",
+        "States that 1 cell WAS scored but its headline (core.micro.f1) is undefined, with recall 0.0 - distinct from the unscoreable cells",
+        "Reports the configuration counts from checks.configs (available / attempted / reported / limit)",
+        "Reports per-session outcomes, including any session that failed or ended without report_observations",
+        "Reports cost and token figures for the tail stage-3 runs",
+        "Names the run ids or run directories so the user can check"
+      ]
+    }
+  ]
+}

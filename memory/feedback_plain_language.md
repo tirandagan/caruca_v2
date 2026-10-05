@@ -38,6 +38,16 @@ When giving Tiran information, follow these rules:
    is a worse place for shorthand than a statement, because he cannot skip past it — he has to
    answer it.
 
+8. **No compressed or coined technical wording, even when the words are ordinary English.**
+   Rules 1-3 cover *project* labels. This one covers everything else: a general computing or
+   statistics term used as a shortcut (*degenerate*, *orphan*, *pooled*, *injective*, *null
+   hypothesis*), a phrase invented on the spot to name something (*bare `tail`*, *the third
+   state*), and a bare flag, filename or field name dropped into a sentence as if it explained
+   itself (`--limit 5`, `prompt_user`, `core.micro.f1`). Say the plain thing instead, then give
+   the technical name once in parentheses if it is needed later. Write "the list has 49 entries
+   but the first 14 are all the same command, so the five that were tested were five copies of
+   one test" — not "the sample is degenerate."
+
 **Why:** Tiran asked for this explicitly on 2026-08-29, right after two exchanges where the shorthand
 failed. He had to ask "what is dimension 6?" and then "I don't understand your statement about 3,456
 versus 3,130" — both times because a numbered item from a project document and a set of raw measurements
@@ -60,6 +70,17 @@ confirm "decision 6" and "the field list from §6.6", and to choose a line count
 and `tokei` with no word on what a line counter was for. Every option was written from inside a task
 document he had not read. Rules 1-3 already covered this; the failure was applying them to prose but not
 to the questions themselves.
+
+Rule 8 added 2026-09-23, when Tiran said: "that's not english. always explain your terminology and be
+simple and descriptive... please explain your observations 1-4 clearly as if i dont know anything."
+The trigger was a four-item findings list that called a test sample *degenerate*, coined *bare `tail`*
+without saying it meant the command `tail` typed on its own with no flags and no filename, and leaned on
+`--limit 5`, "stage 3" and "campaign" as if each were self-explanatory. Rules 1-3 did not catch it because
+none of those were project shorthand — *degenerate* is standard technical English, and that is exactly why
+it slipped through. The lesson: the test is not "is this term from one of our documents," it is **"would
+someone who has never seen this project understand the sentence."** Note the request was for the
+*explanation* to be simple, not the finding — all four findings were correct and none were dropped when
+rewritten plainly; they got longer and clearer.
 
 **How to apply:** applies to all conversational replies, summaries, and status updates. It does *not* mean
 dumbing down the technical substance or hiding detail — the analysis stays rigorous, the *explanation* gets
