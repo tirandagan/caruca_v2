@@ -1,0 +1,10 @@
+{"width":117,"height":34,"title":"v1 syntax-spec cat","command":"/Users/tirandagan/dev/stevens/caruca/caruca/.venv-llm/bin/caruca syntax-spec cat","caruca":{"side":"v1","runId":"2026-09-29T202611Z_cat_89f6d45b","host":"mac"},"version":2,"timestamp":1790713571}
+[5.814,"o","Backing off 0.3 seconds after 1 tries calling function <function GPT3.request at 0x1091e82c0> with kwargs {}\r\n"]
+[7.72,"o","Backing off 1.2 seconds after 2 tries calling function <function GPT3.request at 0x1091e82c0> with kwargs {}\r\n"]
+[11.644,"o","Backing off 3.0 seconds after 3 tries calling function <function GPT3.request at 0x1091e82c0> with kwargs {}\r\n"]
+[16.359,"o","Backing off 4.8 seconds after 4 tries calling function <function GPT3.request at 0x1091e82c0> with kwargs {}\r\n"]
+[23.474,"o","Backing off 13.4 seconds after 5 tries calling function <function GPT3.request at 0x1091e82c0> with kwargs {}\r\n"]
+[38.522,"o","Backing off 9.0 seconds after 6 tries calling function <function GPT3.request at 0x1091e82c0> with kwargs {}\r\n"]
+[49.263,"o","Backing off 2.6 seconds after 7 tries calling function <function GPT3.request at 0x1091e82c0> with kwargs {}\r\n"]
+[53.594,"o","Backing off 11.1 seconds after 8 tries calling function <function GPT3.request at 0x1091e82c0> with kwargs {}\r\n"]
+[66.271,"o","Backing off 130.2 seconds after 9 tries calling function <function GPT3.request at 0x1091e82c0> with kwargs {}\r\n"]
