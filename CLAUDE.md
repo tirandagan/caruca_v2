@@ -322,6 +322,20 @@ correctness comparison has to separate "better model" from "better method."
       Caruca vs. this project, or scope calls like the naive-LLM-baseline-first decision).
     - **reference**: a pointer to where something authoritative lives outside this repo (a path, a doc, an
       external system) that a future session would otherwise have to rediscover.
-  - Skip anything derivable by reading the code, `git log`, or files already in the repo — memory is for
-    facts that would otherwise be lost between sessions, not a second copy of the codebase.
+  - **Refresh memory at the end of every turn.** Before ending a turn, ask: did this turn establish
+    anything about v1 or v2 that a future session would have to re-research? If yes, write it to the
+    matching topic file under `memory/` (update an existing one in preference to creating a new one) and
+    update its `memory/MEMORY.md` line before replying. This applies even when the user only asked a
+    question: an answer that took real investigation (reading v1 source, reading a dependency's source,
+    running an experiment) is exactly what must be kept, so the same question is a lookup next time. If
+    the turn established nothing new, write nothing.
+  - **Store only facts that are certain.** A fact qualifies if it was read directly from source or
+    observed in a run during the session. Record how it was established and on what date. Do not store
+    inferences, likely explanations, or guesses as facts; either leave them out or put them under an
+    explicit "Not tested" / "Not established" heading. State version- or machine-dependent facts with the
+    version or machine they were observed on. If a later turn refutes a stored fact, correct or delete it
+    in that same turn.
+  - Skip anything trivially derivable by reading one file, `git log`, or files already in the repo — memory
+    is for facts that would otherwise be lost between sessions, not a second copy of the codebase. Findings
+    that needed cross-file tracing or an experiment to establish are not "trivially derivable"; keep them.
   - If the user explicitly asks you to remember or forget something, do it immediately in that same turn.

@@ -42,6 +42,8 @@ Entry point: `caruca = "caruca:main"` (pyproject) → **argparse** subparsers in
   `dspy.ChainOfThought`. Output code is regex-stripped from ``` fences (`extract_code`), validated
   by writing a temp file **in the CWD** and importing it; failures retried via
   `dspy.Suggest`/`Retry`/`assert_transform_module` — exactly the DSPy 2.x APIs removed in 3.x.
+  The full retry mechanics (prompt layout, what the retry sends, and its dependence on the DSPy
+  version) are in [[caruca-v1-llm-retry-mechanics]].
 - **Spec discovery**: `syntax_specs/__init__.py::get_syntax_spec` imports
   `caruca.syntax_specs.<cmd>` reflectively and reads attribute `<cmd>_syntax_spec`; spaces become
   underscores (`git commit` → `git_commit.py`). Its `path` param is a **dotted module path** (e.g.
