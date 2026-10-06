@@ -61,8 +61,9 @@ a run that finishes while the page is open shows up when you reload.
 - **Every page returns 500 with "Module not found".** Delete `.next/` and start again.
   `npm run build` and `npm run dev` share that folder, so running the build while the dev
   server is up leaves it in a state the dev server cannot use.
-- **Port 4317 is in use.** An earlier console is still running:
-  `pkill -f "next dev -H 127.0.0.1 -p 4317"`.
+- **Port 4317 is in use** (`EADDRINUSE` on start). An earlier console is still running, often as
+  an orphan whose terminal was closed. Stop it with `pkill -f "tsx server.ts"`, then delete `.next/`
+  before starting again: every attempt that failed to bind had already rewritten that folder.
 - **Compare says campaigns are missing.** `eval/campaigns/` is the one part of the run data
   that is still gitignored, so a fresh checkout has none. Everything else works without it.
 - **`posix_spawnp failed` when a terminal starts.** `npm install` should have prevented this.
