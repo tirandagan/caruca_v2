@@ -1,0 +1,1101 @@
+{
+ "summary": {
+  "run": "2026-10-28_092028_naive-run-mktemp_mktemp_PROMPT_v1",
+  "command": "mktemp",
+  "binary": "/usr/bin/mktemp",
+  "logger_check": {
+   "audit_starts": 224,
+   "trace_starts": 219,
+   "audit_without_trace": 5,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793193606.4379144,
+   "clock_spread_ms": 2.293825149536133
+  },
+  "session_found": true,
+  "first_write": 1793193774.523,
+  "tries": 48,
+  "classes": {
+   "accepted": 29,
+   "unclassified": 6,
+   "refused": 13
+  },
+  "by_phase": {
+   "exploring/accepted": 12,
+   "exploring/refused": 3,
+   "exploring/unclassified": 4,
+   "testing/accepted": 17,
+   "testing/refused": 10,
+   "testing/unclassified": 2
+  },
+  "help_or_version": 5,
+  "distinct_argument_lists": 44,
+  "distinct_option_sets": 32,
+  "refused_share": 0.2708,
+  "refused_program_seconds": 0.002,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "/usr/bin/mktemp: too many templates",
+   "mktemp: too few X's in template \u2018nope\u2019",
+   "mktemp: too many templates"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "mktemp",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193647.714,
+   "seconds": 0.000252914,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193647.715,
+   "seconds": 0.000257916,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "--suffix",
+    ".txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193656.965,
+   "seconds": 0.000212272,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "--suffix=.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193656.965,
+   "seconds": 0.000258453,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "-p",
+    "/tmp",
+    "foo.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193656.965,
+   "seconds": 0.000225402,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "--tmpdir",
+    "foo.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193656.966,
+   "seconds": 0.000162008,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "--tmpdir=/tmp",
+    "foo.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193656.966,
+   "seconds": 0.000177679,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "-t",
+    "foo.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193656.967,
+   "seconds": 0.000158465,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "-du"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193656.967,
+   "seconds": 0.000151129,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "-q",
+    "nope"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mktemp: too few X's in template \u2018nope\u2019",
+   "start": 1793193656.967,
+   "seconds": 0.000161382,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "nope"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mktemp: too few X's in template \u2018nope\u2019",
+   "start": 1793193656.968,
+   "seconds": 0.000157298,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "a.XXX",
+    "b.XXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mktemp: too many templates",
+   "start": 1793193656.968,
+   "seconds": 0.000167342,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "-p"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mktemp: option requires an argument -- 'p'\nTry 'mktemp --help' for more information.\n",
+   "start": 1793193656.968,
+   "seconds": 0.00017126,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "--tmpdir",
+    "/tmp",
+    "foo.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mktemp: too many templates",
+   "start": 1793193656.969,
+   "seconds": 0.000175262,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "--suffix"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mktemp: option '--suffix' requires an argument\nTry 'mktemp --help' for more information.\n",
+   "start": 1793193656.969,
+   "seconds": 0.000166092,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "--dir",
+    "-u"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193656.969,
+   "seconds": 0.00015784,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "--dry"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193656.97,
+   "seconds": 0.000148295,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "-t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193656.97,
+   "seconds": 0.000153005,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mktemp",
+    "-d",
+    "--suffix=/x",
+    "foo.XXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mktemp: invalid suffix \u2018/x\u2019, contains directory separator",
+   "start": 1793193656.97,
+   "seconds": 0.000146586,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-d",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.421,
+   "seconds": 0.00017921,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "--directory",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.422,
+   "seconds": 0.000133334,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.422,
+   "seconds": 0.000113751,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "--dry-run",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.422,
+   "seconds": 0.000112959,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-q",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.423,
+   "seconds": 0.000110417,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "--quiet",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.423,
+   "seconds": 0.000109876,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "--suffix",
+    ".sfx",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.423,
+   "seconds": 0.000106084,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "--suffix=.sfx",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.424,
+   "seconds": 0.000132417,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-p",
+    "/tmp/tmpjqe6yd3x",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.424,
+   "seconds": 0.000130043,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "--tmpdir=/tmp/tmpjqe6yd3x",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.424,
+   "seconds": 0.000117626,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "--tmpdir",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.425,
+   "seconds": 0.000109543,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-t",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.425,
+   "seconds": 0.000107417,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.425,
+   "seconds": 0.000112084,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.425,
+   "seconds": 0.000103376,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-u"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.426,
+   "seconds": 0.000101459,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.426,
+   "seconds": 0.000140251,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-u",
+    "a.XXXX",
+    "b.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mktemp: too many templates",
+   "start": 1793193838.426,
+   "seconds": 0.000130542,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-x",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mktemp: invalid option -- 'x'\nTry '/usr/bin/mktemp --help' for more information.\n",
+   "start": 1793193838.426,
+   "seconds": 0.000176293,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-a",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mktemp: invalid option -- 'a'\nTry '/usr/bin/mktemp --help' for more information.\n",
+   "start": 1793193838.427,
+   "seconds": 0.000116709,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "--foo",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mktemp: unrecognized option '--foo'\nTry '/usr/bin/mktemp --help' for more information.\n",
+   "start": 1793193838.427,
+   "seconds": 0.000107834,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-s",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mktemp: invalid option -- 's'\nTry '/usr/bin/mktemp --help' for more information.\n",
+   "start": 1793193838.427,
+   "seconds": 0.000108709,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-v",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mktemp: invalid option -- 'v'\nTry '/usr/bin/mktemp --help' for more information.\n",
+   "start": 1793193838.427,
+   "seconds": 0.000128459,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-f",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mktemp: invalid option -- 'f'\nTry '/usr/bin/mktemp --help' for more information.\n",
+   "start": 1793193838.428,
+   "seconds": 0.000108126,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-c",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mktemp: invalid option -- 'c'\nTry '/usr/bin/mktemp --help' for more information.\n",
+   "start": 1793193838.428,
+   "seconds": 0.000112834,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-m",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mktemp: invalid option -- 'm'\nTry '/usr/bin/mktemp --help' for more information.\n",
+   "start": 1793193838.428,
+   "seconds": 0.000151418,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-h",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mktemp: invalid option -- 'h'\nTry '/usr/bin/mktemp --help' for more information.\n",
+   "start": 1793193838.429,
+   "seconds": 0.000132167,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "-r",
+    "-u",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mktemp: invalid option -- 'r'\nTry '/usr/bin/mktemp --help' for more information.\n",
+   "start": 1793193838.429,
+   "seconds": 0.000120167,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "--tmpdir",
+    "/tmp/tmpjqe6yd3x",
+    "t.XXXX"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mktemp: too many templates",
+   "start": 1793193838.429,
+   "seconds": 0.000118043,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mktemp",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193838.429,
+   "seconds": 0.00021646,
+   "cwd": "/tmp/carucastub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 21,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

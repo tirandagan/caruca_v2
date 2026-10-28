@@ -1,0 +1,184 @@
+{
+ "command": "dd",
+ "binary": "/usr/bin/dd",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T23:00:50",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 94,
+  "distinct_lines": 80,
+  "traced_lines": 80,
+  "sampled": false,
+  "test_runs_traced": 96,
+  "seconds": 1.9,
+  "seconds_per_test_run": 0.01979,
+  "classes": {
+   "accepted": 41,
+   "refused": 50,
+   "unclassified": 3,
+   "other_nonzero": 2
+  },
+  "refused_share": 0.5208,
+  "classes_as_v1_runs": {
+   "accepted": 55,
+   "refused": 50,
+   "unclassified": 3,
+   "other_nonzero": 2
+  },
+  "refused_share_as_v1_runs": 0.4545,
+  "lines_all_runs_refused": 34,
+  "top_messages": [
+   [
+    "refused",
+    "dd: unrecognized operand 'if'",
+    10
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'of'",
+    10
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'bs'",
+    5
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'cbs'",
+    5
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'ibs'",
+    5
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'obs'",
+    5
+   ],
+   [
+    "unclassified",
+    "dd: fsync failed for 'standard output': Invalid argument",
+    3
+   ],
+   [
+    "refused",
+    "dd: invalid option -- '1'",
+    3
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'count'",
+    2
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'seek'",
+    2
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'skip'",
+    2
+   ],
+   [
+    "refused",
+    "dd: invalid output flag: 'fullblock'",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 3974,
+  "distinct_lines": 2845,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 1488,
+  "seconds": 27.4,
+  "seconds_per_test_run": 0.01841,
+  "classes": {
+   "refused": 1192,
+   "accepted": 246,
+   "unclassified": 30,
+   "other_nonzero": 20
+  },
+  "refused_share": 0.8011,
+  "classes_as_v1_runs": {
+   "refused": 1512,
+   "accepted": 584,
+   "unclassified": 56,
+   "other_nonzero": 20
+  },
+  "refused_share_as_v1_runs": 0.6961,
+  "lines_all_runs_refused": 712,
+  "top_messages": [
+   [
+    "refused",
+    "dd: unrecognized operand 'if'",
+    250
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'cbs'",
+    160
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'of'",
+    160
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'ibs'",
+    152
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'bs'",
+    123
+   ],
+   [
+    "refused",
+    "dd: invalid option -- '1'",
+    110
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'obs'",
+    101
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'count'",
+    51
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'skip'",
+    37
+   ],
+   [
+    "refused",
+    "dd: unrecognized operand 'seek'",
+    34
+   ],
+   [
+    "unclassified",
+    "dd: fsync failed for 'standard output': Invalid argument",
+    30
+   ],
+   [
+    "refused",
+    "dd: invalid output flag: 'fullblock'",
+    14
+   ]
+  ]
+ },
+ "finished": "2026-10-27T23:01:19"
+}

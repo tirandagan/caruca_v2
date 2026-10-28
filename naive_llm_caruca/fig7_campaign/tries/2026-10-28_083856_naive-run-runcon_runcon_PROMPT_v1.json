@@ -1,0 +1,1380 @@
+{
+ "summary": {
+  "run": "2026-10-28_083856_naive-run-runcon_runcon_PROMPT_v1",
+  "command": "runcon",
+  "binary": "/usr/bin/runcon",
+  "logger_check": {
+   "audit_starts": 156,
+   "trace_starts": 150,
+   "audit_without_trace": 6,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793191114.6062226,
+   "clock_spread_ms": 1.8582344055175781
+  },
+  "session_found": true,
+  "first_write": 1793191188.867,
+  "tries": 60,
+  "classes": {
+   "accepted": 17,
+   "unclassified": 34,
+   "refused": 8,
+   "signal": 1
+  },
+  "by_phase": {
+   "exploring/accepted": 10,
+   "exploring/refused": 4,
+   "exploring/signal": 1,
+   "exploring/unclassified": 15,
+   "testing/accepted": 7,
+   "testing/refused": 4,
+   "testing/unclassified": 19
+  },
+  "help_or_version": 2,
+  "distinct_argument_lists": 38,
+  "distinct_option_sets": 22,
+  "refused_share": 0.1333,
+  "refused_program_seconds": 0.002,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "/usr/bin/runcon: no command specified"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191149.01,
+   "seconds": 0.000289916,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191149.011,
+   "seconds": 0.000268833,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191155.943,
+   "seconds": 0.000494941,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191155.943,
+   "seconds": 0.000394259,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-t",
+    "foo_t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191155.945,
+   "seconds": 0.000338264,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--type=foo_t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191155.945,
+   "seconds": 0.000358626,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--type",
+    "foo_t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191155.945,
+   "seconds": 0.002205164,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-u",
+    "u",
+    "-r",
+    "r",
+    "-t",
+    "t",
+    "-l",
+    "s0",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191155.948,
+   "seconds": 0.00036985,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-ct",
+    "t",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191155.948,
+   "seconds": 0.000369809,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "system_u:system_r:unconfined_t:s0",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191155.949,
+   "seconds": 0.000288444,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "system_u:system_r:unconfined_t:s0",
+    "--",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191155.95,
+   "seconds": 0.00029074,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "echo",
+    "-t",
+    "foo"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191155.95,
+   "seconds": 0.00028953,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-t",
+    "foo_t",
+    "echo",
+    "-t",
+    "bar"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191155.951,
+   "seconds": 0.000283229,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191155.951,
+   "seconds": 0.000481673,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--range",
+    "s0-s0:c0.c1023",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191155.952,
+   "seconds": 0.000275844,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: invalid option -- 'x'\nTry '/usr/bin/runcon --help' for more information.\n",
+   "start": 1793191155.953,
+   "seconds": 0.000278681,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-t"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: option requires an argument -- 't'\nTry '/usr/bin/runcon --help' for more information.\n",
+   "start": 1793191155.953,
+   "seconds": 0.000276928,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--compute=1",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: option '--compute' doesn't allow an argument\nTry '/usr/bin/runcon --help' for more information.\n",
+   "start": 1793191155.954,
+   "seconds": 0.000286442,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--comp",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191155.954,
+   "seconds": 0.000290322,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--vers"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793191155.955,
+   "seconds": 0.000305469,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "echo",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191163.064,
+   "seconds": 0.000668766,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "ctx",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191163.065,
+   "seconds": 0.0005495,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-t",
+    "foo_t",
+    "echo",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191163.066,
+   "seconds": 0.000384613,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-t",
+    "foo_t",
+    "-x",
+    "echo"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: invalid option -- 'x'\nTry '/usr/bin/runcon --help' for more information.\n",
+   "start": 1793191163.067,
+   "seconds": 0.000437115,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-t",
+    "foo_t",
+    "--",
+    "echo",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191163.067,
+   "seconds": 0.000400835,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "ctx",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191163.074,
+   "seconds": 0.01049346,
+   "cwd": "/tmp",
+   "parents": [
+    "strace",
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "ctx"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: no command specified",
+   "start": 1793191175.995,
+   "seconds": 0.000730656,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 7,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-c",
+    "-t",
+    "foo_t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191175.997,
+   "seconds": 0.00049098,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 7,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-l",
+    "s0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191175.997,
+   "seconds": 0.000445254,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 7,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191175.999,
+   "seconds": 0.000479184,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 7,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191250.11,
+   "seconds": 0.00036526,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191250.11,
+   "seconds": 0.000339467,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-t",
+    "foo_t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191250.111,
+   "seconds": 0.000307008,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--type=foo_t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191250.111,
+   "seconds": 0.000283757,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--type",
+    "foo_t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191250.112,
+   "seconds": 0.000252715,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-u",
+    "u",
+    "-r",
+    "r",
+    "-t",
+    "t",
+    "-l",
+    "s0",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.112,
+   "seconds": 0.000263965,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-ct",
+    "t",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.113,
+   "seconds": 0.000259257,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-ctfoo_t",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.113,
+   "seconds": 0.000278257,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-tfoo_t",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.114,
+   "seconds": 0.000290883,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "u:r:t:s0",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.114,
+   "seconds": 0.000390968,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "u:r:t:s0",
+    "--",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.115,
+   "seconds": 0.0003048,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "echo",
+    "-t",
+    "foo"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.115,
+   "seconds": 0.000259216,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-t",
+    "foo_t",
+    "echo",
+    "-t",
+    "bar"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.116,
+   "seconds": 0.00023459,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.116,
+   "seconds": 0.000228881,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--range",
+    "s0-s0:c0.c1023",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.116,
+   "seconds": 0.000255841,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: invalid option -- 'x'\nTry '/usr/bin/runcon --help' for more information.\n",
+   "start": 1793191250.117,
+   "seconds": 0.000242715,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-t"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: option requires an argument -- 't'\nTry '/usr/bin/runcon --help' for more information.\n",
+   "start": 1793191250.117,
+   "seconds": 0.000253215,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--compute=1",
+    "echo"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: option '--compute' doesn't allow an argument\nTry '/usr/bin/runcon --help' for more information.\n",
+   "start": 1793191250.118,
+   "seconds": 0.000315675,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "ctx"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: no command specified",
+   "start": 1793191250.118,
+   "seconds": 0.000261923,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-c",
+    "-t",
+    "foo_t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191250.119,
+   "seconds": 0.000247423,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-l",
+    "s0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191250.119,
+   "seconds": 0.000229631,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "echo",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.12,
+   "seconds": 0.000231173,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "ctx",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.12,
+   "seconds": 0.000225673,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-t",
+    "foo_t",
+    "echo",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.12,
+   "seconds": 0.000233756,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-t",
+    "foo_t",
+    "-x",
+    "echo"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: invalid option -- 'x'\nTry '/usr/bin/runcon --help' for more information.\n",
+   "start": 1793191250.121,
+   "seconds": 0.000218297,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-t",
+    "foo_t",
+    "--",
+    "echo",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.121,
+   "seconds": 0.000254048,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "--user=u",
+    "--role=r",
+    "--range=s0",
+    "cat"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.121,
+   "seconds": 0.00025534,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-c",
+    "ctx",
+    "cmd"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.122,
+   "seconds": 0.000256299,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-cc",
+    "cmd"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.122,
+   "seconds": 0.000247423,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/runcon",
+    "-c",
+    "cmd"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/runcon: /usr/bin/runcon may be used only on a SELinux kernel",
+   "start": 1793191250.123,
+   "seconds": 0.000237339,
+   "cwd": "/tmp/rtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

@@ -1,0 +1,574 @@
+{
+ "summary": {
+  "run": "2026-10-28_125939_naive-run-chcon_chcon_PROMPT_v1",
+  "command": "chcon",
+  "binary": "/usr/bin/chcon",
+  "logger_check": {
+   "audit_starts": 197,
+   "trace_starts": 191,
+   "audit_without_trace": 6,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793206757.4440746,
+   "clock_spread_ms": 4.713773727416992
+  },
+  "session_found": true,
+  "first_write": 1793206867.267,
+  "tries": 24,
+  "classes": {
+   "accepted": 2,
+   "refused": 5,
+   "unclassified": 5,
+   "other_nonzero": 12
+  },
+  "by_phase": {
+   "exploring/accepted": 2,
+   "exploring/other_nonzero": 12,
+   "exploring/refused": 5,
+   "exploring/unclassified": 5
+  },
+  "help_or_version": 2,
+  "distinct_argument_lists": 23,
+  "distinct_option_sets": 19,
+  "refused_share": 0.2083,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "/usr/bin/chcon: can't apply partial context to unlabeled file 'a'"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793206791.769,
+   "seconds": 0.000320522,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793206791.77,
+   "seconds": 0.000294549,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: missing operand after \u2018a\u2019",
+   "start": 1793206800.993,
+   "seconds": 0.000255535,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "-u",
+    "user_u"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: missing operand",
+   "start": 1793206800.994,
+   "seconds": 0.000243569,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "-u",
+    "user_u",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: can't apply partial context to unlabeled file 'a'",
+   "start": 1793206800.994,
+   "seconds": 0.000274129,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "--user=user_u",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: can't apply partial context to unlabeled file 'a'",
+   "start": 1793206800.995,
+   "seconds": 0.000269586,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "--user",
+    "user_u",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: can't apply partial context to unlabeled file 'a'",
+   "start": 1793206800.995,
+   "seconds": 0.000244861,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "-uuser_u",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: can't apply partial context to unlabeled file 'a'",
+   "start": 1793206800.996,
+   "seconds": 0.000214801,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "--reference=b",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: failed to get security context of 'b'",
+   "start": 1793206800.996,
+   "seconds": 0.000197665,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "--reference",
+    "b",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: failed to get security context of 'b'",
+   "start": 1793206800.996,
+   "seconds": 0.000286263,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "--reference=b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: missing operand",
+   "start": 1793206800.997,
+   "seconds": 0.000189911,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "-t",
+    "x_t",
+    "system_u:object_r:bin_t:s0",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: cannot access 'system_u:object_r:bin_t:s0'",
+   "start": 1793206800.997,
+   "seconds": 0.000201001,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "--reference=b",
+    "-t",
+    "x_t",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: failed to get security context of 'b'",
+   "start": 1793206800.998,
+   "seconds": 0.00026625,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "-R",
+    "-H",
+    "-L",
+    "-P",
+    "-v",
+    "system_u:object_r:bin_t:s0",
+    "d"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: failed to change context of 'x' to \u2018system_u:object_r:bin_t:s0\u2019",
+   "start": 1793206800.998,
+   "seconds": 0.000400167,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "-h",
+    "--dereference",
+    "--no-preserve-root",
+    "--preserve-root",
+    "system_u:object_r:bin_t:s0",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: failed to change context of 'lnk' to \u2018system_u:object_r:bin_t:s0\u2019",
+   "start": 1793206800.999,
+   "seconds": 0.000239609,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "-Rv",
+    "system_u:object_r:bin_t:s0",
+    "d"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: failed to change context of 'x' to \u2018system_u:object_r:bin_t:s0\u2019",
+   "start": 1793206800.999,
+   "seconds": 0.000261618,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "--no-d",
+    "system_u:object_r:bin_t:s0",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: failed to change context of 'a' to \u2018system_u:object_r:bin_t:s0\u2019",
+   "start": 1793206801.0,
+   "seconds": 0.000226301,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "-r",
+    "role_r",
+    "-l",
+    "s0",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: can't apply partial context to unlabeled file 'a'",
+   "start": 1793206801.0,
+   "seconds": 0.000266908,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "-x",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: invalid option -- 'x'\nTry '/usr/bin/chcon --help' for more information.\n",
+   "start": 1793206801.001,
+   "seconds": 0.000200619,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "-v",
+    "system_u:object_r:bin_t:s0",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: failed to change context of 'a' to \u2018system_u:object_r:bin_t:s0\u2019",
+   "start": 1793206809.603,
+   "seconds": 0.000374357,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "--reference=b",
+    "-t",
+    "x_t",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: failed to get security context of 'b'",
+   "start": 1793206809.604,
+   "seconds": 0.00033705,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "-R",
+    "-t",
+    "x_t"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: missing operand",
+   "start": 1793206809.604,
+   "seconds": 0.000351848,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "--",
+    "-u",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: failed to change context of 'a' to \u2018-u\u2019",
+   "start": 1793206809.605,
+   "seconds": 0.000310498,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chcon",
+    "-t",
+    "x_t",
+    "--",
+    "-u"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chcon: cannot access '-u'",
+   "start": 1793206809.605,
+   "seconds": 0.000300703,
+   "cwd": "/tmp/chcontest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  }
+ ],
+ "excluded": []
+}

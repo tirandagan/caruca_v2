@@ -1,0 +1,1384 @@
+{
+ "summary": {
+  "run": "2026-10-28_103316_naive-run-sha1sum_sha1sum_PROMPT_v1",
+  "command": "sha1sum",
+  "binary": "/usr/bin/sha1sum",
+  "logger_check": {
+   "audit_starts": 166,
+   "trace_starts": 160,
+   "audit_without_trace": 6,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793197974.6543689,
+   "clock_spread_ms": 4.235029220581055
+  },
+  "session_found": true,
+  "first_write": 1793198053.26,
+  "tries": 62,
+  "classes": {
+   "accepted": 47,
+   "unclassified": 11,
+   "refused": 4
+  },
+  "by_phase": {
+   "exploring/accepted": 18,
+   "exploring/refused": 4,
+   "exploring/unclassified": 2,
+   "testing/accepted": 29,
+   "testing/unclassified": 9
+  },
+  "help_or_version": 3,
+  "distinct_argument_lists": 50,
+  "distinct_option_sets": 31,
+  "refused_share": 0.0645,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "sha1sum: -b",
+   "sha1sum: WARNING: 1 line is improperly formatted",
+   "sha1sum: f1: no properly formatted checksum lines found",
+   "sha1sum: the --ignore-missing option is meaningful only when verifying checksums",
+   "sha1sum: the --quiet option is meaningful only when verifying checksums",
+   "sha1sum: the --status option is meaningful only when verifying checksums",
+   "sha1sum: the --strict option is meaningful only when verifying checksums",
+   "sha1sum: the --warn option is meaningful only when verifying checksums"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/sha1sum",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198012.706,
+   "seconds": 0.000380292,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha1sum",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198012.707,
+   "seconds": 0.000336958,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.724,
+   "seconds": 0.000400487,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.725,
+   "seconds": 0.000330156,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "f1",
+    "-",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.725,
+   "seconds": 0.000348988,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-bz",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.726,
+   "seconds": 0.000362447,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--tag",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.727,
+   "seconds": 0.000323698,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-t",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.728,
+   "seconds": 0.000305949,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.728,
+   "seconds": 0.000359864,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.729,
+   "seconds": 0.000298532,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "--quiet",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.729,
+   "seconds": 0.000304824,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--status",
+    "-c",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.73,
+   "seconds": 0.000292532,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.73,
+   "seconds": 0.000318031,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "-w",
+    "sums2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "sha1sum: sums2: 3: improperly formatted SHA1 checksum line",
+   "start": 1793198025.732,
+   "seconds": 0.000308907,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "--strict",
+    "sums2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: WARNING: 1 line is improperly formatted",
+   "start": 1793198025.732,
+   "seconds": 0.000335364,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "--ignore-missing",
+    "sums3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.733,
+   "seconds": 0.000315865,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--debug",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: unrecognized option '--debug'\nTry 'sha1sum --help' for more information.\n",
+   "start": 1793198025.734,
+   "seconds": 0.000288032,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-l",
+    "10",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: invalid option -- 'l'\nTry 'sha1sum --help' for more information.\n",
+   "start": 1793198025.734,
+   "seconds": 0.0002817,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--length=10",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: unrecognized option '--length=10'\nTry 'sha1sum --help' for more information.\n",
+   "start": 1793198025.735,
+   "seconds": 0.000319948,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-a",
+    "sha1",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: invalid option -- 'a'\nTry 'sha1sum --help' for more information.\n",
+   "start": 1793198025.736,
+   "seconds": 0.000300907,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "f1",
+    "-b",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.736,
+   "seconds": 0.000269325,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--",
+    "-b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: -b",
+   "start": 1793198025.737,
+   "seconds": 0.000284783,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--tag",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.737,
+   "seconds": 0.000300491,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "tsums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198025.738,
+   "seconds": 0.000275241,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.639,
+   "seconds": 0.000509104,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-b",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.662,
+   "seconds": 0.000397975,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--binary",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.663,
+   "seconds": 0.000305137,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "f1",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: f1: no properly formatted checksum lines found",
+   "start": 1793198104.664,
+   "seconds": 0.000480353,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--check",
+    "f1",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: f1: no properly formatted checksum lines found",
+   "start": 1793198104.664,
+   "seconds": 0.000345431,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--tag",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.665,
+   "seconds": 0.00032468,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-t",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.666,
+   "seconds": 0.000347306,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--text",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.666,
+   "seconds": 0.000349431,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-z",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.667,
+   "seconds": 0.000288303,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--zero",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.667,
+   "seconds": 0.000307471,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--ignore-missing",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: the --ignore-missing option is meaningful only when verifying checksums",
+   "start": 1793198104.668,
+   "seconds": 0.000279887,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--quiet",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: the --quiet option is meaningful only when verifying checksums",
+   "start": 1793198104.668,
+   "seconds": 0.000310971,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--status",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: the --status option is meaningful only when verifying checksums",
+   "start": 1793198104.669,
+   "seconds": 0.00028322,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--strict",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: the --strict option is meaningful only when verifying checksums",
+   "start": 1793198104.669,
+   "seconds": 0.000291387,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-w",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: the --warn option is meaningful only when verifying checksums",
+   "start": 1793198104.67,
+   "seconds": 0.000291304,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--warn",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: the --warn option is meaningful only when verifying checksums",
+   "start": 1793198104.67,
+   "seconds": 0.00029997,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.671,
+   "seconds": 0.00035539,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--check",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.671,
+   "seconds": 0.00034393,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.672,
+   "seconds": 0.000273053,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.675,
+   "seconds": 0.00028747,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.675,
+   "seconds": 0.000296387,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.675,
+   "seconds": 0.000306471,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-b",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.676,
+   "seconds": 0.000293637,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-b",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.676,
+   "seconds": 0.000293888,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-b",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.677,
+   "seconds": 0.000319763,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--tag",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.678,
+   "seconds": 0.00027447,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--tag",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.678,
+   "seconds": 0.000277178,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--tag",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.678,
+   "seconds": 0.000270761,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-z",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.679,
+   "seconds": 0.000268928,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-z",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.679,
+   "seconds": 0.000279595,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-z",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198104.679,
+   "seconds": 0.000286012,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "--ignore-missing",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198110.703,
+   "seconds": 0.000678816,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "--quiet",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198110.704,
+   "seconds": 0.000577937,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "--status",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198110.706,
+   "seconds": 0.000579229,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "--strict",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198110.707,
+   "seconds": 0.000610772,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "-w",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198110.708,
+   "seconds": 0.000544644,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "-c",
+    "--warn",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198110.709,
+   "seconds": 0.000491309,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha1sum",
+    "--quiet",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha1sum: the --quiet option is meaningful only when verifying checksums",
+   "start": 1793198110.71,
+   "seconds": 0.000525853,
+   "cwd": "/tmp/sha1t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

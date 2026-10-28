@@ -1,0 +1,5 @@
+1793203925	1793203925	output/mknod.py
+1793203931	1793203931	output/annotation/mknod.json
+1793203940	1793203940	output/annotation/InputOutputInfoGeneratorMknod.py
+1793203946	1793203946	output/annotation/ParallelizabilityInfoGeneratorMknod.py
+1793203973	1793203973	output/__pycache__/mknod.cpython-312.pyc

@@ -1,0 +1,36 @@
+{
+    "flag": [
+        [
+            "-c",
+            "--compute"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [
+        [
+            "-t",
+            "--type",
+            "TYPE"
+        ],
+        [
+            "-u",
+            "--user",
+            "USER"
+        ],
+        [
+            "-r",
+            "--role",
+            "ROLE"
+        ],
+        [
+            "-l",
+            "--range",
+            "RANGE"
+        ]
+    ]
+}

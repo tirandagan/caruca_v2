@@ -1,0 +1,180 @@
+{
+ "command": "du",
+ "binary": "/usr/bin/du",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T23:02:19",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 160,
+  "distinct_lines": 106,
+  "traced_lines": 106,
+  "sampled": false,
+  "test_runs_traced": 690,
+  "seconds": 12.0,
+  "seconds_per_test_run": 0.01734,
+  "classes": {
+   "accepted": 290,
+   "other_nonzero": 180,
+   "refused": 220
+  },
+  "refused_share": 0.3188,
+  "classes_as_v1_runs": {
+   "accepted": 452,
+   "other_nonzero": 288,
+   "refused": 220
+  },
+  "refused_share_as_v1_runs": 0.2292,
+  "lines_all_runs_refused": 12,
+  "top_messages": [
+   [
+    "refused",
+    "du: extra operand 'relpath_2'",
+    40
+   ],
+   [
+    "refused",
+    "du: relpath_1: Is a directory",
+    20
+   ],
+   [
+    "refused",
+    "du: extra operand 'nonexistent_path/relpath_2'",
+    10
+   ],
+   [
+    "refused",
+    "du: invalid suffix in -B argument '1b'",
+    10
+   ],
+   [
+    "refused",
+    "du: nonexistent_path/relpath_1: No such file or directory",
+    10
+   ],
+   [
+    "refused",
+    "du: relpath_1: No such file or directory",
+    10
+   ],
+   [
+    "refused",
+    "du: invalid suffix in -t argument '1b'",
+    10
+   ],
+   [
+    "refused",
+    "du: invalid suffix in -t argument '1g'",
+    10
+   ],
+   [
+    "refused",
+    "du: invalid suffix in -t argument '1t'",
+    10
+   ],
+   [
+    "refused",
+    "du: extra operand '/tmp/toplevel__41hpnai/sandbox_86dn664r/abspath_2'",
+    1
+   ],
+   [
+    "refused",
+    "du: extra operand '/tmp/toplevel_n19iplgf/sandbox_ripp8z_7/abspath_2'",
+    1
+   ],
+   [
+    "refused",
+    "du: extra operand '/tmp/toplevel_6eq66d5r/sandbox_n9gexnr4/abspath_2'",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 6124,
+  "distinct_lines": 2666,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 8260,
+  "seconds": 148.6,
+  "seconds_per_test_run": 0.01799,
+  "classes": {
+   "refused": 4145,
+   "accepted": 2675,
+   "other_nonzero": 1440
+  },
+  "refused_share": 0.5018,
+  "classes_as_v1_runs": {
+   "refused": 5180,
+   "accepted": 5988,
+   "other_nonzero": 3472
+  },
+  "refused_share_as_v1_runs": 0.3538,
+  "lines_all_runs_refused": 197,
+  "top_messages": [
+   [
+    "refused",
+    "du: extra operand 'relpath_2'",
+    560
+   ],
+   [
+    "refused",
+    "du: invalid suffix in -t argument '1b'",
+    295
+   ],
+   [
+    "refused",
+    "du: invalid suffix in -t argument '1g'",
+    285
+   ],
+   [
+    "refused",
+    "du: relpath_1: Is a directory",
+    260
+   ],
+   [
+    "refused",
+    "du: invalid suffix in -B argument '1b'",
+    240
+   ],
+   [
+    "refused",
+    "du: invalid suffix in -t argument '1t'",
+    190
+   ],
+   [
+    "refused",
+    "du: extra operand 'nonexistent_path/relpath_2'",
+    140
+   ],
+   [
+    "refused",
+    "du: nonexistent_path/relpath_1: No such file or directory",
+    130
+   ],
+   [
+    "refused",
+    "du: relpath_1: No such file or directory",
+    130
+   ],
+   [
+    "refused",
+    "du: extra operand 'relpath_3'",
+    60
+   ],
+   [
+    "refused",
+    "du: relpath_2: Is a directory",
+    50
+   ],
+   [
+    "refused",
+    "du: nonexistent_path/relpath_2: No such file or directory",
+    25
+   ]
+  ]
+ },
+ "finished": "2026-10-27T23:05:00"
+}

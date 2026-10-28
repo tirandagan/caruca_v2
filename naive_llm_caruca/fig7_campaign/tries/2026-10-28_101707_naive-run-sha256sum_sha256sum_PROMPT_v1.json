@@ -1,0 +1,779 @@
+{
+ "summary": {
+  "run": "2026-10-28_101707_naive-run-sha256sum_sha256sum_PROMPT_v1",
+  "command": "sha256sum",
+  "binary": "/usr/bin/sha256sum",
+  "logger_check": {
+   "audit_starts": 158,
+   "trace_starts": 152,
+   "audit_without_trace": 6,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793197006.4463055,
+   "clock_spread_ms": 5.378484725952148
+  },
+  "session_found": true,
+  "first_write": 1793197087.036,
+  "tries": 34,
+  "classes": {
+   "accepted": 24,
+   "unclassified": 7,
+   "refused": 2,
+   "other_nonzero": 1
+  },
+  "by_phase": {
+   "exploring/accepted": 13,
+   "exploring/refused": 2,
+   "exploring/unclassified": 5,
+   "testing/accepted": 11,
+   "testing/other_nonzero": 1,
+   "testing/unclassified": 2
+  },
+  "help_or_version": 3,
+  "distinct_argument_lists": 29,
+  "distinct_option_sets": 18,
+  "refused_share": 0.0588,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "sha256sum: WARNING: 1 computed checksum did NOT match",
+   "sha256sum: nope",
+   "sha256sum: the --quiet option is meaningful only when verifying checksums",
+   "sha256sum: the --status option is meaningful only when verifying checksums",
+   "sha256sum: the --tag option is meaningless when verifying checksums",
+   "sha256sum: the --zero option is not supported when verifying checksums"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "sha256sum",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197048.335,
+   "seconds": 0.00052515,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197048.336,
+   "seconds": 0.000410785,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197059.846,
+   "seconds": 0.000555965,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197059.847,
+   "seconds": 0.000383104,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197059.847,
+   "seconds": 0.00042261,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "-bz",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197059.848,
+   "seconds": 0.00043407,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "--tag",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197059.85,
+   "seconds": 0.000383729,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "--",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197059.85,
+   "seconds": 0.000360184,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197059.851,
+   "seconds": 0.000369893,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "-c",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197059.852,
+   "seconds": 0.000377811,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "-c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197059.852,
+   "seconds": 0.000337513,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "-c",
+    "--quiet",
+    "--status",
+    "--strict",
+    "--ignore-missing",
+    "-w",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197059.853,
+   "seconds": 0.000400981,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "--quiet",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha256sum: the --quiet option is meaningful only when verifying checksums",
+   "start": 1793197059.854,
+   "seconds": 0.000327386,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "--status",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha256sum: the --status option is meaningful only when verifying checksums",
+   "start": 1793197059.854,
+   "seconds": 0.000338096,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "--tag",
+    "-c",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha256sum: the --tag option is meaningless when verifying checksums",
+   "start": 1793197059.855,
+   "seconds": 0.00030405,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "-x",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha256sum: invalid option -- 'x'\nTry 'sha256sum --help' for more information.\n",
+   "start": 1793197059.855,
+   "seconds": 0.000305716,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "-z",
+    "-c",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha256sum: the --zero option is not supported when verifying checksums",
+   "start": 1793197059.856,
+   "seconds": 0.000302716,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "--binary=foo",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha256sum: option '--binary' doesn't allow an argument\nTry 'sha256sum --help' for more information.\n",
+   "start": 1793197059.856,
+   "seconds": 0.00033668,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "nope",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha256sum: nope",
+   "start": 1793197059.857,
+   "seconds": 0.000332346,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "--che",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197059.857,
+   "seconds": 0.0003068,
+   "cwd": "/tmp/tmp.1C3eEWcszj",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197127.93,
+   "seconds": 0.00032477,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197127.951,
+   "seconds": 0.000292601,
+   "cwd": "/tmp/tmp.PzK8gR7XaX",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197127.951,
+   "seconds": 0.000279184,
+   "cwd": "/tmp/tmp.PzK8gR7XaX",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "f3",
+    "f4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197127.952,
+   "seconds": 0.000446027,
+   "cwd": "/tmp/tmp.PzK8gR7XaX",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "--tag",
+    "-z",
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197127.953,
+   "seconds": 0.000271809,
+   "cwd": "/tmp/tmp.PzK8gR7XaX",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "--tag",
+    "-z",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197127.953,
+   "seconds": 0.000256016,
+   "cwd": "/tmp/tmp.PzK8gR7XaX",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "--tag",
+    "-z",
+    "f2",
+    "f3",
+    "f4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197127.954,
+   "seconds": 0.000276933,
+   "cwd": "/tmp/tmp.PzK8gR7XaX",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197127.955,
+   "seconds": 0.000240931,
+   "cwd": "/tmp/tmp.PzK8gR7XaX",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "f3",
+    "f4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197127.955,
+   "seconds": 0.000243598,
+   "cwd": "/tmp/tmp.PzK8gR7XaX",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "-c",
+    "s1",
+    "s2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha256sum: WARNING: 1 computed checksum did NOT match",
+   "start": 1793197127.956,
+   "seconds": 0.000273225,
+   "cwd": "/tmp/tmp.PzK8gR7XaX",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "-c",
+    "s1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197127.956,
+   "seconds": 0.000261767,
+   "cwd": "/tmp/tmp.PzK8gR7XaX",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "-c",
+    "s2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha256sum: WARNING: 1 computed checksum did NOT match",
+   "start": 1793197127.957,
+   "seconds": 0.000326229,
+   "cwd": "/tmp/tmp.PzK8gR7XaX",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "-c",
+    "--status",
+    "s1",
+    "s2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197127.958,
+   "seconds": 0.000275892,
+   "cwd": "/tmp/tmp.PzK8gR7XaX",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha256sum",
+    "-c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197127.958,
+   "seconds": 0.000250807,
+   "cwd": "/tmp/tmp.PzK8gR7XaX",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

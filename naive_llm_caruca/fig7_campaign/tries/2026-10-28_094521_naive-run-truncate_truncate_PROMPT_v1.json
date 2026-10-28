@@ -1,0 +1,814 @@
+{
+ "summary": {
+  "run": "2026-10-28_094521_naive-run-truncate_truncate_PROMPT_v1",
+  "command": "truncate",
+  "binary": "/usr/bin/truncate",
+  "logger_check": {
+   "audit_starts": 232,
+   "trace_starts": 226,
+   "audit_without_trace": 6,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793195101.0312896,
+   "clock_spread_ms": 2.137422561645508
+  },
+  "session_found": true,
+  "first_write": 1793195221.083,
+  "tries": 35,
+  "classes": {
+   "accepted": 29,
+   "unclassified": 5,
+   "other_nonzero": 1
+  },
+  "by_phase": {
+   "exploring/accepted": 28,
+   "exploring/other_nonzero": 1,
+   "exploring/unclassified": 5,
+   "testing/accepted": 1
+  },
+  "help_or_version": 3,
+  "distinct_argument_lists": 34,
+  "distinct_option_sets": 16,
+  "refused_share": 0.0,
+  "refused_program_seconds": 0,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "/usr/bin/truncate: Invalid number: \u2018abc\u2019",
+   "/usr/bin/truncate: missing file operand",
+   "/usr/bin/truncate: you must specify a relative \u2018--size\u2019 with \u2018--reference\u2019",
+   "/usr/bin/truncate: you must specify either \u2018--size\u2019 or \u2018--reference\u2019"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195135.411,
+   "seconds": 0.000198958,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195135.412,
+   "seconds": 0.000208417,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/truncate: you must specify either \u2018--size\u2019 or \u2018--reference\u2019",
+   "start": 1793195151.252,
+   "seconds": 0.000203614,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/truncate: you must specify either \u2018--size\u2019 or \u2018--reference\u2019",
+   "start": 1793195151.252,
+   "seconds": 0.000191906,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "10",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.252,
+   "seconds": 0.000186406,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s20",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.253,
+   "seconds": 0.00018849,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "--size=5",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.254,
+   "seconds": 0.00019474,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "--size",
+    "7",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.255,
+   "seconds": 0.00031765,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "+3",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.256,
+   "seconds": 0.000204489,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "-2",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.257,
+   "seconds": 0.000255486,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "1K",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.258,
+   "seconds": 0.000278902,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "1KB",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.259,
+   "seconds": 0.000207239,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "%512",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.26,
+   "seconds": 0.000207239,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "/1000",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.261,
+   "seconds": 0.000173074,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "<100",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.262,
+   "seconds": 0.00016445,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    ">300",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.263,
+   "seconds": 0.000167366,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-c",
+    "-s",
+    "5",
+    "nothere"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.264,
+   "seconds": 0.000180449,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-r",
+    "f",
+    "g"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.265,
+   "seconds": 0.000185032,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-r",
+    "f",
+    "-s",
+    "+10",
+    "g"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.266,
+   "seconds": 0.000198697,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-r",
+    "f",
+    "-s",
+    "10",
+    "g"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/truncate: you must specify a relative \u2018--size\u2019 with \u2018--reference\u2019",
+   "start": 1793195151.266,
+   "seconds": 0.00018624,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-o",
+    "-s",
+    "2",
+    "h"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.267,
+   "seconds": 0.000169907,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "10"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/truncate: missing file operand",
+   "start": 1793195151.268,
+   "seconds": 0.000174741,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "3",
+    "a",
+    "b",
+    "c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.268,
+   "seconds": 0.000199531,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "a",
+    "-s",
+    "9"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.269,
+   "seconds": 0.000165699,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "2",
+    "--",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.27,
+   "seconds": 0.000159825,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-cos",
+    "4",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.271,
+   "seconds": 0.000152034,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-r",
+    "nope",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/truncate: cannot stat 'nope'",
+   "start": 1793195151.272,
+   "seconds": 0.000166783,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "abc",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/truncate: Invalid number: \u2018abc\u2019",
+   "start": 1793195151.272,
+   "seconds": 0.00019974,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "1KiB",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.272,
+   "seconds": 0.000181907,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "1",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.273,
+   "seconds": 0.000160992,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "0",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.274,
+   "seconds": 0.000150575,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "--no-c",
+    "-s",
+    "3",
+    "zz"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.275,
+   "seconds": 0.000147242,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "--s=3",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195151.275,
+   "seconds": 0.000188031,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "-s",
+    "1",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195212.347,
+   "seconds": 0.000343957,
+   "cwd": "/tmp/trtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/truncate",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195269.166,
+   "seconds": 0.000322375,
+   "cwd": "/tmp",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

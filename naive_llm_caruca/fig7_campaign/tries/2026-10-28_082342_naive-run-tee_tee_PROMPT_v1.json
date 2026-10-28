@@ -1,0 +1,874 @@
+{
+ "summary": {
+  "run": "2026-10-28_082342_naive-run-tee_tee_PROMPT_v1",
+  "command": "tee",
+  "binary": "/usr/bin/tee",
+  "logger_check": {
+   "audit_starts": 140,
+   "trace_starts": 135,
+   "audit_without_trace": 5,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793190200.3000154,
+   "clock_spread_ms": 4.557132720947266
+  },
+  "session_found": true,
+  "first_write": 1793190278.833,
+  "tries": 39,
+  "classes": {
+   "accepted": 34,
+   "refused": 5
+  },
+  "by_phase": {
+   "exploring/accepted": 17,
+   "exploring/refused": 2,
+   "testing/accepted": 17,
+   "testing/refused": 3
+  },
+  "help_or_version": 7,
+  "distinct_argument_lists": 32,
+  "distinct_option_sets": 16,
+  "refused_share": 0.1282,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": []
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190235.939,
+   "seconds": 0.000291042,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190235.94,
+   "seconds": 0.000259583,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.438,
+   "seconds": 0.000272778,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.439,
+   "seconds": 0.000245083,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "--output-error",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.441,
+   "seconds": 0.000237981,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "--output-error=exit",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.442,
+   "seconds": 0.000292161,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "--output-error",
+    "exit",
+    "f3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.444,
+   "seconds": 0.000239527,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "--output-error=bogus",
+    "f4"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "tee: invalid argument \u2018bogus\u2019 for \u2018--output-error\u2019",
+   "start": 1793190245.445,
+   "seconds": 0.000229627,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "-aip",
+    "f5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.445,
+   "seconds": 0.000686498,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "-aip",
+    "f5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.447,
+   "seconds": 0.000205857,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "-pwarn",
+    "f6"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "tee: invalid option -- 'w'\nTry 'tee --help' for more information.\n",
+   "start": 1793190245.448,
+   "seconds": 0.000236436,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "--",
+    "-a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.448,
+   "seconds": 0.000236519,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "f7",
+    "-a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.45,
+   "seconds": 0.000197754,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "f7",
+    "-a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.45,
+   "seconds": 0.000202934,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "-a",
+    "f8"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.451,
+   "seconds": 0.000186392,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "g1",
+    "g2",
+    "g3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.452,
+   "seconds": 0.000476756,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "--app",
+    "f9",
+    "--ign"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.454,
+   "seconds": 0.000192741,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.455,
+   "seconds": 0.000186977,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "tee",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190245.455,
+   "seconds": 0.000286355,
+   "cwd": "/tmp/teetest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "-a",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.486,
+   "seconds": 0.000259458,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--append",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.487,
+   "seconds": 0.000210499,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "-i",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.487,
+   "seconds": 0.000262832,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--ignore-interrupts",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.488,
+   "seconds": 0.000268082,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "-p",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.489,
+   "seconds": 0.000216916,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--output-error=warn",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.489,
+   "seconds": 0.000203874,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--output-error=warn-nopipe",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.489,
+   "seconds": 0.000207374,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--output-error=exit",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.49,
+   "seconds": 0.000198666,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--output-error=exit-nopipe",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.49,
+   "seconds": 0.000214666,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--output-error=bogus",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/tee: invalid argument \u2018bogus\u2019 for \u2018--output-error\u2019",
+   "start": 1793190316.491,
+   "seconds": 0.000197957,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--output-error",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.491,
+   "seconds": 0.000474331,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--output-error",
+    "exit"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.492,
+   "seconds": 0.000235374,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--help",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.492,
+   "seconds": 0.000211208,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--version",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.492,
+   "seconds": 0.000203916,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.493,
+   "seconds": 0.000170833,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "a1",
+    "a2",
+    "a3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.493,
+   "seconds": 0.000183875,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.493,
+   "seconds": 0.000179999,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "-x",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/tee: invalid option -- 'x'\nTry '/usr/bin/tee --help' for more information.\n",
+   "start": 1793190316.494,
+   "seconds": 0.000171625,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--bogus",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/tee: unrecognized option '--bogus'\nTry '/usr/bin/tee --help' for more information.\n",
+   "start": 1793190316.494,
+   "seconds": 0.000166458,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/tee",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190316.494,
+   "seconds": 0.000152208,
+   "cwd": "/tmp/teespec/work",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

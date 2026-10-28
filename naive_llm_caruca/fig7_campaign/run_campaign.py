@@ -6,7 +6,9 @@ and keep the cost of every run and of the whole campaign (ai_docs/tasks/019_fig7
     python3 run_campaign.py --repeats                # head cut dd cp sort, twice more each, while the budget allows
     python3 run_campaign.py --commands cut,sort      # any list
     python3 run_campaign.py --costs                  # only rewrite costs.md from the ledger
-    options: --model ID (default anthropic/claude-fable-5.1)  --dry-run  --cap 8  --ceiling 150
+    options: --model ID (default anthropic/claude-fable-5.1)  --effort LEVEL (default medium)  --dry-run  --cap 8
+             --ceiling 200 (was 150 until 2026-10-28)  --arm NAME (default main; a side test such as the 2026-10-28 Opus 5.5 comparison is
+             kept apart: its own clone names, its own skip check, left out of the projection, billed in the total)
 
 For each command: refuse to start if money spent + the per-session cap would pass the ceiling; make a clone
 of naive-golden (new_run_vm.sh); hand it the billing file; read the key's OpenRouter usage; run naive-run with
@@ -150,8 +152,10 @@ def projection(rows, done, ceiling, spent):
     """Money spent plus every remaining command's estimate, scaled by actual/estimate so far."""
     est = {r["command"]: r["estimate"] for r in rows}
     fin = [d for d in done if d.get("status") in ("ok", "capped") and d.get("billed_usd") is not None]
+    fin = [d for d in fin if d.get("arm", "main") == "main"]
     ratio = (sum(d["billed_usd"] for d in fin) / sum(est.get(d["command"], 1.5) for d in fin)) if fin else 1.0
     left = [r for r in rows if not any(d["command"] == r["command"] and d.get("repeat", 1) == 1
+                                       and d.get("arm", "main") == "main"
                                        and d.get("status") in ("ok", "capped") for d in done)]
     return spent + ratio * sum(r["estimate"] for r in left), ratio, len(left)
 
@@ -173,7 +177,7 @@ def write_costs(rows, ceiling, spent=None):
         tot += b or 0
         t = d.get("tokens") or {}
         lines.append(f"| {i} | `{d['command']}` | {r.get('group', '')}{' (example)' if r.get('example') else ''} | "
-                     f"{d.get('repeat', 1)} | {d.get('status')} | ${r.get('estimate', 0):.2f} | "
+                     f"{d.get('repeat', 1)}{'' if d.get('arm', 'main') == 'main' else ' (' + d['arm'] + ')'} | {d.get('status')} | ${r.get('estimate', 0):.2f} | "
                      f"**{'$%.2f' % b if b is not None else '?'}** | "
                      f"{'$%.2f' % d['claude_cost_usd'] if d.get('claude_cost_usd') is not None else ''} | "
                      f"{t.get('input', 0):,} / {t.get('output', 0):,} / {t.get('cache_read', 0):,} / {t.get('cache_write', 0):,} | "
@@ -202,10 +206,10 @@ def write_costs(rows, ceiling, spent=None):
 
 def one(row, repeat, args, k, st):
     c = row["command"]
-    name = f"naive-run-{c}" + (f"-r{repeat}" if repeat > 1 else "")
+    name = f"naive-run-{c}" + ("" if args.arm == "main" else f"-{args.arm}") + (f"-r{repeat}" if repeat > 1 else "")
     log = os.path.join(HERE, "logs", f"{datetime.datetime.now():%Y%m%d_%H%M%S}_{name}.log")
     os.makedirs(os.path.dirname(log), exist_ok=True)
-    rec = {"command": c, "repeat": repeat, "clone": name, "started_driver": datetime.datetime.now().isoformat(timespec="seconds")}
+    rec = {"command": c, "repeat": repeat, "arm": args.arm, "clone": name, "started_driver": datetime.datetime.now().isoformat(timespec="seconds")}
     if args.dry_run:
         print(f"[dry-run] would run {c} (repeat {repeat}) in {name}")
         return None
@@ -216,7 +220,7 @@ def one(row, repeat, args, k, st):
         return rec
     with tempfile.NamedTemporaryFile("w", delete=False) as f:
         os.chmod(f.name, 0o600)
-        f.write(f"OPENROUTER_KEY={k}\nMODEL={args.model}\nEFFORT=medium\nCOST_CAP={args.cap}\n")
+        f.write(f"OPENROUTER_KEY={k}\nMODEL={args.model}\nEFFORT={args.effort}\nCOST_CAP={args.cap}\n")
     try:
         sh(["limactl", "copy", f.name, f"{name}:~/.naive-billing"], log=log)
     finally:
@@ -251,6 +255,10 @@ def one(row, repeat, args, k, st):
     res, toks = result_event(folder)
     after = usage_after(k, before, (res or {}).get("total_cost_usd"))
     rec["billed_usd"] = round(after - before, 6)
+    # 2026-10-28: uname's charge had not reached the counter after the full wait and was billed under id
+    # (Claude Code's own figure runs about 1.44 times the bill, so a quarter of it means the charge is missing)
+    if res and rec["billed_usd"] < 0.25 * (res.get("total_cost_usd") or 0):
+        rec["bill_late"] = True
     rec.update(model=e.get("model"), effort=e.get("effort"), package=e.get("package"), logger=e.get("logger"),
                audit_lost=e.get("audit_lost"), tokens=toks)
     try:
@@ -295,8 +303,10 @@ def main():
     g.add_argument("--pilot", action="store_true"); g.add_argument("--main", action="store_true")
     g.add_argument("--repeats", action="store_true"); g.add_argument("--commands"); g.add_argument("--costs", action="store_true")
     ap.add_argument("--model", default="anthropic/claude-fable-5.1")
+    ap.add_argument("--effort", default="medium")
+    ap.add_argument("--arm", default="main")
     ap.add_argument("--cap", type=float, default=8.0)
-    ap.add_argument("--ceiling", type=float, default=150.0)
+    ap.add_argument("--ceiling", type=float, default=200.0)  # Tiran, 2026-10-28: "we can go as high as $200"
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
     rows = commands()
@@ -320,8 +330,8 @@ def main():
     since_check = 0
     for row, rep in plan:
         done = ledger()
-        if any(d["command"] == row["command"] and d.get("repeat", 1) == rep and d.get("status") in ("ok", "capped")
-               for d in done):
+        if any(d["command"] == row["command"] and d.get("repeat", 1) == rep and d.get("arm", "main") == args.arm
+               and d.get("status") in ("ok", "capped") for d in done):
             print(f"skip {row['command']} (repeat {rep}): already in the ledger")
             continue
         spent = usage(k, stable=False) - st["zero_usage"]

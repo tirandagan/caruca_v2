@@ -1,0 +1,1801 @@
+{
+ "summary": {
+  "run": "2026-10-28_121513_naive-run-env_env_PROMPT_v1",
+  "command": "env",
+  "binary": "/usr/bin/env",
+  "logger_check": {
+   "audit_starts": 366,
+   "trace_starts": 361,
+   "audit_without_trace": 5,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793204092.9978933,
+   "clock_spread_ms": 953.7014961242676
+  },
+  "session_found": true,
+  "first_write": 1793204258.295,
+  "tries": 77,
+  "classes": {
+   "accepted": 27,
+   "unfinished": 37,
+   "refused": 3,
+   "unclassified": 10
+  },
+  "by_phase": {
+   "exploring/accepted": 11,
+   "exploring/refused": 3,
+   "exploring/unclassified": 6,
+   "exploring/unfinished": 17,
+   "testing/accepted": 16,
+   "testing/unclassified": 4,
+   "testing/unfinished": 20
+  },
+  "help_or_version": 3,
+  "distinct_argument_lists": 51,
+  "distinct_option_sets": 26,
+  "refused_share": 0.039,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "/usr/bin/env: cannot specify --null (-0) with command",
+   "/usr/bin/env: \u2018--\u2019",
+   "/usr/bin/env: \u2018-i\u2019",
+   "/usr/bin/env: \u2018-\u2019",
+   "/usr/bin/env: \u2018/etc/passwd\u2019",
+   "/usr/bin/env: \u2018PIPE\u2019",
+   "/usr/bin/env: \u2018nonexistent_cmd_zz\u2019",
+   "env: \u2018-i\u2019"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "env"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204118.163,
+   "seconds": 0.000242125,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [],
+   "tool_call": 1,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204126.322,
+   "seconds": 0.000354333,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204126.322,
+   "seconds": 0.00025775,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-u",
+    "FOO",
+    "--unset=BAR"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.886,
+   "seconds": 0.000302096,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-uFOO"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.889,
+   "seconds": 0.000256456,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-i",
+    "A=1",
+    "B=2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.89,
+   "seconds": 0.000229163,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-",
+    "A=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.891,
+   "seconds": 0.00021232,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-C",
+    "/usr",
+    "pwd"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.891,
+   "seconds": 0.000832352,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "--chdir=/etc",
+    "pwd"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.893,
+   "seconds": 0.000294113,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-C"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/env: option requires an argument -- 'C'\nTry '/usr/bin/env --help' for more information.\n",
+   "start": 1793204139.893,
+   "seconds": 0.000260844,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-S",
+    "printf \"%s|\" a b"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.894,
+   "seconds": 0.000848778,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "--split-string=echo x y"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.895,
+   "seconds": 0.000720508,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "--block-signal",
+    "--default-signal",
+    "--ignore-signal",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.896,
+   "seconds": 0.000314091,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "--block-signal=PIPE,INT",
+    "--default-signal=13",
+    "--ignore-signal=HUP",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.897,
+   "seconds": 0.000271,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "--block-signal",
+    "PIPE",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 127,
+   "signal": null,
+   "stderr": "/usr/bin/env: \u2018PIPE\u2019",
+   "start": 1793204139.898,
+   "seconds": 0.000311918,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "--ignore-signal=INT",
+    "--list-signal-handling",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "INT        ( 2): IGNORE\n",
+   "start": 1793204139.898,
+   "seconds": 0.0003222,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-i",
+    "-0",
+    "A=1",
+    "B=2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.899,
+   "seconds": 0.000212988,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-v",
+    "-i",
+    "A=1",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "cleaning environ\nsetenv:   A=1\n",
+   "start": 1793204139.902,
+   "seconds": 0.000251817,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-i",
+    "A=1",
+    "echo",
+    "-i",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.903,
+   "seconds": 0.000235224,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-i",
+    "--",
+    "A=1",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.903,
+   "seconds": 0.000258002,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-i0",
+    "A=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.904,
+   "seconds": 0.000207723,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-0",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/env: cannot specify --null (-0) with command",
+   "start": 1793204139.905,
+   "seconds": 0.000189583,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-x",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/env: invalid option -- 'x'\nTry '/usr/bin/env --help' for more information.\n",
+   "start": 1793204139.905,
+   "seconds": 0.000184192,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "cat"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.905,
+   "seconds": 0.000246341,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "nonexistent_cmd_zz"
+   ],
+   "argv_cut": false,
+   "exit_code": 127,
+   "signal": null,
+   "stderr": "/usr/bin/env: \u2018nonexistent_cmd_zz\u2019",
+   "start": 1793204139.906,
+   "seconds": 0.00027564,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "/etc/passwd"
+   ],
+   "argv_cut": false,
+   "exit_code": 126,
+   "signal": null,
+   "stderr": "/usr/bin/env: \u2018/etc/passwd\u2019",
+   "start": 1793204139.907,
+   "seconds": 0.000186115,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "false"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.907,
+   "seconds": 0.000718168,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "--uns",
+    "FOO"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204139.908,
+   "seconds": 0.000190168,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-u"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/bin/env: option requires an argument -- 'u'\nTry '/usr/bin/env --help' for more information.\n",
+   "start": 1793204139.91,
+   "seconds": 0.000174663,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-i",
+    "A=1",
+    "-",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": 127,
+   "signal": null,
+   "stderr": "/usr/bin/env: \u2018-\u2019",
+   "start": 1793204246.431,
+   "seconds": 0.00259151,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-i",
+    "--",
+    "-i"
+   ],
+   "argv_cut": false,
+   "exit_code": 127,
+   "signal": null,
+   "stderr": "/usr/bin/env: \u2018-i\u2019",
+   "start": 1793204246.434,
+   "seconds": 0.000317695,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-i",
+    "--",
+    "A=1",
+    "sh",
+    "-c",
+    "echo A=$A"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204246.434,
+   "seconds": 0.000331321,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-i",
+    "A=x=y",
+    "sh",
+    "-c",
+    "echo $A"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204246.435,
+   "seconds": 0.000274394,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-i",
+    "echo",
+    "B=2",
+    "C"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204246.437,
+   "seconds": 0.000297299,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "--chdir=envt",
+    "pwd"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204246.438,
+   "seconds": 0.000346953,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-S",
+    "FOO=bar sh -c \"echo \\$FOO\""
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204246.439,
+   "seconds": 0.000378217,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-i",
+    "-i",
+    "-v",
+    "A=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "cleaning environ\nsetenv:   A=1\n",
+   "start": 1793204246.44,
+   "seconds": 0.000253496,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-i",
+    "A=1",
+    "--",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": 127,
+   "signal": null,
+   "stderr": "/usr/bin/env: \u2018--\u2019",
+   "start": 1793204279.545,
+   "seconds": 0.000429189,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 20,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "-i",
+    "A=1",
+    "-i"
+   ],
+   "argv_cut": false,
+   "exit_code": 127,
+   "signal": null,
+   "stderr": "/usr/bin/env: \u2018-i\u2019",
+   "start": 1793204279.546,
+   "seconds": 0.000366275,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 20,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204306.139,
+   "seconds": 0.000260635,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 23,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.706,
+   "seconds": 0.000241941,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-i"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.707,
+   "seconds": 0.000201784,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-i",
+    "A=1",
+    "B=2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.707,
+   "seconds": 0.000180287,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-",
+    "A=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.708,
+   "seconds": 0.000226329,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-0",
+    "-i",
+    "A=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.709,
+   "seconds": 0.000191725,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-u",
+    "HOME",
+    "--unset",
+    "PATH"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.71,
+   "seconds": 0.000182833,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "A=1",
+    "cat"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.711,
+   "seconds": 0.000258137,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-i",
+    "A=1",
+    "B=2",
+    "sh",
+    "-c",
+    "cat"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.712,
+   "seconds": 0.000226705,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-C",
+    "/tmp",
+    "pwd"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.713,
+   "seconds": 0.000298544,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "--chdir",
+    "/tmp",
+    "pwd"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.714,
+   "seconds": 0.000280427,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-S",
+    "printf %s hi"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.715,
+   "seconds": 0.000336781,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "--block-signal",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.717,
+   "seconds": 0.000263104,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "--block-signal=PIPE,INT",
+    "--default-signal",
+    "--ignore-signal=HUP",
+    "cat"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.718,
+   "seconds": 0.000258972,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "--list-signal-handling",
+    "-v",
+    "cat"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "executing: cat\n   arg[0]= \u2018cat\u2019\n",
+   "start": 1793204311.718,
+   "seconds": 0.000270744,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-i",
+    "--",
+    "A=1",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.719,
+   "seconds": 0.000196525,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-i",
+    "--",
+    "-i"
+   ],
+   "argv_cut": false,
+   "exit_code": 127,
+   "signal": null,
+   "stderr": "env: \u2018-i\u2019",
+   "start": 1793204311.72,
+   "seconds": 0.000198904,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "A=x=y",
+    "echo",
+    "B=2",
+    "C"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.721,
+   "seconds": 0.000269032,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-i0",
+    "A=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204311.722,
+   "seconds": 0.000174109,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 25,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.978,
+   "seconds": 0.000237451,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-i"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.979,
+   "seconds": 0.00017582,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-i",
+    "A=1",
+    "B=2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.98,
+   "seconds": 0.000185524,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-",
+    "A=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.981,
+   "seconds": 0.000211445,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-0",
+    "-i",
+    "A=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.982,
+   "seconds": 0.000180651,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-u",
+    "HOME",
+    "--unset",
+    "PATH"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.983,
+   "seconds": 0.000195229,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "A=1",
+    "cat"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.983,
+   "seconds": 0.000279295,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-i",
+    "A=1",
+    "B=2",
+    "sh",
+    "-c",
+    "cat"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.985,
+   "seconds": 0.000210437,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-C",
+    "/tmp",
+    "pwd"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.986,
+   "seconds": 0.00024955,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "--chdir",
+    "/tmp",
+    "pwd"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.987,
+   "seconds": 0.000273161,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-S",
+    "printf %s hi"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.988,
+   "seconds": 0.000266565,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "--block-signal",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.989,
+   "seconds": 0.000236485,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "--block-signal=PIPE,INT",
+    "--default-signal",
+    "--ignore-signal=HUP",
+    "cat"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.99,
+   "seconds": 0.000252827,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "--list-signal-handling",
+    "-v",
+    "cat"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "executing: cat\n   arg[0]= \u2018cat\u2019\n",
+   "start": 1793204318.991,
+   "seconds": 0.00025955,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-i",
+    "--",
+    "A=1",
+    "echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.992,
+   "seconds": 0.000201657,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-i",
+    "--",
+    "-i"
+   ],
+   "argv_cut": false,
+   "exit_code": 127,
+   "signal": null,
+   "stderr": "env: \u2018-i\u2019",
+   "start": 1793204318.993,
+   "seconds": 0.000209345,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "A=x=y",
+    "echo",
+    "B=2",
+    "C"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.993,
+   "seconds": 0.000270136,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "unfinished",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "env",
+    "-i0",
+    "A=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204318.994,
+   "seconds": 0.000195691,
+   "cwd": "/tmp/envtest",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/env",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204333.996,
+   "seconds": 0.000273595,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

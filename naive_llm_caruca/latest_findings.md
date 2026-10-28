@@ -34,6 +34,15 @@ up on a later day than it was made, the bullet gives both dates.
 written into its document and a link to the section that holds the evidence. Never edit an old bullet
 to change its number: add a new bullet and mark the old one "corrected on <date>".
 
+## 2026-10-28
+
+- **09:00, not yet committed · Naive LLM · program runs.** `fold`'s 11,397 runs of the program (Caruca:
+  1,552 test runs at up to 4 options) are almost all one self-test of the agent's own claim that fold's
+  work may be split: fold run on each of about 400 lines alone, for 7 option sets. A loop slip repeated
+  that check 4 times, so about three quarters of the 11,376 runs repeat an earlier one. It used only 98
+  distinct command lines; for `tee` (39 runs, a worked example) and `mkfifo` (31) the agent ran the program
+  far less often than Caruca (4,800 and 4,200). [Task 019, section 7.1, 2026-10-28 09:00](../ai_docs/tasks/019_fig7_commands_naive_campaign.md)
+
 ## 2026-10-27
 
 - **13:03, not yet committed · Naive LLM · running time.** Caruca's paper projects runs of up to

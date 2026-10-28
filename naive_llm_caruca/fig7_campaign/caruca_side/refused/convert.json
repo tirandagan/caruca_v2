@@ -1,0 +1,184 @@
+{
+ "command": "convert",
+ "binary": "/usr/bin/convert",
+ "package": "imagemagick-6.q16 8:6.9.12.98+dfsg1-5.2build2",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T23:18:21",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 1566,
+  "distinct_lines": 1052,
+  "traced_lines": 1052,
+  "sampled": false,
+  "test_runs_traced": 6060,
+  "seconds": 181.4,
+  "seconds_per_test_run": 0.02994,
+  "classes": {
+   "refused": 5760,
+   "accepted": 30,
+   "unclassified": 255,
+   "other_nonzero": 15
+  },
+  "refused_share": 0.9505,
+  "classes_as_v1_runs": {
+   "refused": 5910,
+   "accepted": 30,
+   "unclassified": 2755,
+   "other_nonzero": 15
+  },
+  "refused_share_as_v1_runs": 0.6785,
+  "lines_all_runs_refused": 992,
+  "top_messages": [
+   [
+    "refused",
+    "convert-im6.q16: no images defined `relpath_1' @ error/convert.c/ConvertImageCommand/3234.",
+    1700
+   ],
+   [
+    "refused",
+    "convert-im6.q16: no images defined `nonexistent_path/relpath_1' @ error/convert.c/ConvertImageCommand/3234.",
+    425
+   ],
+   [
+    "refused",
+    "convert-im6.q16: no images defined `relpath_2' @ error/convert.c/ConvertImageCommand/3234.",
+    400
+   ],
+   [
+    "refused",
+    "convert-im6.q16: no images defined `nonexistent_path/relpath_2' @ error/convert.c/ConvertImageCommand/3234.",
+    100
+   ],
+   [
+    "refused",
+    "convert-im6.q16: unrecognized color `string' @ warning/color.c/GetColorCompliance/1057.",
+    40
+   ],
+   [
+    "refused",
+    "convert-im6.q16: unrecognized option `-connected-component' @ error/convert.c/ConvertImageCommand/1171.",
+    30
+   ],
+   [
+    "unclassified",
+    "convert-im6.q16: missing required argument  @ error/convert.c/ConvertImageCommand/545.",
+    20
+   ],
+   [
+    "unclassified",
+    "convert-im6.q16:  `relpath_1' @ error/convert.c/ConvertImageCommand/3231.",
+    16
+   ],
+   [
+    "refused",
+    "convert-im6.q16: invalid argument for option `-affine': string @ error/convert.c/ConvertImageCommand/656.",
+    10
+   ],
+   [
+    "refused",
+    "convert-im6.q16: invalid argument for option `-annotate': string @ error/convert.c/ConvertImageCommand/683.",
+    10
+   ],
+   [
+    "refused",
+    "convert-im6.q16: invalid argument for option `-attenuate': string @ error/convert.c/ConvertImageCommand/701.",
+    10
+   ],
+   [
+    "refused",
+    "convert-im6.q16: invalid argument for option `-bias': string @ error/convert.c/ConvertImageCommand/753.",
+    10
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 608848,
+  "distinct_lines": 276850,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 6440,
+  "seconds": 180.3,
+  "seconds_per_test_run": 0.02799,
+  "classes": {
+   "refused": 5895,
+   "unclassified": 495,
+   "accepted": 35,
+   "other_nonzero": 15
+  },
+  "refused_share": 0.9154,
+  "classes_as_v1_runs": {
+   "refused": 9845,
+   "unclassified": 495,
+   "accepted": 35,
+   "other_nonzero": 15
+  },
+  "refused_share_as_v1_runs": 0.9475,
+  "lines_all_runs_refused": 915,
+  "top_messages": [
+   [
+    "refused",
+    "convert-im6.q16: no images defined `relpath_1' @ error/convert.c/ConvertImageCommand/3234.",
+    1448
+   ],
+   [
+    "refused",
+    "convert-im6.q16: no images defined `relpath_2' @ error/convert.c/ConvertImageCommand/3234.",
+    472
+   ],
+   [
+    "refused",
+    "convert-im6.q16: no images defined `nonexistent_path/relpath_1' @ error/convert.c/ConvertImageCommand/3234.",
+    362
+   ],
+   [
+    "refused",
+    "convert-im6.q16: no images defined `nonexistent_path/relpath_2' @ error/convert.c/ConvertImageCommand/3234.",
+    118
+   ],
+   [
+    "unclassified",
+    "convert-im6.q16: unrecognized morphology method `string' @ error/convert.c/ConvertImageCommand/2198.",
+    75
+   ],
+   [
+    "refused",
+    "convert-im6.q16: invalid argument for option `-green-primary': string @ error/convert.c/ConvertImageCommand/1722.",
+    60
+   ],
+   [
+    "refused",
+    "convert-im6.q16: unrecognized option `-connected-component' @ error/convert.c/ConvertImageCommand/1171.",
+    55
+   ],
+   [
+    "unclassified",
+    "convert-im6.q16: UnrecognizedLayerMethod `string' @ error/convert.c/ConvertImageCommand/1938.",
+    55
+   ],
+   [
+    "refused",
+    "convert-im6.q16: unrecognized color `string' @ warning/color.c/GetColorCompliance/1057.",
+    50
+   ],
+   [
+    "unclassified",
+    "convert-im6.q16: unrecognized list type `string' @ error/convert.c/ConvertImageCommand/2029.",
+    45
+   ],
+   [
+    "refused",
+    "convert-im6.q16: invalid argument for option `-white-point': string @ error/convert.c/ConvertImageCommand/3195.",
+    40
+   ],
+   [
+    "refused",
+    "convert-im6.q16: invalid argument for option `-segment': string @ error/convert.c/ConvertImageCommand/2665.",
+    40
+   ]
+  ]
+ },
+ "finished": "2026-10-27T23:24:26"
+}

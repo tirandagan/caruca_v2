@@ -1,0 +1,1705 @@
+{
+ "summary": {
+  "run": "2026-10-28_102417_naive-run-sha224sum_sha224sum_PROMPT_v1",
+  "command": "sha224sum",
+  "binary": "/usr/bin/sha224sum",
+  "logger_check": {
+   "audit_starts": 179,
+   "trace_starts": 172,
+   "audit_without_trace": 7,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793197436.4495356,
+   "clock_spread_ms": 6.233692169189453
+  },
+  "session_found": true,
+  "first_write": 1793197501.572,
+  "tries": 78,
+  "classes": {
+   "accepted": 58,
+   "unclassified": 11,
+   "other_nonzero": 1,
+   "refused": 8
+  },
+  "by_phase": {
+   "exploring/accepted": 20,
+   "exploring/other_nonzero": 1,
+   "exploring/refused": 8,
+   "exploring/unclassified": 11,
+   "testing/accepted": 38
+  },
+  "help_or_version": 3,
+  "distinct_argument_lists": 65,
+  "distinct_option_sets": 38,
+  "refused_share": 0.1026,
+  "refused_program_seconds": 0.003,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "/usr/bin/sha224sum: /tmp",
+   "/usr/bin/sha224sum: WARNING: 1 computed checksum did NOT match",
+   "/usr/bin/sha224sum: WARNING: 1 line is improperly formatted",
+   "/usr/bin/sha224sum: nope",
+   "/usr/bin/sha224sum: sums: 3: improperly formatted SHA224 checksum line",
+   "/usr/bin/sha224sum: the --ignore-missing option is meaningful only when verifying checksums",
+   "/usr/bin/sha224sum: the --quiet option is meaningful only when verifying checksums",
+   "/usr/bin/sha224sum: the --status option is meaningful only when verifying checksums",
+   "/usr/bin/sha224sum: the --strict option is meaningful only when verifying checksums",
+   "/usr/bin/sha224sum: the --warn option is meaningful only when verifying checksums"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197473.028,
+   "seconds": 0.000331438,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197473.029,
+   "seconds": 0.000334368,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.259,
+   "seconds": 0.000377016,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.259,
+   "seconds": 0.000460331,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.26,
+   "seconds": 0.000403929,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-b",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.261,
+   "seconds": 0.000366992,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-t",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.261,
+   "seconds": 0.000356759,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--tag",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.262,
+   "seconds": 0.000366784,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-z",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.263,
+   "seconds": 0.000347068,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-bt",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.264,
+   "seconds": 0.000393779,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-bz",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.265,
+   "seconds": 0.000314957,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.266,
+   "seconds": 0.000336129,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.266,
+   "seconds": 0.000394154,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.267,
+   "seconds": 0.000306721,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--check",
+    "--quiet",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.267,
+   "seconds": 0.000296364,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "--status",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.268,
+   "seconds": 0.000299899,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: WARNING: 1 computed checksum did NOT match",
+   "start": 1793197486.269,
+   "seconds": 0.000325522,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "--status",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.269,
+   "seconds": 0.000291913,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "-w",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: sums: 3: improperly formatted SHA224 checksum line",
+   "start": 1793197486.27,
+   "seconds": 0.000315955,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "--strict",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: WARNING: 1 line is improperly formatted",
+   "start": 1793197486.27,
+   "seconds": 0.000331345,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "--ignore-missing",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: WARNING: 1 line is improperly formatted",
+   "start": 1793197486.271,
+   "seconds": 0.00031583,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--debug",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: unrecognized option '--debug'\nTry '/usr/bin/sha224sum --help' for more information.\n",
+   "start": 1793197486.271,
+   "seconds": 0.00035131,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--base64",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: unrecognized option '--base64'\nTry '/usr/bin/sha224sum --help' for more information.\n",
+   "start": 1793197486.272,
+   "seconds": 0.000388579,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--raw",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: unrecognized option '--raw'\nTry '/usr/bin/sha224sum --help' for more information.\n",
+   "start": 1793197486.273,
+   "seconds": 0.000301688,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--untagged",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: unrecognized option '--untagged'\nTry '/usr/bin/sha224sum --help' for more information.\n",
+   "start": 1793197486.274,
+   "seconds": 0.000285175,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-a",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: invalid option -- 'a'\nTry '/usr/bin/sha224sum --help' for more information.\n",
+   "start": 1793197486.274,
+   "seconds": 0.000301937,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-l",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: invalid option -- 'l'\nTry '/usr/bin/sha224sum --help' for more information.\n",
+   "start": 1793197486.275,
+   "seconds": 0.000349855,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--algorithm=sha224",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: unrecognized option '--algorithm=sha224'\nTry '/usr/bin/sha224sum --help' for more information.\n",
+   "start": 1793197486.276,
+   "seconds": 0.000306845,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--length=224",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: unrecognized option '--length=224'\nTry '/usr/bin/sha224sum --help' for more information.\n",
+   "start": 1793197486.276,
+   "seconds": 0.000310423,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--quiet",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: the --quiet option is meaningful only when verifying checksums",
+   "start": 1793197486.277,
+   "seconds": 0.000293701,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--status",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: the --status option is meaningful only when verifying checksums",
+   "start": 1793197486.277,
+   "seconds": 0.00033226,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--strict",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: the --strict option is meaningful only when verifying checksums",
+   "start": 1793197486.278,
+   "seconds": 0.000287462,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-w",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: the --warn option is meaningful only when verifying checksums",
+   "start": 1793197486.278,
+   "seconds": 0.000312502,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--ignore-missing",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: the --ignore-missing option is meaningful only when verifying checksums",
+   "start": 1793197486.279,
+   "seconds": 0.000306305,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "a",
+    "--tag"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.279,
+   "seconds": 0.000320988,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.28,
+   "seconds": 0.000271822,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "/tmp"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: /tmp",
+   "start": 1793197486.28,
+   "seconds": 0.000314499,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "nope"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha224sum: nope",
+   "start": 1793197486.281,
+   "seconds": 0.000279767,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--bin",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.281,
+   "seconds": 0.000284967,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--ta",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197486.282,
+   "seconds": 0.000258637,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.645,
+   "seconds": 0.000366167,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-b",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.648,
+   "seconds": 0.000314167,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--binary",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.649,
+   "seconds": 0.000254042,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-t",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.649,
+   "seconds": 0.000232834,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--text",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.65,
+   "seconds": 0.000225958,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--tag",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.65,
+   "seconds": 0.000247,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-z",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.651,
+   "seconds": 0.000225209,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--zero",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.651,
+   "seconds": 0.000276459,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.652,
+   "seconds": 0.000253459,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "--ignore-missing",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.652,
+   "seconds": 0.000275542,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "--quiet",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.653,
+   "seconds": 0.000249792,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "--status",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.653,
+   "seconds": 0.000289584,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "--strict",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.654,
+   "seconds": 0.000246417,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "-w",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.654,
+   "seconds": 0.000221625,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "--warn",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.655,
+   "seconds": 0.000234792,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "big1",
+    "big2",
+    "big3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.656,
+   "seconds": 0.00034925,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "big1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.657,
+   "seconds": 0.000279459,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "big2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.658,
+   "seconds": 0.000279167,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "big3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.658,
+   "seconds": 0.000220417,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-b",
+    "big1",
+    "big2",
+    "big3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.659,
+   "seconds": 0.000365709,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-b",
+    "big1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.66,
+   "seconds": 0.000271458,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-b",
+    "big2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.66,
+   "seconds": 0.000279459,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-b",
+    "big3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.661,
+   "seconds": 0.000228417,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--tag",
+    "big1",
+    "big2",
+    "big3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.661,
+   "seconds": 0.000354583,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--tag",
+    "big1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.662,
+   "seconds": 0.000290501,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--tag",
+    "big2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.663,
+   "seconds": 0.000279376,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "--tag",
+    "big3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.663,
+   "seconds": 0.000239959,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-z",
+    "big1",
+    "big2",
+    "big3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.664,
+   "seconds": 0.000320542,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-z",
+    "big1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.665,
+   "seconds": 0.000283584,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-z",
+    "big2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.665,
+   "seconds": 0.000271917,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-z",
+    "big3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.666,
+   "seconds": 0.000228334,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-bz",
+    "--tag",
+    "big1",
+    "big2",
+    "big3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.666,
+   "seconds": 0.000320209,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-bz",
+    "--tag",
+    "big1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.667,
+   "seconds": 0.000283417,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-bz",
+    "--tag",
+    "big2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.668,
+   "seconds": 0.000241917,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-bz",
+    "--tag",
+    "big3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.668,
+   "seconds": 0.000236583,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.669,
+   "seconds": 0.000323792,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "big1",
+    "big2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.669,
+   "seconds": 0.000320001,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha224sum",
+    "-c",
+    "--status"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197547.67,
+   "seconds": 0.000229625,
+   "cwd": "/tmp/sha224test",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

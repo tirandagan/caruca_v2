@@ -1,0 +1,1579 @@
+{
+ "summary": {
+  "run": "2026-10-28_102715_naive-run-sha384sum_sha384sum_PROMPT_v1",
+  "command": "sha384sum",
+  "binary": "/usr/bin/sha384sum",
+  "logger_check": {
+   "audit_starts": 263,
+   "trace_starts": 251,
+   "audit_without_trace": 12,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793197614.2951868,
+   "clock_spread_ms": 4.6939849853515625
+  },
+  "session_found": true,
+  "first_write": 1793197773.971,
+  "tries": 71,
+  "classes": {
+   "accepted": 46,
+   "refused": 19,
+   "unclassified": 6
+  },
+  "by_phase": {
+   "exploring/accepted": 26,
+   "exploring/refused": 8,
+   "exploring/unclassified": 5,
+   "testing/accepted": 20,
+   "testing/refused": 11,
+   "testing/unclassified": 1
+  },
+  "help_or_version": 4,
+  "distinct_argument_lists": 63,
+  "distinct_option_sets": 36,
+  "refused_share": 0.2676,
+  "refused_program_seconds": 0.006,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "/usr/bin/sha384sum: /tmp/tmpryumdd3l/a: no properly formatted checksum lines found",
+   "sha384sum: .",
+   "sha384sum: WARNING: 1 computed checksum did NOT match",
+   "sha384sum: nope",
+   "sha384sum: the --ignore-missing option is meaningful only when verifying checksums",
+   "sha384sum: the --zero option is not supported when verifying checksums"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197648.011,
+   "seconds": 0.000495583,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197648.013,
+   "seconds": 0.00039625,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197658.878,
+   "seconds": 0.000438319,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197658.879,
+   "seconds": 0.000396316,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "a",
+    "-",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197658.88,
+   "seconds": 0.000360398,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-bz",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197658.881,
+   "seconds": 0.000404692,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "--tag",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197658.882,
+   "seconds": 0.000396275,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197658.883,
+   "seconds": 0.000402483,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-c",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197658.884,
+   "seconds": 0.000362856,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197658.885,
+   "seconds": 0.000361939,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-c",
+    "--quiet",
+    "--status",
+    "--strict",
+    "-w",
+    "--ignore-missing",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197658.885,
+   "seconds": 0.000374691,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "--debug",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha384sum: unrecognized option '--debug'\nTry 'sha384sum --help' for more information.\n",
+   "start": 1793197658.886,
+   "seconds": 0.000403901,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "--length",
+    "384",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha384sum: unrecognized option '--length'\nTry 'sha384sum --help' for more information.\n",
+   "start": 1793197658.887,
+   "seconds": 0.000377065,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "--algorithm",
+    "sha384",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha384sum: unrecognized option '--algorithm'\nTry 'sha384sum --help' for more information.\n",
+   "start": 1793197658.888,
+   "seconds": 0.000368731,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "--base64",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha384sum: unrecognized option '--base64'\nTry 'sha384sum --help' for more information.\n",
+   "start": 1793197658.888,
+   "seconds": 0.000389232,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "--raw",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha384sum: unrecognized option '--raw'\nTry 'sha384sum --help' for more information.\n",
+   "start": 1793197658.889,
+   "seconds": 0.000332187,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "--untagged",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha384sum: unrecognized option '--untagged'\nTry 'sha384sum --help' for more information.\n",
+   "start": 1793197658.89,
+   "seconds": 0.000331937,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "--",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197658.89,
+   "seconds": 0.000314936,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-z",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197658.891,
+   "seconds": 0.000314186,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-c",
+    "-z",
+    "zsums"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha384sum: the --zero option is not supported when verifying checksums",
+   "start": 1793197658.892,
+   "seconds": 0.000314144,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "nope"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha384sum: nope",
+   "start": 1793197658.892,
+   "seconds": 0.000311603,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-x",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha384sum: invalid option -- 'x'\nTry 'sha384sum --help' for more information.\n",
+   "start": 1793197658.893,
+   "seconds": 0.000439236,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha384sum: .",
+   "start": 1793197658.894,
+   "seconds": 0.000337854,
+   "cwd": "/tmp/tmp.QXCDlN414G",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197759.372,
+   "seconds": 0.000582949,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "--ignore-missing",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha384sum: the --ignore-missing option is meaningful only when verifying checksums",
+   "start": 1793197759.373,
+   "seconds": 0.000484617,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-c",
+    "--status",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197759.374,
+   "seconds": 0.000431451,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-c",
+    "--quiet",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197759.378,
+   "seconds": 0.000464826,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-c",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha384sum: WARNING: 1 computed checksum did NOT match",
+   "start": 1793197759.378,
+   "seconds": 0.000376869,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197759.379,
+   "seconds": 0.000416577,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-c",
+    "s1",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197759.38,
+   "seconds": 0.000454326,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "--tag",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197759.381,
+   "seconds": 0.000362869,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-c",
+    "t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197759.381,
+   "seconds": 0.000390369,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-t",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197759.382,
+   "seconds": 0.000356869,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "-b",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197759.383,
+   "seconds": 0.000367702,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "a",
+    "--tag"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197759.383,
+   "seconds": 0.000514658,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197759.384,
+   "seconds": 0.000380993,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197759.385,
+   "seconds": 0.000395077,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197759.385,
+   "seconds": 0.000440451,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "--check=foo",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha384sum: option '--check' doesn't allow an argument\nTry 'sha384sum --help' for more information.\n",
+   "start": 1793197759.386,
+   "seconds": 0.000370078,
+   "cwd": "/tmp/tmp.yAOvVOKNK5",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197847.561,
+   "seconds": 0.000448409,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "/tmp/tmpryumdd3l/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197847.562,
+   "seconds": 0.000569458,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--binary",
+    "/tmp/tmpryumdd3l/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197847.563,
+   "seconds": 0.000389904,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--binary=1",
+    "/tmp/tmpryumdd3l/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha384sum: option '--binary' doesn't allow an argument\nTry '/usr/bin/sha384sum --help' for more information.\n",
+   "start": 1793197847.564,
+   "seconds": 0.000374361,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--check",
+    "/tmp/tmpryumdd3l/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha384sum: /tmp/tmpryumdd3l/a: no properly formatted checksum lines found",
+   "start": 1793197847.565,
+   "seconds": 0.000358776,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 26,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.301,
+   "seconds": 0.000440029,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha384sum",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.302,
+   "seconds": 0.000521409,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--binary",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.303,
+   "seconds": 0.000431237,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--binary=1",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha384sum: option '--binary' doesn't allow an argument\nTry '/usr/bin/sha384sum --help' for more information.\n",
+   "start": 1793197854.304,
+   "seconds": 0.000322021,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--check",
+    "/tmp/tmpluqoydd3/sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.304,
+   "seconds": 0.000338314,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--check=1",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha384sum: option '--check' doesn't allow an argument\nTry '/usr/bin/sha384sum --help' for more information.\n",
+   "start": 1793197854.305,
+   "seconds": 0.00034519,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--ignore-missing",
+    "-c",
+    "/tmp/tmpluqoydd3/sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.305,
+   "seconds": 0.000327647,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--ignore-missing=1",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha384sum: option '--ignore-missing' doesn't allow an argument\nTry '/usr/bin/sha384sum --help' for more information.\n",
+   "start": 1793197854.306,
+   "seconds": 0.000297979,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--quiet",
+    "-c",
+    "/tmp/tmpluqoydd3/sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.306,
+   "seconds": 0.00033348,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--quiet=1",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha384sum: option '--quiet' doesn't allow an argument\nTry '/usr/bin/sha384sum --help' for more information.\n",
+   "start": 1793197854.307,
+   "seconds": 0.000305478,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--status",
+    "-c",
+    "/tmp/tmpluqoydd3/sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.307,
+   "seconds": 0.000316771,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--status=1",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha384sum: option '--status' doesn't allow an argument\nTry '/usr/bin/sha384sum --help' for more information.\n",
+   "start": 1793197854.308,
+   "seconds": 0.000366066,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--strict",
+    "-c",
+    "/tmp/tmpluqoydd3/sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.308,
+   "seconds": 0.000347315,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--strict=1",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha384sum: option '--strict' doesn't allow an argument\nTry '/usr/bin/sha384sum --help' for more information.\n",
+   "start": 1793197854.309,
+   "seconds": 0.000291228,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--tag",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.309,
+   "seconds": 0.000296686,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--tag=1",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha384sum: option '--tag' doesn't allow an argument\nTry '/usr/bin/sha384sum --help' for more information.\n",
+   "start": 1793197854.31,
+   "seconds": 0.000283977,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--text",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.31,
+   "seconds": 0.000309729,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--text=1",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha384sum: option '--text' doesn't allow an argument\nTry '/usr/bin/sha384sum --help' for more information.\n",
+   "start": 1793197854.311,
+   "seconds": 0.000279227,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--warn",
+    "-c",
+    "/tmp/tmpluqoydd3/sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.311,
+   "seconds": 0.000296353,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--warn=1",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha384sum: option '--warn' doesn't allow an argument\nTry '/usr/bin/sha384sum --help' for more information.\n",
+   "start": 1793197854.312,
+   "seconds": 0.000285144,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--zero",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.312,
+   "seconds": 0.000304812,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "--zero=1",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/sha384sum: option '--zero' doesn't allow an argument\nTry '/usr/bin/sha384sum --help' for more information.\n",
+   "start": 1793197854.313,
+   "seconds": 0.000332481,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "-b",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.313,
+   "seconds": 0.000295562,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "-c",
+    "/tmp/tmpluqoydd3/sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.314,
+   "seconds": 0.000292936,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "-t",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.314,
+   "seconds": 0.000318397,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "-w",
+    "-c",
+    "/tmp/tmpluqoydd3/sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.315,
+   "seconds": 0.00029352,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha384sum",
+    "-z",
+    "/tmp/tmpluqoydd3/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197854.315,
+   "seconds": 0.000310812,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 27,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

@@ -1,0 +1,977 @@
+{
+ "summary": {
+  "run": "2026-10-28_095809_naive-run-seq_seq_PROMPT_v1",
+  "command": "seq",
+  "binary": "/usr/bin/seq",
+  "logger_check": {
+   "audit_starts": 157,
+   "trace_starts": 150,
+   "audit_without_trace": 7,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793195866.8170297,
+   "clock_spread_ms": 4.996061325073242
+  },
+  "session_found": true,
+  "first_write": 1793195955.456,
+  "tries": 43,
+  "classes": {
+   "accepted": 35,
+   "unclassified": 4,
+   "refused": 4
+  },
+  "by_phase": {
+   "exploring/accepted": 24,
+   "exploring/refused": 2,
+   "exploring/unclassified": 4,
+   "testing/accepted": 11,
+   "testing/refused": 2
+  },
+  "help_or_version": 4,
+  "distinct_argument_lists": 37,
+  "distinct_option_sets": 16,
+  "refused_share": 0.093,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 1,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "/usr/bin/seq: format string may not be specified when printing equal width strings",
+   "/usr/bin/seq: format \u2018%x\u2019 has unknown %x directive",
+   "/usr/bin/seq: invalid Zero increment value: \u20180\u2019",
+   "/usr/bin/seq: invalid floating point argument: \u2018abc\u2019"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195898.2,
+   "seconds": 0.000207791,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.361,
+   "seconds": 0.000267171,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "2",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.362,
+   "seconds": 0.000232598,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "1",
+    "2",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.362,
+   "seconds": 0.000214561,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "0.5",
+    "0.5",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.363,
+   "seconds": 0.000215727,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "-3",
+    "-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.364,
+   "seconds": 0.000211354,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "5",
+    "-1",
+    "1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.364,
+   "seconds": 0.00023643,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "-s",
+    ",",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.365,
+   "seconds": 0.00018482,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "-s,",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.365,
+   "seconds": 0.000204273,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "--separator",
+    ",",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.367,
+   "seconds": 0.000200108,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "--separator=,",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.367,
+   "seconds": 0.000192277,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "-f",
+    "%03g",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.367,
+   "seconds": 0.000267254,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "-f%.2f",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.367,
+   "seconds": 0.00025355,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "--format=%x",
+    "10",
+    "12"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/seq: format \u2018%x\u2019 has unknown %x directive",
+   "start": 1793195914.368,
+   "seconds": 0.000253175,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "-w",
+    "8",
+    "10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.369,
+   "seconds": 0.000214269,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "--equal-width",
+    "9",
+    "11"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.369,
+   "seconds": 0.000182279,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "-w",
+    "-f",
+    "%g",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/seq: format string may not be specified when printing equal width strings",
+   "start": 1793195914.37,
+   "seconds": 0.000193234,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/seq: missing operand",
+   "start": 1793195914.37,
+   "seconds": 0.000213312,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "1",
+    "2",
+    "3",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/seq: extra operand \u20184\u2019",
+   "start": 1793195914.371,
+   "seconds": 0.000191569,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.371,
+   "seconds": 0.000210604,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.372,
+   "seconds": 0.000184404,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "0x10",
+    "0x12"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.372,
+   "seconds": 0.000161535,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "1e2",
+    "1e2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.373,
+   "seconds": 0.000197066,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "--",
+    "-2",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.374,
+   "seconds": 0.000210188,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "abc"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/seq: invalid floating point argument: \u2018abc\u2019",
+   "start": 1793195914.374,
+   "seconds": 0.000193526,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.375,
+   "seconds": 0.000225725,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "-ws,",
+    "8",
+    "10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.375,
+   "seconds": 0.000191318,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "1",
+    "0",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/seq: invalid Zero increment value: \u20180\u2019",
+   "start": 1793195914.376,
+   "seconds": 0.000173116,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "-s",
+    "",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.376,
+   "seconds": 0.000166784,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "--format",
+    "%g",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195914.377,
+   "seconds": 0.000177198,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/seq: missing operand",
+   "start": 1793195993.398,
+   "seconds": 0.000238624,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195993.398,
+   "seconds": 0.000230998,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "1",
+    "1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195993.399,
+   "seconds": 0.000234166,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "1",
+    "1",
+    "1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195993.399,
+   "seconds": 0.000251416,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "1",
+    "1",
+    "1",
+    "1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/seq: extra operand \u20181\u2019",
+   "start": 1793195993.399,
+   "seconds": 0.000212291,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "--equal-width",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195993.4,
+   "seconds": 0.000188707,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "--format",
+    "%g",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195993.4,
+   "seconds": 0.000172291,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195993.401,
+   "seconds": 0.000166333,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "--separator",
+    ",",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195993.401,
+   "seconds": 0.000206666,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195993.401,
+   "seconds": 0.000190249,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "-f",
+    "%g",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195993.402,
+   "seconds": 0.000217333,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "-s",
+    ",",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195993.402,
+   "seconds": 0.000215499,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/seq",
+    "-w",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195993.402,
+   "seconds": 0.000202957,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

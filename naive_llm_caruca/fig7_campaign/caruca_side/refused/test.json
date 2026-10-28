@@ -1,0 +1,176 @@
+{
+ "command": "test",
+ "binary": "/usr/bin/test",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T23:14:46",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 380,
+  "distinct_lines": 256,
+  "traced_lines": 256,
+  "sampled": false,
+  "test_runs_traced": 864,
+  "seconds": 17.0,
+  "seconds_per_test_run": 0.0197,
+  "classes": {
+   "other_nonzero": 4,
+   "refused": 856,
+   "accepted": 4
+  },
+  "refused_share": 0.9907,
+  "classes_as_v1_runs": {
+   "other_nonzero": 4,
+   "refused": 856,
+   "accepted": 128
+  },
+  "refused_share_as_v1_runs": 0.8664,
+  "lines_all_runs_refused": 248,
+  "top_messages": [
+   [
+    "refused",
+    "test: 'relpath_1': binary operator expected",
+    304
+   ],
+   [
+    "refused",
+    "test: 'nonexistent_path/relpath_1': binary operator expected",
+    76
+   ],
+   [
+    "refused",
+    "test: '-1': binary operator expected",
+    24
+   ],
+   [
+    "refused",
+    "test: '0': binary operator expected",
+    24
+   ],
+   [
+    "refused",
+    "test: '1': binary operator expected",
+    24
+   ],
+   [
+    "refused",
+    "test: 'string': binary operator expected",
+    16
+   ],
+   [
+    "refused",
+    "test: missing argument after '3*3'",
+    2
+   ],
+   [
+    "refused",
+    "test: missing argument after '1+1'",
+    2
+   ],
+   [
+    "refused",
+    "test: missing argument after '2-1'",
+    2
+   ],
+   [
+    "refused",
+    "test: missing argument after '4/2'",
+    2
+   ],
+   [
+    "refused",
+    "test: '/tmp/toplevel_uymf0846/sandbox_g2v8va3g/abspath_1': binary operator expected",
+    1
+   ],
+   [
+    "refused",
+    "test: '/tmp/toplevel_coalaqil/sandbox_2ubpgass/abspath_1': binary operator expected",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 17460,
+  "distinct_lines": 8064,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 11088,
+  "seconds": 197.6,
+  "seconds_per_test_run": 0.01782,
+  "classes": {
+   "refused": 11088
+  },
+  "refused_share": 1.0,
+  "classes_as_v1_runs": {
+   "refused": 14478
+  },
+  "refused_share_as_v1_runs": 1.0,
+  "lines_all_runs_refused": 1000,
+  "top_messages": [
+   [
+    "refused",
+    "test: extra argument '-w'",
+    1025
+   ],
+   [
+    "refused",
+    "test: extra argument '-x'",
+    920
+   ],
+   [
+    "refused",
+    "test: extra argument '-t'",
+    880
+   ],
+   [
+    "refused",
+    "test: extra argument '-s'",
+    750
+   ],
+   [
+    "refused",
+    "test: extra argument '-u'",
+    670
+   ],
+   [
+    "refused",
+    "test: extra argument '-S'",
+    670
+   ],
+   [
+    "refused",
+    "test: extra argument '1'",
+    647
+   ],
+   [
+    "refused",
+    "test: extra argument '-1'",
+    624
+   ],
+   [
+    "refused",
+    "test: extra argument '-p'",
+    600
+   ],
+   [
+    "refused",
+    "test: extra argument '0'",
+    540
+   ],
+   [
+    "refused",
+    "test: extra argument '-N'",
+    515
+   ],
+   [
+    "refused",
+    "test: extra argument '-O'",
+    500
+   ]
+  ]
+ },
+ "finished": "2026-10-27T23:18:21"
+}

@@ -1,0 +1,871 @@
+{
+ "summary": {
+  "run": "2026-10-28_083453_naive-run-chroot_chroot_PROMPT_v1",
+  "command": "chroot",
+  "binary": "/usr/sbin/chroot",
+  "logger_check": {
+   "audit_starts": 196,
+   "trace_starts": 191,
+   "audit_without_trace": 5,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793190870.6417937,
+   "clock_spread_ms": 3.3838748931884766
+  },
+  "session_found": true,
+  "first_write": 1793190977.255,
+  "tries": 20,
+  "classes": {
+   "accepted": 3,
+   "refused": 4,
+   "unclassified": 13
+  },
+  "by_phase": {
+   "exploring/accepted": 2,
+   "exploring/refused": 4,
+   "exploring/unclassified": 13,
+   "testing/accepted": 1
+  },
+  "help_or_version": 3,
+  "distinct_argument_lists": 19,
+  "distinct_option_sets": 12,
+  "refused_share": 0.2,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {
+   "machinery:sudo": 19
+  },
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "/usr/sbin/chroot: cannot change root directory to '/'",
+   "/usr/sbin/chroot: cannot change root directory to '/nonexistent'",
+   "/usr/sbin/chroot: cannot change root directory to '/tmp'",
+   "/usr/sbin/chroot: option --skip-chdir only permitted if NEWROOT is old '/'"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190906.718,
+   "seconds": 0.000211375,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190906.718,
+   "seconds": 0.000185,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: missing operand",
+   "start": 1793190914.367,
+   "seconds": 0.000330748,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--groups"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: option '--groups' requires an argument\nTry '/usr/sbin/chroot --help' for more information.\n",
+   "start": 1793190914.367,
+   "seconds": 0.000280122,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--groups=1,2",
+    "/tmp"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: cannot change root directory to '/tmp'",
+   "start": 1793190914.367,
+   "seconds": 0.000845176,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--groups",
+    "1,2",
+    "/tmp"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: cannot change root directory to '/tmp'",
+   "start": 1793190914.369,
+   "seconds": 0.000526269,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--userspec",
+    "root:root",
+    "/tmp",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: cannot change root directory to '/tmp'",
+   "start": 1793190914.37,
+   "seconds": 0.00065317,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--userspec=nobody",
+    "/tmp"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: cannot change root directory to '/tmp'",
+   "start": 1793190914.371,
+   "seconds": 0.000567105,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--skip-chdir",
+    "/tmp",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: option --skip-chdir only permitted if NEWROOT is old '/'",
+   "start": 1793190914.372,
+   "seconds": 0.00028577,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--skip",
+    "/tmp",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: option --skip-chdir only permitted if NEWROOT is old '/'",
+   "start": 1793190914.372,
+   "seconds": 0.000243093,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--group=1",
+    "/tmp"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: cannot change root directory to '/tmp'",
+   "start": 1793190914.373,
+   "seconds": 0.000399576,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "-x",
+    "/tmp"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: invalid option -- 'x'\nTry '/usr/sbin/chroot --help' for more information.\n",
+   "start": 1793190914.373,
+   "seconds": 0.00024008,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--bogus",
+    "/tmp"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: unrecognized option '--bogus'\nTry '/usr/sbin/chroot --help' for more information.\n",
+   "start": 1793190914.374,
+   "seconds": 0.000225478,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/tmp",
+    "--skip-chdir",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: cannot change root directory to '/tmp'",
+   "start": 1793190914.374,
+   "seconds": 0.000258866,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/tmp",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: cannot change root directory to '/tmp'",
+   "start": 1793190914.375,
+   "seconds": 0.000219746,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/nonexistent",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: cannot change root directory to '/nonexistent'",
+   "start": 1793190914.375,
+   "seconds": 0.000288405,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--skip-chdir",
+    "/",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: cannot change root directory to '/'",
+   "start": 1793190914.376,
+   "seconds": 0.000234389,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/",
+    "--",
+    "true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: cannot change root directory to '/'",
+   "start": 1793190914.376,
+   "seconds": 0.000235143,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--userspec=0",
+    "--groups=0",
+    "--skip-chdir",
+    "/",
+    "/bin/true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: cannot change root directory to '/'",
+   "start": 1793190914.377,
+   "seconds": 0.000245686,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191008.943,
+   "seconds": 0.000216768,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  }
+ ],
+ "excluded": [
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/",
+    "/bin/echo",
+    "hi"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190936.945,
+   "seconds": 0.000773212,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--skip-chdir",
+    "/",
+    "/bin/pwd"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190936.955,
+   "seconds": 0.000670815,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/",
+    "/bin/pwd"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190936.963,
+   "seconds": 0.000216298,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--userspec=nobody:nogroup",
+    "--groups=1,2",
+    "/",
+    "/usr/bin/id"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190936.972,
+   "seconds": 0.000352536,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--userspec=65534",
+    "/",
+    "/usr/bin/id"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190936.979,
+   "seconds": 0.000376625,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--userspec=:65534",
+    "/",
+    "/usr/bin/id"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190936.987,
+   "seconds": 0.000323988,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--groups=",
+    "/",
+    "/usr/bin/id"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190936.995,
+   "seconds": 0.000223466,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--groups=nosuch",
+    "/",
+    "/usr/bin/id"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: invalid group \u2018nosuch\u2019",
+   "start": 1793190937.003,
+   "seconds": 0.000780026,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--userspec=nosuchuser",
+    "/",
+    "/usr/bin/id"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: invalid user",
+   "start": 1793190937.011,
+   "seconds": 0.000484386,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/",
+    "/bin/nonexistent"
+   ],
+   "argv_cut": false,
+   "exit_code": 127,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: failed to run command \u2018/bin/nonexistent\u2019",
+   "start": 1793190937.018,
+   "seconds": 0.000241588,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/",
+    "/etc/passwd"
+   ],
+   "argv_cut": false,
+   "exit_code": 126,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: failed to run command \u2018/etc/passwd\u2019",
+   "start": 1793190937.025,
+   "seconds": 0.000189912,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/",
+    "/bin/cat"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190937.033,
+   "seconds": 0.00021675,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--skip-chdir",
+    "/tmp",
+    "/bin/true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: option --skip-chdir only permitted if NEWROOT is old '/'",
+   "start": 1793190937.04,
+   "seconds": 0.000193204,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/",
+    "/bin/sh",
+    "-c",
+    "exit 7"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190937.048,
+   "seconds": 0.000213749,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/",
+    "--",
+    "/bin/echo",
+    "dashdash"
+   ],
+   "argv_cut": false,
+   "exit_code": 127,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: failed to run command \u2018--\u2019",
+   "start": 1793190937.055,
+   "seconds": 0.00048576,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "--",
+    "/",
+    "/bin/echo",
+    "dashdash2"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190937.063,
+   "seconds": 0.000222335,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/",
+    "--skip-chdir"
+   ],
+   "argv_cut": false,
+   "exit_code": 127,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: failed to run command \u2018--skip-chdir\u2019",
+   "start": 1793190937.07,
+   "seconds": 0.000236129,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190937.078,
+   "seconds": 0.000185578,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  },
+  {
+   "argv": [
+    "/usr/sbin/chroot",
+    "/etc/passwd",
+    "/bin/true"
+   ],
+   "argv_cut": false,
+   "exit_code": 125,
+   "signal": null,
+   "stderr": "/usr/sbin/chroot: cannot change root directory to '/etc/passwd'",
+   "start": 1793190937.086,
+   "seconds": 0.000171117,
+   "cwd": "/tmp",
+   "parents": [
+    "sudo",
+    "bash"
+   ],
+   "tool_call": 9,
+   "excluded": "machinery:sudo"
+  }
+ ]
+}

@@ -1,0 +1,52 @@
+{
+    "flag": [
+        [
+            "-f",
+            "--force"
+        ],
+        [
+            "-u"
+        ],
+        [
+            "-v",
+            "--verbose"
+        ],
+        [
+            "-x",
+            "--exact"
+        ],
+        [
+            "-z",
+            "--zero"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [
+        [
+            "-n",
+            "--iterations",
+            "N"
+        ],
+        [
+            "--random-source",
+            [
+                "FILE",
+                "CONFIG_INPUT"
+            ]
+        ],
+        [
+            "-s",
+            "--size",
+            "N"
+        ],
+        [
+            "--remove",
+            "HOW"
+        ]
+    ]
+}

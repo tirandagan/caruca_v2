@@ -1,0 +1,4 @@
+1793195221	1793195221	output/truncate.py
+1793195225	1793195225	output/annotation/truncate.json
+1793195232	1793195232	output/annotation/InputOutputInfoGeneratorTruncate.py
+1793195238	1793195238	output/annotation/ParallelizabilityInfoGeneratorTruncate.py

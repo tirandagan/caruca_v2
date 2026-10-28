@@ -1,0 +1,24 @@
+{
+    "flag": [
+        [
+            "-a",
+            "--all"
+        ],
+        [
+            "--first-only"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [
+        [
+            "-t",
+            "--tabs",
+            "LIST"
+        ]
+    ]
+}

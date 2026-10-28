@@ -1,0 +1,2821 @@
+{
+ "summary": {
+  "run": "2026-10-28_123450_naive-run-mv_mv_PROMPT_v1",
+  "command": "mv",
+  "binary": "/usr/bin/mv",
+  "logger_check": {
+   "audit_starts": 299,
+   "trace_starts": 292,
+   "audit_without_trace": 7,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793205268.2143974,
+   "clock_spread_ms": 2.4993419647216797
+  },
+  "session_found": true,
+  "first_write": 1793205361.774,
+  "tries": 122,
+  "classes": {
+   "accepted": 60,
+   "unclassified": 13,
+   "refused": 49
+  },
+  "by_phase": {
+   "exploring/accepted": 22,
+   "exploring/refused": 5,
+   "exploring/unclassified": 8,
+   "testing/accepted": 38,
+   "testing/refused": 44,
+   "testing/unclassified": 5
+  },
+  "help_or_version": 4,
+  "distinct_argument_lists": 110,
+  "distinct_option_sets": 69,
+  "refused_share": 0.4016,
+  "refused_program_seconds": 0.013,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "/usr/bin/mv: not replacing 'b'",
+   "/usr/bin/mv: overwrite 'b'?",
+   "/usr/bin/mv: target directory 'a'",
+   "mv: cannot overwrite directory 'd' with non-directory",
+   "mv: missing destination file operand after 'a'",
+   "mv: missing file operand",
+   "mv: not replacing 'b'",
+   "mv: overwrite 'b'?",
+   "mv: target 'b'"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205295.566,
+   "seconds": 0.00029375,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205308.533,
+   "seconds": 0.000362471,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--backup",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.137,
+   "seconds": 0.000780309,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--backup",
+    "numbered",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mv: target 'b'",
+   "start": 1793205327.141,
+   "seconds": 0.000502684,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--backup=numbered",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.145,
+   "seconds": 0.000427734,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--backup=bogus",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mv: invalid argument \u2018bogus\u2019 for \u2018backup type\u2019",
+   "start": 1793205327.159,
+   "seconds": 0.000884522,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "-bnumbered",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mv: invalid option -- 'm'\nTry 'mv --help' for more information.\n",
+   "start": 1793205327.162,
+   "seconds": 0.000378712,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "-S",
+    ".bak",
+    "-b",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.163,
+   "seconds": 0.000303845,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "-S.old",
+    "-b",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.166,
+   "seconds": 0.000350491,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--suffix",
+    ".old",
+    "-b",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.168,
+   "seconds": 0.000261284,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--update",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.17,
+   "seconds": 0.000266579,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--update",
+    "older",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mv: target 'b'",
+   "start": 1793205327.171,
+   "seconds": 0.00025474,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--update=none",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.173,
+   "seconds": 0.000306179,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--update=bogus",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mv: invalid argument \u2018bogus\u2019 for \u2018--update\u2019",
+   "start": 1793205327.176,
+   "seconds": 0.000271414,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "-u",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.177,
+   "seconds": 0.000268579,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "-t",
+    "d",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.179,
+   "seconds": 0.000262826,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "-td",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.181,
+   "seconds": 0.000293924,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--target-directory",
+    "d",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.184,
+   "seconds": 0.000251864,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--target-directory=d",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.186,
+   "seconds": 0.000252989,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--target-dir=d",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.188,
+   "seconds": 0.000433862,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "-T",
+    "a",
+    "d"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mv: cannot overwrite directory 'd' with non-directory",
+   "start": 1793205327.19,
+   "seconds": 0.000267453,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "-Z",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.191,
+   "seconds": 0.000386173,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--context",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.193,
+   "seconds": 0.000220599,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--context=foo",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mv: option '--context' doesn't allow an argument\nTry 'mv --help' for more information.\n",
+   "start": 1793205327.194,
+   "seconds": 0.000266286,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--debug",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.196,
+   "seconds": 0.000228269,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--no-copy",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.197,
+   "seconds": 0.000217098,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--strip-trailing-slashes",
+    "s/",
+    "d"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.199,
+   "seconds": 0.000235231,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "-f",
+    "-v",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.2,
+   "seconds": 0.000252905,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "-n",
+    "-v",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mv: not replacing 'b'",
+   "start": 1793205327.201,
+   "seconds": 0.000409809,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "-i",
+    "-v",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mv: overwrite 'b'? ",
+   "start": 1793205327.203,
+   "seconds": 0.000276875,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "-fvn",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mv: not replacing 'b'",
+   "start": 1793205327.205,
+   "seconds": 0.000321436,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "--",
+    "a",
+    "-b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205327.207,
+   "seconds": 0.000258033,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mv: missing destination file operand after 'a'",
+   "start": 1793205327.208,
+   "seconds": 0.000271163,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mv: missing file operand",
+   "start": 1793205327.208,
+   "seconds": 0.000227811,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mv",
+    "-t"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mv: option requires an argument -- 't'\nTry 'mv --help' for more information.\n",
+   "start": 1793205327.209,
+   "seconds": 0.000213429,
+   "cwd": "/tmp/mvt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--backup",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.328,
+   "seconds": 0.000688539,
+   "cwd": "/tmp/tmpneet3pc8",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--backup=none",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.33,
+   "seconds": 0.000446832,
+   "cwd": "/tmp/tmpkt4oqg7t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--backup=off",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.33,
+   "seconds": 0.000384416,
+   "cwd": "/tmp/tmpxnhwxmar",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--backup=numbered",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.331,
+   "seconds": 0.00033829,
+   "cwd": "/tmp/tmpe21e1pqw",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--backup=t",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.332,
+   "seconds": 0.000554414,
+   "cwd": "/tmp/tmpp665ze2h",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--backup=existing",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.333,
+   "seconds": 0.000350915,
+   "cwd": "/tmp/tmp3p9elkdm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--backup=nil",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.333,
+   "seconds": 0.000349873,
+   "cwd": "/tmp/tmpslw3e47m",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--backup=simple",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.334,
+   "seconds": 0.000258457,
+   "cwd": "/tmp/tmp0mb4tamj",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--backup=never",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.334,
+   "seconds": 0.00027954,
+   "cwd": "/tmp/tmpdpq90aru",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--backup=zzz",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid argument \u2018zzz\u2019 for \u2018backup type\u2019",
+   "start": 1793205411.335,
+   "seconds": 0.000317582,
+   "cwd": "/tmp/tmpsuh5c5op",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--backup",
+    "a",
+    "b",
+    "dir"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.335,
+   "seconds": 0.000264957,
+   "cwd": "/tmp/tmp3msriu1_",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-b",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.336,
+   "seconds": 0.000278332,
+   "cwd": "/tmp/tmpgro3x4ys",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--debug",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.337,
+   "seconds": 0.000234458,
+   "cwd": "/tmp/tmph3tn1bnf",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--debug=x",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: option '--debug' doesn't allow an argument\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.337,
+   "seconds": 0.000280708,
+   "cwd": "/tmp/tmpwx_j7ue2",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-f",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.338,
+   "seconds": 0.000258166,
+   "cwd": "/tmp/tmp4rf0gs2v",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--force",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.338,
+   "seconds": 0.00028004,
+   "cwd": "/tmp/tmpm6d2lj1z",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--force=x",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: option '--force' doesn't allow an argument\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.339,
+   "seconds": 0.000233124,
+   "cwd": "/tmp/tmpjwiig46f",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-i",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: overwrite 'b'? ",
+   "start": 1793205411.339,
+   "seconds": 0.000248458,
+   "cwd": "/tmp/tmp_lpfw4ly",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--interactive",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: overwrite 'b'? ",
+   "start": 1793205411.34,
+   "seconds": 0.000261999,
+   "cwd": "/tmp/tmpskq3ukf3",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--interactive=x",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: option '--interactive' doesn't allow an argument\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.34,
+   "seconds": 0.000279166,
+   "cwd": "/tmp/tmpkgixi2x7",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-n",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: not replacing 'b'",
+   "start": 1793205411.341,
+   "seconds": 0.000747247,
+   "cwd": "/tmp/tmpo2d73a7v",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--no-clobber",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: not replacing 'b'",
+   "start": 1793205411.342,
+   "seconds": 0.000267249,
+   "cwd": "/tmp/tmp2hbvib55",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--no-clobber=x",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: option '--no-clobber' doesn't allow an argument\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.343,
+   "seconds": 0.000296832,
+   "cwd": "/tmp/tmpp0gl0vev",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--no-copy",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.343,
+   "seconds": 0.000399707,
+   "cwd": "/tmp/tmpb1wkok7n",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--no-copy=x",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: option '--no-copy' doesn't allow an argument\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.344,
+   "seconds": 0.000235333,
+   "cwd": "/tmp/tmpu8gkngsm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--strip-trailing-slashes",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.345,
+   "seconds": 0.000287207,
+   "cwd": "/tmp/tmpwed47z1b",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--strip-trailing-slashes=x",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: option '--strip-trailing-slashes' doesn't allow an argument\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.345,
+   "seconds": 0.000247624,
+   "cwd": "/tmp/tmp3ye8jpvn",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-S",
+    "val",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.346,
+   "seconds": 0.000306874,
+   "cwd": "/tmp/tmpw_zfnv2v",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-Sval",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.346,
+   "seconds": 0.000249332,
+   "cwd": "/tmp/tmppe73c0lk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-S"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: option requires an argument -- 'S'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.347,
+   "seconds": 0.000275874,
+   "cwd": "/tmp/tmpjnmsdca7",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--suffix",
+    "val",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.347,
+   "seconds": 0.000261249,
+   "cwd": "/tmp/tmpl12j0psp",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--suffix=val",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.348,
+   "seconds": 0.00023879,
+   "cwd": "/tmp/tmprxe3edlo",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--suffix"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: option '--suffix' requires an argument\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.348,
+   "seconds": 0.00027779,
+   "cwd": "/tmp/tmp14j9v8pv",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-T",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.349,
+   "seconds": 0.000235874,
+   "cwd": "/tmp/tmpuidgxnt0",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--no-target-directory",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.349,
+   "seconds": 0.000240999,
+   "cwd": "/tmp/tmpx2iy46o7",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--no-target-directory=x",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: option '--no-target-directory' doesn't allow an argument\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.35,
+   "seconds": 0.000221166,
+   "cwd": "/tmp/tmpbnd18_ol",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--update",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.35,
+   "seconds": 0.000213957,
+   "cwd": "/tmp/tmp3oj1f8xa",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--update=all",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.351,
+   "seconds": 0.000241666,
+   "cwd": "/tmp/tmp_jpmaq58",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--update=none",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.351,
+   "seconds": 0.000223875,
+   "cwd": "/tmp/tmp2h0h7lh3",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--update=older",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.352,
+   "seconds": 0.000240499,
+   "cwd": "/tmp/tmpqdf8ivkb",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--update=zzz",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid argument \u2018zzz\u2019 for \u2018--update\u2019",
+   "start": 1793205411.352,
+   "seconds": 0.000242249,
+   "cwd": "/tmp/tmp161w9zha",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--update",
+    "a",
+    "b",
+    "dir"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.353,
+   "seconds": 0.000223124,
+   "cwd": "/tmp/tmp6fnautft",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-u",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.353,
+   "seconds": 0.000216749,
+   "cwd": "/tmp/tmp10lte1so",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-v",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.354,
+   "seconds": 0.000246332,
+   "cwd": "/tmp/tmpsw4q0wly",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--verbose",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.354,
+   "seconds": 0.000219708,
+   "cwd": "/tmp/tmpa51p1byo",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--verbose=x",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: option '--verbose' doesn't allow an argument\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.355,
+   "seconds": 0.000244041,
+   "cwd": "/tmp/tmp5wsa9t5e",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-Z",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.355,
+   "seconds": 0.000245624,
+   "cwd": "/tmp/tmpsoxyblsm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--context",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.355,
+   "seconds": 0.000241082,
+   "cwd": "/tmp/tmpf3ymblqm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--context=x",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: option '--context' doesn't allow an argument\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.356,
+   "seconds": 0.000215291,
+   "cwd": "/tmp/tmprr1f3gvx",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.356,
+   "seconds": 0.000228208,
+   "cwd": "/tmp/tmpvgwi35_q",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.357,
+   "seconds": 0.000215583,
+   "cwd": "/tmp/tmpsr1g3q6d",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-t",
+    "dir",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.357,
+   "seconds": 0.000248124,
+   "cwd": "/tmp/tmpyn00f1e8",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-tdir",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.358,
+   "seconds": 0.000227999,
+   "cwd": "/tmp/tmpgu3jn8wi",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-t"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: option requires an argument -- 't'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.358,
+   "seconds": 0.000245582,
+   "cwd": "/tmp/tmp0y7d6v_o",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--target-directory",
+    "dir",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.359,
+   "seconds": 0.000338207,
+   "cwd": "/tmp/tmp9emxdcsn",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--target-directory=dir",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793205411.359,
+   "seconds": 0.000256207,
+   "cwd": "/tmp/tmpvl4e_c7x",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--target-directory"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: option '--target-directory' requires an argument\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.36,
+   "seconds": 0.000229124,
+   "cwd": "/tmp/tmpha0bgkk5",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-a",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'a'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.36,
+   "seconds": 0.000239332,
+   "cwd": "/tmp/tmpt_y07e_4",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-c",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'c'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.361,
+   "seconds": 0.000224207,
+   "cwd": "/tmp/tmpsyig4gdv",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-d",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'd'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.361,
+   "seconds": 0.000230499,
+   "cwd": "/tmp/tmp0joobua4",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-e",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'e'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.362,
+   "seconds": 0.000225874,
+   "cwd": "/tmp/tmpoq7zlvp0",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-g",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'g'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.362,
+   "seconds": 0.000218124,
+   "cwd": "/tmp/tmptv7uffn0",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-h",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'h'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.362,
+   "seconds": 0.000256999,
+   "cwd": "/tmp/tmp7qmeb0op",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-k",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'k'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.363,
+   "seconds": 0.000222457,
+   "cwd": "/tmp/tmppkhreko8",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-l",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'l'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.363,
+   "seconds": 0.000245082,
+   "cwd": "/tmp/tmpvh1smn4m",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-m",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'm'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.364,
+   "seconds": 0.000265833,
+   "cwd": "/tmp/tmpplf_687y",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-o",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'o'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.364,
+   "seconds": 0.000242624,
+   "cwd": "/tmp/tmpk3hcav_t",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-p",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'p'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.365,
+   "seconds": 0.000220874,
+   "cwd": "/tmp/tmpgwkew4el",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-q",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'q'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.365,
+   "seconds": 0.000233249,
+   "cwd": "/tmp/tmpbwtgbzf3",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-r",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'r'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.366,
+   "seconds": 0.000230541,
+   "cwd": "/tmp/tmp3y9l7tva",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-R",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'R'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.366,
+   "seconds": 0.000221332,
+   "cwd": "/tmp/tmpmoi44pmg",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-s",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 's'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.367,
+   "seconds": 0.000231916,
+   "cwd": "/tmp/tmp0wj56gmi",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-w",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'w'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.367,
+   "seconds": 0.000242874,
+   "cwd": "/tmp/tmpjwvi6e1h",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-x",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'x'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.368,
+   "seconds": 0.00023529,
+   "cwd": "/tmp/tmpu6zk3n5f",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-y",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'y'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.368,
+   "seconds": 0.000219666,
+   "cwd": "/tmp/tmpmpkjrwgy",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-z",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'z'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.368,
+   "seconds": 0.000226415,
+   "cwd": "/tmp/tmp85o2ma0j",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-B",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'B'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.369,
+   "seconds": 0.00020779,
+   "cwd": "/tmp/tmp2jswgn6f",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-F",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'F'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.369,
+   "seconds": 0.00021525,
+   "cwd": "/tmp/tmpvlvbav77",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-I",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'I'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.37,
+   "seconds": 0.000216207,
+   "cwd": "/tmp/tmpczkdhw8o",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-N",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'N'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.37,
+   "seconds": 0.000245374,
+   "cwd": "/tmp/tmppemk6y3s",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-U",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'U'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.37,
+   "seconds": 0.000250415,
+   "cwd": "/tmp/tmpl82bv7xp",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "-V",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: invalid option -- 'V'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.371,
+   "seconds": 0.000240166,
+   "cwd": "/tmp/tmpy1f7c298",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--exchange",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: unrecognized option '--exchange'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.371,
+   "seconds": 0.000233207,
+   "cwd": "/tmp/tmpveczjire",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--recursive",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: unrecognized option '--recursive'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.372,
+   "seconds": 0.000204707,
+   "cwd": "/tmp/tmp70_hr_15",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--target",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: target directory 'a'",
+   "start": 1793205411.372,
+   "seconds": 0.000228332,
+   "cwd": "/tmp/tmp7ot1gpx7",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--dereference",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: unrecognized option '--dereference'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.373,
+   "seconds": 0.000217082,
+   "cwd": "/tmp/tmpwsw89b7l",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mv",
+    "--preserve",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/mv: unrecognized option '--preserve'\nTry '/usr/bin/mv --help' for more information.\n",
+   "start": 1793205411.373,
+   "seconds": 0.000218291,
+   "cwd": "/tmp/tmpgkzmfkhl",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

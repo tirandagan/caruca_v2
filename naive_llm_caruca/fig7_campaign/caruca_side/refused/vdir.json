@@ -1,0 +1,94 @@
+{
+ "command": "vdir",
+ "binary": "/usr/bin/vdir",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T23:05:51",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 332,
+  "distinct_lines": 216,
+  "traced_lines": 216,
+  "sampled": false,
+  "test_runs_traced": 1080,
+  "seconds": 19.6,
+  "seconds_per_test_run": 0.01816,
+  "classes": {
+   "accepted": 638,
+   "other_nonzero": 412,
+   "refused": 20,
+   "unclassified": 10
+  },
+  "refused_share": 0.0185,
+  "classes_as_v1_runs": {
+   "accepted": 986,
+   "other_nonzero": 644,
+   "refused": 20,
+   "unclassified": 10
+  },
+  "refused_share_as_v1_runs": 0.012,
+  "lines_all_runs_refused": 4,
+  "top_messages": [
+   [
+    "refused",
+    "vdir: invalid suffix in --block-size argument '1b'",
+    10
+   ],
+   [
+    "unclassified",
+    "vdir: invalid tab size: '-1'",
+    10
+   ],
+   [
+    "refused",
+    "vdir: invalid line width: '-1'",
+    10
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 26916,
+  "distinct_lines": 11298,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 5000,
+  "seconds": 95.1,
+  "seconds_per_test_run": 0.01902,
+  "classes": {
+   "accepted": 2927,
+   "other_nonzero": 1798,
+   "unclassified": 80,
+   "refused": 195
+  },
+  "refused_share": 0.039,
+  "classes_as_v1_runs": {
+   "accepted": 6689,
+   "other_nonzero": 4306,
+   "unclassified": 80,
+   "refused": 195
+  },
+  "refused_share_as_v1_runs": 0.0173,
+  "lines_all_runs_refused": 39,
+  "top_messages": [
+   [
+    "refused",
+    "vdir: invalid line width: '-1'",
+    100
+   ],
+   [
+    "refused",
+    "vdir: invalid suffix in --block-size argument '1b'",
+    95
+   ],
+   [
+    "unclassified",
+    "vdir: invalid tab size: '-1'",
+    80
+   ]
+  ]
+ },
+ "finished": "2026-10-27T23:07:46"
+}

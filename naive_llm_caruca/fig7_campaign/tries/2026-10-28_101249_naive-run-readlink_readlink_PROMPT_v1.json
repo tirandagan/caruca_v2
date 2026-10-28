@@ -1,0 +1,956 @@
+{
+ "summary": {
+  "run": "2026-10-28_101249_naive-run-readlink_readlink_PROMPT_v1",
+  "command": "readlink",
+  "binary": "/usr/bin/readlink",
+  "logger_check": {
+   "audit_starts": 171,
+   "trace_starts": 165,
+   "audit_without_trace": 6,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793196748.195375,
+   "clock_spread_ms": 2.612590789794922
+  },
+  "session_found": true,
+  "first_write": 1793196818.651,
+  "tries": 42,
+  "classes": {
+   "accepted": 29,
+   "refused": 8,
+   "other_nonzero": 3,
+   "unclassified": 2
+  },
+  "by_phase": {
+   "exploring/accepted": 13,
+   "exploring/other_nonzero": 3,
+   "exploring/refused": 4,
+   "exploring/unclassified": 2,
+   "testing/accepted": 16,
+   "testing/refused": 4
+  },
+  "help_or_version": 3,
+  "distinct_argument_lists": 33,
+  "distinct_option_sets": 26,
+  "refused_share": 0.1905,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "readlink: target",
+   "readlink: write error"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "readlink",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196781.881,
+   "seconds": 0.000199459,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196781.882,
+   "seconds": 0.000150417,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "readlink: missing operand",
+   "start": 1793196793.51,
+   "seconds": 0.000155373,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196793.51,
+   "seconds": 0.000139706,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "lnk",
+    "lnk2",
+    "target"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196793.51,
+   "seconds": 0.000154581,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-f",
+    "lnk",
+    "lnk2",
+    "target",
+    "missing"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196793.511,
+   "seconds": 0.000156998,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-e",
+    "missing"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196793.511,
+   "seconds": 0.000174164,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-m",
+    "missing/x"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196793.511,
+   "seconds": 0.000183872,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-fn",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196793.512,
+   "seconds": 0.000163914,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-z",
+    "lnk",
+    "lnk2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196793.512,
+   "seconds": 0.000186706,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-v",
+    "target"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "readlink: target",
+   "start": 1793196793.515,
+   "seconds": 0.000160789,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196793.515,
+   "seconds": 0.000144415,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-f",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196793.515,
+   "seconds": 0.000137164,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "readlink: missing operand",
+   "start": 1793196793.516,
+   "seconds": 0.000154331,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "--canon",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "readlink: option '--canon' is ambiguous; possibilities: '--canonicalize'",
+   "start": 1793196793.516,
+   "seconds": 0.00014804,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "--canonicalize-e",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196793.516,
+   "seconds": 0.000157706,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "--",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196793.517,
+   "seconds": 0.000141456,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-x",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "readlink: invalid option -- 'x'\nTry 'readlink --help' for more information.\n",
+   "start": 1793196793.517,
+   "seconds": 0.000142289,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "lnk",
+    "-f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196793.517,
+   "seconds": 0.000137623,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-n",
+    "lnk",
+    "lnk2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "readlink: ignoring --no-newline with multiple arguments",
+   "start": 1793196793.518,
+   "seconds": 0.000146164,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-q",
+    "-s",
+    "-v",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196793.518,
+   "seconds": 0.000144789,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "readlink: write error",
+   "start": 1793196793.518,
+   "seconds": 0.000149623,
+   "cwd": "/tmp/rltest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "readlink",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.96,
+   "seconds": 0.000313596,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.965,
+   "seconds": 0.0001998,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-f",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.965,
+   "seconds": 0.000227967,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-fn",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.966,
+   "seconds": 0.0001988,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-e",
+    "lnk2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.966,
+   "seconds": 0.000219718,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-m",
+    "nope/x"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.967,
+   "seconds": 0.000202383,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "--canonicalize",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.967,
+   "seconds": 0.000195133,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "--canonicalize-existing",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.967,
+   "seconds": 0.000279136,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "--canonicalize-missing",
+    "nope"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.968,
+   "seconds": 0.000203258,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-z",
+    "lnk",
+    "lnk2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.968,
+   "seconds": 0.000214134,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-q",
+    "-s",
+    "-v",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.969,
+   "seconds": 0.000195508,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "--quiet",
+    "--silent",
+    "--verbose",
+    "--zero",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.969,
+   "seconds": 0.000206384,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-fz",
+    "lnk",
+    "lnk2",
+    "target"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.97,
+   "seconds": 0.000210592,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-mnz",
+    "nope"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.97,
+   "seconds": 0.000175632,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-f",
+    "-",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.971,
+   "seconds": 0.000161798,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-x",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "readlink: invalid option -- 'x'\nTry 'readlink --help' for more information.\n",
+   "start": 1793196887.971,
+   "seconds": 0.000176466,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "--foo",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "readlink: unrecognized option '--foo'\nTry 'readlink --help' for more information.\n",
+   "start": 1793196887.971,
+   "seconds": 0.000201717,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-L",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "readlink: invalid option -- 'L'\nTry 'readlink --help' for more information.\n",
+   "start": 1793196887.972,
+   "seconds": 0.000187507,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "-P",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "readlink: invalid option -- 'P'\nTry 'readlink --help' for more information.\n",
+   "start": 1793196887.972,
+   "seconds": 0.000175382,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "readlink",
+    "lnk"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793196887.973,
+   "seconds": 0.000174132,
+   "cwd": "/tmp/rlt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

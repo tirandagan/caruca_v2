@@ -1,0 +1,1473 @@
+{
+ "summary": {
+  "run": "2026-10-28_122120_naive-run-who_who_PROMPT_v1",
+  "command": "who",
+  "binary": "/usr/bin/who",
+  "logger_check": {
+   "audit_starts": 177,
+   "trace_starts": 172,
+   "audit_without_trace": 5,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793204458.7564106,
+   "clock_spread_ms": 6.407260894775391
+  },
+  "session_found": true,
+  "first_write": 1793204555.07,
+  "tries": 69,
+  "classes": {
+   "accepted": 51,
+   "refused": 18
+  },
+  "by_phase": {
+   "exploring/accepted": 21,
+   "exploring/refused": 3,
+   "testing/accepted": 30,
+   "testing/refused": 15
+  },
+  "help_or_version": 4,
+  "distinct_argument_lists": 58,
+  "distinct_option_sets": 37,
+  "refused_share": 0.2609,
+  "refused_program_seconds": 0.004,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": []
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204506.678,
+   "seconds": 0.000264789,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204506.678,
+   "seconds": 0.000269128,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.624,
+   "seconds": 0.000223404,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "/var/log/wtmp"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.624,
+   "seconds": 0.001092843,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "/nonexistent"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.625,
+   "seconds": 0.000205979,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.625,
+   "seconds": 0.000200393,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "am",
+    "i"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.626,
+   "seconds": 0.000186052,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "mom",
+    "likes"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.626,
+   "seconds": 0.000190305,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "a",
+    "b",
+    "c"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "who: extra operand \u2018c\u2019",
+   "start": 1793204518.627,
+   "seconds": 0.000181592,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "-bHq"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.627,
+   "seconds": 0.000174046,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "-w"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.627,
+   "seconds": 0.000182508,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "--writable"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.628,
+   "seconds": 0.00016946,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "--message"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.628,
+   "seconds": 0.000167543,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "-m"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.628,
+   "seconds": 0.000203019,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.629,
+   "seconds": 0.000157663,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "who: invalid option -- 'x'\nTry 'who --help' for more information.\n",
+   "start": 1793204518.629,
+   "seconds": 0.000198517,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "--",
+    "-q"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.631,
+   "seconds": 0.000151493,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "--head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204518.631,
+   "seconds": 0.000200392,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "--lookup=foo"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "who: option '--lookup' doesn't allow an argument\nTry 'who --help' for more information.\n",
+   "start": 1793204518.631,
+   "seconds": 0.000162957,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "/nonexistent"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204526.363,
+   "seconds": 0.008841494,
+   "cwd": "/tmp",
+   "parents": [
+    "strace",
+    "bash"
+   ],
+   "tool_call": 7,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204526.374,
+   "seconds": 0.007157612,
+   "cwd": "/tmp",
+   "parents": [
+    "strace",
+    "bash"
+   ],
+   "tool_call": 7,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "-m"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204526.383,
+   "seconds": 0.009174886,
+   "cwd": "/tmp",
+   "parents": [
+    "strace",
+    "bash"
+   ],
+   "tool_call": 7,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204526.393,
+   "seconds": 0.000175886,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 7,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "who"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204526.395,
+   "seconds": 0.008139074,
+   "cwd": "/tmp",
+   "parents": [
+    "strace",
+    "bash"
+   ],
+   "tool_call": 7,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.501,
+   "seconds": 0.000343921,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--all"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.502,
+   "seconds": 0.000298587,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--all=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--all' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.503,
+   "seconds": 0.000225212,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.503,
+   "seconds": 0.000234128,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--boot"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.503,
+   "seconds": 0.000220753,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--boot=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--boot' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.504,
+   "seconds": 0.000196086,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-d"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.504,
+   "seconds": 0.000204169,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--dead"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.505,
+   "seconds": 0.000202669,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--dead=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--dead' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.505,
+   "seconds": 0.000237004,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-H"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.505,
+   "seconds": 0.000217545,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--heading"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.506,
+   "seconds": 0.00020217,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--heading=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--heading' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.506,
+   "seconds": 0.000194544,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-l"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.507,
+   "seconds": 0.000205628,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--login"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.507,
+   "seconds": 0.000204752,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--login=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--login' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.507,
+   "seconds": 0.000208878,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--lookup"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.508,
+   "seconds": 0.000201795,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--lookup=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--lookup' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.508,
+   "seconds": 0.00024492,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-m"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.508,
+   "seconds": 0.000230711,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-p"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.509,
+   "seconds": 0.000179628,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--process"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.509,
+   "seconds": 0.000181085,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--process=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--process' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.509,
+   "seconds": 0.000176794,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-q"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.51,
+   "seconds": 0.000181086,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--count"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.51,
+   "seconds": 0.000187336,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--count=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--count' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.51,
+   "seconds": 0.000170919,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-r"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.511,
+   "seconds": 0.000237378,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--runlevel"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.511,
+   "seconds": 0.000287379,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--runlevel=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--runlevel' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.512,
+   "seconds": 0.00019246,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-s"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.512,
+   "seconds": 0.000191378,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--short"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.512,
+   "seconds": 0.00020892,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--short=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--short' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.513,
+   "seconds": 0.000192253,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.513,
+   "seconds": 0.000182878,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--time"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.513,
+   "seconds": 0.000187169,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--time=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--time' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.514,
+   "seconds": 0.000217628,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-T"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.514,
+   "seconds": 0.000217003,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-w"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.515,
+   "seconds": 0.000181753,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--mesg"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.515,
+   "seconds": 0.000188878,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--mesg=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--mesg' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.515,
+   "seconds": 0.000181003,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--message"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.516,
+   "seconds": 0.000180961,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--message=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--message' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.516,
+   "seconds": 0.000177044,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--writable"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.516,
+   "seconds": 0.00017796,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--writable=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--writable' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.517,
+   "seconds": 0.000237086,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "-u"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.517,
+   "seconds": 0.000174586,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--users"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.517,
+   "seconds": 0.000211627,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--users=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/who: option '--users' doesn't allow an argument\nTry '/usr/bin/who --help' for more information.\n",
+   "start": 1793204606.518,
+   "seconds": 0.000171461,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/who",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793204606.518,
+   "seconds": 0.000161586,
+   "cwd": "/tmp/whotest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

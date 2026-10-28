@@ -1,0 +1,4579 @@
+{
+ "summary": {
+  "run": "2026-10-28_130800_naive-run-ptx_ptx_PROMPT_v1",
+  "command": "ptx",
+  "binary": "/usr/bin/ptx",
+  "logger_check": {
+   "audit_starts": 343,
+   "trace_starts": 336,
+   "audit_without_trace": 7,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793207258.7186155,
+   "clock_spread_ms": 6.4182281494140625
+  },
+  "session_found": true,
+  "first_write": 1793207350.09,
+  "tries": 196,
+  "classes": {
+   "accepted": 177,
+   "refused": 5,
+   "unclassified": 12,
+   "signal": 2
+  },
+  "by_phase": {
+   "exploring/accepted": 23,
+   "exploring/refused": 5,
+   "exploring/unclassified": 2,
+   "testing/accepted": 154,
+   "testing/signal": 2,
+   "testing/unclassified": 10
+  },
+  "help_or_version": 2,
+  "distinct_argument_lists": 89,
+  "distinct_option_sets": 73,
+  "refused_share": 0.0255,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "ptx: error: regular expression has a match of length zero: \u2018[a-z]+\u2019",
+   "ptx: invalid gap width: \u2018-1\u2019",
+   "ptx: invalid gap width: \u20180\u2019"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "ptx",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207300.436,
+   "seconds": 0.000201007,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207300.437,
+   "seconds": 0.000190788,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "a.txt",
+    "b.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.737,
+   "seconds": 0.000253611,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-A",
+    "a.txt",
+    "b.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.738,
+   "seconds": 0.00023419,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-",
+    "b.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.738,
+   "seconds": 0.000628715,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.739,
+   "seconds": 0.000352222,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "a.txt",
+    "out.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.74,
+   "seconds": 0.000240192,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "a.txt",
+    "out.txt",
+    "c.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: extra operand \u2018c.txt\u2019",
+   "start": 1793207321.741,
+   "seconds": 0.000324881,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.742,
+   "seconds": 0.000349221,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-",
+    "out2.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.743,
+   "seconds": 0.000285537,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "a.txt",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.744,
+   "seconds": 0.000223562,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--format=tex",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.745,
+   "seconds": 0.000198638,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--format=bad",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: invalid argument \u2018bad\u2019 for \u2018--format\u2019",
+   "start": 1793207321.745,
+   "seconds": 0.000195054,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--format",
+    "roff",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.746,
+   "seconds": 0.00019272,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-w",
+    "abc",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: invalid line width: \u2018abc\u2019",
+   "start": 1793207321.746,
+   "seconds": 0.000172965,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-w",
+    "0",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: invalid line width: \u20180\u2019",
+   "start": 1793207321.746,
+   "seconds": 0.000198346,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-g",
+    "-1",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: invalid gap width: \u2018-1\u2019",
+   "start": 1793207321.747,
+   "seconds": 0.000185926,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-w0",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: invalid line width: \u20180\u2019",
+   "start": 1793207321.747,
+   "seconds": 0.000399485,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-t",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.748,
+   "seconds": 0.000210475,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-i",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.749,
+   "seconds": 0.000169547,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-o",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.749,
+   "seconds": 0.000163796,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-b",
+    "brk",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.749,
+   "seconds": 0.000222395,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-F",
+    "!",
+    "-M",
+    "yy",
+    "-O",
+    "-S",
+    "\\n",
+    "-W",
+    "[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.75,
+   "seconds": 0.000208224,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-R",
+    "-r",
+    "-f",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.751,
+   "seconds": 0.000215268,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-Af",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.751,
+   "seconds": 0.000183134,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207321.752,
+   "seconds": 0.000171214,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-g",
+    "0",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: invalid gap width: \u20180\u2019",
+   "start": 1793207329.636,
+   "seconds": 0.000373062,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-w",
+    "1",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207329.637,
+   "seconds": 0.000342515,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "a.txt",
+    "out.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207329.638,
+   "seconds": 0.000320928,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-A",
+    "a.txt",
+    "b.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207329.639,
+   "seconds": 0.000309676,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-A",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.438,
+   "seconds": 0.000278277,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--auto-reference",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.439,
+   "seconds": 0.000279444,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-F",
+    "zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.441,
+   "seconds": 0.000237779,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--flag-truncation=zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.441,
+   "seconds": 0.000242737,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-M",
+    "zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.441,
+   "seconds": 0.000247488,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--macro-name=zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.441,
+   "seconds": 0.000257987,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-O",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.442,
+   "seconds": 0.000262154,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-T",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.442,
+   "seconds": 0.000236862,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--format=roff",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.443,
+   "seconds": 0.000260111,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-R",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.444,
+   "seconds": 0.00023553,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--right-side-refs",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.444,
+   "seconds": 0.000210947,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-S",
+    "[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: error: regular expression has a match of length zero: \u2018[a-z]+\u2019",
+   "start": 1793207402.445,
+   "seconds": 0.000230988,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--sentence-regexp=[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: error: regular expression has a match of length zero: \u2018[a-z]+\u2019",
+   "start": 1793207402.445,
+   "seconds": 0.000222322,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-W",
+    "[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.445,
+   "seconds": 0.000250112,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--word-regexp=[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.446,
+   "seconds": 0.000239363,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-b",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.446,
+   "seconds": 0.000249237,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--break-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.448,
+   "seconds": 0.000246904,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-f",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.448,
+   "seconds": 0.000246946,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--ignore-case",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.448,
+   "seconds": 0.000212239,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-g",
+    "5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.448,
+   "seconds": 0.000240905,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--gap-size=5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.449,
+   "seconds": 0.000234154,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-i",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.449,
+   "seconds": 0.000246696,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--ignore-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.45,
+   "seconds": 0.00022828,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-o",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.45,
+   "seconds": 0.000267236,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--only-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.451,
+   "seconds": 0.000240612,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-r",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.451,
+   "seconds": 0.00023303,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--references",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.452,
+   "seconds": 0.000288235,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-t",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.452,
+   "seconds": 0.000217281,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--typeset-mode",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.453,
+   "seconds": 0.000255779,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-w",
+    "5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.453,
+   "seconds": 0.000204364,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--width=5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.454,
+   "seconds": 0.000208115,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-A",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.454,
+   "seconds": 0.000215572,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--auto-reference",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.455,
+   "seconds": 0.000213948,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-F",
+    "zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.455,
+   "seconds": 0.000271944,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--flag-truncation=zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.457,
+   "seconds": 0.000203073,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-M",
+    "zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.457,
+   "seconds": 0.000191991,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--macro-name=zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.457,
+   "seconds": 0.000183407,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-O",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.457,
+   "seconds": 0.000176533,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-T",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.457,
+   "seconds": 0.000231822,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--format=roff",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.458,
+   "seconds": 0.000189865,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-R",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.458,
+   "seconds": 0.000234863,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--right-side-refs",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.459,
+   "seconds": 0.000169492,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-S",
+    "[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: error: regular expression has a match of length zero: \u2018[a-z]+\u2019",
+   "start": 1793207402.459,
+   "seconds": 0.000202073,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--sentence-regexp=[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: error: regular expression has a match of length zero: \u2018[a-z]+\u2019",
+   "start": 1793207402.459,
+   "seconds": 0.000230988,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-W",
+    "[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.46,
+   "seconds": 0.000210739,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--word-regexp=[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.46,
+   "seconds": 0.000208197,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-b",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.461,
+   "seconds": 0.000200032,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--break-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.461,
+   "seconds": 0.000168491,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-f",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.461,
+   "seconds": 0.000186574,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--ignore-case",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.463,
+   "seconds": 0.000187782,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-g",
+    "5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.463,
+   "seconds": 0.000195323,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--gap-size=5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.463,
+   "seconds": 0.0001712,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-i",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.463,
+   "seconds": 0.000172657,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--ignore-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.463,
+   "seconds": 0.000198198,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-o",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.464,
+   "seconds": 0.000183949,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--only-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.464,
+   "seconds": 0.000181366,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-r",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.466,
+   "seconds": 0.000180699,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--references",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.466,
+   "seconds": 0.000176283,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-t",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.466,
+   "seconds": 0.000180408,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--typeset-mode",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207402.467,
+   "seconds": 0.000192616,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-w",
+    "5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 15,
+   "stderr": "",
+   "start": 1793207402.467,
+   "seconds": 133.426733101,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-A",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.687,
+   "seconds": 0.000363438,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--auto-reference",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.687,
+   "seconds": 0.000279891,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-F",
+    "zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.688,
+   "seconds": 0.00023718,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--flag-truncation=zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.689,
+   "seconds": 0.000246764,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-M",
+    "zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.69,
+   "seconds": 0.000224013,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--macro-name=zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.692,
+   "seconds": 0.000197344,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-O",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.694,
+   "seconds": 0.00020822,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-T",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.695,
+   "seconds": 0.000207971,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--format=roff",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.697,
+   "seconds": 0.000239847,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-R",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.698,
+   "seconds": 0.000225347,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--right-side-refs",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.7,
+   "seconds": 0.000186178,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-S",
+    "[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: error: regular expression has a match of length zero: \u2018[a-z]+\u2019",
+   "start": 1793207541.702,
+   "seconds": 0.000379563,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--sentence-regexp=[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: error: regular expression has a match of length zero: \u2018[a-z]+\u2019",
+   "start": 1793207541.703,
+   "seconds": 0.000221263,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-W",
+    "[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.704,
+   "seconds": 0.000211929,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--word-regexp=[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.706,
+   "seconds": 0.000229847,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-b",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.708,
+   "seconds": 0.000236597,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--break-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.709,
+   "seconds": 0.000185635,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-f",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.711,
+   "seconds": 0.000198761,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--ignore-case",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.713,
+   "seconds": 0.000193178,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-g",
+    "5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.714,
+   "seconds": 0.000216888,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--gap-size=5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.716,
+   "seconds": 0.000184011,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-i",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.718,
+   "seconds": 0.000210054,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--ignore-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.719,
+   "seconds": 0.000174843,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-o",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.72,
+   "seconds": 0.000240097,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--only-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.721,
+   "seconds": 0.000212888,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-r",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.723,
+   "seconds": 0.000216095,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--references",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.725,
+   "seconds": 0.000207096,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-t",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.726,
+   "seconds": 0.000233888,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--typeset-mode",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.728,
+   "seconds": 0.000230472,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-w",
+    "5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.729,
+   "seconds": 0.000215013,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--width=5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.731,
+   "seconds": 0.000199219,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-A",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.732,
+   "seconds": 0.000186177,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--auto-reference",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.734,
+   "seconds": 0.000192803,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-F",
+    "zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.736,
+   "seconds": 0.000191886,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--flag-truncation=zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.738,
+   "seconds": 0.000229805,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-M",
+    "zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.739,
+   "seconds": 0.000191178,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--macro-name=zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.741,
+   "seconds": 0.000186053,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-O",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.743,
+   "seconds": 0.000199303,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-T",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.744,
+   "seconds": 0.00017776,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--format=roff",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.746,
+   "seconds": 0.000196803,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-R",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.747,
+   "seconds": 0.000209512,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--right-side-refs",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.749,
+   "seconds": 0.000184677,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-S",
+    "[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: error: regular expression has a match of length zero: \u2018[a-z]+\u2019",
+   "start": 1793207541.751,
+   "seconds": 0.000209304,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--sentence-regexp=[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: error: regular expression has a match of length zero: \u2018[a-z]+\u2019",
+   "start": 1793207541.751,
+   "seconds": 0.000250848,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-W",
+    "[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.753,
+   "seconds": 0.00023393,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--word-regexp=[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.754,
+   "seconds": 0.000221513,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-b",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.755,
+   "seconds": 0.000223929,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--break-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.757,
+   "seconds": 0.000206303,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-f",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.758,
+   "seconds": 0.000194469,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--ignore-case",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.759,
+   "seconds": 0.000206886,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-g",
+    "5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.76,
+   "seconds": 0.000224054,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--gap-size=5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.762,
+   "seconds": 0.000220305,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-i",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.764,
+   "seconds": 0.00020922,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--ignore-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.765,
+   "seconds": 0.000211887,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-o",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.767,
+   "seconds": 0.000194011,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--only-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.768,
+   "seconds": 0.000223388,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-r",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.77,
+   "seconds": 0.000183719,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--references",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.77,
+   "seconds": 0.000188719,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-t",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.772,
+   "seconds": 0.000185719,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--typeset-mode",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207541.774,
+   "seconds": 0.000203886,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-w",
+    "5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 9,
+   "stderr": "",
+   "start": 1793207541.775,
+   "seconds": 5.006166168,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-w",
+    "30",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.477,
+   "seconds": 0.000391142,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-S",
+    "[.?!]",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.479,
+   "seconds": 0.000312389,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-w",
+    "5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.481,
+   "seconds": 0.000305597,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-A",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.496,
+   "seconds": 0.00025422,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--auto-reference",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.497,
+   "seconds": 0.00023501,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-F",
+    "zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.499,
+   "seconds": 0.000220135,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--flag-truncation=zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.501,
+   "seconds": 0.000226843,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-M",
+    "zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.502,
+   "seconds": 0.000226427,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--macro-name=zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.504,
+   "seconds": 0.000199384,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-O",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.506,
+   "seconds": 0.000198884,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-T",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.506,
+   "seconds": 0.000196467,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--format=roff",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.506,
+   "seconds": 0.000230343,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-R",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.508,
+   "seconds": 0.000198134,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--right-side-refs",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.51,
+   "seconds": 0.000192342,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-S",
+    "[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: error: regular expression has a match of length zero: \u2018[a-z]+\u2019",
+   "start": 1793207557.511,
+   "seconds": 0.000235261,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--sentence-regexp=[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "ptx: error: regular expression has a match of length zero: \u2018[a-z]+\u2019",
+   "start": 1793207557.512,
+   "seconds": 0.000190925,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-W",
+    "[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.512,
+   "seconds": 0.000229135,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--word-regexp=[a-z]+",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.514,
+   "seconds": 0.000214967,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-b",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.515,
+   "seconds": 0.000233218,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--break-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.517,
+   "seconds": 0.000198759,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-f",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.517,
+   "seconds": 0.000192592,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--ignore-case",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.519,
+   "seconds": 0.000197717,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-g",
+    "5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.521,
+   "seconds": 0.000197134,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--gap-size=5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.522,
+   "seconds": 0.000196842,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-i",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.523,
+   "seconds": 0.00023526,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--ignore-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.524,
+   "seconds": 0.000218509,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-o",
+    "ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.526,
+   "seconds": 0.000195758,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--only-file=ign",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.528,
+   "seconds": 0.000194217,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-r",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.529,
+   "seconds": 0.000205468,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--references",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.531,
+   "seconds": 0.000184509,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-t",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.532,
+   "seconds": 0.000213218,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--typeset-mode",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.534,
+   "seconds": 0.000219759,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-w",
+    "5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.536,
+   "seconds": 0.000222468,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "--width=5",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.537,
+   "seconds": 0.000227468,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-A",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.539,
+   "seconds": 0.000209801,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--auto-reference",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.539,
+   "seconds": 0.00028397,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-F",
+    "zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.541,
+   "seconds": 0.000231927,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--flag-truncation=zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.543,
+   "seconds": 0.000221593,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-M",
+    "zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.545,
+   "seconds": 0.000212218,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--macro-name=zz",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.546,
+   "seconds": 0.000209968,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-O",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.548,
+   "seconds": 0.000214926,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-T",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.55,
+   "seconds": 0.000207801,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "--format=roff",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.551,
+   "seconds": 0.000226676,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "ptx",
+    "-G",
+    "-R",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793207557.553,
+   "seconds": 0.000212468,
+   "cwd": "/tmp/ptxtest",
+   "parents": [
+    "python3.12",
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

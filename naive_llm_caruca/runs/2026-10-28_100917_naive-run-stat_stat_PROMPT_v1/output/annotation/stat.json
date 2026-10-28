@@ -1,0 +1,37 @@
+{
+    "flag": [
+        [
+            "-L",
+            "--dereference"
+        ],
+        [
+            "-f",
+            "--file-system"
+        ],
+        [
+            "-t",
+            "--terse"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [
+        [
+            "--cached",
+            "MODE"
+        ],
+        [
+            "-c",
+            "--format",
+            "FORMAT"
+        ],
+        [
+            "--printf",
+            "FORMAT"
+        ]
+    ]
+}

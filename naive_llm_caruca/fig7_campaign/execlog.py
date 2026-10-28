@@ -25,8 +25,15 @@ ARG = re.compile(r"\ba(\d+)(?:\[\d+\])?=(\"[^\"]*\"|[0-9A-F]+|\(null\))")
 
 
 def unescape(r):
-    """bpftrace's %r prints non-printable bytes as \\xNN."""
-    return re.sub(r"\\x([0-9a-fA-F]{2})", lambda m: chr(int(m.group(1), 16)), r)
+    """bpftrace's %r prints non-printable bytes as \\xNN; rebuild the bytes and decode them as UTF-8, so that
+    GNU's curly quotes (\\xe2\\x80\\x98) come back as one character, not three."""
+    out, i = bytearray(), 0
+    for m in re.finditer(r"\\x([0-9a-fA-F]{2})", r):
+        out += r[i:m.start()].encode("utf-8")
+        out.append(int(m.group(1), 16))
+        i = m.end()
+    out += r[i:].encode("utf-8")
+    return out.decode("utf-8", "replace")
 
 
 def unhex(v):

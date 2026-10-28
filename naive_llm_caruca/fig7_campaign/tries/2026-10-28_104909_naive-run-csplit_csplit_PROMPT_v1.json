@@ -1,0 +1,736 @@
+{
+ "summary": {
+  "run": "2026-10-28_104909_naive-run-csplit_csplit_PROMPT_v1",
+  "command": "csplit",
+  "binary": "/usr/bin/csplit",
+  "logger_check": {
+   "audit_starts": 283,
+   "trace_starts": 276,
+   "audit_without_trace": 7,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793198927.9839692,
+   "clock_spread_ms": 4.093408584594727
+  },
+  "session_found": true,
+  "first_write": 1793199076.718,
+  "tries": 30,
+  "classes": {
+   "accepted": 20,
+   "refused": 4,
+   "unclassified": 5,
+   "other_nonzero": 1
+  },
+  "by_phase": {
+   "exploring/accepted": 20,
+   "exploring/other_nonzero": 1,
+   "exploring/refused": 4,
+   "exploring/unclassified": 5
+  },
+  "help_or_version": 2,
+  "distinct_argument_lists": 30,
+  "distinct_option_sets": 24,
+  "refused_share": 0.1333,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "csplit: input disappeared",
+   "csplit: too many % conversion specifications in suffix",
+   "csplit: \u201820\u2019: line number out of range",
+   "csplit: \u2018in.txt\u2019: invalid pattern"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/csplit",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198961.737,
+   "seconds": 0.000208333,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/csplit",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198961.738,
+   "seconds": 0.000218666,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "in.txt",
+    "3",
+    "/7/"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198976.228,
+   "seconds": 0.000241937,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-q",
+    "in.txt",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198976.229,
+   "seconds": 0.000207904,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198976.231,
+   "seconds": 0.000307215,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "-f",
+    "pre",
+    "-b",
+    "%03d.part",
+    "in.txt",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198976.233,
+   "seconds": 0.000254917,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "--prefix=p2",
+    "--digits=4",
+    "--suffix-format=%d.x",
+    "in.txt",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198976.234,
+   "seconds": 0.000291988,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "-fp3",
+    "-n3",
+    "-b%x",
+    "in.txt",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198976.236,
+   "seconds": 0.000216349,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "--prefix",
+    "p4",
+    "in.txt",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198976.237,
+   "seconds": 0.000500307,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-z",
+    "--suppress-matched",
+    "-k",
+    "in.txt",
+    "/3/",
+    "{*}"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198976.239,
+   "seconds": 0.000201912,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-ksz",
+    "in.txt",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198976.24,
+   "seconds": 0.000205947,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-n",
+    "abc",
+    "in.txt",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "csplit: invalid number: \u2018abc\u2019",
+   "start": 1793198976.241,
+   "seconds": 0.000485662,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "-n",
+    "5",
+    "-b",
+    "%d",
+    "in.txt",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198976.242,
+   "seconds": 0.00020549,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "csplit: missing operand after \u2018in.txt\u2019",
+   "start": 1793198976.243,
+   "seconds": 0.000181275,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "in.txt",
+    "20"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "csplit: \u201820\u2019: line number out of range\n",
+   "start": 1793198976.244,
+   "seconds": 0.000199083,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-k",
+    "in.txt",
+    "20"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "csplit: \u201820\u2019: line number out of range\n",
+   "start": 1793198976.244,
+   "seconds": 0.000195047,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "in.txt",
+    "/2/+1",
+    "%6%",
+    "{1}"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "csplit: \u2018%6%\u2019: match not found on repetition 1\n",
+   "start": 1793198976.246,
+   "seconds": 0.000206738,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "in.txt",
+    "3",
+    "-s"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198976.247,
+   "seconds": 0.000171997,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "--",
+    "in.txt",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198976.249,
+   "seconds": 0.000188764,
+   "cwd": "/tmp/tmp.6T5d7pyKjo",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "-n",
+    "0",
+    "in.txt",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793199067.834,
+   "seconds": 0.00029562,
+   "cwd": "/tmp/tmp.CRvUSueycs",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "-n",
+    "-1",
+    "in.txt",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "csplit: invalid number: \u2018-1\u2019",
+   "start": 1793199067.838,
+   "seconds": 0.000266946,
+   "cwd": "/tmp/tmp.CRvUSueycs",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "-n",
+    "1",
+    "in.txt",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793199067.842,
+   "seconds": 0.000235771,
+   "cwd": "/tmp/tmp.CRvUSueycs",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "-n",
+    "10",
+    "in.txt",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793199067.845,
+   "seconds": 0.000252484,
+   "cwd": "/tmp/tmp.CRvUSueycs",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "-f",
+    "d/p",
+    "in.txt",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793199067.849,
+   "seconds": 0.00021389,
+   "cwd": "/tmp/tmp.CRvUSueycs",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "in.txt",
+    "-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "csplit: invalid option -- '3'\nTry 'csplit --help' for more information.\n",
+   "start": 1793199067.851,
+   "seconds": 0.000191051,
+   "cwd": "/tmp/tmp.CRvUSueycs",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "--quiet",
+    "in.txt",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793199067.852,
+   "seconds": 0.000207138,
+   "cwd": "/tmp/tmp.CRvUSueycs",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "--silent",
+    "in.txt",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793199067.852,
+   "seconds": 0.00024719,
+   "cwd": "/tmp/tmp.CRvUSueycs",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "-b",
+    "%d-%s",
+    "in.txt",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "csplit: too many % conversion specifications in suffix",
+   "start": 1793199067.854,
+   "seconds": 0.000210098,
+   "cwd": "/tmp/tmp.CRvUSueycs",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-z",
+    "empty",
+    "1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "csplit: input disappeared",
+   "start": 1793199067.855,
+   "seconds": 0.000218349,
+   "cwd": "/tmp/tmp.CRvUSueycs",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "csplit",
+    "-s",
+    "in.txt",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "csplit: \u2018in.txt\u2019: invalid pattern",
+   "start": 1793199067.856,
+   "seconds": 0.000198302,
+   "cwd": "/tmp/tmp.CRvUSueycs",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  }
+ ],
+ "excluded": []
+}

@@ -1,0 +1,3568 @@
+{
+ "summary": {
+  "run": "2026-10-28_134035_naive-run-split_split_PROMPT_v1",
+  "command": "split",
+  "binary": "/usr/bin/split",
+  "logger_check": {
+   "audit_starts": 514,
+   "trace_starts": 507,
+   "audit_without_trace": 7,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793209213.2082586,
+   "clock_spread_ms": 5.31458854675293
+  },
+  "session_found": true,
+  "first_write": 1793209563.631,
+  "tries": 147,
+  "classes": {
+   "accepted": 130,
+   "other_nonzero": 1,
+   "unclassified": 8,
+   "refused": 6,
+   "signal": 2
+  },
+  "by_phase": {
+   "exploring/accepted": 36,
+   "exploring/other_nonzero": 1,
+   "exploring/refused": 6,
+   "exploring/signal": 2,
+   "exploring/unclassified": 4,
+   "testing/accepted": 94,
+   "testing/unclassified": 4
+  },
+  "help_or_version": 5,
+  "distinct_argument_lists": 115,
+  "distinct_option_sets": 52,
+  "refused_share": 0.0408,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "split: --filter does not process a chunk extracted to stdout",
+   "split: cannot split in more than one way",
+   "split: invalid chunk number: \u20184\u2019",
+   "split: multi-character separator \u2018ab\u2019",
+   "split: \u20180x1f\u2019: invalid start value for hexadecimal suffix"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/split",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209263.128,
+   "seconds": 0.000309602,
+   "cwd": "/home/tirandagan.guest/naive-arm/samples",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/split",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209263.133,
+   "seconds": 0.000268614,
+   "cwd": "/home/tirandagan.guest/naive-arm/samples",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-3",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.776,
+   "seconds": 0.000202264,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "4",
+    "-d",
+    "in.txt",
+    "d_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.778,
+   "seconds": 0.000186513,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "4",
+    "-x",
+    "in.txt",
+    "h_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.779,
+   "seconds": 0.000199889,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "4",
+    "--numeric-suffixes=7",
+    "in.txt",
+    "n_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.781,
+   "seconds": 0.00047295,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "4",
+    "--numeric-suffixes",
+    "7",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: cannot open '7' for reading",
+   "start": 1793209334.782,
+   "seconds": 0.000181388,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "4",
+    "-a",
+    "3",
+    "in.txt",
+    "a_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.783,
+   "seconds": 0.000182805,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "4",
+    "--additional-suffix=.txt",
+    "in.txt",
+    "s_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.784,
+   "seconds": 0.000393861,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "3",
+    "in.txt",
+    "c_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.785,
+   "seconds": 0.000179929,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "2/3",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.786,
+   "seconds": 0.000187513,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "l/2/3",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.787,
+   "seconds": 0.00014776,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "r/1/3",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.788,
+   "seconds": 0.000164012,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "r/1/3",
+    "in.txt",
+    "zz_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.789,
+   "seconds": 0.000150511,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "5",
+    "-",
+    "st_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.79,
+   "seconds": 0.000254018,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.791,
+   "seconds": 0.000267894,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "5",
+    "--filter=wc -l > $FILE.cnt",
+    "in.txt",
+    "f_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.792,
+   "seconds": 0.001770833,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-t",
+    ",",
+    "-l",
+    "2",
+    "-",
+    "t_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.795,
+   "seconds": 0.000154052,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "2",
+    "-b",
+    "3",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: cannot split in more than one way",
+   "start": 1793209334.797,
+   "seconds": 0.000172763,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-e",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.798,
+   "seconds": 0.000159678,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "in.txt",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: extra operand \u2018b\u2019",
+   "start": 1793209334.799,
+   "seconds": 0.000157344,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-b",
+    "10K",
+    "in.txt",
+    "b_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.799,
+   "seconds": 0.000164262,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-b",
+    "1KiB",
+    "in.txt",
+    "b_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.8,
+   "seconds": 0.00017297,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-C",
+    "7",
+    "in.txt",
+    "C_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.801,
+   "seconds": 0.000174846,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "r/2",
+    "-u",
+    "in.txt",
+    "u_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.803,
+   "seconds": 0.000161511,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "5",
+    "--verbose",
+    "in.txt",
+    "v_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.804,
+   "seconds": 0.000156261,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-dl",
+    "4",
+    "in.txt",
+    "k_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.805,
+   "seconds": 0.000160136,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l=4",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: invalid number of lines: \u2018=4\u2019",
+   "start": 1793209334.806,
+   "seconds": 0.000153553,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "--lines",
+    "4",
+    "in.txt",
+    "m_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209334.806,
+   "seconds": 0.000159678,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "4",
+    "--hex-suffixes=a",
+    "in.txt",
+    "hx_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209378.857,
+   "seconds": 0.000414387,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "4",
+    "--hex-suffixes=0x1f",
+    "in.txt",
+    "hx_"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: \u20180x1f\u2019: invalid start value for hexadecimal suffix",
+   "start": 1793209378.859,
+   "seconds": 0.000218256,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "4",
+    "-a",
+    "0",
+    "in.txt",
+    "z_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209378.861,
+   "seconds": 0.000236465,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "0",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: invalid number of lines: \u20180\u2019",
+   "start": 1793209378.862,
+   "seconds": 0.000248423,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-b",
+    "0",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: invalid number of bytes: \u20180\u2019",
+   "start": 1793209378.863,
+   "seconds": 0.000183089,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "0",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: invalid number of chunks: \u20180\u2019",
+   "start": 1793209378.863,
+   "seconds": 0.000269257,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "4/3",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: invalid chunk number: \u20184\u2019",
+   "start": 1793209378.864,
+   "seconds": 0.000209589,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-b",
+    "2KB",
+    "in.txt",
+    "b_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209378.864,
+   "seconds": 0.000193755,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-b",
+    "1x",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: invalid number of bytes: \u20181x\u2019",
+   "start": 1793209378.865,
+   "seconds": 0.000304842,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-t",
+    "\\0",
+    "-l",
+    "1",
+    "-",
+    "t_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209378.866,
+   "seconds": 0.00024609,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-t",
+    "ab",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: multi-character separator \u2018ab\u2019",
+   "start": 1793209378.867,
+   "seconds": 0.000178047,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "--separator=,",
+    "-l",
+    "1",
+    "in.txt",
+    "q_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209378.868,
+   "seconds": 0.000188339,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "5",
+    "--filter=cat",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209378.869,
+   "seconds": 0.001907595,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "l/5",
+    "-e",
+    "-",
+    "e_"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 15,
+   "stderr": "",
+   "start": 1793209378.872,
+   "seconds": 134.032158707,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "l/5",
+    "-e",
+    "-",
+    "e_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209520.49,
+   "seconds": 0.000382504,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 20,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "l/5",
+    "-e",
+    "-",
+    "e_"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 15,
+   "stderr": "",
+   "start": 1793209520.493,
+   "seconds": 4.999923711,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 20,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "3",
+    "-",
+    "e_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209525.495,
+   "seconds": 0.000271086,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 20,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "r/3",
+    "-",
+    "e_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209525.497,
+   "seconds": 0.000173627,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "timeout",
+    "bash"
+   ],
+   "tool_call": 20,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "5",
+    "in.txt",
+    "sub/pp"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209525.499,
+   "seconds": 0.000172877,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 20,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "5",
+    "--",
+    "in.txt",
+    "dd_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209525.5,
+   "seconds": 0.000157543,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 20,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "2",
+    "-n",
+    "1/2",
+    "in.txt",
+    "pp_"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: cannot split in more than one way",
+   "start": 1793209584.498,
+   "seconds": 0.000312712,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 24,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "1/2",
+    "-n",
+    "2",
+    "in.txt",
+    "pp_"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: cannot split in more than one way",
+   "start": 1793209584.499,
+   "seconds": 0.000252836,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 24,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "1/2",
+    "--filter=sed s/^/F:/",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: --filter does not process a chunk extracted to stdout",
+   "start": 1793209584.501,
+   "seconds": 0.000264462,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 24,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "2",
+    "-n",
+    "1/2",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "split: cannot split in more than one way",
+   "start": 1793209584.502,
+   "seconds": 0.00024717,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 24,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.766,
+   "seconds": 0.000291337,
+   "cwd": "/tmp/tmp_dd7b0k2",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.767,
+   "seconds": 0.000245754,
+   "cwd": "/tmp/tmp0zimhon6",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.768,
+   "seconds": 0.000368172,
+   "cwd": "/tmp/tmp_ygg68zz",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--lines",
+    "3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.769,
+   "seconds": 0.000236628,
+   "cwd": "/tmp/tmpfp7hihqh",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-b",
+    "7",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.77,
+   "seconds": 0.00026267,
+   "cwd": "/tmp/tmp1wpeva37",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-C",
+    "7",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.771,
+   "seconds": 0.000272295,
+   "cwd": "/tmp/tmp9wjmfhvz",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.772,
+   "seconds": 0.000264212,
+   "cwd": "/tmp/tmphyract3z",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "l/3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.773,
+   "seconds": 0.000216586,
+   "cwd": "/tmp/tmp5vrdnrag",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "r/3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.774,
+   "seconds": 0.000217294,
+   "cwd": "/tmp/tmppd5z7o29",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "2/3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.775,
+   "seconds": 0.000197377,
+   "cwd": "/tmp/tmp8oypjwwq",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "l/2/3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.776,
+   "seconds": 0.000194753,
+   "cwd": "/tmp/tmp1oyowurt",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "r/2/3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.777,
+   "seconds": 0.000227753,
+   "cwd": "/tmp/tmpyc1cnvp4",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "2/3",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.777,
+   "seconds": 0.000185752,
+   "cwd": "/tmp/tmplcpk7hok",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--number",
+    "1/2",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.778,
+   "seconds": 0.000182711,
+   "cwd": "/tmp/tmpfbtm_4px",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-d",
+    "-a",
+    "3",
+    "-l",
+    "4",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.779,
+   "seconds": 0.000172377,
+   "cwd": "/tmp/tmpugdqhl_x",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-dx",
+    "-l",
+    "4",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.78,
+   "seconds": 0.000222127,
+   "cwd": "/tmp/tmpf8clfvtj",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-e",
+    "-n",
+    "l/20",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.78,
+   "seconds": 0.000208628,
+   "cwd": "/tmp/tmpflxqqfcc",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-t",
+    ",",
+    "-l",
+    "2",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.781,
+   "seconds": 0.000161711,
+   "cwd": "/tmp/tmpvavpbh3r",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--verbose",
+    "-l",
+    "5",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.782,
+   "seconds": 0.000204169,
+   "cwd": "/tmp/tmpvra651gs",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "2",
+    "-",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.783,
+   "seconds": 0.000182877,
+   "cwd": "/tmp/tmpudi5bv3l",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.783,
+   "seconds": 0.000196919,
+   "cwd": "/tmp/tmpsmtngi0j",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "2",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.784,
+   "seconds": 0.000180335,
+   "cwd": "/tmp/tmpfsqlkx2q",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--additional-suffix",
+    ".txt",
+    "-l",
+    "5",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.785,
+   "seconds": 0.00017171,
+   "cwd": "/tmp/tmprnqg87l6",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--filter",
+    "cat > $FILE.out",
+    "-l",
+    "5",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.786,
+   "seconds": 0.002111402,
+   "cwd": "/tmp/tmp2quy2dty",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-u",
+    "-n",
+    "r/2",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.788,
+   "seconds": 0.000180585,
+   "cwd": "/tmp/tmp5lt9wryr",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "1/2",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209663.789,
+   "seconds": 0.000152377,
+   "cwd": "/tmp/tmpqcwblw_i",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 28,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--verbose",
+    "-l",
+    "5",
+    "in.txt",
+    "v_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209671.88,
+   "seconds": 0.000371296,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 29,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--verbose",
+    "-n",
+    "1/2",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.436,
+   "seconds": 0.000360129,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--verbose",
+    "--filter=cat",
+    "-l",
+    "5",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.437,
+   "seconds": 0.006791921,
+   "cwd": "/tmp/splt",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.47,
+   "seconds": 0.000267545,
+   "cwd": "/tmp/tmplc0tdffb",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.471,
+   "seconds": 0.000214461,
+   "cwd": "/tmp/tmprlz0khl_",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.472,
+   "seconds": 0.000228587,
+   "cwd": "/tmp/tmpzidft3ps",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--lines",
+    "3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.473,
+   "seconds": 0.000189419,
+   "cwd": "/tmp/tmpn9n806ti",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-b",
+    "7",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.474,
+   "seconds": 0.000233878,
+   "cwd": "/tmp/tmpo2fex0us",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-C",
+    "7",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.475,
+   "seconds": 0.000212336,
+   "cwd": "/tmp/tmp83mje7pj",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.476,
+   "seconds": 0.000196086,
+   "cwd": "/tmp/tmpv3pijva5",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "l/3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.476,
+   "seconds": 0.000203545,
+   "cwd": "/tmp/tmpcnr37b4d",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "r/3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.477,
+   "seconds": 0.000436381,
+   "cwd": "/tmp/tmphkkzuylk",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "2/3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.478,
+   "seconds": 0.000183003,
+   "cwd": "/tmp/tmpph0vfn8z",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "l/2/3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.479,
+   "seconds": 0.000164335,
+   "cwd": "/tmp/tmpdz6bmyms",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "r/2/3",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.48,
+   "seconds": 0.000162253,
+   "cwd": "/tmp/tmpj7rixzb6",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "2/3",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.48,
+   "seconds": 0.000182503,
+   "cwd": "/tmp/tmpu3rgcq_d",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--number",
+    "1/2",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.481,
+   "seconds": 0.000169502,
+   "cwd": "/tmp/tmp3jxus8e5",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-d",
+    "-a",
+    "3",
+    "-l",
+    "4",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.482,
+   "seconds": 0.000185085,
+   "cwd": "/tmp/tmpz6irjh0_",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-dx",
+    "-l",
+    "4",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.483,
+   "seconds": 0.000216169,
+   "cwd": "/tmp/tmpom3lzms8",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-e",
+    "-n",
+    "l/20",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.483,
+   "seconds": 0.000441006,
+   "cwd": "/tmp/tmpneipgwd2",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-t",
+    ",",
+    "-l",
+    "2",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.484,
+   "seconds": 0.000170711,
+   "cwd": "/tmp/tmpkql6phzn",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--verbose",
+    "-l",
+    "5",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.485,
+   "seconds": 0.000183378,
+   "cwd": "/tmp/tmpj8qw0wuv",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--verbose",
+    "-n",
+    "1/2",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.486,
+   "seconds": 0.000156919,
+   "cwd": "/tmp/tmpi1sos2zy",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--verbose",
+    "-l",
+    "5",
+    "in.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.486,
+   "seconds": 0.000177377,
+   "cwd": "/tmp/tmp15mjh0p1",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "2",
+    "-",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.487,
+   "seconds": 0.000205003,
+   "cwd": "/tmp/tmprwwo2_sl",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.488,
+   "seconds": 0.000194044,
+   "cwd": "/tmp/tmp3xok2fmc",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "2",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.489,
+   "seconds": 0.00016696,
+   "cwd": "/tmp/tmpvdevftwc",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--additional-suffix",
+    ".txt",
+    "-l",
+    "5",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.489,
+   "seconds": 0.000167627,
+   "cwd": "/tmp/tmpzg_erz61",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--filter",
+    "cat > $FILE.out",
+    "-l",
+    "5",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.49,
+   "seconds": 0.001967942,
+   "cwd": "/tmp/tmpogw66rft",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-u",
+    "-n",
+    "r/2",
+    "in.txt",
+    "pre_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.492,
+   "seconds": 0.000187919,
+   "cwd": "/tmp/tmp6v2xk7tg",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "1/2",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209696.493,
+   "seconds": 0.000217753,
+   "cwd": "/tmp/tmp02aephc8",
+   "parents": [
+    "dash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 32,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.532,
+   "seconds": 0.000255167,
+   "cwd": "/tmp/splittest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-a",
+    "3",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.533,
+   "seconds": 0.000433875,
+   "cwd": "/tmp/tmpeyzdfokx",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--suffix-length=3",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.536,
+   "seconds": 0.000285333,
+   "cwd": "/tmp/tmpp6no8wb0",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--suffix-length",
+    "3",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.538,
+   "seconds": 0.000223542,
+   "cwd": "/tmp/tmpfuhxs4in",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--additional-suffix=.x",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.539,
+   "seconds": 0.000368041,
+   "cwd": "/tmp/tmpkw0d6a1z",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--additional-suffix",
+    ".x",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.54,
+   "seconds": 0.000385625,
+   "cwd": "/tmp/tmpxq8r4cma",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-b",
+    "7",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.542,
+   "seconds": 0.0002305,
+   "cwd": "/tmp/tmpbihdn_79",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--bytes=7",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.544,
+   "seconds": 0.000362875,
+   "cwd": "/tmp/tmpqaq8b0lx",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--bytes",
+    "7",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.546,
+   "seconds": 0.000381625,
+   "cwd": "/tmp/tmpasz16jjs",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-C",
+    "7",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.548,
+   "seconds": 0.000235041,
+   "cwd": "/tmp/tmphbx_vyzu",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--line-bytes=7",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.55,
+   "seconds": 0.000249125,
+   "cwd": "/tmp/tmp0ja9lb_8",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--line-bytes",
+    "7",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.552,
+   "seconds": 0.000385376,
+   "cwd": "/tmp/tmpcfy2c4n5",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-d",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.554,
+   "seconds": 0.000210208,
+   "cwd": "/tmp/tmpvbsv0c20",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--numeric-suffixes",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.556,
+   "seconds": 0.000195417,
+   "cwd": "/tmp/tmpabovmzr8",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--numeric-suffixes=2",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.558,
+   "seconds": 0.000352458,
+   "cwd": "/tmp/tmpgsj6em2w",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-x",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.559,
+   "seconds": 0.000242875,
+   "cwd": "/tmp/tmpa9ktlrmd",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--hex-suffixes",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.561,
+   "seconds": 0.000221458,
+   "cwd": "/tmp/tmp9np40s0y",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--hex-suffixes=a",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.563,
+   "seconds": 0.000356166,
+   "cwd": "/tmp/tmp30x_0tul",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-e",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.565,
+   "seconds": 0.000404583,
+   "cwd": "/tmp/tmp8xlzsl7a",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--elide-empty-files",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.567,
+   "seconds": 0.000194584,
+   "cwd": "/tmp/tmpkdoe87ph",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--filter=cat >/dev/null",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.569,
+   "seconds": 0.001325792,
+   "cwd": "/tmp/tmpq6te1mzu",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--filter",
+    "cat >/dev/null",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.572,
+   "seconds": 0.001322208,
+   "cwd": "/tmp/tmp3u4mhu16",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "3",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.575,
+   "seconds": 0.000413375,
+   "cwd": "/tmp/tmptzxia8ub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--lines=3",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.577,
+   "seconds": 0.000437083,
+   "cwd": "/tmp/tmpjum_p7ir",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--lines",
+    "3",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.579,
+   "seconds": 0.000226959,
+   "cwd": "/tmp/tmp7mo_df6c",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-n",
+    "3",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.581,
+   "seconds": 0.000430209,
+   "cwd": "/tmp/tmpmzg2ci0o",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--number=3",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.583,
+   "seconds": 0.000440167,
+   "cwd": "/tmp/tmp4d36jxj_",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--number",
+    "3",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.585,
+   "seconds": 0.000208084,
+   "cwd": "/tmp/tmpldvxwubt",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-t",
+    ",",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.587,
+   "seconds": 0.000396583,
+   "cwd": "/tmp/tmpqnhhimho",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--separator=,",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.589,
+   "seconds": 0.00041725,
+   "cwd": "/tmp/tmplslafqwz",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--separator",
+    ",",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.591,
+   "seconds": 0.000196209,
+   "cwd": "/tmp/tmptqwzsga7",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-u",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.593,
+   "seconds": 0.00041525,
+   "cwd": "/tmp/tmpyyh4tugv",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--unbuffered",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.594,
+   "seconds": 0.00023325,
+   "cwd": "/tmp/tmpcq06hj61",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--verbose",
+    "in.txt",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.596,
+   "seconds": 0.000206792,
+   "cwd": "/tmp/tmphpqfmttg",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.597,
+   "seconds": 0.000202,
+   "cwd": "/tmp/tmpq5kc8d1m",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.599,
+   "seconds": 0.000200958,
+   "cwd": "/tmp/tmpxiga9mu8",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "split",
+    "-l",
+    "5",
+    "-",
+    "p_"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793209726.601,
+   "seconds": 0.000181126,
+   "cwd": "/tmp/tmpkxi6avfb",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 33,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

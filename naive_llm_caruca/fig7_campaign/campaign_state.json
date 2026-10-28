@@ -7,6 +7,11 @@
    "usd": 0.178518,
    "when": "2026-10-27 20:31-20:32",
    "what": "Caruca's model step, convert: the GPT-4o call was billed but its reply was lost when the Mac went to Low Power Sleep at 20:32 (battery 1%); found as key usage minus recorded charges at 22:46"
+  },
+  {
+   "usd": 25.737856,
+   "what": "Opus 5.5 extra-high comparison, 5 runs (dd ls cut test convert); results deleted at Tiran's direction 2026-10-28",
+   "date": "2026-10-28"
   }
  ]
 }

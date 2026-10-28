@@ -1,0 +1,184 @@
+{
+ "command": "pandoc",
+ "binary": "/usr/bin/pandoc",
+ "package": "pandoc 3.1.3+ds-2",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T23:12:27",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 256,
+  "distinct_lines": 158,
+  "traced_lines": 158,
+  "sampled": false,
+  "test_runs_traced": 358,
+  "seconds": 9.6,
+  "seconds_per_test_run": 0.02683,
+  "classes": {
+   "accepted": 205,
+   "unclassified": 84,
+   "other_nonzero": 67,
+   "refused": 2
+  },
+  "refused_share": 0.0056,
+  "classes_as_v1_runs": {
+   "accepted": 303,
+   "unclassified": 84,
+   "other_nonzero": 67,
+   "refused": 2
+  },
+  "refused_share_as_v1_runs": 0.0044,
+  "lines_all_runs_refused": 2,
+  "top_messages": [
+   [
+    "unclassified",
+    "Could not find data file /usr/share/pandoc/data/templates/abspath_1.html",
+    5
+   ],
+   [
+    "unclassified",
+    "Could not find data file /usr/share/pandoc/data/templates/relpath_1.html",
+    5
+   ],
+   [
+    "unclassified",
+    "pandoc: relpath_1: withBinaryFile: inappropriate type (is a directory)",
+    4
+   ],
+   [
+    "unclassified",
+    "Could not find data file /usr/share/pandoc/data/relpath_1",
+    4
+   ],
+   [
+    "unclassified",
+    "Unknown highlight-style relpath_1",
+    4
+   ],
+   [
+    "unclassified",
+    "[WARNING] Could not deduce format from file extension ",
+    4
+   ],
+   [
+    "unclassified",
+    "Could not find metadata file relpath_1",
+    3
+   ],
+   [
+    "unclassified",
+    "[WARNING] Deprecated: --base-header-level. Use --shift-heading-level-by instead.",
+    2
+   ],
+   [
+    "unclassified",
+    "columns must be a number greater than 0",
+    2
+   ],
+   [
+    "unclassified",
+    "dpi must be a number greater than 0",
+    2
+   ],
+   [
+    "unclassified",
+    "split level must be a number between 1 and 6",
+    2
+   ],
+   [
+    "unclassified",
+    "1:1 (0)-30:1 (849): Found content after root element: EventContent (ContentText \"c\\na\\nr\\nu\\nc\\na\\n\\nHi\\nHello\\n\\nThe qu",
+    2
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 32407,
+  "distinct_lines": 12376,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 4820,
+  "seconds": 129.1,
+  "seconds_per_test_run": 0.02679,
+  "classes": {
+   "other_nonzero": 1487,
+   "accepted": 1563,
+   "unclassified": 1735,
+   "refused": 35
+  },
+  "refused_share": 0.0073,
+  "classes_as_v1_runs": {
+   "other_nonzero": 2229,
+   "accepted": 3017,
+   "unclassified": 3245,
+   "refused": 35
+  },
+  "refused_share_as_v1_runs": 0.0041,
+  "lines_all_runs_refused": 19,
+  "top_messages": [
+   [
+    "unclassified",
+    "[WARNING] Could not deduce format from file extension ",
+    134
+   ],
+   [
+    "unclassified",
+    "Could not find data file /usr/share/pandoc/data/templates/relpath_1.html",
+    95
+   ],
+   [
+    "unclassified",
+    "[WARNING] Deprecated: --base-header-level. Use --shift-heading-level-by instead.",
+    73
+   ],
+   [
+    "unclassified",
+    "dpi must be a number greater than 0",
+    71
+   ],
+   [
+    "unclassified",
+    "tab-stop must be a number greater than 0",
+    58
+   ],
+   [
+    "unclassified",
+    "columns must be a number greater than 0",
+    53
+   ],
+   [
+    "unclassified",
+    "pandoc: relpath_1: withBinaryFile: inappropriate type (is a directory)",
+    50
+   ],
+   [
+    "unclassified",
+    "split level must be a number between 1 and 6",
+    47
+   ],
+   [
+    "unclassified",
+    "Unknown highlight-style relpath_1",
+    44
+   ],
+   [
+    "unclassified",
+    "Could not find metadata file relpath_1",
+    39
+   ],
+   [
+    "unclassified",
+    "1:1 (0)-30:1 (849): Found content after root element: EventContent (ContentText \"c\\na\\nr\\nu\\nc\\na\\n\\nHi\\nHello\\n\\nThe qu",
+    35
+   ],
+   [
+    "unclassified",
+    "slide level must be a number between 0 and 6",
+    34
+   ]
+  ]
+ },
+ "finished": "2026-10-27T23:14:46"
+}

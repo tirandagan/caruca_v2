@@ -11,6 +11,9 @@ Cost cap (task 019): with NAIVE_COST_CAP set (dollars), the session's running co
 assistant message's token usage at the NAIVE_PRICE_* rates (dollars per million tokens; defaults are
 OpenRouter's Fable 5.1 prices, 2026-10-27), and the session is stopped (SIGTERM to every process named
 `claude`) once the estimate passes the cap. The line "cost cap reached" in the log marks a stopped run.
+Since 2026-10-28 the defaults follow the session's model (from its first event): Opus 5.5 sessions are
+priced at Opus 5.5's rates, so the cap means about the same money for either model. The estimate still runs
+low, since the stream shows only part of each message's output tokens (about half of Fable's bill).
 """
 import json, os, subprocess, sys, datetime
 
@@ -18,8 +21,11 @@ RAW = open(sys.argv[1], "a", encoding="utf-8")
 ACT = open(sys.argv[1].rsplit(".", 1)[0] + ".actions.log", "a", encoding="utf-8")
 MAXRES = int(sys.argv[2]) if len(sys.argv) > 2 else 600
 CAP = float(os.environ["NAIVE_COST_CAP"]) if os.environ.get("NAIVE_COST_CAP") else None
+# OpenRouter's prices, dollars per million tokens (read 2026-10-28)
+MODEL_PRICES = {"anthropic/claude-fable-5.1": {"input": 10.0, "output": 50.0, "cache_read": 0.25, "cache_write": 12.5},
+                "anthropic/claude-opus-5.5": {"input": 4.0, "output": 20.0, "cache_read": 0.20, "cache_write": 5.0}}
 PRICE = {k: float(os.environ.get(f"NAIVE_PRICE_{k.upper()}", v)) for k, v in
-         {"input": 10.0, "output": 50.0, "cache_read": 0.25, "cache_write": 12.5}.items()}
+         MODEL_PRICES["anthropic/claude-fable-5.1"].items()}
 usage_by_msg, capped = {}, False
 
 
@@ -66,6 +72,9 @@ for line in sys.stdin:
         continue
     t = r.get("type")
     if t == "system" and r.get("subtype") == "init":
+        for k, v in MODEL_PRICES.get(r.get("model"), {}).items():
+            if f"NAIVE_PRICE_{k.upper()}" not in os.environ:
+                PRICE[k] = v
         say(f"[{now()}] session {r.get('session_id','')}  model={r.get('model')}  permission_mode={r.get('permissionMode')}  cwd={r.get('cwd')}")
         say(f"           tools: {', '.join(r.get('tools', []))}")
         continue

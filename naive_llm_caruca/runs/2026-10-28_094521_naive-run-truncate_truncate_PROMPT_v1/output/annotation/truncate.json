@@ -1,0 +1,30 @@
+{
+    "flag": [
+        [
+            "-c",
+            "--no-create"
+        ],
+        [
+            "-o",
+            "--io-blocks"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [
+        [
+            "-r",
+            "--reference",
+            ["FILE", "OTHER_INPUT"]
+        ],
+        [
+            "-s",
+            "--size",
+            "SIZE"
+        ]
+    ]
+}

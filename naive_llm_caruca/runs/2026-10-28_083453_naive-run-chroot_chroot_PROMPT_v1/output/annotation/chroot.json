@@ -1,0 +1,23 @@
+{
+    "flag": [
+        [
+            "--skip-chdir"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [
+        [
+            "--groups",
+            "G_LIST"
+        ],
+        [
+            "--userspec",
+            "USER:GROUP"
+        ]
+    ]
+}

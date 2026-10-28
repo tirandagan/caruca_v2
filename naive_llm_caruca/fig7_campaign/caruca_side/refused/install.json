@@ -1,0 +1,182 @@
+{
+ "command": "install",
+ "binary": "/usr/bin/install",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T22:45:56",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 244,
+  "distinct_lines": 168,
+  "traced_lines": 168,
+  "sampled": false,
+  "test_runs_traced": 5000,
+  "seconds": 94.2,
+  "seconds_per_test_run": 0.01884,
+  "classes": {
+   "accepted": 772,
+   "other_nonzero": 2496,
+   "unclassified": 1732
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 1076,
+   "other_nonzero": 3332,
+   "unclassified": 2492
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "install: omitting directory 'relpath_1'",
+    560
+   ],
+   [
+    "unclassified",
+    "install: invalid group 'nobody'",
+    100
+   ],
+   [
+    "unclassified",
+    "install: invalid group 'wheel'",
+    100
+   ],
+   [
+    "unclassified",
+    "install: invalid user 'string'",
+    100
+   ],
+   [
+    "unclassified",
+    "install: WARNING: ignoring --strip-program option as -s option was not specified",
+    80
+   ],
+   [
+    "unclassified",
+    "install: omitting directory 'relpath_2'",
+    68
+   ],
+   [
+    "unclassified",
+    "install: WARNING: ignoring --preserve-context; this kernel is not SELinux-enabled",
+    40
+   ],
+   [
+    "unclassified",
+    "install: omitting directory 'relpath_3'",
+    16
+   ],
+   [
+    "unclassified",
+    "install: cannot overwrite directory 'relpath_2' with non-directory",
+    4
+   ],
+   [
+    "unclassified",
+    "strip: relpath_2: file format not recognized",
+    4
+   ],
+   [
+    "unclassified",
+    "strip: relpath_2/abspath_1: file format not recognized",
+    2
+   ],
+   [
+    "unclassified",
+    "strip: relpath_2/relpath_1: file format not recognized",
+    2
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 6912,
+  "distinct_lines": 3192,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 34800,
+  "seconds": 798.1,
+  "seconds_per_test_run": 0.02294,
+  "classes": {
+   "accepted": 5750,
+   "other_nonzero": 17916,
+   "unclassified": 10834,
+   "refused": 300
+  },
+  "refused_share": 0.0086,
+  "classes_as_v1_runs": {
+   "accepted": 10404,
+   "other_nonzero": 34835,
+   "unclassified": 22736,
+   "refused": 300
+  },
+  "refused_share_as_v1_runs": 0.0044,
+  "lines_all_runs_refused": 4,
+  "top_messages": [
+   [
+    "unclassified",
+    "install: omitting directory 'relpath_1'",
+    1930
+   ],
+   [
+    "unclassified",
+    "install: invalid user 'string'",
+    1275
+   ],
+   [
+    "unclassified",
+    "install: invalid group 'wheel'",
+    1065
+   ],
+   [
+    "unclassified",
+    "install: invalid group 'nobody'",
+    1025
+   ],
+   [
+    "unclassified",
+    "install: WARNING: ignoring --strip-program option as -s option was not specified",
+    943
+   ],
+   [
+    "unclassified",
+    "install: omitting directory 'relpath_2'",
+    578
+   ],
+   [
+    "unclassified",
+    "install: WARNING: ignoring --preserve-context; this kernel is not SELinux-enabled",
+    561
+   ],
+   [
+    "refused",
+    "install: cannot combine --target-directory (-t) and --no-target-directory (-T)",
+    250
+   ],
+   [
+    "unclassified",
+    "install: target directory not allowed when installing a directory",
+    250
+   ],
+   [
+    "unclassified",
+    "install: omitting directory 'relpath_3'",
+    168
+   ],
+   [
+    "unclassified",
+    "install: the strip option may not be used when installing a directory",
+    50
+   ],
+   [
+    "unclassified",
+    "strip: relpath_2: file format not recognized",
+    42
+   ]
+  ]
+ },
+ "finished": "2026-10-27T23:00:50"
+}

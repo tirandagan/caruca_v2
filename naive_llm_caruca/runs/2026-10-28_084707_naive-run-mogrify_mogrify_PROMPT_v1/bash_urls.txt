@@ -1,0 +1,3 @@
+https://pypi.org/simple/pash-annotations/
+https://files.pythonhosted.org/packages/a9/e5/d6096532154444b0064d9a2dfbccaf971e713932aee46e6f174413bae8ff/pash_annotations-0.2.4-py3-none-any.whl
+https://pypi.org/simple/caruca/

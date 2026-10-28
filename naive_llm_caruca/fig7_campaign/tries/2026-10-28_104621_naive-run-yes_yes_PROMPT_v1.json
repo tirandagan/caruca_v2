@@ -1,0 +1,701 @@
+{
+ "summary": {
+  "run": "2026-10-28_104621_naive-run-yes_yes_PROMPT_v1",
+  "command": "yes",
+  "binary": "/usr/bin/yes",
+  "logger_check": {
+   "audit_starts": 150,
+   "trace_starts": 144,
+   "audit_without_trace": 6,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793198759.4463155,
+   "clock_spread_ms": 1.9655227661132812
+  },
+  "session_found": true,
+  "first_write": 1793198809.76,
+  "tries": 31,
+  "classes": {
+   "accepted": 12,
+   "signal": 14,
+   "refused": 5
+  },
+  "by_phase": {
+   "exploring/accepted": 8,
+   "exploring/refused": 2,
+   "exploring/signal": 8,
+   "testing/accepted": 4,
+   "testing/refused": 3,
+   "testing/signal": 6
+  },
+  "help_or_version": 12,
+  "distinct_argument_lists": 18,
+  "distinct_option_sets": 11,
+  "refused_share": 0.1613,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": []
+ },
+ "tries": [
+  {
+   "argv": [
+    "yes",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198793.523,
+   "seconds": 0.000253625,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198793.525,
+   "seconds": 0.00025175,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198793.525,
+   "seconds": 0.000279208,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "a",
+    "b",
+    "c"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198793.526,
+   "seconds": 0.000291166,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "--",
+    "-n"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198793.527,
+   "seconds": 0.000300833,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "-n"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "yes: invalid option -- 'n'\nTry 'yes --help' for more information.\n",
+   "start": 1793198793.528,
+   "seconds": 0.000226416,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "--help",
+    "x"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198793.528,
+   "seconds": 0.000236083,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "x",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198793.529,
+   "seconds": 0.000231458,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "--",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198793.53,
+   "seconds": 0.0002615,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "signal",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198793.53,
+   "seconds": 0.000293584,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198793.531,
+   "seconds": 0.000332417,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "--version",
+    "x"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198793.532,
+   "seconds": 0.00021375,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "--help",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198793.533,
+   "seconds": 0.00022475,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198803.399,
+   "seconds": 0.000351689,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "--"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198803.4,
+   "seconds": 0.000329066,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "--version",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198803.401,
+   "seconds": 0.000274076,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "--he"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198803.402,
+   "seconds": 0.000295653,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes",
+    "--help=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "yes: option '--help' doesn't allow an argument\nTry 'yes --help' for more information.\n",
+   "start": 1793198803.403,
+   "seconds": 0.000261864,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "yes"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198850.313,
+   "seconds": 0.000326162,
+   "cwd": "/tmp/yestest",
+   "parents": [
+    "bash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "yes",
+    "y"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198850.314,
+   "seconds": 0.000313662,
+   "cwd": "/tmp/yestest",
+   "parents": [
+    "bash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "yes",
+    "a",
+    "b",
+    "c"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198850.316,
+   "seconds": 0.000311538,
+   "cwd": "/tmp/yestest",
+   "parents": [
+    "bash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "yes",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198850.317,
+   "seconds": 0.00021308,
+   "cwd": "/tmp/yestest",
+   "parents": [
+    "bash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "yes",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198850.318,
+   "seconds": 0.000187706,
+   "cwd": "/tmp/yestest",
+   "parents": [
+    "bash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "yes",
+    "--help",
+    "x"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198850.319,
+   "seconds": 0.00018129,
+   "cwd": "/tmp/yestest",
+   "parents": [
+    "bash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "yes",
+    "--version",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793198850.32,
+   "seconds": 0.000179414,
+   "cwd": "/tmp/yestest",
+   "parents": [
+    "bash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "yes",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198850.321,
+   "seconds": 0.000271746,
+   "cwd": "/tmp/yestest",
+   "parents": [
+    "bash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "yes",
+    "--"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198850.322,
+   "seconds": 0.000264247,
+   "cwd": "/tmp/yestest",
+   "parents": [
+    "bash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "yes",
+    "--",
+    "-n"
+   ],
+   "argv_cut": false,
+   "exit_code": null,
+   "signal": 13,
+   "stderr": "",
+   "start": 1793198850.323,
+   "seconds": 0.00022508,
+   "cwd": "/tmp/yestest",
+   "parents": [
+    "bash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "signal",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "yes",
+    "-n"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "yes: invalid option -- 'n'\nTry 'yes --help' for more information.\n",
+   "start": 1793198850.325,
+   "seconds": 0.000191455,
+   "cwd": "/tmp/yestest",
+   "parents": [
+    "bash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "yes",
+    "--foo"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "yes: unrecognized option '--foo'\nTry 'yes --help' for more information.\n",
+   "start": 1793198850.326,
+   "seconds": 0.000174873,
+   "cwd": "/tmp/yestest",
+   "parents": [
+    "bash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "yes",
+    "--help=x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "yes: option '--help' doesn't allow an argument\nTry 'yes --help' for more information.\n",
+   "start": 1793198850.327,
+   "seconds": 0.000164623,
+   "cwd": "/tmp/yestest",
+   "parents": [
+    "bash",
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

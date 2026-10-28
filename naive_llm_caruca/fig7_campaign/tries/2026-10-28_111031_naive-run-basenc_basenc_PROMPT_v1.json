@@ -1,0 +1,1064 @@
+{
+ "summary": {
+  "run": "2026-10-28_111031_naive-run-basenc_basenc_PROMPT_v1",
+  "command": "basenc",
+  "binary": "/usr/bin/basenc",
+  "logger_check": {
+   "audit_starts": 140,
+   "trace_starts": 133,
+   "audit_without_trace": 7,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793200208.4486642,
+   "clock_spread_ms": 2.4979114532470703
+  },
+  "session_found": true,
+  "first_write": 1793200270.416,
+  "tries": 47,
+  "classes": {
+   "accepted": 36,
+   "unclassified": 7,
+   "refused": 4
+  },
+  "by_phase": {
+   "exploring/accepted": 11,
+   "exploring/refused": 3,
+   "exploring/unclassified": 4,
+   "testing/accepted": 25,
+   "testing/refused": 1,
+   "testing/unclassified": 3
+  },
+  "help_or_version": 3,
+  "distinct_argument_lists": 43,
+  "distinct_option_sets": 30,
+  "refused_share": 0.0851,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "basenc: -w",
+   "basenc: invalid input",
+   "basenc: invalid wrap size: \u2018-1\u2019",
+   "basenc: invalid wrap size: \u2018x\u2019",
+   "basenc: missing encoding type"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "basenc",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200241.0,
+   "seconds": 0.000213542,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "basenc: missing encoding type",
+   "start": 1793200250.483,
+   "seconds": 0.00022886,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base64",
+    "b1.txt",
+    "b2.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "basenc: extra operand \u2018b2.txt\u2019",
+   "start": 1793200250.483,
+   "seconds": 0.000200737,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base64",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200250.484,
+   "seconds": 0.000180066,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "-w4",
+    "b1.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200250.484,
+   "seconds": 0.000220103,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "-w",
+    "4",
+    "b1.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200250.484,
+   "seconds": 0.000251721,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "--wrap=4",
+    "b1.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200250.485,
+   "seconds": 0.000203348,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "--wrap",
+    "4",
+    "b1.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200250.485,
+   "seconds": 0.000247933,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "-w0",
+    "b1.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200250.486,
+   "seconds": 0.000177329,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "-w",
+    "-1",
+    "b1.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "basenc: invalid wrap size: \u2018-1\u2019",
+   "start": 1793200250.486,
+   "seconds": 0.000188612,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "-w",
+    "x",
+    "b1.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "basenc: invalid wrap size: \u2018x\u2019",
+   "start": 1793200250.487,
+   "seconds": 0.00017535,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base64",
+    "--base32",
+    "b1.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200250.487,
+   "seconds": 0.000169456,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "-di"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200250.488,
+   "seconds": 0.00018777,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base64",
+    "-d",
+    "-w2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200250.488,
+   "seconds": 0.000177034,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base6",
+    "b1.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "basenc: option '--base6' is ambiguous; possibilities: '--base64'",
+   "start": 1793200250.488,
+   "seconds": 0.000166214,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--dec",
+    "--base64"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200250.489,
+   "seconds": 0.000189075,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base64",
+    "--",
+    "-w"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "basenc: -w",
+   "start": 1793200250.489,
+   "seconds": 0.000177372,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "basenc: invalid option -- 'x'\nTry 'basenc --help' for more information.\n",
+   "start": 1793200250.49,
+   "seconds": 0.000202379,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base64",
+    "big.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200304.459,
+   "seconds": 0.000190945,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base64"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200304.461,
+   "seconds": 0.000185277,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base64"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200304.461,
+   "seconds": 0.001146919,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base32",
+    "big.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200304.463,
+   "seconds": 0.000154023,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base32",
+    "-d",
+    "enc.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200304.463,
+   "seconds": 0.000174693,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base32",
+    "-d"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "basenc: invalid input",
+   "start": 1793200304.464,
+   "seconds": 0.000190695,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base32",
+    "-d"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "basenc: invalid input",
+   "start": 1793200304.464,
+   "seconds": 0.00020353,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base64"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.466,
+   "seconds": 0.00038626,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base64url"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.466,
+   "seconds": 0.000267201,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base32"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.467,
+   "seconds": 0.000242907,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base32hex"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.467,
+   "seconds": 0.000219154,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.468,
+   "seconds": 0.000220821,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base2msbf"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.468,
+   "seconds": 0.000223446,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base2lsbf"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.469,
+   "seconds": 0.000200735,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--z85"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.469,
+   "seconds": 0.000200318,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "-d",
+    "--base16"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.47,
+   "seconds": 0.000223821,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--decode",
+    "--base16"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.47,
+   "seconds": 0.000232573,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "-i",
+    "--base16"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.471,
+   "seconds": 0.000208778,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--ignore-garbage",
+    "--base16"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.471,
+   "seconds": 0.000254825,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "-w",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.472,
+   "seconds": 0.000205319,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "-w4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.472,
+   "seconds": 0.000196026,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "--wrap",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.473,
+   "seconds": 0.000217362,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "--wrap=4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.473,
+   "seconds": 0.000192483,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.474,
+   "seconds": 0.000214779,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.474,
+   "seconds": 0.000194692,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "/tmp/b1.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.474,
+   "seconds": 0.000210527,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793200307.475,
+   "seconds": 0.000201527,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "/tmp/b1.txt",
+    "/tmp/b2.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "basenc: extra operand \u2018/tmp/b2.txt\u2019",
+   "start": 1793200307.475,
+   "seconds": 0.000236323,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "basenc",
+    "--base16",
+    "-w",
+    "-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "basenc: invalid wrap size: \u2018-1\u2019",
+   "start": 1793200307.476,
+   "seconds": 0.000219403,
+   "cwd": "/tmp/spectest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

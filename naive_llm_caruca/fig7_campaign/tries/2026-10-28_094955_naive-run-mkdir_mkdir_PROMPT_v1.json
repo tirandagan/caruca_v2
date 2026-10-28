@@ -1,0 +1,708 @@
+{
+ "summary": {
+  "run": "2026-10-28_094955_naive-run-mkdir_mkdir_PROMPT_v1",
+  "command": "mkdir",
+  "binary": "/usr/bin/mkdir",
+  "logger_check": {
+   "audit_starts": 138,
+   "trace_starts": 131,
+   "audit_without_trace": 7,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793195374.1953475,
+   "clock_spread_ms": 2.449512481689453
+  },
+  "session_found": true,
+  "first_write": 1793195440.195,
+  "tries": 31,
+  "classes": {
+   "accepted": 27,
+   "refused": 3,
+   "other_nonzero": 1
+  },
+  "by_phase": {
+   "exploring/accepted": 19,
+   "exploring/other_nonzero": 1,
+   "exploring/refused": 3,
+   "testing/accepted": 8
+  },
+  "help_or_version": 4,
+  "distinct_argument_lists": 28,
+  "distinct_option_sets": 18,
+  "refused_share": 0.0968,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": []
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/mkdir",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195408.906,
+   "seconds": 0.000344417,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkdir",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195408.907,
+   "seconds": 0.000331458,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mkdir: missing operand",
+   "start": 1793195418.531,
+   "seconds": 0.000369165,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "-m",
+    "750",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.531,
+   "seconds": 0.000373957,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "--mode=u+rwx,g-rwx,o-rwx",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.533,
+   "seconds": 0.000288008,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "-m0700",
+    "c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.534,
+   "seconds": 0.000409869,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "-m",
+    "0",
+    "d"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.535,
+   "seconds": 0.00038608,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "-m",
+    "999",
+    "e"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mkdir: invalid mode \u2018999\u2019",
+   "start": 1793195418.537,
+   "seconds": 0.000324254,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "-p",
+    "x/y/z",
+    "-v"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.537,
+   "seconds": 0.000364041,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "-pv",
+    "--mode",
+    "711",
+    "p1/p2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.539,
+   "seconds": 0.000333044,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mkdir: cannot create directory \u2018a\u2019",
+   "start": 1793195418.54,
+   "seconds": 0.0002903,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "-p",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.54,
+   "seconds": 0.000304714,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "--context",
+    "ctx1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.541,
+   "seconds": 0.001564484,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "--context=system_u:object_r:tmp_t:s0",
+    "ctx2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "mkdir: warning: ignoring --context; it requires an SELinux/SMACK-enabled kernel",
+   "start": 1793195418.543,
+   "seconds": 0.000280926,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "-Z",
+    "z1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.544,
+   "seconds": 0.000264136,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "-vp",
+    "--",
+    "-dash"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.544,
+   "seconds": 0.000276134,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "--verb",
+    "v2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.545,
+   "seconds": 0.000253096,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "-q",
+    "q"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mkdir: invalid option -- 'q'\nTry 'mkdir --help' for more information.\n",
+   "start": 1793195418.546,
+   "seconds": 0.000257011,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.547,
+   "seconds": 0.000313088,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.547,
+   "seconds": 0.000302298,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.548,
+   "seconds": 0.000268843,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "s1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.549,
+   "seconds": 0.000277884,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "-m",
+    "u=rwx,go=rx",
+    "f1",
+    "g1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195418.55,
+   "seconds": 0.00026072,
+   "cwd": "/tmp/tmp.zkskgjmIXD",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkdir",
+    "-p",
+    "/tmp/tmp.sRKoTrXnGr/stubs/caruca/ir",
+    "/tmp/tmp.sRKoTrXnGr/stubs/pash_annotations/annotation_generation/annotation_generators"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195477.918,
+   "seconds": 0.001167181,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkdir",
+    "-m",
+    "750",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195477.946,
+   "seconds": 0.000345545,
+   "cwd": "/tmp/tmp0xsaxr8u",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkdir",
+    "--mode",
+    "711",
+    "-p",
+    "b/c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195477.946,
+   "seconds": 0.00028892,
+   "cwd": "/tmp/tmp7h34ptiu",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkdir",
+    "-pv",
+    "d"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195477.947,
+   "seconds": 0.000502339,
+   "cwd": "/tmp/tmpgub8o71o",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkdir",
+    "-Z",
+    "e"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195477.948,
+   "seconds": 0.000274712,
+   "cwd": "/tmp/tmpw21mivbi",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkdir",
+    "--context",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195477.948,
+   "seconds": 0.000258212,
+   "cwd": "/tmp/tmp4zz5rouu",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkdir",
+    "-p",
+    "-v",
+    "g",
+    "h"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195477.949,
+   "seconds": 0.000264295,
+   "cwd": "/tmp/tmph7mhzt67",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkdir",
+    "--parents",
+    "--verbose",
+    "i"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793195477.949,
+   "seconds": 0.000244753,
+   "cwd": "/tmp/tmpc7e6otzk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

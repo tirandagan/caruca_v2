@@ -1,0 +1,994 @@
+{
+ "summary": {
+  "run": "2026-10-28_114550_naive-run-chgrp_chgrp_PROMPT_v1",
+  "command": "chgrp",
+  "binary": "/usr/bin/chgrp",
+  "logger_check": {
+   "audit_starts": 123,
+   "trace_starts": 118,
+   "audit_without_trace": 5,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793202329.0343275,
+   "clock_spread_ms": 3.9675235748291016
+  },
+  "session_found": true,
+  "first_write": 1793202396.638,
+  "tries": 43,
+  "classes": {
+   "accepted": 36,
+   "refused": 4,
+   "other_nonzero": 3
+  },
+  "by_phase": {
+   "exploring/accepted": 15,
+   "exploring/other_nonzero": 3,
+   "exploring/refused": 3,
+   "testing/accepted": 21,
+   "testing/refused": 1
+  },
+  "help_or_version": 5,
+  "distinct_argument_lists": 40,
+  "distinct_option_sets": 27,
+  "refused_share": 0.093,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": []
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202367.193,
+   "seconds": 0.000311948,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202367.195,
+   "seconds": 0.00032351,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "--reference",
+    "ref",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202380.394,
+   "seconds": 0.000294674,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "--reference=ref",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202380.395,
+   "seconds": 0.000236722,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "tirandagan"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "chgrp: missing operand after \u2018tirandagan\u2019",
+   "start": 1793202380.395,
+   "seconds": 0.000254957,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "-v",
+    "tirandagan",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202380.396,
+   "seconds": 0.000269736,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "-c",
+    "tirandagan",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202380.396,
+   "seconds": 0.000294008,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "tirandagan",
+    "nosuch"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "chgrp: cannot access 'nosuch'",
+   "start": 1793202380.397,
+   "seconds": 0.000269403,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "-f",
+    "tirandagan",
+    "nosuch"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202380.398,
+   "seconds": 0.000266281,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "-hR",
+    "tirandagan",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202380.398,
+   "seconds": 0.000218945,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "-cfvRHLP",
+    "tirandagan",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202380.399,
+   "seconds": 0.000250544,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "--from=x",
+    "tirandagan",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "chgrp: unrecognized option '--from=x'\nTry 'chgrp --help' for more information.\n",
+   "start": 1793202380.399,
+   "seconds": 0.000198337,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "1000",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202380.4,
+   "seconds": 0.000335099,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "tirandagan",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202380.401,
+   "seconds": 0.000202333,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "tirandagan",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "chgrp: cannot access '-'",
+   "start": 1793202380.401,
+   "seconds": 0.000236389,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "--preserve-root=all",
+    "tirandagan",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "chgrp: option '--preserve-root' doesn't allow an argument\nTry 'chgrp --help' for more information.\n",
+   "start": 1793202380.402,
+   "seconds": 0.000261536,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "--dereference",
+    "--no-preserve-root",
+    "--preserve-root",
+    "tirandagan",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202380.402,
+   "seconds": 0.000206622,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "-c",
+    "systemd-journal",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202386.618,
+   "seconds": 0.000410854,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "systemd-journal",
+    "ref"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202386.62,
+   "seconds": 0.000319655,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "--reference=ref",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202386.621,
+   "seconds": 0.000306205,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "chgrp",
+    "-R",
+    "tirandagan",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202386.622,
+   "seconds": 0.00026481,
+   "cwd": "/tmp/chgrp_t",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.17,
+   "seconds": 0.000247126,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--changes",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.171,
+   "seconds": 0.00029446,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--dereference",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.171,
+   "seconds": 0.000274001,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.172,
+   "seconds": 0.00018625,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--no-dereference",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.172,
+   "seconds": 0.000211542,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--no-preserve-root",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.172,
+   "seconds": 0.000210417,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--preserve-root",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.173,
+   "seconds": 0.000193251,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--quiet",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.173,
+   "seconds": 0.000181084,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--recursive",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.174,
+   "seconds": 0.000182584,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--reference=/tmp/chgrp_t/ref",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.174,
+   "seconds": 0.000414251,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--silent",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.174,
+   "seconds": 0.000203793,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--verbose",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.175,
+   "seconds": 0.000226792,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.175,
+   "seconds": 0.000162709,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "-H",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.176,
+   "seconds": 0.000190709,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "-L",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.176,
+   "seconds": 0.000179334,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "-P",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.176,
+   "seconds": 0.000182001,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "-R",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.177,
+   "seconds": 0.000186501,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "-c",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.177,
+   "seconds": 0.000179001,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "-f",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.177,
+   "seconds": 0.00022746,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "-h",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.178,
+   "seconds": 0.000187126,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "-v",
+    "tirandagan",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793202471.178,
+   "seconds": 0.000193459,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/chgrp",
+    "--bogus",
+    "x",
+    "/tmp/chgrp_t/a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/chgrp: unrecognized option '--bogus'\nTry '/usr/bin/chgrp --help' for more information.\n",
+   "start": 1793202471.178,
+   "seconds": 0.000173751,
+   "cwd": "/tmp/chk",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

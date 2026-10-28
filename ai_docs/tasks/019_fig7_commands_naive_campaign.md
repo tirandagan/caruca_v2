@@ -23,10 +23,17 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 
 # Task 019: Every command in the paper's Fig. 7 through the naive agent: cost, time, tries and quality, compared with Caruca
 
-> **Status (2026-10-27, 22:50):** pilot (`dd ls cut test convert`) starting, as Tiran asked, right after
-> Caruca's last GPT-4o command (`convert`). **Spent so far: $2.01** (smoke test $0.30, Caruca's step $1.71).
-> The Mac slept 20:32–22:36 on a flat battery, which froze everything (7.1). **To resume, read section
-> 7.1 from the last entry.** **Budget: $120 ± $30, never above $150** (Tiran).
+> **Status (2026-10-28, 14:00):** **main batch running** (74 commands, Fable 5.1 medium, launched 08:18;
+> log `fig7_campaign/main.log`): 65 of 74 done, all `ok`; `grep` running, then `install sort du pr vdir dir
+> unzip pandoc` (estimates $18.41, about an hour). Key usage **$123.20** (ledger's 70 Fable runs $92.72,
+> Opus comparison $25.74, Caruca's GPT-4o step $1.88, the rest not itemised); credit left on the key $76.80
+> at 13:54; the runner's projection for the 79 is **$136.16** (ceiling $200). Interim table:
+> `fig7_campaign/interim_comparison.md` (`compare_table.py`). **To resume, read section 7.1 from the last
+> entry**; a stopped batch resumes with the same command (finished commands are skipped). **Repeats approved
+> (Tiran 14:10): they start by themselves when the main batch ends** (`fig7_campaign/repeats.log`).
+> **Budget: up to $200** (Tiran, 2026-10-28: "dont worry about the budget - we can go as high as $200 - warn
+> me if we are depleting available credits"; it was $120 ± $30, never above $150). The key's own monthly
+> limit is also $200; `credit_watch.py` warns when less than $40 is left.
 > **Created:** 2026-10-27 · **Owner:** Tiran Dagan
 > **Tiran's direction, 2026-10-27, verbatim:** "create a task to run naive llm on all the commands
 > appearing in table 7 of the original caruca paper (including those that were aborted earlier). Make
@@ -428,7 +435,7 @@ the campaign ledger; a summary in `observations.md`; the memory notes. **No per-
     cross-check done (`crosscheck.txt`).
   - [ ] Caruca's model step through OpenRouter (3.3 d): `v1_llm_step.py` written, plumbing tested;
     `--first3` done 19:57 ($0.057; relay = key usage exactly); the other 74 running since 20:00.
-- [ ] **Phase 2. Pilot: 5 agent runs**, one at a time: `dd` and `ls` (stopped earlier), `cut` (compare with
+- [x] **Phase 2. Pilot: 5 agent runs** (done 23:28, $11.41; reported to Tiran), one at a time: `dd` and `ls` (stopped earlier), `cut` (compare with
   run 7), `test` (the built-in path fix), `convert` (the costliest so far). Check every measure of section 3
   on them, look at their working-tool runs before applying the rule, re-project the budget, **report to
   Tiran before going on**.
@@ -667,6 +674,208 @@ can continue from the last line.
   3 minutes for OpenRouter's counter to settle, then `run_campaign.py --pilot` (log `fig7_campaign/pilot.log`).
   **When it ends: report the pilot's costs and projection to Tiran** (his instruction, 22:44), then wait
   for his go-ahead before `--main`.
+
+**2026-10-27, 22:48–23:05 (pilot under way).**
+
+- Caruca's `convert` step redone: 3 calls (v1's retries), $0.1167, 74 s, 266 lines. Caruca's model step is
+  complete for all 77 commands with a bundled manual.
+- **Pilot started 22:51.** Run 1, **`dd`** (run folder `runs/2026-10-27_225152_naive-run-dd_dd_PROMPT_v1`):
+  status ok; **billed $2.106** (Claude Code's own figure $2.796; the gap is its higher price for the
+  920,525 cache-read tokens); 296 s wall, 20 turns, `anthropic/claude-fable-5.1` only; 379 runs of `dd`
+  (235 distinct argument lists, 63 distinct option sets): 273 accepted (10 help/version), 61 refused, 12
+  other non-zero, 33 unclassified; 74 before the first file, 305 after; logger 711 starts, none lost; no key
+  in the run folder; the `caruca` VM was busy meanwhile. Estimate was $1.42, so actual/estimate 1.48 on
+  this one run.
+- **Two fixes while it runs** (they do not touch the running pilot; its runs are reclassified after):
+  error-output bytes are now decoded as UTF-8 (GNU's curly quotes were coming out as `â\x80\x98`), and
+  `dd`'s own refusal wording ("invalid conversion", "invalid input flag", "invalid output flag", "invalid
+  status level") goes into the planned rule table.
+- Run 2, **`ls`**: ok; **billed $2.418** (estimate $2.30; Claude Code's figure $3.572); 306 s, 28 turns; 983
+  runs of `ls` (910 distinct argument lists): 619 accepted, 257 refused (26%), 73 other non-zero, 34
+  unclassified; 1 working-tool exclusion. After two runs actual/estimate = 1.22, **projection $154** for the
+  79 (just over the ceiling; two runs only, `convert` still to come). `cut` started 23:05.
+- **Caruca's refused-share batch finished 23:24:** 77 of 79 commands (48,653 test runs traced at 1 option per
+  line, 324,791 at 2). Missing: `join` (deleted, spoiled by the sleep) and **`yes`, which Caruca's tracer
+  cannot measure on this VM:** v1's tracer keeps `yes`'s endless output in memory; the VM's kernel killed it
+  at 7.66 GB ("Out of memory: Killed process … python … anon-rss:7662308kB", exit 137; rerun alone to
+  check). The paper reports 601 s for `yes` (not established how). `convert`: 95% of single-option test runs
+  refused (6,060 runs), 92% at 2 options. **51,693 traced runs are unclassified** across the 77, so the rule
+  table and full message storage come first, then a full rerun (with `join`; `yes` marked not measurable).
+  The rerun waits until the pilot ends, so it does not share the Mac's processors with agent runs.
+
+**2026-10-27, 23:05–23:30 (pilot finished).**
+
+| Run | Command | Billed (OpenRouter) | Estimate | Claude Code's figure | Wall time | Turns | Runs of the program | Refused (provisional) | Unclassified |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | `dd` | $2.106 | $1.42 | $2.796 | 296 s | 20 | 379 | 61 (16.1%) | 33 |
+| 2 | `ls` | $2.418 | $2.30 | $3.572 | 306 s | 28 | 983 | 257 (26.1%) | 34 |
+| 3 | `cut` | $0.908 | $1.36 | $1.248 | 131 s | 12 | 116 | 4 (3.4%) | 3 |
+| 4 | `test` | $1.868 | $1.71 | $2.556 | 282 s | 20 | 131 | 14 (10.7%) | 0 |
+| 5 | `convert` | $4.105 | $6.15 | $6.032 | 629 s | 34 | 18,728 | 3,232 (17.3%) | 14,047 |
+| | **Pilot** | **$11.405** | $12.94 | $16.21 | 1,644 s | | 20,337 | | |
+
+- All five `ok`, model `anthropic/claude-fable-5.1` only, logger complete (no audit records lost), no key in
+  any run folder; the `caruca` VM was busy during all five. Actual/estimate 0.88 over the pilot.
+  **Projection for the 79 (driver): $111.84** (spent $13.59 + 0.88 × the other 74 estimates). With the 10
+  repeat runs (estimates $15.16 × 0.88 ≈ $13) the campaign comes to about **$125**, inside $120 ± $30.
+  Time: the pilot took 37 minutes for 5 runs (7.4 min each with clone, collection and the billing wait), so
+  the other 74 need about 9 hours.
+- **Refused shares are provisional.** `convert`'s 14,047 unclassified runs are ImageMagick's own wording:
+  "no encode delegate for this image format" (3,510), "image sequence is required" (about 5,650 across
+  five call sites), "unrecognized sparse color method" (938) and others. These, `dd`'s ("invalid
+  conversion", "invalid input flag", …) and the Caruca-side messages go into one rule table; then all
+  pilot runs and the Caruca side are reclassified. Working-tool exclusions were few (1, in `ls`): to be
+  checked by hand against the transcripts before the numbers are used.
+- `convert` ran 18,712 of its 18,728 tries before writing its first file (a sweep over ImageMagick's option
+  words, like run 8). `test`'s 44 "other non-zero" runs are mostly `test` answering false (exit 1).
+- **Costs reconciled exactly** (23:35): recorded $13.59 = OpenRouter's counter $13.59. A $0.053 gap was four
+  of Caruca's calls (`chroot`, `runcon`, `rev`, `unexpand`) whose generation lookup timed out; OpenRouter's
+  reply already carries the call's cost (`usage.cost`), now used as the fallback and filled into the ledger.
+  Caruca's model step, all 77: **$1.70**. OpenAI's automatic prompt caching applies to its calls (4,992 of
+  about 6,100 prompt tokens cached in each), which lowers that figure.
+- **Next:** Tiran's go-ahead for `python3 fig7_campaign/run_campaign.py --main` (Mac on mains, about 9 h);
+  meanwhile, free: the rule table, the Caruca-side rerun (after agent runs, or accepting the shared Mac),
+  and a hand check of the pilot's working-tool exclusions.
+
+**2026-10-28, 05:45–06:05 (model comparison started: Opus 5.5 at extra-high effort on the five pilot commands).**
+Tiran, verbatim: "let run a parallel test right now on the first 5: use opus 5.5 extra high and compare the
+output quality and the cost and make sure it is identical in quality. if fable is better, we will stay with
+it. otherwise remain with fable" (the last sentence read as "otherwise switch to Opus"; to confirm with him
+before `--main`, which waits for his go-ahead anyway).
+
+- **Run:** `run_campaign.py --commands dd,ls,cut,test,convert --model anthropic/claude-opus-5.5 --effort xhigh
+  --arm opus55-xhigh`, started 05:46, one run at a time, Mac on mains, `caruca` VM idle (the Fable pilot ran
+  with it busy). The driver gained `--effort` and `--arm`: a side test's runs get their own clone names
+  (`naive-run-<cmd>-opus55-xhigh`), their own skip check, are left out of the projection and are counted in
+  the money total. OpenRouter prices on 2026-10-28 ($/M tokens in / out / cache read / cache write): Fable 5.1
+  10 / 50 / 0.25 / 12.50; Opus 5.5 4 / 20 / 0.20 / 5.
+- **Cost cap made fair (06:00):** the per-session watcher priced every session at Fable's rates, so its $8 cap
+  stopped an Opus session at about $4–6 of real money but a Fable one only at about $17 (the stream shows
+  only part of each message's output tokens, so the estimate runs low for Fable). `vm/naive-watch.py` now
+  takes the prices of the session's own model from its first event. Clones made from now on get it (Opus
+  `ls`, `cut`, `test`, `convert`); the running Opus `dd` has the old watcher and is far from the cap.
+- **Quality scorer, rules fixed before any Opus file was scored** (`fig7_campaign/quality/`): copies of task
+  018's probe and facts (task 018's own files unchanged) extended for dd, ls, test and convert:
+  `convert` probed with two image files around the spelling (it refuses any single argument); `+name`
+  spellings probed like `-name`; `test` probed as an operator (`test S a.txt`, `test a.txt S a.txt`, with
+  integers for `-eq` and the like), and graded on facts a and b only; dd's `name=` words read from its
+  --help; operands for ls (two files), dd (none) and convert (input image, output file); dd's values after
+  "="; probe VM `t019-probe`, a fresh clone of the golden image (coreutils 9.4, ImageMagick 6.9.12-98).
+  **One repair after a first pass over the Fable files only:** dd's minimal line gets `of=out.bin`; without
+  it `seek=1` failed on the probe's pipe for every dd file, Caruca's reference included (before → after:
+  reference 58/69 → 60/69, Fable 66/82 → 68/82).
+- **Annotation behaviour check** (`quality/annotation.py` + `ann19_vm.py`): each run's three PaSh files are
+  laid into their own copy of pash_annotations 0.2.4 (the PyPI wheel, sha256 ff475a6f…; dd, ls, test and
+  convert added to its command list, since PaSh annotates only `cut` of the five) and asked about one command
+  line per sample value of every real option. Each claim that the work may be split is tested by running
+  the command on the whole input (120 lines, about 2 KB) and on 2 and 3 consecutive pieces (or one file at
+  a time), joined in order. Lines the program refuses are not graded; a line whose result does not depend
+  on its input has no safe cut. First pass on Fable's `dd`: 56 of 62 claims right, wrong on `count=` and
+  `skip=` (and `count=0`).
+- **Decision rule, written before any Opus file was scored:** Opus 5.5 replaces Fable 5.1 for the other 74
+  commands only if (1) pooled over the five commands its program-checked facts (syntax files and parser
+  tables together) are at least Fable's, (2) on no command is it more than 3 points lower, and (3) its
+  annotations make no more wrong split claims than Fable's. Otherwise Fable stays. One run per model per
+  command: a difference of a few points is within what repeat runs of one model may show, which is not yet
+  measured.
+
+**2026-10-28, 06:05–07:40 (Opus runs 1–4 in; scorer repairs from the first pass).**
+
+| Command | Opus billed | Fable billed | Opus wall time | Fable wall time | Opus turns | Fable turns | Opus program runs | Fable program runs |
+|---|---|---|---|---|---|---|---|---|
+| `dd` | $5.49 | $2.11 | 1,268 s | 296 s | 76 | 20 | 218,328 | 379 |
+| `ls` | $3.13 | $2.42 | 793 s | 306 s | 53 | 28 | 240,869 | 983 |
+| `cut` | $3.03 | $0.91 | 920 s | 131 s | 55 | 12 | 151,970 | 116 |
+| `test` | $4.81 | $1.87 | 1,360 s | 282 s | 52 | 20 | about 53,600 (kernel trace; see below) | 131 |
+
+- Opus sweeps each program with scripts (dd: 18,309 made-up `name=` words; test: every operator with every
+  operand kind). Spent after four Opus runs: $30.05.
+- **Opus `test`: the audit log overflowed.** About 320,000 program starts in 22 minutes passed the golden
+  image's audit limit (`max_log_file = 50` MB × `num_logs = 10`, rotate), so the oldest records, including
+  the session's own start, were deleted and the classifier found no session (tries 0, "outside the session"
+  189,386). The kernel trace (bpftrace) has every start: about 53,600 runs of `/usr/bin/test` or `[`. The
+  other Opus runs lost nothing (audit 221,202 / 243,013 / 153,154 starts against the trace's 221,194 /
+  243,007 / 153,147). If Opus is adopted, raise the limit in the golden image before `--main`.
+- **Scorer repairs after the first pass** (Fable files; for the annotation check also the Opus ls, cut and
+  test files, which had arrived), each applied to every file and recorded in the tool's header:
+  (1) convert's rule between options (fact h) counts a refusal only when ImageMagick's message is about the
+  command line; its other refusals are about the 2x2 test image, and h was 1/56 for the reference, 1/1024
+  for Fable; (2) test's probe tries `)` as the closing half of a grouping and `test S abc -eq 3` (GNU's
+  `-l`), which test accepts (Fable's test file 52/65 → 56/67); (3) the annotation check's second input
+  differs on every line, since a reordering left `cut -s -f 1` unchanged and that line was taken to ignore
+  its input, marking every split claim for it wrong, PaSh's own included; (4) a claim to run one file at a
+  time is tested on a two-file version of the line; (5) test's exit 1 is an answer, not a refusal.
+  Sample values of convert that fail for the tiny image ("size must exceed bevel width", a crash in
+  `-wavelet-denoise`) are about 13 of some 180 failures and hit every file alike; left as they are.
+- Annotation behaviour after the repairs: `cut` Fable 52/52, Opus 79/79, PaSh's own 52/54 (its `-z`
+  claim is wrong; Fable's file leaves `-z` out); `dd` Fable 56/62 (claims `count=1`, `skip=1` may be split,
+  which changes the result), Opus 34/34 but 11 lines missed that could be split.
+
+**2026-10-28, 07:50–08:20 (comparison ended; main batch launched with Fable).** Opus's `convert`: $9.28 (Fable
+$4.10), 2,241 s (Fable 629 s), 21,985 program runs (Fable 18,728). The five Opus runs cost **$25.74**, 2.3
+times Fable's $11.41. Tiran, verbatim: "ok. delete the results from the ops 5.5 test and launch the complete
+suite using fable". So the syntax-file scoring of the Opus files was stopped before it finished; **no quality
+verdict between the two models was reached**, and the decision is Tiran's on cost and time.
+
+- Deleted at his direction (moved to the Mac's Trash, `~/.Trash/caruca_v2_opus55_test_2026-10-28/`, about
+  1.5 GB, none of it tracked by git): the five Opus run folders, their classified tries, driver logs and
+  `opus_test.log`, the five Opus ledger lines (copied there as `ledger_opus_lines.jsonl`), and every file in
+  `quality/results/` (all first-pass output; phase 5 regenerates them). The Opus spend stays in the money
+  record as an unrecorded charge in `campaign_state.json`, so costs still reconcile: recorded **$39.32** =
+  OpenRouter's counter $39.32.
+- Kept, since the campaign uses them: the quality scorer in `quality/` with its repairs (for phase 5), the
+  driver's `--effort` and `--arm` options (defaults: medium, main), the watcher's per-model prices (same as
+  before for Fable), and the probe VM `t019-probe` (stopped, so it does not share the Mac during the batch).
+- **Main batch launched 08:18** (07:58 was first written here before the clock was checked; corrected 08:35): `run_campaign.py --main --model anthropic/claude-fable-5.1 --effort medium`
+  (74 commands in Fig. 7 order, from `fold`; log `fig7_campaign/main.log`), Mac on mains, `caruca` VM idle.
+  **Projection for the 79: $137.58** (spent $39.32 + 0.88 × the 74 estimates): inside the $150 ceiling, but the
+  10 repeat runs (about $13) will probably not fit. The driver re-projects every 20 runs and stops if the
+  projection passes $150. About 9 hours.
+
+**2026-10-28, 14:10 (repeats approved).** Tiran, verbatim: "ok, run the repeats once the main batch
+finishes — warn me if the key drops below $40". A background job waits for the main runner (process 9384)
+to exit, then runs `python3 run_campaign.py --repeats --model anthropic/claude-fable-5.1 --effort medium`
+(log `fig7_campaign/repeats.log`): repeat 2 of `head cut dd cp sort`, then repeat 3, about $15. The credit
+watcher (`credit_watch.py --below 40`) keeps running across the handover, since the waiting job's command
+line names the runner. Expected key credit left after the repeats: about $45.
+
+**2026-10-28, 12:40 (interim comparison table; one bill landed late).** Tiran asked for the agent-vs-Caruca
+table for every command finished so far. New `fig7_campaign/compare_table.py` writes
+`fig7_campaign/interim_comparison.md` (57 of 79 at 12:35): per command, the agent's bill, wall time, program
+runs and refused share, and Caruca's GPT-4o step bill, Fig. 7 time, test runs at up to 4 options and refused
+share at 2 options. Agent totals so far $73.43, 3.2 h, 44,951 program runs.
+
+- **`uname` reads $0.00, `id` $1.49:** OpenRouter's counter had not moved after the runner's full wait, so
+  `uname`'s charge was counted in `id`'s figure (`id`'s Claude Code figure is 0.90 times its bill, against
+  a median of 1.44 for the other runs). The pair's $1.49 is right; the split is unknown. The ledger is left
+  as measured; the table marks both rows. `run_campaign.py` now sets `bill_late` on a row whose bill is
+  under a quarter of Claude Code's figure (takes effect at the next launch, i.e. the repeats).
+- The ledger's token counts are not the session's whole usage: priced at list rates they come to about
+  half of every bill, so they cannot be used to split the `uname`/`id` charge.
+
+**2026-10-28, 09:00 (why `fold` ran 11,397 times).** 11,376 of `fold`'s 11,397 program runs come from one
+self-test script the agent wrote after its files (tool call 12; 3.1 seconds of the 153-second session). To
+check its claim that fold's work may be split, it ran fold on each of about 400 random lines separately,
+for 7 option sets, and compared with one run over the whole text. That per-line check sits inside a loop
+over 4 piece counts (1, 2, 3, 7) it does not depend on, so it ran 4 times: about three quarters of the
+11,376 runs repeat a run already made. Only 98 distinct command lines in all (Caruca: 528 at up to 4
+options); the agent varied the input, not the options. 50 of its 58 refused runs are a deliberate sweep of
+every single letter `-a` to `-Z`, to show no option was missed. `tee` (39 runs) is one of the four worked
+examples whose files the agent is given; `mkfifo` (31) creates files and its annotation claims no split.
+
+**2026-10-28, 08:35 (budget raised to $200).** Tiran, verbatim: "dont worry about the budget - we can go as
+high as $200 - warn me if we are depleting available credits".
+
+- Progress: `fold` $1.24 (153 s), `tee` $0.83 (115 s), `mkfifo` $0.76 (118 s), all ok; 3 runs billed $2.84
+  against estimates of $3.68. About 4 minutes per small command including clone and collection.
+- What is left (08:34): the key's monthly limit **$156.95** of $200 (the binding one); the account's unused
+  credit $256.95 of $300. The key itself refuses calls past $200, so the campaign's ceiling is now $200:
+  `run_campaign.py`'s default `--ceiling` is 200. The batch already running keeps its $150 (it was started
+  with it); its projection ($137.58) is below that, and if a 20-run checkpoint stops it, it is restarted
+  with `--main` (finished commands are skipped) at $200. The repeat runs now fit.
+- **Credit watcher** (`fig7_campaign/credit_watch.py`, started 08:34, background): every 10 minutes logs what
+  is left (the smaller of the key's remaining limit and the account's unused credit) to `credit_watch.log`,
+  and exits with a WARNING below $40, which is when Tiran is told. It ends quietly when no batch is running.
 
 **Time:** agent sessions averaged 333 s in runs 4 to 10, plus about 2 minutes each to clone, start, copy in
 and collect: about 11 hours for 89 runs one at a time, best overnight. One at a time on purpose: parallel

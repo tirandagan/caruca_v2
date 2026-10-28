@@ -1,0 +1,109 @@
+{
+ "command": "ls",
+ "binary": "/usr/bin/ls",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T23:05:26",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 166,
+  "distinct_lines": 108,
+  "traced_lines": 108,
+  "sampled": false,
+  "test_runs_traced": 116,
+  "seconds": 2.5,
+  "seconds_per_test_run": 0.02138,
+  "classes": {
+   "accepted": 101,
+   "unclassified": 3,
+   "other_nonzero": 11,
+   "refused": 1
+  },
+  "refused_share": 0.0086,
+  "classes_as_v1_runs": {
+   "accepted": 159,
+   "unclassified": 3,
+   "other_nonzero": 11,
+   "refused": 1
+  },
+  "refused_share_as_v1_runs": 0.0057,
+  "lines_all_runs_refused": 1,
+  "top_messages": [
+   [
+    "unclassified",
+    "ls: invalid --block-size argument '-1'",
+    1
+   ],
+   [
+    "unclassified",
+    "ls: invalid --block-size argument '0'",
+    1
+   ],
+   [
+    "unclassified",
+    "ls: invalid tab size: '-1'",
+    1
+   ],
+   [
+    "refused",
+    "ls: invalid line width: '-1'",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 13459,
+  "distinct_lines": 5650,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 1144,
+  "seconds": 21.9,
+  "seconds_per_test_run": 0.01917,
+  "classes": {
+   "accepted": 899,
+   "other_nonzero": 164,
+   "refused": 19,
+   "unclassified": 62
+  },
+  "refused_share": 0.0166,
+  "classes_as_v1_runs": {
+   "accepted": 1754,
+   "other_nonzero": 278,
+   "refused": 19,
+   "unclassified": 62
+  },
+  "refused_share_as_v1_runs": 0.009,
+  "lines_all_runs_refused": 15,
+  "top_messages": [
+   [
+    "unclassified",
+    "ls: invalid tab size: '-1'",
+    26
+   ],
+   [
+    "unclassified",
+    "ls: invalid --block-size argument '-1'",
+    23
+   ],
+   [
+    "refused",
+    "ls: invalid line width: '-1'",
+    18
+   ],
+   [
+    "unclassified",
+    "ls: invalid --block-size argument '0'",
+    13
+   ],
+   [
+    "refused",
+    "ls: invalid argument 'full-locale' for 'time style'",
+    1
+   ]
+  ]
+ },
+ "finished": "2026-10-27T23:05:51"
+}

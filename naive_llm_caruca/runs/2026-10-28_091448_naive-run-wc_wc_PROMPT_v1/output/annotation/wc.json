@@ -1,0 +1,43 @@
+{
+    "flag": [
+        [
+            "-c",
+            "--bytes"
+        ],
+        [
+            "-m",
+            "--chars"
+        ],
+        [
+            "-l",
+            "--lines"
+        ],
+        [
+            "-L",
+            "--max-line-length"
+        ],
+        [
+            "-w",
+            "--words"
+        ],
+        [
+            "--debug"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [
+        [
+            "--files0-from",
+            ["FILE", "CONTAINER_FOR_INPUT"]
+        ],
+        [
+            "--total",
+            "WHEN"
+        ]
+    ]
+}

@@ -1,0 +1,997 @@
+{
+ "summary": {
+  "run": "2026-10-28_091448_naive-run-wc_wc_PROMPT_v1",
+  "command": "wc",
+  "binary": "/usr/bin/wc",
+  "logger_check": {
+   "audit_starts": 159,
+   "trace_starts": 152,
+   "audit_without_trace": 7,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793193267.4476318,
+   "clock_spread_ms": 5.617380142211914
+  },
+  "session_found": true,
+  "first_write": 1793193334.134,
+  "tries": 46,
+  "classes": {
+   "accepted": 40,
+   "refused": 6
+  },
+  "by_phase": {
+   "exploring/accepted": 17,
+   "exploring/refused": 3,
+   "testing/accepted": 23,
+   "testing/refused": 3
+  },
+  "help_or_version": 2,
+  "distinct_argument_lists": 38,
+  "distinct_option_sets": 27,
+  "refused_share": 0.1304,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": []
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/wc",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193305.171,
+   "seconds": 0.00018529,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/wc",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193305.172,
+   "seconds": 0.000197924,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.142,
+   "seconds": 0.000197361,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.143,
+   "seconds": 0.000185274,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "f2",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.143,
+   "seconds": 0.000333367,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "-clmwL",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.144,
+   "seconds": 0.000174436,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "--debug",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.144,
+   "seconds": 0.000226996,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "--total=only",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.145,
+   "seconds": 0.000203613,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "--total=never",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.145,
+   "seconds": 0.000241835,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "--total=always",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.146,
+   "seconds": 0.000231372,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "--total=foo",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "wc: invalid argument \u2018foo\u2019 for \u2018--total\u2019",
+   "start": 1793193315.146,
+   "seconds": 0.00024717,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "--total",
+    "only",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.147,
+   "seconds": 0.000180313,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "--files0-from=names"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.147,
+   "seconds": 0.000202738,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "--files0-from=names",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "wc: extra operand 'f1'",
+   "start": 1793193315.147,
+   "seconds": 0.00020749,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "--files0-from=-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.148,
+   "seconds": 0.000220119,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "--files0-from",
+    "names"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.149,
+   "seconds": 0.000184398,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "-L",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.149,
+   "seconds": 0.000182731,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "--line",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.149,
+   "seconds": 0.000190067,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "--byt",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193315.15,
+   "seconds": 0.000161223,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "-c5",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "wc: invalid option -- '5'\nTry 'wc --help' for more information.\n",
+   "start": 1793193315.15,
+   "seconds": 0.000168559,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "wc",
+    "-c",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.117,
+   "seconds": 0.000250919,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "--bytes",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.119,
+   "seconds": 0.000219044,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-m",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.119,
+   "seconds": 0.000221878,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "--chars",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.119,
+   "seconds": 0.000188502,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-l",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.119,
+   "seconds": 0.000186253,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "--lines",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.12,
+   "seconds": 0.000181002,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-L",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.12,
+   "seconds": 0.000184127,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "--max-line-length",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.12,
+   "seconds": 0.000192127,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-w",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.121,
+   "seconds": 0.000220003,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "--words",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.122,
+   "seconds": 0.000194419,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "--debug",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.122,
+   "seconds": 0.000187794,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "--total=auto",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.122,
+   "seconds": 0.000179002,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "--files0-from=names"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.123,
+   "seconds": 0.000202044,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-x",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "wc: invalid option -- 'x'\nTry 'wc --help' for more information.\n",
+   "start": 1793193426.123,
+   "seconds": 0.000203628,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "--foo",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "wc: unrecognized option '--foo'\nTry 'wc --help' for more information.\n",
+   "start": 1793193426.124,
+   "seconds": 0.000186877,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-n",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "wc: invalid option -- 'n'\nTry 'wc --help' for more information.\n",
+   "start": 1793193426.124,
+   "seconds": 0.000235711,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-lwc",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.125,
+   "seconds": 0.000234628,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-lwmcL",
+    "/usr/share/common-licenses/GPL-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.125,
+   "seconds": 0.000607549,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-lwmcL"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.127,
+   "seconds": 0.000252003,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-lwmcL"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.128,
+   "seconds": 0.000209836,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-lwmcL"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.128,
+   "seconds": 0.000217836,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-lwmcL"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.129,
+   "seconds": 0.000451797,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-lwcL"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.131,
+   "seconds": 0.000240336,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-lwcL"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.132,
+   "seconds": 0.000222295,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-lwcL"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.132,
+   "seconds": 0.000217628,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "wc",
+    "-lwcL"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793193426.133,
+   "seconds": 0.00027667,
+   "cwd": "/tmp/wctest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

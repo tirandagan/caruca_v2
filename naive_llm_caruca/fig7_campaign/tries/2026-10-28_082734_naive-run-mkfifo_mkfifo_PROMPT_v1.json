@@ -1,0 +1,705 @@
+{
+ "summary": {
+  "run": "2026-10-28_082734_naive-run-mkfifo_mkfifo_PROMPT_v1",
+  "command": "mkfifo",
+  "binary": "/usr/bin/mkfifo",
+  "logger_check": {
+   "audit_starts": 131,
+   "trace_starts": 124,
+   "audit_without_trace": 7,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793190431.0642729,
+   "clock_spread_ms": 4.29224967956543
+  },
+  "session_found": true,
+  "first_write": 1793190506.004,
+  "tries": 31,
+  "classes": {
+   "accepted": 26,
+   "refused": 4,
+   "other_nonzero": 1
+  },
+  "by_phase": {
+   "exploring/accepted": 19,
+   "exploring/other_nonzero": 1,
+   "exploring/refused": 4,
+   "testing/accepted": 7
+  },
+  "help_or_version": 4,
+  "distinct_argument_lists": 28,
+  "distinct_option_sets": 13,
+  "refused_share": 0.129,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": []
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/mkfifo",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190472.329,
+   "seconds": 0.000413459,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkfifo",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190472.33,
+   "seconds": 0.000275751,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mkfifo: missing operand",
+   "start": 1793190486.48,
+   "seconds": 0.000258944,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "-m",
+    "600",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.48,
+   "seconds": 0.000223876,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "-m600",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.481,
+   "seconds": 0.000216496,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "--mode=u=rw,g=r,o=",
+    "c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.482,
+   "seconds": 0.000244433,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "--mode",
+    "644",
+    "d"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.483,
+   "seconds": 0.000203611,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "--mode"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mkfifo: option '--mode' requires an argument\nTry 'mkfifo --help' for more information.\n",
+   "start": 1793190486.484,
+   "seconds": 0.000212409,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "-Z",
+    "e"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.484,
+   "seconds": 0.000270244,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "-Z",
+    "f",
+    "g"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.485,
+   "seconds": 0.000488616,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "--context",
+    "h"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.486,
+   "seconds": 0.000212784,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "--context=system_u:object_r:tmp_t:s0",
+    "i"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "mkfifo: warning: ignoring --context; it requires an SELinux/SMACK-enabled kernel",
+   "start": 1793190486.487,
+   "seconds": 0.000265199,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "--context",
+    "system_u:object_r:tmp_t:s0",
+    "j"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.488,
+   "seconds": 0.000186682,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "k",
+    "-m",
+    "600"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.488,
+   "seconds": 0.000178884,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "--",
+    "-m"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.489,
+   "seconds": 0.000206322,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "l1",
+    "l2",
+    "l3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.49,
+   "seconds": 0.000179802,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "l1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mkfifo: cannot create fifo 'l1'",
+   "start": 1793190486.491,
+   "seconds": 0.000194938,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "-m",
+    "zzz",
+    "m"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mkfifo: invalid mode",
+   "start": 1793190486.491,
+   "seconds": 0.000188599,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "n"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.492,
+   "seconds": 0.000189892,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.492,
+   "seconds": 0.000192644,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.492,
+   "seconds": 0.00023305,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "--mo",
+    "600",
+    "o"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.493,
+   "seconds": 0.000206946,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "--con",
+    "p"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190486.494,
+   "seconds": 0.000203778,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "mkfifo",
+    "-x",
+    "q"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "mkfifo: invalid option -- 'x'\nTry 'mkfifo --help' for more information.\n",
+   "start": 1793190486.494,
+   "seconds": 0.000209866,
+   "cwd": "/tmp/tmp.4fy1wZeQTS",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkfifo",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190555.645,
+   "seconds": 0.000300764,
+   "cwd": "/tmp/tmpdunrd7q5",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkfifo",
+    "-m",
+    "600",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190555.645,
+   "seconds": 0.000209926,
+   "cwd": "/tmp/tmpysqem_8c",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkfifo",
+    "--mode",
+    "644",
+    "c",
+    "d"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190555.646,
+   "seconds": 0.000195551,
+   "cwd": "/tmp/tmp2qspojrb",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkfifo",
+    "-Z",
+    "e"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190555.646,
+   "seconds": 0.000194801,
+   "cwd": "/tmp/tmplg9atz5f",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkfifo",
+    "--context",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190555.646,
+   "seconds": 0.000178716,
+   "cwd": "/tmp/tmpj7kkgjx6",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkfifo",
+    "-Z",
+    "--mode",
+    "600",
+    "g"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190555.647,
+   "seconds": 0.000413269,
+   "cwd": "/tmp/tmpevki8zjw",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/mkfifo",
+    "x",
+    "y",
+    "z"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793190555.647,
+   "seconds": 0.000222844,
+   "cwd": "/tmp/tmpnnue32eh",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

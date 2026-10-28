@@ -145,7 +145,10 @@ def main():
         except SyntaxError:
             parses = False
         rec = {"command": c, "exit": p.returncode, "wall_s": round(wall, 1), "calls": len(calls),
-               "billed_usd": round(sum((x.get("generation") or {}).get("total_cost") or 0 for x in calls), 6),
+               # the generation endpoint's bill; if that lookup timed out, the cost OpenRouter put in its reply
+               "billed_usd": round(sum((x.get("generation") or {}).get("total_cost")
+                                       if (x.get("generation") or {}).get("total_cost") is not None
+                                       else (x.get("usage") or {}).get("cost") or 0 for x in calls), 6),
                "key_usage_delta_usd": None if after is None else round(after - before, 6),
                "prompt_tokens": sum(((x.get("usage") or {}).get("prompt_tokens") or 0) for x in calls),
                "completion_tokens": sum(((x.get("usage") or {}).get("completion_tokens") or 0) for x in calls),

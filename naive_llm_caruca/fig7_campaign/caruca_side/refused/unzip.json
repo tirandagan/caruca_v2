@@ -1,0 +1,180 @@
+{
+ "command": "unzip",
+ "binary": "/usr/bin/unzip",
+ "package": "unzip 6.0-28ubuntu4.1",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T23:08:13",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 174,
+  "distinct_lines": 92,
+  "traced_lines": 92,
+  "sampled": false,
+  "test_runs_traced": 700,
+  "seconds": 12.6,
+  "seconds_per_test_run": 0.01802,
+  "classes": {
+   "refused": 100,
+   "other_nonzero": 144,
+   "unclassified": 456
+  },
+  "refused_share": 0.1429,
+  "classes_as_v1_runs": {
+   "refused": 100,
+   "other_nonzero": 226,
+   "unclassified": 784
+  },
+  "refused_share_as_v1_runs": 0.0901,
+  "lines_all_runs_refused": 20,
+  "top_messages": [
+   [
+    "unclassified",
+    "unzip:  cannot find or open relpath_1, relpath_1.zip or relpath_1.ZIP.",
+    171
+   ],
+   [
+    "refused",
+    "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.",
+    100
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open nonexistent_path/relpath_1, nonexistent_path/relpath_1.zip or nonexistent_path/relpath_1.ZIP",
+    57
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open /tmp/toplevel_hz9xmns3/sandbox_kg5qt86u/abspath_1, /tmp/toplevel_hz9xmns3/sandbox_kg5qt86u/a",
+    1
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open /tmp/toplevel_wfnhiqg8/sandbox_g6ptlu37/abspath_1, /tmp/toplevel_wfnhiqg8/sandbox_g6ptlu37/a",
+    1
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open /tmp/toplevel_9kq2ds6p/sandbox_gs0a0s95/nonexistent_path/abspath_1, /tmp/toplevel_9kq2ds6p/s",
+    1
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open /tmp/toplevel_565wsp2b/sandbox_v6dfpfve/abspath_1, /tmp/toplevel_565wsp2b/sandbox_v6dfpfve/a",
+    1
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open /tmp/toplevel_qdv601qy/sandbox__3n5h0f0/abspath_1, /tmp/toplevel_qdv601qy/sandbox__3n5h0f0/a",
+    1
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open /tmp/toplevel_qilor5t4/sandbox_q2isvc8m/abspath_1, /tmp/toplevel_qilor5t4/sandbox_q2isvc8m/a",
+    1
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open /tmp/toplevel_akysm2fy/sandbox_6ux20zmf/nonexistent_path/abspath_1, /tmp/toplevel_akysm2fy/s",
+    1
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open /tmp/toplevel_8u1899j6/sandbox_jfg7mgzj/abspath_1, /tmp/toplevel_8u1899j6/sandbox_jfg7mgzj/a",
+    1
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open /tmp/toplevel_0k322wrd/sandbox_4848yjeo/abspath_1, /tmp/toplevel_0k322wrd/sandbox_4848yjeo/a",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 7386,
+  "distinct_lines": 2074,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 11560,
+  "seconds": 241.2,
+  "seconds_per_test_run": 0.02086,
+  "classes": {
+   "other_nonzero": 2144,
+   "unclassified": 6256,
+   "refused": 3160
+  },
+  "refused_share": 0.2734,
+  "classes_as_v1_runs": {
+   "other_nonzero": 6789,
+   "unclassified": 22436,
+   "refused": 5160
+  },
+  "refused_share_as_v1_runs": 0.1501,
+  "lines_all_runs_refused": 400,
+  "top_messages": [
+   [
+    "refused",
+    "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.",
+    2925
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open relpath_1, relpath_1.zip or relpath_1.ZIP.",
+    2244
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open nonexistent_path/relpath_1, nonexistent_path/relpath_1.zip or nonexistent_path/relpath_1.ZIP",
+    748
+   ],
+   [
+    "unclassified",
+    "caution:  not extracting; -d ignored",
+    320
+   ],
+   [
+    "refused",
+    "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.",
+    140
+   ],
+   [
+    "refused",
+    "",
+    65
+   ],
+   [
+    "unclassified",
+    "zipinfo:  cannot find or open relpath_1, relpath_1.zip or relpath_1.ZIP.",
+    51
+   ],
+   [
+    "refused",
+    "error:  -fn or any combination of -c, -l, -p, -t, -u and -v options invalid",
+    30
+   ],
+   [
+    "unclassified",
+    "zipinfo:  cannot find or open nonexistent_path/relpath_1, nonexistent_path/relpath_1.zip or nonexistent_path/relpath_1.Z",
+    17
+   ],
+   [
+    "unclassified",
+    "caution:  both -n and -o specified; ignoring -o",
+    4
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open /tmp/toplevel_ynaxo8n2/sandbox_ifw6sli0/abspath_1, /tmp/toplevel_ynaxo8n2/sandbox_ifw6sli0/a",
+    1
+   ],
+   [
+    "unclassified",
+    "unzip:  cannot find or open /tmp/toplevel_eu4r1kqk/sandbox_oodpar6n/abspath_1, /tmp/toplevel_eu4r1kqk/sandbox_oodpar6n/a",
+    1
+   ]
+  ]
+ },
+ "finished": "2026-10-27T23:12:27"
+}

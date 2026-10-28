@@ -1,0 +1,174 @@
+{
+ "command": "sort",
+ "binary": "/usr/bin/sort",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T23:01:20",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 87,
+  "distinct_lines": 56,
+  "traced_lines": 56,
+  "sampled": false,
+  "test_runs_traced": 96,
+  "seconds": 1.9,
+  "seconds_per_test_run": 0.01998,
+  "classes": {
+   "accepted": 61,
+   "unclassified": 9,
+   "other_nonzero": 25,
+   "refused": 1
+  },
+  "refused_share": 0.0104,
+  "classes_as_v1_runs": {
+   "accepted": 92,
+   "unclassified": 9,
+   "other_nonzero": 25,
+   "refused": 1
+  },
+  "refused_share_as_v1_runs": 0.0079,
+  "lines_all_runs_refused": 1,
+  "top_messages": [
+   [
+    "unclassified",
+    "sort: invalid --batch-size argument '-1'",
+    1
+   ],
+   [
+    "unclassified",
+    "sort: invalid --batch-size argument '0'",
+    1
+   ],
+   [
+    "unclassified",
+    "sort: invalid --batch-size argument '1'",
+    1
+   ],
+   [
+    "unclassified",
+    "sort: invalid --parallel argument '-1'",
+    1
+   ],
+   [
+    "refused",
+    "sort: number in parallel must be nonzero",
+    1
+   ],
+   [
+    "unclassified",
+    "sort: invalid -S argument '=-1'",
+    1
+   ],
+   [
+    "unclassified",
+    "sort: invalid -S argument '=0'",
+    1
+   ],
+   [
+    "unclassified",
+    "sort: invalid -S argument '=1'",
+    1
+   ],
+   [
+    "unclassified",
+    "sort: -:2: disorder: a",
+    1
+   ],
+   [
+    "unclassified",
+    "sort: multi-character tab '\\n\\t'",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 3640,
+  "distinct_lines": 1503,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 2924,
+  "seconds": 57.3,
+  "seconds_per_test_run": 0.01961,
+  "classes": {
+   "unclassified": 592,
+   "other_nonzero": 1058,
+   "accepted": 1111,
+   "refused": 163
+  },
+  "refused_share": 0.0557,
+  "classes_as_v1_runs": {
+   "unclassified": 832,
+   "other_nonzero": 1739,
+   "accepted": 2890,
+   "refused": 193
+  },
+  "refused_share_as_v1_runs": 0.0341,
+  "lines_all_runs_refused": 39,
+  "top_messages": [
+   [
+    "unclassified",
+    "sort: invalid --batch-size argument '-1'",
+    66
+   ],
+   [
+    "unclassified",
+    "sort: invalid --parallel argument '-1'",
+    65
+   ],
+   [
+    "unclassified",
+    "sort: invalid --batch-size argument '1'",
+    65
+   ],
+   [
+    "unclassified",
+    "sort: invalid --batch-size argument '0'",
+    64
+   ],
+   [
+    "refused",
+    "sort: number in parallel must be nonzero",
+    63
+   ],
+   [
+    "unclassified",
+    "sort: invalid -S argument '=0'",
+    62
+   ],
+   [
+    "unclassified",
+    "sort: multi-character tab '\\n\\t'",
+    59
+   ],
+   [
+    "unclassified",
+    "sort: invalid -S argument '=-1'",
+    58
+   ],
+   [
+    "unclassified",
+    "sort: invalid -S argument '=1'",
+    50
+   ],
+   [
+    "refused",
+    "sort: extra operand 'relpath_2'",
+    40
+   ],
+   [
+    "unclassified",
+    "sort: -:2: disorder: a",
+    34
+   ],
+   [
+    "unclassified",
+    "sort: options '-Co' are incompatible",
+    10
+   ]
+  ]
+ },
+ "finished": "2026-10-27T23:02:19"
+}

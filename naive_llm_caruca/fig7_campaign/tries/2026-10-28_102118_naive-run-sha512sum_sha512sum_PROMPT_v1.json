@@ -1,0 +1,2695 @@
+{
+ "summary": {
+  "run": "2026-10-28_102118_naive-run-sha512sum_sha512sum_PROMPT_v1",
+  "command": "sha512sum",
+  "binary": "/usr/bin/sha512sum",
+  "logger_check": {
+   "audit_starts": 253,
+   "trace_starts": 248,
+   "audit_without_trace": 5,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793197258.089456,
+   "clock_spread_ms": 4.991054534912109
+  },
+  "session_found": true,
+  "first_write": 1793197318.38,
+  "tries": 122,
+  "classes": {
+   "accepted": 35,
+   "unclassified": 17,
+   "refused": 70
+  },
+  "by_phase": {
+   "exploring/accepted": 23,
+   "exploring/refused": 7,
+   "exploring/unclassified": 7,
+   "testing/accepted": 12,
+   "testing/refused": 63,
+   "testing/unclassified": 10
+  },
+  "help_or_version": 4,
+  "distinct_argument_lists": 113,
+  "distinct_option_sets": 91,
+  "refused_share": 0.5738,
+  "refused_program_seconds": 0.021,
+  "calls_all_refused": 1,
+  "calls_all_refused_seconds": 0.0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "sha512sum: -b",
+   "sha512sum: /dev/null: no properly formatted checksum lines found",
+   "sha512sum: f: no properly formatted checksum lines found",
+   "sha512sum: the --ignore-missing option is meaningful only when verifying checksums",
+   "sha512sum: the --quiet option is meaningful only when verifying checksums",
+   "sha512sum: the --status option is meaningful only when verifying checksums",
+   "sha512sum: the --strict option is meaningful only when verifying checksums",
+   "sha512sum: the --warn option is meaningful only when verifying checksums"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/sha512sum",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197289.478,
+   "seconds": 0.000326041,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/sha512sum",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197289.479,
+   "seconds": 0.00027725,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.878,
+   "seconds": 0.000452546,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.879,
+   "seconds": 0.00035842,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.879,
+   "seconds": 0.00035542,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-b",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.881,
+   "seconds": 0.000342753,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--binary",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.882,
+   "seconds": 0.000367587,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-t",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.883,
+   "seconds": 0.000350836,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--text",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.884,
+   "seconds": 0.000436088,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-z",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.884,
+   "seconds": 0.000320795,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--zero",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.886,
+   "seconds": 0.000335628,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--tag",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.887,
+   "seconds": 0.000340462,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-w",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: the --warn option is meaningful only when verifying checksums",
+   "start": 1793197309.888,
+   "seconds": 0.000357586,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--warn",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: the --warn option is meaningful only when verifying checksums",
+   "start": 1793197309.889,
+   "seconds": 0.000334253,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--quiet",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: the --quiet option is meaningful only when verifying checksums",
+   "start": 1793197309.889,
+   "seconds": 0.00037317,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--status",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: the --status option is meaningful only when verifying checksums",
+   "start": 1793197309.89,
+   "seconds": 0.000349087,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--strict",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: the --strict option is meaningful only when verifying checksums",
+   "start": 1793197309.891,
+   "seconds": 0.000337504,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--ignore-missing",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: the --ignore-missing option is meaningful only when verifying checksums",
+   "start": 1793197309.892,
+   "seconds": 0.000335795,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-bz",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.893,
+   "seconds": 0.000311836,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-tb",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.893,
+   "seconds": 0.000335087,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-l",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'l'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197309.894,
+   "seconds": 0.000317336,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--debug",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: unrecognized option '--debug'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197309.895,
+   "seconds": 0.000291419,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-a",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'a'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197309.895,
+   "seconds": 0.00028642,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-q",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'q'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197309.896,
+   "seconds": 0.000319253,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-s",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 's'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197309.897,
+   "seconds": 0.000292503,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--length=8",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: unrecognized option '--length=8'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197309.897,
+   "seconds": 0.000318003,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.898,
+   "seconds": 0.000291794,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-c",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.899,
+   "seconds": 0.000315169,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.899,
+   "seconds": 0.000271461,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--status",
+    "-c",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.9,
+   "seconds": 0.000293336,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-c",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "sha512sum: WARNING: 1 line is improperly formatted",
+   "start": 1793197309.9,
+   "seconds": 0.000299586,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-c",
+    "--ignore-missing",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "sha512sum: WARNING: 1 line is improperly formatted",
+   "start": 1793197309.901,
+   "seconds": 0.000325211,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--",
+    "-b"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: -b",
+   "start": 1793197309.901,
+   "seconds": 0.000288461,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "a",
+    "--tag"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.902,
+   "seconds": 0.000294295,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--check=foo",
+    "sums"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: option '--check' doesn't allow an argument\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197309.902,
+   "seconds": 0.000301462,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--tag",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.903,
+   "seconds": 0.000273753,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-c",
+    "tsums"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197309.903,
+   "seconds": 0.000271128,
+   "cwd": "/tmp/tmp.jGuGXYrZ3C",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--binary",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197365.142,
+   "seconds": 0.000613279,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--check",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: f: no properly formatted checksum lines found",
+   "start": 1793197365.143,
+   "seconds": 0.000488107,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197365.144,
+   "seconds": 0.00046423,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-c",
+    "--ignore-missing",
+    "/dev/null"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: /dev/null: no properly formatted checksum lines found",
+   "start": 1793197365.145,
+   "seconds": 0.000382185,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-c",
+    "--quiet",
+    "/dev/null"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: /dev/null: no properly formatted checksum lines found",
+   "start": 1793197365.145,
+   "seconds": 0.000427937,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-c",
+    "--status",
+    "/dev/null"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: /dev/null: no properly formatted checksum lines found",
+   "start": 1793197365.146,
+   "seconds": 0.000392394,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-c",
+    "--strict",
+    "/dev/null"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: /dev/null: no properly formatted checksum lines found",
+   "start": 1793197365.147,
+   "seconds": 0.00033285,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--tag",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197365.147,
+   "seconds": 0.000337432,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--text",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197365.148,
+   "seconds": 0.000360851,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197365.148,
+   "seconds": 0.000344267,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-c",
+    "--warn",
+    "/dev/null"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: /dev/null: no properly formatted checksum lines found",
+   "start": 1793197365.149,
+   "seconds": 0.000313723,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--zero",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197365.15,
+   "seconds": 0.000366934,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-b",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197365.15,
+   "seconds": 0.000320224,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-c",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: f: no properly formatted checksum lines found",
+   "start": 1793197365.151,
+   "seconds": 0.000351725,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-t",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197365.151,
+   "seconds": 0.000335266,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-c",
+    "-w",
+    "/dev/null"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: /dev/null: no properly formatted checksum lines found",
+   "start": 1793197365.152,
+   "seconds": 0.000323432,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-z",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197365.153,
+   "seconds": 0.000340849,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-a",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'a'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.153,
+   "seconds": 0.000333183,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-b",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197365.154,
+   "seconds": 0.000307389,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-c",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: f: no properly formatted checksum lines found",
+   "start": 1793197365.154,
+   "seconds": 0.000330974,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-d",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'd'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.155,
+   "seconds": 0.000282138,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-e",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'e'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.155,
+   "seconds": 0.000306806,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-f",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'f'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.156,
+   "seconds": 0.000308557,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-g",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'g'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.156,
+   "seconds": 0.000302597,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-h",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'h'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.157,
+   "seconds": 0.000289972,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-i",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'i'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.157,
+   "seconds": 0.000306807,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-j",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'j'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.158,
+   "seconds": 0.000294389,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-k",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'k'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.158,
+   "seconds": 0.000316348,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-l",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'l'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.159,
+   "seconds": 0.000285764,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-m",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'm'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.159,
+   "seconds": 0.000286347,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-n",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'n'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.16,
+   "seconds": 0.000304473,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-o",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'o'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.16,
+   "seconds": 0.000344475,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-p",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'p'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.161,
+   "seconds": 0.000273722,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-q",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'q'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.161,
+   "seconds": 0.000304389,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-r",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'r'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.162,
+   "seconds": 0.000278097,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-s",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 's'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.162,
+   "seconds": 0.000298223,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-t",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197365.163,
+   "seconds": 0.000259595,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-u",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'u'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.163,
+   "seconds": 0.000279472,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-v",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'v'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.164,
+   "seconds": 0.000285763,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-w",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: the --warn option is meaningful only when verifying checksums",
+   "start": 1793197365.164,
+   "seconds": 0.000281805,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-x",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'x'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.165,
+   "seconds": 0.000264346,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-y",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'y'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.165,
+   "seconds": 0.000264846,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-z",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793197365.166,
+   "seconds": 0.000262804,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-A",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'A'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.166,
+   "seconds": 0.000283722,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-B",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'B'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.167,
+   "seconds": 0.000260262,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-C",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'C'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.167,
+   "seconds": 0.000259763,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-D",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'D'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.167,
+   "seconds": 0.000265388,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-E",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'E'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.168,
+   "seconds": 0.000274722,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-F",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'F'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.168,
+   "seconds": 0.00027768,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-G",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'G'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.169,
+   "seconds": 0.000277888,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-H",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'H'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.169,
+   "seconds": 0.000301557,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-I",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'I'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.17,
+   "seconds": 0.000285388,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-J",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'J'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.17,
+   "seconds": 0.000270512,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-K",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'K'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.171,
+   "seconds": 0.00027518,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-L",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'L'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.171,
+   "seconds": 0.000261471,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-M",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'M'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.172,
+   "seconds": 0.000260513,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-N",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'N'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.172,
+   "seconds": 0.000265012,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-O",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'O'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.172,
+   "seconds": 0.00025672,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-P",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'P'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.173,
+   "seconds": 0.000268262,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-Q",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'Q'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.173,
+   "seconds": 0.000266679,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-R",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'R'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.174,
+   "seconds": 0.000266138,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-S",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'S'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.174,
+   "seconds": 0.000278221,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-T",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'T'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.175,
+   "seconds": 0.000263846,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-U",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'U'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.175,
+   "seconds": 0.000293806,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-V",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'V'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.176,
+   "seconds": 0.000287139,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-W",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'W'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.176,
+   "seconds": 0.000295222,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-X",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'X'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.177,
+   "seconds": 0.000267138,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-Y",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'Y'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.177,
+   "seconds": 0.00025772,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-Z",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- 'Z'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.178,
+   "seconds": 0.000262888,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-0",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- '0'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.178,
+   "seconds": 0.000249262,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-1",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- '1'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.178,
+   "seconds": 0.000285347,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-2",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- '2'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.179,
+   "seconds": 0.000280388,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-3",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- '3'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.179,
+   "seconds": 0.000268846,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-4",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- '4'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.18,
+   "seconds": 0.00024297,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-5",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- '5'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.18,
+   "seconds": 0.000239804,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-6",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- '6'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.181,
+   "seconds": 0.000245637,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-7",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- '7'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.181,
+   "seconds": 0.000253012,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-8",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- '8'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.181,
+   "seconds": 0.000248345,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "-9",
+    "f"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: invalid option -- '9'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197365.182,
+   "seconds": 0.000236803,
+   "cwd": "/tmp/tmp.BMiYij5WjP",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--untagged",
+    "/dev/null"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: unrecognized option '--untagged'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197370.634,
+   "seconds": 0.000486061,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--base64",
+    "/dev/null"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: unrecognized option '--base64'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197370.635,
+   "seconds": 0.000458102,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--raw",
+    "/dev/null"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: unrecognized option '--raw'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197370.636,
+   "seconds": 0.000530981,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--algorithm=sha512",
+    "/dev/null"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: unrecognized option '--algorithm=sha512'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197370.637,
+   "seconds": 0.000406433,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--length=512",
+    "/dev/null"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: unrecognized option '--length=512'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197370.638,
+   "seconds": 0.000405892,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "sha512sum",
+    "--debug",
+    "/dev/null"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "sha512sum: unrecognized option '--debug'\nTry 'sha512sum --help' for more information.\n",
+   "start": 1793197370.639,
+   "seconds": 0.000390641,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

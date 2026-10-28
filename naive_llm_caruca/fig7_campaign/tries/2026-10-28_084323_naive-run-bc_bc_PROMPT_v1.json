@@ -1,0 +1,1147 @@
+{
+ "summary": {
+  "run": "2026-10-28_084323_naive-run-bc_bc_PROMPT_v1",
+  "command": "bc",
+  "binary": "/usr/bin/bc",
+  "logger_check": {
+   "audit_starts": 162,
+   "trace_starts": 157,
+   "audit_without_trace": 5,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793191382.7499564,
+   "clock_spread_ms": 3.6072731018066406
+  },
+  "session_found": true,
+  "first_write": 1793191460.876,
+  "tries": 53,
+  "classes": {
+   "accepted": 44,
+   "unclassified": 2,
+   "refused": 7
+  },
+  "by_phase": {
+   "exploring/accepted": 14,
+   "exploring/refused": 2,
+   "exploring/unclassified": 1,
+   "testing/accepted": 30,
+   "testing/refused": 5,
+   "testing/unclassified": 1
+  },
+  "help_or_version": 4,
+  "distinct_argument_lists": 40,
+  "distinct_option_sets": 34,
+  "refused_share": 0.1321,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "File - is unavailable.",
+   "File /nonexistent is unavailable."
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/bc",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191421.29,
+   "seconds": 0.000291564,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/bc",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191421.291,
+   "seconds": 0.000236205,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q",
+    "p1.bc",
+    "p2.bc"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191437.013,
+   "seconds": 0.000250234,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q",
+    "p1.bc"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191437.014,
+   "seconds": 0.000187457,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q",
+    "q.bc"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191437.014,
+   "seconds": 0.000183455,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "File - is unavailable.\n",
+   "start": 1793191437.015,
+   "seconds": 0.000177661,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "-lq"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191437.015,
+   "seconds": 0.00019917,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q",
+    "--",
+    "p1.bc"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191437.016,
+   "seconds": 0.000160069,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "bc: invalid option -- 'x'\n",
+   "start": 1793191437.016,
+   "seconds": 0.000168907,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "--quiet=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "bc: option '--quiet' doesn't allow an argument\n",
+   "start": 1793191437.016,
+   "seconds": 0.000174867,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q",
+    "-i"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191437.017,
+   "seconds": 0.001345711,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "-s",
+    "-q"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "(standard_in) 1: Error: print statement",
+   "start": 1793191437.019,
+   "seconds": 0.000196419,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "-w",
+    "-q"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "(standard_in) 1: (Warning) print statement",
+   "start": 1793191437.019,
+   "seconds": 0.000204464,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191437.02,
+   "seconds": 0.000175452,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191437.02,
+   "seconds": 0.000174993,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "-h"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191437.021,
+   "seconds": 0.000184914,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "-v"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191437.021,
+   "seconds": 0.000172825,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 6,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "bc",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.605,
+   "seconds": 0.000280271,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "--interactive"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.606,
+   "seconds": 0.000435782,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "--mathlib"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.607,
+   "seconds": 0.000215683,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "--quiet"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.607,
+   "seconds": 0.000215391,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "--standard"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.608,
+   "seconds": 0.0002206,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.608,
+   "seconds": 0.00017968,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "--warn"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.609,
+   "seconds": 0.000209224,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-h"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.609,
+   "seconds": 0.000221725,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-i"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.61,
+   "seconds": 0.000371735,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-l"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.61,
+   "seconds": 0.000247977,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.611,
+   "seconds": 0.000166554,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-s"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.611,
+   "seconds": 0.000168929,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-v"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.612,
+   "seconds": 0.000197973,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-w"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.612,
+   "seconds": 0.000196765,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-il"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.612,
+   "seconds": 0.000348401,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-iq"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.613,
+   "seconds": 0.000345858,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-is"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.614,
+   "seconds": 0.000296146,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-iw"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.614,
+   "seconds": 0.000294855,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-lq"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.615,
+   "seconds": 0.00017843,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-ls"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.615,
+   "seconds": 0.000202515,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-lw"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.615,
+   "seconds": 0.000219099,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-qs"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.616,
+   "seconds": 0.000166554,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-qw"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.616,
+   "seconds": 0.000154178,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-sw"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191500.617,
+   "seconds": 0.000171637,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-x"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "bc: invalid option -- 'x'\n",
+   "start": 1793191500.617,
+   "seconds": 0.000161928,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "--foo"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "bc: unrecognized option '--foo'\n",
+   "start": 1793191500.617,
+   "seconds": 0.000201307,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-m"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "bc: invalid option -- 'm'\n",
+   "start": 1793191500.618,
+   "seconds": 0.000181222,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "--quiet=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "bc: option '--quiet' doesn't allow an argument\n",
+   "start": 1793191500.618,
+   "seconds": 0.000179304,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-n"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "bc: invalid option -- 'n'\n",
+   "start": 1793191500.619,
+   "seconds": 0.000157428,
+   "cwd": "/tmp/bcval",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 12,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q",
+    "/nonexistent"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "File /nonexistent is unavailable.\n",
+   "start": 1793191510.254,
+   "seconds": 0.000257098,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "Runtime error (func=(main), adr=3): Divide by zero",
+   "start": 1793191510.254,
+   "seconds": 0.000211595,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "Runtime error (func=(main), adr=3): Divide by zero",
+   "start": 1793191510.255,
+   "seconds": 0.000236555,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191510.256,
+   "seconds": 0.000232055,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191510.256,
+   "seconds": 0.000195719,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191510.257,
+   "seconds": 0.000173343,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "bc",
+    "-q",
+    "s.bc"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793191510.257,
+   "seconds": 0.000202679,
+   "cwd": "/tmp",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 13,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

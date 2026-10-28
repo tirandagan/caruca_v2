@@ -1,0 +1,7 @@
+1793190506	1793190506	output/mkfifo.py
+1793190515	1793190515	output/annotation/mkfifo.json
+1793190521	1793190521	output/annotation/InputOutputInfoGeneratorMkfifo.py
+1793190526	1793190526	output/annotation/ParallelizabilityInfoGeneratorMkfifo.py
+1793190549	1793190549	output/__pycache__/mkfifo.cpython-312.pyc
+1793190555	1793190555	output/annotation/__pycache__/InputOutputInfoGeneratorMkfifo.cpython-312.pyc
+1793190555	1793190555	output/annotation/__pycache__/ParallelizabilityInfoGeneratorMkfifo.cpython-312.pyc
