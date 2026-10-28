@@ -64,7 +64,7 @@ it took.
 
 ## 2. Where it starts from (13 October 2026)
 
-From `ai_docs/analysis/status_reports/status_report_2026-10-13.md`, section 1:
+From `ai_docs/archive_2026-09_rebuild/analysis/status_reports/status_report_2026-10-13.md`, section 1:
 
 | step | v2 vs v1 today | cause | kind of fix (task 011 §2) |
 |---|---|---|---|
@@ -432,7 +432,7 @@ If two sessions ever do run in parallel again, split by file: one owns `stages/t
     - First real run after the clean slate, from the pipeline page: `grep` step 1 on v2 —
       58 elements, validated, $0.03, 12,347 + 597 tokens, 6.3 s
       (`eval/runs/2026-10-13T171704Z_grep_5fa23e99`).
-    - Walkthrough for Tiran: `ai_docs/docs/console_walkthrough_grep_rm.md`. 230 console tests.
+    - Walkthrough for Tiran: `ai_docs/archive_2026-09_rebuild/docs/console_walkthrough_grep_rm.md`. 230 console tests.
 - **2026-10-13, later: step 2's output format now replicates v1's** (Tiran's direction the same
   afternoon, `memory/feedback_output_format_fidelity.md`), plus progress lines and the cutoff.
   - **Found, in the console's popup on `cat`:** v2 wrote a flag as v1's *other* valid node

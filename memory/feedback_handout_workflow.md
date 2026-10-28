@@ -22,5 +22,5 @@ navigation if the name on the slide matches the file the reader has in hand, and
 assembling the package does not depend on remembering what was cited.
 
 **How to apply:** applies to presentations and any other deliverable that cites project documents for an
-outside audience. The first example is `ai_docs/docs/presentations/` — see `ASSEMBLY.md` there for the
+outside audience. The first example is `ai_docs/archive_2026-09_rebuild/docs/presentations/` — see `ASSEMBLY.md` there for the
 established shape. Related: [[feedback-plain-language]] governs how the content itself is worded.

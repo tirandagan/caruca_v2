@@ -1,0 +1,80 @@
+{
+ "command": "mogrify",
+ "binary": "/usr/bin/mogrify",
+ "package": "imagemagick-6.q16 8:6.9.12.98+dfsg1-5.2build2",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:05:22",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 16,
+  "distinct_lines": 14,
+  "traced_lines": 14,
+  "sampled": false,
+  "test_runs_traced": 150,
+  "seconds": 5.4,
+  "seconds_per_test_run": 0.03596,
+  "classes": {
+   "unclassified": 84,
+   "other_nonzero": 56,
+   "refused": 10
+  },
+  "refused_share": 0.0667,
+  "classes_as_v1_runs": {
+   "unclassified": 90,
+   "other_nonzero": 60,
+   "refused": 10
+  },
+  "refused_share_as_v1_runs": 0.0625,
+  "lines_all_runs_refused": 2,
+  "top_messages": [
+   [
+    "unclassified",
+    "mogrify-im6.q16: no decode delegate for this image format `' @ error/constitute.c/ReadImage/581.",
+    84
+   ],
+   [
+    "refused",
+    "mogrify-im6.q16: invalid argument for option `string': -thumbnail @ error/mogrify.c/MogrifyImageCommand/6356.",
+    10
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 42,
+  "distinct_lines": 36,
+  "traced_lines": 36,
+  "sampled": false,
+  "test_runs_traced": 500,
+  "seconds": 15.2,
+  "seconds_per_test_run": 0.03039,
+  "classes": {
+   "unclassified": 216,
+   "other_nonzero": 144,
+   "refused": 140
+  },
+  "refused_share": 0.28,
+  "classes_as_v1_runs": {
+   "unclassified": 282,
+   "other_nonzero": 188,
+   "refused": 140
+  },
+  "refused_share_as_v1_runs": 0.2295,
+  "lines_all_runs_refused": 12,
+  "top_messages": [
+   [
+    "unclassified",
+    "mogrify-im6.q16: no decode delegate for this image format `' @ error/constitute.c/ReadImage/581.",
+    216
+   ],
+   [
+    "refused",
+    "mogrify-im6.q16: invalid argument for option `string': -thumbnail @ error/mogrify.c/MogrifyImageCommand/6356.",
+    140
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:05:43"
+}

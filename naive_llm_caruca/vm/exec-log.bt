@@ -1,0 +1,45 @@
+#!/usr/bin/env bpftrace
+// Every program start in the VM during one naive run: when it started, its parent, how it ended and the
+// start of its error output. Started as root by naive-run just before the session and stopped just after
+// (task 019, section 3.2). The arguments come from the kernel's audit log instead (naive-run adds an
+// execve audit rule): reading them here, at execve entry, came back empty for 35 of 100 runs of a shell
+// loop in testing (2026-10-27), because the strings are read from the caller's memory, which a probe
+// cannot page in. Everything below is read from kernel-side data, except the error-output bytes, which
+// the process has just written. naive_llm_caruca/fig7_campaign/execlog.py joins the two logs.
+// One tab-separated record per line; <ns> is nanoseconds since boot:
+//   B  <ns>                                    logger started
+//   F  <ns> <parent pid> <child pid>           a process was created
+//   S  <ns> <pid> <path>                       a program started in that process (execve succeeded)
+//   W  <ns> <pid> <count> <bytes>              a write to its error output (first 2, up to 128 bytes each)
+//   X  <ns> <pid> <status> <comm>              the process ended (wait status: exit code * 256, or the signal)
+// bpftrace 0.20 on Ubuntu 24.04's 6.8 kernel aborts on any curtask-> access (checked 2026-10-27), hence
+// fork events for parents and a probe on do_exit for the status. Run with BPFTRACE_MAX_STRLEN=128.
+
+BEGIN { printf("B\t%llu\n", nsecs); }
+
+tracepoint:sched:sched_process_fork
+{
+  printf("F\t%llu\t%d\t%d\n", nsecs, pid, args.child_pid);
+}
+
+tracepoint:sched:sched_process_exec
+{
+  printf("S\t%llu\t%d\t%s\n", nsecs, pid, str(args.filename));
+  delete(@w[pid]);
+}
+
+tracepoint:syscalls:sys_enter_write
+/args.fd == 2 && comm != "claude" && @w[pid] < 2/
+{
+  @w[pid]++;
+  printf("W\t%llu\t%d\t%d\t%r\n", nsecs, pid, args.count, buf(args.buf, args.count));
+}
+
+kprobe:do_exit
+/pid == tid/
+{
+  printf("X\t%llu\t%d\t%d\t%s\n", nsecs, pid, arg0, comm);
+  delete(@w[pid]);
+}
+
+END { clear(@w); }

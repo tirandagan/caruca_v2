@@ -133,7 +133,7 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 > schema, cell keys, and rollups gain a dimension; the extension lands in 007, not here.
 >
 > **Created:** 2026-09-06 · **Owner:** Tiran Dagan
-> **Source plan:** `ai_docs/analysis/experiment_implementation_plan.md` (Parts 3 and 6) and
+> **Source plan:** `ai_docs/archive_2026-09_rebuild/analysis/experiment_implementation_plan.md` (Parts 3 and 6) and
 > `ai_docs/prep/roadmap.md` Phase 3 ("Evaluation Harness").
 > The harness *build* (Phases 1–5, 7) is unblocked and spends no money. Campaign *execution*
 > (Phase 6) is blocked on Tiran's approval of the run matrix in
@@ -179,7 +179,7 @@ stage *does* (prompt hashes, decoding parameters, and stage behavior are untouch
   (`caruca-v2 score | sweep | mutate-docs | report`), tested under the same 149-test/ruff
   regime as everything else, importing the stages' typed `run()` entry points directly.
   Adding subcommands changes no existing behavior and no prompt hashes.
-  `ai_docs/analysis/experiment_implementation_plan.md` Part 3 was updated to match.
+  `ai_docs/archive_2026-09_rebuild/analysis/experiment_implementation_plan.md` Part 3 was updated to match.
 
 ### Decision 2 — Campaign files are declarative, committed JSON
 `campaigns/*.json` (repo root, committed): commands by name, arms, models, temperatures, k,
@@ -395,9 +395,9 @@ Same conventions as tasks 001–004 (see `001_naive_llm_baseline_cli.md` §14), 
 - Every new component gets fakes-based tests before it is considered done.
 
 ## 13. Notes & References
-- `ai_docs/analysis/experiment_implementation_plan.md` — Parts 3 (component spec), 6 (run
+- `ai_docs/archive_2026-09_rebuild/analysis/experiment_implementation_plan.md` — Parts 3 (component spec), 6 (run
   matrix this harness executes), and the red-team corrections adopted as Decisions 3, 5, 6.
-- `ai_docs/analysis/v2_fidelity_to_v1.md` — licensing posture, subprocess bridge pattern.
+- `ai_docs/archive_2026-09_rebuild/analysis/v2_fidelity_to_v1.md` — licensing posture, subprocess bridge pattern.
 - `memory/caruca_v1_eval_tooling_notes.md` — cmp_specs denominator bug; Q1 vs Q2 methods.
 - `ai_docs/prep/data_telemetry_schema.md` — comparison-record shape and `method` tag rules.
 - Task 005 (reserved, unwritten): v1 instrumentation; required before any v1-vs-v2 *LLM cost*

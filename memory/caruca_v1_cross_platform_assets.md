@@ -6,7 +6,7 @@ metadata:
 ---
 
 Found 2026-10-06 while answering what v1 is for. Verified on the Mac at v1 `d80324073`. None of this
-appears in the paper's evaluation, and `ai_docs/analysis/evaluation_gaps.md` gap 3 ("cross-platform
+appears in the paper's evaluation, and `ai_docs/archive_2026-09_rebuild/analysis/evaluation_gaps.md` gap 3 ("cross-platform
 motivation untested") did not know it existed until a note was added that day.
 
 - `benchmarks/bsd/man/`: 87 BSD man pages for coreutils-style commands (`grep`, `cp`, `rm`, `sort`,

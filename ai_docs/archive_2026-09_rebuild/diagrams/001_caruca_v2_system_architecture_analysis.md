@@ -18,7 +18,7 @@ processing pipeline with tiers, not a system/container/component topology in the
 
 ## Diagram
 
-![caruca_v2 System Architecture](./001_caruca_v2_system_architecture.png)
+![caruca_v2 System Architecture](001_caruca_v2_system_architecture.png)
 
 Also available as scalable vector: `001_caruca_v2_system_architecture.svg`.
 

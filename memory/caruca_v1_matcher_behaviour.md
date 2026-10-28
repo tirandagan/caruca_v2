@@ -8,7 +8,7 @@ metadata:
 Established 2026-10-26 by reading v1 `d80324073` (`oracle.py`, `ir/syntax.py` `could_match`) and by
 replaying the matcher on `eval/user-scripts/invocations.txt`. Scripts/results:
 `naive_llm_caruca/comparisons/2026-10-26_syntax_files_vs_v1/`; write-up
-`ai_docs/analysis/naive_llm_syntax_files_vs_v1.md`. Related: [[caruca-v1-eval-tooling-notes]],
+`naive_llm_caruca/syntax_files_vs_v1.md`. Related: [[caruca-v1-eval-tooling-notes]],
 [[caruca-v1-value-generation]], [[project-naive-claude-code-arm]].
 
 **Behaviours (code-read, then seen in runs):**
@@ -45,3 +45,9 @@ ShellCheck adapter (`annotator/__init__.py` lines 60–106, "missing destination
 
 **Running the matcher with another grammar without touching v1:** import `caruca.oracle as O`, wrap
 `O.get_syntax_spec` to call the real one with your package name, call `O.oracle(line)`.
+
+**Also measured (task 018, 2026-10-26/27).** With v1's shipped GPT-4o `sort` file, which has no `-k`/`--key`,
+the matcher still reads 5,011 of 5,011 real `sort` lines, 2,343 of them via a behaviour-1 substitution;
+read with GNU's rules that file reads 4,179 of 5,010. So the paper-style count cannot see a missing option.
+Task 018 reports the GNU-rules reading (this note's `gnuread.py`) beside v1's count, never instead of it.
+(Merged here 2026-10-27 from a duplicate note, `caruca_v1_oracle_flag_substitution.md`, now deleted.)

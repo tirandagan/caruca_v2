@@ -1,0 +1,184 @@
+{
+ "command": "cp",
+ "binary": "/usr/bin/cp",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:18:23",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 368,
+  "distinct_lines": 240,
+  "traced_lines": 240,
+  "sampled": false,
+  "test_runs_traced": 6800,
+  "seconds": 123.8,
+  "seconds_per_test_run": 0.01821,
+  "classes": {
+   "accepted": 808,
+   "other_nonzero": 4436,
+   "unclassified": 1496,
+   "refused": 60
+  },
+  "refused_share": 0.0088,
+  "classes_as_v1_runs": {
+   "accepted": 1304,
+   "other_nonzero": 5900,
+   "unclassified": 2736,
+   "refused": 60
+  },
+  "refused_share_as_v1_runs": 0.006,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "cp: -r not specified; omitting directory 'relpath_1'",
+    628
+   ],
+   [
+    "unclassified",
+    "cp: -r not specified; omitting directory 'relpath_2'",
+    68
+   ],
+   [
+    "refused",
+    "cp: with --parents, the destination must be a directory",
+    60
+   ],
+   [
+    "unclassified",
+    "cp: warning: behavior of -n is non-portable and may change in future; use --update=none instead",
+    40
+   ],
+   [
+    "unclassified",
+    "cp: -r not specified; omitting directory 'relpath_3'",
+    16
+   ],
+   [
+    "unclassified",
+    "cp: cannot overwrite non-directory 'relpath_2' with directory 'relpath_1'",
+    4
+   ],
+   [
+    "unclassified",
+    "cp: cannot overwrite directory 'relpath_2' with non-directory",
+    4
+   ],
+   [
+    "unclassified",
+    "cp: overwrite 'relpath_2'?",
+    2
+   ],
+   [
+    "unclassified",
+    "cp: relpath_2/relpath_1: can make relative symbolic links only in current directory",
+    2
+   ],
+   [
+    "unclassified",
+    "cp: -r not specified; omitting directory '/tmp/toplevel_gakx6l8t/sandbox__h1bmimk/abspath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "cp: -r not specified; omitting directory '/tmp/toplevel_n9xuxkq0/sandbox_so11s8li/abspath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "cp: -r not specified; omitting directory '/tmp/toplevel_fvzdsdnw/sandbox_bgnofoir/abspath_1'",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 16164,
+  "distinct_lines": 6764,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 31200,
+  "seconds": 585.6,
+  "seconds_per_test_run": 0.01877,
+  "classes": {
+   "other_nonzero": 23142,
+   "accepted": 3399,
+   "unclassified": 3749,
+   "refused": 910
+  },
+  "refused_share": 0.0292,
+  "classes_as_v1_runs": {
+   "other_nonzero": 51801,
+   "accepted": 10023,
+   "unclassified": 15841,
+   "refused": 935
+  },
+  "refused_share_as_v1_runs": 0.0119,
+  "lines_all_runs_refused": 22,
+  "top_messages": [
+   [
+    "unclassified",
+    "cp: -r not specified; omitting directory 'relpath_1'",
+    1194
+   ],
+   [
+    "refused",
+    "cp: with --parents, the destination must be a directory",
+    385
+   ],
+   [
+    "unclassified",
+    "cp: -r not specified; omitting directory 'relpath_2'",
+    308
+   ],
+   [
+    "unclassified",
+    "cp: warning: behavior of -n is non-portable and may change in future; use --update=none instead",
+    200
+   ],
+   [
+    "refused",
+    "cp: extra operand 'relpath_2'",
+    140
+   ],
+   [
+    "refused",
+    "cp: --reflink can be used only with --sparse=auto",
+    100
+   ],
+   [
+    "unclassified",
+    "cp: -r not specified; omitting directory 'relpath_3'",
+    68
+   ],
+   [
+    "refused",
+    "cp: extra operand 'nonexistent_path/relpath_2'",
+    35
+   ],
+   [
+    "unclassified",
+    "cp: cannot overwrite directory 'relpath_2' with non-directory",
+    16
+   ],
+   [
+    "unclassified",
+    "cp: overwrite 'relpath_2'?",
+    13
+   ],
+   [
+    "unclassified",
+    "cp: cannot overwrite non-directory 'relpath_2' with directory 'relpath_1'",
+    10
+   ],
+   [
+    "unclassified",
+    "cp: relpath_2/relpath_1: can make relative symbolic links only in current directory",
+    6
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:30:14"
+}

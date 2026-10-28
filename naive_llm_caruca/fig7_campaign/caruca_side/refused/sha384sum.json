@@ -1,0 +1,154 @@
+{
+ "command": "sha384sum",
+ "binary": "/usr/bin/sha384sum",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:08:22",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 27,
+  "distinct_lines": 15,
+  "traced_lines": 15,
+  "sampled": false,
+  "test_runs_traced": 23,
+  "seconds": 0.6,
+  "seconds_per_test_run": 0.02598,
+  "classes": {
+   "accepted": 9,
+   "refused": 5,
+   "unclassified": 1,
+   "other_nonzero": 8
+  },
+  "refused_share": 0.2174,
+  "classes_as_v1_runs": {
+   "accepted": 21,
+   "refused": 5,
+   "unclassified": 1,
+   "other_nonzero": 8
+  },
+  "refused_share_as_v1_runs": 0.1429,
+  "lines_all_runs_refused": 5,
+  "top_messages": [
+   [
+    "refused",
+    "sha384sum: the --ignore-missing option is meaningful only when verifying checksums",
+    1
+   ],
+   [
+    "refused",
+    "sha384sum: the --quiet option is meaningful only when verifying checksums",
+    1
+   ],
+   [
+    "refused",
+    "sha384sum: the --status option is meaningful only when verifying checksums",
+    1
+   ],
+   [
+    "refused",
+    "sha384sum: the --strict option is meaningful only when verifying checksums",
+    1
+   ],
+   [
+    "unclassified",
+    "sha384sum: 'standard input': no properly formatted checksum lines found",
+    1
+   ],
+   [
+    "refused",
+    "sha384sum: the --warn option is meaningful only when verifying checksums",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 336,
+  "distinct_lines": 105,
+  "traced_lines": 105,
+  "sampled": false,
+  "test_runs_traced": 209,
+  "seconds": 3.7,
+  "seconds_per_test_run": 0.01782,
+  "classes": {
+   "accepted": 63,
+   "refused": 90,
+   "other_nonzero": 44,
+   "unclassified": 12
+  },
+  "refused_share": 0.4306,
+  "classes_as_v1_runs": {
+   "accepted": 228,
+   "refused": 145,
+   "other_nonzero": 132,
+   "unclassified": 23
+  },
+  "refused_share_as_v1_runs": 0.2746,
+  "lines_all_runs_refused": 50,
+  "top_messages": [
+   [
+    "refused",
+    "sha384sum: the --ignore-missing option is meaningful only when verifying checksums",
+    19
+   ],
+   [
+    "refused",
+    "sha384sum: the --warn option is meaningful only when verifying checksums",
+    18
+   ],
+   [
+    "refused",
+    "sha384sum: the --status option is meaningful only when verifying checksums",
+    17
+   ],
+   [
+    "refused",
+    "sha384sum: the --quiet option is meaningful only when verifying checksums",
+    16
+   ],
+   [
+    "refused",
+    "sha384sum: the --strict option is meaningful only when verifying checksums",
+    15
+   ],
+   [
+    "unclassified",
+    "sha384sum: 'standard input': no properly formatted checksum lines found",
+    5
+   ],
+   [
+    "refused",
+    "sha384sum: the --binary and --text options are meaningless when verifying checksums",
+    2
+   ],
+   [
+    "unclassified",
+    "sha384sum: relpath_1: read error",
+    2
+   ],
+   [
+    "refused",
+    "sha384sum: --tag does not support --text mode",
+    1
+   ],
+   [
+    "refused",
+    "sha384sum: the --tag option is meaningless when verifying checksums",
+    1
+   ],
+   [
+    "unclassified",
+    "sha384sum: 'standard input': 1: improperly formatted SHA384 checksum line",
+    1
+   ],
+   [
+    "refused",
+    "sha384sum: the --zero option is not supported when verifying checksums",
+    1
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:08:26"
+}

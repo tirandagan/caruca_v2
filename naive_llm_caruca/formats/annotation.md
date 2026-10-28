@@ -3,7 +3,7 @@
 PaSh describes a command with three files. Together they let PaSh parse an invocation of the command,
 work out which of its arguments are inputs and outputs, and decide whether the invocation's work can be
 split across parallel copies. The files live in the `pash_annotations` Python package (the module
-paths below are that package's), and the samples under `samples/*/pash/` are copied from it unchanged.
+paths below are that package's), and the samples under `samples/*/annotation/` are copied from it unchanged.
 
 | File | What it is |
 |---|---|

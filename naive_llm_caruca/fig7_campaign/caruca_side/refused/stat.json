@@ -1,0 +1,54 @@
+{
+ "command": "stat",
+ "binary": "/usr/bin/stat",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:07:37",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 44,
+  "distinct_lines": 30,
+  "traced_lines": 30,
+  "sampled": false,
+  "test_runs_traced": 150,
+  "seconds": 2.7,
+  "seconds_per_test_run": 0.01825,
+  "classes": {
+   "accepted": 98,
+   "other_nonzero": 52
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 140,
+   "other_nonzero": 80
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": []
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 416,
+  "distinct_lines": 194,
+  "traced_lines": 194,
+  "sampled": false,
+  "test_runs_traced": 970,
+  "seconds": 16.9,
+  "seconds_per_test_run": 0.01747,
+  "classes": {
+   "accepted": 690,
+   "other_nonzero": 280
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 1404,
+   "other_nonzero": 676
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": []
+ },
+ "finished": "2026-10-27T19:07:57"
+}

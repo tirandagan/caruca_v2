@@ -301,7 +301,7 @@ model".
 
 ## 8. Notes & References
 
-- The measured gap: `ai_docs/analysis/v1_v2_parity_study.md`, stage 1. Per-flag detail:
+- The measured gap: `ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md`, stage 1. Per-flag detail:
   section 2 above, from `eval/runs/2026-09-14T1308*_{tail,tac}_*/`.
 - v1's prompt history: `git log -- caruca/src/caruca/llm.py` in v1 (`9def2f3d5`, `eeb37295b`).
   The spec-generation commit is `d394752f7`.

@@ -15,7 +15,7 @@ order and is deliberately *not* the same as the folder's sort order.
 
 Dates come from when the document was first produced, not from the filesystem — every file on this
 Mac reports a creation date of 2026-09-01, which is only when the repository was cloned here (see
-[`dev_machine_paths`](../../../memory/dev_machine_paths.md) for the two-machine setup). Use the
+[`dev_machine_paths`](../../../../memory/dev_machine_paths.md) for the two-machine setup). Use the
 first git commit that added the file, or today's date for something new.
 
 Tooling and this index are deliberately unstamped: `build_decks.py` keeps its name so the
@@ -73,7 +73,7 @@ so you can check nothing is missing.
 - **Cited on slides:** 2, 5, 8, 9, 12, 13, 16, 17, 18, 24, 25
 
 ### 4. evaluation_gaps
-- **Source:** `ai_docs/analysis/evaluation_gaps.md`
+- **Source:** `ai_docs/archive_2026-09_rebuild/analysis/evaluation_gaps.md`
 - **Needs converting.**
 - **Covers:** all fourteen opportunities to broaden testing, split into ones the original authors did not
   raise and ones they acknowledge themselves, each with its source.
@@ -107,7 +107,7 @@ list above. Include them when the conversation is about research framing rather 
 If they later earn slides, move them into the numbered list and record the slide numbers.
 
 ### 8. scientific_vs_engineering_contributions
-- **Source:** `ai_docs/analysis/scientific_vs_engineering_contributions.md`
+- **Source:** `ai_docs/archive_2026-09_rebuild/analysis/scientific_vs_engineering_contributions.md`
 - **Needs converting.**
 - **Covers:** which v2 directions count as publishable science versus product and engineering work.
   Nine ranked candidate contributions, a table of necessary-but-uncountable work paired with a
@@ -118,7 +118,7 @@ If they later earn slides, move them into the numbered list and record the slide
   into results and which cannot.
 
 ### 9. experiment_designs
-- **Source:** `ai_docs/analysis/experiment_designs.md`
+- **Source:** `ai_docs/archive_2026-09_rebuild/analysis/experiment_designs.md`
 - **Needs converting.**
 - **Covers:** protocol-level designs for the experiments worth running, each with the infrastructure
   that already exists in v1, what still needs building, an effort estimate, and the null result that
@@ -157,7 +157,7 @@ anything already handed out remains identifiable; the reissues carry `_v1.1` and
 each one's cover subtitle and opening note say what changed.
 
 **Where they live:** the reissues sit in this folder; the nine documents they replace were moved to
-[`archive/`](archive/) on the same day, with a README there repeating this table. Everything at the top
+[`archive/`](archive) on the same day, with a README there repeating this table. Everything at the top
 level of this folder is current and safe to hand out.
 
 | Reissued (hand out this one) | Supersedes (now in `archive/`) | What changed |

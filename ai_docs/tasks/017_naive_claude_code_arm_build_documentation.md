@@ -94,7 +94,7 @@ This is not the arm's user manual (that is the package's `README.md`) and not it
 - `naive_llm_caruca/PROMPT_v1.md`, `PROMPT_v2.md`, `formats/*.md`, `samples/`, the
   scripts and `vm/` for exact quotations.
 - `memory/project_naive_claude_code_arm.md` and `memory/feedback_readme_is_prompt_variant_log.md`.
-- `ai_docs/analysis/v1_v2_parity_study.md` and task 012 for the core nine and the PaSh context;
+- `ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md` and task 012 for the core nine and the PaSh context;
   `memory/caruca_v1_pash_json_compat.md` for why modern PaSh reads no JSON.
 - `git log` for dates; the arm's own commits are `5031735` (package) and `14df3db` (VM install),
   with the rest of the day's work uncommitted at the time this task was created.

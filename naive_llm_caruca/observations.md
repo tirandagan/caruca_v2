@@ -322,6 +322,6 @@ Integer(flag="-l", alias=["--length"]),                     # ← no range: Caru
 - Every count, file by file: [`scoring/results/<cmd>.json`](scoring/results/)
   and the [scores table](scoring/results/summary.md)
 - Every difference between the three syntax files, checked on the program:
-  [Syntax files vs v1](../ai_docs/analysis/naive_llm_syntax_files_vs_v1.md)
+  [Syntax files vs v1](syntax_files_vs_v1.md)
 - What each run did: the run table in the [directory](README.md#3-the-runs)
-- The write-up for the paper's co-authors: [Naive LLM addendum](../ai_docs/analysis/white_paper_addendum_naive_llm.md)
+- The write-up for the paper's co-authors: [Naive LLM addendum](white_paper_addendum_naive_llm.md)

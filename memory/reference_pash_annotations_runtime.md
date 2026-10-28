@@ -27,7 +27,7 @@ Established 2026-10-20 while analysing naive runs 7 (cut) and 9 (sort), by readi
   ordinary sort PaSh returned no parallelizability info (only `-s`/`-u`, where it skipped round robin,
   worked). PaSh's own grep class builds the same pairing, but only in a branch guarded by
   `is_implemented`, which its custom aggregators fail, so it never runs. The naive arm's
-  `formats/pash_annotation.md` does not state the rule (as of 2026-10-20).
+  `formats/pash_annotation.md` (renamed `formats/annotation.md` on 2026-10-27, task 019) does not state the rule (as of 2026-10-20).
 - The parser does not split attached values: `cut -d: -f2` parses with no options and operands `-d:`,
   `-f2`; `--fields=2`, `--sort=numeric`, `-k2` likewise stay operands. Listing an optional-argument option
   (`--check`) as an option makes it take the next word (`sort --check a b` → value `a`, operand `b`).

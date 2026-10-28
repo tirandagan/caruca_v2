@@ -226,7 +226,7 @@ and diff against the pinned upstream revisions. While the VM is warm, batch-gene
 
 **Costs.** No model calls. One to two days; a few Lima CPU-hours.
 
-**Results (run 2026-09-06, same day as this plan):** see [`e0_artifact_pinning.md`](e0_artifact_pinning.md) —
+**Results (run 2026-09-06, same day as this plan):** see [`e0_artifact_pinning.md`](../../analysis/e0_artifact_pinning.md) —
 all three claims reached definite states, the population and redundancy questions are settled,
 and two provenance questions (the paper's ps and cp runs) go to Prof. Greenberg.
 

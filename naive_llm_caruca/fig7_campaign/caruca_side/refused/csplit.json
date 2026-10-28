@@ -1,0 +1,104 @@
+{
+ "command": "csplit",
+ "binary": "/usr/bin/csplit",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:08:47",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 44,
+  "distinct_lines": 28,
+  "traced_lines": 28,
+  "sampled": false,
+  "test_runs_traced": 140,
+  "seconds": 2.7,
+  "seconds_per_test_run": 0.01899,
+  "classes": {
+   "accepted": 20,
+   "unclassified": 74,
+   "other_nonzero": 36,
+   "refused": 10
+  },
+  "refused_share": 0.0714,
+  "classes_as_v1_runs": {
+   "accepted": 20,
+   "unclassified": 122,
+   "other_nonzero": 68,
+   "refused": 10
+  },
+  "refused_share_as_v1_runs": 0.0455,
+  "lines_all_runs_refused": 2,
+  "top_messages": [
+   [
+    "unclassified",
+    "csplit: 'string': invalid pattern",
+    54
+   ],
+   [
+    "unclassified",
+    "csplit: invalid conversion specifier in suffix: f",
+    10
+   ],
+   [
+    "unclassified",
+    "csplit: invalid conversion specifier in suffix: s",
+    10
+   ],
+   [
+    "refused",
+    "csplit: invalid number: '-1': Numerical result out of range",
+    10
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 424,
+  "distinct_lines": 172,
+  "traced_lines": 172,
+  "sampled": false,
+  "test_runs_traced": 860,
+  "seconds": 15.1,
+  "seconds_per_test_run": 0.01751,
+  "classes": {
+   "accepted": 230,
+   "refused": 110,
+   "unclassified": 376,
+   "other_nonzero": 144
+  },
+  "refused_share": 0.1279,
+  "classes_as_v1_runs": {
+   "accepted": 370,
+   "refused": 180,
+   "unclassified": 1062,
+   "other_nonzero": 508
+  },
+  "refused_share_as_v1_runs": 0.0849,
+  "lines_all_runs_refused": 22,
+  "top_messages": [
+   [
+    "unclassified",
+    "csplit: 'string': invalid pattern",
+    216
+   ],
+   [
+    "refused",
+    "csplit: invalid number: '-1': Numerical result out of range",
+    110
+   ],
+   [
+    "unclassified",
+    "csplit: invalid conversion specifier in suffix: f",
+    80
+   ],
+   [
+    "unclassified",
+    "csplit: invalid conversion specifier in suffix: s",
+    80
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:09:05"
+}

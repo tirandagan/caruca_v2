@@ -1,0 +1,140 @@
+{
+ "command": "readlink",
+ "binary": "/usr/bin/readlink",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:07:57",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 40,
+  "distinct_lines": 22,
+  "traced_lines": 22,
+  "sampled": false,
+  "test_runs_traced": 110,
+  "seconds": 2.0,
+  "seconds_per_test_run": 0.01793,
+  "classes": {
+   "accepted": 44,
+   "other_nonzero": 60,
+   "unclassified": 6
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 44,
+   "other_nonzero": 150,
+   "unclassified": 6
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "readlink: relpath_1: Invalid argument",
+    3
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_gewzctt3/sandbox_2qu97a1r/abspath_1: Invalid argument",
+    1
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_yo2fcr_w/sandbox_ubtibtse/abspath_1: Invalid argument",
+    1
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_ezp7164q/sandbox_tgi8mph7/abspath_1: Invalid argument",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 360,
+  "distinct_lines": 112,
+  "traced_lines": 112,
+  "sampled": false,
+  "test_runs_traced": 560,
+  "seconds": 9.3,
+  "seconds_per_test_run": 0.01667,
+  "classes": {
+   "accepted": 360,
+   "other_nonzero": 170,
+   "unclassified": 30
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 712,
+   "other_nonzero": 1010,
+   "unclassified": 78
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "readlink: relpath_1: Invalid argument",
+    15
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_jkax59m6/sandbox_z_7mll86/abspath_1: Invalid argument",
+    1
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_39kzf6sl/sandbox_i_5jrbc_/abspath_1: Invalid argument",
+    1
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_00t4ay4n/sandbox_865900ay/abspath_1: Invalid argument",
+    1
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_m0cmnbir/sandbox_u_ivpz86/abspath_1: Invalid argument",
+    1
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_q_f9p1gn/sandbox_8uo00x0b/abspath_1: Invalid argument",
+    1
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_jkuypkc6/sandbox_aabwib5m/abspath_1: Invalid argument",
+    1
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_c8fyqb9h/sandbox_809ex6iu/abspath_1: Invalid argument",
+    1
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_i5k48bvu/sandbox_zuc5qkqo/abspath_1: Invalid argument",
+    1
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_dt8uakp5/sandbox_6o469k8u/abspath_1: Invalid argument",
+    1
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_mnbnmlgy/sandbox_z721vkeb/abspath_1: Invalid argument",
+    1
+   ],
+   [
+    "unclassified",
+    "readlink: /tmp/toplevel_e70h5gsc/sandbox_wwqhg5in/abspath_1: Invalid argument",
+    1
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:08:08"
+}

@@ -1,0 +1,85 @@
+# Caruca's time per command from the paper's Fig. 7 (vector drawing, page 12). Seconds.
+# axis: page_y = 140.2066 - 11.5885 * log10(s); reference lines fit within 0.0004 page units.
+# real4 = measured, up to 4 options (group A); proj4/proj3/proj2 = the paper's projection (group B).
+# proj4 clipped = bar passes the plot top; value from the figure's label in days.
+command	group	real4_s	proj4_s	proj3_s	proj2_s	proj4_source
+fold	A	11.0				
+tee	A	14.0				
+mkfifo	A	19.0				
+expand	A	25.0				
+chroot	A	28.0				
+runcon	A	36.1				
+bc	A	45.0				
+mogrify	A	54.1				
+rev	A	54.1				
+unexpand	A	57.1				
+wc	A	60.1				
+mktemp	A	62.1				
+uname	A	63.1				
+id	A	68.1				
+col	A	76.1				
+pinky	A	104.2				
+truncate	A	139.1				
+mkdir	A	140.1				
+head	A	159.1				
+seq	A	189.2				
+timeout	A	308.3				
+cat	A	329.3				
+stat	A	339.4				
+readlink	A	343.4				
+sha256sum	A	428.4				
+sha512sum	A	428.4				
+sha224sum	A	429.4				
+sha384sum	A	429.4				
+sha1sum	A	430.4				
+md5sum	A	430.4				
+fmt	A	477.6				
+yes	A	601.4				
+csplit	A	627.7				
+b2sum	A	654.5				
+rm	A	752.7				
+iconv	A	1573.4				
+cut	A	1635.7				
+basenc	A	2314.0				
+date	A	2713.1				
+comm	A	4090.6				
+chmod	A	4924.3				
+touch	A	6039.5				
+shred	A	9176.7				
+shuf	A	9205.2				
+cp	A	9651.5				
+chgrp	A	10552.6				
+diff	A	12059.8				
+chown	A	17517.6				
+kill	B		21888.6	7730.2	1267.0	bar
+mknod	B		41012.5	11004.3	1649.7	bar
+env	B		60834.9	7015.5	537.8	bar
+who	B		63834.0	6582.9	483.6	bar
+tail	B		70940.6	7736.2	567.4	bar
+mv	B		77443.6	11828.0	1213.2	bar
+uniq	B		85931.8	8848.0	617.0	bar
+sed	B		94760.3	9444.0	642.0	bar
+df	B		117671.7	11038.5	712.9	bar
+chcon	B		123377.0	15897.9	1416.9	bar
+ln	B		129559.8	16968.9	1517.0	bar
+ptx	B		149797.4	12752.9	763.3	bar
+nl	B		201653.8	16720.5	939.0	bar
+join	B		311680.1	33052.7	2364.9	bar
+od	B		390357.6	26024.7	1222.6	bar
+uglifyjs	B		408015.1	25863.6	1186.2	bar
+split	B		423502.7	28300.3	1310.0	bar
+numfmt	B		604800.0	37076.2	1568.5	label (bar agrees)
+grep	B		717120.0	184721.0	4369.5	label (bar agrees)
+install	B		743040.0	60646.4	3459.2	label
+dd	B		1278720.0	67607.7	2407.5	label
+sort	B		1425600.0	66825.1	2255.5	label
+du	B		1494720.0	82982.3	3291.6	label
+pr	B		1529280.0	71604.5	2379.6	label
+ls	B		1693440.0	415042.0	7476.5	label
+vdir	B		1823040.0	788602.6	14439.1	label
+dir	B		1823040.0	436857.1	7736.2	label
+unzip	B		2056320.0	101932.3	3695.1	label
+pandoc	B		7223040.0	1754090.3	19362.4	label
+test	B		10687680.0	426802.5	12277.0	label
+convert	B		2378868480.0	1648486.7	355366.0	label
+# label check: numfmt bar 7.03 d, label 7.0 d; grep bar 8.26 d, label 8.3 d

@@ -1,0 +1,100 @@
+{
+ "command": "nl",
+ "binary": "/usr/bin/nl",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T20:25:16",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 50,
+  "distinct_lines": 37,
+  "traced_lines": 37,
+  "sampled": false,
+  "test_runs_traced": 45,
+  "seconds": 1.4,
+  "seconds_per_test_run": 0.03044,
+  "classes": {
+   "accepted": 33,
+   "refused": 4,
+   "other_nonzero": 8
+  },
+  "refused_share": 0.0889,
+  "classes_as_v1_runs": {
+   "accepted": 46,
+   "refused": 4,
+   "other_nonzero": 8
+  },
+  "refused_share_as_v1_runs": 0.069,
+  "lines_all_runs_refused": 4,
+  "top_messages": [
+   [
+    "refused",
+    "nl: invalid line number of blank lines: '-1': Numerical result out of range",
+    1
+   ],
+   [
+    "refused",
+    "nl: invalid line number of blank lines: '0': Numerical result out of range",
+    1
+   ],
+   [
+    "refused",
+    "nl: invalid line number field width: '-1': Numerical result out of range",
+    1
+   ],
+   [
+    "refused",
+    "nl: invalid line number field width: '0': Numerical result out of range",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 1153,
+  "distinct_lines": 631,
+  "traced_lines": 631,
+  "sampled": false,
+  "test_runs_traced": 911,
+  "seconds": 28.0,
+  "seconds_per_test_run": 0.03072,
+  "classes": {
+   "accepted": 515,
+   "refused": 164,
+   "other_nonzero": 232
+  },
+  "refused_share": 0.18,
+  "classes_as_v1_runs": {
+   "accepted": 989,
+   "refused": 212,
+   "other_nonzero": 328
+  },
+  "refused_share_as_v1_runs": 0.1387,
+  "lines_all_runs_refused": 132,
+  "top_messages": [
+   [
+    "refused",
+    "nl: invalid line number of blank lines: '-1': Numerical result out of range",
+    42
+   ],
+   [
+    "refused",
+    "nl: invalid line number of blank lines: '0': Numerical result out of range",
+    42
+   ],
+   [
+    "refused",
+    "nl: invalid line number field width: '-1': Numerical result out of range",
+    40
+   ],
+   [
+    "refused",
+    "nl: invalid line number field width: '0': Numerical result out of range",
+    40
+   ]
+  ]
+ },
+ "finished": "2026-10-27T20:25:46"
+}

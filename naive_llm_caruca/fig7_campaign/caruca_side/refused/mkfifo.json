@@ -1,0 +1,75 @@
+{
+ "command": "mkfifo",
+ "binary": "/usr/bin/mkfifo",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:04:45",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 36,
+  "distinct_lines": 28,
+  "traced_lines": 28,
+  "sampled": false,
+  "test_runs_traced": 140,
+  "seconds": 2.5,
+  "seconds_per_test_run": 0.01762,
+  "classes": {
+   "other_nonzero": 80,
+   "accepted": 40,
+   "unclassified": 20
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "other_nonzero": 112,
+   "accepted": 48,
+   "unclassified": 20
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "mkfifo: mode must specify only file permission bits",
+    20
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 222,
+  "distinct_lines": 126,
+  "traced_lines": 126,
+  "sampled": false,
+  "test_runs_traced": 630,
+  "seconds": 10.6,
+  "seconds_per_test_run": 0.01687,
+  "classes": {
+   "accepted": 310,
+   "other_nonzero": 240,
+   "unclassified": 80
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 442,
+   "other_nonzero": 528,
+   "unclassified": 140
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "mkfifo: warning: ignoring --context; it requires an SELinux/SMACK-enabled kernel",
+    40
+   ],
+   [
+    "unclassified",
+    "mkfifo: mode must specify only file permission bits",
+    40
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:04:58"
+}

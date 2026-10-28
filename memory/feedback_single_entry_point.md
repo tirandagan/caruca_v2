@@ -1,6 +1,6 @@
 ---
 name: feedback-single-entry-point
-description: 2026-10-27 Tiran: the analysis/docs folders are confusing; naive LLM vs v1 is the primary focus; one entry point (naive_llm_caruca/README.md) and one dated findings list (ai_docs/analysis/latest_findings.md) must be kept current
+description: 2026-10-27 Tiran: the analysis/docs folders are confusing; naive LLM vs v1 is the primary focus; one entry point (naive_llm_caruca/README.md) and one dated findings list (naive_llm_caruca/latest_findings.md) must be kept current
 metadata:
   type: feedback
 ---
@@ -18,7 +18,7 @@ adding information", in one file with date, time, a plain-English synopsis and a
   and the dated September–October rebuild material.
 - `naive_llm_caruca/observations.md`: the simple document (quality, speed, scores, file samples
   side by side, approaches alike/different).
-- `ai_docs/analysis/latest_findings.md`: every finding, newest first, date + time it was written into its
+- `naive_llm_caruca/latest_findings.md`: every finding, newest first, date + time it was written into its
   document (git blame; file save time if uncommitted), plain synopsis with number and total, link.
 - `ai_docs/README.md` and `ai_docs/analysis/README.md` carry a "Start here" pointer to the directory.
 
@@ -28,11 +28,22 @@ between documents (a "numbers that disagree" table lives at the end of latest_fi
 **How to apply:**
 - Every new naive-LLM finding goes into `latest_findings.md` (top of its day, with time and link) in the
   same turn, and any new document or diagram gets a row in the directory README.
-- Only the start page and `observations.md` have been moved (see the note below). The rest of the
-  reorganisation proposed on 2026-10-27 is *not done*: bringing the other naive-LLM documents (the addendum
-  and its PDF, the syntax-files comparison, the three-findings diagram) under `naive_llm_caruca/`, and
-  gathering the September–October rebuild documents into one dated folder. Don't move them until Tiran
-  approves; links in memory notes, task docs and `CLAUDE.md` must be updated in the same pass.
+- **Dating a finding:** this repo's commits are often bulk commits (many documents share 2026-10-13
+  12:48), so a commit time says when text was *written up*, not when the finding was made. Give the date
+  the document itself states for the finding, and the `git blame` time of the line as "written up";
+  use the file's save time for uncommitted text.
+- **Re-check a count against its primary source before restating it** in a summary, a diagram or chat.
+  On 2026-10-27 "the agent overstated its testing in four runs" had to become six (the run analyses said
+  six). Extracting findings across documents turned up about 30 places where two documents give different
+  numbers for one quantity; the main ones are tabulated at the end of `latest_findings.md`.
+- **The full reorganisation was done on 2026-10-27 (Tiran: "both").** Into `naive_llm_caruca/`: the
+  addendum and its PDF, `syntax_files_vs_v1.md` (renamed from `naive_llm_syntax_files_vs_v1.md`),
+  `latest_findings.md`, and `diagrams/003_…`. Into `ai_docs/archive_2026-09_rebuild/` (with its own
+  README): the rebuild's analysis documents, status reports, v2 operating docs, the September handouts and
+  the 001/002 diagrams. `ai_docs/analysis/` keeps E0, the `grep`/purpose case, PaSh scheduling and the
+  console's `findings/` folder, which must NOT move: the console reads it by default
+  (`console/src/data/paths.ts` line 106). 53 files' references were rewritten; the link check showed no new
+  broken links against a pre-move baseline of 92 (all older). `CLAUDE.md` points at the new layout.
 
 Related: [[feedback-plain-language]], [[project-naive-claude-code-arm]], [[feedback-naive-llm-standalone]].
 

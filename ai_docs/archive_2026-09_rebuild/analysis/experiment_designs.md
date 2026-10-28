@@ -1,7 +1,7 @@
 # Experiment Designs — Turning the Scientific Candidates Into Runnable Work
 
 > **Version 1.1 — note added 22 September 2026.** Two clarifications, no design changed. (1) E0's
-> three motivating bullets below were **superseded** by [`e0_artifact_pinning.md`](e0_artifact_pinning.md),
+> three motivating bullets below were **superseded** by [`e0_artifact_pinning.md`](../../analysis/e0_artifact_pinning.md),
 > which retired the diverged-branch worry and resolved the `grep` provenance; read that document's
 > findings, not these bullets, as the current state. (2) Where these designs call output-hash
 > comparison "the same method the paper already uses", that refers to the paper's *unnumbered*
@@ -21,7 +21,7 @@ below.
 Every claim about existing infrastructure was checked against v1 at commit `d80324073` on branch
 `main` (`~/dev/stevens/caruca` on this Mac, `~/stevens/caruca` on the WSL PC). Nothing here has
 been executed; effort estimates are for a single person and assume the Lima tracing VM is working
-(see [`mac_lima_tracing_env`](../../memory/mac_lima_tracing_env.md)).
+(see [`mac_lima_tracing_env`](../../../memory/mac_lima_tracing_env.md)).
 
 ---
 
@@ -94,7 +94,7 @@ unless you are willing to publish the null.
 `eval/pash-annotations/`; PaSh's benchmark suites at `eval/pash-scripts/` (177 shell scripts across
 17 suites) for witness construction; `eval/cmp_specs.py` for pairwise comparison, though note it
 compares *syntax* specs, not parallelizability annotations, and
-[`caruca_v1_eval_tooling_notes`](../../memory/caruca_v1_eval_tooling_notes.md) records a denominator
+[`caruca_v1_eval_tooling_notes`](../../../memory/caruca_v1_eval_tooling_notes.md) records a denominator
 bug in it.
 
 **Needs building:** a differential harness over annotation semantics rather than syntax; the
@@ -144,7 +144,7 @@ across a man page, and a semantics permuter. Arm D needs the generator described
 
 **Note on scope:** this is core v2 work, not an add-on — model and decoding-parameter selection is
 already established as in scope (see
-[`feedback_nlp_config_scope`](../../memory/feedback_nlp_config_scope.md)), and v1 has no
+[`feedback_nlp_config_scope`](../../../memory/feedback_nlp_config_scope.md)), and v1 has no
 configuration surface at all to vary.
 
 ---
@@ -297,7 +297,7 @@ pieces are still running.
 ## What is deliberately not here
 
 No experiment measures lines of code, wall-clock speedup, or token cost as a headline. Those are
-recorded as instrumentation — see [`data_telemetry_schema`](../prep/data_telemetry_schema.md) — and
+recorded as instrumentation — see [`data_telemetry_schema`](../../prep/data_telemetry_schema.md) — and
 appear in the papers only where they are load-bearing: query complexity in E3's tradeoff curve, and
 a single automation-cost-versus-80-person-hours comparison that the original paper gestures at but
 never makes. The reasoning is in Part 4 of

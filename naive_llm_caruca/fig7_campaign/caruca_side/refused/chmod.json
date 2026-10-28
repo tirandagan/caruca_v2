@@ -1,0 +1,54 @@
+{
+ "command": "chmod",
+ "binary": "/usr/bin/chmod",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:12:19",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 100,
+  "distinct_lines": 68,
+  "traced_lines": 68,
+  "sampled": false,
+  "test_runs_traced": 1700,
+  "seconds": 29.7,
+  "seconds_per_test_run": 0.01748,
+  "classes": {
+   "accepted": 452,
+   "other_nonzero": 1248
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 740,
+   "other_nonzero": 1760
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": []
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 1024,
+  "distinct_lines": 436,
+  "traced_lines": 436,
+  "sampled": false,
+  "test_runs_traced": 10900,
+  "seconds": 183.9,
+  "seconds_per_test_run": 0.01687,
+  "classes": {
+   "accepted": 3892,
+   "other_nonzero": 7008
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 8064,
+   "other_nonzero": 17536
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": []
+ },
+ "finished": "2026-10-27T19:15:52"
+}

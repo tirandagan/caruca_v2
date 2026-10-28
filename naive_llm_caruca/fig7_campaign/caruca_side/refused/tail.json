@@ -1,0 +1,184 @@
+{
+ "command": "tail",
+ "binary": "/usr/bin/tail",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:52:58",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 41,
+  "distinct_lines": 28,
+  "traced_lines": 28,
+  "sampled": false,
+  "test_runs_traced": 36,
+  "seconds": 0.8,
+  "seconds_per_test_run": 0.02344,
+  "classes": {
+   "accepted": 13,
+   "unclassified": 3,
+   "refused": 12,
+   "other_nonzero": 8
+  },
+  "refused_share": 0.3333,
+  "classes_as_v1_runs": {
+   "accepted": 26,
+   "unclassified": 3,
+   "refused": 12,
+   "other_nonzero": 8
+  },
+  "refused_share_as_v1_runs": 0.2449,
+  "lines_all_runs_refused": 12,
+  "top_messages": [
+   [
+    "refused",
+    "tail: invalid option -- '='",
+    3
+   ],
+   [
+    "unclassified",
+    "tail: invalid maximum number of unchanged stats between opens: '-1'",
+    1
+   ],
+   [
+    "unclassified",
+    "tail: invalid PID: '-1'",
+    1
+   ],
+   [
+    "unclassified",
+    "tail: cannot follow '-' by name",
+    1
+   ],
+   [
+    "refused",
+    "tail: invalid number of bytes: '=+10'",
+    1
+   ],
+   [
+    "refused",
+    "tail: invalid number of bytes: '=0'",
+    1
+   ],
+   [
+    "refused",
+    "tail: invalid number of bytes: '=10'",
+    1
+   ],
+   [
+    "refused",
+    "tail: invalid number of lines: '=+10'",
+    1
+   ],
+   [
+    "refused",
+    "tail: invalid number of lines: '=0'",
+    1
+   ],
+   [
+    "refused",
+    "tail: invalid number of lines: '=10'",
+    1
+   ],
+   [
+    "refused",
+    "tail: invalid number of seconds: '=-1'",
+    1
+   ],
+   [
+    "refused",
+    "tail: invalid number of seconds: '=0'",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 774,
+  "distinct_lines": 360,
+  "traced_lines": 360,
+  "sampled": false,
+  "test_runs_traced": 568,
+  "seconds": 14.1,
+  "seconds_per_test_run": 0.02487,
+  "classes": {
+   "accepted": 94,
+   "unclassified": 56,
+   "refused": 336,
+   "other_nonzero": 82
+  },
+  "refused_share": 0.5915,
+  "classes_as_v1_runs": {
+   "accepted": 328,
+   "unclassified": 92,
+   "refused": 480,
+   "other_nonzero": 178
+  },
+  "refused_share_as_v1_runs": 0.4453,
+  "lines_all_runs_refused": 240,
+  "top_messages": [
+   [
+    "refused",
+    "tail: invalid option -- '='",
+    90
+   ],
+   [
+    "refused",
+    "tail: invalid number of bytes: '=+10'",
+    33
+   ],
+   [
+    "refused",
+    "tail: invalid number of bytes: '=0'",
+    33
+   ],
+   [
+    "refused",
+    "tail: invalid number of bytes: '=10'",
+    33
+   ],
+   [
+    "refused",
+    "tail: invalid number of lines: '=+10'",
+    27
+   ],
+   [
+    "refused",
+    "tail: invalid number of lines: '=0'",
+    27
+   ],
+   [
+    "refused",
+    "tail: invalid number of lines: '=10'",
+    27
+   ],
+   [
+    "unclassified",
+    "tail: invalid maximum number of unchanged stats between opens: '-1'",
+    24
+   ],
+   [
+    "unclassified",
+    "tail: invalid PID: '-1'",
+    23
+   ],
+   [
+    "refused",
+    "tail: invalid number of seconds: '=-1'",
+    22
+   ],
+   [
+    "refused",
+    "tail: invalid number of seconds: '=0'",
+    22
+   ],
+   [
+    "refused",
+    "tail: invalid number of seconds: '=1'",
+    22
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:53:13"
+}

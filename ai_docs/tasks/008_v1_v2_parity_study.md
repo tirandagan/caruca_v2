@@ -69,7 +69,7 @@ Three structural facts, all verified 2026-09-14:
    configuration sets, traces, or annotations. Task 002's "structural config comparison" was
    deferred *to the harness* and never built there.
 
-`ai_docs/analysis/v2_fidelity_to_v1.md` answers a genuinely different question. It is a
+`ai_docs/archive_2026-09_rebuild/analysis/v2_fidelity_to_v1.md` answers a genuinely different question. It is a
 **mechanism-level** map — IDENTICAL / DELIBERATE / DEFECT per mechanism, an 11-item deviation
 ledger — built from reading v1's source and executing v1, not from comparing the two systems'
 outputs on the same inputs. It establishes that **v2 is built like v1**. It does not establish
@@ -266,8 +266,8 @@ profile, **not** the implementation plan's Part 6 estimates (task 006 flags thos
 
 ### Phase 4 — The two reports
 
-- **`ai_docs/analysis/v1_v2_parity_study.md`** — technical comparative report.
-- **`ai_docs/analysis/white_paper_addendum.md`** — for the co-authors, Greenberg included.
+- **`ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md`** — technical comparative report.
+- **`ai_docs/archive_2026-09_rebuild/analysis/white_paper_addendum.md`** — for the co-authors, Greenberg included.
 
 Both detailed in Section 7. Both get a row in `ai_docs/analysis/README.md`.
 
@@ -503,7 +503,7 @@ non-parallelizable-pure as one answer. The suite re-run with output-hash compari
 separately and carries no number. So it is methodologically *close* to this diff; what differs
 is the scope (benchmark-suite invocations only) and the reference (PaSh's annotations, not the
 80-hour ground truth). Keeping `annotation_diff` and `q1_execution` apart is still right, for
-those reasons. Full statement: `ai_docs/analysis/v1_v2_parity_study.md` corrections table, and
+those reasons. Full statement: `ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md` corrections table, and
 `ai_docs/tasks/012_pash_downstream_study.md` §1.1.
 
 ### A fifth structural difference: the two artifacts are written at different granularities
@@ -625,7 +625,7 @@ never emits `pure` in any mode and cannot reach `stateless` without split-input 
 than the paper's**: 33 of v1's 58 conservative differences are the `pure → non-pure` case that
 §7.1 explicitly counts as correct, so under the paper's own rule v1 scores 53 of 83 (63.9%) and
 v2 68 of 77 (88.3%). See the corrections table in
-`ai_docs/analysis/v1_v2_parity_study.md`.)*
+`ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md`.)*
 
 #### The third instance of one root cause — and it was silently wrong until this run
 

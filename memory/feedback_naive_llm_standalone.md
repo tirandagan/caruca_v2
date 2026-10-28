@@ -9,7 +9,7 @@ Tiran, 2026-10-20: "all our addendums should be under a new heading: naive llm. 
 so shouldn't rely on earlier findings."
 
 **Rule.** Every resubmission proposal drawn from the naive-LLM arm (`naive_llm_caruca/`, task 016) lives in
-`ai_docs/analysis/white_paper_addendum_naive_llm.md` (title "Naive LLM: addendum to *Caruca*"), as numbered
+`naive_llm_caruca/white_paper_addendum_naive_llm.md` (title "Naive LLM: addendum to *Caruca*"), as numbered
 sections under that one heading; the analysis index has a "Naive LLM" heading for it. These documents do not
 slot into `white_paper_addendum.md` and do not cite the earlier stage-by-stage rebuild (parity study, E0,
 `caruca_purpose_grep_case`, campaign figures) or memory notes as evidence. Each claim is re-established from

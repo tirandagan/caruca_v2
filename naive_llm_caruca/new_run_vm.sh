@@ -26,10 +26,11 @@ echo "== copying the package fresh from $HERE"
 echo "== installing helper and welcome"
 limactl copy "$HERE/vm/naive-run" "$NAME:/tmp/naive-run"
 limactl copy "$HERE/vm/naive-watch.py" "$NAME:/tmp/naive-watch.py"
+limactl copy "$HERE/vm/exec-log.bt" "$NAME:/tmp/exec-log.bt"
 limactl copy "$HERE/vm/bashrc-welcome.sh" "$NAME:/tmp/bashrc-welcome.sh"
 limactl shell "$NAME" -- bash -lc '
   set -e
-  mkdir -p ~/bin && mv /tmp/naive-run ~/bin/naive-run && mv /tmp/naive-watch.py ~/bin/naive-watch.py && chmod +x ~/bin/naive-run ~/bin/naive-watch.py
+  mkdir -p ~/bin && mv /tmp/naive-run ~/bin/naive-run && mv /tmp/naive-watch.py ~/bin/naive-watch.py && mv /tmp/exec-log.bt ~/bin/exec-log.bt && chmod +x ~/bin/naive-run ~/bin/naive-watch.py
   grep -q "naive-arm welcome" ~/.bashrc || cat /tmp/bashrc-welcome.sh >> ~/.bashrc
   rm -f /tmp/bashrc-welcome.sh
   rm -rf ~/naive-arm/output/* ~/naive-arm/runs ~/runs/*

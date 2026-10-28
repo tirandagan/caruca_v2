@@ -8,7 +8,7 @@ metadata:
 Decided 2026-08-29 via a plan-mode review (`~/.claude/plans/review-our-progress-so-delightful-token.md`),
 in response to Tiran directly asking whether the plan would satisfy both mentors given the tension between
 Eiers' simplicity mandate ([[caruca-v2-baseline-scope]]) and his own wish to capture gaps
-(`ai_docs/analysis/evaluation_gaps.md`) and stay flexible for improving on v1.
+(`ai_docs/archive_2026-09_rebuild/analysis/evaluation_gaps.md`) and stay flexible for improving on v1.
 
 **The resolution is staging, not rescoping.** The 5 priority components in
 `ai_docs/prep/component_functionality.md` don't change — they split into two tiers:

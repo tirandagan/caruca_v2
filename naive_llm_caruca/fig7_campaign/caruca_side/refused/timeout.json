@@ -1,0 +1,111 @@
+{
+ "command": "timeout",
+ "binary": "/usr/bin/timeout",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:07:21",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 132,
+  "distinct_lines": 96,
+  "traced_lines": 96,
+  "sampled": false,
+  "test_runs_traced": 96,
+  "seconds": 1.8,
+  "seconds_per_test_run": 0.01834,
+  "classes": {
+   "refused": 36,
+   "accepted": 60
+  },
+  "refused_share": 0.375,
+  "classes_as_v1_runs": {
+   "refused": 48,
+   "accepted": 84
+  },
+  "refused_share_as_v1_runs": 0.3636,
+  "lines_all_runs_refused": 36,
+  "top_messages": [
+   [
+    "refused",
+    "timeout: invalid option -- '1'",
+    24
+   ],
+   [
+    "refused",
+    "timeout: invalid time interval '-1'",
+    6
+   ],
+   [
+    "refused",
+    "Try 'timeout --help' for more information.",
+    4
+   ],
+   [
+    "refused",
+    "timeout: '-1': invalid signal",
+    2
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 1152,
+  "distinct_lines": 582,
+  "traced_lines": 582,
+  "sampled": false,
+  "test_runs_traced": 582,
+  "seconds": 9.7,
+  "seconds_per_test_run": 0.01675,
+  "classes": {
+   "accepted": 354,
+   "refused": 228
+  },
+  "refused_share": 0.3918,
+  "classes_as_v1_runs": {
+   "accepted": 714,
+   "refused": 438
+  },
+  "refused_share_as_v1_runs": 0.3802,
+  "lines_all_runs_refused": 228,
+  "top_messages": [
+   [
+    "refused",
+    "timeout: invalid option -- '1'",
+    102
+   ],
+   [
+    "refused",
+    "timeout: invalid time interval '-1'",
+    78
+   ],
+   [
+    "refused",
+    "Try 'timeout --help' for more information.",
+    20
+   ],
+   [
+    "refused",
+    "timeout: '-1': invalid signal",
+    10
+   ],
+   [
+    "refused",
+    "timeout: '--help': invalid signal",
+    6
+   ],
+   [
+    "refused",
+    "timeout: '--version': invalid signal",
+    6
+   ],
+   [
+    "refused",
+    "timeout: '-v': invalid signal",
+    6
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:07:33"
+}

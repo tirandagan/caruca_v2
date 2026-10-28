@@ -51,7 +51,7 @@ function frontmatter() {
         why: "The first figure divided by 27 rather than 24, counting uniq's undefined cells as zeros.",
       },
     ],
-    source_document: "ai_docs/analysis/v1_v2_parity_study.md",
+    source_document: "ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md",
   });
 }
 

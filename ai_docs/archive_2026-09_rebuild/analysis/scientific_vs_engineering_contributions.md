@@ -4,7 +4,7 @@
 > its account of the paper's PaSh comparison (§"the right call for the question the paper is asking")
 > is the one the rest of the repository has now been corrected to match. Two updates: the three
 > "cautions before building on it" were since **resolved** by
-> [`e0_artifact_pinning.md`](e0_artifact_pinning.md) — the branch worry is closed, and there is no
+> [`e0_artifact_pinning.md`](../../analysis/e0_artifact_pinning.md) — the branch worry is closed, and there is no
 > hand-written `cp` annotation for the generated one to agree with — and where the paper's 116/120 is
 > cited, note that the shipped artifacts score 78/116 by Caruca's own instrument
 > ([`white_paper_addendum.md`](white_paper_addendum.md) §3).
@@ -397,7 +397,7 @@ Do these; just don't claim them.
 
 | v2 work item | Why it isn't a contribution | Salvage |
 |---|---|---|
-| **Lines-of-code reduction** | A property of the codebase. Nobody would publish "we reduced it by 3%." Also confounded — the paper's 6,520 LOC is roughly half generated specification *data*, leaving ~3,456 lines of hand-written logic as the real baseline (see [`caruca_v1_loc_baseline`](../../memory/caruca_v1_loc_baseline.md)). | Drop as a headline; one sentence in the artifact description. The interesting version is S3: hand-written extrapolation rules encode assumptions, and the question is *which* assumptions, not how many lines. |
+| **Lines-of-code reduction** | A property of the codebase. Nobody would publish "we reduced it by 3%." Also confounded — the paper's 6,520 LOC is roughly half generated specification *data*, leaving ~3,456 lines of hand-written logic as the real baseline (see [`caruca_v1_loc_baseline`](../../../memory/caruca_v1_loc_baseline.md)). | Drop as a headline; one sentence in the artifact description. The interesting version is S3: hand-written extrapolation rules encode assumptions, and the question is *which* assumptions, not how many lines. |
 | **Wall-clock speed** | Machine-dependent, and "faster" is expected of a rewrite. | Reframe as query complexity (S4), or as an accuracy-versus-budget Pareto curve. |
 | **Token and dollar cost telemetry** | Measuring your own bill. | Interesting in exactly one framing: the paper claims it "eliminates manual effort" but never prices its own automation against the 80 person-hours it displaces. Make that comparison once, with the cost curve. |
 | **Adding fixture axes** — symlinks, permissions, empty content, wider integers, environment variables, nested directories, correlated multi-file inputs, richer content types (gaps 1, 5, 6, 7, 8, 10, 12, 14) | Individually, each is "we tested more things." Reviewers read a list of eight as a to-do list, not a result. | **One reframe rescues all eight at once: fixture-axis sensitivity.** Ablate each axis and measure *which axes change the inferred property, and for what fraction of commands*. Adding permissions then produces a finding — "permission state changes observed behavior for X% of coreutils; content type for only Y%" — and tells the field where to spend fixture budget. That is an empirical model. |

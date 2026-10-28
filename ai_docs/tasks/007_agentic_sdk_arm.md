@@ -251,7 +251,7 @@ Research instrument; single developer; macOS host. Same conventions as tasks 001
   improvements are new recorded conditions for a future task, never in-place tuning.
 
 ## 9. Notes & References
-- `ai_docs/analysis/experiment_implementation_plan.md` Part 5 (per-stage fidelity study —
+- `ai_docs/archive_2026-09_rebuild/analysis/experiment_implementation_plan.md` Part 5 (per-stage fidelity study —
   this task adds its approach axis) and Part 6 gate discipline.
 - `ai_docs/tasks/006_evaluation_harness.md` — the machinery this extends.
 - CLAUDE.md "Two LLM approaches in scope" — the deferral this task's framing respects.

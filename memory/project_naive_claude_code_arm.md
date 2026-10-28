@@ -61,7 +61,7 @@ Sign-in to the golden image was pending when this was written; check `claude aut
 
 **Command rules in `naive-run` (Tiran, 2026-10-13).** No hard blocks: any installed command runs. The
 **core nine** of the parity study (`cat grep pwd rm tac tail tee uniq wc`, confirmed from
-`ai_docs/analysis/v1_v2_parity_study.md` and task 012) run without a question; anything else warns
+`ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md` and task 012) run without a question; anything else warns
 and asks y/N; the four samples (tee uniq grep rm) print a note and run. Tiran first asked to be able
 to enter grep (a sample) after the helper refused it, then asked for the confirmation on non-core
 commands.
@@ -222,7 +222,7 @@ be declared in PaSh's input/output class, so they are only in comments. The `-E 
 `naive_llm_caruca/runs/2026-10-20_133813_naive-run-binwalk_binwalk_PROMPT_v1/`; README "Observed, run 6".
 Open questions it raised: whether installed source code is allowed (PROMPT_v1 bans only *online*
 repositories), and choosing test commands by packaging (script vs compiled). See [[caruca-v1-value-generation]].
-**2026-10-20: written up as section 2 of `ai_docs/analysis/white_paper_addendum_naive_llm.md` (version 0.2), PDF
+**2026-10-20: written up as section 2 of `naive_llm_caruca/white_paper_addendum_naive_llm.md` (version 0.2), PDF
 regenerated; analysis index entry updated.** Run numbering agreed with the parallel session: binwalk = 6,
 cut = 7 (13:52), convert = 8 (13:58), sort = 9 (16:03), by start time.
 
@@ -237,7 +237,7 @@ own `sort` table incl. access kinds, plus `-y`, `--check`. Both hit Claude Code'
 batch read (34.5 / 31.2 KB → 2 KB preview) and fell back to the Read tool. Both tested classes only
 against stand-ins. **Measured in PaSh's real code:** run 7's classes = PaSh's answers except `-z`; run 9's
 parallelizability class returns nothing for ordinary sorts (round robin + custom merge fails PaSh's
-assertion, swallowed) — rule absent from `formats/pash_annotation.md`; candidate repair, not applied,
+assertion, swallowed) — rule absent from `formats/pash_annotation.md` (renamed `formats/annotation.md` 2026-10-27); candidate repair, not applied,
 Tiran to decide. **Measured through v1's generator** (every distinct line run on coreutils 9.4): run 7's
 grammar and v1's model output give 0 lines doing real work at max-count 4, v1's reference 360 (cause:
 `=` on short options, copied from the uniq sample = v1's reference). v1's committed `save/sort.json` calls
@@ -267,13 +267,13 @@ since 2024-12-04 (2024-11-28: "Found no successful runs. Defaulting to side-effe
 output (3 positions: the syntax format can hold options between files, the samples never show it).
 Stock clone image also has `nerdctl` 2.3.5 + rootless containerd (unused by every run so far).
 **Run 8 in the addendum (2026-10-20):** written up as section 3, "A wide interface: `convert`", of
-`ai_docs/analysis/white_paper_addendum_naive_llm.md` (version 0.3, PDF 17 pages); analysis index updated.
+`naive_llm_caruca/white_paper_addendum_naive_llm.md` (version 0.3, PDF 17 pages); analysis index updated.
 Suggestions there: widen the binary check to `-help`/library/listing commands; use positions for options
 between files; test options singly before combining (the paper's own 7.4 remark as a schedule); record which
 option orders a consumer annotation holds for. PaSh's own `img_convert.sh` benchmark uses options-first order
 (`convert -resize 70% "$i" "$out"`), which the agent's annotation handles; PaSh 0.2.4 ships no `convert`
 annotation; v1's hand-written one is `eval/pash-annotations/convert.json` (pure, args[1] → args[2]).
-**2026-10-20: runs 7 and 9 written up as section 4 of `ai_docs/analysis/white_paper_addendum_naive_llm.md`
+**2026-10-20: runs 7 and 9 written up as section 4 of `naive_llm_caruca/white_paper_addendum_naive_llm.md`
 (version 0.4; convert is section 3, from the parallel session; PDF 23 pages, title "Naive LLM").** Facts
 re-verified at source for it: v1's split test needs each half's output to keep its input's line order
 (`tracer/data.py` 112–146), added 2025-12-21 (`c97306bb4`), after the committed `save/{cut,sort}.json`
@@ -290,7 +290,7 @@ tools in `naive_llm_caruca/scoring/`, results in `naive_llm_caruca/scoring/resul
 **Syntax-file comparison, 2026-10-26.** The agent's `rm`/`cut`/`sort`/`convert` syntax files (runs
 5/7/9/8) were compared with v1's reference and v1's model output, each difference checked on coreutils
 9.4 / ImageMagick 6.9.12-98, and all three fed to v1's matcher, generator, ShellCheck adapter and
-scorer: `ai_docs/analysis/naive_llm_syntax_files_vs_v1.md` (v0.1), scripts and results in
+scorer: `naive_llm_caruca/syntax_files_vs_v1.md` (v0.1), scripts and results in
 `naive_llm_caruca/comparisons/2026-10-26_syntax_files_vs_v1/`. Not yet folded into the addendum
 (another session had uncommitted addendum edits that day). See [[caruca-v1-matcher-behaviour]].
 

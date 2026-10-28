@@ -1,0 +1,142 @@
+{
+ "command": "grep",
+ "binary": "/usr/bin/grep",
+ "package": "grep 3.11-4build1",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T22:45:17",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 121,
+  "distinct_lines": 74,
+  "traced_lines": 74,
+  "sampled": false,
+  "test_runs_traced": 98,
+  "seconds": 2.8,
+  "seconds_per_test_run": 0.02833,
+  "classes": {
+   "accepted": 61,
+   "other_nonzero": 30,
+   "unclassified": 7
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 108,
+   "other_nonzero": 30,
+   "unclassified": 7
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "grep: -1: invalid context length argument",
+    3
+   ],
+   [
+    "unclassified",
+    "grep: upperdir/tmp: Too many levels of symbolic links",
+    2
+   ],
+   [
+    "unclassified",
+    "grep: /tmp/toplevel__eb6gwil/sandbox_yl437wgh/abspath_1:28: Unmatched [, [^, [:, [., or [=",
+    1
+   ],
+   [
+    "unclassified",
+    "grep: relpath_1:28: Unmatched [, [^, [:, [., or [=",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 7149,
+  "distinct_lines": 2668,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 1776,
+  "seconds": 35.7,
+  "seconds_per_test_run": 0.02007,
+  "classes": {
+   "other_nonzero": 880,
+   "accepted": 684,
+   "unclassified": 211,
+   "refused": 1
+  },
+  "refused_share": 0.0006,
+  "classes_as_v1_runs": {
+   "other_nonzero": 1290,
+   "accepted": 1695,
+   "unclassified": 395,
+   "refused": 1
+  },
+  "refused_share_as_v1_runs": 0.0003,
+  "lines_all_runs_refused": 1,
+  "top_messages": [
+   [
+    "unclassified",
+    "grep: -1: invalid context length argument",
+    109
+   ],
+   [
+    "unclassified",
+    "grep: upperdir/tmp: Too many levels of symbolic links",
+    45
+   ],
+   [
+    "unclassified",
+    "grep: relpath_1:28: Unmatched [, [^, [:, [., or [=",
+    27
+   ],
+   [
+    "unclassified",
+    "grep: /tmp/toplevel_zdwro33t/sandbox_dvopwnwq/abspath_1:28: Unmatched [, [^, [:, [., or [=",
+    1
+   ],
+   [
+    "unclassified",
+    "grep: /tmp/toplevel__tzzs_7_/sandbox_i05e29ia/abspath_1:28: Unmatched [, [^, [:, [., or [=",
+    1
+   ],
+   [
+    "unclassified",
+    "grep: /tmp/toplevel_y_thkx7k/sandbox_f5470tge/abspath_1:28: Unmatched [, [^, [:, [., or [=",
+    1
+   ],
+   [
+    "unclassified",
+    "grep: /tmp/toplevel_sqt5_ibe/sandbox_kxu27x6y/abspath_1:28: Unmatched [, [^, [:, [., or [=",
+    1
+   ],
+   [
+    "unclassified",
+    "grep: /tmp/toplevel_pqp3w309/sandbox_nuixruht/abspath_1:28: Unmatched [, [^, [:, [., or [=",
+    1
+   ],
+   [
+    "unclassified",
+    "grep: /tmp/toplevel_23_ye37m/sandbox_gp0axa2z/abspath_1:28: Unmatched [, [^, [:, [., or [=",
+    1
+   ],
+   [
+    "unclassified",
+    "grep: /tmp/toplevel_0yqtlf3p/sandbox_8vlvgl6e/abspath_1:28: Unmatched [, [^, [:, [., or [=",
+    1
+   ],
+   [
+    "unclassified",
+    "grep: /tmp/toplevel_3r_tsyd7/sandbox_wt8buu3t/abspath_1:28: Unmatched [, [^, [:, [., or [=",
+    1
+   ],
+   [
+    "refused",
+    "grep: conflicting matchers specified",
+    1
+   ]
+  ]
+ },
+ "finished": "2026-10-27T22:45:56"
+}

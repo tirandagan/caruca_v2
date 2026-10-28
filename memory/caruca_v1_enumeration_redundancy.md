@@ -51,7 +51,7 @@ Check that document first.
 
 **Write-ups:** mechanism and closed form in `ai_docs/analysis/e0_artifact_pinning.md`
 (enumeration-redundancy section); the stage-3 sampling consequence as confound 8 in
-`ai_docs/analysis/v1_v2_parity_study.md` §8, flagged at the head of its §4.
+`ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md` §8, flagged at the head of its §4.
 
 **Reproduce:** `caruca generate CMD --max-arity 1 --max-count N | sort | uniq -c | sort -rn`.
 

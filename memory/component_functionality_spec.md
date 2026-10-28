@@ -30,7 +30,7 @@ itself.
 
 **Dual-profile evaluation design (v1-faithful vs. v2-extended).** Initially proposed gating the extended
 fixture model (symlinks, permissions, pipes, deeper directories, correlated content — see
-`ai_docs/analysis/evaluation_gaps.md` gaps 1/5/6/7/8/10/11/12) behind a "coverage probe" that avoided
+`ai_docs/archive_2026-09_rebuild/analysis/evaluation_gaps.md` gaps 1/5/6/7/8/10/11/12) behind a "coverage probe" that avoided
 running it through v1's annotator. Tiran corrected this: both a `v1-faithful` profile (exact replication,
 the control) and a `v2-extended` profile should run through the FULL annotate pipeline, tagged separately
 in results, not blended. Where v1's unmodified annotator mishandles a v2-extended trace shape, that's

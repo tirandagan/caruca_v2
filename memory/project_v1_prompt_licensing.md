@@ -12,7 +12,7 @@ needs it.
 **Why it matters:** the earlier rule (v1 is private and unlicensed, so committed prompts
 contain only text written for this project and v1 text is injected at runtime) made the
 stage-1 instructions a paraphrase. The parity study (confound 2) and
-`ai_docs/analysis/v2_fidelity_to_v1.md` (section 2.2, section 3.3, and deviations 1 and 5 in
+`ai_docs/archive_2026-09_rebuild/analysis/v2_fidelity_to_v1.md` (section 2.2, section 3.3, and deviations 1 and 5 in
 section 8.1) name that paraphrase as the largest uncontrolled difference at stage 1.
 Task 009 removes it.
 

@@ -89,7 +89,7 @@ reproducing behavior is fine; copying its source into a public location is not.
   surfaces — it computes nothing new. Design captured, build deferred behind the five priority components.
 - **Results / project site.** For advisors and co-authors to read the three-way comparison,
   percent-change roll-ups, and the running "what changed between v1 and v2, and why" record.
-- **Document & deck pipeline.** `scripts/md-to-pdf/` renders branded PDFs; `ai_docs/docs/presentations/`
+- **Document & deck pipeline.** `scripts/md-to-pdf/` renders branded PDFs; `ai_docs/archive_2026-09_rebuild/docs/presentations/`
   builds the advisor status deck. Supporting documents ship to advisors as PDFs alongside presentations,
   with an assembly list; documents are cited without file extensions.
 

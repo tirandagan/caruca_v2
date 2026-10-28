@@ -1,0 +1,159 @@
+{
+ "command": "b2sum",
+ "binary": "/usr/bin/b2sum",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:09:05",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 29,
+  "distinct_lines": 16,
+  "traced_lines": 16,
+  "sampled": false,
+  "test_runs_traced": 24,
+  "seconds": 0.6,
+  "seconds_per_test_run": 0.02643,
+  "classes": {
+   "accepted": 9,
+   "refused": 6,
+   "unclassified": 1,
+   "other_nonzero": 8
+  },
+  "refused_share": 0.25,
+  "classes_as_v1_runs": {
+   "accepted": 22,
+   "refused": 6,
+   "unclassified": 1,
+   "other_nonzero": 8
+  },
+  "refused_share_as_v1_runs": 0.1622,
+  "lines_all_runs_refused": 6,
+  "top_messages": [
+   [
+    "refused",
+    "b2sum: the --ignore-missing option is meaningful only when verifying checksums",
+    1
+   ],
+   [
+    "refused",
+    "b2sum: the --quiet option is meaningful only when verifying checksums",
+    1
+   ],
+   [
+    "refused",
+    "b2sum: the --status option is meaningful only when verifying checksums",
+    1
+   ],
+   [
+    "refused",
+    "b2sum: the --strict option is meaningful only when verifying checksums",
+    1
+   ],
+   [
+    "unclassified",
+    "b2sum: 'standard input': no properly formatted checksum lines found",
+    1
+   ],
+   [
+    "refused",
+    "b2sum: option requires an argument -- 'l'",
+    1
+   ],
+   [
+    "refused",
+    "b2sum: the --warn option is meaningful only when verifying checksums",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 390,
+  "distinct_lines": 120,
+  "traced_lines": 120,
+  "sampled": false,
+  "test_runs_traced": 232,
+  "seconds": 4.1,
+  "seconds_per_test_run": 0.01751,
+  "classes": {
+   "accepted": 63,
+   "refused": 93,
+   "other_nonzero": 44,
+   "unclassified": 32
+  },
+  "refused_share": 0.4009,
+  "classes_as_v1_runs": {
+   "accepted": 249,
+   "refused": 165,
+   "other_nonzero": 140,
+   "unclassified": 44
+  },
+  "refused_share_as_v1_runs": 0.2759,
+  "lines_all_runs_refused": 53,
+  "top_messages": [
+   [
+    "refused",
+    "b2sum: the --ignore-missing option is meaningful only when verifying checksums",
+    19
+   ],
+   [
+    "refused",
+    "b2sum: the --warn option is meaningful only when verifying checksums",
+    18
+   ],
+   [
+    "refused",
+    "b2sum: the --status option is meaningful only when verifying checksums",
+    17
+   ],
+   [
+    "refused",
+    "b2sum: the --quiet option is meaningful only when verifying checksums",
+    16
+   ],
+   [
+    "refused",
+    "b2sum: the --strict option is meaningful only when verifying checksums",
+    15
+   ],
+   [
+    "unclassified",
+    "b2sum: 'standard input': no properly formatted checksum lines found",
+    5
+   ],
+   [
+    "unclassified",
+    "b2sum: invalid length: 'relpath_1'",
+    4
+   ],
+   [
+    "refused",
+    "b2sum: option requires an argument -- 'l'",
+    3
+   ],
+   [
+    "refused",
+    "b2sum: the --binary and --text options are meaningless when verifying checksums",
+    2
+   ],
+   [
+    "unclassified",
+    "b2sum: relpath_1: read error",
+    2
+   ],
+   [
+    "refused",
+    "b2sum: --tag does not support --text mode",
+    1
+   ],
+   [
+    "refused",
+    "b2sum: the --tag option is meaningless when verifying checksums",
+    1
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:09:10"
+}

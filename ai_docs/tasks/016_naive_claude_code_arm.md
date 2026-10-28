@@ -71,10 +71,10 @@ naive_llm_caruca/
 ├── PROMPT_v2.md                 the same plus a short section of behaviour guidance
 ├── formats/
 │   ├── syntax_description.md    what <command>.py must look like (v1's DSL)
-│   └── pash_annotation.md       the three PaSh files: parser table, input/output class, parallelizability class
-├── samples/{tee,uniq,grep,rm}/  <cmd>.py from v1, and pash/ with PaSh's own three annotation files, byte-for-byte
+│   └── annotation.md            the three PaSh files: parser table, input/output class, parallelizability class (pash_annotation.md until 2026-10-27)
+├── samples/{tee,uniq,grep,rm}/  <cmd>.py from v1, and annotation/ (pash/ until 2026-10-27) with PaSh's own three annotation files, byte-for-byte
 ├── samples/PASH_ANNOTATIONS_LICENSE   MIT licence of the copied PaSh files
-├── output/                      where the session writes output/<cmd>.py and output/pash/* (empty in the repo)
+├── output/                      where the session writes output/<cmd>.py and output/annotation/* (output/pash/* before 2026-10-27; empty in the repo)
 ├── runs/                        collected runs, one folder per invocation (section 9.4); never enters a VM
 ├── new_run_vm.sh                Mac: clone the golden image, start it, copy the package in fresh, install the helper
 ├── collect_run.sh               Mac: copy every run folder out of a clone into runs/, delete the clone
@@ -327,6 +327,8 @@ environment the session runs in, so it is not used.
 
 | Date | Change | Reason |
 |---|---|---|
+| 2026-10-27 | Run tooling extended for task 019: `naive-run -y`; `type -P` instead of `command -v` (built-ins); OpenRouter billing mode from `~/.naive-billing` (sign-out, no trial call, no fallback, cost cap in `naive-watch.py`); program-start logging (auditd execve rule + output/ watch, `vm/exec-log.bt` bpftrace); package version in `run.env`; key scan and redaction in `collect_run.sh`. `naive-golden`: automatic updates disabled after one full upgrade (coreutils now 9.4-3ubuntu6.3), `uglifyjs`, `unzip`, `pandoc`, `auditd` added. Each checked in throwaway clones with a stand-in `claude` (task 019, section 7.1). | Task 019 needs metered cost, every run of the program, and fixed versions across 89 runs; the sign-in expiry had stopped task 018's `dd`/`ls` runs. |
+| 2026-10-27 | Greenberg reworded `PROMPT_v1.md` in place (commit `89e1156`): PaSh is no longer named; deliverables go to `output/annotation/`; formats and samples are referred to as `formats/annotation.md` and `samples/<cmd>/annotation/`. Task 019 then renamed the folders to match (`git mv`), and gave `PROMPT_v2.md` the same wording so the two still differ by exactly its guidance section. Withheld-word check rerun on both: none present. `formats/annotation.md` still names PaSh 6 times and the sample files import `pash_annotations`. | Greenberg: the prompt should not explicitly mention PaSh; his commit message asked for the folder move. Task 019 runs on the new wording. |
 | 2026-10-20 | No web lookups and a fixed model. Both prompts gained a "What you may not use" section (no search engines, websites or code repositories; programs that need the network may use it), edited in place. `naive-run` removes WebSearch, WebFetch and RemoteTrigger and loads no MCP servers (`--strict-mcp-config`) in both modes. It picks the model with a $0.02 trial call: `claude-fable-5-1` at medium effort, or `claude-opus-5-5` at high effort if Fable is refused, with no mid-run fallback. After each run it lists every URL in the session's Bash commands in `bash_urls.txt`. The VM network is left open. Recorded in `run.env` and in the README entry "In every version since 2026-10-20". | Run 3 used `curl` to search GitHub, found this repo and read three memory notes; it also ran on Haiku by default. Tiran 2026-10-20: "no web access is allowed", with core network tools still allowed; Fable 5.1 medium, Opus 5.5 high as fallback. |
 | 2026-10-13 | Package created: prompt, two format documents, four sample pairs, operator notes. | Tiran's direction above. |
 | 2026-10-13 | Claude Code 2.1.296 installed inside the Lima VM `caruca` (native installer, guest home); package staged at `~/naive-arm` by the new `sync_to_vm.sh`; README gained an environment section. Tiran signed in the same day with the claude.ai account (Max subscription). | Tiran: run the prompts "from within the environment and not have to escape out of it or control it from above", so the session is as naive as the VM is. |

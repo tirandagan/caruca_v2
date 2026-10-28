@@ -1,0 +1,169 @@
+{
+ "command": "od",
+ "binary": "/usr/bin/od",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T22:42:40",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 69,
+  "distinct_lines": 47,
+  "traced_lines": 47,
+  "sampled": false,
+  "test_runs_traced": 55,
+  "seconds": 1.8,
+  "seconds_per_test_run": 0.03322,
+  "classes": {
+   "accepted": 26,
+   "refused": 8,
+   "other_nonzero": 15,
+   "unclassified": 6
+  },
+  "refused_share": 0.1455,
+  "classes_as_v1_runs": {
+   "accepted": 48,
+   "refused": 8,
+   "other_nonzero": 15,
+   "unclassified": 6
+  },
+  "refused_share_as_v1_runs": 0.1039,
+  "lines_all_runs_refused": 8,
+  "top_messages": [
+   [
+    "unclassified",
+    "od: invalid output address radix '='; it must be one character from [doxn]",
+    4
+   ],
+   [
+    "unclassified",
+    "od: cannot skip past end of combined input",
+    2
+   ],
+   [
+    "refused",
+    "od: invalid option -- '1'",
+    1
+   ],
+   [
+    "refused",
+    "od: invalid suffix in -N argument '1g'",
+    1
+   ],
+   [
+    "refused",
+    "od: invalid suffix in -N argument '1t'",
+    1
+   ],
+   [
+    "refused",
+    "od: invalid suffix in -S argument '1g'",
+    1
+   ],
+   [
+    "refused",
+    "od: invalid suffix in -S argument '1t'",
+    1
+   ],
+   [
+    "refused",
+    "od: invalid suffix in -j argument '1g'",
+    1
+   ],
+   [
+    "refused",
+    "od: invalid suffix in -j argument '1t'",
+    1
+   ],
+   [
+    "refused",
+    "od: invalid character 's' in type string 'string'",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 2249,
+  "distinct_lines": 1031,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 1340,
+  "seconds": 23.2,
+  "seconds_per_test_run": 0.01728,
+  "classes": {
+   "accepted": 312,
+   "unclassified": 273,
+   "other_nonzero": 432,
+   "refused": 323
+  },
+  "refused_share": 0.241,
+  "classes_as_v1_runs": {
+   "accepted": 1068,
+   "unclassified": 378,
+   "other_nonzero": 747,
+   "refused": 491
+  },
+  "refused_share_as_v1_runs": 0.1829,
+  "lines_all_runs_refused": 271,
+  "top_messages": [
+   [
+    "unclassified",
+    "od: invalid output address radix '='; it must be one character from [doxn]",
+    198
+   ],
+   [
+    "unclassified",
+    "od: cannot skip past end of combined input",
+    45
+   ],
+   [
+    "refused",
+    "od: invalid suffix in -N argument '1t'",
+    44
+   ],
+   [
+    "refused",
+    "od: invalid suffix in -j argument '1t'",
+    43
+   ],
+   [
+    "refused",
+    "od: invalid character 's' in type string 'string'",
+    42
+   ],
+   [
+    "refused",
+    "od: invalid suffix in -N argument '1g'",
+    42
+   ],
+   [
+    "refused",
+    "od: invalid suffix in -j argument '1g'",
+    41
+   ],
+   [
+    "refused",
+    "od: invalid option -- '1'",
+    39
+   ],
+   [
+    "refused",
+    "od: invalid suffix in -S argument '1t'",
+    36
+   ],
+   [
+    "refused",
+    "od: invalid suffix in -S argument '1g'",
+    36
+   ],
+   [
+    "unclassified",
+    "od: no type may be specified when dumping strings",
+    30
+   ]
+  ]
+ },
+ "finished": "2026-10-27T22:43:05"
+}

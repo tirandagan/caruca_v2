@@ -29,7 +29,7 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 > downstream study). This task adds almost nothing new to either. It fixes the **order** in which
 > their pieces are needed for a working downstream run, and it covers the few changes neither
 > one holds.
-> **Implements:** `ai_docs/analysis/reflections_on_caruca_v1_submission_reviews.md` (version 1.0),
+> **Implements:** `ai_docs/archive_2026-09_rebuild/analysis/reflections_on_caruca_v1_submission_reviews.md` (version 1.0),
 > section 4.
 > **Not a response to reviewers.** The reviews Tiran shared are NSF's 2023 panel review of
 > Greenberg's grant proposal, not of the Caruca paper. Greenberg passed them on to show the
@@ -106,7 +106,7 @@ Each is filed under task 011's five kinds of change, so the same rules apply.
 | b | Add v2's own commit, the guest operating system and the coreutils version to every run's record | A, measurement | `src/caruca_v2/telemetry.py` (today only v1's commit is kept, `v1.py:1108`) |
 | c | Any run meant for a downstream tool runs in the virtual machine. The tracing step defaults to the Mac, which means macOS's own commands rather than GNU (`cli.py:231`). Make the campaign say so, and fail if it doesn't | A, measurement | campaign files; `harness/sweep.py` check |
 | d | On a timeout, record what v1 records (exit 124 and whatever output there was), confirm the process inside the VM is stopped, and cap output size. Fix the comment at `stages/trace.py:154` | C, fidelity | `src/caruca_v2/tools.py:461-467` |
-| e | Write the operating conditions down once: command run directly, not through a shell; `SHELL=/bin/sh`; standard input from a prepared file; a 2-second limit; v1's prepared files; GNU coreutils 9.4 on Ubuntu 24.04 | none, documentation | `ai_docs/analysis/v2_fidelity_to_v1.md` |
+| e | Write the operating conditions down once: command run directly, not through a shell; `SHELL=/bin/sh`; standard input from a prepared file; a 2-second limit; v1's prepared files; GNU coreutils 9.4 on Ubuntu 24.04 | none, documentation | `ai_docs/archive_2026-09_rebuild/analysis/v2_fidelity_to_v1.md` |
 
 Tests for a, b, c and d go in `tests/`, following the existing style for each module.
 
@@ -174,7 +174,7 @@ calls v1's objective.
 
 ## 8. References
 
-- `ai_docs/analysis/reflections_on_caruca_v1_submission_reviews.md`: the reasoning and the verified
+- `ai_docs/archive_2026-09_rebuild/analysis/reflections_on_caruca_v1_submission_reviews.md`: the reasoning and the verified
   v1 facts.
 - `ai_docs/docs/Caruca v1 submission reviews.md`: the source reviews.
 - `ai_docs/tasks/011_v2_improvement_program.md`: the five kinds of change, workstreams 2a-2d, 3a

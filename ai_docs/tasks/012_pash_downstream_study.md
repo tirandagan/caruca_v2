@@ -40,7 +40,7 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 > not just on artifact diffs (§10). Task 010's execution console is a natural later home for
 > these results, but nothing here depends on it.
 > **Implements:** the first slice of experiment E6 ("downstream utility, and downstream harm",
-> `ai_docs/analysis/experiment_designs.md`), and the comparison method this project reserved
+> `ai_docs/archive_2026-09_rebuild/analysis/experiment_designs.md`), and the comparison method this project reserved
 > as `q1_execution` (`ai_docs/prep/data_telemetry_schema.md:80`) and has never built.
 >
 > **Why this task exists.** Tiran, 2026-09-22: *"One of the most direct ways to assess if
@@ -161,7 +161,7 @@ reported by anyone, for v1 or v2. That number is this task's main product, along
   `src/caruca_v2/cli.py:158-167`), so both sides can run in the mode PaSh needs.
 - **Two things for Tiran to decide about existing documents** (decision D5 below; this task edits
   nothing):
-  1. `ai_docs/analysis/v1_v2_parity_study.md` §5 and `ai_docs/analysis/white_paper_addendum.md` §5
+  1. `ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md` §5 and `ai_docs/archive_2026-09_rebuild/analysis/white_paper_addendum.md` §5
      attribute v1's conservatism to the `--max-count 1` bound. At `--stdin simple`, v1 cannot emit
      `stateless` at *any* bound, so the trace mode is at least a co-cause. Task 011's stage-4
      diagnosis does not mention it either.
@@ -276,7 +276,7 @@ stdout.
     produce them**: `NonEmptyDirectory.prepare_env` (`ir/environment.py:235-242`) builds exactly
     one directory with exactly one child, and v1 has no recursive tree-building anywhere (two
     `os.mkdir` calls in the whole codebase, neither in a loop — gap 5 in
-    `ai_docs/analysis/evaluation_gaps.md`). Neither annotator can have seen evidence about them.
+    `ai_docs/archive_2026-09_rebuild/analysis/evaluation_gaps.md`). Neither annotator can have seen evidence about them.
   **Bland input can hide a wrong class.** A passing hash is evidence of correctness *on these
   inputs*, not proof, and is reported that way.
 - **Timing inputs** are separate and larger (tens of MB). Micro-scripts on small inputs are
@@ -674,7 +674,7 @@ VM-hours.
   Two notes: Caruca's own limitations already name `xargs` as content-sensitive, and **POSH, not
   PaSh, is where this is the native failure mode**, since POSH splits by argument list and Caruca
   emits `args_split` for it (out of scope here; a reason to do POSH as the next consumer).
-  This is the concrete instance of gap 2 in `ai_docs/analysis/evaluation_gaps.md`
+  This is the concrete instance of gap 2 in `ai_docs/archive_2026-09_rebuild/analysis/evaluation_gaps.md`
   ("parallelizability is inferred by comparing sequential runs, not by running invocations
   concurrently") and it is validity-domain material for experiment E3: *what does a mined
   specification actually guarantee, and over which inputs?*

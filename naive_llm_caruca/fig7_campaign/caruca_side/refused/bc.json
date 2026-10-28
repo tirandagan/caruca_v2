@@ -1,0 +1,151 @@
+{
+ "command": "bc",
+ "binary": "/usr/bin/bc",
+ "package": "bc 1.07.1-3ubuntu4",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:05:19",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 17,
+  "distinct_lines": 10,
+  "traced_lines": 10,
+  "sampled": false,
+  "test_runs_traced": 18,
+  "seconds": 0.7,
+  "seconds_per_test_run": 0.03622,
+  "classes": {
+   "accepted": 10,
+   "unclassified": 8
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 17,
+   "unclassified": 8
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "relpath_1 1: read() in flex scanner failed",
+    2
+   ],
+   [
+    "unclassified",
+    "/tmp/toplevel_cjgjtpoq/sandbox_4wr1ljej/abspath_1 1: read() in flex scanner failed",
+    1
+   ],
+   [
+    "unclassified",
+    "/tmp/toplevel_cjxuuhf0/sandbox_u3qq7gfu/abspath_1 1: read() in flex scanner failed",
+    1
+   ],
+   [
+    "unclassified",
+    "File /tmp/toplevel_lld_dr_z/sandbox_3dy8bgon/nonexistent_path/abspath_1 is unavailable.",
+    1
+   ],
+   [
+    "unclassified",
+    "File /tmp/toplevel_5zi6g5l3/sandbox_evvlfcrc/abspath_1 is unavailable.",
+    1
+   ],
+   [
+    "unclassified",
+    "File nonexistent_path/relpath_1 is unavailable.",
+    1
+   ],
+   [
+    "unclassified",
+    "File relpath_1 is unavailable.",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 126,
+  "distinct_lines": 45,
+  "traced_lines": 45,
+  "sampled": false,
+  "test_runs_traced": 109,
+  "seconds": 2.3,
+  "seconds_per_test_run": 0.02136,
+  "classes": {
+   "accepted": 61,
+   "unclassified": 48
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 142,
+   "unclassified": 96
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "relpath_1 1: read() in flex scanner failed",
+    12
+   ],
+   [
+    "unclassified",
+    "File nonexistent_path/relpath_1 is unavailable.",
+    6
+   ],
+   [
+    "unclassified",
+    "File relpath_1 is unavailable.",
+    6
+   ],
+   [
+    "unclassified",
+    "/tmp/toplevel_h12j4rsi/sandbox_4nok0ue6/abspath_1 1: read() in flex scanner failed",
+    1
+   ],
+   [
+    "unclassified",
+    "/tmp/toplevel_3b9jnh1m/sandbox_dpzndom7/abspath_1 1: read() in flex scanner failed",
+    1
+   ],
+   [
+    "unclassified",
+    "File /tmp/toplevel_xlzr0xio/sandbox_nkxqoe2d/nonexistent_path/abspath_1 is unavailable.",
+    1
+   ],
+   [
+    "unclassified",
+    "File /tmp/toplevel_vdv0fsu7/sandbox_cpybivz4/abspath_1 is unavailable.",
+    1
+   ],
+   [
+    "unclassified",
+    "/tmp/toplevel_ennoz6dl/sandbox_9mrr_2fw/abspath_1 1: read() in flex scanner failed",
+    1
+   ],
+   [
+    "unclassified",
+    "/tmp/toplevel_g9ps16rp/sandbox_dyejdcaq/abspath_1 1: read() in flex scanner failed",
+    1
+   ],
+   [
+    "unclassified",
+    "File /tmp/toplevel_4ss2uiog/sandbox_m4p52fo4/nonexistent_path/abspath_1 is unavailable.",
+    1
+   ],
+   [
+    "unclassified",
+    "File /tmp/toplevel_ko6mum0k/sandbox_gaq4kr15/abspath_1 is unavailable.",
+    1
+   ],
+   [
+    "unclassified",
+    "/tmp/toplevel__zszji5i/sandbox_37jjevxm/abspath_1 1: read() in flex scanner failed",
+    1
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:05:22"
+}

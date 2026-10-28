@@ -1,0 +1,184 @@
+{
+ "command": "sed",
+ "binary": "/usr/bin/sed",
+ "package": "sed 4.9-2ubuntu0.24.04.1",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T20:07:52",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 50,
+  "distinct_lines": 30,
+  "traced_lines": 30,
+  "sampled": false,
+  "test_runs_traced": 46,
+  "seconds": 1.3,
+  "seconds_per_test_run": 0.0273,
+  "classes": {
+   "refused": 16,
+   "accepted": 14,
+   "unclassified": 12,
+   "other_nonzero": 4
+  },
+  "refused_share": 0.3478,
+  "classes_as_v1_runs": {
+   "refused": 32,
+   "accepted": 14,
+   "unclassified": 16,
+   "other_nonzero": 4
+  },
+  "refused_share_as_v1_runs": 0.4848,
+  "lines_all_runs_refused": 16,
+  "top_messages": [
+   [
+    "refused",
+    "Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...",
+    14
+   ],
+   [
+    "unclassified",
+    "sed: -e expression #1, char 1: unterminated address regex",
+    2
+   ],
+   [
+    "unclassified",
+    "sed: -e expression #1, char 1: expected \\ after `a', `c' or `i'",
+    2
+   ],
+   [
+    "refused",
+    "sed: -e expression #1, char 1: unterminated `s' command",
+    2
+   ],
+   [
+    "unclassified",
+    "sed: file /tmp/toplevel_49vhb0rf/sandbox_kdp037qn/abspath_1 line 4: missing filename in r/R/w/W commands",
+    1
+   ],
+   [
+    "unclassified",
+    "sed: file relpath_1 line 4: missing filename in r/R/w/W commands",
+    1
+   ],
+   [
+    "unclassified",
+    "sed: can't find label for jump to `oplevel_pl44spoo/sandbox_konyc76t/abspath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "sed: can't find label for jump to `oplevel_vi4xzy3h/sandbox_wplop48k/abspath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "sed: can't find label for jump to `oplevel_xojtrw4t/sandbox_hrod0_06/abspath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "sed: can't find label for jump to `oplevel_7elbxsj4/sandbox_iq3vxcyn/nonexistent_path/abspath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "sed: can't find label for jump to `oplevel_de2srpq4/sandbox_3ek774d4/abspath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "sed: -e expression #1, char 2: extra characters after command",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 1145,
+  "distinct_lines": 413,
+  "traced_lines": 413,
+  "sampled": false,
+  "test_runs_traced": 933,
+  "seconds": 19.4,
+  "seconds_per_test_run": 0.02079,
+  "classes": {
+   "refused": 154,
+   "accepted": 251,
+   "unclassified": 302,
+   "other_nonzero": 226
+  },
+  "refused_share": 0.1651,
+  "classes_as_v1_runs": {
+   "refused": 516,
+   "accepted": 461,
+   "unclassified": 678,
+   "other_nonzero": 306
+  },
+  "refused_share_as_v1_runs": 0.2631,
+  "lines_all_runs_refused": 130,
+  "top_messages": [
+   [
+    "refused",
+    "Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...",
+    89
+   ],
+   [
+    "unclassified",
+    "sed: -e expression #1, char 1: unterminated address regex",
+    65
+   ],
+   [
+    "unclassified",
+    "sed: -e expression #1, char 1: expected \\ after `a', `c' or `i'",
+    65
+   ],
+   [
+    "refused",
+    "sed: -e expression #1, char 1: unterminated `s' command",
+    65
+   ],
+   [
+    "unclassified",
+    "sed: file relpath_1 line 4: missing filename in r/R/w/W commands",
+    33
+   ],
+   [
+    "unclassified",
+    "sed: -e expression #1, char 2: extra characters after command",
+    15
+   ],
+   [
+    "unclassified",
+    "sed: no input files",
+    12
+   ],
+   [
+    "unclassified",
+    "sed: -e expression #1, char 1: e/r/w commands disabled in sandbox mode",
+    4
+   ],
+   [
+    "unclassified",
+    "sed: file /tmp/toplevel_sdsq6xc_/sandbox_dtrjo3uy/abspath_1 line 4: missing filename in r/R/w/W commands",
+    1
+   ],
+   [
+    "unclassified",
+    "sed: can't find label for jump to `oplevel_f9rnipio/sandbox_vb4uquiv/abspath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "sed: can't find label for jump to `oplevel_37tta2et/sandbox_cujbxw6u/abspath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "sed: can't find label for jump to `oplevel_b319ntin/sandbox_uxokjs13/abspath_1'",
+    1
+   ]
+  ]
+ },
+ "finished": "2026-10-27T20:08:12"
+}

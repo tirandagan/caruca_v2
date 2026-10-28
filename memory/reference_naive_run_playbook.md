@@ -60,6 +60,13 @@ before the run can finish (run 5 ended in 60 s, before the monitor attached). ma
 - v1 has reference grammars (`syntax_specs/`) for some non-coreutils: awk, bc, sed, unzip, iconv, pandoc,
   convert, mogrify, uglifyjs. Anything outside v1's list has no reference to score against.
 
+- **Probing a non-GNU command: binwalk's error conventions** (observed 2026-10-27, binwalk 2.3.4 /
+  "v2.3.3", Python argparse). An unknown option is taken as a *file name*: "General Error: Cannot open file
+  --bogus", exit 3. A missing value is "expected one argument", exit 2. A value given to a flag is "ignored
+  explicit argument". It has no `--version`; its version is the first line of `--help`. A negative number
+  after an option is read as an option (`-1` is `--preserve-symlinks`), so v1's default integer samples
+  (−1, 0, 1) fail. `naive_llm_caruca/scoring/probe_binary.py` understands all of these; GNU-only regexes do not.
+
 ### Long runs: keep the Mac awake, and guard the cost (run 8, convert, 2026-10-20)
 
 - **A sleeping Mac freezes the VM.** Run 8 ran with the lid closed on battery: the Mac slept three times and
@@ -145,12 +152,27 @@ fails).
 
 ## 7. Addendum material
 
-Anything for the paper goes in `ai_docs/analysis/white_paper_addendum_naive_llm.md` under the "Naive LLM"
+Anything for the paper goes in `naive_llm_caruca/white_paper_addendum_naive_llm.md` under the "Naive LLM"
 heading, re-verified at primary sources, never citing the earlier rebuild's findings, then converted to PDF
-the same way. Index line in `ai_docs/analysis/README.md` under "## Naive LLM".
+the same way. Then add a dated bullet to `naive_llm_caruca/latest_findings.md` and, for a new document
+or diagram, a row in the start page at the top of `naive_llm_caruca/README.md` (moved there 2026-10-27;
+`ai_docs/analysis/README.md` no longer indexes naive-LLM work).
 
 ## Task 018 scoring VMs (2026-10-27)
 
 `t018-probe` is a long-lived clone of `naive-golden` used only to run the scoring probes (the same binaries
 the agent saw; no Claude session runs in it). Scoring also needs the `caruca` VM. Both are stopped between
 sessions; `score_t018.py` needs both running (`limactl start t018-probe caruca`).
+
+**Before building any analysis tool, check what exists (lesson of 2026-10-26/27).** Two sessions built
+overlapping instruments in parallel:
+- `naive_llm_caruca/scoring/` (task 018): `probe_binary.py`, `facts*.py`, `reach.py`,
+  `trace_usefulness.py`, `score_t018.py`;
+- `naive_llm_caruca/comparisons/2026-10-26_syntax_files_vs_v1/scripts/` (session caruca-v2-dd):
+  `render.py`, `probe_vm.py`, `gnuread.py`/`readcheck_lib.py` (GNU getopt emulation, coreutils 9.4
+  tables for cut/sort/rm), `corpus_split.py`.
+
+Reuse them, by copying them into a temp folder, never by editing the other folder in place. Coordinate
+with a live peer session through `SendMessage` to its `uds:` address. Never edit a file a peer has
+announced it is moving until it confirms; after a move, re-read any file the harness flags as changed on
+disk.

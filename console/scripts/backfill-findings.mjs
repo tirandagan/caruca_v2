@@ -20,7 +20,7 @@ import { stringify } from "yaml";
 const here = dirname(fileURLToPath(import.meta.url));
 const OUT = join(here, "..", "..", "ai_docs", "analysis", "findings");
 
-const STUDY = "ai_docs/analysis/v1_v2_parity_study.md";
+const STUDY = "ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md";
 const E0 = "ai_docs/analysis/e0_artifact_pinning.md";
 
 const findings = [

@@ -1,0 +1,182 @@
+{
+ "command": "ln",
+ "binary": "/usr/bin/ln",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T20:11:08",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 164,
+  "distinct_lines": 104,
+  "traced_lines": 104,
+  "sampled": false,
+  "test_runs_traced": 3400,
+  "seconds": 57.6,
+  "seconds_per_test_run": 0.01693,
+  "classes": {
+   "accepted": 544,
+   "other_nonzero": 1664,
+   "unclassified": 1192
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 728,
+   "other_nonzero": 2380,
+   "unclassified": 1792
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "ln: relpath_1: hard link not allowed for directory",
+    360
+   ],
+   [
+    "unclassified",
+    "ln: cannot do --relative without --symbolic",
+    100
+   ],
+   [
+    "unclassified",
+    "ln: target 'relpath_1' is not a directory",
+    100
+   ],
+   [
+    "unclassified",
+    "ln: relpath_2: hard link not allowed for directory",
+    68
+   ],
+   [
+    "unclassified",
+    "ln: relpath_3: hard link not allowed for directory",
+    16
+   ],
+   [
+    "unclassified",
+    "ln: replace 'relpath_2'?",
+    2
+   ],
+   [
+    "unclassified",
+    "ln: /tmp/toplevel_ia3mteng/sandbox_pgwvsc5t/abspath_1: hard link not allowed for directory",
+    1
+   ],
+   [
+    "unclassified",
+    "ln: /tmp/toplevel_xui_9s72/sandbox_cqkaxkr9/abspath_1: hard link not allowed for directory",
+    1
+   ],
+   [
+    "unclassified",
+    "ln: /tmp/toplevel_bywzmxag/sandbox_4r5fxvmp/abspath_1: hard link not allowed for directory",
+    1
+   ],
+   [
+    "unclassified",
+    "ln: /tmp/toplevel_7w3di0y_/sandbox_m5sjt5oy/abspath_1: hard link not allowed for directory",
+    1
+   ],
+   [
+    "unclassified",
+    "ln: /tmp/toplevel_cq4_gzf0/sandbox_i86qzm1l/abspath_1: hard link not allowed for directory",
+    1
+   ],
+   [
+    "unclassified",
+    "ln: /tmp/toplevel_f7ndettb/sandbox_8aculyjz/abspath_1: hard link not allowed for directory",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 3032,
+  "distinct_lines": 1180,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 40400,
+  "seconds": 732.9,
+  "seconds_per_test_run": 0.01814,
+  "classes": {
+   "accepted": 8013,
+   "other_nonzero": 19127,
+   "unclassified": 12860,
+   "refused": 400
+  },
+  "refused_share": 0.0099,
+  "classes_as_v1_runs": {
+   "accepted": 15850,
+   "other_nonzero": 44951,
+   "unclassified": 32024,
+   "refused": 400
+  },
+  "refused_share_as_v1_runs": 0.0043,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "ln: relpath_1: hard link not allowed for directory",
+    2190
+   ],
+   [
+    "unclassified",
+    "ln: cannot do --relative without --symbolic",
+    2100
+   ],
+   [
+    "unclassified",
+    "ln: target 'relpath_1' is not a directory",
+    1950
+   ],
+   [
+    "unclassified",
+    "ln: relpath_2: hard link not allowed for directory",
+    956
+   ],
+   [
+    "refused",
+    "ln: cannot combine --target-directory and --no-target-directory",
+    400
+   ],
+   [
+    "unclassified",
+    "ln: relpath_3: hard link not allowed for directory",
+    232
+   ],
+   [
+    "unclassified",
+    "ln: replace 'relpath_2'?",
+    42
+   ],
+   [
+    "unclassified",
+    "ln: relpath_2: cannot overwrite directory",
+    30
+   ],
+   [
+    "unclassified",
+    "ln: /tmp/toplevel_nzh4xfqz/sandbox_i50ip3cm/abspath_1: hard link not allowed for directory",
+    1
+   ],
+   [
+    "unclassified",
+    "ln: /tmp/toplevel_qjo8o9t7/sandbox_8eo5z_sg/abspath_1: hard link not allowed for directory",
+    1
+   ],
+   [
+    "unclassified",
+    "ln: /tmp/toplevel_vyyncklo/sandbox_5_lcgtuu/abspath_1: hard link not allowed for directory",
+    1
+   ],
+   [
+    "unclassified",
+    "ln: /tmp/toplevel_yg65pmgc/sandbox_njc24uxm/abspath_1: hard link not allowed for directory",
+    1
+   ]
+  ]
+ },
+ "finished": "2026-10-27T20:24:19"
+}

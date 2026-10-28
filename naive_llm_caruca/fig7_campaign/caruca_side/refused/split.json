@@ -1,0 +1,174 @@
+{
+ "command": "split",
+ "binary": "/usr/bin/split",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T22:44:39",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 59,
+  "distinct_lines": 41,
+  "traced_lines": 41,
+  "sampled": false,
+  "test_runs_traced": 49,
+  "seconds": 1.1,
+  "seconds_per_test_run": 0.02161,
+  "classes": {
+   "accepted": 26,
+   "other_nonzero": 13,
+   "refused": 9,
+   "unclassified": 1
+  },
+  "refused_share": 0.1837,
+  "classes_as_v1_runs": {
+   "accepted": 44,
+   "other_nonzero": 13,
+   "refused": 9,
+   "unclassified": 1
+  },
+  "refused_share_as_v1_runs": 0.1343,
+  "lines_all_runs_refused": 9,
+  "top_messages": [
+   [
+    "refused",
+    "split: invalid number of lines: '1g'",
+    1
+   ],
+   [
+    "refused",
+    "split: invalid number of lines: '1t'",
+    1
+   ],
+   [
+    "refused",
+    "split: invalid suffix length: '-1': Numerical result out of range",
+    1
+   ],
+   [
+    "refused",
+    "split: invalid number of bytes: '1g'",
+    1
+   ],
+   [
+    "refused",
+    "split: invalid number of bytes: '1t'",
+    1
+   ],
+   [
+    "refused",
+    "split: invalid number of lines: '-1'",
+    1
+   ],
+   [
+    "refused",
+    "split: invalid number of lines: '0'",
+    1
+   ],
+   [
+    "refused",
+    "split: invalid number of chunks: '-1'",
+    1
+   ],
+   [
+    "refused",
+    "split: invalid number of chunks: '0'",
+    1
+   ],
+   [
+    "unclassified",
+    "split: multi-character separator '\\n\\t'",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 1633,
+  "distinct_lines": 783,
+  "traced_lines": 783,
+  "sampled": false,
+  "test_runs_traced": 1095,
+  "seconds": 19.2,
+  "seconds_per_test_run": 0.01755,
+  "classes": {
+   "accepted": 304,
+   "other_nonzero": 338,
+   "refused": 412,
+   "unclassified": 41
+  },
+  "refused_share": 0.3763,
+  "classes_as_v1_runs": {
+   "accepted": 899,
+   "other_nonzero": 559,
+   "refused": 565,
+   "unclassified": 58
+  },
+  "refused_share_as_v1_runs": 0.2715,
+  "lines_all_runs_refused": 340,
+  "top_messages": [
+   [
+    "refused",
+    "split: cannot split in more than one way",
+    78
+   ],
+   [
+    "refused",
+    "split: invalid suffix length: '-1': Numerical result out of range",
+    46
+   ],
+   [
+    "refused",
+    "split: invalid number of bytes: '1g'",
+    43
+   ],
+   [
+    "refused",
+    "split: invalid number of bytes: '1t'",
+    43
+   ],
+   [
+    "refused",
+    "split: invalid number of lines: '1g'",
+    38
+   ],
+   [
+    "refused",
+    "split: invalid number of lines: '1t'",
+    38
+   ],
+   [
+    "unclassified",
+    "split: multi-character separator '\\n\\t'",
+    38
+   ],
+   [
+    "refused",
+    "split: invalid number of lines: '-1'",
+    33
+   ],
+   [
+    "refused",
+    "split: invalid number of lines: '0'",
+    33
+   ],
+   [
+    "refused",
+    "split: invalid number of chunks: '-1'",
+    30
+   ],
+   [
+    "refused",
+    "split: invalid number of chunks: '0'",
+    30
+   ],
+   [
+    "unclassified",
+    "split: output file suffixes exhausted",
+    3
+   ]
+  ]
+ },
+ "finished": "2026-10-27T22:44:59"
+}

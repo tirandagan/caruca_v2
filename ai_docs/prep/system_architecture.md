@@ -11,12 +11,12 @@ Produced via the `09_generate_system_design` planning pass. Reads on from
 ### Foundation (v1, existing) + Extensions (v2, new)
 
 **Rendered diagram** (letter-page, 300 DPI, with legend):
-[`ai_docs/diagrams/001_caruca_v2_system_architecture.png`](../diagrams/001_caruca_v2_system_architecture.png)
-· [SVG](../diagrams/001_caruca_v2_system_architecture.svg)
-· [GraphViz source](../diagrams/001_caruca_v2_system_architecture.dot)
-· [design rationale](../diagrams/001_caruca_v2_system_architecture_analysis.md)
+[`ai_docs/archive_2026-09_rebuild/diagrams/001_caruca_v2_system_architecture.png`](../archive_2026-09_rebuild/diagrams/001_caruca_v2_system_architecture.png)
+· [SVG](../archive_2026-09_rebuild/diagrams/001_caruca_v2_system_architecture.svg)
+· [GraphViz source](../archive_2026-09_rebuild/diagrams/001_caruca_v2_system_architecture.dot)
+· [design rationale](../archive_2026-09_rebuild/diagrams/001_caruca_v2_system_architecture_analysis.md)
 
-![caruca_v2 System Architecture](../diagrams/001_caruca_v2_system_architecture.png)
+![caruca_v2 System Architecture](../archive_2026-09_rebuild/diagrams/001_caruca_v2_system_architecture.png)
 
 The same structure in text, for grep-ability and for readers who want the relationships spelled out rather
 than drawn:

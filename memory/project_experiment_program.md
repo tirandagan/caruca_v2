@@ -8,7 +8,7 @@ metadata:
 As of 2026-09-06 the science program for the white-paper resubmission is fully planned and
 grounded in the implemented v2:
 
-- `ai_docs/analysis/experiment_implementation_plan.md` re-grounds every designed experiment
+- `ai_docs/archive_2026-09_rebuild/analysis/experiment_implementation_plan.md` re-grounds every designed experiment
   (E0–E6, plus the disagreement study S5) in the implemented four-stage pipeline, adds the
   adversarially-reviewed second cycle (observation-limited tracing promoted; per-stage
   fidelity study promoted-reframed; two new arms; demotions recorded), and carries the

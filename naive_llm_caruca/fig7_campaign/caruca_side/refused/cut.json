@@ -1,0 +1,102 @@
+{
+ "command": "cut",
+ "binary": "/usr/bin/cut",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T18:49:17",
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 41,
+  "distinct_lines": 29,
+  "traced_lines": 29,
+  "sampled": false,
+  "test_runs_traced": 37,
+  "seconds": 1.0,
+  "seconds_per_test_run": 0.02585,
+  "classes": {
+   "refused": 20,
+   "accepted": 17
+  },
+  "refused_share": 0.5405,
+  "classes_as_v1_runs": {
+   "refused": 32,
+   "accepted": 17
+  },
+  "refused_share_as_v1_runs": 0.6531,
+  "lines_all_runs_refused": 12,
+  "top_messages": [
+   [
+    "refused",
+    "cut: you must specify a list of bytes, characters, or fields",
+    18
+   ],
+   [
+    "refused",
+    "cut: the delimiter must be a single character",
+    1
+   ],
+   [
+    "refused",
+    "cut: invalid option -- 'w'",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 759,
+  "distinct_lines": 374,
+  "traced_lines": 374,
+  "sampled": false,
+  "test_runs_traced": 590,
+  "seconds": 15.8,
+  "seconds_per_test_run": 0.02672,
+  "classes": {
+   "refused": 273,
+   "accepted": 197,
+   "other_nonzero": 120
+  },
+  "refused_share": 0.4627,
+  "classes_as_v1_runs": {
+   "refused": 559,
+   "accepted": 384,
+   "other_nonzero": 120
+  },
+  "refused_share_as_v1_runs": 0.5259,
+  "lines_all_runs_refused": 193,
+  "top_messages": [
+   [
+    "refused",
+    "cut: you must specify a list of bytes, characters, or fields",
+    108
+   ],
+   [
+    "refused",
+    "cut: only one list may be specified",
+    75
+   ],
+   [
+    "refused",
+    "cut: the delimiter must be a single character",
+    35
+   ],
+   [
+    "refused",
+    "cut: invalid option -- 'w'",
+    35
+   ],
+   [
+    "refused",
+    "cut: an input delimiter may be specified only when operating on fields",
+    10
+   ],
+   [
+    "refused",
+    "cut: suppressing non-delimited lines makes sense",
+    10
+   ]
+  ]
+ },
+ "finished": "2026-10-27T18:49:34"
+}

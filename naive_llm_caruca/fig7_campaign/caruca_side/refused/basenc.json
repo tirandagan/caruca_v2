@@ -1,0 +1,97 @@
+{
+ "command": "basenc",
+ "binary": "/usr/bin/basenc",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:09:45",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 31,
+  "distinct_lines": 18,
+  "traced_lines": 18,
+  "sampled": false,
+  "test_runs_traced": 26,
+  "seconds": 0.7,
+  "seconds_per_test_run": 0.02674,
+  "classes": {
+   "refused": 15,
+   "accepted": 9,
+   "unclassified": 2
+  },
+  "refused_share": 0.5769,
+  "classes_as_v1_runs": {
+   "refused": 28,
+   "accepted": 9,
+   "unclassified": 2
+  },
+  "refused_share_as_v1_runs": 0.7179,
+  "lines_all_runs_refused": 7,
+  "top_messages": [
+   [
+    "refused",
+    "basenc: missing encoding type",
+    15
+   ],
+   [
+    "unclassified",
+    "basenc: invalid input (length must be multiple of 4 characters)",
+    1
+   ],
+   [
+    "unclassified",
+    "basenc: invalid wrap size: '-1'",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 444,
+  "distinct_lines": 150,
+  "traced_lines": 150,
+  "sampled": false,
+  "test_runs_traced": 278,
+  "seconds": 4.8,
+  "seconds_per_test_run": 0.01739,
+  "classes": {
+   "refused": 60,
+   "accepted": 110,
+   "unclassified": 44,
+   "other_nonzero": 64
+  },
+  "refused_share": 0.2158,
+  "classes_as_v1_runs": {
+   "refused": 318,
+   "accepted": 218,
+   "unclassified": 68,
+   "other_nonzero": 64
+  },
+  "refused_share_as_v1_runs": 0.476,
+  "lines_all_runs_refused": 20,
+  "top_messages": [
+   [
+    "refused",
+    "basenc: missing encoding type",
+    60
+   ],
+   [
+    "unclassified",
+    "basenc: invalid wrap size: '-1'",
+    23
+   ],
+   [
+    "unclassified",
+    "basenc: invalid input (length must be multiple of 4 characters)",
+    13
+   ],
+   [
+    "unclassified",
+    "basenc: invalid input",
+    8
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:09:50"
+}

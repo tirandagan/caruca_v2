@@ -47,3 +47,13 @@ or slanders it.
 artifact already on disk (patch the suspect field into the existing output and re-validate
 through v1). That is free, and on 2026-09-14 it proved there was no further defect waiting
 before a paid run. Full write-up: `ai_docs/tasks/002_llm_config_generation.md` §6.
+
+**A fifth case, added 2026-10-27: faults in a scoring tool found after a first pass.** The session that
+proposed task 018's headline grade asked for the fact list and rules to be fixed before scoring and never
+adjusted afterwards. That still allows repairing a *fault* in the checker, on the same terms as above.
+- **Tell-tales that it is the checker, not the files:** files known to differ get identical scores (all
+  three `rm` files at 56/60), or every file fails the same fact (an optional value written after a space,
+  which GNU never accepts).
+- **Rules for a repair:** apply it to every file alike, re-run everything, and record the fault, the
+  repair and the before/after numbers before keeping any result (task 018 §4.5: three repairs).
+- **Not a repair:** changing a rule because one side's score looks wrong.

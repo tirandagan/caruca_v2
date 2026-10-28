@@ -120,11 +120,11 @@ python3 $S/find_writeups.py cat --topic operand
 
 Three documents, and they do not agree:
 
-- `ai_docs/analysis/v1_v2_parity_study.md` §3.2, titled *"v2 does not respect the
+- `ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md` §3.2, titled *"v2 does not respect the
   enumeration bound"* — attributes the cause to v2.
 - `ai_docs/tasks/011_v2_improvement_program.md` — states that §3.2 **misattributes** it:
   403 of 414 surplus invocations are the prompt's wording. **This is the current view.**
-- `ai_docs/analysis/white_paper_addendum.md` — raises it with the paper's authors as an
+- `ai_docs/archive_2026-09_rebuild/analysis/white_paper_addendum.md` — raises it with the paper's authors as an
   open question.
 
 Had the search come first, the parity study's confident section title would likely have

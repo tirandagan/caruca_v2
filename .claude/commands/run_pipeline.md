@@ -43,7 +43,7 @@ Three rules that hold for the whole session:
 
 One caution to raise if the user talks about the numbers going into the paper: runs from
 this walkthrough are **exploratory**. The formal experiment program is gated on the run
-matrix in `ai_docs/analysis/experiment_implementation_plan.md` (Part 6). Exploring here is
+matrix in `ai_docs/archive_2026-09_rebuild/analysis/experiment_implementation_plan.md` (Part 6). Exploring here is
 fine and encouraged; just do not let a walkthrough run get reported as an experiment result.
 
 ---

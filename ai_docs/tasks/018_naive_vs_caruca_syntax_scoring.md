@@ -27,7 +27,7 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 > `binwalk`** ("only for the four commands that we've been discussing … so that we can get a proper
 > scoring and performance assessment"). All four are **scored**, with a new headline grade,
 > **program-checked accuracy** (section 2.2), requested by Tiran through the session that wrote
-> `ai_docs/analysis/naive_llm_syntax_files_vs_v1.md`. The plain-language result is
+> `naive_llm_caruca/syntax_files_vs_v1.md`. The plain-language result is
 > `naive_llm_caruca/observations.md`. The `dd`/`ls` pilot runs and the 20-command main phase
 > are not being pursued for now.
 > *Earlier status (2026-10-26):* tools built; pilot 3 of 5 scored (`cut`, `sort`, `dirname`); `dd`
@@ -259,7 +259,7 @@ From `naive_llm_caruca/scoring/results/summary.md`, 2026-10-26. Probe binaries: 
 - [ ] **Later, if Tiran wants verdicts:** 2 more agent runs for each of the four commands (8 runs, about
   $13 at list price), so a lead can be judged against the agent's own run-to-run spread; then the
   20-command main phase (section 7) if still wanted.
-- [ ] **Write-up for the co-authors:** a new section of `ai_docs/analysis/white_paper_addendum_naive_llm.md`.
+- [ ] **Write-up for the co-authors:** a new section of `naive_llm_caruca/white_paper_addendum_naive_llm.md`.
 
 ## 7. Decisions for Tiran (before the main phase)
 

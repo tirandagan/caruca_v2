@@ -332,9 +332,9 @@ Before calling stage-2 surplus a model failure, check three things:
   2. Does v1 emit the surplus one notch looser?         v1_probe.py CMD --vs-v2 --max-count 2
   3. What did the prompt actually say?                  caruca_run.py CMD -s 2 -v prompt
 
-Documented in: ai_docs/analysis/v1_v2_parity_study.md §3.2 (which attributes the cause to
+Documented in: ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md §3.2 (which attributes the cause to
 v2), ai_docs/tasks/011_v2_improvement_program.md (which corrects that attribution — the
-current view), and ai_docs/analysis/white_paper_addendum.md (which raises it with the
+current view), and ai_docs/archive_2026-09_rebuild/analysis/white_paper_addendum.md (which raises it with the
 paper's authors). Cite 011.
 """
 

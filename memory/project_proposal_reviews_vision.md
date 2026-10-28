@@ -33,7 +33,7 @@ target. The reviews are context for the vision, not a to-do list.
   goal is the v2 pipeline running end to end with every execution problem diagnosed, producing a
   strong, repeatable, reproducible syntax description. Downstream tools are *tests that the output
   is consumable*, not the goal: PaSh first only because it is already set up, then ShellCheck,
-  Shseer and POSH. Task 013 and `ai_docs/analysis/reflections_on_caruca_v1_submission_reviews.md`
+  Shseer and POSH. Task 013 and `ai_docs/archive_2026-09_rebuild/analysis/reflections_on_caruca_v1_submission_reviews.md`
   (both written 2026-10-13) still put the PaSh study ahead of the full chain, and need revising to
   match. That revision is on hold until Tiran confirms.
 - The vision in one line: one model per command in two halves, *how it is called* and *what it does*,

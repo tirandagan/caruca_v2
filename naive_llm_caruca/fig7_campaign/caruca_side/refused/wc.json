@@ -1,0 +1,70 @@
+{
+ "command": "wc",
+ "binary": "/usr/bin/wc",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:06:15",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 34,
+  "distinct_lines": 12,
+  "traced_lines": 12,
+  "sampled": false,
+  "test_runs_traced": 28,
+  "seconds": 0.7,
+  "seconds_per_test_run": 0.02501,
+  "classes": {
+   "accepted": 10,
+   "unclassified": 2,
+   "other_nonzero": 16
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 32,
+   "unclassified": 2,
+   "other_nonzero": 16
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "wc: '''c'$'\\n''a'$'\\n''r'$'\\n''u'$'\\n''c'$'\\n''a'$'\\n\\n''Hi'$'\\n''Hello'$'\\n\\n''The quick brown fox jumped over the lazy",
+    2
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 252,
+  "distinct_lines": 61,
+  "traced_lines": 61,
+  "sampled": false,
+  "test_runs_traced": 189,
+  "seconds": 3.2,
+  "seconds_per_test_run": 0.01693,
+  "classes": {
+   "accepted": 81,
+   "unclassified": 12,
+   "other_nonzero": 96
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 260,
+   "unclassified": 24,
+   "other_nonzero": 192
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "wc: '''c'$'\\n''a'$'\\n''r'$'\\n''u'$'\\n''c'$'\\n''a'$'\\n\\n''Hi'$'\\n''Hello'$'\\n\\n''The quick brown fox jumped over the lazy",
+    12
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:06:19"
+}

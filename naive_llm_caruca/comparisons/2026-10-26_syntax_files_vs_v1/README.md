@@ -1,6 +1,6 @@
 # Syntax files compared with v1's: `rm`, `cut`, `sort`, `convert` (2026-10-26)
 
-Scripts and results behind `ai_docs/analysis/naive_llm_syntax_files_vs_v1.md`. Three syntax files per
+Scripts and results behind `naive_llm_caruca/syntax_files_vs_v1.md`. Three syntax files per
 command are compared: v1's reference (`caruca/src/caruca/syntax_specs/<cmd>.py`), v1's model output
 (`outputs/llm-dsl-generation/<cmd>.py`), and the agent's file from naive runs 5, 7, 9 and 8
 (`naive_llm_caruca/runs/*_<cmd>_PROMPT_v1/output/<cmd>.py`). v1 at commit `d80324073`.

@@ -60,7 +60,7 @@ export default function FindingsPage() {
           <Callout title="No findings recorded yet" tone="neutral">
             <p>
               The project&apos;s conclusions are currently spread across prose —{" "}
-              <span className="mono">ai_docs/analysis/v1_v2_parity_study.md</span>,{" "}
+              <span className="mono">ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md</span>,{" "}
               <span className="mono">white_paper_addendum.md</span>,{" "}
               <span className="mono">e0_artifact_pinning.md</span> and several memory notes.
               Converting them into finding files, and re-checking each number on the way in, is

@@ -28,10 +28,10 @@ reference files, `syntax_specs/`), its **GPT-4o output** (what Caruca's own lang
 | Document | What it gives you |
 |---|---|
 | [**Observations: naive LLM vs Caruca**](observations.md) | The short answer: which is better in quality, which is faster, the score of every file, samples side by side, how the approaches are alike and different |
-| [Latest findings](../ai_docs/analysis/latest_findings.md) | Every finding of the project, dated, newest first, each linked to its evidence |
-| [The three findings in one picture](../ai_docs/diagrams/003_naive_llm_three_findings.png) | Ask the command, not only its manual · many generated test lines do nothing · inventive but a poor judge of its own work |
+| [Latest findings](latest_findings.md) | Every finding of the project, dated, newest first, each linked to its evidence |
+| [The three findings in one picture](diagrams/003_naive_llm_three_findings.png) | Ask the command, not only its manual · many generated test lines do nothing · inventive but a poor judge of its own work |
 
-![The three naive-LLM findings](../ai_docs/diagrams/003_naive_llm_three_findings.png)
+![The three naive-LLM findings](diagrams/003_naive_llm_three_findings.png)
 
 ## 2. Where each answer lives
 
@@ -39,9 +39,10 @@ reference files, `syntax_specs/`), its **GPT-4o output** (what Caruca's own lang
 |---|---|---|
 | How was the agent set up (prompt, formats, examples, VM), and what did each run do? | [Operator notes](#operator-notes-for-the-experimenter), below (one "Observed, run N" entry per run, under [Prompt versions](#prompt-versions)) · design record [task 016](../ai_docs/tasks/016_naive_claude_code_arm.md) | current |
 | What scores does each syntax file get? | [Task 018](../ai_docs/tasks/018_naive_vs_caruca_syntax_scoring.md) (method) · [scores table](scoring/results/summary.md) · one JSON per command with every count in [`scoring/results/`](scoring/results/) | current, 2026-10-27 |
-| Exactly how do the three syntax files differ, checked on the program? | [Syntax files vs v1](../ai_docs/analysis/naive_llm_syntax_files_vs_v1.md) (`rm`, `cut`, `sort`, `convert`) · scripts and raw results in [`comparisons/2026-10-26_syntax_files_vs_v1/`](comparisons/2026-10-26_syntax_files_vs_v1/README.md) | current, 2026-10-26 |
-| What should the Caruca paper add? (written for the co-authors) | [Naive LLM addendum](../ai_docs/analysis/white_paper_addendum_naive_llm.md) ([PDF](../ai_docs/analysis/white_paper_addendum_naive_llm.pdf)), version 0.5 | current, 2026-10-27 |
+| Exactly how do the three syntax files differ, checked on the program? | [Syntax files vs v1](syntax_files_vs_v1.md) (`rm`, `cut`, `sort`, `convert`) · scripts and raw results in [`comparisons/2026-10-26_syntax_files_vs_v1/`](comparisons/2026-10-26_syntax_files_vs_v1/README.md) | current, 2026-10-26 |
+| What should the Caruca paper add? (written for the co-authors) | [Naive LLM addendum](white_paper_addendum_naive_llm.md) ([PDF](white_paper_addendum_naive_llm.pdf)), version 0.5 | current, 2026-10-27 |
 | What did one run do, call by call? | the run's `analysis/analysis.md` (table below) | current |
+| What does the agent cost, how long does it take, and how many of its tries does the program refuse, over all 79 commands in the paper's Fig. 7, beside Caruca? | [Task 019](../ai_docs/tasks/019_fig7_commands_naive_campaign.md) (plan); results will be in `fig7_campaign/results.md` | planned, 2026-10-27; not run |
 
 ## 3. The runs
 
@@ -68,12 +69,12 @@ linked in the table above, beside the `.excalidraw` source and the `.spec.json` 
 
 | Diagram | What it shows | Where |
 |---|---|---|
-| The three findings | The project's three main naive-LLM findings on one page | [`ai_docs/diagrams/003_…png`](../ai_docs/diagrams/003_naive_llm_three_findings.png) |
+| The three findings | The project's three main naive-LLM findings on one page | [`diagrams/003_…png`](diagrams/003_naive_llm_three_findings.png) |
 | Session workflow | One run as a timeline: each phase of the agent's session, how long it took, how many tool calls | each run, `session_workflow.png` |
 | Information flow | What the agent read or ran, and which of its output files each source fed | each run, `information_flow.png` |
 | Caruca's design vs the agent | Caruca's five jobs as the paper designs them, beside what the agent did for each | runs 4 to 9, `v1_design_vs_agent.png` |
 | Run 3 vs run 4 | The same command with and without web access | run 4, `run3_vs_run4.png` |
-| v2 system architecture (dated) | The September plan for the step-by-step rebuild, not the naive approach | [`001_…png`](../ai_docs/diagrams/001_caruca_v2_system_architecture.png), [`002_…png`](../ai_docs/diagrams/002_architecture_widescreen.png) |
+| v2 system architecture (dated) | The September plan for the step-by-step rebuild, not the naive approach | [`001_…png`](../ai_docs/archive_2026-09_rebuild/diagrams/001_caruca_v2_system_architecture.png), [`002_…png`](../ai_docs/archive_2026-09_rebuild/diagrams/002_architecture_widescreen.png) |
 
 ## 5. Tools and raw data
 
@@ -97,20 +98,20 @@ linked in the table above, beside the `.excalidraw` source and the `.spec.json` 
 ## 7. Dated: the step-by-step rebuild (September to early October 2026)
 
 Before the naive approach, the project rebuilt Caruca's four steps one by one with GPT-4o (the "v2
-pipeline"). Its findings still stand as recorded and several are in [Latest findings](../ai_docs/analysis/latest_findings.md),
+pipeline"). Its findings still stand as recorded and several are in [Latest findings](latest_findings.md),
 but it is no longer the focus, and some of its plans were overtaken. Read these only for that history.
 
 | Document | Last changed | What it was |
 |---|---|---|
-| [Parity study](../ai_docs/analysis/v1_v2_parity_study.md) | 2026-10-13 | v2 pipeline vs Caruca, step by step, nine commands |
-| [v2 fidelity to v1](../ai_docs/analysis/v2_fidelity_to_v1.md) | 2026-10-13 | How the rebuild matched Caruca's code |
-| [Status report 2026-10-13](../ai_docs/analysis/status_reports/status_report_2026-10-13.md) · [2026-09-22](../ai_docs/analysis/status_reports/status_report_2026-09-22.md) | 2026-10-13 | Where the rebuild stood |
-| [Addendum (rebuild)](../ai_docs/analysis/white_paper_addendum.md) | 2026-09-29 | Proposals for the paper from the rebuild; superseded in focus by the naive-LLM addendum |
-| [Experiment designs](../ai_docs/analysis/experiment_designs.md) · [implementation plan](../ai_docs/analysis/experiment_implementation_plan.md) | 2026-09-29 | Planned experiments for the rebuild; most never ran |
-| [Evaluation gaps](../ai_docs/analysis/evaluation_gaps.md) · [Scientific vs engineering contributions](../ai_docs/analysis/scientific_vs_engineering_contributions.md) | 2026-10-13, 2026-09-29 | Early framing of what the paper leaves unmeasured |
-| [Reflections on the 2023 proposal reviews](../ai_docs/analysis/reflections_on_caruca_v1_submission_reviews.md) | 2026-10-13 | The NSF grant-proposal reviews (not the paper's reviews) |
-| [v2 chain vs v1](../ai_docs/docs/v2_chain_vs_v1.md) · [v2 pipeline usage guide](../ai_docs/docs/caruca_v2_pipeline_usage_guide.md) · [v2 prompts inventory](../ai_docs/docs/caruca_v2_llm_prompts.md) · [console walkthrough](../ai_docs/docs/console_walkthrough_grep_rm.md) | 2026-09-13 to 2026-10-13 | Operating the rebuild |
-| [Planning documents](../ai_docs/prep/) (master idea, roadmap, architecture, data schema, component functionality) and [the September handouts](../ai_docs/docs/presentations/) | 2026-09-29 | The August–September project plan |
+| [Parity study](../ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md) | 2026-10-13 | v2 pipeline vs Caruca, step by step, nine commands |
+| [v2 fidelity to v1](../ai_docs/archive_2026-09_rebuild/analysis/v2_fidelity_to_v1.md) | 2026-10-13 | How the rebuild matched Caruca's code |
+| [Status report 2026-10-13](../ai_docs/archive_2026-09_rebuild/analysis/status_reports/status_report_2026-10-13.md) · [2026-09-22](../ai_docs/archive_2026-09_rebuild/analysis/status_reports/status_report_2026-09-22.md) | 2026-10-13 | Where the rebuild stood |
+| [Addendum (rebuild)](../ai_docs/archive_2026-09_rebuild/analysis/white_paper_addendum.md) | 2026-09-29 | Proposals for the paper from the rebuild; superseded in focus by the naive-LLM addendum |
+| [Experiment designs](../ai_docs/archive_2026-09_rebuild/analysis/experiment_designs.md) · [implementation plan](../ai_docs/archive_2026-09_rebuild/analysis/experiment_implementation_plan.md) | 2026-09-29 | Planned experiments for the rebuild; most never ran |
+| [Evaluation gaps](../ai_docs/archive_2026-09_rebuild/analysis/evaluation_gaps.md) · [Scientific vs engineering contributions](../ai_docs/archive_2026-09_rebuild/analysis/scientific_vs_engineering_contributions.md) | 2026-10-13, 2026-09-29 | Early framing of what the paper leaves unmeasured |
+| [Reflections on the 2023 proposal reviews](../ai_docs/archive_2026-09_rebuild/analysis/reflections_on_caruca_v1_submission_reviews.md) | 2026-10-13 | The NSF grant-proposal reviews (not the paper's reviews) |
+| [v2 chain vs v1](../ai_docs/archive_2026-09_rebuild/docs/v2_chain_vs_v1.md) · [v2 pipeline usage guide](../ai_docs/archive_2026-09_rebuild/docs/caruca_v2_pipeline_usage_guide.md) · [v2 prompts inventory](../ai_docs/archive_2026-09_rebuild/docs/caruca_v2_llm_prompts.md) · [console walkthrough](../ai_docs/archive_2026-09_rebuild/docs/console_walkthrough_grep_rm.md) | 2026-09-13 to 2026-10-13 | Operating the rebuild |
+| [Planning documents](../ai_docs/prep/) (master idea, roadmap, architecture, data schema, component functionality) and [the September handouts](../ai_docs/archive_2026-09_rebuild/docs/presentations) | 2026-09-29 | The August–September project plan |
 
 ---
 
@@ -138,10 +139,11 @@ What the session sees:
 PROMPT_v1.md                   the task and nothing else; {{COMMAND}} is replaced per run
 PROMPT_v2.md                   v1 plus three lines of behaviour guidance (see "Prompt versions")
 formats/syntax_description.md  format of <command>.py, derived from v1's ir/syntax.py
-formats/pash_annotation.md     format of PaSh's three annotation files, derived from pash_annotations 0.2.4
-samples/{tee,uniq,grep,rm}/    <cmd>.py from v1; pash/ = PaSh's parser table + generator classes, verbatim
+formats/annotation.md          format of PaSh's three annotation files, derived from pash_annotations 0.2.4
+                               (named pash_annotation.md until 2026-10-27, task 019)
+samples/{tee,uniq,grep,rm}/    <cmd>.py from v1; annotation/ (pash/ until 2026-10-27) = PaSh's parser table + generator classes, verbatim
 samples/PASH_ANNOTATIONS_LICENSE  MIT licence of the copied PaSh files
-output/                        where the session writes its files (output/<cmd>.py and output/pash/*)
+output/                        where the session writes its files (output/<cmd>.py and output/annotation/*; output/pash/* for runs before 2026-10-27)
 runs/<date>_<time>_<vm>_<cmd>_<version>/   one folder per invocation of naive-run, collected: prompt.md (exactly as sent),
                                output/ (the deliverables), stream.jsonl (raw events), stream.actions.log (as shown on
                                screen), transcript_<session>.jsonl (Claude Code's own record), run.env, environment.txt
@@ -231,10 +233,29 @@ avoids "documentation").
 **Observed.** Run 4 (grep, v1, 2026-10-20; entry under PROMPT_v1): no URL in any shell command and no
 attempt to reach PyPI or GitHub; the trial call chose Fable at medium effort. One run so far.
 
+### In every version since 2026-10-27: PaSh no longer named in the prompt
+
+**What changed.** Michael Greenberg edited `PROMPT_v1.md` in place (commit `89e1156`): the objective now
+says "tools for reasoning about shell invocations" instead of naming PaSh, the behaviour files go to
+`output/annotation/` instead of `output/pash/`, and the prompt refers to `formats/annotation.md` and
+`samples/<cmd>/annotation/`. His commit changed only the prompt, so task 019 renamed the format document
+and the four sample folders to match (they were `formats/pash_annotation.md` and `samples/<cmd>/pash/`),
+and gave `PROMPT_v2.md` the same wording, so the two versions still differ by exactly version 2's
+guidance section. The withheld-word check passes on both. Like the no-web rule, this is a standing edit,
+not a new version number; each run's `prompt.md` shows which wording it got.
+
+**What it does not change.** The materials still name PaSh: `formats/annotation.md` mentions it 6 times,
+and the sample annotation files are PaSh's own and import `pash_annotations`.
+
+**Why.** Greenberg: the prompt should not point the agent at one particular downstream tool.
+
+**Observed.** No run yet; task 019 is the first campaign on this wording.
+
 ### PROMPT_v1 — the bare task
 
-**What it contains.** The objective (describe the command's argument syntax and behaviour so programs
-like PaSh can understand it without running it), the path of the binary and of its manual page, the
+**What it contains.** The objective (describe the command's argument syntax and behaviour so that
+programs reasoning about shell invocations can understand it without running it; PaSh was named here until
+2026-10-27), the path of the binary and of its manual page, the
 output files and their formats, the four samples, and the closing request: generate a correct
 specification without intervention and be certain to test the binary against it.
 
@@ -587,6 +608,7 @@ Built 2026-10-13 with the steps below.
 | Stock restriction left in place | `kernel.apparmor_restrict_unprivileged_userns = 1`, so unprivileged user namespaces are blocked as on any stock Ubuntu 24.04; a session that wants a sandbox has to deal with that itself |
 | Nothing from this project | no `CLAUDE.md` anywhere above `~/naive-arm`, no v1, no repo |
 | Added 2026-10-20 | `binwalk` (`apt install`, package 2.3.4+dfsg1-5, with `python3-binwalk`; its manual says 2.3.2), installed by Tiran for run 6. `~/.config/binwalk/` (empty configuration files) was created in the image at 13:37 the same day by the analyst's `binwalk --help` check before cloning; binwalk creates it on its first run anyway |
+| Changed 2026-10-27 (task 019) | **Ubuntu's automatic updates switched off** (`unattended-upgrades`, `apt-daily` and `apt-daily-upgrade` disabled): they ran inside every clone and changed package versions during a clone's life (coreutils, the C library, Python in a test clone). One full upgrade first, so the image is current as of 2026-10-27: kernel 6.8.0-147, **coreutils 9.4-3ubuntu6.3** (runs 4 to 10 had 6.2), diffutils 3.10-1ubuntu0.1, procps 4.0.4-4ubuntu3.3, sed 4.9, grep 3.11, bc 1.07.1, ImageMagick 6.9.12.98. **Added:** `uglifyjs` 3.17.4-2 (with nodejs 18.19.1), `unzip` 6.0-28ubuntu4.1, `pandoc` 3.1.3+ds-2 (three Fig. 7 commands that were missing), and `auditd` 3.1.2 (log files raised to 50 MB × 10) for the program-start logger; `bpftrace` 0.20.2 was already in the stock image. The prompt package was re-synced with the renamed `formats/annotation.md` and `samples/<cmd>/annotation/`. Claude Code left at 2.1.296; the session is started with its auto-updater off |
 
 ### Building the golden image (from scratch, on the Mac)
 
@@ -638,6 +660,19 @@ naive-run sed PROMPT_v2.md              # watch mode: runs unattended, every too
 naive-run -i sed PROMPT_v2.md           # or Claude Code's own interactive screen (press Enter to send the prompt)
 exit
 ```
+
+**Task 019 additions (2026-10-27).** `naive-run -y <cmd>` answers the "not one of the core nine" question
+(for batches). The program is found with `type -P` (for a shell built-in such as `test` or `kill`, the old
+`command -v` printed the bare word). **OpenRouter billing:** when `~/.naive-billing` exists in the clone (written
+by `fig7_campaign/run_campaign.py` just before the run, read and deleted by `naive-run`), the clone is signed out
+of claude.ai and the session is sent to OpenRouter with that key and model (no trial call, no fallback), and
+`naive-watch.py` stops it past the cost cap in the file; the key is passed by shell assignment, never as a
+command argument (an argument of `env` showed up in the audit log in testing). **Program-start logging:** while
+the session runs, an execve audit rule (`audit.log`, full arguments), an audit watch on `output/`
+(`audit_output.log`, the first deliverable written) and `~/bin/exec-log.bt` (`tries.log`, parents, exit status,
+start of error output) record every program start; `fig7_campaign/execlog.py` and `classify_tries.py` read
+them. `collect_run.sh` scans every collected file for the OpenRouter key and redacts it. The whole campaign
+procedure is task 019 (`ai_docs/tasks/019_fig7_commands_naive_campaign.md`).
 
 **Model and restrictions, both modes.** Before the run starts, `naive-run` makes a one-line trial
 call to `claude-fable-5-1` (about $0.02 at list price; it replaces the system prompt and loads no
@@ -801,7 +836,7 @@ the questions a run is meant to answer. Read both first.
    whether the binary was run before that point or only after.
 2. **Sources it used.** The manual page it was pointed to, the samples, the format documents,
    anything from outside the folder (filesystem searches, network requests: name the URLs). If the
-   command is one of the four samples, diff `output/<cmd>.py` and `output/pash/*` against
+   command is one of the four samples, diff `output/<cmd>.py` and `output/annotation/*` (`output/pash/*` in runs before 2026-10-27) against
    `naive_llm_caruca/samples/<cmd>/` and say how much was copied versus derived.
 3. **Isolation and safety.** Did it set up any isolation before running the binary (namespaces,
    containers, scratch directories, dry runs)? Did it run anything destructive? Where did it work?

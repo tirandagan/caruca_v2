@@ -1,0 +1,90 @@
+{
+ "command": "touch",
+ "binary": "/usr/bin/touch",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:15:53",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 62,
+  "distinct_lines": 44,
+  "traced_lines": 44,
+  "sampled": false,
+  "test_runs_traced": 300,
+  "seconds": 6.4,
+  "seconds_per_test_run": 0.0215,
+  "classes": {
+   "accepted": 180,
+   "other_nonzero": 80,
+   "refused": 40
+  },
+  "refused_share": 0.1333,
+  "classes_as_v1_runs": {
+   "accepted": 252,
+   "other_nonzero": 98,
+   "refused": 40
+  },
+  "refused_share_as_v1_runs": 0.1026,
+  "lines_all_runs_refused": 8,
+  "top_messages": [
+   [
+    "refused",
+    "touch: invalid date format 'tommorrow'",
+    20
+   ],
+   [
+    "refused",
+    "touch: invalid date format '2021-01-01'",
+    10
+   ],
+   [
+    "refused",
+    "touch: invalid date format 'yesterday'",
+    10
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 856,
+  "distinct_lines": 426,
+  "traced_lines": 426,
+  "sampled": false,
+  "test_runs_traced": 3650,
+  "seconds": 61.5,
+  "seconds_per_test_run": 0.01684,
+  "classes": {
+   "accepted": 1784,
+   "other_nonzero": 876,
+   "refused": 990
+  },
+  "refused_share": 0.2712,
+  "classes_as_v1_runs": {
+   "accepted": 3568,
+   "other_nonzero": 1642,
+   "refused": 1310
+  },
+  "refused_share_as_v1_runs": 0.2009,
+  "lines_all_runs_refused": 138,
+  "top_messages": [
+   [
+    "refused",
+    "touch: invalid date format 'tommorrow'",
+    450
+   ],
+   [
+    "refused",
+    "touch: invalid date format '2021-01-01'",
+    270
+   ],
+   [
+    "refused",
+    "touch: invalid date format 'yesterday'",
+    270
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:17:01"
+}

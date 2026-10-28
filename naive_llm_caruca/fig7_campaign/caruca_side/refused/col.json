@@ -1,0 +1,73 @@
+{
+ "command": "col",
+ "binary": "/usr/bin/col",
+ "package": "bsdextrautils 2.39.3-9ubuntu6.6",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:06:25",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 18,
+  "distinct_lines": 11,
+  "traced_lines": 11,
+  "sampled": false,
+  "test_runs_traced": 11,
+  "seconds": 0.3,
+  "seconds_per_test_run": 0.02752,
+  "classes": {
+   "accepted": 10,
+   "unclassified": 1
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 17,
+   "unclassified": 1
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "col: bad -l argument: '-1': Numerical result out of range",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 140,
+  "distinct_lines": 53,
+  "traced_lines": 53,
+  "sampled": false,
+  "test_runs_traced": 53,
+  "seconds": 0.9,
+  "seconds_per_test_run": 0.01706,
+  "classes": {
+   "accepted": 44,
+   "unclassified": 8,
+   "refused": 1
+  },
+  "refused_share": 0.0189,
+  "classes_as_v1_runs": {
+   "accepted": 125,
+   "unclassified": 14,
+   "refused": 1
+  },
+  "refused_share_as_v1_runs": 0.0071,
+  "lines_all_runs_refused": 1,
+  "top_messages": [
+   [
+    "unclassified",
+    "col: bad -l argument: '-1': Numerical result out of range",
+    8
+   ],
+   [
+    "refused",
+    "col: mutually exclusive arguments: --tabs --spaces",
+    1
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:06:26"
+}

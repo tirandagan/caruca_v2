@@ -1,0 +1,167 @@
+{
+ "command": "date",
+ "binary": "/usr/bin/date",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:09:50",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 37,
+  "distinct_lines": 26,
+  "traced_lines": 26,
+  "sampled": false,
+  "test_runs_traced": 42,
+  "seconds": 0.9,
+  "seconds_per_test_run": 0.02188,
+  "classes": {
+   "accepted": 17,
+   "refused": 11,
+   "other_nonzero": 14
+  },
+  "refused_share": 0.2619,
+  "classes_as_v1_runs": {
+   "accepted": 28,
+   "refused": 11,
+   "other_nonzero": 14
+  },
+  "refused_share_as_v1_runs": 0.2075,
+  "lines_all_runs_refused": 9,
+  "top_messages": [
+   [
+    "refused",
+    "date: invalid date 'tommorrow'",
+    2
+   ],
+   [
+    "refused",
+    "date: invalid date 'Hi'",
+    2
+   ],
+   [
+    "refused",
+    "date: invalid date '%Y-%m-%d'",
+    1
+   ],
+   [
+    "refused",
+    "date: invalid date '%Y-%m-%d %H:%M:%S'",
+    1
+   ],
+   [
+    "refused",
+    "date: invalid date 'date'",
+    1
+   ],
+   [
+    "refused",
+    "date: invalid date 'hours'",
+    1
+   ],
+   [
+    "refused",
+    "date: invalid date 'minutes'",
+    1
+   ],
+   [
+    "refused",
+    "date: invalid date 'ns'",
+    1
+   ],
+   [
+    "refused",
+    "date: invalid date 'seconds'",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 619,
+  "distinct_lines": 306,
+  "traced_lines": 306,
+  "sampled": false,
+  "test_runs_traced": 762,
+  "seconds": 12.9,
+  "seconds_per_test_run": 0.01691,
+  "classes": {
+   "accepted": 159,
+   "refused": 478,
+   "other_nonzero": 102,
+   "unclassified": 23
+  },
+  "refused_share": 0.6273,
+  "classes_as_v1_runs": {
+   "accepted": 378,
+   "refused": 588,
+   "other_nonzero": 238,
+   "unclassified": 23
+  },
+  "refused_share_as_v1_runs": 0.4792,
+  "lines_all_runs_refused": 160,
+  "top_messages": [
+   [
+    "refused",
+    "date: the options to specify dates for printing are mutually exclusive",
+    160
+   ],
+   [
+    "refused",
+    "date: the options to print and set the time may not be used together",
+    69
+   ],
+   [
+    "refused",
+    "date: the argument 'date' lacks a leading '+';",
+    26
+   ],
+   [
+    "refused",
+    "date: the argument 'hours' lacks a leading '+';",
+    26
+   ],
+   [
+    "refused",
+    "date: the argument 'minutes' lacks a leading '+';",
+    26
+   ],
+   [
+    "refused",
+    "date: the argument 'ns' lacks a leading '+';",
+    26
+   ],
+   [
+    "refused",
+    "date: the argument 'seconds' lacks a leading '+';",
+    26
+   ],
+   [
+    "refused",
+    "date: the argument '%Y-%m-%d' lacks a leading '+';",
+    26
+   ],
+   [
+    "refused",
+    "date: the argument '%Y-%m-%d %H:%M:%S' lacks a leading '+';",
+    26
+   ],
+   [
+    "unclassified",
+    "date: multiple output formats specified",
+    23
+   ],
+   [
+    "refused",
+    "date: invalid date 'tommorrow'",
+    12
+   ],
+   [
+    "refused",
+    "date: invalid date 'Hi'",
+    12
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:10:04"
+}

@@ -46,9 +46,10 @@ at paper-worthy rigor, not just internal notes.
 is the pipeline.** All four v2 stages are built and run live (`src/caruca_v2/`, CLI `caruca-v2`, tasks
 001-004), the measurement harness is built (`src/caruca_v2/harness/`: `score`, `sweep`, `report`, per-stage
 scorers, task 006), the C0 pilot and the nine-command parity campaigns have been run against real models,
-and the results are written up in `ai_docs/analysis/`. Spend so far is a few dollars. What has *not* run is
-the experiment programme's campaigns C1-C6. Start any orientation at `ai_docs/analysis/README.md` and the
-task list, not at this paragraph.
+and the results are written up in `ai_docs/archive_2026-09_rebuild/` (moved there 2026-10-27). Spend so far
+is a few dollars. What has *not* run is the experiment programme's campaigns C1-C6. **Since 2026-10-20 the
+focus is the naive-LLM experiment (`naive_llm_caruca/`, tasks 016-019); start any orientation at
+`naive_llm_caruca/README.md`** (the start page) and `naive_llm_caruca/latest_findings.md`, not at this paragraph.
 
 Work is staged into **Tier 0** (Baseline Instrumentation + naive-LLM baseline, plain docs + Evaluation
 Harness's Q2-style comparison + telemetry + variance — no sandbox needed) and **Tier 1** (Secure Sandbox
@@ -243,17 +244,22 @@ correctness comparison has to separate "better model" from "better method."
   question, what each one is for, and the naming and corrections conventions. Written 2026-09-22 when the
   document set was reorganised. Read it before hunting through folders.
 - `ai_docs/refs/` — reference material (the paper, upstream docs, transcripts) pinned for future sessions.
-- `ai_docs/analysis/` — findings/evaluations produced *by this project* (as opposed to `refs/`, which is
-  source material we didn't write). Start at `ai_docs/analysis/README.md` for the index — don't inline
-  analysis content here in `CLAUDE.md`; link out to it instead so routine sessions don't load findings
-  they don't need. Ten documents live there now, including the parity study, the co-author addendum and the
-  experiment programme — the index describes each one, so read it rather than guessing from filenames.
+- **Where findings live (reorganised 2026-10-27, Tiran's call).** The naive-LLM experiment's documents live
+  with the experiment in `naive_llm_caruca/`: the start page (top of its `README.md`), `observations.md`,
+  `latest_findings.md` (every finding, dated, newest first; add new ones there), the addendum for the
+  co-authors, `syntax_files_vs_v1.md` and `diagrams/`. The September–October rebuild's write-ups (parity
+  study, v2 fidelity, the rebuild's addendum, experiment designs, status reports, v2 operating docs,
+  handouts) are in `ai_docs/archive_2026-09_rebuild/`. `ai_docs/analysis/` keeps only background that still
+  holds (E0, the `grep`/purpose case, PaSh scheduling) and the console's `findings/` folder. Don't inline
+  analysis content here in `CLAUDE.md`; link out to it so routine sessions don't load findings they don't
+  need.
 - `ai_docs/prep/` — project-planning output; `ai_docs/prep_templates/` came from a **Next.js/Drizzle/
   Trigger.dev web-app starter kit** and is being adapted one file at a time for this research project.
   **Adapted, safe to run**: `01_generate_master_idea.md` (→ `ai_docs/prep/master_idea.md`, **done**),
   `05_generate_app_pages_and_functionality.md` (→ `component_functionality.md`, **done**),
   `08_generate_initial_data_models.md` (→ `data_telemetry_schema.md`, **done**),
-  `09_generate_system_design.md` (→ `system_architecture.md` + `ai_docs/diagrams/`, **done**),
+  `09_generate_system_design.md` (→ `system_architecture.md` + `ai_docs/diagrams/`, **done**; those
+  diagrams now sit in `ai_docs/archive_2026-09_rebuild/diagrams/`),
   `10_generate_build_order_worker.md` (→ `roadmap.md`, phases = MVP components done end-to-end, **done**).
   All five adapted passes are complete. **The starter-kit material that never applied was archived on
   2026-09-22** to `ai_docs/_archive/shipkit/` (see its README): prep passes `02`, `03`, `04`, `06`, `07`

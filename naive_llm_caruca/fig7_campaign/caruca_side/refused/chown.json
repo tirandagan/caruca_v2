@@ -1,0 +1,184 @@
+{
+ "command": "chown",
+ "binary": "/usr/bin/chown",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:49:40",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 74,
+  "distinct_lines": 46,
+  "traced_lines": 46,
+  "sampled": false,
+  "test_runs_traced": 310,
+  "seconds": 5.5,
+  "seconds_per_test_run": 0.01764,
+  "classes": {
+   "refused": 150,
+   "unclassified": 26,
+   "accepted": 62,
+   "other_nonzero": 72
+  },
+  "refused_share": 0.4839,
+  "classes_as_v1_runs": {
+   "refused": 290,
+   "unclassified": 26,
+   "accepted": 62,
+   "other_nonzero": 72
+  },
+  "refused_share_as_v1_runs": 0.6444,
+  "lines_all_runs_refused": 30,
+  "top_messages": [
+   [
+    "refused",
+    "chown: missing operand after 'relpath_1'",
+    56
+   ],
+   [
+    "unclassified",
+    "chown: invalid user: 'wheel:wheel'",
+    20
+   ],
+   [
+    "refused",
+    "chown: missing operand after 'nonexistent_path/relpath_1'",
+    14
+   ],
+   [
+    "refused",
+    "chown: missing operand after 'relpath_2'",
+    4
+   ],
+   [
+    "unclassified",
+    "chown: changing ownership of 'relpath_1': Invalid argument",
+    3
+   ],
+   [
+    "refused",
+    "chown: missing operand after '/tmp/toplevel_091px62s/sandbox_45o05yqc/abspath_1'",
+    1
+   ],
+   [
+    "refused",
+    "chown: missing operand after '/tmp/toplevel_970peng8/sandbox_td1gqfk7/abspath_1'",
+    1
+   ],
+   [
+    "refused",
+    "chown: missing operand after '/tmp/toplevel_oo6kxwcx/sandbox_k9tqmjs0/abspath_1'",
+    1
+   ],
+   [
+    "refused",
+    "chown: missing operand after '/tmp/toplevel_vh7nh7p9/sandbox_eoe3050j/nonexistent_path/abspath_1'",
+    1
+   ],
+   [
+    "refused",
+    "chown: missing operand after '/tmp/toplevel_jfcg6gdu/sandbox_ilq4t2bq/abspath_1'",
+    1
+   ],
+   [
+    "refused",
+    "chown: missing operand after '/tmp/toplevel_vpfdvqsf/sandbox_s7h62zk9/abspath_1'",
+    1
+   ],
+   [
+    "refused",
+    "chown: missing operand after '/tmp/toplevel_teot_qgm/sandbox_1zt84ozw/abspath_1'",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 1276,
+  "distinct_lines": 490,
+  "traced_lines": 490,
+  "sampled": false,
+  "test_runs_traced": 4050,
+  "seconds": 73.1,
+  "seconds_per_test_run": 0.01804,
+  "classes": {
+   "refused": 1040,
+   "unclassified": 518,
+   "accepted": 1170,
+   "other_nonzero": 1322
+  },
+  "refused_share": 0.2568,
+  "classes_as_v1_runs": {
+   "refused": 3910,
+   "unclassified": 856,
+   "accepted": 2012,
+   "other_nonzero": 2322
+  },
+  "refused_share_as_v1_runs": 0.4297,
+  "lines_all_runs_refused": 208,
+  "top_messages": [
+   [
+    "unclassified",
+    "chown: invalid user: 'wheel:wheel'",
+    430
+   ],
+   [
+    "refused",
+    "chown: missing operand after 'relpath_1'",
+    360
+   ],
+   [
+    "refused",
+    "chown: missing operand after 'nonexistent_path/relpath_1'",
+    90
+   ],
+   [
+    "refused",
+    "chown: missing operand after 'relpath_2'",
+    56
+   ],
+   [
+    "unclassified",
+    "chown: changing ownership of 'relpath_1': Invalid argument",
+    35
+   ],
+   [
+    "refused",
+    "chown: missing operand after 'nonexistent_path/relpath_2'",
+    14
+   ],
+   [
+    "unclassified",
+    "chown: -R --dereference requires either -H or -L",
+    10
+   ],
+   [
+    "unclassified",
+    "chown: changing ownership of 'relpath_2': Invalid argument",
+    3
+   ],
+   [
+    "refused",
+    "chown: missing operand after '/tmp/toplevel_i7xz8l6h/sandbox_zr0ifr2o/abspath_1'",
+    1
+   ],
+   [
+    "refused",
+    "chown: missing operand after '/tmp/toplevel_ijb6c2aj/sandbox_g0utmkoy/abspath_1'",
+    1
+   ],
+   [
+    "refused",
+    "chown: missing operand after '/tmp/toplevel_ffmg3y3o/sandbox_hcxnz36a/abspath_1'",
+    1
+   ],
+   [
+    "refused",
+    "chown: missing operand after '/tmp/toplevel_rbjcyip0/sandbox_p2_z5tya/nonexistent_path/abspath_1'",
+    1
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:50:59"
+}

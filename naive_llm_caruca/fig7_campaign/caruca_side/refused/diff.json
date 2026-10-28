@@ -1,0 +1,184 @@
+{
+ "command": "diff",
+ "binary": "/usr/bin/diff",
+ "package": "diffutils 1:3.10-1ubuntu0.1",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:31:20",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 524,
+  "distinct_lines": 332,
+  "traced_lines": 332,
+  "sampled": false,
+  "test_runs_traced": 11500,
+  "seconds": 231.5,
+  "seconds_per_test_run": 0.02013,
+  "classes": {
+   "refused": 1400,
+   "accepted": 1184,
+   "other_nonzero": 8884,
+   "unclassified": 32
+  },
+  "refused_share": 0.1217,
+  "classes_as_v1_runs": {
+   "refused": 1400,
+   "accepted": 1760,
+   "other_nonzero": 13108,
+   "unclassified": 32
+  },
+  "refused_share_as_v1_runs": 0.0859,
+  "lines_all_runs_refused": 56,
+  "top_messages": [
+   [
+    "refused",
+    "diff: extra operand 'relpath_2'",
+    280
+   ],
+   [
+    "refused",
+    "diff: unrecognized option '--GTYPE-group-format'",
+    100
+   ],
+   [
+    "refused",
+    "diff: unrecognized option '--LTYPE-line-format'",
+    100
+   ],
+   [
+    "refused",
+    "diff: invalid horizon length '-1'",
+    100
+   ],
+   [
+    "refused",
+    "diff: invalid tabsize '-1'",
+    100
+   ],
+   [
+    "refused",
+    "diff: invalid tabsize '0'",
+    100
+   ],
+   [
+    "refused",
+    "diff: invalid width '-1'",
+    100
+   ],
+   [
+    "refused",
+    "diff: invalid width '0'",
+    100
+   ],
+   [
+    "refused",
+    "diff: extra operand 'nonexistent_path/relpath_2'",
+    70
+   ],
+   [
+    "unclassified",
+    "diff: -D option not supported with directories",
+    32
+   ],
+   [
+    "refused",
+    "diff: extra operand '/tmp/toplevel_tefaskpf/sandbox_27kkeq7s/abspath_2'",
+    1
+   ],
+   [
+    "refused",
+    "diff: extra operand '/tmp/toplevel_cs1ue06t/sandbox_cazh7zs1/abspath_2'",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 33312,
+  "distinct_lines": 13212,
+  "traced_lines": 1000,
+  "sampled": true,
+  "test_runs_traced": 47800,
+  "seconds": 867.7,
+  "seconds_per_test_run": 0.01815,
+  "classes": {
+   "accepted": 4662,
+   "other_nonzero": 34031,
+   "refused": 8250,
+   "unclassified": 857
+  },
+  "refused_share": 0.1726,
+  "classes_as_v1_runs": {
+   "accepted": 8232,
+   "other_nonzero": 51361,
+   "refused": 14125,
+   "unclassified": 857
+  },
+  "refused_share_as_v1_runs": 0.1894,
+  "lines_all_runs_refused": 271,
+  "top_messages": [
+   [
+    "refused",
+    "diff: invalid width '-1'",
+    950
+   ],
+   [
+    "refused",
+    "diff: extra operand 'relpath_2'",
+    940
+   ],
+   [
+    "refused",
+    "diff: invalid width '0'",
+    725
+   ],
+   [
+    "refused",
+    "diff: unrecognized option '--LTYPE-line-format'",
+    650
+   ],
+   [
+    "unclassified",
+    "diff: --from-file and --to-file both specified",
+    625
+   ],
+   [
+    "refused",
+    "diff: invalid horizon length '-1'",
+    575
+   ],
+   [
+    "refused",
+    "diff: invalid tabsize '0'",
+    575
+   ],
+   [
+    "refused",
+    "diff: invalid tabsize '-1'",
+    575
+   ],
+   [
+    "refused",
+    "diff: unrecognized option '--GTYPE-group-format'",
+    525
+   ],
+   [
+    "refused",
+    "diff: conflicting output style options",
+    400
+   ],
+   [
+    "refused",
+    "diff: extra operand 'nonexistent_path/relpath_2'",
+    235
+   ],
+   [
+    "unclassified",
+    "diff: -D option not supported with directories",
+    232
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:49:40"
+}

@@ -6,6 +6,7 @@
 #                                             are shown live and logged
 #   naive-run -i <command> [PROMPT_vN.md]     interactive: Claude Code's own screen; the prompt is put in the
 #                                             input box, press Enter to send it; you answer permission prompts
+#   naive-run -y <command> [PROMPT_vN.md]     answer yes to the "not one of the core nine" question (batches)
 #
 # Every invocation gets its own folder, ~/runs/<date>_<time>_<vm>_<command>_<version>/, holding
 # everything about that run: the exact prompt sent, the deliverables (moved out of ~/naive-arm/output),
@@ -26,17 +27,27 @@
 # no MCP servers are loaded (--strict-mcp-config), in both modes. The network itself is left open so
 # programs that need it (a package installer) still work; the prompt tells the session not to read
 # anything online, and after the run every http(s) URL in its Bash commands is listed in bash_urls.txt.
+#
+# Billing through OpenRouter (task 019): when ~/.naive-billing exists (written by the Mac-side driver just
+# before the run, then deleted here), the session is sent to OpenRouter with that key instead of the
+# claude.ai subscription: the clone is signed out first, there is no trial call and no model fallback, and
+# naive-watch.py stops the session past COST_CAP dollars. The key is never written to run.env.
+#
+# Program-start logging (task 019, section 3.2): while the session runs, ~/bin/exec-log.bt (bpftrace) writes
+# tries.log and an execve audit rule records every program start with its full arguments (audit.log).
+# fig7_campaign/execlog.py joins the two. The loggers run as root; the session can see them in `ps`.
 set -euo pipefail
 cd ~/naive-arm
-MODE=watch
-if [ "${1:-}" = "-i" ]; then MODE=interactive; shift; fi
+MODE=watch; YES=0
+while [ $# -gt 0 ]; do case "$1" in -i) MODE=interactive; shift;; -y) YES=1; shift;; *) break;; esac; done
 CMD="${1:?usage: naive-run [-i] <command> [PROMPT_vN.md]}"
 P="$HOME/prompts/$(basename "${2:-PROMPT_v1.md}")"
 [ -f "$P" ] || { echo "error: no such prompt file: $(basename "$P") (have: $(cd ~/prompts && ls PROMPT_v*.md | tr '\n' ' '))" >&2; exit 2; }
 CORE_NINE="cat grep pwd rm tac tail tee uniq wc"
 case " $CORE_NINE " in *" $CMD "*) ;; *)
   echo "warning: $CMD is not one of the core nine ($CORE_NINE); results will not line up with the v1/v2 parity runs." >&2
-  if [ -t 0 ]; then
+  if [ "$YES" = 1 ]; then echo "(-y given: running it)" >&2
+  elif [ -t 0 ]; then
     read -r -p "Run it anyway? [y/N] " ANSWER
     case "$ANSWER" in y|Y|yes|YES) ;; *) echo "aborted." >&2; exit 3;; esac
   else
@@ -45,12 +56,23 @@ case " $CORE_NINE " in *" $CMD "*) ;; *)
   ;;
 esac
 case "$CMD" in tee|uniq|grep|rm) echo "note: $CMD is one of the samples, so the session can see a finished answer for it in samples/" >&2;; esac
-BIN="$(command -v "$CMD" || true)"; MAN="$(man -w "$CMD" 2>/dev/null || true)"
+# type -P, not command -v: for a shell built-in (test, kill) command -v prints the bare word
+BIN="$(type -P "$CMD" || true)"; MAN="$(man -w "$CMD" 2>/dev/null || true)"
 [ -n "$BIN" ] || { echo "error: $CMD is not installed in this VM" >&2; exit 2; }
 [ -n "$MAN" ] || { echo "error: no manual page for $CMD in this VM" >&2; exit 2; }
 
-# a signed-out clone must stop here: otherwise the model trial call fails and looks like "no Fable access"
-claude auth status 2>/dev/null | grep -q '"loggedIn": true' || { echo "error: Claude Code is not signed in in this VM (claude auth status); sign in (claude, then /login) and rerun" >&2; exit 4; }
+BILLING=subscription
+if [ -f ~/.naive-billing ]; then
+  BILLING=openrouter
+  OR_KEY="$(sed -n 's/^OPENROUTER_KEY=//p' ~/.naive-billing)"; OR_MODEL="$(sed -n 's/^MODEL=//p' ~/.naive-billing)"
+  OR_EFFORT="$(sed -n 's/^EFFORT=//p' ~/.naive-billing)"; COST_CAP="$(sed -n 's/^COST_CAP=//p' ~/.naive-billing)"
+  rm -f ~/.naive-billing
+  [ -n "$OR_KEY" ] && [ -n "$OR_MODEL" ] || { echo "error: ~/.naive-billing lacks OPENROUTER_KEY or MODEL" >&2; exit 4; }
+  claude auth logout >/dev/null 2>&1 || true     # nothing may be billed to the subscription by mistake
+else
+  # a signed-out clone must stop here: otherwise the model trial call fails and looks like "no Fable access"
+  claude auth status 2>/dev/null | grep -q '"loggedIn": true' || { echo "error: Claude Code is not signed in in this VM (claude auth status); sign in (claude, then /login) and rerun" >&2; exit 4; }
+fi
 VM="$(hostname | sed 's/^lima-//')"
 PVER="$(basename "${P%.md}")"
 STAMP="$(date +%Y-%m-%d_%H%M%S)"
@@ -65,6 +87,9 @@ fi
 PROMPT="$(sed -e "s|{{COMMAND}}|$CMD|g" -e "s|{{PATH}}|$BIN|g" -e "s|{{MANPAGE_PATH}}|$MAN|g" "$P")"
 printf '%s\n' "$PROMPT" > "$RUN/prompt.md"
 # choose the model before the start mark, so the trial call's session is not copied as a run transcript
+if [ "$BILLING" = openrouter ]; then
+  MODEL="$OR_MODEL"; EFFORT="${OR_EFFORT:-medium}"; CHOICE="openrouter (no trial call, no fallback)"
+else
 PROBE="$(claude -p "Reply with the single word OK." --model claude-fable-5-1 --effort medium --tools "" \
   --system-prompt "You reply with the single word OK." --strict-mcp-config --disable-slash-commands \
   --output-format json --no-session-persistence 2>&1 || true)"
@@ -80,6 +105,17 @@ else
     echo "error: the model trial call failed on sign-in, not on model access: $WHY" >&2; rm -rf "$RUN"; exit 4;; esac
   MODEL=claude-opus-5-5; EFFORT=high; CHOICE="fallback ($WHY)"
 fi
+fi
+# start claude, with OpenRouter's Anthropic-compatible endpoint when billing through it. Shell assignments,
+# not `env KEY=…`: an argument of `env` lands in the audit log and in `ps` (seen in testing, 2026-10-27)
+session_claude() {
+  if [ "$BILLING" = openrouter ]; then
+    ANTHROPIC_BASE_URL=https://openrouter.ai/api ANTHROPIC_AUTH_TOKEN="$OR_KEY" ANTHROPIC_API_KEY= \
+      CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 DISABLE_AUTOUPDATER=1 claude "$@"
+  else
+    claude "$@"
+  fi
+}
 NO_WEB=(--disallowedTools WebSearch WebFetch RemoteTrigger --strict-mcp-config)
 START_MARK="$RUN/.start"; touch "$START_MARK"
 {
@@ -88,24 +124,62 @@ START_MARK="$RUN/.start"; touch "$START_MARK"
   echo "started=$(date -Is)"; echo "claude=$(claude --version)"; echo "os=$(lsb_release -ds) $(uname -m)"
   echo "model=$MODEL"; echo "effort=$EFFORT"; echo "model_choice=$CHOICE"
   echo "disallowed_tools=WebSearch WebFetch RemoteTrigger"; echo "mcp=none (strict)"
+  echo "billing=$BILLING"; [ "$BILLING" = openrouter ] && { echo "base_url=https://openrouter.ai/api"; echo "cost_cap=$COST_CAP"; }
+  REAL="$(readlink -f "$BIN")"; PKG="$(dpkg -S "$REAL" 2>/dev/null | head -1 | cut -d: -f1)"
+  [ -n "$PKG" ] || PKG="$(dpkg -S "$BIN" 2>/dev/null | head -1 | cut -d: -f1)"
+  echo "binary_real=$REAL"; echo "package=$PKG $(dpkg-query -W -f='${Version}' "$PKG" 2>/dev/null)"
 } > "$RUN/run.env"
 [ "$N" -gt 1 ] && echo "note: run #$N in this clone; the environment is not fresh (earlier runs: $(ls ~/runs | grep -v "^$(basename "$RUN")$" | tr '\n' ' '))" >&2
 
+# program-start logging: audit rule for the arguments, bpftrace for parents, exit status and error output
+LOGGER=0
+if command -v bpftrace >/dev/null && command -v auditctl >/dev/null && [ -f ~/bin/exec-log.bt ]; then
+  sudo auditctl -D >/dev/null 2>&1 || true; sudo auditctl -b 65536 >/dev/null 2>&1 || true
+  AUDIT_LOST0="$(sudo auditctl -s 2>/dev/null | awk '/^lost/{print $2}')"
+  sudo auditctl -a always,exit -F arch=b64 -S execve,execveat -k naive-exec >/dev/null
+  sudo auditctl -w "$HOME/naive-arm/output" -p wa -k naive-out >/dev/null   # first deliverable written
+  echo "logger_since=$(date +%s.%N)" >> "$RUN/run.env"
+  sudo BPFTRACE_MAX_STRLEN=128 bpftrace ~/bin/exec-log.bt > "$RUN/tries.log" 2> "$RUN/tries.err" &
+  for _ in $(seq 60); do grep -q $'^B\t' "$RUN/tries.log" 2>/dev/null && break; sleep 0.5; done
+  if grep -q $'^B\t' "$RUN/tries.log"; then LOGGER=1; else echo "warning: the program-start logger did not start (tries.err)" >&2; fi
+fi
+echo "logger=$LOGGER" >> "$RUN/run.env"
 echo "== run folder: $RUN"
 echo "== $MODE run of $CMD with $PVER (binary $BIN, man $MAN)"
 echo "== model $MODEL, effort $EFFORT ($CHOICE); web tools and MCP servers off"
 if [ "$MODE" = watch ]; then
   echo "permission_mode=bypassPermissions" >> "$RUN/run.env"
   echo "== permissions are bypassed (throwaway VM); every action is shown below as it happens"
-  claude -p "$PROMPT" --model "$MODEL" --effort "$EFFORT" "${NO_WEB[@]}" \
+  session_claude -p "$PROMPT" --model "$MODEL" --effort "$EFFORT" "${NO_WEB[@]}" \
     --output-format stream-json --verbose --permission-mode bypassPermissions \
-    | python3 ~/bin/naive-watch.py "$RUN/stream.jsonl" || echo "exit_status=$?" >> "$RUN/run.env"
+    | NAIVE_COST_CAP="${COST_CAP:-}" python3 ~/bin/naive-watch.py "$RUN/stream.jsonl" || echo "exit_status=$?" >> "$RUN/run.env"
 else
   echo "permission_mode=interactive" >> "$RUN/run.env"
   echo "== interactive. The prompt is placed in the input box: press Enter to send it. Exit with /exit."
-  claude "$PROMPT" --model "$MODEL" --effort "$EFFORT" "${NO_WEB[@]}" || echo "exit_status=$?" >> "$RUN/run.env"
+  session_claude "$PROMPT" --model "$MODEL" --effort "$EFFORT" "${NO_WEB[@]}" || echo "exit_status=$?" >> "$RUN/run.env"
 fi
 echo "finished=$(date -Is)" >> "$RUN/run.env"
+if [ "$LOGGER" = 1 ]; then
+  sudo pkill -INT -f 'bpftrace .*exec-log\.bt' || true
+  for _ in $(seq 20); do pgrep -f 'bpftrace .*exec-log\.bt' >/dev/null || break; sleep 0.5; done
+  sudo auditctl -D >/dev/null 2>&1 || true
+  sudo ausearch --input-logs -k naive-exec --raw < /dev/null > "$RUN/audit.log" 2>/dev/null || true
+  sudo ausearch --input-logs -k naive-out --raw < /dev/null > "$RUN/audit_output.log" 2>/dev/null || true
+  echo "audit_lost=$(( $(sudo auditctl -s 2>/dev/null | awk '/^lost/{print $2}') - ${AUDIT_LOST0:-0} ))" >> "$RUN/run.env"
+  # every program path started during the run, with the file it resolves to (for matching the target)
+  python3 - "$RUN" <<'PY2'
+import os, sys
+run = sys.argv[1]
+paths = sorted({l.rstrip("\n").split("\t", 3)[3] for l in open(os.path.join(run, "tries.log"), errors="replace")
+                if l.startswith("S\t") and l.count("\t") >= 3})
+with open(os.path.join(run, "paths.tsv"), "w") as f:
+    for p in paths:
+        f.write(f"{p}\t{os.path.realpath(p)}\n")
+PY2
+fi
+# when each deliverable was created (birth) and last changed, in epoch seconds; audit_output.log has the
+# exact first write, which marks the change from "exploring" to "testing"
+find output -type f -exec stat --printf '%W\t%Y\t%n\n' {} + 2>/dev/null | sort -n > "$RUN/output_files.tsv" || true
 
 # deliverables: move out of the work folder into the run folder, leaving output/ empty for the next run
 mkdir -p "$RUN/output"

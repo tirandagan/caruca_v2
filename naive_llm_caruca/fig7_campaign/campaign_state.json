@@ -1,0 +1,12 @@
+{
+ "zero_usage": 0.0,
+ "created": "2026-10-27T18:46:41",
+ "note": "OpenRouter usage of the key when the campaign began; spent = usage now - zero_usage",
+ "unrecorded_charges": [
+  {
+   "usd": 0.178518,
+   "when": "2026-10-27 20:31-20:32",
+   "what": "Caruca's model step, convert: the GPT-4o call was billed but its reply was lost when the Mac went to Low Power Sleep at 20:32 (battery 1%); found as key usage minus recorded charges at 22:46"
+  }
+ ]
+}

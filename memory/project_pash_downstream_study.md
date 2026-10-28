@@ -77,7 +77,7 @@ ground truth is **v2 25/77 (32.5%) strict, 68/77 (88.3%) under the paper's pureâ
 was the seven-command subset. v1's disagreements: **63 total, 58 conservative, of which 33 are
 `pure â†’ non-pure` that the paper counts as correct.** v2's one unsafe-direction error: **`pwd`
 classed `stateless` where truth is `side-effectful`, in all three runs.** Nine PDFs were reissued
-as `_v1.1` beside the originals; see `ai_docs/docs/presentations/ASSEMBLY.md`. Still unreconciled
+as `_v1.1` beside the originals; see `ai_docs/archive_2026-09_rebuild/docs/presentations/ASSEMBLY.md`. Still unreconciled
 by deliberate choice: `CLAUDE.md` and `PRODUCT.md` (same Q1 wording, WSL-only machine description),
 and the live Dropbox deck, which the repo cannot edit.
 

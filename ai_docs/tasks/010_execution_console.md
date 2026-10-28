@@ -102,7 +102,7 @@ needs.
   - The v1 checkout is pinned at commit `d8032407`.
 - **How the parity study ran v1.** These are the forms the console must reproduce (decision 7).
   They come from `src/caruca_v2/v1.py` and the reproduction commands in
-  `ai_docs/docs/v2_chain_vs_v1.md`:
+  `ai_docs/archive_2026-09_rebuild/docs/v2_chain_vs_v1.md`:
 
   | stage | how it ran |
   |---|---|
@@ -152,7 +152,7 @@ needs.
   - `scripts/parity_diff.py`: a per-command side-by-side of what each system emitted, written
     to `eval/parity_diffs/`.
 - **Findings, today scattered across prose.**
-  - `ai_docs/analysis/v1_v2_parity_study.md`
+  - `ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md`
   - `white_paper_addendum.md` (eight proposals, in the paper's own section order)
   - `e0_artifact_pinning.md`
   - `v2_fidelity_to_v1.md`
@@ -869,9 +869,9 @@ counts. Until task 005 adds them, the console shows "not recorded" for both, nev
   `eval/user-scripts/invocations.txt` as the coverage corpus and says how v1 builds and scores
   it. The 659-line `eval/command-invocations.txt` (fragments of benchmark scripts) is still
   cited as the real-world corpus in four places:
-  - `ai_docs/analysis/experiment_designs.md`, twice
-  - `ai_docs/analysis/evaluation_gaps.md`
-  - `ai_docs/analysis/scientific_vs_engineering_contributions.md`
+  - `ai_docs/archive_2026-09_rebuild/analysis/experiment_designs.md`, twice
+  - `ai_docs/archive_2026-09_rebuild/analysis/evaluation_gaps.md`
+  - `ai_docs/archive_2026-09_rebuild/analysis/scientific_vs_engineering_contributions.md`
 
   `ai_docs/docs/caruca_v1 pipeline instructions.md` also lists it among the corpora used to
   score completeness, but v1's own scripts use only `eval/user-scripts/invocations.txt` for

@@ -1,8 +1,8 @@
 # E0 Findings — Artifact Pinning and the Paper's Three Divergence Claims
 
 **Run 2026-09-06** on this Mac. E0 is the blocking reproducibility check defined in
-[`experiment_designs.md`](experiment_designs.md) and re-scoped in
-[`experiment_implementation_plan.md`](experiment_implementation_plan.md) Part 4: before any
+[`experiment_designs.md`](../archive_2026-09_rebuild/analysis/experiment_designs.md) and re-scoped in
+[`experiment_implementation_plan.md`](../archive_2026-09_rebuild/analysis/experiment_implementation_plan.md) Part 4: before any
 experiment builds on the paper's three specification-divergence claims (`grep`/`ps`/`cp`), pin
 exactly which artifact revisions they refer to and confirm what reproduces. This note reports
 the findings; each of the three claims ends in a definite state.

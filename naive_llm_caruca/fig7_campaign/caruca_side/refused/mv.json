@@ -1,0 +1,182 @@
+{
+ "command": "mv",
+ "binary": "/usr/bin/mv",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:53:13",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 148,
+  "distinct_lines": 96,
+  "traced_lines": 96,
+  "sampled": false,
+  "test_runs_traced": 3200,
+  "seconds": 59.0,
+  "seconds_per_test_run": 0.01845,
+  "classes": {
+   "other_nonzero": 2288,
+   "accepted": 816,
+   "unclassified": 96
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "other_nonzero": 3012,
+   "accepted": 1296,
+   "unclassified": 192
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": [
+   [
+    "unclassified",
+    "mv: cannot overwrite non-directory 'relpath_2' with directory 'relpath_1'",
+    14
+   ],
+   [
+    "unclassified",
+    "mv: overwrite 'relpath_2'?",
+    6
+   ],
+   [
+    "unclassified",
+    "mv: not replacing 'relpath_2'",
+    6
+   ],
+   [
+    "unclassified",
+    "mv: cannot overwrite directory 'relpath_2' with non-directory",
+    4
+   ],
+   [
+    "unclassified",
+    "mv: cannot overwrite non-directory 'relpath_3' with directory 'relpath_2'",
+    2
+   ],
+   [
+    "unclassified",
+    "mv: cannot overwrite non-directory '/tmp/toplevel_6m32rul4/sandbox_lm2ski18/abspath_2' with directory '/tmp/toplevel_6m3",
+    1
+   ],
+   [
+    "unclassified",
+    "mv: cannot overwrite non-directory '/tmp/toplevel_fvxg5evc/sandbox_tir9ttec/abspath_2' with directory '/tmp/toplevel_fvx",
+    1
+   ],
+   [
+    "unclassified",
+    "mv: cannot overwrite non-directory 'relpath_2' with directory '/tmp/toplevel_6mq4ej35/sandbox_xdithh3a/abspath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "mv: cannot overwrite non-directory 'relpath_2' with directory '/tmp/toplevel_dl9kdfdq/sandbox_7_d3seh6/abspath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "mv: cannot overwrite non-directory '/tmp/toplevel_l9k8h1wz/sandbox_bkmfal_2/abspath_2' with directory 'relpath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "mv: cannot overwrite non-directory '/tmp/toplevel_siqeprxc/sandbox_wvg2yo2b/abspath_2' with directory 'relpath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "mv: cannot overwrite directory '/tmp/toplevel_f29gf_fx/sandbox_eo0w9i8h/abspath_2' with non-directory",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 2424,
+  "distinct_lines": 984,
+  "traced_lines": 984,
+  "sampled": false,
+  "test_runs_traced": 41400,
+  "seconds": 803.1,
+  "seconds_per_test_run": 0.0194,
+  "classes": {
+   "accepted": 10004,
+   "other_nonzero": 28476,
+   "refused": 2320,
+   "unclassified": 600
+  },
+  "refused_share": 0.056,
+  "classes_as_v1_runs": {
+   "accepted": 22004,
+   "other_nonzero": 61144,
+   "refused": 2460,
+   "unclassified": 2192
+  },
+  "refused_share_as_v1_runs": 0.028,
+  "lines_all_runs_refused": 48,
+  "top_messages": [
+   [
+    "refused",
+    "mv: cannot combine --target-directory (-t) and --no-target-directory (-T)",
+    1000
+   ],
+   [
+    "refused",
+    "mv: options --backup and --no-clobber are mutually exclusive",
+    520
+   ],
+   [
+    "refused",
+    "mv: extra operand 'relpath_2'",
+    320
+   ],
+   [
+    "refused",
+    "mv: extra operand 'nonexistent_path/relpath_2'",
+    80
+   ],
+   [
+    "unclassified",
+    "mv: overwrite 'relpath_2'?",
+    64
+   ],
+   [
+    "unclassified",
+    "mv: not replacing 'relpath_2'",
+    60
+   ],
+   [
+    "unclassified",
+    "mv: cannot overwrite non-directory 'relpath_2' with directory 'relpath_1'",
+    44
+   ],
+   [
+    "unclassified",
+    "mv: cannot backup 'relpath_2': Invalid cross-device link",
+    24
+   ],
+   [
+    "unclassified",
+    "mv: cannot overwrite directory 'relpath_2' with non-directory",
+    20
+   ],
+   [
+    "unclassified",
+    "mv: cannot overwrite non-directory 'relpath_3' with directory 'relpath_2'",
+    14
+   ],
+   [
+    "unclassified",
+    "mv: overwrite 'relpath_3'?",
+    6
+   ],
+   [
+    "unclassified",
+    "mv: not replacing 'relpath_3'",
+    6
+   ]
+  ]
+ },
+ "finished": "2026-10-27T20:07:37"
+}

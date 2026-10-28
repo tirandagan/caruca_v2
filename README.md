@@ -4,7 +4,7 @@ A research project, not a product. It asks how much of **Caruca**'s specificatio
 pipeline an LLM can carry out, and measures the answer against the original implementation
 ("v1") and against human ground truth.
 
-> **To run the pipeline:** [Pipeline Usage Guide](ai_docs/docs/caruca_v2_pipeline_usage_guide.md)
+> **To run the pipeline:** [Pipeline Usage Guide](ai_docs/archive_2026-09_rebuild/docs/caruca_v2_pipeline_usage_guide.md)
 > — installation, every command, real terminal output, and how to handle failures.
 >
 > **To look at what it produced:** [the execution console](console/README.md) — a local web page
@@ -103,7 +103,7 @@ uv run pytest             # check it works; nothing in the suite spends money
 
 The CLI is then at `.venv/bin/caruca-v2`. A v1 checkout with its own virtualenv is required
 for anything beyond `--help`; see the
-[guide](ai_docs/docs/caruca_v2_pipeline_usage_guide.md#the-v1-checkout).
+[guide](ai_docs/archive_2026-09_rebuild/docs/caruca_v2_pipeline_usage_guide.md#the-v1-checkout).
 
 **Tracing needs a Linux kernel.** On macOS that means the Lima VM named `caruca`, and v1's
 `annotate` cannot run on macOS at all. `/setup_pipeline` sets this up; the operating
@@ -143,7 +143,7 @@ caruca-v2 metrics rebuild                                           # free: refr
 without the configuration that produced it being stated.
 
 Costs, isolation requirements, and every failure mode are in the
-[Pipeline Usage Guide](ai_docs/docs/caruca_v2_pipeline_usage_guide.md).
+[Pipeline Usage Guide](ai_docs/archive_2026-09_rebuild/docs/caruca_v2_pipeline_usage_guide.md).
 
 Then look at what happened:
 
@@ -194,7 +194,7 @@ Worth knowing before you go looking for something that is not there:
 
 | If you want to… | Read |
 |---|---|
-| run the pipeline | [Pipeline Usage Guide](ai_docs/docs/caruca_v2_pipeline_usage_guide.md) |
+| run the pipeline | [Pipeline Usage Guide](ai_docs/archive_2026-09_rebuild/docs/caruca_v2_pipeline_usage_guide.md) |
 | look at results, replay a run, compare v1 and v2 | [`console/README.md`](console/README.md) |
 | find out what this project has concluded so far | [`ai_docs/analysis/README.md`](ai_docs/analysis/README.md) |
 | find any document at all | [`ai_docs/README.md`](ai_docs/README.md) |

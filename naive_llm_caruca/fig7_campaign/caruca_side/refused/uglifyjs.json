@@ -1,0 +1,184 @@
+{
+ "command": "uglifyjs",
+ "binary": "/usr/bin/uglifyjs",
+ "package": "uglifyjs 3.17.4-2",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T22:43:05",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 70,
+  "distinct_lines": 39,
+  "traced_lines": 39,
+  "sampled": false,
+  "test_runs_traced": 71,
+  "seconds": 3.7,
+  "seconds_per_test_run": 0.05195,
+  "classes": {
+   "unclassified": 66,
+   "refused": 1,
+   "accepted": 3,
+   "other_nonzero": 1
+  },
+  "refused_share": 0.0141,
+  "classes_as_v1_runs": {
+   "unclassified": 97,
+   "refused": 1,
+   "accepted": 3,
+   "other_nonzero": 1
+  },
+  "refused_share_as_v1_runs": 0.0098,
+  "lines_all_runs_refused": 1,
+  "top_messages": [
+   [
+    "unclassified",
+    "Parse error at STDIN:11,4",
+    35
+   ],
+   [
+    "unclassified",
+    "ERROR: EISDIR: illegal operation on a directory, read",
+    12
+   ],
+   [
+    "unclassified",
+    "undefined:1",
+    4
+   ],
+   [
+    "unclassified",
+    "ERROR: missing option argument for --parse",
+    3
+   ],
+   [
+    "unclassified",
+    "ERROR: ENOENT: no such file or directory, open 'nonexistent_path/relpath_1'",
+    2
+   ],
+   [
+    "unclassified",
+    "ERROR: ENOENT: no such file or directory, open 'relpath_1'",
+    2
+   ],
+   [
+    "unclassified",
+    "ERROR: ENOENT: no such file or directory, open '/tmp/toplevel_cd0wvswi/sandbox_b_h6wn4p/nonexistent_path/abspath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "ERROR: ENOENT: no such file or directory, open '/tmp/toplevel_16gqqzc9/sandbox_ljslc6ot/abspath_1'",
+    1
+   ],
+   [
+    "unclassified",
+    "Parse error at STDIN:2,0",
+    1
+   ],
+   [
+    "refused",
+    "ERROR: invalid option --no-module",
+    1
+   ],
+   [
+    "unclassified",
+    "Supported options:",
+    1
+   ],
+   [
+    "unclassified",
+    "Parse error at /tmp/toplevel_yyo1l8tr/sandbox_psk39na6/abspath_1:11,4",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 2370,
+  "distinct_lines": 741,
+  "traced_lines": 741,
+  "sampled": false,
+  "test_runs_traced": 2333,
+  "seconds": 90.0,
+  "seconds_per_test_run": 0.03858,
+  "classes": {
+   "unclassified": 2068,
+   "refused": 55,
+   "accepted": 171,
+   "other_nonzero": 39
+  },
+  "refused_share": 0.0236,
+  "classes_as_v1_runs": {
+   "unclassified": 4483,
+   "refused": 85,
+   "accepted": 261,
+   "other_nonzero": 69
+  },
+  "refused_share_as_v1_runs": 0.0174,
+  "lines_all_runs_refused": 31,
+  "top_messages": [
+   [
+    "unclassified",
+    "ERROR: EISDIR: illegal operation on a directory, read",
+    564
+   ],
+   [
+    "unclassified",
+    "Parse error at STDIN:11,4",
+    548
+   ],
+   [
+    "unclassified",
+    "undefined:1",
+    206
+   ],
+   [
+    "unclassified",
+    "ERROR: missing option argument for --parse",
+    198
+   ],
+   [
+    "unclassified",
+    "ERROR: ENOENT: no such file or directory, open 'nonexistent_path/relpath_1'",
+    69
+   ],
+   [
+    "unclassified",
+    "ERROR: ENOENT: no such file or directory, open 'relpath_1'",
+    69
+   ],
+   [
+    "refused",
+    "ERROR: invalid option --no-module",
+    55
+   ],
+   [
+    "unclassified",
+    "Supported options:",
+    53
+   ],
+   [
+    "unclassified",
+    "Parse error at STDIN:2,0",
+    35
+   ],
+   [
+    "unclassified",
+    "ERROR: ENOENT: no such file or directory, open 'nonexistent_path/relpath_2'",
+    26
+   ],
+   [
+    "unclassified",
+    "ERROR: ENOENT: no such file or directory, open 'relpath_2'",
+    26
+   ],
+   [
+    "unclassified",
+    "Parse error at relpath_1:11,4",
+    21
+   ]
+  ]
+ },
+ "finished": "2026-10-27T22:44:39"
+}

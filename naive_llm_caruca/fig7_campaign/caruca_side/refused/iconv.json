@@ -1,0 +1,54 @@
+{
+ "command": "iconv",
+ "binary": "/usr/bin/iconv",
+ "package": "libc-bin 2.39-0ubuntu8.9",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:09:34",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 30,
+  "distinct_lines": 20,
+  "traced_lines": 20,
+  "sampled": false,
+  "test_runs_traced": 36,
+  "seconds": 0.8,
+  "seconds_per_test_run": 0.0224,
+  "classes": {
+   "accepted": 22,
+   "other_nonzero": 14
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 32,
+   "other_nonzero": 14
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": []
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 401,
+  "distinct_lines": 178,
+  "traced_lines": 178,
+  "sampled": false,
+  "test_runs_traced": 538,
+  "seconds": 9.7,
+  "seconds_per_test_run": 0.01803,
+  "classes": {
+   "accepted": 270,
+   "other_nonzero": 268
+  },
+  "refused_share": 0.0,
+  "classes_as_v1_runs": {
+   "accepted": 511,
+   "other_nonzero": 386
+  },
+  "refused_share_as_v1_runs": 0.0,
+  "lines_all_runs_refused": 0,
+  "top_messages": []
+ },
+ "finished": "2026-10-27T19:09:44"
+}

@@ -69,7 +69,7 @@ running it on the Mac (v1 `.venv`, Python 3.12.9). Related: [[project-naive-clau
   Done in `naive_llm_caruca/scoring/trace_usefulness.py` (task 018): the agent's `cut` grammar at
   max_count 1 gave 360 invocations, 240 distinct lines, 480 runs in ~9 s.
 
-**Added 2026-10-26** (naive-LLM syntax-file comparison, `ai_docs/analysis/naive_llm_syntax_files_vs_v1.md`):
+**Added 2026-10-26** (naive-LLM syntax-file comparison, `naive_llm_caruca/syntax_files_vs_v1.md`):
 - `Integer(min=2)` with no `max` gives `range(2, 2)` = **no values**: v1's generator never writes the
   option (the agent's `sort --batch-size`). `min=1` alone gives only `1`.
 - A `Selection` with choice `""` and `flag_followed_by_equals=True` is written `--opt=` (mixin.py drops the

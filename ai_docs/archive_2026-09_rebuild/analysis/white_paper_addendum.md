@@ -33,7 +33,7 @@ when a careful instrument is pointed at a system for the first time.
 **Three proposals need the authors' input before they can be written up**, marked 👤 below.
 
 Supporting detail: [`v1_v2_parity_study.md`](v1_v2_parity_study.md) (technical comparative
-report), [`e0_artifact_pinning.md`](e0_artifact_pinning.md) (artifact provenance).
+report), [`e0_artifact_pinning.md`](../../analysis/e0_artifact_pinning.md) (artifact provenance).
 
 ---
 

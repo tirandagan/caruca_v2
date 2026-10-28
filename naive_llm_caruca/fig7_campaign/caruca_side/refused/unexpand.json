@@ -1,0 +1,89 @@
+{
+ "command": "unexpand",
+ "binary": "/usr/bin/unexpand",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:06:11",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 19,
+  "distinct_lines": 12,
+  "traced_lines": 12,
+  "sampled": false,
+  "test_runs_traced": 20,
+  "seconds": 0.5,
+  "seconds_per_test_run": 0.02539,
+  "classes": {
+   "accepted": 10,
+   "refused": 1,
+   "unclassified": 1,
+   "other_nonzero": 8
+  },
+  "refused_share": 0.05,
+  "classes_as_v1_runs": {
+   "accepted": 17,
+   "refused": 1,
+   "unclassified": 1,
+   "other_nonzero": 8
+  },
+  "refused_share_as_v1_runs": 0.037,
+  "lines_all_runs_refused": 1,
+  "top_messages": [
+   [
+    "refused",
+    "unexpand: tab size contains invalid character(s): '-1'",
+    1
+   ],
+   [
+    "unclassified",
+    "unexpand: tab size cannot be 0",
+    1
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 152,
+  "distinct_lines": 65,
+  "traced_lines": 65,
+  "sampled": false,
+  "test_runs_traced": 145,
+  "seconds": 2.5,
+  "seconds_per_test_run": 0.01746,
+  "classes": {
+   "accepted": 61,
+   "refused": 18,
+   "unclassified": 18,
+   "other_nonzero": 48
+  },
+  "refused_share": 0.1241,
+  "classes_as_v1_runs": {
+   "accepted": 138,
+   "refused": 23,
+   "unclassified": 23,
+   "other_nonzero": 96
+  },
+  "refused_share_as_v1_runs": 0.0821,
+  "lines_all_runs_refused": 10,
+  "top_messages": [
+   [
+    "refused",
+    "unexpand: tab size contains invalid character(s): '-1'",
+    18
+   ],
+   [
+    "unclassified",
+    "unexpand: tab size cannot be 0",
+    16
+   ],
+   [
+    "unclassified",
+    "unexpand: tab sizes must be ascending",
+    2
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:06:14"
+}

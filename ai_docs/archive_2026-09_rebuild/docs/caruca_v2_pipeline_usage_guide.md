@@ -1,7 +1,7 @@
 # caruca_v2 — Pipeline Usage Guide
 
 Everything needed to install caruca_v2, run its pipeline end to end, read what it
-produces, and recover when a stage fails. The [README](../../README.md) is the short
+produces, and recover when a stage fails. The [README](../../../README.md) is the short
 version; this is the long one.
 
 Every terminal block below is **real captured output** from this repository, not an
@@ -160,7 +160,7 @@ the guest **at the same path**, which is what lets outputs land back in the repo
 
 Full platform-by-platform detail, including the WSL2 and native-Linux variants and the
 reasoning behind each step, is in
-[caruca_v1 pipeline instructions](caruca_v1%20pipeline%20instructions.md).
+[caruca_v1 pipeline instructions](../../docs/caruca_v1%20pipeline%20instructions.md).
 
 ---
 
@@ -629,8 +629,8 @@ prices: 6,291 prompt + 98 completion tokens, `$0.0090`.
 
 ## Related documents
 
-- [README](../../README.md) — the short version
-- [caruca_v1 pipeline instructions](caruca_v1%20pipeline%20instructions.md) — full
+- [README](../../../README.md) — the short version
+- [caruca_v1 pipeline instructions](../../docs/caruca_v1%20pipeline%20instructions.md) — full
   platform setup for v1 itself, per operating system
-- [`ai_docs/analysis/`](../analysis/) — findings produced by this project
+- [`ai_docs/analysis/`](../../analysis) — findings produced by this project
 - `CLAUDE.md` — orientation for the project as a whole

@@ -39,3 +39,12 @@ working from the Mac (the WSL PC still cannot trace — see [[dev-machine-paths]
 
 **2026-10-27:** `binwalk` 2.3.4+dfsg1-5 (with `python3-binwalk`) was apt-installed in the `caruca` VM for
 task 018's tracing, the same package the naive agent's image has.
+
+**Watching a running job (observed 2026-10-27).** Jobs started from the Mac by a Claude Code session run as
+`limactl shell caruca bash -lc '...'` under the VM's sshd — not in tmux/screen (no tmux server was running), so
+there is no session to attach. The task 019 `caruca_side/refused_share.py` runs pipe their stdout through
+`grep -v 'it/s\|%|' | tail -1`, so nothing prints until the end; the live view is v1's `tracer.log`, which the
+tracer writes into the job's working folder (a `mktemp -d` under `/tmp`). Find it with
+`ls -l /proc/<python pid>/fd | grep tracer.log`; each started test run is a `strace invocation:` line.
+`tmux`, `htop` and `strace` are installed in the VM; `kernel.yama.ptrace_scope` is 1, so attaching strace to an
+existing process needs `sudo`.

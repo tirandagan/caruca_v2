@@ -190,7 +190,7 @@ against **v1's own configuration expansion** (so a stage-2 error is not scored t
 without calling `report_observations`**: turn 1 runs the command, turn 2 answers in prose.
 Where a session did report: core precision 0.800 / recall 0.606, inference (`rf`)
 precision 1.000 / recall 0.391, over thin denominators (17 core units). Full write-up:
-the stage 3 section of `ai_docs/analysis/v1_v2_parity_study.md`.
+the stage 3 section of `ai_docs/archive_2026-09_rebuild/analysis/v1_v2_parity_study.md`.
 
 ### 2026-09-22 — review of how stage 3 handles the command's output (no code changed)
 Started from Tiran's question of why stage 3 runs the same binaries as v1.
@@ -234,7 +234,7 @@ Started from Tiran's question of why stage 3 runs the same binaries as v1.
 ### 2026-09-22 (same day) — implemented: the output of record is the capture
 Approved by Tiran in-session. Classified as an accidental deviation from v1, not a design
 change: v1 stores the bytes it captured, and v2 was storing a retyped copy. Recorded as
-deviation #8 in `ai_docs/analysis/v2_fidelity_to_v1.md` §8.2, with the mechanism in §5.3.
+deviation #8 in `ai_docs/archive_2026-09_rebuild/analysis/v2_fidelity_to_v1.md` §8.2, with the mechanism in §5.3.
 
 **What changed**
 

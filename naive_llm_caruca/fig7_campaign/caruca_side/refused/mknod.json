@@ -1,0 +1,169 @@
+{
+ "command": "mknod",
+ "binary": "/usr/bin/mknod",
+ "package": "coreutils 9.4-3ubuntu6.3",
+ "settings": "v1 curated syntax file; max-arity 1; plain relations; Tracer(parallel 10, stdin simple, content simple, timeout 2 s)",
+ "machine": "Lima VM caruca, 8 vCPU, Apple M5 Pro",
+ "started": "2026-10-27T19:50:59",
+ "kill_watchdog": false,
+ "k1": {
+  "max_count": 1,
+  "generated_lines": 208,
+  "distinct_lines": 136,
+  "traced_lines": 136,
+  "sampled": false,
+  "test_runs_traced": 680,
+  "seconds": 11.9,
+  "seconds_per_test_run": 0.01743,
+  "classes": {
+   "refused": 420,
+   "other_nonzero": 80,
+   "accepted": 100,
+   "unclassified": 80
+  },
+  "refused_share": 0.6176,
+  "classes_as_v1_runs": {
+   "refused": 720,
+   "other_nonzero": 128,
+   "accepted": 112,
+   "unclassified": 80
+  },
+  "refused_share_as_v1_runs": 0.6923,
+  "lines_all_runs_refused": 84,
+  "top_messages": [
+   [
+    "refused",
+    "mknod: missing operand after 'b'",
+    80
+   ],
+   [
+    "refused",
+    "mknod: missing operand after 'c'",
+    80
+   ],
+   [
+    "refused",
+    "mknod: missing operand after 'u'",
+    80
+   ],
+   [
+    "unclassified",
+    "mknod: mode must specify only file permission bits",
+    80
+   ],
+   [
+    "refused",
+    "mknod: warning: ignoring --context; it requires an SELinux/SMACK-enabled kernel",
+    60
+   ],
+   [
+    "refused",
+    "mknod: invalid option -- '1'",
+    40
+   ],
+   [
+    "refused",
+    "mknod: missing operand after '0'",
+    30
+   ],
+   [
+    "refused",
+    "mknod: missing operand after '1'",
+    30
+   ],
+   [
+    "refused",
+    "mknod: extra operand '0'",
+    10
+   ],
+   [
+    "refused",
+    "mknod: extra operand '1'",
+    10
+   ]
+  ]
+ },
+ "k2": {
+  "max_count": 2,
+  "generated_lines": 2168,
+  "distinct_lines": 912,
+  "traced_lines": 912,
+  "sampled": false,
+  "test_runs_traced": 4560,
+  "seconds": 82.7,
+  "seconds_per_test_run": 0.01814,
+  "classes": {
+   "accepted": 1300,
+   "refused": 2420,
+   "other_nonzero": 360,
+   "unclassified": 480
+  },
+  "refused_share": 0.5307,
+  "classes_as_v1_runs": {
+   "accepted": 2070,
+   "refused": 6850,
+   "other_nonzero": 880,
+   "unclassified": 1040
+  },
+  "refused_share_as_v1_runs": 0.6319,
+  "lines_all_runs_refused": 484,
+  "top_messages": [
+   [
+    "refused",
+    "mknod: warning: ignoring --context; it requires an SELinux/SMACK-enabled kernel",
+    720
+   ],
+   [
+    "refused",
+    "mknod: invalid option -- '1'",
+    600
+   ],
+   [
+    "unclassified",
+    "mknod: mode must specify only file permission bits",
+    320
+   ],
+   [
+    "refused",
+    "mknod: missing operand after '0'",
+    240
+   ],
+   [
+    "refused",
+    "mknod: missing operand after '1'",
+    240
+   ],
+   [
+    "unclassified",
+    "mknod: warning: ignoring --context; it requires an SELinux/SMACK-enabled kernel",
+    160
+   ],
+   [
+    "refused",
+    "mknod: missing operand after 'b'",
+    140
+   ],
+   [
+    "refused",
+    "mknod: missing operand after 'c'",
+    140
+   ],
+   [
+    "refused",
+    "mknod: missing operand after 'u'",
+    140
+   ],
+   [
+    "refused",
+    "mknod: extra operand '0'",
+    100
+   ],
+   [
+    "refused",
+    "mknod: extra operand '1'",
+    100
+   ]
+  ]
+ },
+ "finished": "2026-10-27T19:52:33"
+}

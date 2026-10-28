@@ -44,7 +44,7 @@ not rates: each command ran once, and none of the agent's syntax files has been 
 sections that follow give the evidence.
 
 ![The three findings: the agent asks the command as well as the manual; many generated test command
-lines do no work; the agent is inventive but a poor judge of its own work](../diagrams/003_naive_llm_three_findings.png)
+lines do no work; the agent is inventive but a poor judge of its own work](diagrams/003_naive_llm_three_findings.png)
 
 **1. Ask the command, not only its manual.** Caruca's model reads only the manual, and its prompt
 tells it not to add anything the manual does not mention. The agent read the manual too, then ran the
@@ -292,7 +292,7 @@ Each suggestion reuses something Caruca already has.
 | `grep -e a a` among 122 generated lines | `caruca generate grep --max-count 1`, v1 at `d80324073`, run 2026-10-20 |
 | Run 4's probes, files and sources | `naive_llm_caruca/runs/2026-10-20_112956_naive-run-grep-noweb_grep_PROMPT_v1/` (calls 2, 4, 5, 6, 7) and its `analysis/analysis.md` |
 | Run 5's probes and files | `naive_llm_caruca/runs/2026-10-20_121932_naive-run-rm_rm_PROMPT_v1/` (calls 2, 3, 4) and its `analysis/analysis.md` |
-| PaSh's `grep` annotation handles `-e`/`-f` | `naive_llm_caruca/samples/grep/pash/InputOutputInfoGeneratorGrep.py` (from `pash-annotations` 0.2.4) |
+| PaSh's `grep` annotation handles `-e`/`-f` | `naive_llm_caruca/samples/grep/annotation/InputOutputInfoGeneratorGrep.py` (from `pash-annotations` 0.2.4; the folder was `samples/grep/pash/` when the runs were made) |
 | The agent's setup and prompt | `naive_llm_caruca/README.md`; `ai_docs/tasks/016_naive_claude_code_arm.md` |
 
 ---
