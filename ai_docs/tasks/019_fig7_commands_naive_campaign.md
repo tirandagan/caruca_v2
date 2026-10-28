@@ -23,14 +23,14 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 
 # Task 019: Every command in the paper's Fig. 7 through the naive agent: cost, time, tries and quality, compared with Caruca
 
-> **Status (2026-10-28, 14:00):** **main batch running** (74 commands, Fable 5.1 medium, launched 08:18;
-> log `fig7_campaign/main.log`): 65 of 74 done, all `ok`; `grep` running, then `install sort du pr vdir dir
-> unzip pandoc` (estimates $18.41, about an hour). Key usage **$123.20** (ledger's 70 Fable runs $92.72,
-> Opus comparison $25.74, Caruca's GPT-4o step $1.88, the rest not itemised); credit left on the key $76.80
-> at 13:54; the runner's projection for the 79 is **$136.16** (ceiling $200). Interim table:
+> **Status (2026-10-28, 14:48):** **main batch finished: all 79 commands `ok`** (08:18 to 14:48). The 79
+> runs' bills in the ledger: **$109.43** (`uname`'s charge counted in `id`'s); agent session time 4.7 h; 98,663
+> program runs. Key usage $140.14 in all (Opus comparison $25.74, Caruca's GPT-4o step $1.88, the rest not
+> itemised); credit left on the key $61.18 at 14:44. **Repeats running** (approved by Tiran 14:10; log
+> `fig7_campaign/repeats.log`): at 15:38, 7 of 10 done, `dd` repeat 3 running, then `cp` and `sort`; key usage
+> $152.46, credit left $45.73 at 15:34, likely to end near the $40 warning line. Table for all 79:
 > `fig7_campaign/interim_comparison.md` (`compare_table.py`). **To resume, read section 7.1 from the last
-> entry**; a stopped batch resumes with the same command (finished commands are skipped). **Repeats approved
-> (Tiran 14:10): they start by themselves when the main batch ends** (`fig7_campaign/repeats.log`).
+> entry**; a stopped run resumes with the same command (finished runs are skipped).
 > **Budget: up to $200** (Tiran, 2026-10-28: "dont worry about the budget - we can go as high as $200 - warn
 > me if we are depleting available credits"; it was $120 ± $30, never above $150). The key's own monthly
 > limit is also $200; `credit_watch.py` warns when less than $40 is left.
@@ -439,7 +439,7 @@ the campaign ledger; a summary in `observations.md`; the memory notes. **No per-
   run 7), `test` (the built-in path fix), `convert` (the costliest so far). Check every measure of section 3
   on them, look at their working-tool runs before applying the rule, re-project the budget, **report to
   Tiran before going on**.
-- [ ] **Phase 3. The other 74 runs**, one at a time, in Fig. 7 order, Mac on mains power, `caffeinate -ims`,
+- [x] **Phase 3. The other 74 runs** (done 2026-10-28 14:48, all `ok`), one at a time, in Fig. 7 order, Mac on mains power, `caffeinate -ims`,
   checkpoints every 20.
 - [ ] **Phase 4. Repeats** as the budget allows (section 5).
 - [ ] **Phase 5. Quality check** (3.4, 4.5) of every file.
@@ -831,6 +831,13 @@ verdict between the two models was reached**, and the decision is Tiran's on cos
   **Projection for the 79: $137.58** (spent $39.32 + 0.88 × the 74 estimates): inside the $150 ceiling, but the
   10 repeat runs (about $13) will probably not fit. The driver re-projects every 20 runs and stops if the
   projection passes $150. About 9 hours.
+
+**2026-10-28, 14:48 (main batch finished).** All 74 main-batch runs `ok`, none capped, none retried; with
+the pilot, 79 of 79. Ledger bills for the 79: $109.43 (runner's projection had been $136.16 including the
+Opus comparison). Last nine: `grep` $2.49, `install` $1.42, `sort` $3.19, `du` $1.06, `pr` $1.44, `vdir` $1.16,
+`dir` $1.13, `unzip` $2.99, `pandoc` $1.82. Only late bill: `uname` (in `id`'s). The repeats job started at
+once (`head` repeat 2). `interim_comparison.md` regenerated for all 79: agent 4.7 h of session time, 98,663
+program runs; Caruca's GPT-4o step $1.70 for its 77 commands with a manual.
 
 **2026-10-28, 14:10 (repeats approved).** Tiran, verbatim: "ok, run the repeats once the main batch
 finishes — warn me if the key drops below $40". A background job waits for the main runner (process 9384)

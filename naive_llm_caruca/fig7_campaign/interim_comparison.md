@@ -1,6 +1,6 @@
-# Task 019: agent vs Caruca, commands finished so far (57 of 79)
+# Task 019: agent vs Caruca, commands finished so far (79 of 79)
 
-Made 2026-10-28 12:37 by `compare_table.py`. Agent = Claude Code, Fable 5.1 at medium effort, one run per command. Refused shares on both sides are provisional (messages not yet classed are left out).
+Made 2026-10-28 14:49 by `compare_table.py`. Agent = Claude Code, Fable 5.1 at medium effort, one run per command. Refused shares on both sides are provisional (messages not yet classed are left out).
 
 | Command | Agent: billed | Agent: wall time | Agent: program runs | Agent: refused share | Caruca: GPT-4o step billed | Caruca: Fig. 7 time | Caruca: test runs (up to 4 options) | Caruca: refused share (2 options) |
 |---|---|---|---|---|---|---|---|---|
@@ -57,11 +57,33 @@ Made 2026-10-28 12:37 by `compare_table.py`. Agent = Claude Code, Fable 5.1 at m
 | `env` | $1.96 | 4 min | 77 | 3.9% | $0.018 | 16.9 h (projected) | 211,368 | 35.1% |
 | `who` | $1.01 | 3 min | 69 | 26.1% | $0.016 | 17.7 h (projected) | 212,800 | 3.9% |
 | `tail` | $2.89 | 7 min | 218 | 14.7% | $0.018 | 19.7 h (projected) | 125,496 | 44.5% |
+| `mv` | $1.03 | 2 min | 122 | 40.2% | $0.014 | 21.5 h (projected) | 7,392,000 | 2.8% |
+| `uniq` | $1.60 | 5 min | 47,711 | 0.0% | $0.016 | 23.9 h (projected) | 258,800 | 32.1% |
+| `sed` | $1.92 | 5 min | 1,002 | 0.1% | $0.022 | 26.3 h (projected) | 416,664 | 26.3% |
+| `df` | $1.01 | 119 s | 134 | 39.6% | $0.018 | 32.7 h (projected) | 381,643 | 5.1% |
+| `chcon` | $1.42 | 3 min | 24 | 20.8% | $0.016 | 34.3 h (projected) | 2,216,640 | 0.0% |
+| `ln` | $0.83 | 2 min | 111 | 36.0% | $0.020 | 36.0 h (projected) | 11,720,800 | 0.4% |
+| `ptx` | $1.13 | 5 min | 196 | 2.6% | $0.035 | 41.6 h (projected) | 1,673,301 | 4.5% |
+| `nl` | $1.40 | 4 min | 121 | 8.3% | $0.033 | 2.3 days (projected) | 262,055 | 13.9% |
+| `join` | $1.25 | 3 min | 93 | 16.1% | $0.016 | 3.6 days (projected) | 7,806,000 | n/a |
+| `od` | $1.99 | 5 min | 93 | 5.4% | $0.019 | 4.5 days (projected) | 986,150 | 18.3% |
+| `uglifyjs` | $2.00 | 5 min | 166 | 0.0% | no manual | 4.7 days (projected) | 3,150,657 | 1.7% |
+| `split` | $2.82 | 9 min | 147 | 4.1% | $0.019 | 4.9 days (projected) | 530,650 | 27.2% |
+| `numfmt` | $0.87 | 3 min | 1,094 | 1.6% | $0.019 | 7.0 days (projected) | 520,059 | 77.6% |
+| `grep` | $2.49 | 6 min | 536 | 1.5% | $0.041 | 8.3 days (projected) | 15,137,983 | 0.0% |
+| `install` | $1.42 | 3 min | 432 | 2.1% | $0.019 | 8.6 days (projected) | 57,602,100 | 0.4% |
 | `dd` | $2.11 | 5 min | 379 | 16.1% | $0.017 | 14.8 days (projected) | 3,345,253 | 69.6% |
+| `sort` | $3.19 | 6 min | 470 | 1.3% | $0.021 | 16.5 days (projected) | 7,814,222 | 3.4% |
+| `du` | $1.06 | 3 min | 43 | 9.3% | $0.041 | 17.3 days (projected) | 25,307,850 | 35.4% |
+| `pr` | $1.44 | 4 min | 292 | 0.0% | $0.023 | 17.7 days (projected) | 2,009,280 | 12.1% |
 | `ls` | $2.42 | 5 min | 983 | 26.1% | $0.023 | 19.6 days (projected) | 32,849,979 | 0.9% |
+| `vdir` | $1.16 | 2 min | 236 | 4.2% | $0.023 | 21.1 days (projected) | 274,636,850 | 1.7% |
+| `dir` | $1.13 | 3 min | 253 | 9.1% | $0.021 | 21.1 days (projected) | 35,224,969 | 1.1% |
+| `unzip` | $2.99 | 6 min | 125 | 34.4% | $0.043 | 23.8 days (projected) | 49,084,620 | 15.0% |
+| `pandoc` | $1.82 | 5 min | 311 | 0.0% | $0.155 | 83.6 days (projected) | 1,625,219,913 | 0.4% |
 | `test` | $1.87 | 5 min | 131 | 10.7% | $0.044 | 123.7 days (projected) | 483,653,928 | 100.0% |
 | `convert` | $4.10 | 10 min | 18,728 | 17.3% | $0.117 | 27533.2 days (projected) | 229,656,055,750 | 94.8% |
 
-**Totals:** agent $73.43, 3.2 h of wall time, 44,951 program runs; Caruca's model step $1.07, 232,854,043,534 test runs. Fig. 7 time divided by the agent's wall time: median 3x (range 0.1x to 3,781,985x).
+**Totals:** agent $109.43, 4.7 h of wall time, 98,663 program runs; Caruca's model step $1.70, 234,983,396,740 test runs. Fig. 7 time divided by the agent's wall time: median 25x (range 0.1x to 3,781,985x).
 
 `cp` and `diff`: Caruca's current syntax files would make 308 million and 2.4 billion test runs at up to 4 options, which cannot fit the paper's measured 2.7 h and 3.3 h (crosscheck.txt); the paper must have run other syntax files or settings for these two.

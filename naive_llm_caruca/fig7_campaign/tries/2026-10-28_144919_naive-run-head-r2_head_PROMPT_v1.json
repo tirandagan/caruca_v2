@@ -1,0 +1,9791 @@
+{
+ "summary": {
+  "run": "2026-10-28_144919_naive-run-head-r2_head_PROMPT_v1",
+  "command": "head",
+  "binary": "/usr/bin/head",
+  "logger_check": {
+   "audit_starts": 570,
+   "trace_starts": 563,
+   "audit_without_trace": 7,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793213339.1253898,
+   "clock_spread_ms": 3.6973953247070312
+  },
+  "session_found": true,
+  "first_write": 1793213419.527,
+  "tries": 440,
+  "classes": {
+   "accepted": 437,
+   "refused": 2,
+   "other_nonzero": 1
+  },
+  "by_phase": {
+   "exploring/accepted": 33,
+   "exploring/other_nonzero": 1,
+   "exploring/refused": 2,
+   "testing/accepted": 404
+  },
+  "help_or_version": 5,
+  "distinct_argument_lists": 59,
+  "distinct_option_sets": 28,
+  "refused_share": 0.0045,
+  "refused_program_seconds": 0.0,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": []
+ },
+ "tries": [
+  {
+   "argv": [
+    "head",
+    "-n",
+    "1000"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213366.339,
+   "seconds": 0.000272959,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 1,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "head",
+    "-n",
+    "1000"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213366.343,
+   "seconds": 0.000611042,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 1,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "head",
+    "-n",
+    "1000"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213366.344,
+   "seconds": 0.000374709,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 1,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "head",
+    "-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213379.955,
+   "seconds": 0.00023881,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213379.955,
+   "seconds": 0.000200586,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213379.955,
+   "seconds": 0.000194333,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.588,
+   "seconds": 0.000253786,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.589,
+   "seconds": 0.000219781,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n3",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.59,
+   "seconds": 0.000204988,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=3",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.59,
+   "seconds": 0.000209738,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines",
+    "3",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.591,
+   "seconds": 0.000188819,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-17",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.591,
+   "seconds": 0.000184068,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "5",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.592,
+   "seconds": 0.000174192,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.592,
+   "seconds": 0.000168649,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "2b",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.593,
+   "seconds": 0.000226573,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-50",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.594,
+   "seconds": 0.00019707,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-3",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.594,
+   "seconds": 0.000205529,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-3c",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.595,
+   "seconds": 0.000193069,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-3q",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.595,
+   "seconds": 0.000254369,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.596,
+   "seconds": 0.000168732,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.596,
+   "seconds": 0.000169733,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "2",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.597,
+   "seconds": 0.000169774,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.597,
+   "seconds": 0.000247868,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "-",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.598,
+   "seconds": 0.00018736,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.598,
+   "seconds": 0.000215613,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "abc",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/head: invalid number of lines: \u2018abc\u2019",
+   "start": 1793213396.599,
+   "seconds": 0.000173233,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--silent",
+    "-n",
+    "1",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.599,
+   "seconds": 0.000162898,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--quiet",
+    "-n",
+    "1",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.599,
+   "seconds": 0.000185568,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-5",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.6,
+   "seconds": 0.000175067,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1KiB",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.6,
+   "seconds": 0.00018836,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1MB",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.601,
+   "seconds": 0.000168316,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "5x",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/head: invalid number of bytes: \u20185x\u2019",
+   "start": 1793213396.601,
+   "seconds": 0.000170525,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "nofile"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "/usr/bin/head: cannot open 'nofile' for reading",
+   "start": 1793213396.602,
+   "seconds": 0.000166065,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "1",
+    "--",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.602,
+   "seconds": 0.000152938,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "+3",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.603,
+   "seconds": 0.000175192,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-qn",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213396.603,
+   "seconds": 0.000199695,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.112,
+   "seconds": 0.000493527,
+   "cwd": "/tmp/stubs",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.115,
+   "seconds": 0.000279653,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.116,
+   "seconds": 0.000212292,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.116,
+   "seconds": 0.000222831,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.117,
+   "seconds": 0.000189546,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.117,
+   "seconds": 0.000219123,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.117,
+   "seconds": 0.000214666,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.118,
+   "seconds": 0.000204751,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.118,
+   "seconds": 0.000219457,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.119,
+   "seconds": 0.00019467,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.119,
+   "seconds": 0.000208959,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.12,
+   "seconds": 0.000204585,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.12,
+   "seconds": 0.000194711,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.12,
+   "seconds": 0.000214666,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213522.121,
+   "seconds": 0.000194712,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.204,
+   "seconds": 0.000264536,
+   "cwd": "/tmp/stubs",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.206,
+   "seconds": 0.000203672,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.206,
+   "seconds": 0.000207838,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.206,
+   "seconds": 0.000186675,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.207,
+   "seconds": 0.000171303,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.207,
+   "seconds": 0.000169595,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.208,
+   "seconds": 0.00021592,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.208,
+   "seconds": 0.000193008,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.208,
+   "seconds": 0.00023225,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.209,
+   "seconds": 0.000207588,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.209,
+   "seconds": 0.000172636,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.209,
+   "seconds": 0.000173261,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.21,
+   "seconds": 0.000183218,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.21,
+   "seconds": 0.000175302,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.211,
+   "seconds": 0.000187467,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.211,
+   "seconds": 0.000182926,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.211,
+   "seconds": 0.000183884,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.212,
+   "seconds": 0.000168678,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.212,
+   "seconds": 0.000166054,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.212,
+   "seconds": 0.000173928,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.213,
+   "seconds": 0.000170178,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.213,
+   "seconds": 0.000165471,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.213,
+   "seconds": 0.000158222,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.214,
+   "seconds": 0.000173553,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.214,
+   "seconds": 0.000191508,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.214,
+   "seconds": 0.000191716,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.215,
+   "seconds": 0.000172886,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.215,
+   "seconds": 0.000161846,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.215,
+   "seconds": 0.000177301,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.216,
+   "seconds": 0.000160304,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.216,
+   "seconds": 0.000156347,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.216,
+   "seconds": 0.000208254,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.217,
+   "seconds": 0.000206422,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.217,
+   "seconds": 0.00016068,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.217,
+   "seconds": 0.000168595,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-qn",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.218,
+   "seconds": 0.000157056,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-qn",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.218,
+   "seconds": 0.000166346,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-qn",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.218,
+   "seconds": 0.000150223,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-qn",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.219,
+   "seconds": 0.000152014,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.219,
+   "seconds": 0.000151723,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.219,
+   "seconds": 0.000149724,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.219,
+   "seconds": 0.000173802,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.22,
+   "seconds": 0.00015314,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.22,
+   "seconds": 0.000153014,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.22,
+   "seconds": 0.000151931,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.221,
+   "seconds": 0.000145015,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.221,
+   "seconds": 0.000152056,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.221,
+   "seconds": 0.000151473,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.221,
+   "seconds": 0.000156014,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.222,
+   "seconds": 0.000164721,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-17",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.222,
+   "seconds": 0.000157014,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-17",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.222,
+   "seconds": 0.000197257,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-17",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.223,
+   "seconds": 0.00016972,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-17",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.223,
+   "seconds": 0.000188633,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-17",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.223,
+   "seconds": 0.000152681,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.224,
+   "seconds": 0.000164263,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.224,
+   "seconds": 0.000158264,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.224,
+   "seconds": 0.000169012,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.224,
+   "seconds": 0.000166762,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.225,
+   "seconds": 0.000150848,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.225,
+   "seconds": 0.000147599,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.225,
+   "seconds": 0.000149432,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.226,
+   "seconds": 0.000146224,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.226,
+   "seconds": 0.000143724,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.226,
+   "seconds": 0.000143599,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.226,
+   "seconds": 0.000148098,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.227,
+   "seconds": 0.000163971,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.227,
+   "seconds": 0.000167678,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.227,
+   "seconds": 0.000143225,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--silent",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.228,
+   "seconds": 0.000142142,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--silent",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.228,
+   "seconds": 0.000139059,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--silent",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.228,
+   "seconds": 0.000139892,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--silent",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.228,
+   "seconds": 0.000140308,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "-",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.229,
+   "seconds": 0.000185884,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "-",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.229,
+   "seconds": 0.000178885,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "-",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213532.229,
+   "seconds": 0.000154806,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.327,
+   "seconds": 0.000273829,
+   "cwd": "/tmp/stubs",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.329,
+   "seconds": 0.000222588,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.329,
+   "seconds": 0.000202633,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.33,
+   "seconds": 0.000215547,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.33,
+   "seconds": 0.000226378,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.33,
+   "seconds": 0.000221755,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.331,
+   "seconds": 0.000188802,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.331,
+   "seconds": 0.000182969,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.332,
+   "seconds": 0.000178095,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.332,
+   "seconds": 0.000216922,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.332,
+   "seconds": 0.0001973,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.333,
+   "seconds": 0.000207465,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.333,
+   "seconds": 0.000190093,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.334,
+   "seconds": 0.000183594,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.334,
+   "seconds": 0.000177012,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.334,
+   "seconds": 0.00017922,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.335,
+   "seconds": 0.000172388,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.335,
+   "seconds": 0.000169972,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.335,
+   "seconds": 0.000190635,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.336,
+   "seconds": 0.000188135,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.336,
+   "seconds": 0.000199966,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.336,
+   "seconds": 0.000183969,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.337,
+   "seconds": 0.000179469,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.337,
+   "seconds": 0.000169639,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.337,
+   "seconds": 0.000180386,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-qn",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.338,
+   "seconds": 0.000169221,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-qn",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.338,
+   "seconds": 0.000163015,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-qn",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.338,
+   "seconds": 0.000197592,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-qn",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.339,
+   "seconds": 0.000179137,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.339,
+   "seconds": 0.000181553,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.339,
+   "seconds": 0.000203883,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.34,
+   "seconds": 0.000170638,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.34,
+   "seconds": 0.00016918,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.34,
+   "seconds": 0.000178053,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.341,
+   "seconds": 0.000164389,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.341,
+   "seconds": 0.000159473,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.341,
+   "seconds": 0.000192842,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-17",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.342,
+   "seconds": 0.000233669,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-17",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.342,
+   "seconds": 0.000186052,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-17",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.342,
+   "seconds": 0.000185719,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-17",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.343,
+   "seconds": 0.00016943,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.343,
+   "seconds": 0.000176929,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.343,
+   "seconds": 0.000189219,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.344,
+   "seconds": 0.000166556,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.344,
+   "seconds": 0.000170971,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.344,
+   "seconds": 0.000214464,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.345,
+   "seconds": 0.000184136,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.345,
+   "seconds": 0.000184594,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.345,
+   "seconds": 0.000200091,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.346,
+   "seconds": 0.000156057,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.346,
+   "seconds": 0.00015564,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.346,
+   "seconds": 0.000156807,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.347,
+   "seconds": 0.000154474,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--silent",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.347,
+   "seconds": 0.000156307,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--silent",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.347,
+   "seconds": 0.000160098,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--silent",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.347,
+   "seconds": 0.000173554,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--silent",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.348,
+   "seconds": 0.000152349,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "-",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.348,
+   "seconds": 0.000155932,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "-",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.348,
+   "seconds": 0.000152641,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "-",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.349,
+   "seconds": 0.000151516,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "-",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.349,
+   "seconds": 0.000156223,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.349,
+   "seconds": 0.000164889,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.349,
+   "seconds": 0.000152267,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.35,
+   "seconds": 0.000149684,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.35,
+   "seconds": 0.000151433,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.35,
+   "seconds": 0.000168596,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.351,
+   "seconds": 0.000153933,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.351,
+   "seconds": 0.000154391,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.351,
+   "seconds": 0.000180178,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.351,
+   "seconds": 0.000174013,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.352,
+   "seconds": 0.000169471,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.352,
+   "seconds": 0.000149891,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.352,
+   "seconds": 0.000149308,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.353,
+   "seconds": 0.000139976,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.353,
+   "seconds": 0.000143976,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.353,
+   "seconds": 0.000144351,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.353,
+   "seconds": 0.000145809,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.354,
+   "seconds": 0.000167639,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.354,
+   "seconds": 0.000160765,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.354,
+   "seconds": 0.000180969,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.355,
+   "seconds": 0.000146309,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.355,
+   "seconds": 0.000147642,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.355,
+   "seconds": 0.000142601,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.355,
+   "seconds": 0.000144559,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.356,
+   "seconds": 0.000141935,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.356,
+   "seconds": 0.00015889,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.356,
+   "seconds": 0.000149975,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.357,
+   "seconds": 0.000176387,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.357,
+   "seconds": 0.000153891,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.357,
+   "seconds": 0.000147517,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.357,
+   "seconds": 0.000152391,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.358,
+   "seconds": 0.000145934,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.358,
+   "seconds": 0.000138602,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.358,
+   "seconds": 0.000141393,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.358,
+   "seconds": 0.00015135,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.359,
+   "seconds": 0.000183636,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "33"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.359,
+   "seconds": 0.000171638,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.359,
+   "seconds": 0.000167347,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.36,
+   "seconds": 0.000167264,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.36,
+   "seconds": 0.000156724,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.36,
+   "seconds": 0.000136311,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.36,
+   "seconds": 0.000146975,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.361,
+   "seconds": 0.000152558,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.361,
+   "seconds": 0.000159348,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.361,
+   "seconds": 0.00014006,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.362,
+   "seconds": 0.000152975,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.362,
+   "seconds": 0.000141518,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.362,
+   "seconds": 0.000133145,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.362,
+   "seconds": 0.000140518,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.363,
+   "seconds": 0.000163473,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.363,
+   "seconds": 0.000145892,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.363,
+   "seconds": 0.000157141,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.364,
+   "seconds": 0.000147184,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.364,
+   "seconds": 0.000164764,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.364,
+   "seconds": 0.000141477,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.364,
+   "seconds": 0.000163098,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.365,
+   "seconds": 0.000140226,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.365,
+   "seconds": 0.000139727,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.365,
+   "seconds": 0.000132603,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.365,
+   "seconds": 0.000158973,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.366,
+   "seconds": 0.000149599,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.366,
+   "seconds": 0.000145101,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.366,
+   "seconds": 0.000134644,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.366,
+   "seconds": 0.000160348,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.367,
+   "seconds": 0.000138393,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.367,
+   "seconds": 0.000134394,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.367,
+   "seconds": 0.000133644,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.367,
+   "seconds": 0.000142268,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.368,
+   "seconds": 0.000158349,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.368,
+   "seconds": 0.000161889,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.368,
+   "seconds": 0.000141893,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.369,
+   "seconds": 0.000154266,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "1K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.369,
+   "seconds": 0.000144351,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.369,
+   "seconds": 0.000143476,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.369,
+   "seconds": 0.000140851,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.37,
+   "seconds": 0.000133352,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.37,
+   "seconds": 0.000159473,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.37,
+   "seconds": 0.000150058,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.37,
+   "seconds": 0.000156932,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.371,
+   "seconds": 0.000133353,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.371,
+   "seconds": 0.000136519,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.371,
+   "seconds": 0.000131312,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.371,
+   "seconds": 0.000139851,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.372,
+   "seconds": 0.000134353,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.372,
+   "seconds": 0.000132852,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.372,
+   "seconds": 0.00017068,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.372,
+   "seconds": 0.00015789,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.373,
+   "seconds": 0.000154765,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.373,
+   "seconds": 0.000153766,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.373,
+   "seconds": 0.000138601,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "100"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.374,
+   "seconds": 0.000130478,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.374,
+   "seconds": 0.000132228,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.374,
+   "seconds": 0.000160515,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.374,
+   "seconds": 0.000142393,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.375,
+   "seconds": 0.000153016,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.375,
+   "seconds": 0.000148517,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.375,
+   "seconds": 0.000136602,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.375,
+   "seconds": 0.000140227,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.376,
+   "seconds": 0.000134727,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.376,
+   "seconds": 0.000129187,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.376,
+   "seconds": 0.000172721,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.376,
+   "seconds": 0.000188594,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.377,
+   "seconds": 0.000139226,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.377,
+   "seconds": 0.000156973,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.377,
+   "seconds": 0.000173637,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.378,
+   "seconds": 0.000147808,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.378,
+   "seconds": 0.00013506,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.378,
+   "seconds": 0.000154557,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-z",
+    "-n",
+    "5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.378,
+   "seconds": 0.000168138,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.379,
+   "seconds": 0.00013856,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.379,
+   "seconds": 0.000154016,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.379,
+   "seconds": 0.000158515,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.38,
+   "seconds": 0.000172804,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.38,
+   "seconds": 0.00015135,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.38,
+   "seconds": 0.000154391,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.38,
+   "seconds": 0.0001526,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.381,
+   "seconds": 0.000136436,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.381,
+   "seconds": 0.000133936,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.381,
+   "seconds": 0.00016389,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.381,
+   "seconds": 0.000151849,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.382,
+   "seconds": 0.00013327,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.382,
+   "seconds": 0.000127895,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.382,
+   "seconds": 0.000130728,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.382,
+   "seconds": 0.000152058,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.383,
+   "seconds": 0.000141518,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.383,
+   "seconds": 0.000138726,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-q",
+    "-n",
+    "4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.383,
+   "seconds": 0.000127604,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.383,
+   "seconds": 0.000159557,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.384,
+   "seconds": 0.000136644,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.384,
+   "seconds": 0.000147809,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.384,
+   "seconds": 0.000145268,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.385,
+   "seconds": 0.000130062,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.385,
+   "seconds": 0.000130728,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.385,
+   "seconds": 0.000144768,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.385,
+   "seconds": 0.000155307,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.386,
+   "seconds": 0.000158598,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.386,
+   "seconds": 0.000136768,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.386,
+   "seconds": 0.000147725,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.386,
+   "seconds": 0.000172929,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.387,
+   "seconds": 0.00013731,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.387,
+   "seconds": 0.000145225,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.387,
+   "seconds": 0.000145059,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.387,
+   "seconds": 0.00014535,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.388,
+   "seconds": 0.000130895,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "5",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.388,
+   "seconds": 0.000131603,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.388,
+   "seconds": 0.000149933,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.389,
+   "seconds": 0.000136269,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.389,
+   "seconds": 0.000135519,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.389,
+   "seconds": 0.000132436,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.389,
+   "seconds": 0.000126645,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.389,
+   "seconds": 0.000127146,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.39,
+   "seconds": 0.000146975,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.39,
+   "seconds": 0.000153141,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.39,
+   "seconds": 0.000140643,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.391,
+   "seconds": 0.000160015,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.391,
+   "seconds": 0.000146684,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.391,
+   "seconds": 0.000132603,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.391,
+   "seconds": 0.000127687,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.392,
+   "seconds": 0.000129437,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.392,
+   "seconds": 0.00012977,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.392,
+   "seconds": 0.000131395,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.392,
+   "seconds": 0.000133227,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "-5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.393,
+   "seconds": 0.000128853,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.393,
+   "seconds": 0.000132311,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.393,
+   "seconds": 0.000130644,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.393,
+   "seconds": 0.000127604,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.394,
+   "seconds": 0.000127187,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.394,
+   "seconds": 0.000127146,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.394,
+   "seconds": 0.000141476,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.394,
+   "seconds": 0.000148809,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.395,
+   "seconds": 0.00013302,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.395,
+   "seconds": 0.000138018,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.395,
+   "seconds": 0.000125521,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.395,
+   "seconds": 0.000129562,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.396,
+   "seconds": 0.000125313,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.396,
+   "seconds": 0.000138102,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.396,
+   "seconds": 0.000147642,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.396,
+   "seconds": 0.000133436,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.396,
+   "seconds": 0.000127645,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.397,
+   "seconds": 0.000130187,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-c",
+    "-10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.397,
+   "seconds": 0.000129228,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.397,
+   "seconds": 0.000147392,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.397,
+   "seconds": 0.000145393,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.398,
+   "seconds": 0.000131894,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.398,
+   "seconds": 0.000164931,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.398,
+   "seconds": 0.000141934,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.399,
+   "seconds": 0.000147933,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.399,
+   "seconds": 0.000141518,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.399,
+   "seconds": 0.000143476,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.399,
+   "seconds": 0.000128103,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.4,
+   "seconds": 0.000148017,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.4,
+   "seconds": 0.000161265,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.4,
+   "seconds": 0.000147684,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.4,
+   "seconds": 0.000149809,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.401,
+   "seconds": 0.000143934,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.401,
+   "seconds": 0.000151225,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.401,
+   "seconds": 0.000137561,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.401,
+   "seconds": 0.000159724,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--lines=-3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.402,
+   "seconds": 0.000131686,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.402,
+   "seconds": 0.000137144,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.402,
+   "seconds": 0.000134144,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.402,
+   "seconds": 0.000146934,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.403,
+   "seconds": 0.000134977,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.403,
+   "seconds": 0.000134977,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.403,
+   "seconds": 0.000133311,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.403,
+   "seconds": 0.000143476,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.404,
+   "seconds": 0.000147975,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.404,
+   "seconds": 0.000136269,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.404,
+   "seconds": 0.000133353,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.404,
+   "seconds": 0.000140643,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.405,
+   "seconds": 0.00013327,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.405,
+   "seconds": 0.000130728,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.405,
+   "seconds": 0.000135852,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.405,
+   "seconds": 0.000151974,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.406,
+   "seconds": 0.000131561,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.406,
+   "seconds": 0.00012877,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-v",
+    "-n",
+    "3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.406,
+   "seconds": 0.000125938,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.406,
+   "seconds": 0.000148517,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.407,
+   "seconds": 0.000145601,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.407,
+   "seconds": 0.000158516,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.407,
+   "seconds": 0.000143601,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.407,
+   "seconds": 0.000138977,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.408,
+   "seconds": 0.000130187,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.408,
+   "seconds": 0.000125687,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.408,
+   "seconds": 0.00012852,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.408,
+   "seconds": 0.000213297,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.409,
+   "seconds": 0.000151558,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.409,
+   "seconds": 0.000146351,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.409,
+   "seconds": 0.000130103,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.41,
+   "seconds": 0.000154225,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.41,
+   "seconds": 0.000147308,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.41,
+   "seconds": 0.000131686,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.41,
+   "seconds": 0.00013052,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.411,
+   "seconds": 0.000131478,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "-n",
+    "2",
+    "a",
+    "b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.411,
+   "seconds": 0.000135602,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.411,
+   "seconds": 0.000128312,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.411,
+   "seconds": 0.000130603,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.412,
+   "seconds": 0.000130103,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.412,
+   "seconds": 0.000151517,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.412,
+   "seconds": 0.000133352,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.412,
+   "seconds": 0.000128895,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.413,
+   "seconds": 0.000128229,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.413,
+   "seconds": 0.000146101,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.413,
+   "seconds": 0.000132312,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.413,
+   "seconds": 0.000129936,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.414,
+   "seconds": 0.000155641,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.414,
+   "seconds": 0.000135561,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.414,
+   "seconds": 0.00013052,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.414,
+   "seconds": 0.000126229,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.415,
+   "seconds": 0.000127021,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.415,
+   "seconds": 0.000144101,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.415,
+   "seconds": 0.000168305,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "/usr/bin/head",
+    "--bytes=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213539.415,
+   "seconds": 0.00016214,
+   "cwd": "/tmp/headtest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

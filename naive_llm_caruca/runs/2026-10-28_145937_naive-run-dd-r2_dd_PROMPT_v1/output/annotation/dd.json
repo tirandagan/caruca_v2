@@ -1,0 +1,74 @@
+{
+    "flag": [
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [],
+    "comment": "dd takes no dash-style options other than --help/--version. Every other argument is a single KEY=VALUE word (if=FILE, of=FILE, bs=BYTES, ...). The PaSh parser matches whole words only, so these words all land in the operand list; InputOutputInfoGeneratorDd parses them itself. The 'key_value_operand' table below documents them in the same style as 'option' (key, argument type) and is not read by the parser.",
+    "key_value_operand": [
+        [
+            "bs",
+            "BYTES"
+        ],
+        [
+            "cbs",
+            "BYTES"
+        ],
+        [
+            "conv",
+            "CONVS"
+        ],
+        [
+            "count",
+            "N"
+        ],
+        [
+            "ibs",
+            "BYTES"
+        ],
+        [
+            "if",
+            [
+                "FILE",
+                "STREAM_INPUT"
+            ]
+        ],
+        [
+            "iflag",
+            "FLAGS"
+        ],
+        [
+            "obs",
+            "BYTES"
+        ],
+        [
+            "of",
+            [
+                "FILE",
+                "STREAM_OUTPUT"
+            ]
+        ],
+        [
+            "oflag",
+            "FLAGS"
+        ],
+        [
+            "seek",
+            "oseek",
+            "N"
+        ],
+        [
+            "skip",
+            "iseek",
+            "N"
+        ],
+        [
+            "status",
+            "LEVEL"
+        ]
+    ]
+}

@@ -1,0 +1,972 @@
+{
+ "summary": {
+  "run": "2026-10-28_141545_naive-run-du_du_PROMPT_v1",
+  "command": "du",
+  "binary": "/usr/bin/du",
+  "logger_check": {
+   "audit_starts": 138,
+   "trace_starts": 133,
+   "audit_without_trace": 5,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793211323.55032,
+   "clock_spread_ms": 7.2612762451171875
+  },
+  "session_found": true,
+  "first_write": 1793211426.572,
+  "tries": 43,
+  "classes": {
+   "accepted": 34,
+   "other_nonzero": 2,
+   "refused": 4,
+   "unclassified": 3
+  },
+  "by_phase": {
+   "exploring/accepted": 33,
+   "exploring/other_nonzero": 2,
+   "exploring/refused": 4,
+   "exploring/unclassified": 3,
+   "testing/accepted": 1
+  },
+  "help_or_version": 3,
+  "distinct_argument_lists": 40,
+  "distinct_option_sets": 28,
+  "refused_share": 0.093,
+  "refused_program_seconds": 0.001,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "du: invalid -B argument 'foo'",
+   "du: invalid -t argument 'abc'",
+   "du: invalid maximum depth \u2018abc\u2019"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/du",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211360.25,
+   "seconds": 0.000302622,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.175,
+   "seconds": 0.000188423,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--time",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.175,
+   "seconds": 0.000221604,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--time=atime",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.176,
+   "seconds": 0.000184712,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--time",
+    "atime",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "du: cannot access 'atime'",
+   "start": 1793211373.176,
+   "seconds": 0.000326946,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--time",
+    "--time-style=+%Y",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.177,
+   "seconds": 0.000213934,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--time",
+    "--time-style=iso",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.178,
+   "seconds": 0.0002289,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-d",
+    "0",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.178,
+   "seconds": 0.000194217,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-d0",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.178,
+   "seconds": 0.000193008,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--max-depth=1",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.179,
+   "seconds": 0.000178876,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-BM",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.179,
+   "seconds": 0.000192967,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-B",
+    "1",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.18,
+   "seconds": 0.000441875,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--block-size=1K",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.18,
+   "seconds": 0.000188047,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-t",
+    "1",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.181,
+   "seconds": 0.000198636,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-t",
+    "-1k",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.181,
+   "seconds": 0.000171373,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--threshold=-100",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.181,
+   "seconds": 0.000186046,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--files0-from=-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.182,
+   "seconds": 0.000177251,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--files0-from",
+    "list"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.182,
+   "seconds": 0.000171664,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--files0-from=list",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "du: extra operand \u2018a\u2019",
+   "start": 1793211373.183,
+   "seconds": 0.000189506,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-X",
+    "ex",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.183,
+   "seconds": 0.000170623,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--exclude-from=ex",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.183,
+   "seconds": 0.000425367,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-X",
+    "-",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.184,
+   "seconds": 0.000180336,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--exclude=sub",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.184,
+   "seconds": 0.000195551,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--exclude",
+    "sub",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.185,
+   "seconds": 0.000186755,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "du: cannot access '-'",
+   "start": 1793211373.185,
+   "seconds": 0.000182503,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-shc",
+    ".",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.185,
+   "seconds": 0.000176959,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-ahx",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.186,
+   "seconds": 0.000177667,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-0",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.186,
+   "seconds": 0.000202304,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--inodes",
+    "--si",
+    "--apparent-size",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "du: warning: options --apparent-size and -b are ineffective with --inodes",
+   "start": 1793211373.187,
+   "seconds": 0.000189172,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-b",
+    "-k",
+    "-m",
+    "-l",
+    "-L",
+    "-H",
+    "-D",
+    "-P",
+    "-S",
+    "-x",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211373.188,
+   "seconds": 0.000175208,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-t",
+    "abc",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "du: invalid -t argument 'abc'",
+   "start": 1793211373.188,
+   "seconds": 0.000170247,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-d",
+    "abc",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "du: invalid maximum depth \u2018abc\u2019",
+   "start": 1793211373.188,
+   "seconds": 0.000182795,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--time=foo",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "du: invalid argument \u2018foo\u2019 for \u2018--time\u2019",
+   "start": 1793211373.189,
+   "seconds": 0.000199594,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--time=foo",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "du: invalid argument \u2018foo\u2019 for \u2018--time\u2019",
+   "start": 1793211410.883,
+   "seconds": 0.000442811,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211410.885,
+   "seconds": 0.000408351,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--time-style=bogus",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211410.888,
+   "seconds": 0.000456728,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--files0-from=-",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "du: extra operand \u2018a\u2019",
+   "start": 1793211410.889,
+   "seconds": 0.000258137,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "--files0-from=-"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211410.89,
+   "seconds": 0.000285888,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-X",
+    "-",
+    ".",
+    "a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211410.891,
+   "seconds": 0.000284012,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-B",
+    "foo",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "du: invalid -B argument 'foo'",
+   "start": 1793211410.891,
+   "seconds": 0.000305472,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-Bk",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211410.892,
+   "seconds": 0.000257845,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "du",
+    "-B1K",
+    "."
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211410.893,
+   "seconds": 0.000242094,
+   "cwd": "/tmp/dutest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/du",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211474.812,
+   "seconds": 0.000288878,
+   "cwd": "/tmp/dustub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

@@ -1,0 +1,7266 @@
+{
+ "summary": {
+  "run": "2026-10-28_144226_naive-run-pandoc_pandoc_PROMPT_v1",
+  "command": "pandoc",
+  "binary": "/usr/bin/pandoc",
+  "logger_check": {
+   "audit_starts": 496,
+   "trace_starts": 491,
+   "audit_without_trace": 5,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793212925.4463174,
+   "clock_spread_ms": 4.364967346191406
+  },
+  "session_found": true,
+  "first_write": 1793213097.774,
+  "tries": 311,
+  "classes": {
+   "accepted": 126,
+   "unclassified": 182,
+   "other_nonzero": 3
+  },
+  "by_phase": {
+   "exploring/accepted": 17,
+   "exploring/unclassified": 1,
+   "testing/accepted": 109,
+   "testing/other_nonzero": 3,
+   "testing/unclassified": 181
+  },
+  "help_or_version": 3,
+  "distinct_argument_lists": 309,
+  "distinct_option_sets": 129,
+  "refused_share": 0.0,
+  "refused_program_seconds": 0,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {
+   "working_tool:T1": 3
+  },
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "--",
+   "1:",
+   "Ar",
+   "Co",
+   "Er",
+   "TO",
+   "To",
+   "Un",
+   "[W",
+   "co",
+   "dp",
+   "ip",
+   "op",
+   "pd",
+   "sh",
+   "sl",
+   "sp",
+   "ta",
+   "x"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "pandoc",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212959.579,
+   "seconds": 0.036111798,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212959.616,
+   "seconds": 0.010542742,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212994.187,
+   "seconds": 0.030966156,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-",
+    "-t",
+    "html"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212994.218,
+   "seconds": 0.010503657,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "a.md",
+    "b.md",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212994.229,
+   "seconds": 0.010442033,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "a.md",
+    "-o",
+    "-",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212994.252,
+   "seconds": 0.010532239,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--webtex",
+    "-t",
+    "html"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212994.275,
+   "seconds": 0.010577488,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--webtex=http://e/",
+    "-t",
+    "html"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212994.286,
+   "seconds": 0.010857143,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--webtex",
+    "http://e/",
+    "-t",
+    "html"
+   ],
+   "argv_cut": false,
+   "exit_code": 61,
+   "signal": null,
+   "stderr": "Co",
+   "start": 1793212994.297,
+   "seconds": 30.030643905,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--list-extensions=gfm"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213024.331,
+   "seconds": 0.011984411,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--list-extensions"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213024.344,
+   "seconds": 0.010623648,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-M",
+    "foo",
+    "-s",
+    "-t",
+    "markdown"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213024.355,
+   "seconds": 0.010488401,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--list-input-formats"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213024.367,
+   "seconds": 0.010511567,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--log=log.json",
+    "-t",
+    "html"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213024.378,
+   "seconds": 0.010537066,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--extract-media=media",
+    "-t",
+    "html"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213024.389,
+   "seconds": 0.010491275,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--mathjax",
+    "-t",
+    "html"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213024.401,
+   "seconds": 0.010867559,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-sN",
+    "a.md",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213024.413,
+   "seconds": 0.010852893,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-s",
+    "-V",
+    "lang=de",
+    "-T",
+    "Pre",
+    "-t",
+    "html"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213024.425,
+   "seconds": 0.030736217,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213171.292,
+   "seconds": 0.011645313,
+   "cwd": "/tmp",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 14,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-f",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 20,
+   "signal": null,
+   "stderr": "Er",
+   "start": 1793213185.604,
+   "seconds": 0.010973714,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-r",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 20,
+   "signal": null,
+   "stderr": "Er",
+   "start": 1793213185.616,
+   "seconds": 0.010778793,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--from",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 20,
+   "signal": null,
+   "stderr": "Er",
+   "start": 1793213185.627,
+   "seconds": 0.010693375,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--from",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 21,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213185.639,
+   "seconds": 0.01078996,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--read",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 20,
+   "signal": null,
+   "stderr": "Er",
+   "start": 1793213185.65,
+   "seconds": 0.010770167,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--read",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 21,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213185.661,
+   "seconds": 0.010583288,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 20,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213185.672,
+   "seconds": 0.010621998,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-w",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 20,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213185.684,
+   "seconds": 0.010718209,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--to",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 20,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213185.695,
+   "seconds": 0.010617331,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--to",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213185.707,
+   "seconds": 0.010740709,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--write",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 20,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213185.718,
+   "seconds": 0.010669874,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--write",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213185.729,
+   "seconds": 0.011236095,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-o",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213185.741,
+   "seconds": 0.010734167,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--output",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213185.752,
+   "seconds": 0.010507662,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--output",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213185.763,
+   "seconds": 0.010511454,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--data-dir",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213185.774,
+   "seconds": 0.011359265,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--data-dir",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213185.786,
+   "seconds": 0.011348932,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-M",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213185.798,
+   "seconds": 0.010720584,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--metadata",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213185.809,
+   "seconds": 0.010985964,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--metadata",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213185.821,
+   "seconds": 0.010681208,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--metadata-file",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 98,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213185.832,
+   "seconds": 0.010649332,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--metadata-file",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 64,
+   "signal": null,
+   "stderr": "Er",
+   "start": 1793213185.843,
+   "seconds": 0.010524329,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-d",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pandoc: -t.yaml: withBinaryFile: does not exist (No such file or directory)",
+   "start": 1793213185.854,
+   "seconds": 0.011375723,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--defaults",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pandoc: -t.yaml: withBinaryFile: does not exist (No such file or directory)",
+   "start": 1793213185.866,
+   "seconds": 0.010521329,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--defaults",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pandoc: 1.yaml: withBinaryFile: does not exist (No such file or directory)",
+   "start": 1793213185.877,
+   "seconds": 0.010548871,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--file-scope=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213185.888,
+   "seconds": 0.011000257,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--sandbox=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213185.9,
+   "seconds": 0.011080425,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--standalone=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213185.911,
+   "seconds": 0.01082721,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--template",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 97,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213185.923,
+   "seconds": 0.011341765,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--template",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 97,
+   "signal": null,
+   "stderr": "Co",
+   "start": 1793213185.934,
+   "seconds": 0.011089008,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-V",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213185.946,
+   "seconds": 0.011103758,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--variable",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213185.958,
+   "seconds": 0.010918129,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--variable",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213185.969,
+   "seconds": 0.011331889,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--wrap",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "--",
+   "start": 1793213185.981,
+   "seconds": 0.010683624,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--wrap",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "--",
+   "start": 1793213185.993,
+   "seconds": 0.010758041,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--wrap=bogus",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "--",
+   "start": 1793213186.004,
+   "seconds": 0.010714745,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--wrap=auto",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.015,
+   "seconds": 0.010714537,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--wrap=none",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.026,
+   "seconds": 0.011294467,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--wrap=preserve",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.038,
+   "seconds": 0.010650244,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--ascii=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213186.049,
+   "seconds": 0.011416594,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--toc=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213186.061,
+   "seconds": 0.01129305,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--table-of-contents=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213186.073,
+   "seconds": 0.010815289,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--toc-depth",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "TO",
+   "start": 1793213186.084,
+   "seconds": 0.011233757,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--toc-depth",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.096,
+   "seconds": 0.011053711,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--toc-depth=abc",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "TO",
+   "start": 1793213186.108,
+   "seconds": 0.010711119,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--toc-depth=2",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.119,
+   "seconds": 0.011099504,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--number-sections=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213186.131,
+   "seconds": 0.010835997,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--number-offset",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "co",
+   "start": 1793213186.142,
+   "seconds": 0.01133251,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--number-offset",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.154,
+   "seconds": 0.011055128,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--top-level-division",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "To",
+   "start": 1793213186.166,
+   "seconds": 0.010633285,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--top-level-division",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "To",
+   "start": 1793213186.177,
+   "seconds": 0.011001001,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--top-level-division=bogus",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "To",
+   "start": 1793213186.189,
+   "seconds": 0.010716078,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--top-level-division=default",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.2,
+   "seconds": 0.0105732,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--top-level-division=section",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.211,
+   "seconds": 0.01058545,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--top-level-division=chapter",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.223,
+   "seconds": 0.010845164,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--top-level-division=part",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.234,
+   "seconds": 0.010922291,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--extract-media",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.246,
+   "seconds": 0.01150643,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--extract-media",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.258,
+   "seconds": 0.010591742,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--resource-path",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.27,
+   "seconds": 0.011011877,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--resource-path",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.281,
+   "seconds": 0.010706287,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-H",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 99,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.293,
+   "seconds": 0.040530011,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--include-in-header",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 99,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.335,
+   "seconds": 0.020974646,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--include-in-header",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.357,
+   "seconds": 0.010512782,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-B",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 99,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.368,
+   "seconds": 0.020427592,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--include-before-body",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 99,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.39,
+   "seconds": 0.020726183,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--include-before-body",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.412,
+   "seconds": 0.010491323,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-A",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 99,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.423,
+   "seconds": 0.021104357,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--include-after-body",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 99,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.445,
+   "seconds": 0.031064627,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--include-after-body",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.478,
+   "seconds": 0.010615784,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--no-highlight=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213186.489,
+   "seconds": 0.010613284,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--highlight-style",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.5,
+   "seconds": 0.010664119,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--highlight-style",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213186.511,
+   "seconds": 0.0105672,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--syntax-definition",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.522,
+   "seconds": 0.010649285,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--syntax-definition",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 67,
+   "signal": null,
+   "stderr": "1:",
+   "start": 1793213186.533,
+   "seconds": 0.010799456,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--dpi",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "dp",
+   "start": 1793213186.544,
+   "seconds": 0.010482031,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--dpi",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.555,
+   "seconds": 0.010640493,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--dpi=abc",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "dp",
+   "start": 1793213186.566,
+   "seconds": 0.010521949,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--dpi=2",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.577,
+   "seconds": 0.010645035,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--eol",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "--",
+   "start": 1793213186.589,
+   "seconds": 0.010687744,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--eol",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "--",
+   "start": 1793213186.6,
+   "seconds": 0.010631285,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--eol=bogus",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "--",
+   "start": 1793213186.611,
+   "seconds": 0.010551908,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--eol=crlf",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.622,
+   "seconds": 0.010595867,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--eol=lf",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.633,
+   "seconds": 0.010880082,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--eol=native",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.644,
+   "seconds": 0.010606034,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--columns",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "co",
+   "start": 1793213186.656,
+   "seconds": 0.011390427,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--columns",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.668,
+   "seconds": 0.010520282,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--columns=abc",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "co",
+   "start": 1793213186.679,
+   "seconds": 0.010691577,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--columns=2",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.69,
+   "seconds": 0.010774372,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--preserve-tabs=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213186.701,
+   "seconds": 0.010536032,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--tab-stop",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "ta",
+   "start": 1793213186.712,
+   "seconds": 0.011809312,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--tab-stop",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.725,
+   "seconds": 0.010577034,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--tab-stop=abc",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "ta",
+   "start": 1793213186.736,
+   "seconds": 0.010619451,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--tab-stop=2",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.747,
+   "seconds": 0.010902208,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--pdf-engine",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "pd",
+   "start": 1793213186.758,
+   "seconds": 0.010552242,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--pdf-engine",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "pd",
+   "start": 1793213186.769,
+   "seconds": 0.011334259,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--pdf-engine-opt",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.781,
+   "seconds": 0.010534449,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--pdf-engine-opt",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.792,
+   "seconds": 0.010815873,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--reference-doc",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.804,
+   "seconds": 0.010846665,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--reference-doc",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.815,
+   "seconds": 0.011178255,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--self-contained=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213186.827,
+   "seconds": 0.010656827,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--embed-resources=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213186.838,
+   "seconds": 0.010794705,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--request-header",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.85,
+   "seconds": 0.010804289,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--request-header",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.861,
+   "seconds": 0.010833998,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--no-check-certificate=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213186.873,
+   "seconds": 0.011471887,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--abbreviations",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.885,
+   "seconds": 0.011162755,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--abbreviations",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.896,
+   "seconds": 0.01073412,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--indented-code-classes",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.908,
+   "seconds": 0.010781122,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--indented-code-classes",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.919,
+   "seconds": 0.010522991,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--default-image-extension",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.93,
+   "seconds": 0.010671535,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--default-image-extension",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213186.942,
+   "seconds": 0.010914499,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-F",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.953,
+   "seconds": 0.010683952,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--filter",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.965,
+   "seconds": 0.010815873,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--filter",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 83,
+   "signal": null,
+   "stderr": "Er",
+   "start": 1793213186.976,
+   "seconds": 0.010625035,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-L",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.988,
+   "seconds": 0.010638993,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--lua-filter",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213186.999,
+   "seconds": 0.010889411,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--lua-filter",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 83,
+   "signal": null,
+   "stderr": "Er",
+   "start": 1793213187.01,
+   "seconds": 0.010770784,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--shift-heading-level-by",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "sh",
+   "start": 1793213187.022,
+   "seconds": 0.010725616,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--shift-heading-level-by",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.033,
+   "seconds": 0.010667073,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--shift-heading-level-by=abc",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "sh",
+   "start": 1793213187.044,
+   "seconds": 0.01076545,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--shift-heading-level-by=2",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.056,
+   "seconds": 0.010832451,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--base-header-level",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.067,
+   "seconds": 0.010547612,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--base-header-level",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.078,
+   "seconds": 0.010551362,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--base-header-level=abc",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.09,
+   "seconds": 0.011145375,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--base-header-level=2",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.101,
+   "seconds": 0.010536486,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--track-changes",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213187.112,
+   "seconds": 0.011336796,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--track-changes",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213187.124,
+   "seconds": 0.010782742,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--track-changes=bogus",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213187.135,
+   "seconds": 0.010540653,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--track-changes=accept",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.146,
+   "seconds": 0.010631238,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--track-changes=reject",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.158,
+   "seconds": 0.010800159,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--track-changes=all",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.169,
+   "seconds": 0.010646447,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--strip-comments=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213187.18,
+   "seconds": 0.010606696,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--reference-links=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213187.192,
+   "seconds": 0.01069099,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--reference-location",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213187.203,
+   "seconds": 0.010637322,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--reference-location",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213187.214,
+   "seconds": 0.010761158,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--reference-location=bogus",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213187.225,
+   "seconds": 0.010570654,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--reference-location=block",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.236,
+   "seconds": 0.011266253,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--reference-location=section",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.248,
+   "seconds": 0.011360505,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--reference-location=document",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.26,
+   "seconds": 0.010656239,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--markdown-headings",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213187.271,
+   "seconds": 0.010647031,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--markdown-headings",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213187.283,
+   "seconds": 0.010746825,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--markdown-headings=bogus",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213187.294,
+   "seconds": 0.01073424,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--markdown-headings=setext",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.305,
+   "seconds": 0.010631405,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--markdown-headings=atx",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.317,
+   "seconds": 0.010689823,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--list-tables=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213187.328,
+   "seconds": 0.010666739,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--listings=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213187.339,
+   "seconds": 0.011092874,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--incremental=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213187.351,
+   "seconds": 0.011331921,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--slide-level",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "sl",
+   "start": 1793213187.363,
+   "seconds": 0.01070299,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--slide-level",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.374,
+   "seconds": 0.010667281,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--slide-level=abc",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "sl",
+   "start": 1793213187.385,
+   "seconds": 0.01134938,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--slide-level=2",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.397,
+   "seconds": 0.01056507,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--section-divs=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213187.408,
+   "seconds": 0.010751491,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--html-q-tags=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213187.42,
+   "seconds": 0.010671364,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--email-obfuscation",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213187.431,
+   "seconds": 0.011553717,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--email-obfuscation",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213187.443,
+   "seconds": 0.011054456,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--email-obfuscation=bogus",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213187.455,
+   "seconds": 0.010525278,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--email-obfuscation=none",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.466,
+   "seconds": 0.010512361,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--email-obfuscation=javascript",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.477,
+   "seconds": 0.010569362,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--email-obfuscation=references",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.488,
+   "seconds": 0.010681697,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--id-prefix",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.499,
+   "seconds": 0.010736741,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--id-prefix",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.51,
+   "seconds": 0.011328921,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-T",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.522,
+   "seconds": 0.020527585,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--title-prefix",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.545,
+   "seconds": 0.020966678,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--title-prefix",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.567,
+   "seconds": 0.01066528,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-c",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.578,
+   "seconds": 0.010481694,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--css",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.589,
+   "seconds": 0.01131442,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--css",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.601,
+   "seconds": 0.010570112,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-subdirectory",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.612,
+   "seconds": 0.010518611,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-subdirectory",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.623,
+   "seconds": 0.011332755,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-cover-image",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.635,
+   "seconds": 0.010647489,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-cover-image",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.646,
+   "seconds": 0.010556236,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-title-page",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Ar",
+   "start": 1793213187.657,
+   "seconds": 0.010618946,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-title-page",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Ar",
+   "start": 1793213187.669,
+   "seconds": 0.011320796,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-title-page=bogus",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Ar",
+   "start": 1793213187.68,
+   "seconds": 0.010754866,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-title-page=true",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.692,
+   "seconds": 0.010548237,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-title-page=false",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.703,
+   "seconds": 0.010616946,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-metadata",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.714,
+   "seconds": 0.010717657,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-metadata",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.725,
+   "seconds": 0.010750616,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-embed-font",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.736,
+   "seconds": 0.011382255,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-embed-font",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.748,
+   "seconds": 0.011350297,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--split-level",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "sp",
+   "start": 1793213187.76,
+   "seconds": 0.010542528,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--split-level",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.771,
+   "seconds": 0.011109916,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--split-level=abc",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "sp",
+   "start": 1793213187.783,
+   "seconds": 0.010644947,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--split-level=2",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.794,
+   "seconds": 0.01115225,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--chunk-template",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.806,
+   "seconds": 0.010617363,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--chunk-template",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.817,
+   "seconds": 0.010594529,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-chapter-level",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.828,
+   "seconds": 0.011325879,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-chapter-level",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.84,
+   "seconds": 0.010939787,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-chapter-level=abc",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.852,
+   "seconds": 0.011448382,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--epub-chapter-level=2",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.864,
+   "seconds": 0.010639031,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--ipynb-output",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "ip",
+   "start": 1793213187.875,
+   "seconds": 0.010582654,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--ipynb-output",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "ip",
+   "start": 1793213187.886,
+   "seconds": 0.010607196,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--ipynb-output=bogus",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "ip",
+   "start": 1793213187.897,
+   "seconds": 0.010962412,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--ipynb-output=all",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.909,
+   "seconds": 0.010764367,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--ipynb-output=none",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.92,
+   "seconds": 0.011043164,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--ipynb-output=best",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.932,
+   "seconds": 0.010749283,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--citeproc=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213187.943,
+   "seconds": 0.010653031,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--bibliography",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.955,
+   "seconds": 0.010569862,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--bibliography",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.966,
+   "seconds": 0.011200668,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--csl",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213187.977,
+   "seconds": 0.011306587,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--csl",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213187.989,
+   "seconds": 0.010620613,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--citation-abbreviations",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213188.001,
+   "seconds": 0.010710944,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--citation-abbreviations",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213188.012,
+   "seconds": 0.01068211,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--natbib=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.023,
+   "seconds": 0.011386459,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--biblatex=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.035,
+   "seconds": 0.010548149,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--mathml=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.046,
+   "seconds": 0.010529273,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--webtex",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213188.057,
+   "seconds": 0.010485814,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--webtex=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213188.068,
+   "seconds": 0.011042451,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--mathjax",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213188.08,
+   "seconds": 0.011247539,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--mathjax=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213188.092,
+   "seconds": 0.010809571,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--katex",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213188.103,
+   "seconds": 0.010523023,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--katex=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213188.114,
+   "seconds": 0.010591858,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--gladtex=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.126,
+   "seconds": 0.01068861,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--trace=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.137,
+   "seconds": 0.010728986,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--dump-args=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.148,
+   "seconds": 0.010581274,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--ignore-args=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.159,
+   "seconds": 0.010865322,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--verbose=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.171,
+   "seconds": 0.010831238,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--quiet=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.182,
+   "seconds": 0.011040577,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--fail-if-warnings=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.194,
+   "seconds": 0.010999242,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--log",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213188.205,
+   "seconds": 0.0106204,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--log",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213188.217,
+   "seconds": 0.010662901,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--bash-completion=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.228,
+   "seconds": 0.010796946,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--list-input-formats=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.239,
+   "seconds": 0.010698443,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--list-output-formats=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.251,
+   "seconds": 0.010884073,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--list-extensions",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213188.262,
+   "seconds": 0.010682902,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--list-extensions=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "x ",
+   "start": 1793213188.274,
+   "seconds": 0.011538129,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--list-highlight-languages=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.286,
+   "seconds": 0.010724736,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--list-highlight-styles=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.297,
+   "seconds": 0.010688818,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-D",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 97,
+   "signal": null,
+   "stderr": "Co",
+   "start": 1793213188.308,
+   "seconds": 0.010562024,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--print-default-template",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 97,
+   "signal": null,
+   "stderr": "Co",
+   "start": 1793213188.319,
+   "seconds": 0.010587108,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--print-default-template",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 97,
+   "signal": null,
+   "stderr": "Co",
+   "start": 1793213188.33,
+   "seconds": 0.010861697,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--print-default-data-file",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 97,
+   "signal": null,
+   "stderr": "Co",
+   "start": 1793213188.342,
+   "seconds": 0.010797404,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--print-default-data-file",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 97,
+   "signal": null,
+   "stderr": "Co",
+   "start": 1793213188.353,
+   "seconds": 0.010669068,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--print-highlight-style",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213188.365,
+   "seconds": 0.011172538,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--print-highlight-style",
+    "1",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "Un",
+   "start": 1793213188.376,
+   "seconds": 0.01141496,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--version=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.388,
+   "seconds": 0.01072211,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--help=x",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213188.4,
+   "seconds": 0.010809155,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 15,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "plain",
+    "--toc-depth"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213202.394,
+   "seconds": 0.011504649,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "plain",
+    "--dpi"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213202.406,
+   "seconds": 0.010718761,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "plain",
+    "--columns"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213202.417,
+   "seconds": 0.010672551,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "plain",
+    "--tab-stop"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213202.429,
+   "seconds": 0.01098414,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "plain",
+    "--slide-level"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213202.441,
+   "seconds": 0.010941848,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "plain",
+    "--split-level"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213202.452,
+   "seconds": 0.011410772,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "plain",
+    "--shift-heading-level-by"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213202.464,
+   "seconds": 0.01061755,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "plain",
+    "--base-header-level"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213202.476,
+   "seconds": 0.011450064,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "plain",
+    "--epub-chapter-level"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213202.488,
+   "seconds": 0.011899196,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "plain",
+    "-o"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213202.501,
+   "seconds": 0.011410105,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "plain",
+    "--wrap"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "op",
+   "start": 1793213202.513,
+   "seconds": 0.011266187,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--toc-depth=0"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "TO",
+   "start": 1793213202.525,
+   "seconds": 0.010663968,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--toc-depth=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.536,
+   "seconds": 0.010629009,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--toc-depth=6"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.547,
+   "seconds": 0.010523757,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--toc-depth=7"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "TO",
+   "start": 1793213202.559,
+   "seconds": 0.011222019,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--toc-depth=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "TO",
+   "start": 1793213202.57,
+   "seconds": 0.011436772,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--slide-level=0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.582,
+   "seconds": 0.010485215,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--slide-level=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.593,
+   "seconds": 0.010444881,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--slide-level=6"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.605,
+   "seconds": 0.010493757,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--slide-level=7"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "sl",
+   "start": 1793213202.616,
+   "seconds": 0.010525383,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--slide-level=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "sl",
+   "start": 1793213202.627,
+   "seconds": 0.011125642,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--split-level=0"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "sp",
+   "start": 1793213202.639,
+   "seconds": 0.010906055,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--split-level=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.65,
+   "seconds": 0.010610217,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--split-level=6"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.662,
+   "seconds": 0.010686427,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--split-level=7"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "sp",
+   "start": 1793213202.673,
+   "seconds": 0.011179684,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--split-level=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "sp",
+   "start": 1793213202.685,
+   "seconds": 0.010653759,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--dpi=0"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "dp",
+   "start": 1793213202.696,
+   "seconds": 0.011437981,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--dpi=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.708,
+   "seconds": 0.010692176,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--dpi=6"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.72,
+   "seconds": 0.010606842,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--dpi=7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.731,
+   "seconds": 0.010684594,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--dpi=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "dp",
+   "start": 1793213202.742,
+   "seconds": 0.010986598,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--columns=0"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "co",
+   "start": 1793213202.754,
+   "seconds": 0.010663717,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--columns=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.765,
+   "seconds": 0.01094543,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--columns=6"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.777,
+   "seconds": 0.011101225,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--columns=7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.789,
+   "seconds": 0.010705926,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--columns=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "co",
+   "start": 1793213202.801,
+   "seconds": 0.010567591,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--tab-stop=0"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "ta",
+   "start": 1793213202.812,
+   "seconds": 0.010698051,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--tab-stop=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.823,
+   "seconds": 0.010504924,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--tab-stop=6"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.835,
+   "seconds": 0.010732219,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--tab-stop=7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.846,
+   "seconds": 0.010535924,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--tab-stop=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "ta",
+   "start": 1793213202.858,
+   "seconds": 0.011099433,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--shift-heading-level-by=0"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.869,
+   "seconds": 0.010520549,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--shift-heading-level-by=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.881,
+   "seconds": 0.010582675,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--shift-heading-level-by=6"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.892,
+   "seconds": 0.010709135,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--shift-heading-level-by=7"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.904,
+   "seconds": 0.010677635,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--shift-heading-level-by=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.915,
+   "seconds": 0.010826803,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--base-header-level=0"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213202.927,
+   "seconds": 0.01100489,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--base-header-level=1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213202.939,
+   "seconds": 0.010552508,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--base-header-level=6"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213202.95,
+   "seconds": 0.010514174,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--base-header-level=7"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213202.961,
+   "seconds": 0.011417147,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-t",
+    "html",
+    "--base-header-level=-1"
+   ],
+   "argv_cut": false,
+   "exit_code": 6,
+   "signal": null,
+   "stderr": "[W",
+   "start": 1793213202.973,
+   "seconds": 0.010478881,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-o",
+    "out.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.984,
+   "seconds": 0.010567217,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-o",
+    "out.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213202.996,
+   "seconds": 0.010675091,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-o",
+    "tpl.txt",
+    "-D",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213203.008,
+   "seconds": 0.01067659,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "-D",
+    "plain",
+    "-o",
+    "tpl2.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213203.021,
+   "seconds": 0.010632963,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--file-scope",
+    "a.md",
+    "b.md",
+    "-t",
+    "plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213203.045,
+   "seconds": 0.010669298,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": [
+  {
+   "argv": [
+    "pandoc",
+    "a.md",
+    "-ohtml_out.html",
+    "-tplain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212994.24,
+   "seconds": 0.010901017,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "excluded": "working_tool:T1"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "a.md",
+    "--output=o2.txt",
+    "--to=plain"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212994.263,
+   "seconds": 0.010420576,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "excluded": "working_tool:T1"
+  },
+  {
+   "argv": [
+    "pandoc",
+    "--list-input-formats",
+    "nonexistent.md"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793213203.033,
+   "seconds": 0.010542837,
+   "cwd": "/tmp/ptest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 16,
+   "excluded": "working_tool:T1"
+  }
+ ]
+}

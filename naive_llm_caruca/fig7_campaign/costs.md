@@ -1,6 +1,6 @@
 # Task 019: cost of every run, and of the campaign
 
-Rewritten after every run by `run_campaign.py` (2026-10-28 14:02). Budget: target $120, ceiling $150. **Billed** is OpenRouter's own usage counter for the key, read before and after each session; *Claude Code's figure* is the session's own estimate, kept for comparison with runs 3 to 10. Times are the session's wall clock.
+Rewritten after every run by `run_campaign.py` (2026-10-28 15:38). Budget: target $120, ceiling $200. **Billed** is OpenRouter's own usage counter for the key, read before and after each session; *Claude Code's figure* is the session's own estimate, kept for comparison with runs 3 to 10. Times are the session's wall clock.
 
 | # | Command | Group | Run | Status | Estimate | **Billed** | Claude Code's figure | Input / output / cache read / cache write tokens | Wall time | Turns |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -75,14 +75,30 @@ Rewritten after every run by `run_campaign.py` (2026-10-28 14:02). Budget: targe
 | 69 | `split` | B | 1 | ok | $1.47 | **$2.82** | $4.25 | 68 / 366 / 1,980,645 / 76,391 | 518 s | 34 |
 | 70 | `numfmt` | B | 1 | ok | $1.47 | **$0.87** | $1.60 | 28 / 183 / 548,841 / 34,479 | 161 s | 14 |
 | 71 | `grep` | B (example) | 1 | ok | $2.07 | **$2.49** | $3.43 | 44 / 379 / 1,253,935 / 61,531 | 389 s | 22 |
+| 72 | `install` | B | 1 | ok | $1.55 | **$1.42** | $1.93 | 30 / 1,101 / 668,614 / 46,287 | 198 s | 15 |
+| 73 | `sort` | B | 1 | ok | $1.75 | **$3.19** | $5.18 | 66 / 1,175 / 2,465,532 / 98,424 | 384 s | 33 |
+| 74 | `du` | B | 1 | ok | $1.69 | **$1.06** | $1.46 | 26 / 1,075 / 537,241 / 31,898 | 161 s | 13 |
+| 75 | `pr` | B | 1 | ok | $1.65 | **$1.44** | $1.91 | 28 / 1,138 / 619,212 / 37,725 | 221 s | 14 |
+| 76 | `vdir` | B | 1 | ok | $2.32 | **$1.16** | $1.49 | 22 / 282 / 434,773 / 34,084 | 149 s | 11 |
+| 77 | `dir` | B | 1 | ok | $2.32 | **$1.13** | $1.61 | 26 / 265 / 520,009 / 35,085 | 181 s | 13 |
+| 78 | `unzip` | B | 1 | ok | $1.95 | **$2.99** | $4.68 | 62 / 1,370 / 2,257,720 / 90,960 | 352 s | 31 |
+| 79 | `pandoc` | B | 1 | ok | $3.11 | **$1.82** | $2.47 | 34 / 1,110 / 869,787 / 52,470 | 291 s | 19 |
+| 80 | `head` | A | 2 | ok | $1.26 | **$1.29** | $1.89 | 38 / 985 / 799,612 / 34,102 | 212 s | 19 |
+| 81 | `cut` | A | 2 | ok | $1.36 | **$1.26** | $1.91 | 36 / 1,011 / 767,068 / 37,266 | 205 s | 18 |
+| 82 | `dd` | B | 2 | ok | $1.42 | **$2.81** | $4.82 | 58 / 1,202 / 2,110,554 / 94,865 | 397 s | 29 |
+| 83 | `cp` | A | 2 | ok | $1.79 | **$1.23** | $1.61 | 26 / 148 / 506,660 / 34,801 | 167 s | 13 |
+| 84 | `sort` | B | 2 | ok | $1.75 | **$1.99** | $2.63 | 36 / 992 / 853,912 / 48,072 | 286 s | 18 |
+| 85 | `head` | A | 3 | ok | $1.26 | **$2.21** | $3.47 | 58 / 1,104 / 1,679,107 / 66,389 | 318 s | 29 |
+| 86 | `cut` | A | 3 | ok | $1.36 | **$1.03** | $1.38 | 24 / 974 / 470,787 / 31,348 | 153 s | 12 |
+| 87 | `dd` | B | 3 | ok | $1.42 | **$2.96** | $4.80 | 76 / 1,280 / 2,447,916 / 76,732 | 370 s | 38 |
 
 | Total | Money |
 |---|---|
-| Agent sessions (71 runs) | **$95.21** |
+| Agent sessions (87 runs) | **$124.21** |
 | Caruca's model step (77 commands) | $1.70 |
 | Smoke test | $0.30 |
 | Charges billed but not recorded by a run (Caruca's model step, convert: the GPT-4o call was billed but; Opus 5.5 extra-high comparison, 5 runs (dd ls cut test conve) | $25.92 |
-| **All billed** (sum of the rows above) | **$123.13** |
-| OpenRouter's counter since the campaign began | $125.70 |
-| Left before the $150 ceiling | $24.30 |
-| Projected total for the 79 commands (actual/estimate so far: 0.88; 8 not yet run) | $140.09 |
+| **All billed** (sum of the rows above) | **$152.13** |
+| OpenRouter's counter since the campaign began | $155.42 |
+| Left before the $200 ceiling | $44.58 |
+| Projected total for the 79 commands (actual/estimate so far: 0.91; 0 not yet run) | $155.42 |

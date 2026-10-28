@@ -1,0 +1,6717 @@
+{
+ "summary": {
+  "run": "2026-10-28_142022_naive-run-pr_pr_PROMPT_v1",
+  "command": "pr",
+  "binary": "/usr/bin/pr",
+  "logger_check": {
+   "audit_starts": 454,
+   "trace_starts": 448,
+   "audit_without_trace": 6,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793211600.7461538,
+   "clock_spread_ms": 4.89044189453125
+  },
+  "session_found": true,
+  "first_write": 1793211732.454,
+  "tries": 292,
+  "classes": {
+   "accepted": 241,
+   "unclassified": 49,
+   "other_nonzero": 2
+  },
+  "by_phase": {
+   "exploring/accepted": 169,
+   "exploring/other_nonzero": 1,
+   "exploring/unclassified": 5,
+   "testing/accepted": 72,
+   "testing/other_nonzero": 1,
+   "testing/unclassified": 44
+  },
+  "help_or_version": 3,
+  "distinct_argument_lists": 278,
+  "distinct_option_sets": 79,
+  "refused_share": 0.0,
+  "refused_program_seconds": 0,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "pr: ,",
+   "pr: 4",
+   "pr: 8",
+   "pr: ZZZ",
+   "pr: nofile",
+   "pr: xx"
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/pr",
+    "--version"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211637.915,
+   "seconds": 0.000214658,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 3,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e",
+    "8",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: 8",
+   "start": 1793211682.45,
+   "seconds": 0.000246263,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e8",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.451,
+   "seconds": 0.000201469,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--expand-tabs",
+    "4",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: 4",
+   "start": 1793211682.451,
+   "seconds": 0.00022447,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--expand-tabs=4",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.452,
+   "seconds": 0.000222303,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-m",
+    "-s",
+    ",",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ,",
+   "start": 1793211682.453,
+   "seconds": 0.000223345,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-m",
+    "-s,",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.453,
+   "seconds": 0.00019526,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-m",
+    "-S|",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.454,
+   "seconds": 0.00020376,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-m",
+    "-S",
+    "xx",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: xx",
+   "start": 1793211682.455,
+   "seconds": 0.000208885,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-n",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.455,
+   "seconds": 0.000182343,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-n:3",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.456,
+   "seconds": 0.000204552,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-2",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.457,
+   "seconds": 0.000185509,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-1",
+    "-2",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.457,
+   "seconds": 0.000174009,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-12"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.458,
+   "seconds": 0.00036356,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--columns",
+    "2",
+    "f1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.458,
+   "seconds": 0.000206552,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "+2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.459,
+   "seconds": 0.000276764,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "+2:3",
+    "-l",
+    "20"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.459,
+   "seconds": 0.000268555,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "--pages",
+    "2:3",
+    "-l",
+    "20"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.462,
+   "seconds": 0.000409062,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-l",
+    "10"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.463,
+   "seconds": 0.000235012,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-h",
+    "HDR",
+    "-o",
+    "2",
+    "-N",
+    "5",
+    "-w",
+    "40",
+    "-W",
+    "40",
+    "-D",
+    "%Y",
+    "-n"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.464,
+   "seconds": 0.000275139,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.464,
+   "seconds": 0.000184384,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "nofile"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: nofile",
+   "start": 1793211682.465,
+   "seconds": 0.000149883,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-r",
+    "nofile"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.465,
+   "seconds": 0.000133548,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-a",
+    "-2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.465,
+   "seconds": 0.000250763,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-m",
+    "-J",
+    "f1",
+    "f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.466,
+   "seconds": 0.000171675,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.466,
+   "seconds": 0.000191135,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-i"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.467,
+   "seconds": 0.000146299,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211682.467,
+   "seconds": 0.000180634,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.299,
+   "seconds": 0.00047625,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.3,
+   "seconds": 0.000304151,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.3,
+   "seconds": 0.000301068,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.301,
+   "seconds": 0.000293776,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.301,
+   "seconds": 0.000229062,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.302,
+   "seconds": 0.00076415,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.304,
+   "seconds": 0.000281483,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.304,
+   "seconds": 0.000271649,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.305,
+   "seconds": 0.000277858,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.305,
+   "seconds": 0.000265148,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.306,
+   "seconds": 0.0003812,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.306,
+   "seconds": 0.000283025,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.307,
+   "seconds": 0.00028315,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.307,
+   "seconds": 0.00031286,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.308,
+   "seconds": 0.000254356,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e4",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.309,
+   "seconds": 0.000377866,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e4",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.309,
+   "seconds": 0.000336112,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e4",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.309,
+   "seconds": 0.0002799,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e4",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.31,
+   "seconds": 0.00024923,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e4",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.31,
+   "seconds": 0.000246896,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-i",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.311,
+   "seconds": 0.000385409,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-i",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.311,
+   "seconds": 0.000292901,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-i",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.312,
+   "seconds": 0.000230311,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-i",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.312,
+   "seconds": 0.000201309,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-i",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.313,
+   "seconds": 0.000220061,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-c",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.313,
+   "seconds": 0.000344572,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-c",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.313,
+   "seconds": 0.000226978,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-c",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.314,
+   "seconds": 0.00023277,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-c",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.314,
+   "seconds": 0.00022077,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-c",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.315,
+   "seconds": 0.000206434,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-v",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.315,
+   "seconds": 0.000315611,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-v",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.316,
+   "seconds": 0.000235979,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-v",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.316,
+   "seconds": 0.000200268,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-v",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.316,
+   "seconds": 0.000219436,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-v",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.317,
+   "seconds": 0.000211102,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-d",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.317,
+   "seconds": 0.000292901,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-d",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.318,
+   "seconds": 0.000236521,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-d",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.318,
+   "seconds": 0.00020331,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-d",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.318,
+   "seconds": 0.000217686,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-d",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.319,
+   "seconds": 0.000194308,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-o",
+    "3",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.319,
+   "seconds": 0.000319319,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-o",
+    "3",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.32,
+   "seconds": 0.00023627,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-o",
+    "3",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.32,
+   "seconds": 0.000197809,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-o",
+    "3",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.32,
+   "seconds": 0.000188392,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-o",
+    "3",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.321,
+   "seconds": 0.000184975,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-W",
+    "10",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.321,
+   "seconds": 0.000282358,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-W",
+    "10",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.322,
+   "seconds": 0.000227729,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-W",
+    "10",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.322,
+   "seconds": 0.000187475,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-W",
+    "10",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.322,
+   "seconds": 0.000208185,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-W",
+    "10",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.323,
+   "seconds": 0.000195434,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-J",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.323,
+   "seconds": 0.0003812,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-J",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.323,
+   "seconds": 0.000231729,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-J",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.324,
+   "seconds": 0.000180849,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-J",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.324,
+   "seconds": 0.00018335,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-J",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.325,
+   "seconds": 0.000189891,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-F",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.325,
+   "seconds": 0.000283317,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-F",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.325,
+   "seconds": 0.000209227,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-F",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.326,
+   "seconds": 0.000186391,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-F",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.326,
+   "seconds": 0.000183516,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-F",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.326,
+   "seconds": 0.000212185,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-f",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.327,
+   "seconds": 0.000273065,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-f",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.327,
+   "seconds": 0.000205518,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-f",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.328,
+   "seconds": 0.00017789,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-f",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.328,
+   "seconds": 0.000182099,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-f",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.328,
+   "seconds": 0.000202018,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-w",
+    "20",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.329,
+   "seconds": 0.000277691,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-w",
+    "20",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.329,
+   "seconds": 0.000210018,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-w",
+    "20",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.329,
+   "seconds": 0.000225145,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-w",
+    "20",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.33,
+   "seconds": 0.000199476,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-w",
+    "20",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.33,
+   "seconds": 0.000193226,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-s,",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.331,
+   "seconds": 0.000273065,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-s,",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.331,
+   "seconds": 0.000220269,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-s,",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.331,
+   "seconds": 0.000191559,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-s,",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.332,
+   "seconds": 0.000180015,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-s,",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.332,
+   "seconds": 0.000185266,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-S|",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.333,
+   "seconds": 0.000292526,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-S|",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.333,
+   "seconds": 0.000202642,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-S|",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.333,
+   "seconds": 0.000177974,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-S|",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.333,
+   "seconds": 0.000180849,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-S|",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.334,
+   "seconds": 0.000176807,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-n",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.334,
+   "seconds": 0.000398827,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-n",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.335,
+   "seconds": 0.000231728,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-n",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.335,
+   "seconds": 0.000206143,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-n",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.335,
+   "seconds": 0.00024473,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-n",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.336,
+   "seconds": 0.000213268,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-2",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.337,
+   "seconds": 0.000440164,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-2",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.337,
+   "seconds": 0.00026419,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-2",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.337,
+   "seconds": 0.000241646,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-2",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.338,
+   "seconds": 0.000226186,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-2",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.338,
+   "seconds": 0.000217977,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-a",
+    "-2",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.339,
+   "seconds": 0.000341405,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-a",
+    "-2",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.339,
+   "seconds": 0.000253064,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-a",
+    "-2",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.339,
+   "seconds": 0.000244647,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-a",
+    "-2",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.34,
+   "seconds": 0.000207352,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-a",
+    "-2",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.341,
+   "seconds": 0.000221644,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "+2",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.341,
+   "seconds": 0.000285609,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "+2",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.342,
+   "seconds": 0.000200059,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "+2",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.342,
+   "seconds": 0.000188808,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "+2",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.342,
+   "seconds": 0.000178891,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "+2",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.343,
+   "seconds": 0.000189058,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-l",
+    "5",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.343,
+   "seconds": 0.000299902,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-l",
+    "5",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.343,
+   "seconds": 0.0001966,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-l",
+    "5",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.344,
+   "seconds": 0.000202268,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-l",
+    "5",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.344,
+   "seconds": 0.0001886,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-l",
+    "5",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.345,
+   "seconds": 0.000192517,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "-F",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.345,
+   "seconds": 0.000281442,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "-F",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.345,
+   "seconds": 0.000223436,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "-F",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.346,
+   "seconds": 0.000183933,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "-F",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.346,
+   "seconds": 0.000191017,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "-F",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.346,
+   "seconds": 0.000194142,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "-d",
+    "-o",
+    "2",
+    "-W",
+    "20",
+    "-e",
+    "-i",
+    "-c",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.347,
+   "seconds": 0.000342613,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "-d",
+    "-o",
+    "2",
+    "-W",
+    "20",
+    "-e",
+    "-i",
+    "-c",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.347,
+   "seconds": 0.000208185,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "-d",
+    "-o",
+    "2",
+    "-W",
+    "20",
+    "-e",
+    "-i",
+    "-c",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.348,
+   "seconds": 0.000204059,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "-d",
+    "-o",
+    "2",
+    "-W",
+    "20",
+    "-e",
+    "-i",
+    "-c",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.348,
+   "seconds": 0.000232604,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T",
+    "-d",
+    "-o",
+    "2",
+    "-W",
+    "20",
+    "-e",
+    "-i",
+    "-c",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.348,
+   "seconds": 0.00021931,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.349,
+   "seconds": 0.000293359,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.349,
+   "seconds": 0.000205268,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.35,
+   "seconds": 0.000185183,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.35,
+   "seconds": 0.000197809,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.35,
+   "seconds": 0.00021131,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-l",
+    "5",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.351,
+   "seconds": 0.000271482,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-l",
+    "5",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.352,
+   "seconds": 0.000197767,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-l",
+    "5",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.352,
+   "seconds": 0.000184808,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-l",
+    "5",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.352,
+   "seconds": 0.000193183,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-l",
+    "5",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.353,
+   "seconds": 0.000172099,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-N",
+    "3",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.353,
+   "seconds": 0.000278566,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-N",
+    "3",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.353,
+   "seconds": 0.000190058,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-N",
+    "3",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.354,
+   "seconds": 0.000184725,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-N",
+    "3",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.354,
+   "seconds": 0.000170432,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-N",
+    "3",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.354,
+   "seconds": 0.00019335,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-h",
+    "x",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.355,
+   "seconds": 0.000264106,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-h",
+    "x",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.355,
+   "seconds": 0.00018335,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-h",
+    "x",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.356,
+   "seconds": 0.000197309,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-h",
+    "x",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.356,
+   "seconds": 0.000184433,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-h",
+    "x",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.356,
+   "seconds": 0.000182391,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-D",
+    "%Y",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.357,
+   "seconds": 0.000257522,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-D",
+    "%Y",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.357,
+   "seconds": 0.00019935,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-D",
+    "%Y",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.357,
+   "seconds": 0.000216644,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-D",
+    "%Y",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.358,
+   "seconds": 0.000183224,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-D",
+    "%Y",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.358,
+   "seconds": 0.000191891,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-r",
+    "big"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.359,
+   "seconds": 0.000259731,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-r",
+    "part.aa"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.359,
+   "seconds": 0.000181557,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-r",
+    "part.ab"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.359,
+   "seconds": 0.00017189,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-r",
+    "part.ac"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.36,
+   "seconds": 0.000167973,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-r",
+    "part.ad"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.36,
+   "seconds": 0.000169098,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.361,
+   "seconds": 0.000158639,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "-T"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211710.361,
+   "seconds": 0.000155388,
+   "cwd": "/tmp/prtest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 5,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "pr",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211809.24,
+   "seconds": 0.000292505,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--across",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211809.241,
+   "seconds": 0.000342714,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--across",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211809.242,
+   "seconds": 0.00030863,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--double-space",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211809.243,
+   "seconds": 0.000229128,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--double-space",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211809.243,
+   "seconds": 0.000262254,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--expand-tabs",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211809.244,
+   "seconds": 0.000214545,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--expand-tabs",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211809.244,
+   "seconds": 0.000297546,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--form-feed",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211809.245,
+   "seconds": 0.000218796,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--form-feed",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211809.245,
+   "seconds": 0.000227003,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--join-lines",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211809.245,
+   "seconds": 0.00025592,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--join-lines",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211809.246,
+   "seconds": 0.00020417,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--merge",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211809.246,
+   "seconds": 0.000194337,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--merge",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211809.247,
+   "seconds": 0.00021167,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--no-file-warnings",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211809.247,
+   "seconds": 0.000177211,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--no-file-warnings",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211809.248,
+   "seconds": 0.00019467,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 10,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "--help"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.823,
+   "seconds": 0.000259879,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": true,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--across",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.824,
+   "seconds": 0.000271129,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--across",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.825,
+   "seconds": 0.000281671,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--double-space",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.825,
+   "seconds": 0.000234003,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--double-space",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.826,
+   "seconds": 0.000279587,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--expand-tabs",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.826,
+   "seconds": 0.000239628,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--expand-tabs",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.827,
+   "seconds": 0.000235754,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--form-feed",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.827,
+   "seconds": 0.000238337,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--form-feed",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.828,
+   "seconds": 0.000295129,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--join-lines",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.829,
+   "seconds": 0.000408339,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--join-lines",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.829,
+   "seconds": 0.000249796,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--merge",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.83,
+   "seconds": 0.000379422,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--merge",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.831,
+   "seconds": 0.000269545,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--number-lines",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.831,
+   "seconds": 0.000240921,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--number-lines",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.832,
+   "seconds": 0.000230254,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--omit-header",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.832,
+   "seconds": 0.00024317,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--omit-header",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.833,
+   "seconds": 0.000199169,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--omit-pagination",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.833,
+   "seconds": 0.00019092,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--omit-pagination",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.834,
+   "seconds": 0.000207337,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--output-tabs",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.834,
+   "seconds": 0.00017992,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--output-tabs",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.834,
+   "seconds": 0.000247046,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--sep-string",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.835,
+   "seconds": 0.000199337,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--sep-string",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.835,
+   "seconds": 0.000217545,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--separator",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.836,
+   "seconds": 0.000197253,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--separator",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.836,
+   "seconds": 0.000219586,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--show-control-chars",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.837,
+   "seconds": 0.000175419,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--show-control-chars",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.837,
+   "seconds": 0.000187212,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--show-nonprinting",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.837,
+   "seconds": 0.000205295,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--show-nonprinting",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.838,
+   "seconds": 0.000188461,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-1",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.838,
+   "seconds": 0.000162128,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-1",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.838,
+   "seconds": 0.000259712,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-2",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.839,
+   "seconds": 0.000195044,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-2",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.839,
+   "seconds": 0.000208211,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-3",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.84,
+   "seconds": 0.000188503,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-3",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.84,
+   "seconds": 0.00025142,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-4",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.841,
+   "seconds": 0.000173045,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-4",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.841,
+   "seconds": 0.000204045,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-5",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.841,
+   "seconds": 0.000179752,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-5",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.842,
+   "seconds": 0.00022292,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-6",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.842,
+   "seconds": 0.000167961,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-6",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.842,
+   "seconds": 0.000243962,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-7",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.843,
+   "seconds": 0.000171669,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-7",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.843,
+   "seconds": 0.000242003,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-8",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.844,
+   "seconds": 0.000172752,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-8",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.844,
+   "seconds": 0.000187253,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-9",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.844,
+   "seconds": 0.000169252,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-9",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.845,
+   "seconds": 0.000178836,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-F",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.845,
+   "seconds": 0.000169878,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-F",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.846,
+   "seconds": 0.000176419,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-J",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.846,
+   "seconds": 0.000167919,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-J",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.846,
+   "seconds": 0.00018017,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-S",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.847,
+   "seconds": 0.000158169,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-S",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.847,
+   "seconds": 0.000159252,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-T",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.847,
+   "seconds": 0.000152294,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-T",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.848,
+   "seconds": 0.00019467,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-a",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.848,
+   "seconds": 0.000160794,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-a",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.848,
+   "seconds": 0.000203337,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-c",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.849,
+   "seconds": 0.000182127,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-c",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.849,
+   "seconds": 0.000182169,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-d",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.849,
+   "seconds": 0.000168253,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-d",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.85,
+   "seconds": 0.00017517,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.85,
+   "seconds": 0.000171961,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-e",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.851,
+   "seconds": 0.000171419,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-f",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.851,
+   "seconds": 0.000148336,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-f",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.851,
+   "seconds": 0.000176503,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-i",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.852,
+   "seconds": 0.000174211,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-i",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.852,
+   "seconds": 0.000176128,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-m",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.852,
+   "seconds": 0.000202211,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-m",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.853,
+   "seconds": 0.000176378,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-n",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.853,
+   "seconds": 0.000161336,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-n",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.853,
+   "seconds": 0.000201212,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-s",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.854,
+   "seconds": 0.000155502,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-s",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.854,
+   "seconds": 0.000161294,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-t",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.854,
+   "seconds": 0.000177044,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-t",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.855,
+   "seconds": 0.000199836,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-v",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.855,
+   "seconds": 0.000170419,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-v",
+    "ZZZ",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "pr: ZZZ",
+   "start": 1793211814.855,
+   "seconds": 0.000198795,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--columns",
+    "2",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.856,
+   "seconds": 0.000151003,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--columns=2",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.856,
+   "seconds": 0.000146752,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--date-format",
+    "%Y",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.856,
+   "seconds": 0.000158627,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--date-format=%Y",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.857,
+   "seconds": 0.000164127,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--first-line-number",
+    "20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.857,
+   "seconds": 0.000161711,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--first-line-number=20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.857,
+   "seconds": 0.00018342,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--header",
+    "H",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.858,
+   "seconds": 0.000158419,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--header=H",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.858,
+   "seconds": 0.000151169,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--indent",
+    "20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.858,
+   "seconds": 0.00017067,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--indent=20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.859,
+   "seconds": 0.000153419,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--length",
+    "20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.859,
+   "seconds": 0.000145044,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--length=20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.859,
+   "seconds": 0.000161085,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--page-width",
+    "20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.86,
+   "seconds": 0.000160336,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--page-width=20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.86,
+   "seconds": 0.000158378,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--pages",
+    "1",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.86,
+   "seconds": 0.000149419,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--pages=1",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.861,
+   "seconds": 0.000180003,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--width",
+    "20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.861,
+   "seconds": 0.000169127,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "--width=20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.861,
+   "seconds": 0.000171295,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-D",
+    "%Y",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.862,
+   "seconds": 0.000156794,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-N",
+    "20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.862,
+   "seconds": 0.000161961,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-W",
+    "20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.862,
+   "seconds": 0.000163752,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-h",
+    "H",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.863,
+   "seconds": 0.000177086,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-l",
+    "20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.863,
+   "seconds": 0.000174711,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-o",
+    "20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.863,
+   "seconds": 0.000193336,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  },
+  {
+   "argv": [
+    "pr",
+    "-t",
+    "-w",
+    "20",
+    "/tmp/prtest/f2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793211814.864,
+   "seconds": 0.000163628,
+   "cwd": "/tmp/prstub",
+   "parents": [
+    "python3.12",
+    "bash"
+   ],
+   "tool_call": 11,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "testing"
+  }
+ ],
+ "excluded": []
+}

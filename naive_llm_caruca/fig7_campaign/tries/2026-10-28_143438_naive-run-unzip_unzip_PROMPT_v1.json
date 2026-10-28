@@ -1,0 +1,2938 @@
+{
+ "summary": {
+  "run": "2026-10-28_143438_naive-run-unzip_unzip_PROMPT_v1",
+  "command": "unzip",
+  "binary": "/usr/bin/unzip",
+  "logger_check": {
+   "audit_starts": 541,
+   "trace_starts": 534,
+   "audit_without_trace": 7,
+   "trace_without_audit": 0,
+   "clock_offset_s": 1793212456.2583013,
+   "clock_spread_ms": 6.049156188964844
+  },
+  "session_found": true,
+  "first_write": 1793212719.932,
+  "tries": 125,
+  "classes": {
+   "accepted": 77,
+   "unclassified": 4,
+   "refused": 43,
+   "other_nonzero": 1
+  },
+  "by_phase": {
+   "exploring/accepted": 77,
+   "exploring/other_nonzero": 1,
+   "exploring/refused": 43,
+   "exploring/unclassified": 4
+  },
+  "help_or_version": 0,
+  "distinct_argument_lists": 122,
+  "distinct_option_sets": 116,
+  "refused_share": 0.344,
+  "refused_program_seconds": 0.021,
+  "calls_all_refused": 0,
+  "calls_all_refused_seconds": 0,
+  "excluded": {},
+  "outside_session": 0,
+  "builtin_mentions_in_commands": null,
+  "unclassified_messages": [
+   "caution: excluded filename not matched:  -x",
+   "caution: filename not matched:  -d\ncaution: filename not matched:  out_e2",
+   "replace out_prompt/a.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename:  NULL\n(EOF or read error, treating as \"[N]one\" ...)",
+   "unzip:  cannot find or open sub/*, sub/*.zip or sub/*.ZIP."
+  ]
+ },
+ "tries": [
+  {
+   "argv": [
+    "/usr/bin/unzip",
+    "-v"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212492.22,
+   "seconds": 0.000887042,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/unzip",
+    "-h"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212492.226,
+   "seconds": 0.00037775,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "/usr/bin/unzip",
+    "-hh"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212492.227,
+   "seconds": 0.000817125,
+   "cwd": "/home/tirandagan.guest/naive-arm",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 4,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-l",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212512.681,
+   "seconds": 0.000377682,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 8,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-p",
+    "t.zip",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212518.853,
+   "seconds": 0.000407739,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-c",
+    "t.zip",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212518.855,
+   "seconds": 0.000375858,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "t.zip",
+    "-d",
+    "out1"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212518.856,
+   "seconds": 0.000389527,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-d",
+    "out2",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212518.857,
+   "seconds": 0.000457873,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "t.zip",
+    "-dout3"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212518.858,
+   "seconds": 0.000408489,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "t.zip",
+    "-x",
+    "sub/b.bin",
+    "-d",
+    "out4"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212518.86,
+   "seconds": 0.000396862,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "t.zip",
+    "a.txt",
+    "-x",
+    "nothing",
+    "-d",
+    "out5"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "caution: excluded filename not matched:  nothing\n",
+   "start": 1793212518.861,
+   "seconds": 0.00039582,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-q",
+    "-x",
+    "sub/*",
+    "t.zip",
+    "-d",
+    "out6",
+    "-o"
+   ],
+   "argv_cut": false,
+   "exit_code": 9,
+   "signal": null,
+   "stderr": "unzip:  cannot find or open sub/*, sub/*.zip or sub/*.ZIP.\n\n",
+   "start": 1793212518.862,
+   "seconds": 0.000293927,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-l",
+    "-"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212518.863,
+   "seconds": 0.000272381,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-p",
+    "-",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 9,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212518.864,
+   "seconds": 0.00029226,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "other_nonzero",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-t",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212518.864,
+   "seconds": 0.000281883,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-tq",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212518.865,
+   "seconds": 0.000325516,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-z",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212518.865,
+   "seconds": 0.000310222,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212518.866,
+   "seconds": 0.000285092,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z1",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212518.866,
+   "seconds": 0.000271006,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Zl",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212518.867,
+   "seconds": 0.000295011,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 9,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-A",
+    "t.zip",
+    "-d",
+    "out_A"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.543,
+   "seconds": 0.009366307,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-c",
+    "t.zip",
+    "-d",
+    "out_c"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "caution:  not extracting; -d ignored\n",
+   "start": 1793212628.558,
+   "seconds": 0.00153896,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-f",
+    "t.zip",
+    "-d",
+    "out_f"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.561,
+   "seconds": 0.000531251,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-l",
+    "t.zip",
+    "-d",
+    "out_l"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "caution:  not extracting; -d ignored\n",
+   "start": 1793212628.563,
+   "seconds": 0.000912751,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-p",
+    "t.zip",
+    "-d",
+    "out_p"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "caution:  not extracting; -d ignored\n",
+   "start": 1793212628.566,
+   "seconds": 0.000465834,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-t",
+    "t.zip",
+    "-d",
+    "out_t"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.567,
+   "seconds": 0.000367375,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-T",
+    "t.zip",
+    "-d",
+    "out_T"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "caution:  not extracting; -d ignored\n",
+   "start": 1793212628.569,
+   "seconds": 0.000380876,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-u",
+    "t.zip",
+    "-d",
+    "out_u"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.571,
+   "seconds": 0.000515418,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-v",
+    "t.zip",
+    "-d",
+    "out_v"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "caution:  not extracting; -d ignored\n",
+   "start": 1793212628.573,
+   "seconds": 0.000435209,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-z",
+    "t.zip",
+    "-d",
+    "out_z"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "caution:  not extracting; -d ignored\n",
+   "start": 1793212628.574,
+   "seconds": 0.000303667,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-a",
+    "t.zip",
+    "-d",
+    "out_a"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.576,
+   "seconds": 0.000454501,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-b",
+    "t.zip",
+    "-d",
+    "out_b"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.578,
+   "seconds": 0.000428959,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-B",
+    "t.zip",
+    "-d",
+    "out_B"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.579,
+   "seconds": 0.000434334,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-C",
+    "t.zip",
+    "-d",
+    "out_C"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.581,
+   "seconds": 0.000368667,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-D",
+    "t.zip",
+    "-d",
+    "out_D"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.583,
+   "seconds": 0.000371084,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-E",
+    "t.zip",
+    "-d",
+    "out_E"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.584,
+   "seconds": 0.000517001,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-F",
+    "t.zip",
+    "-d",
+    "out_F"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.586,
+   "seconds": 0.000366917,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-i",
+    "t.zip",
+    "-d",
+    "out_i"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.587,
+   "seconds": 0.000276376,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-I",
+    "t.zip",
+    "-d",
+    "out_I"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.589,
+   "seconds": 0.000239667,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-j",
+    "t.zip",
+    "-d",
+    "out_j"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.59,
+   "seconds": 0.000317126,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-J",
+    "t.zip",
+    "-d",
+    "out_J"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.592,
+   "seconds": 0.000250125,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-K",
+    "t.zip",
+    "-d",
+    "out_K"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.593,
+   "seconds": 0.000325834,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-L",
+    "t.zip",
+    "-d",
+    "out_L"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.594,
+   "seconds": 0.000349917,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-M",
+    "t.zip",
+    "-d",
+    "out_M"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.596,
+   "seconds": 0.000306042,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-n",
+    "t.zip",
+    "-d",
+    "out_n"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "caution:  both -n and -o specified; ignoring -o\n",
+   "start": 1793212628.597,
+   "seconds": 0.000363459,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-N",
+    "t.zip",
+    "-d",
+    "out_N"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.599,
+   "seconds": 0.000222667,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-o",
+    "t.zip",
+    "-d",
+    "out_o"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.6,
+   "seconds": 0.000310876,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-O",
+    "t.zip",
+    "-d",
+    "out_O"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.601,
+   "seconds": 0.000246501,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-P",
+    "t.zip",
+    "-d",
+    "out_P"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.603,
+   "seconds": 0.000271042,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-q",
+    "t.zip",
+    "-d",
+    "out_q"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.604,
+   "seconds": 0.000307709,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-s",
+    "t.zip",
+    "-d",
+    "out_s"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.606,
+   "seconds": 0.000253959,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-S",
+    "t.zip",
+    "-d",
+    "out_S"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.607,
+   "seconds": 0.000220376,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-U",
+    "t.zip",
+    "-d",
+    "out_U"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.608,
+   "seconds": 0.000335876,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-V",
+    "t.zip",
+    "-d",
+    "out_V"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.61,
+   "seconds": 0.000333208,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-W",
+    "t.zip",
+    "-d",
+    "out_W"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.611,
+   "seconds": 0.000655459,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-X",
+    "t.zip",
+    "-d",
+    "out_X"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.613,
+   "seconds": 0.000285917,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-Y",
+    "t.zip",
+    "-d",
+    "out_Y"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.614,
+   "seconds": 0.000221084,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-Z",
+    "t.zip",
+    "-d",
+    "out_Z"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "error:  -Z must be first option for ZipInfo mode (check UNZIP variable?)\nUnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\n",
+   "start": 1793212628.615,
+   "seconds": 0.00024575,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-2",
+    "t.zip",
+    "-d",
+    "out_2"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.617,
+   "seconds": 0.000225334,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-$",
+    "t.zip",
+    "-d",
+    "out_$"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.618,
+   "seconds": 0.000261834,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-:",
+    "t.zip",
+    "-d",
+    "out_:"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.62,
+   "seconds": 0.000292083,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-^",
+    "t.zip",
+    "-d",
+    "out_^"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.621,
+   "seconds": 0.000320126,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-/",
+    "t.zip",
+    "-d",
+    "out_/"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.622,
+   "seconds": 0.000226542,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-h",
+    "t.zip",
+    "-d",
+    "out_h"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.623,
+   "seconds": 0.000231334,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-e",
+    "t.zip",
+    "-d",
+    "out_e"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212628.625,
+   "seconds": 0.0003225,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-g",
+    "t.zip",
+    "-d",
+    "out_g"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.626,
+   "seconds": 0.00023225,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-G",
+    "t.zip",
+    "-d",
+    "out_G"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.627,
+   "seconds": 0.000237875,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-H",
+    "t.zip",
+    "-d",
+    "out_H"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.629,
+   "seconds": 0.000231417,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-k",
+    "t.zip",
+    "-d",
+    "out_k"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.63,
+   "seconds": 0.000227375,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-m",
+    "t.zip",
+    "-d",
+    "out_m"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.631,
+   "seconds": 0.000246125,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-Q",
+    "t.zip",
+    "-d",
+    "out_Q"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.633,
+   "seconds": 0.000234375,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-r",
+    "t.zip",
+    "-d",
+    "out_r"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.634,
+   "seconds": 0.00063671,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-R",
+    "t.zip",
+    "-d",
+    "out_R"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.636,
+   "seconds": 0.000294875,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-w",
+    "t.zip",
+    "-d",
+    "out_w"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.637,
+   "seconds": 0.000242292,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-y",
+    "t.zip",
+    "-d",
+    "out_y"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.638,
+   "seconds": 0.000235584,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-Z",
+    "t.zip",
+    "-d",
+    "out_Z"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "error:  -Z must be first option for ZipInfo mode (check UNZIP variable?)\nUnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\n",
+   "start": 1793212628.639,
+   "seconds": 0.000260459,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-0",
+    "t.zip",
+    "-d",
+    "out_0"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.641,
+   "seconds": 0.000232542,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-1",
+    "t.zip",
+    "-d",
+    "out_1"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.642,
+   "seconds": 0.00022875,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-3",
+    "t.zip",
+    "-d",
+    "out_3"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.\n\nUsage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]\n  Default action is to extract files in list, excep",
+   "start": 1793212628.643,
+   "seconds": 0.000227001,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 17,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-I",
+    "UTF-8",
+    "-O",
+    "CP437",
+    "-P",
+    "secret",
+    "t.zip",
+    "-d",
+    "out_IOP"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212639.409,
+   "seconds": 0.001116501,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "-IUTF-8",
+    "-Psecret",
+    "t.zip",
+    "-d",
+    "out_IOP2"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212639.411,
+   "seconds": 0.000525668,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "t.zip",
+    "-x",
+    "a.txt",
+    "-x",
+    "sub/b.bin",
+    "-d",
+    "out_xx"
+   ],
+   "argv_cut": false,
+   "exit_code": 11,
+   "signal": null,
+   "stderr": "caution: excluded filename not matched:  -x\n",
+   "start": 1793212639.411,
+   "seconds": 0.000461376,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "t.zip",
+    "-d",
+    "out_dx",
+    "-x",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212639.413,
+   "seconds": 0.000418958,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qo",
+    "t.zip",
+    "-d",
+    "out_e",
+    "-d",
+    "out_e2"
+   ],
+   "argv_cut": false,
+   "exit_code": 11,
+   "signal": null,
+   "stderr": "caution: filename not matched:  -d\ncaution: filename not matched:  out_e2\n",
+   "start": 1793212639.415,
+   "seconds": 0.001018752,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-q",
+    "t.zip",
+    "-d",
+    "out_prompt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212639.417,
+   "seconds": 0.000489709,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "t.zip",
+    "-d",
+    "out_prompt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "replace out_prompt/a.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename: ",
+   "start": 1793212639.418,
+   "seconds": 0.00062671,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-q",
+    "t.zip",
+    "-d",
+    "out_prompt"
+   ],
+   "argv_cut": false,
+   "exit_code": 1,
+   "signal": null,
+   "stderr": "replace out_prompt/a.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename:  NULL\n(EOF or read error, treating as \"[N]one\" ...)\n",
+   "start": 1793212639.419,
+   "seconds": 0.000404959,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "unclassified",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-T",
+    "t2.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212639.422,
+   "seconds": 0.000348667,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-o",
+    "t.zip",
+    "-d",
+    "out_v"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212639.423,
+   "seconds": 0.000551375,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qq",
+    "-l",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212639.424,
+   "seconds": 0.000311125,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qq",
+    "-t",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212639.425,
+   "seconds": 0.000709542,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 18,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-1",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.197,
+   "seconds": 0.000982376,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-2",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.202,
+   "seconds": 0.000454376,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-s",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.204,
+   "seconds": 0.000336167,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-m",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.206,
+   "seconds": 0.00326592,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-l",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.212,
+   "seconds": 0.000349417,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-v",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.214,
+   "seconds": 0.000538792,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-h",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.216,
+   "seconds": 0.000335084,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-M",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.218,
+   "seconds": 0.000339792,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-t",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.22,
+   "seconds": 0.000622876,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-T",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.222,
+   "seconds": 0.000360709,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-U",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.224,
+   "seconds": 0.000305958,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-z",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.225,
+   "seconds": 0.000582709,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-C",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.227,
+   "seconds": 0.000481334,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-x",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.\n\nList name, date/time, attribute, size, compression metho\nmain listing-format options:             -s  short Unix \"ls -l\" format (def.)\n  -1  filenames ONLY, one per line       -m  medi",
+   "start": 1793212668.229,
+   "seconds": 0.000271667,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-d",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.\n\nList name, date/time, attribute, size, compression metho\nmain listing-format options:             -s  short Unix \"ls -l\" format (def.)\n  -1  filenames ONLY, one per line       -m  medi",
+   "start": 1793212668.231,
+   "seconds": 0.000259708,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-O",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.232,
+   "seconds": 0.000236792,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-I",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.233,
+   "seconds": 0.000258542,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-q",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.\n\nList name, date/time, attribute, size, compression metho\nmain listing-format options:             -s  short Unix \"ls -l\" format (def.)\n  -1  filenames ONLY, one per line       -m  medi",
+   "start": 1793212668.235,
+   "seconds": 0.000244834,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-n",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.\n\nList name, date/time, attribute, size, compression metho\nmain listing-format options:             -s  short Unix \"ls -l\" format (def.)\n  -1  filenames ONLY, one per line       -m  medi",
+   "start": 1793212668.236,
+   "seconds": 0.000238251,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-o",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.\n\nList name, date/time, attribute, size, compression metho\nmain listing-format options:             -s  short Unix \"ls -l\" format (def.)\n  -1  filenames ONLY, one per line       -m  medi",
+   "start": 1793212668.237,
+   "seconds": 0.000303417,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-p",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.\n\nList name, date/time, attribute, size, compression metho\nmain listing-format options:             -s  short Unix \"ls -l\" format (def.)\n  -1  filenames ONLY, one per line       -m  medi",
+   "start": 1793212668.239,
+   "seconds": 0.000262625,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-c",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.\n\nList name, date/time, attribute, size, compression metho\nmain listing-format options:             -s  short Unix \"ls -l\" format (def.)\n  -1  filenames ONLY, one per line       -m  medi",
+   "start": 1793212668.24,
+   "seconds": 0.000254167,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-f",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.\n\nList name, date/time, attribute, size, compression metho\nmain listing-format options:             -s  short Unix \"ls -l\" format (def.)\n  -1  filenames ONLY, one per line       -m  medi",
+   "start": 1793212668.241,
+   "seconds": 0.000219625,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-u",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.\n\nList name, date/time, attribute, size, compression metho\nmain listing-format options:             -s  short Unix \"ls -l\" format (def.)\n  -1  filenames ONLY, one per line       -m  medi",
+   "start": 1793212668.243,
+   "seconds": 0.000240626,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-a",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.\n\nList name, date/time, attribute, size, compression metho\nmain listing-format options:             -s  short Unix \"ls -l\" format (def.)\n  -1  filenames ONLY, one per line       -m  medi",
+   "start": 1793212668.244,
+   "seconds": 0.000248292,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-j",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.\n\nList name, date/time, attribute, size, compression metho\nmain listing-format options:             -s  short Unix \"ls -l\" format (def.)\n  -1  filenames ONLY, one per line       -m  medi",
+   "start": 1793212668.246,
+   "seconds": 0.000354251,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-K",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.\n\nList name, date/time, attribute, size, compression metho\nmain listing-format options:             -s  short Unix \"ls -l\" format (def.)\n  -1  filenames ONLY, one per line       -m  medi",
+   "start": 1793212668.247,
+   "seconds": 0.000299959,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-X",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 10,
+   "signal": null,
+   "stderr": "ZipInfo 3.00 of 20 April 2009, by Greg Roelofs and the Info-ZIP group.\n\nList name, date/time, attribute, size, compression metho\nmain listing-format options:             -s  short Unix \"ls -l\" format (def.)\n  -1  filenames ONLY, one per line       -m  medi",
+   "start": 1793212668.249,
+   "seconds": 0.000229583,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "refused",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z",
+    "-C",
+    "t.zip",
+    "A.TXT"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.25,
+   "seconds": 0.00026125,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z1",
+    "t.zip",
+    "-x",
+    "a.txt"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.25,
+   "seconds": 0.000493709,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Z1",
+    "-O",
+    "CP437",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.251,
+   "seconds": 0.000268417,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-qT",
+    "t2.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.251,
+   "seconds": 0.000266917,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-Zh",
+    "t.zip"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.252,
+   "seconds": 0.000224542,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  },
+  {
+   "argv": [
+    "unzip",
+    "-h"
+   ],
+   "argv_cut": false,
+   "exit_code": 0,
+   "signal": null,
+   "stderr": "",
+   "start": 1793212668.252,
+   "seconds": 0.000218,
+   "cwd": "/tmp/uztest",
+   "parents": [
+    "bash"
+   ],
+   "tool_call": 19,
+   "class": "accepted",
+   "help_or_version": false,
+   "phase": "exploring"
+  }
+ ],
+ "excluded": []
+}
