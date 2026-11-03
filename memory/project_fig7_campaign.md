@@ -156,6 +156,53 @@ full wait (300 s + stability check): `uname` recorded $0.00 and `id` $1.49 holds
 Code figure / bill = 0.90 vs median 1.44). Ledger left as measured; `compare_table.py` marks such pairs;
 `run_campaign.py` sets `bill_late` from the next launch. The ledger's `tokens` field priced at list rates
 is only about half of each bill, so it is not the session's whole usage and cannot split a merged charge.
+**Cause found 2026-11-03 (read from code, measured over all 89 runs):** `run_campaign.result_event` sums the
+`usage` of each `assistant` event in `stream.jsonl`, which holds only the first streamed output tokens.
+Ledger output total 81,846 vs 1,306,603 in the `result` events' `usage` (16x; 3.8x to 114x per run).
+Input, cache-read and cache-write counts agree. So the token columns of `costs.md` and `ledger.jsonl` are
+wrong for output; the `result` event's `usage` is correct. Not fixed as of 2026-11-03.
 Interim table: `fig7_campaign/compare_table.py` → `interim_comparison.md`.
 **2026-10-28 14:10:** Tiran approved the 10 repeat runs (head cut dd cp sort, repeats 2 and 3) to start as soon
 as the main batch ends; warn him if the key's credit drops below $40 (credit_watch.py --below 40 keeps running).
+**2026-10-28 15:45:** matplotlib is in neither the repo `.venv` nor system python3 on the Mac; figures are drawn
+with `uv run --no-project --with matplotlib==3.9.2 python naive_llm_caruca/fig7_campaign/make_figures.py`
+(→ `fig7_campaign/figures/fig7_agent`, `fig7_compare`, `fig7_data.csv`).
+**2026-10-28 17:47 (read from code/files):** the quality scorer `fig7_campaign/quality/facts19.py` looks up
+`OPERANDS[cmd]` with no default, so it covers only the 5 pilot commands (+ cut/sort/rm/binwalk); every other
+Fig. 7 command needs its minimal operands (and fixtures/message rules where special) before phase 5 can run.
+Files to score: v1 reference exists for all 79; shipped GPT-4o lacks `uglifyjs`, `unzip`; the 2026-10-27 GPT-4o
+rerun lacks `mogrify`, `uglifyjs` (no bundled manual). VMs `t019-probe`, `t018-probe`, `naive-golden` exist
+(stopped).
+**2026-11-03 review of the campaign (each fact checked over the collected runs that day; scripts were
+throwaway, in the session scratchpad):**
+- All 89 agent syntax files (79 + 10 repeats) import under v1's real `caruca.ir.syntax` (v1 `.venv` on the
+  Mac) and define `<cmd>_syntax_spec`.
+- Repeats: option names identical in all 3 runs for `dd` (15), `cut` (11), `head` (7), `cp` (35); `sort`
+  differs on `-c`/`--check` grouping and `-y` (31 of 34 names in all 3). Value kinds differ: `cut` r3 uses
+  `Range` where r1/r2 use `List(of=Range)`; `head` r2 uses `Size` where r1/r3 use `Integer`. Layout counts
+  differ (`cut` 1/1/3). No two runs' files are byte-identical.
+- `=` after a value-taking short option (`cut -b=1`, rejected by GNU): 35 of 61 agent files that have such
+  an option, 165 of 333 options; v1's reference files for the same commands: 7 of 52 files, 12 of 221.
+- Network: 16 of 89 runs have URLs in shell commands; 14 fetch `bootstrap.pypa.io/get-pip.py`; `mogrify`
+  r1 downloaded the `pash_annotations` 0.2.4 wheel and probed `https://pypi.org/simple/caruca/` with
+  **curl directly** (tool call 26; not via an installer, so outside PROMPT_v1's installer exception);
+  `tail` r1 queried PyPI for pash-annotations; `pandoc` has `http://e/` (a test string).
+- `head` r3's 24,631 program runs: 24,036 come from tool calls 17-18, a self-written split test
+  (`partest.py`, 12,018 runs each), classed "exploring" because it ran before the first output file.
+  Distinct option sets across head's 3 runs: 29 / 28 / 52 (runs: 293 / 440 / 24,631).
+- Phase 1's `refused_all.sh` finished 2026-10-27 23:24 (77 JSONs in `caruca_side/refused/`) and the v1
+  GPT-4o rerun has 77 ledger lines, though task 019's phase-1 checkboxes are still unticked.
+- `quality/firstpass.log` (pilot five, before the 2026-10-28 dd/convert repairs) scores the campaign's
+  `cut` r1 file 61/76 (80%) vs v1 reference 61/72 (85%): below run 7's 68/76 (89%) that the addendum's
+  finding 5 quotes. `quality/results/` is empty: phase 5 has not been rerun since the repairs.
+**Who decided the repeat runs (read from the Mac-side transcript, 2026-11-03).** The outer Claude Code session
+on the Mac (transcript `~/.claude/projects/-Users-tirandagan-dev-stevens-caruca-v2/847af186-….jsonl`, times in
+UTC, local = UTC-4) proposed them on 2026-10-27 at 17:19 local, as decision 3 of its reflection on task 019:
+"Repeat 5 commands twice more (about $25), to show how much cost, time and tries vary between identical runs?
+I recommend it." Its reason was that one run per command cannot support per-command differences (citing the
+1.79x cost spread). Tiran replied "3, yes" (17:28) **without naming commands**; the outer session chose
+`head cut sort dd cp` and their rationale (simple filter / earlier runs 7 and 9 / `key=value` syntax / writes
+files) when it wrote task 019 section 3.5, which is headed "(Tiran, 2026-10-27)". On 2026-10-28 14:02 Tiran asked
+"why do we want to repeat them?", got the three reasons, and approved launching them (14:03). The sessions in
+the VMs had no part in it: runs 1-3 of each command got byte-identical `prompt.md`, and none of the 10 repeat
+sessions refers to being a repeat.

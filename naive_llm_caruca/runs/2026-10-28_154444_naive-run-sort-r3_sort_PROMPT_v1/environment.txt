@@ -1,0 +1,4 @@
+2.1.296 (Claude Code)
+Ubuntu 24.04.5 LTS
+aarch64
+  "authMethod": "none",

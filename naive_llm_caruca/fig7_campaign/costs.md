@@ -1,6 +1,6 @@
 # Task 019: cost of every run, and of the campaign
 
-Rewritten after every run by `run_campaign.py` (2026-10-28 15:38). Budget: target $120, ceiling $200. **Billed** is OpenRouter's own usage counter for the key, read before and after each session; *Claude Code's figure* is the session's own estimate, kept for comparison with runs 3 to 10. Times are the session's wall clock.
+Rewritten after every run by `run_campaign.py` (2026-10-28 15:52). Budget: target $120, ceiling $200. **Billed** is OpenRouter's own usage counter for the key, read before and after each session; *Claude Code's figure* is the session's own estimate, kept for comparison with runs 3 to 10. Times are the session's wall clock.
 
 | # | Command | Group | Run | Status | Estimate | **Billed** | Claude Code's figure | Input / output / cache read / cache write tokens | Wall time | Turns |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -91,14 +91,16 @@ Rewritten after every run by `run_campaign.py` (2026-10-28 15:38). Budget: targe
 | 85 | `head` | A | 3 | ok | $1.26 | **$2.21** | $3.47 | 58 / 1,104 / 1,679,107 / 66,389 | 318 s | 29 |
 | 86 | `cut` | A | 3 | ok | $1.36 | **$1.03** | $1.38 | 24 / 974 / 470,787 / 31,348 | 153 s | 12 |
 | 87 | `dd` | B | 3 | ok | $1.42 | **$2.96** | $4.80 | 76 / 1,280 / 2,447,916 / 76,732 | 370 s | 38 |
+| 88 | `cp` | A | 3 | ok | $1.79 | **$1.55** | $2.13 | 36 / 1,079 / 771,865 / 40,481 | 214 s | 18 |
+| 89 | `sort` | B | 3 | ok | $1.75 | **$2.58** | $3.56 | 48 / 1,126 / 1,295,041 / 54,608 | 387 s | 24 |
 
 | Total | Money |
 |---|---|
-| Agent sessions (87 runs) | **$124.21** |
+| Agent sessions (89 runs) | **$128.34** |
 | Caruca's model step (77 commands) | $1.70 |
 | Smoke test | $0.30 |
 | Charges billed but not recorded by a run (Caruca's model step, convert: the GPT-4o call was billed but; Opus 5.5 extra-high comparison, 5 runs (dd ls cut test conve) | $25.92 |
-| **All billed** (sum of the rows above) | **$152.13** |
-| OpenRouter's counter since the campaign began | $155.42 |
-| Left before the $200 ceiling | $44.58 |
-| Projected total for the 79 commands (actual/estimate so far: 0.91; 0 not yet run) | $155.42 |
+| **All billed** (sum of the rows above) | **$156.26** |
+| OpenRouter's counter since the campaign began | $159.55 |
+| Left before the $200 ceiling | $40.45 |
+| Projected total for the 79 commands (actual/estimate so far: 0.92; 0 not yet run) | $159.55 |

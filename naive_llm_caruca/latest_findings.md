@@ -36,6 +36,22 @@ to change its number: add a new bullet and mark the old one "corrected on <date>
 
 ## 2026-10-28
 
+- **15:52, not yet committed · Naive LLM · repeatability.** Three identical runs each of `head`, `cut`, `dd`,
+  `cp` and `sort` (same model, prompt and settings): the bill varied by up to 1.7 times between runs of one
+  command, the session time by up to 1.6 times, and the number of program runs by up to 84 times (`head`:
+  293, 440 and 24,631). Quality of the repeat runs not yet checked. [Task 019, section 7.1, 2026-10-28 15:52](../ai_docs/tasks/019_fig7_commands_naive_campaign.md)
+- **15:45, not yet committed · Naive LLM · time and program runs, all 79 Fig. 7 commands.** The agent's
+  session took 83 seconds to 17 minutes per command. It took less time than Caruca on 62 of the 79: 31 of
+  the 48 Caruca finished in the paper (all 17 it was slower on are commands Caruca did in about 3 minutes
+  or less) and all 31 it did not finish within 5 hours. It ran the program fewer times than Caruca's test
+  runs at up to 4 options on 76 of the 79 (not `fold`, `mogrify`, `yes`). The agent's order and Caruca's
+  agree only loosely (rank agreement 0.55, where 1 is the same order); 17 of the agent's 20 slowest are
+  commands Caruca did not finish. Different machines; quality not yet checked.
+  [Charts: Fig. 7 with the agent's times](fig7_campaign/figures/fig7_agent.png), [Caruca vs agent](fig7_campaign/figures/fig7_compare.png); [table](fig7_campaign/interim_comparison.md)
+- **14:48, not yet committed · Naive LLM · cost, all 79 Fig. 7 commands.** All 79 agent runs finished
+  (Claude Code, Fable 5.1 at medium effort, one session per command): $109.43 billed by OpenRouter in all,
+  $0.58 to $4.97 per command. Caruca's own model step (GPT-4o, rerun through OpenRouter) cost $1.70 for the
+  77 commands with a bundled manual; its testing is machine time, not yet priced. [Task 019, section 7.1, 2026-10-28 14:48](../ai_docs/tasks/019_fig7_commands_naive_campaign.md)
 - **09:00, not yet committed · Naive LLM · program runs.** `fold`'s 11,397 runs of the program (Caruca:
   1,552 test runs at up to 4 options) are almost all one self-test of the agent's own claim that fold's
   work may be split: fold run on each of about 400 lines alone, for 7 option sets. A loop slip repeated

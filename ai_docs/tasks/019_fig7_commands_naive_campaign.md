@@ -23,14 +23,11 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 
 # Task 019: Every command in the paper's Fig. 7 through the naive agent: cost, time, tries and quality, compared with Caruca
 
-> **Status (2026-10-28, 14:48):** **main batch finished: all 79 commands `ok`** (08:18 to 14:48). The 79
-> runs' bills in the ledger: **$109.43** (`uname`'s charge counted in `id`'s); agent session time 4.7 h; 98,663
-> program runs. Key usage $140.14 in all (Opus comparison $25.74, Caruca's GPT-4o step $1.88, the rest not
-> itemised); credit left on the key $61.18 at 14:44. **Repeats running** (approved by Tiran 14:10; log
-> `fig7_campaign/repeats.log`): at 15:38, 7 of 10 done, `dd` repeat 3 running, then `cp` and `sort`; key usage
-> $152.46, credit left $45.73 at 15:34, likely to end near the $40 warning line. Table for all 79:
-> `fig7_campaign/interim_comparison.md` (`compare_table.py`). **To resume, read section 7.1 from the last
-> entry**; a stopped run resumes with the same command (finished runs are skipped).
+> **Status (2026-10-28, 15:52):** **all runs finished:** the 79 commands (all `ok`, ledger $109.43) and the 10
+> repeat runs (all `ok`, $18.92). Key usage $159.55, **$40.45 left on the key**. Figures in
+> `fig7_campaign/figures/` (`make_figures.py`), table in `fig7_campaign/interim_comparison.md`. **Next:** the
+> quality check for all 79, the rule table for unclassified messages, then the result file `results.md`.
+> **To resume, read section 7.1 from the last entry.**
 > **Budget: up to $200** (Tiran, 2026-10-28: "dont worry about the budget - we can go as high as $200 - warn
 > me if we are depleting available credits"; it was $120 ± $30, never above $150). The key's own monthly
 > limit is also $200; `credit_watch.py` warns when less than $40 is left.
@@ -334,6 +331,10 @@ Each change is noted in the README's operator notes and task 016's revision log 
   `test`/`[` in `probe_binary.py` and `facts_probe.py`, each checked on that program's real refusals.
 - [ ] Unsettleable facts counted and excluded (3.4).
 - [ ] A run over all files of all 79 commands, then spot-checks of 5 commands by hand against the program.
+- [ ] Minimal operands for the 74 commands not yet configured (`OPERANDS`, `MIN_OPERANDS` and fixtures in
+  `quality/facts19.py`, which has no default and stops on an unconfigured command; noted 2026-10-28 17:47).
+  Commands the probe machine cannot run meaningfully (`chroot`, `runcon`, `chcon` need privileges or SELinux)
+  will have facts that cannot be settled; they are counted and left out, not guessed.
 
 ## 5. Budget and cost tracking (Tiran: "stay within $120 +-30")
 
@@ -441,7 +442,7 @@ the campaign ledger; a summary in `observations.md`; the memory notes. **No per-
   Tiran before going on**.
 - [x] **Phase 3. The other 74 runs** (done 2026-10-28 14:48, all `ok`), one at a time, in Fig. 7 order, Mac on mains power, `caffeinate -ims`,
   checkpoints every 20.
-- [ ] **Phase 4. Repeats** as the budget allows (section 5).
+- [x] **Phase 4. Repeats** (done 2026-10-28 15:52, all 10 `ok`) as the budget allows (section 5).
 - [ ] **Phase 5. Quality check** (3.4, 4.5) of every file.
 - [ ] **Phase 6. Result file** (section 6) and the document updates that go with it.
 
@@ -831,6 +832,28 @@ verdict between the two models was reached**, and the decision is Tiran's on cos
   **Projection for the 79: $137.58** (spent $39.32 + 0.88 × the 74 estimates): inside the $150 ceiling, but the
   10 repeat runs (about $13) will probably not fit. The driver re-projects every 20 runs and stops if the
   projection passes $150. About 9 hours.
+
+**2026-10-28, 15:52 (repeats finished).** All 10 repeat runs `ok`, none late-billed; they cost $18.92. Key usage
+$159.55 at the end of the campaign, $40.45 left on the key's $200 monthly limit (the warning line was $40;
+the account itself has about $140 more). Three runs per command (bill · session time · program runs):
+`head` $1.35/$1.29/$2.21 · 258/212/318 s · 293/440/24,631; `cut` $0.91/$1.26/$1.03 · 131/205/153 s ·
+116/199/7,752; `dd` $2.11/$2.81/$2.96 · 296/397/370 s · 379/849/474; `cp` $1.04/$1.23/$1.55 · 202/167/214 s ·
+225/231/142; `sort` $3.19/$1.99/$2.58 · 384/286/387 s · 470/460/924. Bills vary up to 1.7 times, session time
+up to 1.6 times, program runs up to 84 times (`head`). Figures redrawn with all repeats.
+
+**2026-10-28, finished 15:45 (figures; first logged as 16:05 without checking the clock, corrected from the files' save times).** Tiran asked to recreate Fig. 7 with our data and for a new comparative
+chart. `fig7_campaign/make_figures.py` (run with `uv run --no-project --with matplotlib==3.9.2 python …`;
+matplotlib is in neither the repo's `.venv` nor system Python) writes `fig7_campaign/figures/`:
+`fig7_agent` (Fig. 7's 79 commands, order, log axis and limit lines, the agent's session time as the bars,
+repeat runs as dots), `fig7_compare` (two panels, Caruca vs agent per command: time, with Caruca's measured
+and projected values told apart; program runs, Caruca's test runs at up to 4 options vs every start of the
+program by the agent) and `fig7_data.csv` (every plotted value). Headlines on the figure: the agent took less
+time on 62 of 79 (31 of the 48 Caruca finished, all 31 it did not); fewer program runs on 76 of 79 (not
+`fold`, `mogrify`, `yes`). Drawn while `cp` and `sort` repeat 3 were still running; to be redrawn when the
+repeats end. Palette and marks from the dataviz skill's reference palette (agent blue, Caruca orange).
+- 15:43, Tiran: "shall we sort in increasing order of time?" Yes: `fig7_agent` is now sorted by the agent's
+  time (the paper sorts Fig. 7 by Caruca's), with lighter bars for the 31 commands Caruca did not finish;
+  the comparison figure keeps the paper's order. Rank agreement between the two orders (Spearman): 0.55.
 
 **2026-10-28, 14:48 (main batch finished).** All 74 main-batch runs `ok`, none capped, none retried; with
 the pilot, 79 of 79. Ledger bills for the 79: $109.43 (runner's projection had been $136.16 including the
