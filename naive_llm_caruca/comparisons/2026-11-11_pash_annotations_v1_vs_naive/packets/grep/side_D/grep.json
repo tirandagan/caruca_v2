@@ -1,0 +1,21 @@
+{
+ "flag": [
+  [
+   "-R",
+   "--dereference-recursive"
+  ],
+  [
+   "-c",
+   "--count"
+  ],
+  [
+   "-r",
+   "--recursive"
+  ],
+  [
+   "-v",
+   "--invert-match"
+  ]
+ ],
+ "option": []
+}

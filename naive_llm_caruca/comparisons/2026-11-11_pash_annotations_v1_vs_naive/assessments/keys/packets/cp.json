@@ -1,0 +1,26 @@
+{
+ "A": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_114133_naive-run-cp_cp_PROMPT_v1/output/annotation",
+  "family": "naive",
+  "run": "2026-10-28_114133_naive-run-cp_cp_PROMPT_v1",
+  "side": "naive:2026-10-28_114133"
+ },
+ "B": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_150709_naive-run-cp-r2_cp_PROMPT_v1/output/annotation",
+  "family": "naive",
+  "run": "2026-10-28_150709_naive-run-cp-r2_cp_PROMPT_v1",
+  "side": "naive:2026-10-28_150709"
+ },
+ "C": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_153913_naive-run-cp-r3_cp_PROMPT_v1/output/annotation",
+  "family": "naive",
+  "run": "2026-10-28_153913_naive-run-cp-r3_cp_PROMPT_v1",
+  "side": "naive:2026-10-28_153913"
+ },
+ "D": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cp/pash_grammar/trace_1",
+  "family": "v1",
+  "run": null,
+  "side": "v1-pash"
+ }
+}

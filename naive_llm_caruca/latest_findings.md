@@ -34,6 +34,25 @@ up on a later day than it was made, the bullet gives both dates.
 written into its document and a link to the section that holds the evidence. Never edit an old bullet
 to change its number: add a new bullet and mark the old one "corrected on <date>".
 
+## 2026-11-11
+
+- **Not yet committed · Caruca (v1) and Naive LLM · PaSh annotations, 8 commands.** v1's new PaSh files
+  (task 020) and the agent's were compared on the same 12,656 command lines (cat, cp, cut, grep, rm, sort,
+  split, wc).
+  - **Coverage:** v1 answers only the situations it traced: 1-49% of lines, depending on command and
+    grammar. The agent answers 85-100%.
+  - **Inputs and outputs:** where both answer, they mostly agree (sort, v1's main grammar: 890 of 1,145
+    lines identical). v1 is right where it saw what the command did, such as `rm --help f` removing
+    nothing. The agent is right where v1's PaSh grammar lists too few flags (`rm -f x` is read as
+    removing a file `-f`). The agent also knows things the traces never showed (`sort -T dir`).
+  - **Splitting:** v1's main-grammar annotation allows splitting `sort -n -u`. Running it confirms the
+    split output is wrong (`2 1` instead of `1 2`, GNU sort 9.4). The agent's `sort` classes crash in 3
+    of 4 runs, so PaSh doesn't split those lines.
+  - **The assessor:** blind qualitative assessments by Claude were redone with the letters redrawn, and
+    111 of 114 ratings held.
+
+  Not yet run under PaSh. [Report](comparisons/2026-11-11_pash_annotations_v1_vs_naive/report.md)
+
 ## 2026-10-28
 
 - **15:52, not yet committed · Naive LLM · repeatability.** Three identical runs each of `head`, `cut`, `dd`,

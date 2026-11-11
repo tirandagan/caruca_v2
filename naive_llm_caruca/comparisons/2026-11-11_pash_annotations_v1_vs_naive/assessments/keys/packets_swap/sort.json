@@ -1,0 +1,44 @@
+{
+ "A": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_154444_naive-run-sort-r3_sort_PROMPT_v1/output/annotation",
+  "family": "naive",
+  "run": "2026-10-28_154444_naive-run-sort-r3_sort_PROMPT_v1",
+  "side": "naive:2026-10-28_154444"
+ },
+ "B": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-20_160340_naive-run-sort_sort_PROMPT_v1/output/pash",
+  "family": "naive",
+  "run": "2026-10-20_160340_naive-run-sort_sort_PROMPT_v1",
+  "side": "naive:2026-10-20_160340"
+ },
+ "C": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/sort/pash_grammar/trace_1",
+  "family": "v1",
+  "run": null,
+  "side": "v1-pash"
+ },
+ "D": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/sort/main_grammar/trace_1",
+  "family": "v1",
+  "run": null,
+  "side": "v1-main"
+ },
+ "E": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_151151_naive-run-sort-r2_sort_PROMPT_v1/output/annotation",
+  "family": "naive",
+  "run": "2026-10-28_151151_naive-run-sort-r2_sort_PROMPT_v1",
+  "side": "naive:2026-10-28_151151"
+ },
+ "F": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_140825_naive-run-sort_sort_PROMPT_v1/output/annotation",
+  "family": "naive",
+  "run": "2026-10-28_140825_naive-run-sort_sort_PROMPT_v1",
+  "side": "naive:2026-10-28_140825"
+ },
+ "R": {
+  "dir": null,
+  "family": "reference",
+  "run": null,
+  "side": "pash-own"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "A": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_134035_naive-run-split_split_PROMPT_v1/output/annotation",
+  "family": "naive",
+  "run": "2026-10-28_134035_naive-run-split_split_PROMPT_v1",
+  "side": "naive:2026-10-28_134035"
+ },
+ "B": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/split/pash_grammar/trace_1",
+  "family": "v1",
+  "run": null,
+  "side": "v1-pash"
+ }
+}

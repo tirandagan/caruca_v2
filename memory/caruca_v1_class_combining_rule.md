@@ -55,3 +55,10 @@ it before attributing harm. Keep per-environment labels (task 013, workstream W3
 
 Related: [[project-pash-downstream-study]], [[caruca-v1-pipeline-reference]],
 [[project-proposal-reviews-vision]].
+
+**Observed consequence (2026-11-11, task 021, Lima `caruca`, coreutils 9.4).** v1's split-mode trace of `sort`
+on its main grammar (`--max-count 2`, branch `pash-python-annotations` commit `4bf74dd9a`) labels 34 cases
+`stateless`, including `sort -n -u`, `-n -s`, `-g -u`, `-h -s`, `-k … -u` (the rest pair `-m`). Ran
+`printf '2\n1\n' | sort -n -u` → `1 2`, halves joined → `2 1`: **v1's `stateless` for `sort -n -u` is wrong.**
+Not established: why. Candidates are the rule above (one passing environment wins) and v1's text inputs
+making every numeric key equal.

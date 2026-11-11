@@ -1,0 +1,44 @@
+{
+ "A": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-27_230555_naive-run-cut_cut_PROMPT_v1/output/annotation",
+  "family": "naive",
+  "run": "2026-10-27_230555_naive-run-cut_cut_PROMPT_v1",
+  "side": "naive:2026-10-27_230555"
+ },
+ "B": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cut/pash_grammar/trace_1",
+  "family": "v1",
+  "run": null,
+  "side": "v1-pash"
+ },
+ "C": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_145447_naive-run-cut-r2_cut_PROMPT_v1/output/annotation",
+  "family": "naive",
+  "run": "2026-10-28_145447_naive-run-cut-r2_cut_PROMPT_v1",
+  "side": "naive:2026-10-28_145447"
+ },
+ "D": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_152550_naive-run-cut-r3_cut_PROMPT_v1/output/annotation",
+  "family": "naive",
+  "run": "2026-10-28_152550_naive-run-cut-r3_cut_PROMPT_v1",
+  "side": "naive:2026-10-28_152550"
+ },
+ "E": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cut/main_grammar/trace_1",
+  "family": "v1",
+  "run": null,
+  "side": "v1-main"
+ },
+ "F": {
+  "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-20_135253_naive-run-cut_cut_PROMPT_v1/output/pash",
+  "family": "naive",
+  "run": "2026-10-20_135253_naive-run-cut_cut_PROMPT_v1",
+  "side": "naive:2026-10-20_135253"
+ },
+ "R": {
+  "dir": null,
+  "family": "reference",
+  "run": null,
+  "side": "pash-own"
+ }
+}

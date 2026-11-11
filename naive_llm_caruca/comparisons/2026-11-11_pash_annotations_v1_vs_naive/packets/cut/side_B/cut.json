@@ -1,0 +1,25 @@
+{
+ "flag": [],
+ "option": [
+  [
+   "-b",
+   "--bytes",
+   "STRING"
+  ],
+  [
+   "-c",
+   "--characters",
+   "STRING"
+  ],
+  [
+   "-d",
+   "--delimiter",
+   "STRING"
+  ],
+  [
+   "-f",
+   "--fields",
+   "STRING"
+  ]
+ ]
+}
