@@ -16,7 +16,7 @@ How this was made:
 **Nothing below has been run under PaSh yet. Only one claim has been confirmed by running the command;
 it is marked "confirmed".**
 
-## Do the input/output sets differ, and how? (Greenberg's question)
+## Do the input/output sets differ, and how?
 
 **Where both sides give an answer, the sets are mostly the same.** For example, on `sort` with v1's main
 grammar they are identical on 890 of the 1,145 lines v1 answers. The main difference is coverage. v1
@@ -26,13 +26,13 @@ command as side-effecting.
 
 Where the sets do differ, there are five kinds of cause:
 
-| Cause | Who is right | Examples |
-|---|---|---|
-| **v1 saw what the command really did** | v1 | `rm --help f`: only v1 (main grammar) says `f` is untouched and only help text is written. The agent and PaSh's own say `f` is removed. The same holds for `--help`/`--version` on cut and sort. |
-| **v1's PaSh grammar lists too few flags**, so PaSh reads a flag as a file | the agent | `rm -f x` is read as removing a file named `-f`; `sort -n` as reading a file `-n`; `cat -s` as reading `-s`; `grep -n foo` as reading the pattern `foo` as a file. v1's PaSh grammar for rm lists no options at all, and sort's lists only `-m`. This comes from the grammar, not from the traces. |
-| **v1's recorded files look wrong** | the agent (needs running) | cp: v1 says the source is written as well as read; this is in v1's own JSON, not added by the writer. split: v1 says standard input is read even when a file is given, and records no output files. sort `-o out`: v1 (main grammar) says standard output is written too. |
-| **The agent knows something the traces never showed** | the agent | `sort -T dir`: the agent says the temporary-file folder is written. v1 never saw it used, because its inputs are small. `cp -i` and `cp -v`: the agent records standard input and standard output. |
-| **Shared by every side, from PaSh's parser** | nobody | A value attached to its option (`cut -d: -f1`, `sort -k1n`, `--opt=value`) is read as a file name. That affects 17 of the 46 `cut` benchmark lines. Options whose value is optional (`--interactive`, `--backup`, `--color`) swallow the next word in the agent's and PaSh's own tables. No side records that `rm -i` reads standard input. |
+| Cause                                                                           | Who is right              | Examples                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------------------------------------------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **v1 saw what the command really did**                                    | v1                        | `rm --help f`: only v1 (main grammar) says `f` is untouched and only help text is written. The agent and PaSh's own say `f` is removed. The same holds for `--help`/`--version` on cut and sort.                                                                                                                                                  |
+| **v1's PaSh grammar lists too few flags**, so PaSh reads a flag as a file | the agent                 | `rm -f x` is read as removing a file named `-f`; `sort -n` as reading a file `-n`; `cat -s` as reading `-s`; `grep -n foo` as reading the pattern `foo` as a file. v1's PaSh grammar for rm lists no options at all, and sort's lists only `-m`. This comes from the grammar, not from the traces.                                        |
+| **v1's recorded files look wrong**                                        | the agent (needs running) | cp: v1 says the source is written as well as read; this is in v1's own JSON, not added by the writer. split: v1 says standard input is read even when a file is given, and records no output files. sort `-o out`: v1 (main grammar) says standard output is written too.                                                                                 |
+| **The agent knows something the traces never showed**                     | the agent                 | `sort -T dir`: the agent says the temporary-file folder is written. v1 never saw it used, because its inputs are small. `cp -i` and `cp -v`: the agent records standard input and standard output.                                                                                                                                                    |
+| **Shared by every side, from PaSh's parser**                              | nobody                    | A value attached to its option (`cut -d: -f1`, `sort -k1n`, `--opt=value`) is read as a file name. That affects 17 of the 46 `cut` benchmark lines. Options whose value is optional (`--interactive`, `--backup`, `--color`) swallow the next word in the agent's and PaSh's own tables. No side records that `rm -i` reads standard input. |
 
 ## Splitting
 
