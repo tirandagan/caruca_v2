@@ -51,3 +51,9 @@ comm, cut, diff, grep, head, mkfifo, mv, rm, sed, seq, sort, tail, tee, tr, uniq
 custom_sort). `cut` and `sort` have both IO and parallelizability classes, while `rm` has only an IO class (so
 not parallelizable). These are PaSh's own hand-written answers, so they can serve as a third reference side. The
 naive agent was shown the stock files for tee, uniq, grep and rm, but not cut or sort.
+
+**What PaSh does with a missing answer (read 2026-11-10, pash VM, `~/pash/src/pash/compiler/ir.py:255-282`):**
+if the input/output lookup returns `None` (no class, or the class raised: AnnotationGeneration swallows it),
+PaSh raises `UnparallelizableError("InputOutputInformation for … not provided so considered side-effectful")`
+and leaves the command unparallelized. Any operand marked other output also makes it unparallelizable. A
+`None` parallelizability answer is replaced by an empty one, i.e. no splitting.

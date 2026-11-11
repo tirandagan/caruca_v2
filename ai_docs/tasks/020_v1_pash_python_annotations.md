@@ -27,11 +27,10 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 > **Status (2026-11-10):** created, not started. Approach approved by Tiran the same day; comparison
 > method (section 5) and the open choices (test lines, reference answer, second v1 column) settled the
 > same day after a review of the first draft.
-> **Progress (2026-11-10, evening):** steps 1-2 done (writer + 13 unit tests, v1 branch commit
-> `5794d373b`); column A traced twice for cut/sort/rm with identical decisions, three hash seeds
-> byte-identical; branch **pushed to `binpash/caruca` for the authors' review** at Tiran's request, with
-> the outputs as `caruca/save_pash_py/` (commit `7c967a983`); column B running at 2 flags per line.
-> Steps 3-4 and the comparison not started.
+> **Progress (2026-11-11):** writer built, reviewed by Greenberg, revised twice, pushed. Column A done
+> for cut, sort, rm, wc (cat, cp, split, grep running, Greenberg's picks); column B done for cut and rm,
+> sort running. Steps 3-4 (load into PaSh, parser check) and the comparison not started. Full record
+> and lessons: **section 10**.
 > **Where things live (Tiran, 2026-11-10):** all pipeline code, run scripts, outputs and the detailed
 > README are in v1's branch `pash-python-annotations` (`caruca/save_pash_py/`, layout
 > `<cmd>/<grammar>_grammar/trace_<n>/`; script `caruca/run_pash_py.sh`), **not in caruca_v2**. The output
@@ -516,3 +515,99 @@ The comparison:
 
 - **`binwalk`.** v1 has no grammar for it. Leaving it out follows the agreed rule. The alternative is
   a grammar from v1's own LLM step, which would bring LLM output into v1's side.
+
+## 10. Implementation record and lessons (2026-11-10/11)
+
+### What was built (v1 branch `pash-python-annotations`, pushed to `binpash/caruca`)
+
+| Path (in v1's repo) | What |
+|---|---|
+| `caruca/src/caruca/annotator/pash_py.py` | the writer |
+| `caruca/src/caruca/cli/annotate.py` | `annotate pash-py --grammar pash\|main --out DIR` |
+| `caruca/tests/unit/test_pash_py.py` | 14 unit tests, no sandbox |
+| `caruca/run_pash_py.sh` | trace + write; `--grammar`, `--max-count`, `--trace-n`; writes `run.json` |
+| `caruca/count_runs.py` | exact count of runs a grammar needs, before tracing |
+| `caruca/save_pash_py/<cmd>/<grammar>_grammar/trace_<n>/` | outputs + `traces.json.gz`, `v1_pash.json`, `v1_unplaced_io.json`, `record.json`, `run.json` |
+| `caruca/save_pash_py/README.md` | the reviewer-facing description, with links to sample output |
+
+caruca_v2's `naive_llm_caruca/v1_pash_py/README.md` is only a pointer.
+
+**Generated code, as it stands after review:**
+- **Branches.** Plain `if`/`elif` code that calls PaSh's own helpers (`all_operands_are_other_outputs()`,
+  `set_implicit_use_of_stdin()`, `append_to_parallelizer_list_cc_seq_conc()` …). Cases with the same body
+  are merged into one branch: `n == 0 and flags in ({'-c'}, {'-l'}, …)`. Direct `operand_list_typer[i]`
+  assignment is used only where no helper fits.
+- **Untraced lines** get no answer: `self.input_output_info = None`. PaSh then raises
+  `UnparallelizableError` ("not provided so considered side-effectful", `compiler/ir.py:258-264` in the
+  pash VM) and does not parallelize. The parallelizability class has only the `stateless` branch, or
+  `pass` when there is none.
+- **Matching** is on the exact flag set and the operand count in words. v1's JSON condition counts
+  grammar groups, so it puts `rm a b` with `rm a`.
+- **File kinds:** read → stream input; written → stream output; read and written, or in `deletions` →
+  other output; neither → `ARGSTRING`. File options never seen in use are typed `PATH_UNTRACED`.
+
+**Runs** (Lima VM `caruca`, Ubuntu 24.04.4, aarch64, 8 vCPU, coreutils 9.4, `--stdin split --content split`,
+`--parallel 10`, about 24 runs a second):
+
+| Command | Grammar | Flags per line | Test lines | Cases | Classes | Traced twice |
+|---|---|---|---|---|---|---|
+| cut | PaSh | 4 | 648 (628 always fail) | 4 | all stateless | same |
+| sort | PaSh | 4 | 6 | 4 | plain non-pure, `-m` stateless (single input passes through) | same |
+| rm | PaSh | 4 | 2 | 1 | side-effectful, operand = other output | same |
+| wc | PaSh | 4 | 4 | 4 | all non-pure | same |
+| cut | main | 2 | 759 | 43 | 11 stateless, 32 non-pure | trace 2 pending |
+| rm | main | 2 | done 2026-11-10 (2,004 s) | | | pending |
+| sort | main | 2 | running (~256k runs, ~3 h) | | | |
+| cat, cp, split, grep | PaSh | 4 | running | | | |
+
+Column B uses 2 flags per line because at 4 the main grammars need 2.7 M runs (cut), 4.0 M (rm) and
+649 M (sort).
+
+**Checks done:**
+- the 14 unit tests;
+- three `PYTHONHASHSEED`s give byte-identical files;
+- the two traces of each command give the same files, apart from the trace-hash header line;
+- the generated classes import and run under `pash-annotations` 0.2.4 (uv cache on the Mac): traced
+  lines get their answer, and untraced ones (`sort -r`, `rm f g`) get `None`;
+- every generated `.py` compiles.
+
+**Not done:** step 3 (same decisions as v1's JSON, in the pash VM), step 4 (PaSh's parser), the
+end-to-end `cut` run, and the comparison (section 5).
+
+### Review by Greenberg (2026-11-10)
+
+1. **"It's doing the translation by storing a representation of the JSON and then traversing that …
+   Why not just generate code, without a table?"** The first version wrote a `_V1_CASES` data table plus
+   a lookup. It was replaced by generated `if`/`elif` code that implements each decision directly
+   (`4c8937981`).
+2. **The `traced_by_v1` marker and the fallback default for untraced lines.** He asked: "If we don't
+   assign any IO info, what happens?" PaSh's source answers it: no answer means side-effectful, not
+   parallelized. So the guess was dropped and untraced lines return no answer. The marker went with it,
+   since "no answer" is now visible directly (`478d83dbb`).
+3. **"Is v1 tainted by knowing about the naive LLM?"** "No, nobody cares about the unawareness there.
+   Caruca is written by humans who are allowed to know anything they can figure out."
+4. **"Eye validate a few more … unchecked, the code quality dips pretty badly."** His picks: cat, cp,
+   split, grep, plus wc. wc showed four identical branches and a parallelizability class of only
+   `pass`s, so identical bodies are now merged and empty branches are left out.
+
+### Lessons
+
+- **Generated code must read like hand-written code for the target.** Reviewers judge the output, not
+  the writer. Emit the target's own idiom (PaSh's helpers, plain branches) and read several generated
+  files by eye before sharing.
+- **Don't guess where the consumer already has a rule.** Check how PaSh treats "no answer" before
+  inventing a default. Keep bookkeeping for our own comparison (markers) out of reviewer-facing output.
+- **Committed `save/*.json` is stale.** It is from 2024; for example, `save/cut.json` has 350 `pipe:[…]`
+  entries and today's traces have none. Compare against a fresh `annotate pash` on the same traces
+  (`v1_pash.json`).
+- **v1 work goes in v1's branch.** Tiran looked for it there twice before it moved. caruca_v2 holds
+  only this task file and a pointer.
+- **Write drafts into the repo, on the branch, not the scratchpad.** The shell died mid-session and the
+  scratchpad drafts were lost.
+- **Measure tracing before choosing limits.** `count_runs.py` plus one timed run (about 24 runs a
+  second) settled the main-grammar limit. The generator repeats lines (cut PaSh: 648 counted, 864
+  emitted).
+- **`pkill -f PATTERN` from `limactl shell … bash -c` can match its own shell.** Find the PID with `ps`
+  first.
+- **Communication.** Tiran wants short replies and concise documents: answer first, links, detail only
+  when it changes what he does next (`memory/feedback_be_brief.md`).
