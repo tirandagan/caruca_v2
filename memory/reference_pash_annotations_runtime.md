@@ -37,3 +37,17 @@ Established 2026-10-20 while analysing naive runs 7 (cut) and 9 (sort), by readi
 (drop `__pycache__`), lay the agent's `<cmd>.json` and two classes into it, then
 `python3 -I -c 'import sys; sys.path.insert(0,"/tmp/<x>"); from pash_annotations.parser.parser import parse; …'`.
 Run the same invocations with `sys.path` pointing at the install for PaSh's own answers.
+
+**Setting one operand at a time (read from pash-annotations 0.2.4 source, 2026-11-10, uv cache copy on the Mac):**
+the input/output interface's helpers only mark operands in bulk (`all_operands_are_…`, `all_but_last_…`,
+`only_last_operand_…`). Inside `generate_info`, `self.input_output_info.operand_list_typer` is a plain list,
+one entry per operand, default `(WhichClassForArg.FILESTD, make_stream_input())`
+(`annotation_generation/datatypes/InputOutputInfo.py`); a class may assign entries by index, e.g.
+`make_other_output()` from `pash_annotations.datatypes.AccessKind`. Class names are looked up from a fixed
+name table in `annotation_generation/AnnotationGeneration.py` (cut → `Cut`, sort → `Sort` …).
+
+**Stock classes shipped with pash-annotations 0.2.4 (listed 2026-11-10):** name table entries for awk, cat, col,
+comm, cut, diff, grep, head, mkfifo, mv, rm, sed, seq, sort, tail, tee, tr, uniq, wc, xargs (+ helper names such as
+custom_sort). `cut` and `sort` have both IO and parallelizability classes, while `rm` has only an IO class (so
+not parallelizable). These are PaSh's own hand-written answers, so they can serve as a third reference side. The
+naive agent was shown the stock files for tee, uniq, grep and rm, but not cut or sort.

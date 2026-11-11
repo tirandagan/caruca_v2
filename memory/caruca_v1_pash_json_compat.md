@@ -1,6 +1,6 @@
 ---
 name: caruca-v1-pash-json-compat
-description: v1's PaSh JSON can't be read by modern PaSh (no JSON reader) or as-is by old pre-2022 PaSh (key, operator and "exists" meaning all differ); v1's own transform.py targets the OLD JSON format and crashes on v1's current output. Verified 2026-10-06
+description: v1's PaSh JSON can't be read by modern PaSh (no JSON reader) or as-is by old pre-2022 PaSh (key, operator and "exists" meaning all differ); v1's own transform.py targets the OLD JSON format and crashes on v1's current output. Verified 2026-10-06; crash re-run 2026-11-10 on a copy of save/cut.json (TypeError at transform.py:45)
 metadata:
   type: project
 ---

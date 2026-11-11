@@ -40,3 +40,13 @@ metadata:
 - Task numbering: 014 and 015 taken 2026-10-13; the pash-downstream-study session's planned
   VM-provisioning/benchmark task was to take 016, but 016 went to the naive Claude Code arm on
   2026-10-13 (`project_naive_claude_code_arm.md`); that VM task should take 018 (017 went to the naive arm's build documentation, 2026-10-13).
+
+**Task numbering (2026-11-10):** 020 = v1 writes PaSh's current Python annotations
+(`ai_docs/tasks/020_v1_pash_python_annotations.md`). Next free task number is **021**.
+**Task 020 comparison decisions (Tiran accepted the proposed defaults, 2026-11-10):** test lines = the
+real-world corpus (`eval/user-scripts/invocations.txt`) as the main set + every side's own test lines as
+the second; reference = PaSh 0.2.4's own hand-written classes where they exist + every disagreement checked
+by running the command; a second v1 column with the main grammar for commands that have both grammars
+(2 flags per line if 4 exceeds 5 hours); v1 cases match on *exactly* their flags; lines v1 never traced
+count as "v1 has no answer"; inputs/outputs compared mainly on read/written, since v1 knows nothing finer;
+entries PaSh's format can't hold go to `v1_unplaced_io.json`, never silently dropped.

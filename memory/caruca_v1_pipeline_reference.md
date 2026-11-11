@@ -90,3 +90,32 @@ Entry point: `caruca = "caruca:main"` (pyproject) → **argparse** subparsers in
 **How to apply:** cite this instead of re-exploring v1 when mapping v2 components to v1 phases; the
 naive-LLM baseline (v2 task 001) occupies phase 1's slot and should mirror `llm.py`'s choices
 (exemplars, man-page inputs, DSL output) wherever a design choice exists.
+
+**PaSh grammars vs main grammars, measured 2026-11-10 (Mac checkout, commit d80324073).** Folder
+listings show 123 / 56 entries, but `__init__.py` + `__pycache__` are among them: **120 main, 54 PaSh**
+grammars. Counting option entries (main spelling, `flag="…"` / `Flag("…")` text match, ±1 per file):
+the 42 commands with both have **64** options in their PaSh grammars vs **923** in their main ones;
+23 of 54 PaSh grammars have **no options** (rm, cp, mv, seq, tee, sha256sum …); 24 have **no file
+operand** (cut: `-b -c -d -f`, stdin only); sort's has only `-m`; 12 have no main grammar (ffmpeg,
+find, groff, gunzip, gzip, history, jq, nc, ps, read, readelf, xargs). So v1's committed PaSh files
+(`save/*.json`) describe tiny grammars, not the paper's main ones.
+
+## What v1's PaSh cases hold (read from source + `save/*.json`, 2026-11-10)
+
+- `Specification.to_pash` (`annotator/annotator.py:77-155`) uses only each run's `inputs` and `outputs`.
+  A deleted file is put in **both** `deleted` and `wrote_to` (`tracer/data.py:176-178`), so in a PaSh case a
+  removed file is just "written"; the delete/write distinction survives only in the traces' `deletions`
+  (used by the ShellCheck target). v1 records direction only (read / written), never PaSh's
+  stream-vs-other distinction.
+- An operand can be both read and written in one case (committed `save/rm.json`: `args[0]` in inputs and outputs).
+- Entries across all committed `save/*.json` (counted 2026-11-10): `pipe:[…]` 4,972; `args[i]` 250; `stdout` 240;
+  `stdin` 212; the rest are names that are **not** operands: files the command created (`split`'s `xaa`…,
+  `csplit`'s `xx00`…), paths inside an operand directory (`relpath_2/relpath_1`, from cp/mv into a dir), placeholder
+  names not mapped to an operand (`relpath_1.jpg`, `abspath_1.jpg`, 69 each), iconv charset words (`ASCII/TRANSLIT`).
+  PaSh's current IO record has slots only for operands, option values, stdin and stdout, so these have no place there.
+- `save/gzip.json` is an empty (0-byte) file.
+- **`pipe:[…]` entries are a 2024 artefact, not current behaviour (checked 2026-11-10).** Committed
+  `save/cut.json` (commit `6ceda7586`, 2024-12-08) has 350 `pipe:[…]` entries. Tracing cut's PaSh grammar
+  with today's v1 (d80324073 + branch `pash-python-annotations`, Lima Ubuntu 24.04) and running `annotate pash`
+  gives none: every case's input is just `stdin`. So the committed `save/*.json` cannot stand in for current
+  v1 output; compare with a fresh `annotate pash` on the same traces (`save_pash_py/.../v1_pash.json`).
