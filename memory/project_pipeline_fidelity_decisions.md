@@ -42,7 +42,7 @@ metadata:
   2026-10-13 (`project_naive_claude_code_arm.md`); that VM task should take 018 (017 went to the naive arm's build documentation, 2026-10-13).
 
 **Task numbering (2026-11-10):** 020 = v1 writes PaSh's current Python annotations
-(`ai_docs/tasks/020_v1_pash_python_annotations.md`). Next free task number is **021**.
+(`ai_docs/tasks/020_v1_pash_python_annotations.md`). Next free task number is **022** (021 = v1-vs-naive PaSh annotation comparison plan, 2026-11-11).
 **Task 020 comparison decisions (Tiran accepted the proposed defaults, 2026-11-10):** test lines = the
 real-world corpus (`eval/user-scripts/invocations.txt`) as the main set + every side's own test lines as
 the second; reference = PaSh 0.2.4's own hand-written classes where they exist + every disagreement checked

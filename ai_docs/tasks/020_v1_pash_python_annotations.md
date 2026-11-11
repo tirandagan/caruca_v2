@@ -35,6 +35,9 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 > README are in v1's branch `pash-python-annotations` (`caruca/save_pash_py/`, layout
 > `<cmd>/<grammar>_grammar/trace_<n>/`; script `caruca/run_pash_py.sh`), **not in caruca_v2**. The output
 > paths in section 7 below that point into `naive_llm_caruca/v1_pash_py/` are superseded by that.
+> **Comparison moved (2026-11-11):** the comparison plan in sections 5-8 is superseded by **task 021**
+> (`021_pash_annotations_v1_vs_naive_comparison.md`), which keeps its rules and adds real PaSh runs.
+> This task keeps the writer and its own checks (steps 3-4, the writer checks in section 8).
 > **Created:** 2026-11-10 · **Owner:** Tiran Dagan
 > **Tiran's direction, 2026-11-10 (condensed from his messages):** improve the original Caruca, not v2,
 > so that it produces the same kind of output the naive LLM has been producing: PaSh annotations in

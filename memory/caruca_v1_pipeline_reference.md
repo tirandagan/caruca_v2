@@ -119,3 +119,14 @@ find, groff, gunzip, gzip, history, jq, nc, ps, read, readelf, xargs). So v1's c
   with today's v1 (d80324073 + branch `pash-python-annotations`, Lima Ubuntu 24.04) and running `annotate pash`
   gives none: every case's input is just `stdin`. So the committed `save/*.json` cannot stand in for current
   v1 output; compare with a fresh `annotate pash` on the same traces (`save_pash_py/.../v1_pash.json`).
+- **Tracer crash on a backslash-ending path (observed 2026-11-11, Lima `caruca`, branch `pash-python-annotations`):**
+  `caruca trace --stdin split --content split --max-count 2 sort` (main grammar, 229,778 runs) died at run
+  229,636 after 3 h 38 min with `UnicodeDecodeError: 'unicodeescape' codec can't decode byte 0x5c … \ at end of
+  string` in `tracer/strace_parser.py:360` (`parse_string`, `bytes(s.strip('"'),"utf-8").decode("unicode_escape")`),
+  reached via `r_fd_path` → `path_from_fd_path`. One bad strace line aborts the whole run and **nothing is
+  written** (the tracer writes its JSON only at the end). The offending invocation was not identified.
+  **Fixed on the branch only (2026-11-11, Tiran's call):** `parse_string` now returns the stripped raw string on
+  `UnicodeDecodeError` (test `tests/unit/test_strace_parse_string.py`; noted as a v1 bug fix in
+  `save_pash_py/README.md`); sort main rerun the same day **completed with the fix** (4,729 s tracing, against
+  3 h 39 min to the crash on the first attempt — why it was faster is not established; 3,640 lines, 342 cases, commit `4bf74dd9a`). v1 `main` still has the bug — any long
+  trace can die this way. Not established: the cause (comma-splitting of arguments is the likely one).
