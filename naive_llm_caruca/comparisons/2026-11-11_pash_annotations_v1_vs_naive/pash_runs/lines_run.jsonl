@@ -1,0 +1,385 @@
+{"cmd": "cat", "id": "cat-00000", "line": "cat", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00001", "line": "cat WIKI/ARG0", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00002", "line": "cat data_file", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00003", "line": "cat namelist", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00004", "line": "cat AUX_HEAD1", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00005", "line": "cat AUX_TAIL2", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00006", "line": "cat IN", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00007", "line": "cat IN/input", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00008", "line": "cat IN1", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00009", "line": "cat IN1 temp IN2", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00010", "line": "cat IN10", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00011", "line": "cat IN11", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00012", "line": "cat IN2", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00013", "line": "cat IN3", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00014", "line": "cat IN4", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00015", "line": "cat IN5", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00016", "line": "cat IN6", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00017", "line": "cat IN7", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00018", "line": "cat IN8", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00019", "line": "cat IN91", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00020", "line": "cat IN92", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00021", "line": "cat IN93", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00022", "line": "cat IN94", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00023", "line": "cat IN96", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00024", "line": "cat IN97", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00025", "line": "cat IN98", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00026", "line": "cat IN99", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00027", "line": "cat PASH_TOP/README.md", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00028", "line": "cat SGDIR/npfo-_unnamed_0.0", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00029", "line": "cat SGDIR/npfo-_unnamed_1.0", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00030", "line": "cat WIKI/index_h_100.txt", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00031", "line": "cat annotated", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00032", "line": "cat f", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00033", "line": "cat file", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00034", "line": "cat filename", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00035", "line": "cat j", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00036", "line": "cat line", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00037", "line": "cat temp", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00038", "line": "cat INPUT", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00039", "line": "cat IN_NAME", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00040", "line": "cat IN/IN_NAME", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00041", "line": "cat 'IN/*.INFO'", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00042", "line": "cat IN/1.INFO", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00043", "line": "cat IN/access.log", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00044", "line": "cat IN/gsquarterly_december-2020.csv", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00045", "line": "cat INapache.log", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00046", "line": "cat INmini.xml", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00047", "line": "cat 'M0/*.csv' 'M1/*.csv' 'M2/*.csv' 'M3/*.csv' 'M4/*.csv'", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00048", "line": "cat 'OUT/*.res'", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00049", "line": "cat OUT/a", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00050", "line": "cat OUT/rays.csv", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00051", "line": "cat './assembly/*.R1_val_1.fq'", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00052", "line": "cat './assembly/*.R2_val_2.fq'", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00053", "line": "cat /var/log/nginx/access.log", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00054", "line": "cat 10M.txt", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00055", "line": "cat 1G.txt", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00056", "line": "cat 1M.txt", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00057", "line": "cat 1grams", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00058", "line": "cat 2grams", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00059", "line": "cat 3grams", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00060", "line": "cat a", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00061", "line": "cat a1 b1 c1 d1 e1 f1", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00062", "line": "cat a_ch1", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00063", "line": "cat a_ch2", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00064", "line": "cat all_cmds.txt", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00065", "line": "cat b", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00066", "line": "cat b_ch1", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00067", "line": "cat b_ch2", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00068", "line": "cat c", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00069", "line": "cat d", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00070", "line": "cat dblp.xml", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00071", "line": "cat e", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00072", "line": "cat generated.file", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00073", "line": "cat pg.tar.xz", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00074", "line": "cat sed_a", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00075", "line": "cat sed_b", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00076", "line": "cat teea", "set": "benchmark"}
+{"cmd": "cat", "id": "cat-00077", "line": "cat teeb", "set": "benchmark"}
+{"cmd": "cp", "id": "cp-00000", "line": "cp f fi.wav", "set": "benchmark"}
+{"cmd": "cp", "id": "cp-00001", "line": "cp R1.fastq Sample1.R1.fq", "set": "benchmark"}
+{"cmd": "cp", "id": "cp-00002", "line": "cp R2.fastq Sample1.R2.fq", "set": "benchmark"}
+{"cmd": "cp", "id": "cp-00003", "line": "cp sample.rtf i.rtf", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00000", "line": "cut -b-32", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00001", "line": "cut -c 1-1", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00002", "line": "cut -c 1-12", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00003", "line": "cut -c 1-2", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00004", "line": "cut -c 1-4", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00005", "line": "cut -c 3-3", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00006", "line": "cut -c 7-", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00007", "line": "cut -c 89-92", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00008", "line": "cut -d ' ' -f 2", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00009", "line": "cut -d '' '' -f1", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00010", "line": "cut -d '\"' -f 2", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00011", "line": "cut -d '\"' -f3", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00012", "line": "cut -d ' ' -f 1", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00013", "line": "cut -d ' ' -f 4", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00014", "line": "cut -d ' ' -f1", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00015", "line": "cut -d ' ' -f2", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00016", "line": "cut -d ' ' -f9", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00017", "line": "cut -d '(' -f 2", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00018", "line": "cut -d ')' -f 1", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00019", "line": "cut -d , -f 1", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00020", "line": "cut -d , -f 1,2", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00021", "line": "cut -d , -f 1,2,4", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00022", "line": "cut -d , -f 1,3", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00023", "line": "cut -d , -f 2", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00024", "line": "cut -d , -f 3", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00025", "line": "cut -d , -f 3,1", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00026", "line": "cut -d . -f 2", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00027", "line": "cut -d : -f 3", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00028", "line": "cut -d , -f 2-4 -", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00029", "line": "cut -d , -f 5-6 -", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00030", "line": "cut -d '' -f2", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00031", "line": "cut -d= -f1", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00032", "line": "cut '-d ' -f1", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00033", "line": "cut '-d ' -f2-", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00034", "line": null, "raw": "cut -d';' -f1", "set": "benchmark", "unusable": "shlex: No closing quotation"}
+{"cmd": "cut", "id": "cut-00035", "line": "cut -d: -f1", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00036", "line": "cut -f 1", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00037", "line": "cut -f 1 -d ' '", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00038", "line": "cut -f 2", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00039", "line": "cut -f 2 IN/bio/Gene_locs.txt", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00040", "line": "cut -f 2 ./Gene_locs.txt", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00041", "line": "cut -f 3 -d ' '", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00042", "line": "cut -f 4", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00043", "line": "cut -f1 '-d '", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00044", "line": "cut -f1-3 -d.", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00045", "line": "cut -f2 -d:", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00046", "line": "cut -f3-", "set": "benchmark"}
+{"cmd": "cut", "id": "cut-00047", "line": null, "raw": "uniq tee >(awk -F'|' '{print NF,$0}' file | sort -nr | cut -d' ' -f2- \\", "set": "benchmark", "unusable": "shlex: No escaped character"}
+{"cmd": "rm", "id": "rm-00000", "line": "rm aux1", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00001", "line": "rm aux2", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00002", "line": "rm aux3", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00003", "line": "rm s2", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00004", "line": "rm s2 s3", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00005", "line": "rm temp", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00006", "line": "rm OUT", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00007", "line": "rm -f input.txt", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00008", "line": "rm -f OUT/input.words OUT/input.nextwords OUT/input.nextwords2", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00009", "line": "rm -f OUT/a OUT/sort_IN OUT/sort_dict OUT/bad", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00010", "line": "rm -f '*.bz2' in.csv in_small.csv", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00011", "line": "rm -f A B A+B.sgsh.ft2 A-B.sgsh.ft2", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00012", "line": "rm -f a", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00013", "line": "rm -f a b", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00014", "line": "rm -f a b A B", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00015", "line": "rm -f a b c d", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00016", "line": "rm -f a b c d a1 b1 c1 d1", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00017", "line": "rm -f a b c d e f a1 b1 c1 d1 e1 f1", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00018", "line": "rm -f a b c d e f g digram.txt trigram.txt words.txt teea_res teeb_res teea teeb", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00019", "line": "rm -f access.log apache.log shutdown.log", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00020", "line": "rm -f nginx.zip", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00021", "line": "rm -f oneliners.zip", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00022", "line": "rm -f sed_a sed_b a b a_ch1 a_ch2 b_ch1 b_ch2", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00023", "line": "rm -f unix50.zip", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00024", "line": "rm -r jpg/", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00025", "line": "rm -rf SGDIR", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00026", "line": "rm -rf OUT", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00027", "line": "rm -rf input_files", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00028", "line": "rm -rf IN/bio", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00029", "line": "rm -rf IN/deps", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00030", "line": "rm -rf IN/jpg", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00031", "line": "rm -rf IN/jpg.zip", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00032", "line": "rm -rf IN/linux", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00033", "line": "rm -rf IN/log_data", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00034", "line": "rm -rf IN/mir-sa", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00035", "line": "rm -rf IN/nginx-logs", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00036", "line": "rm -rf IN/node_modules", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00037", "line": "rm -rf IN/output", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00038", "line": "rm -rf IN/packages", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00039", "line": "rm -rf IN/pcap_data", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00040", "line": "rm -rf IN/pcaps", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00041", "line": "rm -rf IN/rtf", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00042", "line": "rm -rf IN/wav", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00043", "line": "rm -rf '*.bam'", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00044", "line": "rm -rf '*.sam'", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00045", "line": "rm -rf ../1-grams.txt ../2-grams.txt", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00046", "line": "rm -rf ../output", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00047", "line": "rm -rf 1.7.zip", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00048", "line": "rm -rf __MACOSX", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00049", "line": "rm -rf final", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00050", "line": "rm -rf full web-index.full.zip", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00051", "line": "rm -rf genesis exodus pg", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00052", "line": "rm -rf input", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00053", "line": "rm -rf output", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00054", "line": "rm -rf small web-index.small.zip", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00055", "line": null, "raw": "rm ./pandoc-2.2.1-1-$(dpkg --print-architecture).deb", "set": "benchmark", "unusable": "command substitution"}
+{"cmd": "rm", "id": "rm-00056", "line": "rm 1.7.zip", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00057", "line": "rm a", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00058", "line": "rm a b", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00059", "line": "rm a b c d", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00060", "line": "rm a b c d a1 b1 c1 d1", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00061", "line": "rm a b c e f g d trigram.txt words.txt digram.txt teea teeb teea_res teeb_res", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00062", "line": "rm a1 b1 c1 d1 e1 f1 a b c d e f", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00063", "line": "rm bio.zip", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00064", "line": "rm mir-sa.zip", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00065", "line": "rm nginx.zip", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00066", "line": "rm nlp.zip data -rf", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00067", "line": "rm node_modules.zip", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00068", "line": "rm pcaps.zip", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00069", "line": "rm s1 s2", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00070", "line": "rm s3", "set": "benchmark"}
+{"cmd": "rm", "id": "rm-00071", "line": "rm '{1,2,3}grams'", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00000", "line": "sort", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00001", "line": "sort -rn", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00002", "line": "sort OUT/input1.types OUT/input2.types OUT/input2.types", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00003", "line": "sort OUT/input.types OUT/input.types.rev", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00004", "line": "sort -S 512M", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00005", "line": "sort -f", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00006", "line": "sort -k 2n", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00007", "line": "sort -k1n", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00008", "line": "sort -k2", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00009", "line": "sort -k2 -n -t, -r", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00010", "line": "sort -n", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00011", "line": "sort -nr", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00012", "line": "sort -nrk 1", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00013", "line": "sort -r", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00014", "line": "sort '-t\u0001' -k 2", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00015", "line": "sort -u", "set": "benchmark"}
+{"cmd": "sort", "id": "sort-00016", "line": "sort /usr/share/dict/words", "set": "benchmark"}
+{"cmd": "split", "id": "split-00000", "line": "split -dn N IN", "set": "benchmark"}
+{"cmd": "wc", "id": "wc-00000", "line": "wc -c", "set": "benchmark"}
+{"cmd": "wc", "id": "wc-00001", "line": "wc -l", "set": "benchmark"}
+{"cmd": "wc", "id": "wc-00002", "line": "wc -lc", "set": "benchmark"}
+{"cmd": "cat", "group_size": 12, "id": "cat-00081", "line": "cat -n relpath_1", "set": "disagreement", "situation": [["-n"], 1]}
+{"cmd": "cat", "group_size": 11, "id": "cat-00092", "line": "cat -s f", "set": "disagreement", "situation": [["-s"], 1]}
+{"cmd": "cat", "group_size": 9, "id": "cat-00083", "line": "cat -A f", "set": "disagreement", "situation": [["-A"], 1]}
+{"cmd": "cat", "group_size": 9, "id": "cat-00088", "line": "cat -E f", "set": "disagreement", "situation": [["-E"], 1]}
+{"cmd": "cat", "group_size": 9, "id": "cat-00095", "line": "cat -T f", "set": "disagreement", "situation": [["-T"], 1]}
+{"cmd": "cat", "group_size": 9, "id": "cat-00087", "line": "cat -e f", "set": "disagreement", "situation": [["-e"], 1]}
+{"cmd": "cat", "group_size": 9, "id": "cat-00094", "line": "cat -t f", "set": "disagreement", "situation": [["-t"], 1]}
+{"cmd": "cat", "group_size": 9, "id": "cat-00097", "line": "cat -u f", "set": "disagreement", "situation": [["-u"], 1]}
+{"cmd": "cat", "group_size": 9, "id": "cat-00098", "line": "cat -v f", "set": "disagreement", "situation": [["-v"], 1]}
+{"cmd": "cat", "group_size": 8, "id": "cat-00100", "line": "cat -vET f", "set": "disagreement", "situation": [["-E", "-T", "-v"], 1]}
+{"cmd": "cat", "group_size": 2, "id": "cat-00091", "line": "cat --number f", "set": "disagreement", "situation": [["--number"], 1]}
+{"cmd": "cat", "group_size": 2, "id": "cat-00084", "line": "cat --show-all f", "set": "disagreement", "situation": [["--show-all"], 1]}
+{"cmd": "cat", "group_size": 2, "id": "cat-00089", "line": "cat --show-ends f", "set": "disagreement", "situation": [["--show-ends"], 1]}
+{"cmd": "cat", "group_size": 2, "id": "cat-00099", "line": "cat --show-nonprinting f", "set": "disagreement", "situation": [["--show-nonprinting"], 1]}
+{"cmd": "cat", "group_size": 2, "id": "cat-00096", "line": "cat --show-tabs f", "set": "disagreement", "situation": [["--show-tabs"], 1]}
+{"cmd": "cat", "group_size": 2, "id": "cat-00093", "line": "cat --squeeze-blank f", "set": "disagreement", "situation": [["--squeeze-blank"], 1]}
+{"cmd": "cat", "group_size": 1, "id": "cat-00189", "line": "cat -A part_aa part_ab", "set": "disagreement", "situation": [["-A"], 2]}
+{"cmd": "cat", "group_size": 1, "id": "cat-00080", "line": "cat -n", "set": "disagreement", "situation": [["-n"], 0]}
+{"cmd": "cat", "group_size": 1, "id": "cat-00108", "line": "cat -n f g", "set": "disagreement", "situation": [["-n"], 2]}
+{"cmd": "cat", "group_size": 1, "id": "cat-00212", "line": "cat p1 p2", "set": "disagreement", "situation": [[], 2]}
+{"cmd": "cat", "group_size": 1, "id": "cat-00102", "line": "cat f - g", "set": "disagreement", "situation": [[], 3]}
+{"cmd": "cut", "group_size": 62, "id": "cut-00303", "line": "cut -b 1 relpath_1", "set": "disagreement", "situation": [["-b"], 1]}
+{"cmd": "cut", "group_size": 61, "id": "cut-00946", "line": "cut -d : -f 1,3 c1.txt", "set": "disagreement", "situation": [["-d", "-f"], 1]}
+{"cmd": "cut", "group_size": 53, "id": "cut-00162", "line": "cut -c 1 relpath_1", "set": "disagreement", "situation": [["-c"], 1]}
+{"cmd": "cut", "group_size": 44, "id": "cut-00953", "line": "cut -n -b1 c1.txt", "set": "disagreement", "situation": [["-b", "-n"], 1]}
+{"cmd": "cut", "group_size": 35, "id": "cut-00951", "line": "cut -d: --complement -f2 c1.txt", "set": "disagreement", "situation": [["--complement", "-d", "-f"], 1]}
+{"cmd": "cut", "group_size": 35, "id": "cut-00945", "line": "cut -d: -s -f1 c1.txt", "set": "disagreement", "situation": [["-d", "-f", "-s"], 1]}
+{"cmd": "cut", "group_size": 34, "id": "cut-00952", "line": "cut -d: -f1,3 --output-delimiter=@ c1.txt", "set": "disagreement", "situation": [["--output-delimiter", "-d", "-f"], 1]}
+{"cmd": "cut", "group_size": 30, "id": "cut-00351", "line": "cut -f 1 relpath_1", "set": "disagreement", "situation": [["-f"], 1]}
+{"cmd": "cut", "group_size": 29, "id": "cut-00978", "line": "cut -d: -s -f1,3 --output-delimiter=@ big2.txt", "set": "disagreement", "situation": [["--output-delimiter", "-d", "-f", "-s"], 1]}
+{"cmd": "cut", "group_size": 27, "id": "cut-01114", "line": "cut -zb1-2 zin", "set": "disagreement", "situation": [["-b", "-z"], 1]}
+{"cmd": "cut", "group_size": 26, "id": "cut-01054", "line": "cut -d: -f2 --complement -s in1", "set": "disagreement", "situation": [["--complement", "-d", "-f", "-s"], 1]}
+{"cmd": "cut", "group_size": 25, "id": "cut-01026", "line": "cut --bytes 1-3 in1", "set": "disagreement", "situation": [["--bytes"], 1]}
+{"cmd": "cut", "group_size": 22, "id": "cut-01035", "line": "cut -d: -f1 --output-delimiter=XX --complement in1", "set": "disagreement", "situation": [["--complement", "--output-delimiter", "-d", "-f"], 1]}
+{"cmd": "cut", "group_size": 21, "id": "cut-01164", "line": "cut -b 1 --complement /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--complement", "-b"], 1]}
+{"cmd": "cut", "group_size": 21, "id": "cut-01036", "line": "cut -b1 --output-delimiter=XX in1", "set": "disagreement", "situation": [["--output-delimiter", "-b"], 1]}
+{"cmd": "cut", "group_size": 21, "id": "cut-01039", "line": "cut -d: -f1 -n in1", "set": "disagreement", "situation": [["-d", "-f", "-n"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-01790", "line": "cut --bytes 1 --complement /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--bytes", "--complement"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-01814", "line": "cut --bytes 1 --complement --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--bytes", "--complement", "--output-delimiter"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-01826", "line": "cut --bytes 1 -n --complement --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--bytes", "--complement", "--output-delimiter", "-n"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-01802", "line": "cut --bytes 1 -n --complement /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--bytes", "--complement", "-n"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-01794", "line": "cut --bytes 1 --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--bytes", "--output-delimiter"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-01806", "line": "cut --bytes 1 -n --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--bytes", "--output-delimiter", "-n"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-01786", "line": "cut --bytes 1 -n /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--bytes", "-n"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-03054", "line": "cut --characters 1 --complement /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--characters", "--complement"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-03078", "line": "cut --characters 1 --complement --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--characters", "--complement", "--output-delimiter"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-03090", "line": "cut --characters 1 -n --complement --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--characters", "--complement", "--output-delimiter", "-n"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-03066", "line": "cut --characters 1 -n --complement /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--characters", "--complement", "-n"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-03058", "line": "cut --characters 1 --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--characters", "--output-delimiter"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-03070", "line": "cut --characters 1 -n --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--characters", "--output-delimiter", "-n"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-03050", "line": "cut --characters 1 -n /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--characters", "-n"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-03046", "line": "cut --characters 1 /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--characters"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-06242", "line": "cut --fields 1 --complement /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--complement", "--fields"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-06302", "line": "cut --fields 1 --complement --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--complement", "--fields", "--output-delimiter"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-06342", "line": "cut --fields 1 -d : --complement --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--complement", "--fields", "--output-delimiter", "-d"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-06418", "line": "cut --fields 1 -d : -n --complement --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--complement", "--fields", "--output-delimiter", "-d", "-n"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-06454", "line": "cut --fields 1 -d : -s -n --complement --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--complement", "--fields", "--output-delimiter", "-d", "-n", "-s"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-06406", "line": "cut --fields 1 -d : -s --complement --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--complement", "--fields", "--output-delimiter", "-d", "-s"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-06378", "line": "cut --fields 1 -n --complement --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--complement", "--fields", "--output-delimiter", "-n"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-06434", "line": "cut --fields 1 -s -n --complement --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--complement", "--fields", "--output-delimiter", "-n", "-s"], 1]}
+{"cmd": "cut", "group_size": 20, "id": "cut-06366", "line": "cut --fields 1 -s --complement --output-delimiter -- /tmp/cutcheck/in.txt", "set": "disagreement", "situation": [["--complement", "--fields", "--output-delimiter", "-s"], 1]}
+{"cmd": "grep", "group_size": 9, "id": "grep-00217", "line": "grep -d read foo a.txt", "set": "disagreement", "situation": [["-d"], 2]}
+{"cmd": "grep", "group_size": 8, "id": "grep-00108", "line": "grep --binary-files=binary foo a.txt", "set": "disagreement", "situation": [["--binary-files"], 2]}
+{"cmd": "grep", "group_size": 7, "id": "grep-00052", "line": "grep --color foo a.txt", "set": "disagreement", "situation": [["--color"], 2]}
+{"cmd": "grep", "group_size": 7, "id": "grep-00134", "line": "grep --directories=read foo a.txt", "set": "disagreement", "situation": [["--directories"], 2]}
+{"cmd": "grep", "group_size": 6, "id": "grep-00198", "line": "grep -D read foo a.txt", "set": "disagreement", "situation": [["-D"], 2]}
+{"cmd": "grep", "group_size": 5, "id": "grep-00089", "line": "grep --colour foo a.txt", "set": "disagreement", "situation": [["--colour"], 2]}
+{"cmd": "grep", "group_size": 5, "id": "grep-00129", "line": "grep --devices=read foo a.txt", "set": "disagreement", "situation": [["--devices"], 2]}
+{"cmd": "grep", "group_size": 5, "id": "grep-00086", "line": "grep -f nope a.txt", "set": "disagreement", "situation": [["-f"], 1]}
+{"cmd": "grep", "group_size": 5, "id": "grep-00001", "line": "grep a relpath_1", "set": "disagreement", "situation": [[], 2]}
+{"cmd": "grep", "group_size": 4, "id": "grep-00098", "line": "grep --after-context=1 foo a.txt", "set": "disagreement", "situation": [["--after-context"], 2]}
+{"cmd": "grep", "group_size": 4, "id": "grep-00103", "line": "grep --before-context=1 foo a.txt", "set": "disagreement", "situation": [["--before-context"], 2]}
+{"cmd": "grep", "group_size": 4, "id": "grep-00123", "line": "grep --context=1 foo a.txt", "set": "disagreement", "situation": [["--context"], 2]}
+{"cmd": "grep", "group_size": 4, "id": "grep-00068", "line": "grep --label=stdinlabel -H foo", "set": "disagreement", "situation": [["--label", "-H"], 1]}
+{"cmd": "grep", "group_size": 4, "id": "grep-00165", "line": "grep --max-count=1 foo a.txt", "set": "disagreement", "situation": [["--max-count"], 2]}
+{"cmd": "grep", "group_size": 4, "id": "grep-00025", "line": "grep -r a relpath_1", "set": "disagreement", "situation": [["-r"], 2]}
+{"cmd": "grep", "group_size": 3, "id": "grep-00004", "line": "grep -R a relpath_1", "set": "disagreement", "situation": [["-R"], 2]}
+{"cmd": "grep", "group_size": 3, "id": "grep-00072", "line": "grep -e foo -e bar a.txt", "set": "disagreement", "situation": [["-e"], 1]}
+{"cmd": "grep", "group_size": 3, "id": "grep-00007", "line": "grep -v a relpath_1", "set": "disagreement", "situation": [["-v"], 2]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00143", "line": "grep '--exclude-dir=*.txt' foo a.txt", "set": "disagreement", "situation": [["--exclude-dir"], 2]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00145", "line": "grep --exclude-from=a.txt foo a.txt", "set": "disagreement", "situation": [["--exclude-from"], 2]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00149", "line": "grep --file a.txt a.txt", "set": "disagreement", "situation": [["--file"], 1]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00156", "line": "grep '--include=*.txt' foo a.txt", "set": "disagreement", "situation": [["--include"], 2]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00160", "line": "grep --label=lbl foo a.txt", "set": "disagreement", "situation": [["--label"], 2]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00170", "line": "grep --no-group-separator foo a.txt", "set": "disagreement", "situation": [["--no-group-separator"], 2]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00179", "line": "grep --regexp=foo a.txt", "set": "disagreement", "situation": [["--regexp"], 1]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00040", "line": "grep -r -R a relpath_1", "set": "disagreement", "situation": [["-R", "-r"], 2]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00042", "line": "grep -v -r -R a relpath_1", "set": "disagreement", "situation": [["-R", "-r", "-v"], 2]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00010", "line": "grep -v -R a relpath_1", "set": "disagreement", "situation": [["-R", "-v"], 2]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00250", "line": "grep -e foo", "set": "disagreement", "situation": [["-e"], 0]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00087", "line": "grep -e foo a.txt b.txt", "set": "disagreement", "situation": [["-e"], 2]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00252", "line": "grep -f pats", "set": "disagreement", "situation": [["-f"], 0]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00028", "line": "grep -v -r a relpath_1", "set": "disagreement", "situation": [["-r", "-v"], 2]}
+{"cmd": "grep", "group_size": 2, "id": "grep-00049", "line": "grep -y FOO a.txt", "set": "disagreement", "situation": [["-y"], 2]}
+{"cmd": "grep", "group_size": 1, "id": "grep-00102", "line": "grep --basic-regexp foo a.txt", "set": "disagreement", "situation": [["--basic-regexp"], 2]}
+{"cmd": "grep", "group_size": 1, "id": "grep-00053", "line": "grep --color always foo a.txt", "set": "disagreement", "situation": [["--color"], 3]}
+{"cmd": "grep", "group_size": 1, "id": "grep-00128", "line": "grep --dereference-recursive foo a.txt", "set": "disagreement", "situation": [["--dereference-recursive"], 2]}
+{"cmd": "grep", "group_size": 1, "id": "grep-00066", "line": "grep --ext fo+ a.txt", "set": "disagreement", "situation": [["--ext"], 2]}
+{"cmd": "grep", "group_size": 1, "id": "grep-00147", "line": "grep --extended-regexp foo a.txt", "set": "disagreement", "situation": [["--extended-regexp"], 2]}
+{"cmd": "grep", "group_size": 1, "id": "grep-00152", "line": "grep --fixed-strings foo a.txt", "set": "disagreement", "situation": [["--fixed-strings"], 2]}
+{"cmd": "grep", "group_size": 1, "id": "grep-00069", "line": "grep -A0 --group-separator XX o a.txt", "set": "disagreement", "situation": [["--group-separator", "-A"], 3]}
+{"cmd": "sort", "group_size": 74, "id": "sort-00269", "line": "sort -k 1 relpath_1", "set": "disagreement", "situation": [["-k"], 1]}
+{"cmd": "sort", "group_size": 36, "id": "sort-01192", "line": "sort --sort=general-numeric -k 1", "set": "disagreement", "situation": [["--sort", "-k"], 0]}
+{"cmd": "sort", "group_size": 29, "id": "sort-00301", "line": "sort --sort=general-numeric relpath_1", "set": "disagreement", "situation": [["--sort"], 1]}
+{"cmd": "sort", "group_size": 27, "id": "sort-01667", "line": "sort -s -k1,1 big", "set": "disagreement", "situation": [["-k", "-s"], 1]}
+{"cmd": "sort", "group_size": 27, "id": "sort-01673", "line": "sort -u -k1,1 big", "set": "disagreement", "situation": [["-k", "-u"], 1]}
+{"cmd": "sort", "group_size": 22, "id": "sort-01697", "line": "sort -f -u big", "set": "disagreement", "situation": [["-f", "-u"], 1]}
+{"cmd": "sort", "group_size": 18, "id": "sort-00767", "line": "sort --sort=general-numeric --parallel=1", "set": "disagreement", "situation": [["--parallel", "--sort"], 0]}
+{"cmd": "sort", "group_size": 18, "id": "sort-00722", "line": "sort -k 1 --parallel=1", "set": "disagreement", "situation": [["--parallel", "-k"], 0]}
+{"cmd": "sort", "group_size": 18, "id": "sort-00281", "line": "sort -s relpath_1", "set": "disagreement", "situation": [["-s"], 1]}
+{"cmd": "sort", "group_size": 15, "id": "sort-01258", "line": "sort -k 1 -t ,", "set": "disagreement", "situation": [["-k", "-t"], 0]}
+{"cmd": "sort", "group_size": 14, "id": "sort-00065", "line": "sort -k 1", "set": "disagreement", "situation": [["-k"], 0]}
+{"cmd": "sort", "group_size": 14, "id": "sort-00327", "line": "sort -u relpath_1", "set": "disagreement", "situation": [["-u"], 1]}
+{"cmd": "sort", "group_size": 12, "id": "sort-01023", "line": "sort --sort=general-numeric --compress-program ls", "set": "disagreement", "situation": [["--compress-program", "--sort"], 0]}
+{"cmd": "sort", "group_size": 12, "id": "sort-00993", "line": "sort --compress-program ls -k 1", "set": "disagreement", "situation": [["--compress-program", "-k"], 0]}
+{"cmd": "sort", "group_size": 12, "id": "sort-01396", "line": "sort --random-source relpath_1 --sort=general-numeric", "set": "disagreement", "situation": [["--random-source", "--sort"], 0]}
+{"cmd": "sort", "group_size": 12, "id": "sort-01174", "line": "sort --random-source relpath_1 -k 1", "set": "disagreement", "situation": [["--random-source", "-k"], 0]}
+{"cmd": "sort", "group_size": 12, "id": "sort-01331", "line": "sort --sort=general-numeric -T relpath_1", "set": "disagreement", "situation": [["--sort", "-T"], 0]}
+{"cmd": "sort", "group_size": 12, "id": "sort-01472", "line": "sort --sort=general-numeric -t ,", "set": "disagreement", "situation": [["--sort", "-t"], 0]}
+{"cmd": "sort", "group_size": 12, "id": "sort-01150", "line": "sort -k 1 -T relpath_1", "set": "disagreement", "situation": [["-T", "-k"], 0]}
+{"cmd": "sort", "group_size": 11, "id": "sort-00323", "line": "sort -t , relpath_1", "set": "disagreement", "situation": [["-t"], 1]}
+{"cmd": "sort", "group_size": 10, "id": "sort-00287", "line": "sort -T relpath_1 relpath_2", "set": "disagreement", "situation": [["-T"], 1]}
+{"cmd": "sort", "group_size": 10, "id": "sort-01607", "line": "sort -t ' ' -k3,3M big", "set": "disagreement", "situation": [["-k", "-t"], 1]}
+{"cmd": "sort", "group_size": 10, "id": "sort-00257", "line": "sort -r relpath_1", "set": "disagreement", "situation": [["-r"], 1]}
+{"cmd": "sort", "group_size": 10, "id": "sort-00021", "line": "sort relpath_1", "set": "disagreement", "situation": [[], 1]}
+{"cmd": "sort", "group_size": 9, "id": "sort-00231", "line": "sort -V relpath_1", "set": "disagreement", "situation": [["-V"], 1]}
+{"cmd": "sort", "group_size": 9, "id": "sort-00251", "line": "sort -d relpath_1", "set": "disagreement", "situation": [["-d"], 1]}
+{"cmd": "sort", "group_size": 9, "id": "sort-00123", "line": "sort -f relpath_1", "set": "disagreement", "situation": [["-f"], 1]}
+{"cmd": "sort", "group_size": 9, "id": "sort-00255", "line": "sort -i relpath_1", "set": "disagreement", "situation": [["-i"], 1]}
+{"cmd": "sort", "group_size": 9, "id": "sort-01270", "line": "sort -k 1 -u", "set": "disagreement", "situation": [["-k", "-u"], 0]}
+{"cmd": "sort", "group_size": 9, "id": "sort-00253", "line": "sort -n relpath_1", "set": "disagreement", "situation": [["-n"], 1]}
+{"cmd": "sort", "group_size": 8, "id": "sort-00259", "line": "sort --compress-program ls relpath_1", "set": "disagreement", "situation": [["--compress-program"], 1]}
+{"cmd": "sort", "group_size": 8, "id": "sort-01138", "line": "sort -k 1 -s", "set": "disagreement", "situation": [["-k", "-s"], 0]}
+{"cmd": "sort", "group_size": 8, "id": "sort-01545", "line": "sort -y in1", "set": "disagreement", "situation": [["-y"], 1]}
+{"cmd": "sort", "group_size": 7, "id": "sort-00505", "line": "sort --sort=general-numeric --debug", "set": "disagreement", "situation": [["--debug", "--sort"], 0]}
+{"cmd": "sort", "group_size": 7, "id": "sort-00295", "line": "sort --random-source relpath_1 relpath_2", "set": "disagreement", "situation": [["--random-source"], 1]}
+{"cmd": "sort", "group_size": 6, "id": "sort-00831", "line": "sort --sort=general-numeric --help", "set": "disagreement", "situation": [["--help", "--sort"], 0]}
+{"cmd": "sort", "group_size": 6, "id": "sort-00816", "line": "sort -k 1 --help", "set": "disagreement", "situation": [["--help", "-k"], 0]}
+{"cmd": "sort", "group_size": 6, "id": "sort-00758", "line": "sort --random-source relpath_1 --parallel=1", "set": "disagreement", "situation": [["--parallel", "--random-source"], 0]}
+{"cmd": "sort", "group_size": 6, "id": "sort-00746", "line": "sort -T relpath_1 --parallel=1", "set": "disagreement", "situation": [["--parallel", "-T"], 0]}
+{"cmd": "sort", "group_size": 6, "id": "sort-00800", "line": "sort -t , --parallel=1", "set": "disagreement", "situation": [["--parallel", "-t"], 0]}
+{"cmd": "sort", "id": "sort-named00", "line": "sort -n -u", "set": "named"}
+{"cmd": "sort", "id": "sort-named01", "line": "sort -n -s", "set": "named"}
+{"cmd": "sort", "id": "sort-named02", "line": "sort -g -u", "set": "named"}
+{"cmd": "sort", "id": "sort-named03", "line": "sort -h -s", "set": "named"}
+{"cmd": "sort", "id": "sort-named04", "line": "sort -k 1,1 -u", "set": "named"}
+{"cmd": "sort", "id": "sort-named05", "line": "sort -m", "set": "named"}
+{"cmd": "sort", "id": "sort-named06", "line": "sort -u", "set": "named"}
+{"cmd": "cut", "id": "cut-named07", "line": "cut -z -c 1-3", "set": "named"}
+{"cmd": "cut", "id": "cut-named08", "line": "cut -z -d , -f 1", "set": "named"}
+{"cmd": "grep", "id": "grep-named09", "line": "grep ab f1 f2", "set": "named"}
+{"cmd": "grep", "id": "grep-named10", "line": "grep -r ab d1", "set": "named"}
+{"cmd": "grep", "id": "grep-named11", "line": "grep -c ab f1 f2", "set": "named"}
+{"cmd": "grep", "id": "grep-named12", "line": "grep -m 5 ab", "set": "named"}
+{"cmd": "grep", "id": "grep-named13", "line": "grep -A 1 ab", "set": "named"}
+{"cmd": "grep", "id": "grep-named14", "line": "grep -n ab", "set": "named"}
+{"cmd": "grep", "id": "grep-named15", "line": "grep -c ab", "set": "named"}
+{"cmd": "grep", "id": "grep-named16", "line": "grep ab", "set": "named"}
+{"cmd": "cat", "id": "cat-named17", "line": "cat -n", "set": "named"}
+{"cmd": "cat", "id": "cat-named18", "line": "cat -n f1", "set": "named"}
+{"cmd": "cat", "id": "cat-named19", "line": "cat -n f1 f2", "set": "named"}
+{"cmd": "cat", "id": "cat-named20", "line": "cat f1 f2", "set": "named"}

@@ -13,8 +13,10 @@ How this was made:
   [rubric v1](rubric.md). The assessor saw the sides under random letters and was told not to run
   anything.
 
-**Nothing below has been run under PaSh yet. Only one claim has been confirmed by running the command;
-it is marked "confirmed".**
+**Update, 2026-11-19: PaSh has now been run with every side's files (task 022).** The sections below
+are the 11 November reading of the files and are left as written. What PaSh actually did is in
+["What PaSh did"](#what-pash-did-2026-11-19) at the end, and in full in
+[pash_runs/observations.md](pash_runs/observations.md).
 
 ## The files, to spot-check
 
@@ -75,10 +77,34 @@ Where the sets do differ, there are five kinds of cause:
 - **The assessor:** cut, sort and rm were assessed a second time with the letters redrawn, and 111 of 114
   rating fields came out the same ([unblinded.md](assessments/unblinded.md)).
 
+## What PaSh did (2026-11-19)
+
+2,377 PaSh runs: 382 command lines, each under every side, 8 workers. Checks that PaSh was really
+running and really reading each side's files passed before and after. Details, tables and limits:
+[pash_runs/observations.md](pash_runs/observations.md).
+
+- **On the 220 benchmark lines every output matched `bash`, for every side.** PaSh split 27 of 46 `cut`
+  lines with v1's files and 31 with the agent's; 0 of 17 `sort` lines with v1's, 1 to 10 with the
+  agent's (depending on the run), 9 with PaSh's own.
+- **v1's main-grammar `sort` files gave a wrong answer on 7 lines** (`sort -n -u` and six like it),
+  confirming the reading above. v1's PaSh-grammar files gave none in 382 runs.
+- **The agent's splits gave no wrong answer where the command read the data that was split.** Two of
+  its three `grep` runs made PaSh return nothing for 19 runs (a folder searched with `-r`, and
+  `--color`). PaSh's own `grep` files do the same.
+- **Several readings above did not hold under PaSh.** "The agent's `sort` classes crash, so PaSh does
+  not split" holds for 3 of 4 runs, but those runs still split `sort -n -u` correctly. `cat -n` (the
+  agent) was never split: PaSh ignores a recipe whose parts aren't implemented. Multi-file `grep`
+  ended in a PaSh error, not a split.
+- **PaSh's compiler raised an exception in 329 of the 2,377 runs** and ran the script as plain `bash`.
+  The list for review: [pash_runs/pash_bugs_for_review.md](pash_runs/pash_bugs_for_review.md).
+- **Whole scripts:** all 46 outputs matched `bash` under every set. PaSh split 35 with the agent's set,
+  35 with its own, 35 with v1's main-grammar set and 27 with v1's PaSh-grammar set. v1's sets never split
+  `sort`.
+
 ## Next
 
-1. **Run the checks the assessments list** (69 in total) in the Lima VM `caruca`, starting with v1's
-   unsafe `sort` splits and cp's "source written".
-2. **Real PaSh runs** on the benchmark lines with each side's files.
+1. **Run the checks the assessments list** (69 in total) in the Lima VM `caruca`, starting with cp's
+   "source written". v1's unsafe `sort` splits are now settled.
+2. **Decide what to do with the PaSh faults** in the review list.
 3. **Rubric v2:** name the output file as given, count "no answer" separately rather than as a difference
    type, and add a field per "better" verdict so that running can confirm or refute each one.

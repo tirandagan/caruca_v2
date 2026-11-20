@@ -34,6 +34,71 @@ up on a later day than it was made, the bullet gives both dates.
 written into its document and a link to the section that holds the evidence. Never edit an old bullet
 to change its number: add a new bullet and mark the old one "corrected on <date>".
 
+## 2026-11-20
+
+- **Not yet committed · Caruca (v1) and Naive LLM · One PaSh fault was reported to PaSh's authors, with a fix.**
+  At Tiran's request: issue [binpash/pash#794](https://github.com/binpash/pash/issues/794) and pull
+  request [binpash/pash#795](https://github.com/binpash/pash/pull/795). PaSh's own benchmark script
+  `bi-grams.sh` was never run in parallel, because one file of PaSh's compiler uses a name it no longer
+  imports. A tidy-up of PaSh's imports in January 2026 dropped it. The fix is one line. Before it, 0 of
+  the script's 2 parts compiled; after it, 1 of 2, with the same output as `bash`, and 2.0 s in place of
+  4.8 s on a 79 MB text. PaSh's own test suite passed 100 of 100 tests before and after. Details:
+  [pash_bugs_for_review.md](comparisons/2026-11-11_pash_annotations_v1_vs_naive/pash_runs/pash_bugs_for_review.md),
+  section E.
+- **Not yet committed · Caruca (v1) and Naive LLM · A second PaSh fault looked like one line and is not.**
+  Every command line whose option names a file (`grep -f patterns`, `awk -f program`) stops PaSh's
+  compiler on another missing name. Three more faults sit behind it. With all four repaired in a private
+  copy, `grep -f` was split and right in 6 of 8 forms tried, but `xargs -a file` returned nothing where
+  it had been right before. So this one was not sent; it needs PaSh's authors. Same document, section E.
+- **Not yet committed · Caruca (v1) and Naive LLM · Correction to 2026-11-19: PaSh's fallback is not fully silent.**
+  When PaSh's compiler fails on every part of a script, PaSh prints one general warning that nothing was
+  parallelized, with a hint to check the annotations. It prints the same warning when a script has
+  nothing to parallelize, so the two cases look alike; the error itself is only in the debug log. The
+  write-ups said there was no sign at all. Corrected in
+  [observations.md](comparisons/2026-11-11_pash_annotations_v1_vs_naive/pash_runs/observations.md) and on
+  the results page.
+- **Not yet committed · Caruca (v1) and Naive LLM · The PaSh results are on one shareable page.**
+  https://claude.ai/artifact/GEaB1mBP3VJo6ddCVcWJ5c. Its source is kept as
+  [results_page.html](comparisons/2026-11-11_pash_annotations_v1_vs_naive/pash_runs/results_page.html).
+
+## 2026-11-19
+
+- **Not yet committed · Caruca (v1) and Naive LLM · PaSh was run with both sets of annotation files.**
+  2,377 PaSh runs: 382 command lines (cat, cp, cut, grep, rm, sort, split, wc), each under every side,
+  8 workers. Checks that PaSh was really running and reading each side's files passed before and after.
+  - **Benchmark lines (220):** every output matched `bash`, for every side. PaSh split 27 of 46 `cut`
+    lines with v1's files and 31 with the agent's; 0 of 17 `sort` lines with v1's, 1 to 10 with the
+    agent's depending on the run, 9 with PaSh's own.
+  - **v1:** PaSh carried out every split v1's files allow (139 of 139). The files from v1's PaSh grammar
+    gave no wrong output in 382 runs. The files from its main grammar gave a wrong output on 7 `sort`
+    lines (`sort -n -u` and six like it); re-running by hand confirms the annotation is at fault.
+  - **The agent:** its files allow a split in 655 of 1,013 runs and PaSh carried out 423. No split gave
+    a wrong output where the command read the data that was split. Two of its three `grep` runs made
+    PaSh return nothing in 19 runs (a folder searched with `-r`, and `--color`); PaSh's own `grep` files
+    do the same.
+  - **Speed:** the benchmark lines are too cheap to gain much (1 of 12 timed lines got faster when
+    split, by 1.17 times; 11 got slower). On a `grep`
+    that works hard per line, PaSh was 6.4 times faster with v1's files and 6.1 to 6.3 times with the
+    agent's and PaSh's own; with one added option and a file argument v1 has no answer.
+  - **Whole scripts (46):** every output matched `bash`. PaSh split 35 with the agent's set, 35 with
+    its own, 35 with v1's main-grammar set, 27 with v1's PaSh-grammar set. v1's sets never split `sort`.
+
+  [Observations](comparisons/2026-11-11_pash_annotations_v1_vs_naive/pash_runs/observations.md)
+- **Not yet committed · PaSh · its compiler failed in 329 of 2,377 runs, and its own files gave 16
+  wrong outputs.** Each failure runs the script as plain `bash` with the right output and exit code 0,
+  so nothing shows. Twelve faults were reproduced on PaSh as installed, with none of our files, among them
+  `grep -m 5` returning nothing, `tail -n 1` stopping a whole pipeline from being split, and two names
+  used in PaSh's code and never imported. Listed for review; nothing has been sent to PaSh's authors.
+  [PaSh faults for review](comparisons/2026-11-11_pash_annotations_v1_vs_naive/pash_runs/pash_bugs_for_review.md)
+- **Not yet committed · PaSh · a correct answer does not show PaSh ran in parallel.** A pre-check for
+  task 022, with PaSh's own annotation files and 8 workers: 1 of 2 ordinary scripts was split. The other
+  (`cat in.txt | sort -n | uniq -c | sort -rn | head -5`) returned exit code 0 and the same output as
+  `bash`, while PaSh's log shows an error inside its compiler and that it ran the script as plain `bash`.
+  The cause is not established. So every PaSh run in task 022 records positive evidence of a split, never
+  just the exit code and output. (Cause found later the same day: `head -5`. PaSh reads `-5` as a file
+  name. `head -n 5` splits.)
+  [Task 022, section 2](../ai_docs/tasks/022_pash_runs_v1_vs_naive.md)
+
 ## 2026-11-11
 
 - **Not yet committed · Caruca (v1) and Naive LLM · PaSh annotations, 8 commands.** v1's new PaSh files

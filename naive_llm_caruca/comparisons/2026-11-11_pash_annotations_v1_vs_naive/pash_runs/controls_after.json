@@ -1,0 +1,159 @@
+{
+ "when": "2026-11-19 17:28:20 -0500",
+ "installed": {
+  "pash_commit": "42a8b87c",
+  "pash_annotations": "Version: 0.2.4",
+  "coreutils": "sort (GNU coreutils) 9.4",
+  "cores": "8",
+  "kernel": "Linux 6.8.0-147-generic aarch64"
+ },
+ "controls": [
+  {
+   "control": "known_good_installed",
+   "script": "cat in.txt | grep '\\(.\\).*\\1\\(.\\).*\\2' | wc -l",
+   "command_watched": "grep",
+   "annotation_folder": "installed package",
+   "state": "split",
+   "why": "",
+   "copies_started": 8,
+   "split_steps_in_log": 1,
+   "exit_code": 0,
+   "bash_exit_code": 0,
+   "output_same_as_bash": true,
+   "output_bytes": 6,
+   "tracebacks": [],
+   "notes": [],
+   "expect": "split"
+  },
+  {
+   "control": "known_good_copy",
+   "script": "cat in.txt | grep '\\(.\\).*\\1\\(.\\).*\\2' | wc -l",
+   "command_watched": "grep",
+   "annotation_folder": "/home/tirandagan.guest/t022/sides/grep/pash-own",
+   "state": "split",
+   "why": "",
+   "copies_started": 8,
+   "split_steps_in_log": 1,
+   "exit_code": 0,
+   "bash_exit_code": 0,
+   "output_same_as_bash": true,
+   "output_bytes": 6,
+   "tracebacks": [],
+   "notes": [],
+   "expect": "split"
+  },
+  {
+   "control": "folder_decides",
+   "script": "cat in.txt | grep '\\(.\\).*\\1\\(.\\).*\\2' | wc -l",
+   "command_watched": "grep",
+   "annotation_folder": "/home/tirandagan.guest/t022/sides/grep/none",
+   "state": "not split",
+   "why": "Daemon:  WARNING: Exception caught because some region(s) are unparallelizable: InputOutputInformation for grep not provided so considered side-effectful.; [PaSh] Warning: No region was parallelized successfully",
+   "copies_started": 1,
+   "split_steps_in_log": 0,
+   "exit_code": 0,
+   "bash_exit_code": 0,
+   "output_same_as_bash": true,
+   "output_bytes": 6,
+   "tracebacks": [],
+   "notes": [
+    "Daemon:  WARNING: Exception caught because some region(s) are unparallelizable: InputOutputInformation for grep not provided so considered side-effectful.",
+    "[PaSh] Warning: No region was parallelized successfully"
+   ],
+   "expect": "not split"
+  },
+  {
+   "control": "wrong_answer_caught",
+   "script": "cat in.txt | sort -n -u",
+   "command_watched": "sort",
+   "annotation_folder": "/home/tirandagan.guest/t022/sides/sort/v1-main",
+   "state": "split",
+   "why": "",
+   "copies_started": 8,
+   "split_steps_in_log": 1,
+   "exit_code": 0,
+   "bash_exit_code": 0,
+   "output_same_as_bash": false,
+   "output_bytes": 428486,
+   "tracebacks": [],
+   "notes": [],
+   "expect": "split, output differs from bash"
+  },
+  {
+   "control": "same_line_pash_own",
+   "script": "cat in.txt | sort -n -u",
+   "command_watched": "sort",
+   "annotation_folder": "/home/tirandagan.guest/t022/sides/sort/pash-own",
+   "state": "not split",
+   "why": "",
+   "copies_started": 1,
+   "split_steps_in_log": 0,
+   "exit_code": 0,
+   "bash_exit_code": 0,
+   "output_same_as_bash": true,
+   "output_bytes": 53203,
+   "tracebacks": [],
+   "notes": [],
+   "expect": "output same as bash"
+  },
+  {
+   "control": "silent_fallback",
+   "script": "cat in.txt | sort -n | uniq -c | sort -rn | head -5",
+   "command_watched": "sort",
+   "annotation_folder": "installed package",
+   "state": "PaSh error",
+   "why": "AssertionError @ ir.py:596 pipe_append",
+   "copies_started": 2,
+   "split_steps_in_log": 0,
+   "exit_code": 0,
+   "bash_exit_code": 0,
+   "output_same_as_bash": true,
+   "output_bytes": 309,
+   "tracebacks": [
+    "AssertionError @ ir.py:596 pipe_append"
+   ],
+   "notes": [
+    "[PaSh] Warning: No region was parallelized successfully"
+   ],
+   "expect": "PaSh error (ran as plain bash)"
+  },
+  {
+   "control": "silent_fallback_fixed",
+   "script": "cat in.txt | sort -n | uniq -c | sort -rn | head -n 5",
+   "command_watched": "sort",
+   "annotation_folder": "installed package",
+   "state": "split",
+   "why": "",
+   "copies_started": 30,
+   "split_steps_in_log": 2,
+   "exit_code": 0,
+   "bash_exit_code": 0,
+   "output_same_as_bash": true,
+   "output_bytes": 309,
+   "tracebacks": [],
+   "notes": [],
+   "expect": "split"
+  },
+  {
+   "control": "input_redirect",
+   "script": "cut -d ' ' -f 1 < in.txt",
+   "command_watched": "cut",
+   "annotation_folder": "installed package",
+   "state": "PaSh error",
+   "why": "NotImplementedError @ dfg_node.py:210 apply_redirections",
+   "copies_started": 1,
+   "split_steps_in_log": 0,
+   "exit_code": 0,
+   "bash_exit_code": 0,
+   "output_same_as_bash": true,
+   "output_bytes": 311290,
+   "tracebacks": [
+    "NotImplementedError @ dfg_node.py:210 apply_redirections"
+   ],
+   "notes": [
+    "[PaSh] Warning: No region was parallelized successfully"
+   ],
+   "expect": "PaSh error"
+  }
+ ]
+}

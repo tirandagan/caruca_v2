@@ -1,0 +1,464 @@
+{
+ "big": {
+  "bytes": 64172874,
+  "path": "/home/tirandagan.guest/t022/input/big.txt",
+  "sha": "d71c29366cf1b2d4"
+ },
+ "input": {
+  "bytes": 4279200,
+  "path": "/home/tirandagan.guest/t022/input/in.txt",
+  "sha": "ee7f123a25dc6a7b"
+ },
+ "real": {
+  "cat": "/usr/bin/cat",
+  "cp": "/usr/bin/cp",
+  "cut": "/usr/bin/cut",
+  "grep": "/usr/bin/grep",
+  "rm": "/usr/bin/rm",
+  "sort": "/usr/bin/sort",
+  "split": "/usr/bin/split",
+  "wc": "/usr/bin/wc"
+ },
+ "sides": [
+  {
+   "cmd": "cat",
+   "files": {
+    "InputOutputInfoGeneratorCat.py": "dbeb94b64eaf54c8",
+    "ParallelizabilityInfoGeneratorCat.py": "006fc34621b52dd9",
+    "cat.json": "5b4f26289f480365"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cat/v1-pash",
+   "side": "v1-pash"
+  },
+  {
+   "cmd": "cat",
+   "files": {
+    "InputOutputInfoGeneratorCat.py": "b90313966c4d2255",
+    "ParallelizabilityInfoGeneratorCat.py": "4a137a47c3512c68",
+    "cat.json": "6eb904d0148b5f10"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cat/naive_2026-10-28_100411",
+   "side": "naive:2026-10-28_100411"
+  },
+  {
+   "cmd": "cat",
+   "files": {
+    "InputOutputInfoGeneratorCat.py": "6c18d7da086e2505",
+    "ParallelizabilityInfoGeneratorCat.py": null,
+    "cat.json": "07b731fba1571a36"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cat/pash-own",
+   "side": "pash-own"
+  },
+  {
+   "cmd": "cp",
+   "files": {
+    "InputOutputInfoGeneratorCp.py": "cda7370b1b91420f",
+    "ParallelizabilityInfoGeneratorCp.py": "65f09d6dfc532b9f",
+    "cp.json": "76a63ba0f078d4da"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cp/v1-pash",
+   "side": "v1-pash"
+  },
+  {
+   "cmd": "cp",
+   "files": {
+    "InputOutputInfoGeneratorCp.py": "780f732bbcab9ca4",
+    "ParallelizabilityInfoGeneratorCp.py": "7023b08822440134",
+    "cp.json": "1d1a6fe1dcd512c9"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cp/naive_2026-10-28_114133",
+   "side": "naive:2026-10-28_114133"
+  },
+  {
+   "cmd": "cp",
+   "files": {
+    "InputOutputInfoGeneratorCp.py": "f8da74cea205c5c6",
+    "ParallelizabilityInfoGeneratorCp.py": "58adab18e76ffa2d",
+    "cp.json": "1d1a6fe1dcd512c9"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cp/naive_2026-10-28_150709",
+   "side": "naive:2026-10-28_150709"
+  },
+  {
+   "cmd": "cp",
+   "files": {
+    "InputOutputInfoGeneratorCp.py": "c8514f0a0bf91a21",
+    "ParallelizabilityInfoGeneratorCp.py": "8b4ba5afe213e68b",
+    "cp.json": "1d1a6fe1dcd512c9"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cp/naive_2026-10-28_153913",
+   "side": "naive:2026-10-28_153913"
+  },
+  {
+   "cmd": "cut",
+   "files": {
+    "InputOutputInfoGeneratorCut.py": "ff356a5e9e0f45f2",
+    "ParallelizabilityInfoGeneratorCut.py": "b469304253e4e5d8",
+    "cut.json": "f9f68e332ea5b6c5"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cut/v1-pash",
+   "side": "v1-pash"
+  },
+  {
+   "cmd": "cut",
+   "files": {
+    "InputOutputInfoGeneratorCut.py": "36b56333049bacbe",
+    "ParallelizabilityInfoGeneratorCut.py": "4c2dde517dd5a041",
+    "cut.json": "e351e7d31b680b8b"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cut/v1-main",
+   "side": "v1-main"
+  },
+  {
+   "cmd": "cut",
+   "files": {
+    "InputOutputInfoGeneratorCut.py": "820da3f5fc2de8ef",
+    "ParallelizabilityInfoGeneratorCut.py": "dbc235a76575f99a",
+    "cut.json": "ea25638fd86a055d"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cut/naive_2026-10-20_135253",
+   "side": "naive:2026-10-20_135253"
+  },
+  {
+   "cmd": "cut",
+   "files": {
+    "InputOutputInfoGeneratorCut.py": "7b527a080f4d2543",
+    "ParallelizabilityInfoGeneratorCut.py": "66f842490429eb3f",
+    "cut.json": "ea25638fd86a055d"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cut/naive_2026-10-27_230555",
+   "side": "naive:2026-10-27_230555"
+  },
+  {
+   "cmd": "cut",
+   "files": {
+    "InputOutputInfoGeneratorCut.py": "a8243a5bd2dc9d70",
+    "ParallelizabilityInfoGeneratorCut.py": "6495128c87e647b4",
+    "cut.json": "ea25638fd86a055d"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cut/naive_2026-10-28_145447",
+   "side": "naive:2026-10-28_145447"
+  },
+  {
+   "cmd": "cut",
+   "files": {
+    "InputOutputInfoGeneratorCut.py": "0c91a086baf4a3b5",
+    "ParallelizabilityInfoGeneratorCut.py": "75abe8db157a601c",
+    "cut.json": "ea25638fd86a055d"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cut/naive_2026-10-28_152550",
+   "side": "naive:2026-10-28_152550"
+  },
+  {
+   "cmd": "cut",
+   "files": {
+    "InputOutputInfoGeneratorCut.py": "ef2d911c7efa8a5d",
+    "ParallelizabilityInfoGeneratorCut.py": "8ed0db4120d0d961",
+    "cut.json": "2e26a330147c6e7f"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cut/pash-own",
+   "side": "pash-own"
+  },
+  {
+   "cmd": "grep",
+   "files": {
+    "InputOutputInfoGeneratorGrep.py": "8b1593b6f03f66ce",
+    "ParallelizabilityInfoGeneratorGrep.py": "740af2421d45d707",
+    "grep.json": "69998028af963bc6"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/grep/v1-pash",
+   "side": "v1-pash"
+  },
+  {
+   "cmd": "grep",
+   "files": {
+    "InputOutputInfoGeneratorGrep.py": "4941c802d14c721e",
+    "ParallelizabilityInfoGeneratorGrep.py": "31b25fd6f4037141",
+    "grep.json": "5c9ed742994f4607"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/grep/naive_2026-10-13_193448",
+   "side": "naive:2026-10-13_193448"
+  },
+  {
+   "cmd": "grep",
+   "files": {
+    "InputOutputInfoGeneratorGrep.py": "07212ab7a2677826",
+    "ParallelizabilityInfoGeneratorGrep.py": "454487726a2ff844",
+    "grep.json": "303f9d160a89001e"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/grep/naive_2026-10-20_112956",
+   "side": "naive:2026-10-20_112956"
+  },
+  {
+   "cmd": "grep",
+   "files": {
+    "InputOutputInfoGeneratorGrep.py": "f8e1bf53ac1c538f",
+    "ParallelizabilityInfoGeneratorGrep.py": "7ee7fd2af8f4d95e",
+    "grep.json": "9ad3efef75e87450"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/grep/naive_2026-10-28_135447",
+   "side": "naive:2026-10-28_135447"
+  },
+  {
+   "cmd": "grep",
+   "files": {
+    "InputOutputInfoGeneratorGrep.py": "18b1362d30694004",
+    "ParallelizabilityInfoGeneratorGrep.py": "7de08628bb0eb729",
+    "grep.json": "abcbe4db454b0e5f"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/grep/pash-own",
+   "side": "pash-own"
+  },
+  {
+   "cmd": "rm",
+   "files": {
+    "InputOutputInfoGeneratorRm.py": "fc6167515ea62ca1",
+    "ParallelizabilityInfoGeneratorRm.py": "0551115f5f76497e",
+    "rm.json": "76a63ba0f078d4da"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/rm/v1-pash",
+   "side": "v1-pash"
+  },
+  {
+   "cmd": "rm",
+   "files": {
+    "InputOutputInfoGeneratorRm.py": "f757df12cc320f62",
+    "ParallelizabilityInfoGeneratorRm.py": "672c68a3be2030da",
+    "rm.json": "934a799bb814a9b5"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/rm/v1-main",
+   "side": "v1-main"
+  },
+  {
+   "cmd": "rm",
+   "files": {
+    "InputOutputInfoGeneratorRm.py": "ab1798937359dd9e",
+    "ParallelizabilityInfoGeneratorRm.py": "e111ef266f87f188",
+    "rm.json": "52a2cda818078822"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/rm/naive_2026-10-20_121932",
+   "side": "naive:2026-10-20_121932"
+  },
+  {
+   "cmd": "rm",
+   "files": {
+    "InputOutputInfoGeneratorRm.py": "bbf3a1a0b47c6320",
+    "ParallelizabilityInfoGeneratorRm.py": "90ac8266a3070352",
+    "rm.json": "23de476b36332319"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/rm/naive_2026-10-28_105951",
+   "side": "naive:2026-10-28_105951"
+  },
+  {
+   "cmd": "rm",
+   "files": {
+    "InputOutputInfoGeneratorRm.py": "25d582c895802c56",
+    "ParallelizabilityInfoGeneratorRm.py": null,
+    "rm.json": "23de476b36332319"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/rm/pash-own",
+   "side": "pash-own"
+  },
+  {
+   "cmd": "sort",
+   "files": {
+    "InputOutputInfoGeneratorSort.py": "f3c7513fbc16db8f",
+    "ParallelizabilityInfoGeneratorSort.py": "1746dd93b9f5bb2b",
+    "sort.json": "6ead027a07e14a11"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/sort/v1-pash",
+   "side": "v1-pash"
+  },
+  {
+   "cmd": "sort",
+   "files": {
+    "InputOutputInfoGeneratorSort.py": "e9bb6096d83f1c05",
+    "ParallelizabilityInfoGeneratorSort.py": "93684da2136b1df2",
+    "sort.json": "f45a7bcceb51283f"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/sort/v1-main",
+   "side": "v1-main"
+  },
+  {
+   "cmd": "sort",
+   "files": {
+    "InputOutputInfoGeneratorSort.py": "1a9864c3998a0e5e",
+    "ParallelizabilityInfoGeneratorSort.py": "f7398ef548cea6c7",
+    "sort.json": "e1a235ec1ec24ad1"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/sort/naive_2026-10-20_160340",
+   "side": "naive:2026-10-20_160340"
+  },
+  {
+   "cmd": "sort",
+   "files": {
+    "InputOutputInfoGeneratorSort.py": "662b4ef5a6d3a2ce",
+    "ParallelizabilityInfoGeneratorSort.py": "d4a709c545266cda",
+    "sort.json": "f103ad2e5da43399"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/sort/naive_2026-10-28_140825",
+   "side": "naive:2026-10-28_140825"
+  },
+  {
+   "cmd": "sort",
+   "files": {
+    "InputOutputInfoGeneratorSort.py": "0c74cdad4d89956d",
+    "ParallelizabilityInfoGeneratorSort.py": "f0c87dfbb3282179",
+    "sort.json": "cd0afc0c93b7547e"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/sort/naive_2026-10-28_151151",
+   "side": "naive:2026-10-28_151151"
+  },
+  {
+   "cmd": "sort",
+   "files": {
+    "InputOutputInfoGeneratorSort.py": "47800a27e9bc5276",
+    "ParallelizabilityInfoGeneratorSort.py": "aebb70767fcb0d1a",
+    "sort.json": "ab1f8aa071baabb8"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/sort/naive_2026-10-28_154444",
+   "side": "naive:2026-10-28_154444"
+  },
+  {
+   "cmd": "sort",
+   "files": {
+    "InputOutputInfoGeneratorSort.py": "9d2d82085908939b",
+    "ParallelizabilityInfoGeneratorSort.py": "5e13d742002cb23a",
+    "sort.json": "cd0afc0c93b7547e"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/sort/pash-own",
+   "side": "pash-own"
+  },
+  {
+   "cmd": "split",
+   "files": {
+    "InputOutputInfoGeneratorSplit.py": "cc188fb5dbabd721",
+    "ParallelizabilityInfoGeneratorSplit.py": "5d5aa0615d4f2812",
+    "split.json": "85fabfd5d43e3e8d"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/split/v1-pash",
+   "side": "v1-pash"
+  },
+  {
+   "cmd": "split",
+   "files": {
+    "InputOutputInfoGeneratorSplit.py": "ee9843dacf9cb0e6",
+    "ParallelizabilityInfoGeneratorSplit.py": "4ffec3dcf6e54718",
+    "split.json": "334bfe9396539aba"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/split/naive_2026-10-28_134035",
+   "side": "naive:2026-10-28_134035"
+  },
+  {
+   "cmd": "wc",
+   "files": {
+    "InputOutputInfoGeneratorWc.py": "5a589bf27a100dcc",
+    "ParallelizabilityInfoGeneratorWc.py": "455aef784f99b938",
+    "wc.json": "9f49b8b75cec004f"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/wc/v1-pash",
+   "side": "v1-pash"
+  },
+  {
+   "cmd": "wc",
+   "files": {
+    "InputOutputInfoGeneratorWc.py": "636dbf0eb9879ea9",
+    "ParallelizabilityInfoGeneratorWc.py": "697e963c61b561e5",
+    "wc.json": "bacf71bbd86d168a"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/wc/naive_2026-10-28_091448",
+   "side": "naive:2026-10-28_091448"
+  },
+  {
+   "cmd": "wc",
+   "files": {
+    "InputOutputInfoGeneratorWc.py": "3029311f8ec5ead0",
+    "ParallelizabilityInfoGeneratorWc.py": null,
+    "wc.json": "2f4de9e29d4032e3"
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/wc/pash-own",
+   "side": "pash-own"
+  },
+  {
+   "cmd": "cat",
+   "files": {
+    "InputOutputInfoGeneratorCat.py": null,
+    "ParallelizabilityInfoGeneratorCat.py": null,
+    "cat.json": null
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cat/none",
+   "side": "none"
+  },
+  {
+   "cmd": "cp",
+   "files": {
+    "InputOutputInfoGeneratorCp.py": null,
+    "ParallelizabilityInfoGeneratorCp.py": null,
+    "cp.json": null
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cp/none",
+   "side": "none"
+  },
+  {
+   "cmd": "cut",
+   "files": {
+    "InputOutputInfoGeneratorCut.py": null,
+    "ParallelizabilityInfoGeneratorCut.py": null,
+    "cut.json": null
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/cut/none",
+   "side": "none"
+  },
+  {
+   "cmd": "grep",
+   "files": {
+    "InputOutputInfoGeneratorGrep.py": null,
+    "ParallelizabilityInfoGeneratorGrep.py": null,
+    "grep.json": null
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/grep/none",
+   "side": "none"
+  },
+  {
+   "cmd": "rm",
+   "files": {
+    "InputOutputInfoGeneratorRm.py": null,
+    "ParallelizabilityInfoGeneratorRm.py": null,
+    "rm.json": null
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/rm/none",
+   "side": "none"
+  },
+  {
+   "cmd": "sort",
+   "files": {
+    "InputOutputInfoGeneratorSort.py": null,
+    "ParallelizabilityInfoGeneratorSort.py": null,
+    "sort.json": null
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/sort/none",
+   "side": "none"
+  },
+  {
+   "cmd": "split",
+   "files": {
+    "InputOutputInfoGeneratorSplit.py": null,
+    "ParallelizabilityInfoGeneratorSplit.py": null,
+    "split.json": null
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/split/none",
+   "side": "none"
+  },
+  {
+   "cmd": "wc",
+   "files": {
+    "InputOutputInfoGeneratorWc.py": null,
+    "ParallelizabilityInfoGeneratorWc.py": null,
+    "wc.json": null
+   },
+   "folder": "/home/tirandagan.guest/t022/sides/wc/none",
+   "side": "none"
+  }
+ ]
+}

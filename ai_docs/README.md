@@ -66,7 +66,7 @@ comparison, diagrams) live with the experiment in [`../naive_llm_caruca/`](../na
 
 | Folder | What it holds |
 |---|---|
-| [`refs/`](refs/) | The Caruca paper (PDF plus a full markdown transcription and its 82 figures) and Prof. Eiers' dissertation. Authoritative for design intent and for the numbers this project must reproduce or beat |
+| [`refs/`](refs/) | The Caruca paper (PDF plus a full markdown transcription and its 82 figures), an AI-generated referee review of it (`caruca white paper-review.md`, 2026-11-19; our work, not third-party) and Prof. Eiers' dissertation. Authoritative for design intent and for the numbers this project must reproduce or beat |
 
 ### Not part of the project
 

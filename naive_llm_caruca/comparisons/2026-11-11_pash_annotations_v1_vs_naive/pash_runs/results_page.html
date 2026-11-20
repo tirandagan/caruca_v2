@@ -1,0 +1,740 @@
+<title>PaSh Annotation Runs</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a full-width masthead over one typeset column (max 960px). Prose is held to about 68 characters; tables and charts use the full column. */
+:root{
+  --bg:#FFFFFF; --ink:#0B1F33; --blue:#2563EB; --blue-hover:#1D4ED8; --teal:#0E7490;
+  --text-2:#475569; --text-3:#616B73;
+  --rule:#E2E8F0; --rule-strong:#D0D7DE; --rule-head:#334155;
+  --surf-thead:#F1F5F9; --surf-zebra:#F8FAFC; --surf-code:#EFF1F3; --surf-info:#EFF6FF; --surf-track:#EDF1F6;
+  --ok:#15803D; --ok-bg:#ECFDF5; --warn:#8A6100; --warn-bg:#FFFBEB; --bad:#C52222; --bad-bg:#FEF2F2;
+  --c-split:#2563EB; --c-idle:#D03B3B; --c-fail:#C98500; --c-none:#7C8A9C;
+  --on-split:#FFFFFF; --on-idle:#FFFFFF; --on-dark-ink:#0B1F33;
+  --tip-bg:#0B1F33; --tip-fg:#FFFFFF;
+  --ring:rgba(14,116,144,.11);
+  --shadow-overlay:0 8px 24px rgba(11,31,51,.14);
+  --font-sans:'Lexend Deca',-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'JetBrains Mono','Consolas',ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1622; --ink:#E6EDF5; --blue:#7AA7FF; --blue-hover:#A6C4FF; --teal:#4DB8CF;
+    --text-2:#A9B7C8; --text-3:#8898AB;
+    --rule:#213146; --rule-strong:#2D4059; --rule-head:#8FA3BC;
+    --surf-thead:#13223A; --surf-zebra:#0F1B2A; --surf-code:#182739; --surf-info:#11233F; --surf-track:#16263A;
+    --ok:#4ADE80; --ok-bg:#0E2A1C; --warn:#E3B341; --warn-bg:#2A2110; --bad:#F38B8B; --bad-bg:#321616;
+    --c-split:#4F8CF7; --c-idle:#D03B3B; --c-fail:#BF8A00; --c-none:#7C8A9C;
+    --on-split:#0B1622; --on-idle:#FFFFFF; --on-dark-ink:#0B1622;
+    --tip-bg:#E6EDF5; --tip-fg:#0C1622;
+    --ring:rgba(77,184,207,.13);
+    --shadow-overlay:0 8px 24px rgba(0,0,0,.5);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C1622; --ink:#E6EDF5; --blue:#7AA7FF; --blue-hover:#A6C4FF; --teal:#4DB8CF;
+  --text-2:#A9B7C8; --text-3:#8898AB;
+  --rule:#213146; --rule-strong:#2D4059; --rule-head:#8FA3BC;
+  --surf-thead:#13223A; --surf-zebra:#0F1B2A; --surf-code:#182739; --surf-info:#11233F; --surf-track:#16263A;
+  --ok:#4ADE80; --ok-bg:#0E2A1C; --warn:#E3B341; --warn-bg:#2A2110; --bad:#F38B8B; --bad-bg:#321616;
+  --c-split:#4F8CF7; --c-idle:#D03B3B; --c-fail:#BF8A00; --c-none:#7C8A9C;
+  --on-split:#0B1622; --on-idle:#FFFFFF; --on-dark-ink:#0B1622;
+  --tip-bg:#E6EDF5; --tip-fg:#0C1622;
+  --ring:rgba(77,184,207,.13);
+  --shadow-overlay:0 8px 24px rgba(0,0,0,.5);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--ink); font-family:var(--font-sans); font-size:15px; line-height:1.55; letter-spacing:.01em; -webkit-font-smoothing:antialiased}
+.wrap{max-width:960px; margin-inline:auto; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px))}
+a{color:var(--blue); text-decoration:none}
+a:hover{color:var(--blue-hover); text-decoration:underline}
+a:focus-visible,[tabindex]:focus-visible,summary:focus-visible{outline:2px solid var(--blue); outline-offset:2px; border-radius:2px}
+p,ul,ol{margin:0}
+p,li{max-width:68ch}
+ul{padding-left:20px; display:grid; gap:8px}
+strong{font-weight:600}
+code{font-family:var(--font-mono); font-size:.87em; background:var(--surf-code); padding:1px 5px; border-radius:4px; letter-spacing:0}
+code.long{overflow-wrap:anywhere}
+
+/* Masthead */
+.mast{position:relative; overflow:hidden; border-bottom:1px solid var(--rule)}
+.mast::before{content:""; position:absolute; top:-210px; right:-170px; width:560px; height:560px; border-radius:50%;
+  background:repeating-radial-gradient(circle, transparent 0 25px, var(--ring) 25px 26px);
+  -webkit-mask-image:radial-gradient(circle, #000 25%, transparent 70%); mask-image:radial-gradient(circle, #000 25%, transparent 70%); pointer-events:none}
+.mast .wrap{position:relative; padding-block:44px 30px; display:grid; gap:16px}
+.eyebrow{font-size:11.5px; text-transform:uppercase; letter-spacing:.07em; color:var(--text-2); font-weight:600}
+h1{margin:0; font-size:clamp(27px, 4.6vw, 37px); line-height:1.16; letter-spacing:-.012em; font-weight:700; max-width:21ch; text-wrap:balance}
+.accent-bar{width:80px; height:4px; border-radius:2px; background:linear-gradient(to right, var(--teal), var(--ink))}
+.lede{font-size:16.5px; line-height:1.58; color:var(--text-2); max-width:64ch}
+.facts{display:flex; flex-wrap:wrap; gap:10px 34px; margin:6px 0 0; padding:16px 0 0; border-top:1px solid var(--rule)}
+.facts div{display:grid; gap:1px}
+.facts dt{font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-3); order:2}
+.facts dd{margin:0; font-family:var(--font-mono); font-size:19px; font-weight:600; letter-spacing:-.01em}
+
+/* Contents row */
+.toc{display:flex; flex-wrap:wrap; gap:6px 20px; padding-block:14px; font-size:13px; border-bottom:1px solid var(--rule)}
+.toc span{color:var(--text-3)}
+
+main.wrap{display:grid; gap:60px; padding-block:44px 30px}
+section{display:grid; gap:16px; scroll-margin-top:16px}
+section > *{min-width:0}
+h2{margin:0 0 2px; color:var(--blue); font-size:clamp(22px, 3.6vw, 27px); line-height:1.2; letter-spacing:-.01em; font-weight:600; text-wrap:balance}
+h3{margin:14px 0 0; font-size:17px; line-height:1.3; font-weight:600; letter-spacing:-.005em}
+.kicker{color:var(--text-2)}
+.small{font-size:13px; color:var(--text-2)}
+
+/* Findings */
+.findings{display:grid; border-top:1px solid var(--rule-strong)}
+.finding{display:grid; grid-template-columns:200px minmax(0,1fr); gap:6px 30px; padding:20px 0; border-bottom:1px solid var(--rule)}
+.fig{font-family:var(--font-mono); font-size:27px; font-weight:600; line-height:1.1; letter-spacing:-.03em}
+.fig small{font-size:15px; font-weight:400; color:var(--text-2); letter-spacing:0; margin:0 2px}
+.fig-label{display:block; margin-top:7px; font-family:var(--font-sans); font-size:12px; line-height:1.4; font-weight:400; color:var(--text-3); letter-spacing:.01em}
+.finding h3{margin:0 0 5px; font-size:16px}
+.finding p{color:var(--text-2)}
+
+/* Tables */
+.tw{overflow-x:auto; border:1px solid var(--rule); border-radius:6px}
+table{border-collapse:collapse; width:100%; font-size:13.5px; line-height:1.45}
+table.w560{min-width:560px} table.w720{min-width:720px} table.w860{min-width:860px}
+th{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text-2); background:var(--surf-thead); text-align:left; padding:10px 12px; border-bottom:2px solid var(--rule-head); vertical-align:bottom}
+td{padding:10px 12px; border-bottom:1px solid var(--rule); vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--surf-zebra)}
+tbody tr:last-child td{border-bottom:0}
+th.n,td.n{text-align:right}
+td.n{white-space:nowrap}
+td.n{font-family:var(--font-mono); font-variant-numeric:tabular-nums; font-size:13px}
+td.side{font-weight:600; white-space:nowrap}
+td.note{color:var(--text-2)}
+td .den{color:var(--text-3)}
+td.n.is-bad{color:var(--bad); font-weight:600}
+td.n.is-zero{color:var(--text-3)}
+caption{caption-side:bottom; text-align:left; padding:10px 12px; font-size:12.5px; color:var(--text-3); border-top:1px solid var(--rule)}
+
+/* Badges */
+.badge{display:inline-flex; align-items:center; gap:5px; padding:1px 9px 1px 7px; border-radius:999px; font-size:11.5px; font-weight:600; white-space:nowrap}
+.badge::before{content:""; width:6px; height:6px; border-radius:50%; background:currentColor}
+.badge.ok{color:var(--ok); background:var(--ok-bg)}
+
+/* Callouts */
+.callout{border-left:4px solid var(--blue); background:var(--surf-info); border-radius:0 6px 6px 0; padding:13px 16px; display:grid; gap:5px}
+.callout b{font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--blue); font-weight:600}
+.callout p{max-width:72ch; font-size:14px}
+.callout.warn{border-left-color:var(--c-fail); background:var(--warn-bg)}
+.callout.warn b{color:var(--warn)}
+
+/* Charts */
+.chart{border:1px solid var(--rule); border-radius:6px; padding:18px 18px 12px; display:grid; gap:12px}
+.chart-title{font-weight:600; font-size:15px}
+.chart-sub{font-size:13px; color:var(--text-2); margin-top:2px; max-width:74ch}
+.legend{display:flex; flex-wrap:wrap; gap:6px 18px; font-size:12.5px; color:var(--text-2)}
+.key{display:inline-flex; align-items:center; gap:7px}
+.sw{width:12px; height:12px; border-radius:2px; flex:none}
+.sw.split{background:var(--c-split)} .sw.idle{background:var(--c-idle)} .sw.fail{background:var(--c-fail)} .sw.none{background:var(--c-none)}
+.sw.rest{background:var(--surf-track); box-shadow:inset 0 0 0 1px var(--rule-strong)}
+
+.srows{display:grid}
+.srow{display:grid; grid-template-columns:230px minmax(0,1fr); gap:6px 18px; align-items:center; padding:9px 0}
+.sname{font-weight:600; font-size:14px; line-height:1.3}
+.sname span{display:block; font-weight:400; font-size:12.5px; color:var(--text-3)}
+.sbar{display:flex; gap:2px; height:24px; min-width:0}
+.seg{min-width:4px; display:flex; align-items:center; padding:0 7px; font-family:var(--font-mono); font-size:12px; font-weight:600; line-height:1; letter-spacing:0; white-space:nowrap; cursor:default; transition:filter .12s ease-out}
+.seg:last-child{border-radius:0 4px 4px 0}
+.seg.split{background:var(--c-split); color:var(--on-split)}
+.seg.idle{background:var(--c-idle); color:var(--on-idle)}
+.seg.fail{background:var(--c-fail); color:var(--on-dark-ink)}
+.seg.none{background:var(--c-none); color:var(--on-dark-ink)}
+.seg.rest{background:var(--surf-track); color:var(--text-3); font-weight:400; justify-content:flex-end}
+.seg.tiny{padding:0}
+.seg:hover{filter:brightness(1.1)}
+.seg:focus-visible{outline-offset:1px}
+.axis-row{display:grid; grid-template-columns:230px minmax(0,1fr); gap:0 18px}
+.axis{position:relative; height:22px; border-top:1px solid var(--rule-strong); font-family:var(--font-mono); font-size:11px; color:var(--text-3)}
+.axis span{position:absolute; top:6px; transform:translateX(-50%); white-space:nowrap}
+.axis span::before{content:""; position:absolute; top:-6px; left:50%; height:4px; border-left:1px solid var(--rule-strong)}
+.axis span:first-child{transform:none} .axis span:first-child::before{left:0}
+.axis span:last-child{transform:translateX(-100%)} .axis span:last-child::before{left:auto; right:0}
+
+.panel-title{font-weight:600; font-size:14px; margin-top:4px}
+.panel-title span{display:block; font-weight:400; font-size:12.5px; color:var(--text-3)}
+.hrow{display:grid; grid-template-columns:200px minmax(0,1fr) 168px; gap:4px 16px; align-items:center; padding:5px 0}
+.hname{font-size:13.5px}
+.htrack{height:22px; display:flex; align-items:center; border-right:1px solid var(--rule);
+  background-image:linear-gradient(to right, var(--rule) 1px, transparent 1px); background-size:25% 100%}
+.hbar{height:14px; border-radius:0 4px 4px 0; display:block; transition:filter .12s ease-out; cursor:default}
+.hbar.split{background:var(--c-split)} .hbar.none{background:var(--c-none)}
+.hbar:hover{filter:brightness(1.1)}
+.hval{font-size:12.5px; color:var(--text-3); line-height:1.3}
+.hval b{font-family:var(--font-mono); font-size:13px; font-weight:600; color:var(--ink); margin-right:6px; white-space:nowrap}
+.haxis-row{display:grid; grid-template-columns:200px minmax(0,1fr) 168px; gap:0 16px}
+
+#tip{position:fixed; z-index:50; max-width:290px; padding:7px 10px; border-radius:4px; background:var(--tip-bg); color:var(--tip-fg); font-size:12.5px; line-height:1.4; box-shadow:var(--shadow-overlay); pointer-events:none}
+
+details{border:1px solid var(--rule); border-radius:6px}
+summary{cursor:pointer; padding:12px 14px; font-weight:600; font-size:14px; color:var(--blue)}
+details .tw{border:0; border-top:1px solid var(--rule); border-radius:0 0 6px 6px}
+
+.two{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px 40px}
+.two h3{margin-top:0}
+.meta{display:grid; grid-template-columns:150px minmax(0,1fr); gap:7px 18px; margin:0; font-size:13.5px}
+.meta dt{color:var(--text-3)} .meta dd{margin:0}
+footer.wrap{padding-block:22px 56px; margin-top:26px; border-top:1px solid var(--rule); font-size:12.5px; color:var(--text-3)}
+
+@media (max-width:700px){
+  .finding{grid-template-columns:minmax(0,1fr)}
+  .srow,.axis-row{grid-template-columns:minmax(0,1fr)}
+  .axis-row > :first-child{display:none}
+  .hrow,.haxis-row{grid-template-columns:minmax(0,1fr) 112px; gap:3px 12px}
+  .hrow .hname{grid-column:1 / -1; font-weight:600}
+  .haxis-row > :first-child{display:none}
+  .hrow{padding:7px 0}
+  .two{grid-template-columns:minmax(0,1fr)}
+  .meta{grid-template-columns:minmax(0,1fr)} .meta dt{margin-top:6px}
+  .chart{padding:14px 12px 10px}
+}
+@media (prefers-reduced-motion: reduce){ .seg,.hbar{transition:none} }
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="eyebrow">Caruca v2 · Task 022 · Run 19 November 2026</p>
+    <h1>Caruca's annotations and the naive LLM's, run under PaSh</h1>
+    <div class="accent-bar"></div>
+    <p class="lede">PaSh speeds up a shell script by running several copies of a command at once on pieces of its input. It decides what is safe from a few annotation files per command. This test gave PaSh two generated sets of those files, one from Caruca and one from the naive LLM, ran the same command lines under each, and compared every result with plain <code>bash</code>.</p>
+    <dl class="facts">
+      <div><dd>2,377</dd><dt>PaSh runs</dt></div>
+      <div><dd>382</dd><dt>command lines</dt></div>
+      <div><dd>8</dd><dt>commands</dt></div>
+      <div><dd>8</dd><dt>workers per run</dt></div>
+      <div><dd>0</dd><dt>runs in an unknown state</dt></div>
+    </dl>
+  </div>
+</header>
+
+<nav class="wrap" aria-label="On this page">
+  <div class="toc">
+    <span>On this page</span>
+    <a href="#answer">Short answer</a>
+    <a href="#compared">What was compared</a>
+    <a href="#checks">Is PaSh running</a>
+    <a href="#benchmark">Benchmark lines</a>
+    <a href="#reach">All 382 lines</a>
+    <a href="#wrong">Wrong outputs</a>
+    <a href="#pash">PaSh's failures</a>
+    <a href="#speed">Speed</a>
+    <a href="#scripts">Whole scripts</a>
+    <a href="#repeat">Run to run</a>
+    <a href="#reading">Reading</a>
+    <a href="#limits">Limits</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="answer">
+  <h2>The short answer</h2>
+  <p>PaSh is running, and it reads the files it is given. Every check passes before and after the batch, and in none of the 2,377 runs did PaSh split a command whose loaded files forbid it.</p>
+  <div class="findings">
+    <div class="finding">
+      <div class="fig">139<small>of</small>139<span class="fig-label">splits allowed by Caruca's files that PaSh carried out</span></div>
+      <div>
+        <h3>Caruca's files are used every time, and they allow few splits</h3>
+        <p>They allow a split in 139 of the 605 runs made with them. The files generated from Caruca's PaSh grammar gave the right output in all 382 runs. The files generated from its main grammar gave a wrong output on 7 <code>sort</code> lines.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="fig">423<small>of</small>655<span class="fig-label">splits allowed by the naive LLM's files that PaSh carried out</span></div>
+      <div>
+        <h3>The naive LLM's files allow far more</h3>
+        <p>They allow a split in 655 of 1,013 runs. All 423 splits PaSh carried out gave the right output. In 19 further runs, all <code>grep</code>, PaSh returned nothing and reported success. PaSh's own hand-written <code>grep</code> files do the same.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="fig">329<small>of</small>2,377<span class="fig-label">runs in which PaSh's compiler failed</span></div>
+      <div>
+        <h3>PaSh is the largest single source of lost splits</h3>
+        <p>In these runs PaSh's compiler stopped with an error and the script ran as plain <code>bash</code>: right output, nothing parallel. That took 186 of the 655 splits the naive LLM's files allow, 63 of the 178 that PaSh's own files allow, and none of Caruca's 139.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="fig">6.4×<span class="fig-label">faster than <code>bash</code> with Caruca's files, on a <code>grep</code> that works hard on every line</span></div>
+      <div>
+        <h3>Where splitting pays, every set that allows it gains about the same</h3>
+        <p>6.4 times with Caruca's files, 6.1 to 6.3 times with the naive LLM's and with PaSh's own. The benchmark lines themselves are too cheap to gain: 11 of the 12 lines timed were slower when split.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="fig">46<small>of</small>46<span class="fig-label">whole benchmark scripts whose output matched <code>bash</code>, under every set</span></div>
+      <div>
+        <h3>On whole scripts every set is correct, and they differ in how many PaSh splits</h3>
+        <p>PaSh split 35 scripts with the naive LLM's set, 35 with its own, 35 with Caruca's main-grammar set and 27 with Caruca's PaSh-grammar set.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="compared">
+  <h2>What was compared</h2>
+  <p>An annotation is three files per command: a table of the command's options, a description of what it reads and writes, and a description of whether its input may be cut into pieces and how the pieces' outputs are joined again. PaSh loads them from a folder. Each row below is one such folder, called a side on this page.</p>
+  <div class="tw">
+    <table class="w720">
+      <thead><tr><th>Side</th><th>What it is</th><th>Commands</th><th class="n">Runs</th></tr></thead>
+      <tbody>
+        <tr><td class="side">Caruca, PaSh grammar</td><td class="note">Files Caruca generated from its traces, using the small grammar of each command that it keeps for PaSh. Caruca branch <code>pash-python-annotations</code>, commit <code>4bf74dd9a</code>.</td><td>all eight</td><td class="n">382</td></tr>
+        <tr><td class="side">Caruca, main grammar</td><td class="note">The same, generated from Caruca's full grammar of the command.</td><td><code>cut</code> <code>rm</code> <code>sort</code></td><td class="n">223</td></tr>
+        <tr><td class="side">Naive LLM</td><td class="note">Files written by an off-the-shelf coding agent given a short problem statement, two format documents and a few samples. Each collected run of a command is tried separately, one to four runs per command.</td><td>all eight</td><td class="n">1,013</td></tr>
+        <tr><td class="side">PaSh's own</td><td class="note">The hand-written files shipped with PaSh, as a third reference.</td><td><code>cat</code> <code>cut</code> <code>grep</code> <code>sort</code> <code>rm</code> <code>wc</code></td><td class="n">377</td></tr>
+        <tr><td class="side">No annotation</td><td class="note">Control. The command's files are removed, so PaSh must leave it alone.</td><td>all eight</td><td class="n">382</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="two">
+    <div>
+      <h3>The command lines</h3>
+      <p class="small" style="margin-top:8px">382 lines for <code>cat</code>, <code>cut</code>, <code>grep</code>, <code>sort</code>, <code>rm</code>, <code>cp</code>, <code>wc</code> and <code>split</code>. 220 come from PaSh's own benchmark scripts. 141 were picked because the sides give PaSh different answers. 21 are cases the earlier file-by-file comparison had flagged.</p>
+    </div>
+    <div>
+      <h3>How a run was judged</h3>
+      <p class="small" style="margin-top:8px">Each line ran once in plain <code>bash</code> and once under PaSh with 8 workers, on the same 4 MB text. Output, exit status and files left behind were compared. A run counts as split only when two signals agree: PaSh's own log, and a stand-in for the command that counts how many copies of it started.</p>
+    </div>
+  </div>
+  <div class="tw">
+    <table class="w560">
+      <thead><tr><th>State of a run</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td class="side"><span class="key"><i class="sw split"></i>Split</span></td><td class="note">PaSh ran several copies of the command on pieces of the input and joined the results.</td></tr>
+        <tr><td class="side"><span class="key"><i class="sw idle"></i>Split set up, no data arrived</span></td><td class="note">PaSh built a split with 8 workers on a stream that carried nothing, so no copy ever started. The output is empty.</td></tr>
+        <tr><td class="side"><span class="key"><i class="sw fail"></i>PaSh's compiler failed</span></td><td class="note">PaSh raised an internal error and ran the script as plain <code>bash</code>. The output is right and nothing is parallel. At most PaSh prints a general warning that nothing was parallelized; the error itself appears only in its debug log.</td></tr>
+        <tr><td class="side"><span class="key"><i class="sw none"></i>Not split</span></td><td class="note">PaSh ran one copy, with no error.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="checks">
+  <h2>Is PaSh really running?</h2>
+  <p>Yes. A run that comes back right proves little, because PaSh falls back to <code>bash</code> when it cannot compile a script, and still exits with status 0. These checks were run before the batch and again after it, with the same result both times.</p>
+  <div class="tw">
+    <table class="w720">
+      <thead><tr><th>Check</th><th>Result</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>A script known to split, with PaSh's installed files</td><td class="note">Split. 8 copies of <code>grep</code> started. Output same as <code>bash</code>.</td><td><span class="badge ok">passed</span></td></tr>
+        <tr><td>The same script with <code>grep</code>'s files removed from the folder</td><td class="note">Not split. 1 copy. So the folder passed to PaSh is what decides.</td><td><span class="badge ok">passed</span></td></tr>
+        <tr><td><code>sort -n -u</code> with Caruca's main-grammar files, which allow the split</td><td class="note">Split, and the output differs from <code>bash</code>. So a wrong answer is caught.</td><td><span class="badge ok">passed</span></td></tr>
+        <tr><td><code>sort -n -u</code> with PaSh's own files</td><td class="note">Not split. Output same as <code>bash</code>.</td><td><span class="badge ok">passed</span></td></tr>
+        <tr><td>A script that had come back right but unsplit earlier in the day</td><td class="note">Reproduced. The cause is <code>head -5</code>, on which PaSh's compiler fails. Written <code>head -n 5</code>, the script splits.</td><td><span class="badge ok">passed</span></td></tr>
+        <tr><td>Input given with <code>&lt; file</code></td><td class="note">PaSh's compiler fails and the script runs as <code>bash</code>, as expected for this PaSh version.</td><td><span class="badge ok">passed</span></td></tr>
+        <tr><td>Every side's folder asked the 84,193 questions of the earlier file-by-file comparison, inside the test machine</td><td class="note">All 84,193 answers equal the ones recorded earlier.</td><td><span class="badge ok">passed</span></td></tr>
+        <tr><td>Runs where a side forbids a split and PaSh split anyway</td><td class="note">0 of 2,377.</td><td><span class="badge ok">passed</span></td></tr>
+        <tr><td>"No annotation" runs that split</td><td class="note">0 of 382.</td><td><span class="badge ok">passed</span></td></tr>
+        <tr><td>Runs with no log, or whose two signals disagree</td><td class="note">0.</td><td><span class="badge ok">passed</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="benchmark">
+  <h2>The benchmark lines</h2>
+  <p>220 command lines taken from PaSh's own benchmark scripts. This is the unbiased part of the test, because nobody picked these lines to make the sides differ. <strong>Every output matched <code>bash</code>, for every side.</strong> For <code>rm</code>, <code>cp</code> and <code>split</code> the files left behind matched too.</p>
+  <div class="tw">
+    <table class="w720">
+      <thead><tr><th>Command</th><th class="n">Lines</th><th class="n">Caruca,<br>PaSh grammar</th><th class="n">Caruca,<br>main grammar</th><th class="n">Naive LLM,<br>each run</th><th class="n">PaSh's own</th></tr></thead>
+      <tbody>
+        <tr><td><code>cat</code></td><td class="n">78</td><td class="n">75</td><td class="n is-zero">none made</td><td class="n">75</td><td class="n">0</td></tr>
+        <tr><td><code>cut</code></td><td class="n">46</td><td class="n">27</td><td class="n">27</td><td class="n">31 · 31 · 31 · 31</td><td class="n">31</td></tr>
+        <tr><td><code>sort</code></td><td class="n">17</td><td class="n">0</td><td class="n">0</td><td class="n">1 · 10 · 1 · 1</td><td class="n">9</td></tr>
+        <tr><td><code>rm</code> <code>cp</code> <code>wc</code> <code>split</code></td><td class="n">79</td><td class="n">0</td><td class="n">0</td><td class="n">0 in every run</td><td class="n">0</td></tr>
+      </tbody>
+      <caption>Lines PaSh split, out of the lines in the row. <code>grep</code> has no lines in this set; it appears in the sections below. Main-grammar files exist for <code>cut</code>, <code>rm</code> and <code>sort</code> only, and PaSh ships no files for <code>cp</code> or <code>split</code>.</caption>
+    </table>
+  </div>
+  <ul>
+    <li><strong><code>cut</code>.</strong> Caruca answers the situations it traced. It has no answer for a file argument, for <code>-</code>, or for a value written against its option as in <code>cut -d' ' -f1</code>. That is 19 of the 46 lines. The naive LLM's files allow all 46, but PaSh's compiler failed on 15 of them, so PaSh split 31.</li>
+    <li><strong><code>sort</code>.</strong> Caruca's files allow none of these 17. Three of the naive LLM's four runs wrote a file that raises an error on most lines, so PaSh gets no answer from it. The fourth run split 10, one more than PaSh's own files.</li>
+    <li><strong><code>cat</code>.</strong> Caruca's files and the naive LLM's both let PaSh split <code>cat FILE</code>. PaSh's own do not, and the timing shows why: split <code>cat</code> took 0.27 s against 0.03 s in <code>bash</code>.</li>
+  </ul>
+</section>
+
+<section id="reach">
+  <h2>All 382 lines: how far each side reaches</h2>
+  <div class="callout">
+    <b>Read this first</b>
+    <p>162 of the 382 lines were chosen because the sides disagree or were already flagged, so the counts in this section overstate how often the sides differ on ordinary scripts. The sides also cover different commands, and the naive LLM's lines are counted once per run. Compare the shape of each bar, not the totals.</p>
+  </div>
+  <div class="chart">
+    <div>
+      <div class="chart-title">What happened in every run, per side</div>
+      <div class="chart-sub">Each bar is all runs made with that side's files, as a share of those runs. The coloured part is the runs in which the files allow a split.</div>
+    </div>
+    <div class="legend">
+      <span class="key"><i class="sw split"></i>PaSh split</span>
+      <span class="key"><i class="sw idle"></i>Split set up, no data arrived</span>
+      <span class="key"><i class="sw fail"></i>PaSh's compiler failed</span>
+      <span class="key"><i class="sw none"></i>Allowed, not split</span>
+      <span class="key"><i class="sw rest"></i>Files do not allow a split</span>
+    </div>
+    <div class="srows">
+      <div class="srow">
+        <div class="sname">Caruca, PaSh grammar<span>allows a split in 104 of 382 runs</span></div>
+        <div class="sbar">
+          <span class="seg split" style="flex:104 1 0" tabindex="0" role="img" aria-label="Caruca, PaSh grammar: PaSh split 104 runs, 27.2% of 382" data-tip="PaSh split: 104 runs (27.2% of 382)">104</span>
+          <span class="seg rest" style="flex:278 1 0" tabindex="0" role="img" aria-label="Caruca, PaSh grammar: files do not allow a split in 278 runs, 72.8%" data-tip="Files do not allow a split: 278 runs (72.8%)">278</span>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="sname">Caruca, main grammar<span>allows a split in 35 of 223 runs</span></div>
+        <div class="sbar">
+          <span class="seg split" style="flex:35 1 0" tabindex="0" role="img" aria-label="Caruca, main grammar: PaSh split 35 runs, 15.7% of 223" data-tip="PaSh split: 35 runs (15.7% of 223). 7 of them gave a wrong output.">35</span>
+          <span class="seg rest" style="flex:188 1 0" tabindex="0" role="img" aria-label="Caruca, main grammar: files do not allow a split in 188 runs, 84.3%" data-tip="Files do not allow a split: 188 runs (84.3%)">188</span>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="sname">Naive LLM, all runs<span>allows a split in 655 of 1,013 runs</span></div>
+        <div class="sbar">
+          <span class="seg split" style="flex:423 1 0" tabindex="0" role="img" aria-label="Naive LLM: PaSh split 423 runs, 41.8% of 1,013" data-tip="PaSh split: 423 runs (41.8% of 1,013). All gave the right output.">423</span>
+          <span class="seg idle tiny" style="flex:19 1 0" tabindex="0" role="img" aria-label="Naive LLM: split set up, no data arrived, 19 runs, 1.9%" data-tip="Split set up, no data arrived: 19 runs (1.9%). Output empty."></span>
+          <span class="seg fail" style="flex:186 1 0" tabindex="0" role="img" aria-label="Naive LLM: PaSh's compiler failed in 186 runs where a split was allowed, 18.4%" data-tip="PaSh's compiler failed: 186 runs (18.4%)">186</span>
+          <span class="seg none tiny" style="flex:27 1 0" tabindex="0" role="img" aria-label="Naive LLM: allowed, not split, 27 runs, 2.7%" data-tip="Allowed, not split: 27 runs (2.7%)"></span>
+          <span class="seg rest" style="flex:358 1 0" tabindex="0" role="img" aria-label="Naive LLM: files do not allow a split in 358 runs, 35.3%" data-tip="Files do not allow a split: 358 runs (35.3%)">358</span>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="sname">PaSh's own<span>allows a split in 178 of 377 runs</span></div>
+        <div class="sbar">
+          <span class="seg split" style="flex:101 1 0" tabindex="0" role="img" aria-label="PaSh's own: PaSh split 101 runs, 26.8% of 377" data-tip="PaSh split: 101 runs (26.8% of 377). 5 of them gave a wrong output.">101</span>
+          <span class="seg idle tiny" style="flex:11 1 0" tabindex="0" role="img" aria-label="PaSh's own: split set up, no data arrived, 11 runs, 2.9%" data-tip="Split set up, no data arrived: 11 runs (2.9%). Output empty."></span>
+          <span class="seg fail" style="flex:63 1 0" tabindex="0" role="img" aria-label="PaSh's own: PaSh's compiler failed in 63 runs where a split was allowed, 16.7%" data-tip="PaSh's compiler failed: 63 runs (16.7%)">63</span>
+          <span class="seg none tiny" style="flex:3 1 0" tabindex="0" role="img" aria-label="PaSh's own: allowed, not split, 3 runs, 0.8%" data-tip="Allowed, not split: 3 runs (0.8%)"></span>
+          <span class="seg rest" style="flex:199 1 0" tabindex="0" role="img" aria-label="PaSh's own: files do not allow a split in 199 runs, 52.8%" data-tip="Files do not allow a split: 199 runs (52.8%)">199</span>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="sname">No annotation<span>the control: nothing may split</span></div>
+        <div class="sbar">
+          <span class="seg rest" style="flex:382 1 0" tabindex="0" role="img" aria-label="No annotation: none of 382 runs split" data-tip="Not split: 382 of 382 runs">382</span>
+        </div>
+      </div>
+    </div>
+    <div class="axis-row"><div></div><div class="axis"><span style="left:0">0</span><span style="left:25%">25%</span><span style="left:50%">50%</span><span style="left:75%">75%</span><span style="left:100%">100%</span></div></div>
+  </div>
+  <div class="tw">
+    <table class="w860">
+      <thead><tr><th>Side</th><th class="n">Runs</th><th class="n">Files allow<br>a split</th><th class="n">PaSh split</th><th class="n">Split set up,<br>no data arrived</th><th class="n">PaSh's compiler<br>failed</th><th class="n">Allowed,<br>not split</th><th class="n">Output differs<br>from bash</th></tr></thead>
+      <tbody>
+        <tr><td class="side">Caruca, PaSh grammar</td><td class="n">382</td><td class="n">104</td><td class="n">104</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td></tr>
+        <tr><td class="side">Caruca, main grammar</td><td class="n">223</td><td class="n">35</td><td class="n">35</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-bad">7</td></tr>
+        <tr><td class="side">Naive LLM, all runs</td><td class="n">1,013</td><td class="n">655</td><td class="n">423</td><td class="n">19</td><td class="n">186</td><td class="n">27</td><td class="n is-bad">19</td></tr>
+        <tr><td class="side">PaSh's own</td><td class="n">377</td><td class="n">178</td><td class="n">101</td><td class="n">11</td><td class="n">63</td><td class="n">3</td><td class="n is-bad">16</td></tr>
+        <tr><td class="side">No annotation</td><td class="n">382</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td></tr>
+      </tbody>
+      <caption>The four middle columns count only runs in which the side's files allow a split, and add up to that number. No exit status and no leftover file differed from <code>bash</code> in any run.</caption>
+    </table>
+  </div>
+  <details>
+    <summary>Per command and per run</summary>
+    <div class="tw">
+      <table class="w860">
+        <thead><tr><th>Command</th><th>Side</th><th class="n">Lines run</th><th class="n">Files allow<br>a split</th><th class="n">PaSh split</th><th class="n">Split set up,<br>no data arrived</th><th class="n">PaSh's compiler<br>failed</th><th class="n">Not split</th><th class="n">Output differs<br>from bash</th></tr></thead>
+        <tbody>
+          <tr><td><code>cat</code></td><td class="side">Caruca, PaSh grammar</td><td class="n">103</td><td class="n">75</td><td class="n">75</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">28</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cat</code></td><td class="side">Naive LLM, run of 28 Oct 10:04</td><td class="n">103</td><td class="n">103</td><td class="n">87</td><td class="n is-zero">0</td><td class="n">7</td><td class="n">9</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cat</code></td><td class="side">PaSh's own</td><td class="n">103</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">103</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cat</code></td><td class="side">No annotation</td><td class="n">103</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">103</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cut</code></td><td class="side">Caruca, PaSh grammar</td><td class="n">88</td><td class="n">27</td><td class="n">27</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">61</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cut</code></td><td class="side">Caruca, main grammar</td><td class="n">88</td><td class="n">27</td><td class="n">27</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">61</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cut</code></td><td class="side">Naive LLM, run of 20 Oct 13:52</td><td class="n">88</td><td class="n">86</td><td class="n">61</td><td class="n is-zero">0</td><td class="n">25</td><td class="n">2</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cut</code></td><td class="side">Naive LLM, run of 27 Oct 23:05</td><td class="n">88</td><td class="n">86</td><td class="n">61</td><td class="n is-zero">0</td><td class="n">25</td><td class="n">2</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cut</code></td><td class="side">Naive LLM, run of 28 Oct 14:54</td><td class="n">88</td><td class="n">86</td><td class="n">61</td><td class="n is-zero">0</td><td class="n">25</td><td class="n">2</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cut</code></td><td class="side">Naive LLM, run of 28 Oct 15:25</td><td class="n">88</td><td class="n">86</td><td class="n">61</td><td class="n is-zero">0</td><td class="n">25</td><td class="n">2</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cut</code></td><td class="side">PaSh's own</td><td class="n">88</td><td class="n">88</td><td class="n">63</td><td class="n is-zero">0</td><td class="n">25</td><td class="n is-zero">0</td><td class="n is-bad">2</td></tr>
+          <tr><td><code>cut</code></td><td class="side">No annotation</td><td class="n">88</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">88</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>grep</code></td><td class="side">Caruca, PaSh grammar</td><td class="n">48</td><td class="n">1</td><td class="n">1</td><td class="n is-zero">0</td><td class="n">3</td><td class="n">44</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>grep</code></td><td class="side">Naive LLM, run of 13 Oct 19:34</td><td class="n">48</td><td class="n">17</td><td class="n">1</td><td class="n is-zero">0</td><td class="n">1</td><td class="n">46</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>grep</code></td><td class="side">Naive LLM, run of 20 Oct 11:29</td><td class="n">48</td><td class="n">43</td><td class="n">13</td><td class="n">11</td><td class="n">19</td><td class="n">5</td><td class="n is-bad">11</td></tr>
+          <tr><td><code>grep</code></td><td class="side">Naive LLM, run of 28 Oct 13:54</td><td class="n">48</td><td class="n">43</td><td class="n">15</td><td class="n">8</td><td class="n">20</td><td class="n">5</td><td class="n is-bad">8</td></tr>
+          <tr><td><code>grep</code></td><td class="side">PaSh's own</td><td class="n">48</td><td class="n">45</td><td class="n">15</td><td class="n">11</td><td class="n">19</td><td class="n">3</td><td class="n is-bad">13</td></tr>
+          <tr><td><code>grep</code></td><td class="side">No annotation</td><td class="n">48</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">48</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>sort</code></td><td class="side">Caruca, PaSh grammar</td><td class="n">64</td><td class="n">1</td><td class="n">1</td><td class="n is-zero">0</td><td class="n">9</td><td class="n">54</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>sort</code></td><td class="side">Caruca, main grammar</td><td class="n">64</td><td class="n">8</td><td class="n">8</td><td class="n is-zero">0</td><td class="n">10</td><td class="n">46</td><td class="n is-bad">7</td></tr>
+          <tr><td><code>sort</code></td><td class="side">Naive LLM, run of 20 Oct 16:03</td><td class="n">64</td><td class="n">14</td><td class="n">9</td><td class="n is-zero">0</td><td class="n">23</td><td class="n">32</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>sort</code></td><td class="side">Naive LLM, run of 28 Oct 14:08</td><td class="n">64</td><td class="n">63</td><td class="n">36</td><td class="n is-zero">0</td><td class="n">24</td><td class="n">4</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>sort</code></td><td class="side">Naive LLM, run of 28 Oct 15:11</td><td class="n">64</td><td class="n">14</td><td class="n">9</td><td class="n is-zero">0</td><td class="n">23</td><td class="n">32</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>sort</code></td><td class="side">Naive LLM, run of 28 Oct 15:44</td><td class="n">64</td><td class="n">14</td><td class="n">9</td><td class="n is-zero">0</td><td class="n">23</td><td class="n">32</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>sort</code></td><td class="side">PaSh's own</td><td class="n">64</td><td class="n">45</td><td class="n">23</td><td class="n is-zero">0</td><td class="n">23</td><td class="n">18</td><td class="n is-bad">1</td></tr>
+          <tr><td><code>sort</code></td><td class="side">No annotation</td><td class="n">64</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">64</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cp</code></td><td class="side">Caruca, PaSh grammar</td><td class="n">4</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">4</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cp</code></td><td class="side">Naive LLM, run of 28 Oct 11:41</td><td class="n">4</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">4</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cp</code></td><td class="side">Naive LLM, run of 28 Oct 15:07</td><td class="n">4</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">4</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cp</code></td><td class="side">Naive LLM, run of 28 Oct 15:39</td><td class="n">4</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">4</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>cp</code></td><td class="side">No annotation</td><td class="n">4</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">4</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>rm</code></td><td class="side">Caruca, PaSh grammar</td><td class="n">71</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">71</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>rm</code></td><td class="side">Caruca, main grammar</td><td class="n">71</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">71</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>rm</code></td><td class="side">Naive LLM, run of 20 Oct 12:19</td><td class="n">71</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">71</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>rm</code></td><td class="side">Naive LLM, run of 28 Oct 10:59</td><td class="n">71</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">71</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>rm</code></td><td class="side">PaSh's own</td><td class="n">71</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">71</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>rm</code></td><td class="side">No annotation</td><td class="n">71</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">71</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>split</code></td><td class="side">Caruca, PaSh grammar</td><td class="n">1</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">1</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>split</code></td><td class="side">Naive LLM, run of 28 Oct 13:40</td><td class="n">1</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">1</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>split</code></td><td class="side">No annotation</td><td class="n">1</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">1</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>wc</code></td><td class="side">Caruca, PaSh grammar</td><td class="n">3</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">3</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>wc</code></td><td class="side">Naive LLM, run of 28 Oct 09:14</td><td class="n">3</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">3</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>wc</code></td><td class="side">PaSh's own</td><td class="n">3</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">3</td><td class="n is-zero">0</td></tr>
+          <tr><td><code>wc</code></td><td class="side">No annotation</td><td class="n">3</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n is-zero">0</td><td class="n">3</td><td class="n is-zero">0</td></tr>
+        </tbody>
+        <caption>Here "PaSh's compiler failed" and "Not split" count every run in the row, including runs in which the files do not allow a split.</caption>
+      </table>
+    </div>
+  </details>
+</section>
+
+<section id="wrong">
+  <h2>Where the output went wrong</h2>
+  <p>Every run whose output differed from <code>bash</code> was repeated by hand: cut the input into pieces, run the command on each piece, join the results. If the hand-made split is wrong too, the cause is the annotation and not PaSh.</p>
+  <div class="tw">
+    <table class="w720">
+      <thead><tr><th>Side</th><th class="n">Wrong outputs</th><th>What happened</th></tr></thead>
+      <tbody>
+        <tr><td class="side">Caruca, PaSh grammar</td><td class="n is-zero">0 <span class="den">of 382</span></td><td class="note">Nothing.</td></tr>
+        <tr><td class="side">Caruca, main grammar</td><td class="n is-bad">7 <span class="den">of 223</span></td><td class="note">Seven <code>sort</code> lines that add a second option to a sort order: <code>-n -u</code>, <code>-n -s</code>, <code>-g -u</code>, <code>-h -s</code>, <code>-k 1 -u</code>, <code>-k 1 -s</code>, <code>-k 1,1 -u</code>. The files say the sorted pieces can be joined end to end. PaSh did that, and the result is not sorted. The hand-made split is wrong as well, so the cause is the annotation. Of the 8 <code>sort</code> lines these files let PaSh split, <code>sort -m</code> alone came out right.</td></tr>
+        <tr><td class="side">Naive LLM, all runs</td><td class="n is-bad">19 <span class="den">of 1,013</span></td><td class="note">All <code>grep</code>, in two of its three runs (11 and 8). Searching a folder with <code>-r</code>: the files describe the folder as a stream of input, PaSh splits it, no data arrives and the output is empty. With <code>--color</code>: the option table says the option takes the next word, so the search pattern is swallowed. The earliest <code>grep</code> run has neither fault.</td></tr>
+        <tr><td class="side">PaSh's own</td><td class="n is-bad">16 <span class="den">of 377</span></td><td class="note">The same two <code>grep</code> faults (11 runs). <code>grep -m</code> and <code>grep -A</code> split (2). <code>cut -z</code> split (2). <code>sort --help</code> printed once per worker (1).</td></tr>
+        <tr><td class="side">No annotation</td><td class="n is-zero">0 <span class="den">of 382</span></td><td class="note">Nothing.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul>
+    <li><strong>Four of those seven <code>sort</code> lines are split correctly by all four of the naive LLM's runs</strong> (<code>-n -u</code>, <code>-n -s</code>, <code>-g -u</code>, <code>-h -s</code>), and the other three by one run. Its files tell PaSh to merge the sorted pieces with <code>sort -m</code>. Caruca's method chooses between "join end to end" and "do not split", as the paper notes, so a merge step is outside what it can say today. PaSh's own files do not split any of the seven.</li>
+    <li><strong>The naive LLM's two <code>grep</code> faults are also in PaSh's own <code>grep</code> files</strong>, which it had been shown as an example. Its earliest <code>grep</code> run has neither fault and allows very little: PaSh split 1 of its 48 lines.</li>
+  </ul>
+</section>
+
+<section id="pash">
+  <h2>PaSh's own failures</h2>
+  <p>In <strong>329 of 2,377 runs</strong> PaSh's compiler raised an internal error. The script then ran as plain <code>bash</code>, with the right output and exit status 0. When no part of a script was parallelized, PaSh prints a general warning that suggests checking the annotations, the same warning it prints when a script has nothing to parallelize. The error itself appears only in the debug log.</p>
+  <div class="tw">
+    <table class="w720">
+      <thead><tr><th>What PaSh tripped on</th><th class="n">Runs</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>The command after a pipe is taken to read a named file instead of the pipe</td><td class="n">161</td><td class="note"><code>cut -d' ' -f1</code>: a value written against its option is read as a file name. Also <code>sort -rn</code> under Caruca's PaSh-grammar files, whose option table does not list it.</td></tr>
+        <tr><td>A command that could be split is seen as having two input files</td><td class="n">125</td><td class="note"><code>cat a b</code>, <code>grep x f1 f2</code></td></tr>
+        <tr><td>A name used in PaSh's code and never imported</td><td class="n">34</td><td class="note"><code>grep -f patterns file</code></td></tr>
+        <tr><td>A merge command that carries an option with a value</td><td class="n">9</td><td class="note">The naive LLM's <code>sort -m -k 1 -u</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>249 of the 329 fell on runs where the loaded files allow a split: 186 for the naive LLM and 63 for PaSh's own files. Caruca lost none of its 139, because its files do not allow a split on such lines. <strong>So over a quarter of what the naive LLM's files offer (186 of 655) never reached PaSh's workers, for reasons that lie in PaSh.</strong></p>
+  <p>A separate 30 runs ended in the state "split set up, no data arrived". These are the empty <code>grep</code> outputs of the previous section: 19 with the naive LLM's files and 11 with PaSh's own.</p>
+</section>
+
+<section id="speed">
+  <h2>Speed</h2>
+  <p><strong>The benchmark lines are too cheap to gain from a split.</strong> On a 64 MB input, <code>cut</code> took 0.15 s in <code>bash</code> and 0.23 s under PaSh, split or not. Of the 12 lines timed, 11 were slower split than in <code>bash</code>, and one, <code>sort -rn</code>, was 1.17 times faster. 54 combinations of line and side were timed, 5 runs each, and every output was right.</p>
+  <p>A split shows on a command that does real work on every line. The chart uses a <code>grep</code> pattern with back-references on a 16 MB input, median of 5 runs.</p>
+  <div class="chart">
+    <div>
+      <div class="chart-title">Seconds to finish, shorter is better</div>
+      <div class="chart-sub">Blue bars are runs PaSh split. Grey bars ran as one copy.</div>
+    </div>
+    <div class="legend">
+      <span class="key"><i class="sw split"></i>Split by PaSh</span>
+      <span class="key"><i class="sw none"></i>One copy</span>
+    </div>
+
+    <div class="panel-title">Input piped in, no options<span>the pattern applied to text arriving from <code>cat</code></span></div>
+    <div>
+      <div class="hrow"><div class="hname">Plain <code>bash</code></div><div class="htrack"><span class="hbar none" style="width:71.2%" tabindex="0" role="img" aria-label="Plain bash: 14.24 seconds" data-tip="Plain bash: 14.24 s"></span></div><div class="hval"><b>14.24 s</b>reference</div></div>
+      <div class="hrow"><div class="hname">No annotation</div><div class="htrack"><span class="hbar none" style="width:71.05%" tabindex="0" role="img" aria-label="No annotation: 14.21 seconds, not split" data-tip="No annotation: 14.21 s, not split"></span></div><div class="hval"><b>14.21 s</b>not split</div></div>
+      <div class="hrow"><div class="hname">Caruca, PaSh grammar</div><div class="htrack"><span class="hbar split" style="width:11.2%" tabindex="0" role="img" aria-label="Caruca, PaSh grammar: 2.24 seconds, 6.4 times faster" data-tip="Caruca, PaSh grammar: 2.24 s, 6.35 times faster than bash"></span></div><div class="hval"><b>2.24 s</b>6.4× faster</div></div>
+      <div class="hrow"><div class="hname">Naive LLM, 13 Oct run</div><div class="htrack"><span class="hbar none" style="width:71.45%" tabindex="0" role="img" aria-label="Naive LLM, 13 October run: 14.29 seconds, not split" data-tip="Naive LLM, 13 Oct run: 14.29 s, allowed but not split"></span></div><div class="hval"><b>14.29 s</b>not split</div></div>
+      <div class="hrow"><div class="hname">Naive LLM, 20 Oct run</div><div class="htrack"><span class="hbar split" style="width:11.25%" tabindex="0" role="img" aria-label="Naive LLM, 20 October run: 2.25 seconds, 6.3 times faster" data-tip="Naive LLM, 20 Oct run: 2.25 s, 6.32 times faster than bash"></span></div><div class="hval"><b>2.25 s</b>6.3× faster</div></div>
+      <div class="hrow"><div class="hname">Naive LLM, 28 Oct run</div><div class="htrack"><span class="hbar split" style="width:11.65%" tabindex="0" role="img" aria-label="Naive LLM, 28 October run: 2.33 seconds, 6.1 times faster" data-tip="Naive LLM, 28 Oct run: 2.33 s, 6.10 times faster than bash"></span></div><div class="hval"><b>2.33 s</b>6.1× faster</div></div>
+      <div class="hrow"><div class="hname">PaSh's own</div><div class="htrack"><span class="hbar split" style="width:11.6%" tabindex="0" role="img" aria-label="PaSh's own: 2.32 seconds, 6.1 times faster" data-tip="PaSh's own: 2.32 s, 6.13 times faster than bash"></span></div><div class="hval"><b>2.32 s</b>6.1× faster</div></div>
+    </div>
+
+    <div class="panel-title">One option and a file argument<span>the same pattern with <code>-i</code>, reading a named file</span></div>
+    <div>
+      <div class="hrow"><div class="hname">Plain <code>bash</code></div><div class="htrack"><span class="hbar none" style="width:88.8%" tabindex="0" role="img" aria-label="Plain bash: 17.76 seconds" data-tip="Plain bash: 17.76 s"></span></div><div class="hval"><b>17.76 s</b>reference</div></div>
+      <div class="hrow"><div class="hname">No annotation</div><div class="htrack"><span class="hbar none" style="width:89.9%" tabindex="0" role="img" aria-label="No annotation: 17.98 seconds, not split" data-tip="No annotation: 17.98 s, not split"></span></div><div class="hval"><b>17.98 s</b>not split</div></div>
+      <div class="hrow"><div class="hname">Caruca, PaSh grammar</div><div class="htrack"><span class="hbar none" style="width:89.05%" tabindex="0" role="img" aria-label="Caruca, PaSh grammar: 17.81 seconds, no answer for this line" data-tip="Caruca, PaSh grammar: 17.81 s. The files have no answer for this line, so it is not split."></span></div><div class="hval"><b>17.81 s</b>no answer</div></div>
+      <div class="hrow"><div class="hname">Naive LLM, 13 Oct run</div><div class="htrack"><span class="hbar none" style="width:89.65%" tabindex="0" role="img" aria-label="Naive LLM, 13 October run: 17.93 seconds, not split" data-tip="Naive LLM, 13 Oct run: 17.93 s, allowed but not split"></span></div><div class="hval"><b>17.93 s</b>not split</div></div>
+      <div class="hrow"><div class="hname">Naive LLM, 20 Oct run</div><div class="htrack"><span class="hbar split" style="width:74.15%" tabindex="0" role="img" aria-label="Naive LLM, 20 October run: 14.83 seconds, 1.2 times faster" data-tip="Naive LLM, 20 Oct run: 14.83 s, 1.20 times faster than bash"></span></div><div class="hval"><b>14.83 s</b>1.2× faster</div></div>
+      <div class="hrow"><div class="hname">Naive LLM, 28 Oct run</div><div class="htrack"><span class="hbar split" style="width:74%" tabindex="0" role="img" aria-label="Naive LLM, 28 October run: 14.80 seconds, 1.2 times faster" data-tip="Naive LLM, 28 Oct run: 14.80 s, 1.20 times faster than bash"></span></div><div class="hval"><b>14.80 s</b>1.2× faster</div></div>
+      <div class="hrow"><div class="hname">PaSh's own</div><div class="htrack"><span class="hbar split" style="width:74.1%" tabindex="0" role="img" aria-label="PaSh's own: 14.82 seconds, 1.2 times faster" data-tip="PaSh's own: 14.82 s, 1.20 times faster than bash"></span></div><div class="hval"><b>14.82 s</b>1.2× faster</div></div>
+    </div>
+    <div class="haxis-row"><div></div><div class="axis"><span style="left:0">0</span><span style="left:25%">5</span><span style="left:50%">10</span><span style="left:75%">15</span><span style="left:100%">20 s</span></div><div></div></div>
+  </div>
+  <p>When Caruca's files have an answer, PaSh is as fast with them as with any other set. Add one option and a file argument, and they have no answer for the line. Why the second script gains only 1.2 times when split is not established.</p>
+</section>
+
+<section id="scripts">
+  <h2>Whole benchmark scripts</h2>
+  <p>46 of PaSh's benchmark scripts, from its <code>oneliners</code> and <code>unix50</code> collections, run unchanged with each side's files for all eight commands loaded at once. Their own input files could not be downloaded, so they read this test's 4 MB text. <strong>Every output matched <code>bash</code> under every set.</strong></p>
+  <div class="chart">
+    <div>
+      <div class="chart-title">What PaSh did with each of the 46 scripts</div>
+      <div class="chart-sub">Number of scripts, out of 46. A script counts as split when at least one of its commands ran as several copies.</div>
+    </div>
+    <div class="legend">
+      <span class="key"><i class="sw split"></i>Split</span>
+      <span class="key"><i class="sw fail"></i>PaSh's compiler failed</span>
+      <span class="key"><i class="sw none"></i>Not split</span>
+    </div>
+    <div class="srows">
+      <div class="srow">
+        <div class="sname">Caruca, PaSh grammar</div>
+        <div class="sbar">
+          <span class="seg split" style="flex:27 1 0" tabindex="0" role="img" aria-label="Caruca, PaSh grammar: 27 of 46 scripts split" data-tip="Split: 27 of 46 scripts">27</span>
+          <span class="seg fail" style="flex:13 1 0" tabindex="0" role="img" aria-label="Caruca, PaSh grammar: PaSh's compiler failed on 13 scripts" data-tip="PaSh's compiler failed: 13 scripts">13</span>
+          <span class="seg none" style="flex:6 1 0" tabindex="0" role="img" aria-label="Caruca, PaSh grammar: 6 scripts not split" data-tip="Not split: 6 scripts">6</span>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="sname">Caruca, main grammar<span>for <code>cut</code>, <code>rm</code>, <code>sort</code>; PaSh grammar for the rest</span></div>
+        <div class="sbar">
+          <span class="seg split" style="flex:35 1 0" tabindex="0" role="img" aria-label="Caruca, main grammar: 35 of 46 scripts split" data-tip="Split: 35 of 46 scripts">35</span>
+          <span class="seg fail" style="flex:5 1 0" tabindex="0" role="img" aria-label="Caruca, main grammar: PaSh's compiler failed on 5 scripts" data-tip="PaSh's compiler failed: 5 scripts">5</span>
+          <span class="seg none" style="flex:6 1 0" tabindex="0" role="img" aria-label="Caruca, main grammar: 6 scripts not split" data-tip="Not split: 6 scripts">6</span>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="sname">Naive LLM<span>first campaign run of each command</span></div>
+        <div class="sbar">
+          <span class="seg split" style="flex:35 1 0" tabindex="0" role="img" aria-label="Naive LLM: 35 of 46 scripts split" data-tip="Split: 35 of 46 scripts">35</span>
+          <span class="seg fail" style="flex:6 1 0" tabindex="0" role="img" aria-label="Naive LLM: PaSh's compiler failed on 6 scripts" data-tip="PaSh's compiler failed: 6 scripts">6</span>
+          <span class="seg none" style="flex:5 1 0" tabindex="0" role="img" aria-label="Naive LLM: 5 scripts not split" data-tip="Not split: 5 scripts">5</span>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="sname">PaSh's own</div>
+        <div class="sbar">
+          <span class="seg split" style="flex:35 1 0" tabindex="0" role="img" aria-label="PaSh's own: 35 of 46 scripts split" data-tip="Split: 35 of 46 scripts">35</span>
+          <span class="seg fail" style="flex:6 1 0" tabindex="0" role="img" aria-label="PaSh's own: PaSh's compiler failed on 6 scripts" data-tip="PaSh's compiler failed: 6 scripts">6</span>
+          <span class="seg none" style="flex:5 1 0" tabindex="0" role="img" aria-label="PaSh's own: 5 scripts not split" data-tip="Not split: 5 scripts">5</span>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="sname">No annotation</div>
+        <div class="sbar">
+          <span class="seg none" style="flex:46 1 0" tabindex="0" role="img" aria-label="No annotation: 46 of 46 scripts not split" data-tip="Not split: 46 of 46 scripts">46</span>
+        </div>
+      </div>
+    </div>
+    <div class="axis-row"><div></div><div class="axis"><span style="left:0">0</span><span style="left:21.74%">10</span><span style="left:43.48%">20</span><span style="left:65.22%">30</span><span style="left:86.96%">40</span><span style="left:100%">46</span></div></div>
+  </div>
+  <ul>
+    <li><strong>The naive LLM's set behaves like PaSh's own on all 46 scripts.</strong> The same 35 split, with <code>sort</code>, <code>cut</code> and <code>grep</code> running as several copies in the same scripts. It also splits <code>cat</code>.</li>
+    <li><strong>Caruca's sets never split <code>sort</code>.</strong> <code>sort</code> ran as several copies in 11 scripts with the naive LLM's set and with PaSh's own, and in none with Caruca's. With the main-grammar set the rest of each pipeline still splits.</li>
+    <li><strong>With Caruca's PaSh-grammar set, 8 more scripts ran unsplit.</strong> That grammar's <code>sort</code> table lists one option, <code>-m</code>. PaSh therefore reads <code>sort -rn</code> as a file named <code>-rn</code>, its compiler fails, and the whole script runs as <code>bash</code>.</li>
+    <li>Five scripts failed to compile under every set, PaSh's own included. One of them is PaSh's own <code>bi-grams.sh</code>, which stops on a missing import in PaSh's compiler. That fault was reported to PaSh on 20 November 2026 with a one-line fix: <a href="https://github.com/binpash/pash/issues/794">issue 794</a>, <a href="https://github.com/binpash/pash/pull/795">pull request 795</a>.</li>
+  </ul>
+</section>
+
+<section id="repeat">
+  <h2>Run to run</h2>
+  <p>Caruca's step from traces to files is deterministic. The naive LLM writes its files afresh each time, so its runs of one command were compared with each other: on how many lines did two runs lead PaSh to the same state and the same output?</p>
+  <div class="tw">
+    <table class="w560">
+      <thead><tr><th>Command</th><th>Runs</th><th>Lines on which two runs agree</th></tr></thead>
+      <tbody>
+        <tr><td><code>cut</code></td><td>4</td><td class="note">88 of 88, for every pair of runs</td></tr>
+        <tr><td><code>sort</code></td><td>4</td><td class="note">Three runs agree on 64 of 64. The fourth agrees with each of them on 33 of 64. It is the one that allows most splits.</td></tr>
+        <tr><td><code>grep</code></td><td>3</td><td class="note">The two later runs agree on 45 of 48. The earliest agrees with each of them on 7 of 48.</td></tr>
+        <tr><td><code>rm</code></td><td>2</td><td class="note">71 of 71</td></tr>
+        <tr><td><code>cp</code></td><td>3</td><td class="note">4 of 4, for every pair of runs</td></tr>
+        <tr><td><code>cat</code> <code>wc</code> <code>split</code></td><td>1 each</td><td class="note">Nothing to compare</td></tr>
+      </tbody>
+      <caption>For comparison, Caruca's two grammars lead PaSh to the same state and output on 88 of 88 <code>cut</code> lines, 71 of 71 <code>rm</code> lines and 42 of 64 <code>sort</code> lines.</caption>
+    </table>
+  </div>
+</section>
+
+<section id="reading">
+  <h2>What this suggests</h2>
+  <div class="callout warn">
+    <b>Interpretation</b>
+    <p>The points below are a reading of the numbers above. They are not measurements.</p>
+  </div>
+  <ul>
+    <li><strong>Caruca's files are the careful ones.</strong> What Caruca saw in a trace, PaSh could use, every time. The cost is reach: a different option, a file argument or a value written against its option, and there is no answer.</li>
+    <li><strong>Caruca's one unsafe answer has a clear shape.</strong> It is <code>sort</code> with a second option that changes which lines count as equal. The earlier reading of the files predicted it. Here it is confirmed under PaSh on 7 lines.</li>
+    <li><strong>The naive LLM's files reach as far as PaSh's hand-written ones,</strong> and carry two of the same faults. Its <code>sort</code> files show one thing a generated annotation can add to Caruca's two outcomes: a merge step.</li>
+    <li><strong>Much of what limits both sets is PaSh.</strong> Its compiler failed on 15 of the 46 <code>cut</code> benchmark lines, with the naive LLM's files and with its own alike.</li>
+  </ul>
+</section>
+
+<section id="limits">
+  <h2>Limits and corrections</h2>
+  <div class="two">
+    <div>
+      <h3>Limits</h3>
+      <ul style="margin-top:10px">
+        <li>Eight commands and 382 lines. 162 of the lines were chosen because the sides differ, so pooled counts overstate how often they differ. The benchmark-line table is the unbiased part.</li>
+        <li>One input text. A wrong split shows only on input that exercises it, so a line that came out right here is not proved safe.</li>
+        <li>In the lines picked for disagreement, file names were replaced with prepared files. Options are unchanged.</li>
+        <li>Whole scripts read this test's text, not their own data, so nothing is said about their speed.</li>
+        <li>Timings were taken with the laptop on battery power.</li>
+        <li>One PaSh revision and one worker count (8).</li>
+        <li>3 of the selected lines could not be run: two whose quoting the runner could not parse, one that uses command substitution.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Corrections made during the run</h3>
+      <p class="small" style="margin-top:10px">The first pass exposed three faults in the test harness. Each was found from a run in the "unknown" state or from a failed check, then fixed, and the whole pass was run again from scratch. The first pass is kept.</p>
+      <ul style="margin-top:10px">
+        <li>Worker copies handed a pipe as their file argument were counted as PaSh's housekeeping. 65 runs were marked unknown; 35 became "split".</li>
+        <li>For <code>cat</code> lines the input was fed with <code>cat</code>, which the side's own <code>cat</code> files also governed. Those lines are now fed another way.</li>
+        <li>The <code>bash</code> reference ran the real program while the PaSh run used the counting stand-in, and <code>--help</code> prints the program's name. The reference now uses the stand-in too.</li>
+      </ul>
+      <p class="small" style="margin-top:10px">The 30 runs still unknown after the first fix were real behaviour and became the state "split set up, no data arrived".</p>
+    </div>
+  </div>
+</section>
+
+<section id="records">
+  <h2>Setup and records</h2>
+  <dl class="meta">
+    <dt>PaSh</dt><dd>commit <code>42a8b87</code>, with <code>pash-annotations</code> 0.2.4, 8 workers</dd>
+    <dt>Caruca</dt><dd>branch <code>pash-python-annotations</code>, commit <code>4bf74dd9a</code></dd>
+    <dt>Machine</dt><dd>Ubuntu 24.04 virtual machine (Linux 6.8, aarch64, 8 cores) on an Apple M5 Pro laptop; GNU coreutils 9.4</dd>
+    <dt>Inputs</dt><dd>4 MB text for correctness, 64 MB and 16 MB texts for timing</dd>
+    <dt>When</dt><dd>19 November 2026. Checks at 16:46 and 17:28, the batch between them</dd>
+    <dt>Records</dt><dd>In the <code>caruca_v2</code> repository under <code class="long">naive_llm_caruca/comparisons/2026-11-11_pash_annotations_v1_vs_naive/pash_runs/</code>: the full write-up, every count (built from the run records by a script that only counts), the checks, the runner, the run records and PaSh's logs.</dd>
+  </dl>
+</section>
+
+</main>
+
+<footer class="wrap">Caruca v2 research project. Counts on this page are copied from the run records of task 022 and were not recomputed by hand.</footer>
+
+<div id="tip" role="tooltip" hidden></div>
+<script>
+(function(){
+  var tip = document.getElementById('tip');
+  if (!tip) return;
+  function show(el, x, y){
+    tip.textContent = el.getAttribute('data-tip') || '';
+    tip.hidden = false;
+    var r = tip.getBoundingClientRect();
+    var vw = document.documentElement.clientWidth;
+    var left = Math.min(Math.max(8, x - r.width / 2), vw - r.width - 8);
+    var top = y - r.height - 12;
+    if (top < 8) top = y + 18;
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+  }
+  function hide(){ tip.hidden = true; }
+  var marks = document.querySelectorAll('[data-tip]');
+  for (var i = 0; i < marks.length; i++) {
+    (function(el){
+      el.addEventListener('pointerenter', function(e){ show(el, e.clientX, e.clientY); });
+      el.addEventListener('pointermove', function(e){ show(el, e.clientX, e.clientY); });
+      el.addEventListener('pointerleave', hide);
+      el.addEventListener('focus', function(){ var b = el.getBoundingClientRect(); show(el, b.left + b.width / 2, b.top); });
+      el.addEventListener('blur', hide);
+    })(marks[i]);
+  }
+  window.addEventListener('scroll', hide, { passive: true });
+})();
+</script>

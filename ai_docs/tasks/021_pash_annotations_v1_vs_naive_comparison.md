@@ -33,6 +33,12 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 > - the reassessment of cut, sort and rm with the letters redrawn: 111 of 114 ratings held;
 > - one check-4 run: v1's `sort -n -u` split confirmed unsafe.
 >
+> **Real PaSh runs moved (2026-11-19):** check 3 below (section 5) is now **task 022**
+> (`022_pash_runs_v1_vs_naive.md`), which adds checks that PaSh is really running and a whole-script
+> part. Task 022's plan replaces check 3's; the rest of this task stands. **Task 022 was run the same
+> day**: results in the comparison folder's `pash_runs/observations.md`. It also settled, by running,
+> v1's unsafe `sort` splits (7 lines) and several other claims on check 4's list.
+>
 > Not done: checks 3 and 4 (69 checks listed by the assessments), and rubric v2. The pilot went straight
 > to all 8 commands at Tiran's direction ("start the comparison for the commands we completed"). The
 > assessors are fresh agents, not the working session, so the blinding is real.

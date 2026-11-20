@@ -1,0 +1,117 @@
+PaSh 42a8b87c, pash-annotations Version: 0.2.4, sort (GNU coreutils) 9.4
+
+===== wrong output =====
+
+[W1] grep -m is split, though PaSh's own comment says it must not be
+    script : cat in.txt | grep -m 5 ab
+    bash   : exit 0, 5 lines, 124 bytes
+    PaSh   : exit 0, 0 lines, 0 bytes  -> output DIFFERENT, split steps in log: yes
+
+[W2] grep -A is split, same cause
+    script : cat in.txt | grep -A 1 ':96'
+    bash   : exit 0, 6182 lines, 129176 bytes
+    PaSh   : exit 0, 6175 lines, 129155 bytes  -> output DIFFERENT, split steps in log: yes
+
+[W3] cut -z is split on newlines
+    script : cat in.txt | cut -z -c 1-3
+    bash   : exit 0, 0 lines, 4 bytes
+    PaSh   : exit 0, 0 lines, 32 bytes  -> output DIFFERENT, split steps in log: yes
+
+[W4] recursive grep on a folder returns nothing
+    script : grep -r 'line7 ' d
+    bash   : exit 0, 1 lines, 37 bytes
+    PaSh   : exit 0, 0 lines, 0 bytes  -> output DIFFERENT, split steps in log: yes
+
+[W5] grep --color swallows the pattern
+    script : grep --color 'line7 ' in.txt
+    bash   : exit 0, 1 lines, 25 bytes
+    PaSh   : exit 0, 0 lines, 0 bytes  -> output DIFFERENT, split steps in log: yes
+
+[W6] a line asking for --help is split, help printed once per worker
+    script : cat in.txt | sort -k 1 --help
+    bash   : exit 0, 73 lines, 4159 bytes
+    PaSh   : exit 0, 584 lines, 33272 bytes  -> output DIFFERENT, split steps in log: yes
+
+[W7] double-quoted pattern (seen 2026-10-05)
+    script : cat in.txt | grep "\(.\).*\1\(.\).*\2\(.\).*\3" | wc -l
+    bash   : exit 0, 1 lines, 6 bytes
+    PaSh   : exit 0, 1 lines, 2 bytes  -> output DIFFERENT, split steps in log: yes
+
+[W7b] same pattern, single quotes
+    script : cat in.txt | grep '\(.\).*\1\(.\).*\2\(.\).*\3' | wc -l
+    bash   : exit 0, 1 lines, 6 bytes
+    PaSh   : exit 0, 1 lines, 6 bytes  -> output SAME, split steps in log: yes
+
+===== PaSh's compiler raises an exception and the script runs as plain bash =====
+
+[E1] name used but never imported (option value typed as a file)
+    script : grep -f pats in.txt
+    bash   : exit 0, 200000 lines, 6046193 bytes
+    PaSh   : exit 0, 200000 lines, 6046193 bytes  -> output SAME, split steps in log: no
+    PaSh log: NameError: name 'OptionWithIOVar' is not defined. Did you mean: 'OptionWithIO'?  (ir.py:215 add_file_id_vars)
+
+[E2] value attached to its option is read as a file name
+    script : cat in.txt | cut -d, -f1
+    bash   : exit 0, 200000 lines, 3466812 bytes
+    PaSh   : exit 0, 200000 lines, 3466812 bytes  -> output SAME, split steps in log: no
+    PaSh log: AssertionError  (ir.py:596 pipe_append)
+
+[E2b] same line with the values separated: splits
+    script : cat in.txt | cut -d , -f 1
+    bash   : exit 0, 200000 lines, 3466812 bytes
+    PaSh   : exit 0, 200000 lines, 3466812 bytes  -> output SAME, split steps in log: yes
+
+[E3] head -5 (old-style count)
+    script : cat in.txt | sort -n | head -5
+    bash   : exit 0, 5 lines, 145 bytes
+    PaSh   : exit 0, 5 lines, 145 bytes  -> output SAME, split steps in log: no
+    PaSh log: AssertionError  (ir.py:596 pipe_append)
+
+[E3b] head -n 5: splits
+    script : cat in.txt | sort -n | head -n 5
+    bash   : exit 0, 5 lines, 145 bytes
+    PaSh   : exit 0, 5 lines, 145 bytes  -> output SAME, split steps in log: yes
+
+[E4] two input files
+    script : grep 'line7 ' in.txt in2.txt
+    bash   : exit 0, 2 lines, 65 bytes
+    PaSh   : exit 0, 2 lines, 65 bytes  -> output SAME, split steps in log: no
+    PaSh log: AssertionError  (dfg_node.py:270 get_single_streaming_input_single_output_and_configuration_inputs_of_node_for_parallelization)
+
+[E5] input redirection
+    script : cut -d , -f 1 < in.txt
+    bash   : exit 0, 200000 lines, 3466812 bytes
+    PaSh   : exit 0, 200000 lines, 3466812 bytes  -> output SAME, split steps in log: no
+    PaSh log: NotImplementedError  (dfg_node.py:210 apply_redirections)
+
+[E6] tail -n 1 at the end of a pipeline
+    script : cat in.txt | sort -r | tail -n 1
+    bash   : exit 0, 1 lines, 29 bytes
+    PaSh   : exit 0, 1 lines, 29 bytes  -> output SAME, split steps in log: no
+    PaSh log: AssertionError  (ir.py:596 pipe_append)
+
+[E6b] the same pipeline without tail: splits
+    script : cat in.txt | sort -r
+    bash   : exit 0, 200000 lines, 6046193 bytes
+    PaSh   : exit 0, 200000 lines, 6046193 bytes  -> output SAME, split steps in log: yes
+
+[E7] PaSh's own benchmark oneliners/bi-grams.sh
+    script : #!/bin/bash
+# Find all 2-grams in a piece of text
+
+IN=${IN:-$PASH_TOP/evaluation/benchmarks/oneliners/input/1G.txt}
+
+. bi-gram.aux.sh
+
+cat $IN |
+  tr -cs A-Za-z '\n' |
+  tr A-Z a-z |
+  bigrams_aux |
+  sort |
+  uniq
+    bash   : exit 0, 5 lines, 40 bytes
+    PaSh   : exit 0, 5 lines, 40 bytes  -> output SAME, split steps in log: no
+    PaSh log: NameError: name 'Arg' is not defined  (ir.py:1454 create_reduce_tree)
+
+===== other =====
+[O1] script file that does not exist: exit 139, stderr: ocessor:$PASH_TOP/compiler:$PYTHONPATH" PASH_FROM_SH="PaSh preprocessor" "$PASH_PYTHON" "$PASH_TOP/preprocessor/pash_preprocessor.py" "${preprocessor_args[@]}" 

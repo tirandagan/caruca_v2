@@ -183,7 +183,7 @@ All present on `pash`:
 | Flag | Use in the study |
 |---|---|
 | `-w`, `--width` | parallelism factor. **The default is 2 here**, not 8: it is `cpus//8` only when there are ≥16 cores, else 2. Always pass it explicitly |
-| `--r_split` | round-robin splitting instead of consecutive chunks. The study runs both, because a wrong annotation can surface under one and not the other |
+| `--r_split` | **does nothing at the installed revision** (corrected 2026-11-19). `compiler/arg_parser.py` lists it under obsolete arguments: "does nothing -- only here for old interfaces". The splitting style is chosen per command from its annotation: round robin if the annotation offers one PaSh implements, else consecutive chunks (`compiler/compilation.py`, `choose_parallelizing_transformation`). So there is one PaSh run per script, not two |
 | `-d`, `--debug`, `--log_file` | where the compiler's decisions are written |
 | `--graphviz`, `--graphviz_dir` | dumps the dataflow graph — the most direct way to see what became a parallel node |
 | `--dry_run_compiler` | compile without executing |
@@ -212,6 +212,22 @@ Measured 2026-10-05, and the first two attempts were wrong, so the record matter
   as `grep -q "No region was parallelized" log || echo parallelized` reports success in all of
   those cases. That mistake was made and caught here; the working demo at `~/try-pash.sh` in the
   VM has the corrected form.
+
+#### Three ways PaSh falls back to `bash` with exit code 0 and the right output (run 2026-11-19)
+
+All seen with PaSh's own annotation files, 8 workers, `-d 2 --log_file`. In each, the log holds a
+traceback and `No region was parallelized successfully`. Task 022's runner
+(`naive_llm_caruca/comparisons/2026-11-11_pash_annotations_v1_vs_naive/pash_runs/run_pash.py`) records
+these as "PaSh error".
+
+| Script shape | What the log shows | Why |
+|---|---|---|
+| `cut -d ' ' -f 1 < in.txt` | `NotImplementedError`, `ir_defs/dfg_node.py:210 apply_redirections` | input redirection is not implemented. Feed input with a pipe (`cat in.txt \| ...`) or a file argument; both split |
+| `... \| head -5`, `... \| cut -f1`, `... \| sort -k2` | `AssertionError`, `ir.py:596 pipe_append` (`assert not other_in is None`) | PaSh's parser does not separate a value attached to its option, so `-5`, `-f1`, `-k2` are read as file names. The command then has no standard input for the pipe to connect to. `head -n 5`, `cut -f 1` and `sort -k 2` split normally |
+| `grep -f patterns file` | `NameError: name 'OptionWithIOVar' is not defined`, `ir.py:215 add_file_id_vars` | a defect in PaSh: the name is used on that line and never imported. Reached whenever an annotation types an option's value as a file |
+
+A fourth, `AssertionError` at `ir_defs/dfg_node.py:270` (`assert len(streaming_inputs) == 1`), is reached
+when an annotation allows a split for a line that PaSh sees as having more than one input file.
 
 #### The per-command answer: a `PATH` shim (solved 2026-10-13)
 
@@ -245,7 +261,16 @@ Three cautions, all observed:
 
 - **It catches more than the workload.** A shim for `rm` also intercepts PaSh's own cleanup calls.
   The shim logs full arguments; filter to the workload's argument shape and report both counts, so
-  the filtering is visible rather than assumed.
+  the filtering is visible rather than assumed. **What PaSh's own calls look like (observed
+  2026-11-19):** `cat /tmp/pash_XXXX//pash_NNN` once per run, and `rm -f /tmp/pash_XXXX/.../#fifoN` once
+  per pipe. Worker copies either carry the line's own arguments and read a pipe on standard input, or
+  (for `sort` and `grep` given a file argument) carry a pipe path `.../#fifoN` in place of the file. So
+  "names `/tmp/pash_`" alone does not separate the two; "names `/tmp/pash_` and no `#fifo`" does, except
+  for `rm` and `cat`, which PaSh also runs on its pipes.
+- **No input, no copies.** A worker (`r_wrap bash -c 'CMD'`) starts the command once per piece of input
+  it receives. If PaSh splits a stream that carries nothing (seen with `grep -r pattern dir`, where
+  the annotation types the folder as an input stream), the generated script holds 8 workers, the shim
+  counts none, and the output is empty with exit code 0.
 - **It costs a fork and two `date` calls per worker** — single-digit milliseconds. Measure it
   against an unshimmed run before quoting per-worker times; never subtract silently.
 - **It cannot work for a shell builtin** (`pwd`), which is never looked up on `PATH`.

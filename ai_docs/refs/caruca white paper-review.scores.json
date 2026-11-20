@@ -1,0 +1,28 @@
+{
+  "title": "Caruca: Effective and Efficient Specification Mining for Opaque Software Components",
+  "venue": "none given; reviewed as a systems / software-engineering submission (overall is an ICLR-calibrated estimate)",
+  "literature_cutoff": null,
+  "dimensions": {
+    "originality": 6,
+    "importance": 6,
+    "claims_supported": 5,
+    "soundness": 4,
+    "clarity": 6,
+    "value": 6,
+    "contextualization": 4
+  },
+  "overall_raw": 5.2,
+  "overall": 6.7,
+  "related_work_ids": [
+    "2007.09436",
+    "2012.15443",
+    "2401.00563",
+    "2510.01453",
+    "2511.20555",
+    "2409.00922",
+    "2401.08807",
+    "2404.00762",
+    "2504.17287",
+    "1905.11070"
+  ]
+}

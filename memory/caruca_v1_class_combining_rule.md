@@ -62,3 +62,11 @@ on its main grammar (`--max-count 2`, branch `pash-python-annotations` commit `4
 `printf '2\n1\n' | sort -n -u` → `1 2`, halves joined → `2 1`: **v1's `stateless` for `sort -n -u` is wrong.**
 Not established: why. Candidates are the rule above (one passing environment wins) and v1's text inputs
 making every numeric key equal.
+
+
+**Confirmed under real PaSh, 2026-11-19 (task 022).** With v1's main-grammar `sort` files loaded, PaSh split 8
+`sort` lines and 7 gave output different from bash: `-n -u`, `-n -s`, `-g -u`, `-h -s`, `-k 1 -u`, `-k 1 -s`,
+`-k 1,1 -u` (only `sort -m` was right). Splitting and joining by hand is wrong too, so the annotation is at
+fault, not PaSh. The naive agent's files split the first four correctly in all four runs (merge with
+`sort -m`); PaSh's own files don't split any of the seven. v1's PaSh-grammar files gave 0 wrong outputs in
+382 runs. Records: `naive_llm_caruca/comparisons/2026-11-11_pash_annotations_v1_vs_naive/pash_runs/`.

@@ -8,6 +8,11 @@ also compared on v1's main grammar.
 [report.md](report.md).** Not done yet: real PaSh runs (check 3), and settling the assessments' 69 claims
 by running the command (check 4). One claim is settled: v1's split of `sort -n -u` is unsafe.
 
+**Real PaSh runs (done 2026-11-19, task 022):** 2,377 PaSh runs with each side's files, plus 46 whole
+benchmark scripts. **Read [pash_runs/observations.md](pash_runs/observations.md).** Faults found in PaSh
+itself are in [pash_runs/pash_bugs_for_review.md](pash_runs/pash_bugs_for_review.md), not yet sent to
+anyone.
+
 ## Files
 
 | File | What it is |
