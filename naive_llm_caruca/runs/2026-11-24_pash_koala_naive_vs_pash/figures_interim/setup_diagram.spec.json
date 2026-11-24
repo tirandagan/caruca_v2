@@ -1,0 +1,778 @@
+[
+ {
+  "type": "rectangle",
+  "id": "script",
+  "x": 10,
+  "y": 255,
+  "w": 170,
+  "h": 150,
+  "stroke": "#1f1f1e",
+  "fill": "#ffffff",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "script_t",
+  "x": 95,
+  "y": 285,
+  "text": "One\nbenchmark\nscript",
+  "fs": 24,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ },
+ {
+  "type": "text",
+  "id": "script_sub",
+  "x": 95,
+  "y": 415,
+  "text": "same script,\nsame input,\nfive runs",
+  "fs": 21,
+  "align": "center",
+  "stroke": "#5f5e5a"
+ },
+ {
+  "type": "arrow",
+  "id": "fan0",
+  "x": 180,
+  "y": 330,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    60,
+    -215
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "arrow",
+  "id": "fan1",
+  "x": 180,
+  "y": 330,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    60,
+    -70
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "arrow",
+  "id": "fan2",
+  "x": 180,
+  "y": 330,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    60,
+    20
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "arrow",
+  "id": "fan3",
+  "x": 180,
+  "y": 330,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    60,
+    110
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "arrow",
+  "id": "fan4",
+  "x": 180,
+  "y": 330,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    60,
+    200
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "hdrA",
+  "x": 405,
+  "y": 20,
+  "text": "Annotation files\nhanded to PaSh",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ },
+ {
+  "type": "text",
+  "id": "nofiles",
+  "x": 405,
+  "y": 100,
+  "text": "none",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#5f5e5a"
+ },
+ {
+  "type": "line",
+  "id": "bashlane",
+  "x": 240,
+  "y": 115,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    120,
+    0
+   ]
+  ],
+  "stroke": "#d9d8d3",
+  "sw": 2,
+  "style": "dashed"
+ },
+ {
+  "type": "arrow",
+  "id": "bashlane2",
+  "x": 450,
+  "y": 115,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    150,
+    0
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "rectangle",
+  "id": "f1",
+  "x": 240,
+  "y": 228,
+  "w": 330,
+  "h": 64,
+  "stroke": "#4a4a48",
+  "fill": "#4a4a48",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "f1t",
+  "x": 405,
+  "y": 235,
+  "text": "PaSh's own files,\nevery command",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#ffffff"
+ },
+ {
+  "type": "rectangle",
+  "id": "f2a",
+  "x": 240,
+  "y": 318,
+  "w": 200,
+  "h": 64,
+  "stroke": "#2a78d6",
+  "fill": "#2a78d6",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "f2at",
+  "x": 340,
+  "y": 325,
+  "text": "naive LLM's\nfiles",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#ffffff"
+ },
+ {
+  "type": "rectangle",
+  "id": "f2b",
+  "x": 440,
+  "y": 318,
+  "w": 130,
+  "h": 64,
+  "stroke": "#4a4a48",
+  "fill": "#4a4a48",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "f2bt",
+  "x": 505,
+  "y": 325,
+  "text": "PaSh's\nown",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#ffffff"
+ },
+ {
+  "type": "rectangle",
+  "id": "f3a",
+  "x": 240,
+  "y": 408,
+  "w": 170,
+  "h": 64,
+  "stroke": "#eb6834",
+  "fill": "#eb6834",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "f3at",
+  "x": 325,
+  "y": 415,
+  "text": "Caruca's,\nPaSh grammar",
+  "fs": 21,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ },
+ {
+  "type": "rectangle",
+  "id": "f3b",
+  "x": 410,
+  "y": 408,
+  "w": 160,
+  "h": 64,
+  "stroke": "#4a4a48",
+  "fill": "#4a4a48",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "f3bt",
+  "x": 490,
+  "y": 415,
+  "text": "PaSh's own\nfor the rest",
+  "fs": 21,
+  "align": "center",
+  "stroke": "#ffffff"
+ },
+ {
+  "type": "rectangle",
+  "id": "f4a",
+  "x": 240,
+  "y": 498,
+  "w": 170,
+  "h": 64,
+  "stroke": "#f0b060",
+  "fill": "#f0b060",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "f4at",
+  "x": 325,
+  "y": 505,
+  "text": "Caruca's,\nmain grammar",
+  "fs": 21,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ },
+ {
+  "type": "rectangle",
+  "id": "f4b",
+  "x": 410,
+  "y": 498,
+  "w": 160,
+  "h": 64,
+  "stroke": "#4a4a48",
+  "fill": "#4a4a48",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "f4bt",
+  "x": 490,
+  "y": 505,
+  "text": "PaSh's own\nfor the rest",
+  "fs": 21,
+  "align": "center",
+  "stroke": "#ffffff"
+ },
+ {
+  "type": "text",
+  "id": "note",
+  "x": 240,
+  "y": 585,
+  "text": "Each set is a copy of PaSh's\nown package. Coloured: one\nsource's files, for the\ncommands it has. Grey:\nPaSh's own files, kept for\nevery other command.",
+  "fs": 21,
+  "stroke": "#5f5e5a"
+ },
+ {
+  "type": "text",
+  "id": "hdrB",
+  "x": 680,
+  "y": 20,
+  "text": "Run",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ },
+ {
+  "type": "rectangle",
+  "id": "bash",
+  "x": 600,
+  "y": 85,
+  "w": 160,
+  "h": 60,
+  "stroke": "#5f5e5a",
+  "fill": "#e4e3df",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "bash_t",
+  "x": 680,
+  "y": 102,
+  "text": "Plain bash",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ },
+ {
+  "type": "text",
+  "id": "bash_sub",
+  "x": 680,
+  "y": 150,
+  "text": "the reference",
+  "fs": 21,
+  "align": "center",
+  "stroke": "#5f5e5a"
+ },
+ {
+  "type": "arrow",
+  "id": "a1",
+  "x": 570,
+  "y": 260,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    30,
+    0
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "arrow",
+  "id": "a2",
+  "x": 570,
+  "y": 350,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    30,
+    0
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "arrow",
+  "id": "a3",
+  "x": 570,
+  "y": 440,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    30,
+    0
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "arrow",
+  "id": "a4",
+  "x": 570,
+  "y": 530,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    30,
+    0
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "rectangle",
+  "id": "p1",
+  "x": 600,
+  "y": 230,
+  "w": 160,
+  "h": 60,
+  "stroke": "#1f1f1e",
+  "fill": "#ffffff",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "p1t",
+  "x": 680,
+  "y": 247,
+  "text": "PaSh",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ },
+ {
+  "type": "rectangle",
+  "id": "p2",
+  "x": 600,
+  "y": 320,
+  "w": 160,
+  "h": 60,
+  "stroke": "#1f1f1e",
+  "fill": "#ffffff",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "p2t",
+  "x": 680,
+  "y": 337,
+  "text": "PaSh",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ },
+ {
+  "type": "rectangle",
+  "id": "p3",
+  "x": 600,
+  "y": 410,
+  "w": 160,
+  "h": 60,
+  "stroke": "#1f1f1e",
+  "fill": "#ffffff",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "p3t",
+  "x": 680,
+  "y": 427,
+  "text": "PaSh",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ },
+ {
+  "type": "rectangle",
+  "id": "p4",
+  "x": 600,
+  "y": 500,
+  "w": 160,
+  "h": 60,
+  "stroke": "#1f1f1e",
+  "fill": "#ffffff",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "p4t",
+  "x": 680,
+  "y": 517,
+  "text": "PaSh",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ },
+ {
+  "type": "text",
+  "id": "pnote",
+  "x": 680,
+  "y": 575,
+  "text": "8 workers;\nPaSh itself\nunchanged",
+  "fs": 21,
+  "align": "center",
+  "stroke": "#5f5e5a"
+ },
+ {
+  "type": "line",
+  "id": "s0",
+  "x": 760,
+  "y": 115,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    40,
+    0
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "line",
+  "id": "s1",
+  "x": 760,
+  "y": 260,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    40,
+    0
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "line",
+  "id": "s2",
+  "x": 760,
+  "y": 350,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    40,
+    0
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "line",
+  "id": "s3",
+  "x": 760,
+  "y": 440,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    40,
+    0
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "line",
+  "id": "s4",
+  "x": 760,
+  "y": 530,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    40,
+    0
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "line",
+  "id": "spine",
+  "x": 800,
+  "y": 115,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    415
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "hdrC",
+  "x": 1025,
+  "y": 20,
+  "text": "Recorded for\nevery run",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ },
+ {
+  "type": "arrow",
+  "id": "r1a",
+  "x": 800,
+  "y": 245,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    40,
+    0
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "arrow",
+  "id": "r2a",
+  "x": 800,
+  "y": 345,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    40,
+    0
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "arrow",
+  "id": "r3a",
+  "x": 800,
+  "y": 445,
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    40,
+    0
+   ]
+  ],
+  "stroke": "#5f5e5a",
+  "sw": 2
+ },
+ {
+  "type": "rectangle",
+  "id": "r1",
+  "x": 840,
+  "y": 205,
+  "w": 370,
+  "h": 80,
+  "stroke": "#1f1f1e",
+  "fill": "#ffffff",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "r1t",
+  "x": 1025,
+  "y": 220,
+  "text": "Output, compared\nbyte for byte with bash's",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ },
+ {
+  "type": "rectangle",
+  "id": "r2",
+  "x": 840,
+  "y": 305,
+  "w": 370,
+  "h": 80,
+  "stroke": "#1f1f1e",
+  "fill": "#ffffff",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "r2t",
+  "x": 1025,
+  "y": 320,
+  "text": "Which commands PaSh\nsplit into pieces",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ },
+ {
+  "type": "rectangle",
+  "id": "r3",
+  "x": 840,
+  "y": 405,
+  "w": 370,
+  "h": 80,
+  "stroke": "#1f1f1e",
+  "fill": "#ffffff",
+  "sw": 2
+ },
+ {
+  "type": "text",
+  "id": "r3t",
+  "x": 1025,
+  "y": 420,
+  "text": "Seconds taken\n(median of 3 timed runs)",
+  "fs": 22,
+  "align": "center",
+  "stroke": "#1f1f1e"
+ }
+]

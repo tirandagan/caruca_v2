@@ -1,0 +1,198 @@
+/* Report layout: the comparison board. Four source columns run through every table.
+   Fonts and colour tokens are injected by build.ts from scripts/md-to-pdf/tokens.ts. */
+
+:root {
+  /* Source colour family: one colour per annotation source, shared with the figure scripts
+     (figures_interim/make_figures_interim.py reads the same four values). */
+  --src-pash: #4a4a4a;      /* PaSh's own files: the reference, dark grey */
+  --src-naive: #2563EB;     /* naive LLM: the identity's blue (the figures use the same value) */
+  --src-cpash: #e8622b;     /* Caruca, PaSh grammar: orange */
+  --src-cmain: #f0b060;     /* Caruca, main grammar: light orange */
+  --rule: var(--border-strong);
+  --rule-soft: var(--border-subtle);
+  --paper: var(--surface-page);
+  --code-bg: var(--surface-code);
+}
+
+@page { size: Letter; }
+
+html { font-size: 10.5pt; }
+body {
+  font-family: var(--font-sans, 'Lexend Deca'), -apple-system, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.5;
+  letter-spacing: 0.005em;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+::selection { background: var(--surface-info); }
+
+/* ---------- pages ---------- */
+.page { }
+.page-break { break-before: page; }
+.page-opener { }
+
+h1 {
+  font-size: 22pt;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin: 0 0 6pt 0;
+  text-wrap: balance;
+}
+.version { color: var(--gray-600); font-size: 9.5pt; margin: 0 0 14pt 0; }
+.version strong { color: var(--ink); font-weight: 600; }
+
+h2 {
+  font-size: 15pt;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 18pt 0 8pt 0;
+  text-wrap: balance;
+}
+h2 + p { margin-top: 0; }
+h4 { font-size: 9.6pt; font-weight: 600; margin: 10pt 0 3pt 0; }
+h4 code { font-weight: 400; }
+h3 {
+  font-size: 11pt;
+  font-weight: 600;
+  margin: 14pt 0 4pt 0;
+  letter-spacing: -0.005em;
+}
+p { margin: 0 0 7pt 0; max-width: 72ch; }
+p.lead { font-size: 10.3pt; line-height: 1.4; max-width: none; margin-bottom: 4pt; }
+p.lead strong { font-weight: 600; }
+ul { margin: 0 0 8pt 0; padding-left: 1.1em; max-width: 72ch; }
+li { margin: 0 0 4pt 0; }
+li::marker { color: var(--teal); }
+code {
+  font-family: var(--font-mono, 'JetBrains Mono'), Consolas, monospace;
+  font-size: 0.95em;
+  color: var(--ink);
+}
+.sub code, .caption code, figcaption code, .what code { font-size: 1em; }
+em { font-style: italic; }
+strong { font-weight: 600; }
+.muted { color: var(--gray-600); }
+
+/* ---------- opener: summary beside the script ---------- */
+.opener-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 16pt;
+  align-items: start;
+  margin-bottom: 6pt;
+}
+.script {
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 8.6pt;
+}
+.script .script-name {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 5pt 8pt;
+  border-bottom: 1px solid var(--rule-soft);
+  background: var(--surface-thead);
+  font-size: 8.5pt;
+}
+.script .script-name b { font-weight: 600; }
+.script .script-name span { color: var(--gray-600); }
+.script pre {
+  margin: 0;
+  padding: 6pt 8pt 6pt 8pt;
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 8.3pt;
+  line-height: 1.45;
+  background: var(--code-bg);
+  white-space: pre;
+}
+.script pre .c { color: var(--gray-500); }
+.script pre .k { color: var(--blue); font-weight: 600; }
+.script .script-note { padding: 5pt 8pt 6pt 8pt; font-size: 8.3pt; color: var(--gray-600); border-top: 1px solid var(--rule-soft); }
+
+/* ---------- the board: four source columns ---------- */
+table { border-collapse: collapse; width: 100%; font-size: 9.3pt; margin: 0 0 4pt 0; }
+th, td { text-align: left; vertical-align: top; padding: 4pt 7pt; border-bottom: 1px solid var(--rule-soft); }
+thead th { font-weight: 600; font-size: 8.6pt; color: var(--ink); border-bottom: 1px solid var(--rule); padding-bottom: 4pt; }
+tbody th { font-weight: 600; color: var(--ink); }
+td.num, th.num { text-align: right; }
+tbody tr:last-child td, tbody tr:last-child th { border-bottom: 1px solid var(--rule); }
+
+.board thead th { vertical-align: bottom; }
+.board thead th.src { border-top: 3px solid var(--src); padding-top: 6pt; }
+.board thead th .what { display: block; font-weight: 400; color: var(--gray-600); font-size: 8pt; line-height: 1.3; margin-top: 2pt; }
+.board tbody th { width: 17%; color: var(--gray-700); font-weight: 600; }
+.board td { width: 20.75%; }
+.board.cols4 tbody th { width: 28%; }
+.board.cols4 td { width: 24%; }
+.board td .big { font-size: 13pt; font-weight: 600; letter-spacing: -0.01em; display: block; line-height: 1.15; }
+.board td .sub { display: block; color: var(--gray-600); font-size: 8.3pt; line-height: 1.3; margin-top: 1pt; }
+.board td.ref { background: var(--surface-thead); }
+.pash  { --src: var(--src-pash); }
+.naive { --src: var(--src-naive); }
+.cpash { --src: var(--src-cpash); }
+.cmain { --src: var(--src-cmain); }
+.swatch { display: inline-block; width: 8pt; height: 8pt; border-radius: 2px; background: var(--src); vertical-align: -0.5pt; margin-right: 4pt; }
+
+/* the differences table: split / whole cells */
+.diff td { text-align: left; }
+.diff td.split { font-weight: 600; }
+.diff td.whole { color: var(--gray-600); }
+.diff td.changed { background: var(--surface-thead); font-weight: 600; color: var(--ink); }
+.diff tbody th code { background: none; padding: 0; font-size: 1em; }
+
+
+/* captions */
+.caption, figcaption {
+  font-size: 8.6pt;
+  color: var(--gray-600);
+  line-height: 1.4;
+  margin: 2pt 0 12pt 0;
+  max-width: none;
+}
+.caption b, figcaption b { color: var(--ink); font-weight: 600; }
+.tcap { font-size: 9pt; margin: 0 0 4pt 0; color: var(--ink); max-width: none; }
+.tcap b { font-weight: 600; }
+
+/* figures */
+figure { margin: 6pt 0 12pt 0; break-inside: avoid; }
+figure img { display: block; width: 100%; height: auto; }
+figure.half img { width: 100%; }
+figure.narrow img { width: 84%; margin: 0 auto; }
+.stack figure img { width: 88%; margin: 0 auto; }
+
+/* keep a heading with what follows */
+h2, h3, h4, .tcap { break-after: avoid; }
+table { break-inside: avoid; }
+.board + .caption { break-before: avoid; }
+
+/* addendum */
+.addendum .entry { margin-bottom: 9pt; max-width: 72ch; }
+.addendum .entry b { font-weight: 600; }
+dl { margin: 0 0 8pt 0; max-width: 72ch; }
+dt { font-weight: 600; display: inline; }
+dd { display: inline; margin: 0; }
+dd::after { content: ""; display: block; height: 3pt; }
+hr.thin { border: 0; border-top: 1px solid var(--rule-soft); margin: 10pt 0; }
+.source-key { display: flex; gap: 14pt; flex-wrap: wrap; font-size: 8.6pt; color: var(--gray-700); margin: 0 0 10pt 0; }
+.source-key span { display: inline-flex; align-items: center; }
+
+/* script list in the addendum */
+table.scripts { font-size: 8.3pt; break-inside: auto; }
+table.scripts tr { break-inside: avoid; }
+table.scripts th, table.scripts td { padding: 2.5pt 6pt; }
+table.scripts thead { display: table-header-group; }
+
+/* no single-row remnants when a script table breaks across pages */
+table.scripts tbody tr:nth-last-child(-n+2) { break-after: avoid; }
+table.scripts tbody tr:nth-child(-n+2) { break-before: avoid; }
+
+/* the "what this does not show" list never leaves one item alone on a page */
+ul li:last-child { break-before: avoid; }

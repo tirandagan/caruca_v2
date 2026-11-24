@@ -73,6 +73,18 @@ missing for `uglifyjs` and `unzip`. v1's curated `mogrify` file lists 3 options.
   `/api/v1/key` and `/api/v1/credits` return 401 Unauthorized. Last good reading was 2026-10-28 15:54
   (`credit_watch.log`: $40.45 left on the key). The tr/xargs/awk runs for the PaSh suite comparison stopped
   here, before any clone or charge. Cause (revoked, rotated or disabled key) not established.
+- **2026-11-24: billing moved to requesty.ai** (Tiran; OpenRouter dead for good). `run_campaign.py --billing requesty
+  [--budget N] [--added NOTE]`, `credit_watch.py --billing requesty`, and `vm/naive-run`'s `PROVIDER=requesty` billing
+  file (with a trial call through the router before each session) were added; `collect_run.sh` redacts
+  `REQUESTY_API_KEY` too. Verified that day: base URL `https://router.requesty.ai` works for Claude Code;
+  `GET /v1/models` with the key = 200 (778 models); **Fable 5.1's id there is `anthropic/claude-fable-5.1` (dot)**,
+  only Opus 5.5 is dashed (`anthropic/claude-opus-5-5`), contrary to the brief's "dashes" note; prices = OpenRouter's
+  ($10 in / $50 out / $0.25 cache read / $12.50 cache write per M), so naive-watch's cost cap is unchanged. No
+  balance endpoint and no requesty cost field in Claude Code's output: cost = Claude Code's list-price figure.
+  `--commands` now accepts commands outside commands.txt (group "extra").
+- **Runs beyond figure 7, 2026-11-24 (for the PaSh suite comparison):** `tr` $1.87 / 240 s, `xargs` $3.04 / 436 s,
+  `awk` $4.32 / 579 s (Claude Code's figures, $9.23 total), all ok, last 3 ledger rows; all PaSh files import under
+  0.2.4 and annotate typical lines; `/usr/bin/awk` in naive-golden is **gawk** 5.2.1, not mawk.
 - **Fig. 7 values are exact from the PDF's vector drawing** (page 12; `caruca_side/fig7_values.py`): they
   reproduce every count in the paper's text (80, 103, 24, `convert` 98.71 h vs 98.72). Paper time ÷ exact
   test runs: 37/48 within 3× of 0.0147 s/run; **`diff` and `cp` cannot match** (v1's curated files give 2.4 G
@@ -210,3 +222,11 @@ files) when it wrote task 019 section 3.5, which is headed "(Tiran, 2026-10-27)"
 "why do we want to repeat them?", got the three reasons, and approved launching them (14:03). The sessions in
 the VMs had no part in it: runs 1-3 of each command got byte-identical `prompt.md`, and none of the 10 repeat
 sessions refers to being a repeat.
+
+**2026-11-24, `sed` repeat 2 after an instrument repair.** `formats/annotation.md` gained one sentence: quoted
+operands arrive with double quotes kept (PaSh's behaviour; the naive `sed` file refused `spell.sh`'s script
+because of it). Re-run `runs/2026-11-24_125757_naive-run-sed-r2_sed_PROMPT_v1/`, $4.64 (Claude Code's figure,
+requesty), ledger `repeat: 2` + `note`; `run_campaign.py` got `--repeat N` and `--note` (for `--commands`).
+New file strips quotes; direct calls with `"s/[^[:print:]]//g"` and unquoted both give 2 ways to split.
+Not yet run under PaSh. Record: README "In every version since 2026-11-24" and the PaSh-suite run's
+`orchestration/judgment_errors.md`.

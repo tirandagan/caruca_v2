@@ -71,6 +71,10 @@ changes what differs for this command and this invocation.
 | `self.does_first_operand_start_with(s)`, `self.does_first_operand_contain(s)` | tests on that text |
 | `self.cmd_inv.flag_option_list`, `self.cmd_inv.operand_list` | the parsed lists themselves |
 
+Operands and option arguments arrive as PaSh passes them: a quoted word keeps its quotes, written as
+double quotes, so the script word in `sed 's/a/b/' file` arrives as `"s/a/b/"`, with the `"` characters
+part of the text.
+
 **Declaring inputs and outputs** (inherited):
 
 | Call | Effect |

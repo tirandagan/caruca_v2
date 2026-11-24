@@ -14,12 +14,12 @@ metadata:
 - Claude Code / Agent SDK: `ANTHROPIC_BASE_URL=https://router.requesty.ai` (the router root; the documented
   `/anthropic/v1/messages` answered 404, `/v1/messages` under the root works), `ANTHROPIC_AUTH_TOKEN=<key>`,
   `ANTHROPIC_API_KEY=` empty.
-- Model ids: Anthropic versions use dashes (`anthropic/claude-fable-5.1` → `anthropic/claude-fable-5-1`);
+- Model ids: **Fable keeps the dot** (`anthropic/claude-fable-5.1`, confirmed against Requesty's catalogue 2026-11-24); only some models (e.g. Opus 5.5) are listed with dashes, so check the catalogue per model;
   catalogue = `GET https://router.requesty.ai/v1/models` (free; 200 with a good key, 403 with a bad one).
 - No balance endpoint (usage only via a management API); cost appears as `usage.cost` on non-streaming
   responses.
 
-**In this repo:** the naive arm's billing path (`naive_llm_caruca/vm/naive-run`, `fig7_campaign/run_campaign.py`,
+**Verified in this repo 2026-11-24:** three naive runs (tr $1.87, xargs $3.04, awk $4.32, Claude Code's own cost figures; Requesty's prices match OpenRouter's) went through `ANTHROPIC_BASE_URL=https://router.requesty.ai`; ledger rows carry `"billing": "requesty"`. The naive arm's billing path (`naive_llm_caruca/vm/naive-run`, `fig7_campaign/run_campaign.py`,
 `credit_watch.py`) is being given a `requesty` mode by the `naive-runs` worker (2026-11-24) for the
 `tr`/`xargs`/`awk` runs; the OpenRouter mode stays for the record.
 Related: [[project-fig7-campaign]], [[project-pash-suite-comparison]].

@@ -43,3 +43,5 @@ in the review list.
   guide asks for a signed-off commit (`git commit -s`).
 
 Related: [[reference-pash-annotations-runtime]], [[feedback-never-modify-v1-source]].
+
+**2026-11-24:** Tiran asked directly to file the operand-quoting issue (PaSh formats a quoted operand as `"…"` before annotation generators see it): filed as binpash/pash#796 with a repro, the code path and two suggested fixes. Listed in `orchestration/judgment_errors.md` of the 2026-11-24 run.

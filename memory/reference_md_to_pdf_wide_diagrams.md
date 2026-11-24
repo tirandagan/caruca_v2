@@ -18,3 +18,11 @@ crisp when zoomed; the PDF grew from 0.95 MB to 4.5 MB.
 
 Not solved by this: wide landscape diagrams are still small on a printed portrait page (body text around
 3-4 pt). They read well only on screen, zoomed.
+
+**Captions (2026-11-24):** the converter does not show an image's alt text, so a figure with only
+`![alt](path)` prints with no explanation. Put the caption as its own italic paragraph right under the
+image (`*Figure N. …*`). Raw HTML passes through (`html: true`), so `<p style="font-size:1.3em">` and
+`<div style="page-break-before: always"></div>` work; a Markdown page-break marker is being added (task 023).
+**Page-break marker (task 024, 2026-11-24, verified by its test and on the interim report):** put
+`<!-- pagebreak -->` (or `\pagebreak` / `\newpage`) on its own line; the converter emits a page break with
+no visible output, and a heading right after it starts the new page. Test: `npx tsx scripts/md-to-pdf/test-pagebreak.ts`.

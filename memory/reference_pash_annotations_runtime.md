@@ -196,3 +196,41 @@ gives the unquoted word. Effects on Koala `spell.sh`: the naive sed file rejects
 PaSh, split when called directly); PaSh's own tr file sees `"\n"` as a newline set, so `tr -cs` gets the
 not-implemented squeeze recipe and is not split (all sets), though a direct call allows a split. Any direct-call
 check must pass operands as PaSh does (keep the quotes) to predict PaSh.
+**PaSh hands annotation files quoted operands with the quotes still on (checker, 2026-11-24, shown by
+instrumented copies of the sets in the pash VM, `~/t024-check/sets/{naive-sed-debug,tr-debug}`).** For
+`sed "s/[^[:print:]]//g"` the file receives the script with its double quotes, so the naive `sed` checker
+reads `"` as an unknown sed command and allows no split (that was the "not established" pilot puzzle); for
+`tr -cs A-Za-z '\n'` PaSh's own `tr` file receives `"\n"` and treats it as squeezing newlines, which has no
+split, so only 2 of spell's 3 `tr` lines split under every set. **Calling the generators directly with
+unquoted operands therefore does not reproduce PaSh's answers**; pass operands as PaSh does or record what the
+file is given from inside PaSh. Also: the name table additions are the only non-stock lines in each set
+(62 names for naive, 2 for Caruca).
+**Code path for the kept quotes, and two general faults in PaSh's own files (worker, 2026-11-24, read in the
+pash VM at PaSh `42a8b87`; files called on the Mac from a copy of the uv-cache package with a stand-in `Arg`
+whose `str()` is the word):** `compiler/annotations_utils/util_parsing.py:121` wraps each operand as
+`Operand(Arg(...))`; `Generator_Interface.get_first_operand_name_as_string` returns `str(arg)`;
+`ir_defs/arg.py:15` `__repr__` = `format_arg_chars`; `shasta QArgChar.format` returns `'"{}"'` (double quotes
+whatever the script used). PaSh's own `sed` file is quote-sensitive too (`"s/d/x/"` → no split, `s/d/x/` →
+split) and lets `N;s/\n/ /` split (wrong: pieces pair the wrong lines, checked with GNU sed 4.9). PaSh's own
+`col` file splits always; util-linux 2.39.3 `col -bx` gives a different output when a `\v` reverse line feed
+follows a piece boundary (checked); that `col` ignored `ESC 7` in the same test. On a split `cat FILE` PaSh
+runs `r_split` (1 MB blocks to 8 pipes) → 8 × `r_wrap bash -c 'cat'` → `r_merge`. Write-up:
+`naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/orchestration/judgment_errors.md`.
+
+**Koala's other groups on the ARM VM (inputs worker, 2026-11-24, `orchestration/inputs_setup.md`):**
+`analytics` small (2.0 GB on disk), `file-mod` small (2.3 GB; ImageMagick 6.9.11 + FFmpeg 5.1.9 built from
+source in 2 min), `bio` min all run under bash. **Outputs that don't match Koala's shipped hashes but are
+stable run to run:** `pcaps` (35 of 69 files; tcpdump 4.99.4 vs Koala's Debian 12), `img_convert` (1 of
+508), `to_mp3` (40 of 40), `thumbnail_generation` (460 of 508): ARM builds, not tested. So for those
+scripts the reference is this VM's bash output, not Koala's hash. Koala's `to_mp3` check script looks for
+`ffmpeg` on the system path and can't work as shipped. `minimap2` fails to build on ARM (`-msse2`,
+`-msse4.1`); `bio.sh` doesn't need it. `pkg` skipped. Free disk after setup: 9.3 GB.
+**Vetted causes of the pilot's six Table-2 differences (naive-fix worker, 2026-11-24,
+`orchestration/judgment_errors.md`):** none is a wrong statement about a command. `sed` (naive) = instrument
+gap: PaSh formats a quoted operand as `"…"` (`QArgChar.format`) before the file sees it, and
+`formats/annotation.md` never said so; one sentence added, `sed` re-run → `runs/2026-11-24_125757_naive-run-sed-r2_sed_PROMPT_v1`
+(ledger `"repeat": 2`, requesty), new file reads the quoted script correctly (not yet run under PaSh).
+`col` (naive says never split) is **right in general**: a reverse line feed near a piece boundary changes
+the output (tested); PaSh's own file is the permissive one; in `spell` it is safe only because `sed` removed
+those characters first. `cat` split (naive + Caruca) = correct, not useful. `sort` (Caruca) = method limit
+(only joins it observed; `sort -m` only). Table 2 of the report said "col: a wrong judgment"; corrected 0.9.

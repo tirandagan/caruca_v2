@@ -80,3 +80,7 @@ The report must give **the path of every test script run** (inside the Koala che
 Michael, this goes in an **addendum** (the report plan's appendix table A1 gets a path column), not in
 the body. The builder's `invocations.jsonl` already records each script's path; the counting script
 must carry it into the addendum table.
+
+**Decided (Tiran, 2026-11-24): small inputs only.** No full-size timing. The report says times are at
+Koala's small inputs and that much of each run is PaSh's start-up cost. Go for the full batch as soon as the
+three naive runs and the inputs setup are done.

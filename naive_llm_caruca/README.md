@@ -253,6 +253,30 @@ and the sample annotation files are PaSh's own and import `pash_annotations`.
 
 **Observed.** No run yet; task 019 is the first campaign on this wording.
 
+### In every version since 2026-11-24: the format says quoted words keep their quotes
+
+**What changed.** One sentence added to `formats/annotation.md`, below the table of inspection calls (the
+prompts are unchanged):
+
+> Operands and option arguments arrive as PaSh passes them: a quoted word keeps its quotes, written as
+> double quotes, so the script word in `sed 's/a/b/' file` arrives as `"s/a/b/"`, with the `"` characters
+> part of the text.
+
+Filed as an **instrument repair**, not a new version: without it no file that reads an operand's text could
+get a quoted operand right.
+
+**Why.** In the PaSh suite pilot (`runs/2026-11-24_pash_koala_naive_vs_pash/`) the naive `sed` file refused
+`sed 's/[^[:print:]]//g'` inside PaSh but allowed it when asked directly. PaSh hands a quoted word to the
+files with double quotes added (its `QArgChar.format`), and the file's sed-script reader reads `"` as an
+unknown sed command. The format description only said the call returns "the first operand's text"; nothing
+the agent had (formats, samples, prompt, the package's interface files) says the quotes stay. Full record:
+`runs/2026-11-24_pash_koala_naive_vs_pash/orchestration/judgment_errors.md`, section 1.
+
+**What we expect.** A file that reads an operand's text (here, `sed`'s script) now allows for the quotes,
+and allows a split for `"s/[^[:print:]]//g"`. Files that never look at operand text are unaffected.
+
+**Observed.** Re-run of `sed`, 2026-11-24 (repeat 2 in `fig7_campaign/ledger.jsonl`, note "after format repair 2026-11-24: operands arrive as PaSh passes them (quotes kept)"): `runs/2026-11-24_125757_naive-run-sed-r2_sed_PROMPT_v1/`. Run exactly as the campaign runs: PROMPT_v1, a fresh clone of `naive-golden`, Fable 5.1 at medium effort, billed through requesty, `run_campaign.py --commands sed --repeat 2 --billing requesty --cap 5 --budget 5 --note …` (`--repeat` and `--note` added to the driver for this). 634 s, 23 turns, 969 program runs logged (13 refused), Claude Code's figure $4.64 (run 1: $2.60). The session read the new sentence (it appears once in `stream.jsonl`) and its PaSh file now strips one pair of surrounding quotes before reading the script (`_strip_quotes`, commented "PaSh hands over quoted words with their (double) quotes still attached"). All files load: the syntax file imports under v1, the parser table loads, both classes import and give answers. Asked directly with the operand as PaSh passes it, `"s/[^[:print:]]//g"`, the new file allows 2 ways to split; unquoted, also 2 (run 1's file: 0 and 2). It still refuses `"N;s/\n/ /"` and allows `"/foo/d"`. Not yet run under PaSh (the `pash` VM is busy). One run; whether other commands' files change is not tested.
+
 ### PROMPT_v1 — the bare task
 
 **What it contains.** The objective (describe the command's argument syntax and behaviour so that
@@ -547,6 +571,35 @@ manual and `--version` (calls 1 to 3), ran `dirname` in `/tmp` on a dozen operan
 four files in one call (call 4), and checked them against stand-in modules it wrote (call 5). Output: a
 syntax file with `-z`/`--zero`, `--help` and `--version`. The next pilot clone, for `dd` a minute later,
 stopped before the session started: "OAuth session expired and could not be refreshed".
+
+**Observed, beyond figure 7: `tr`, `xargs`, `awk` (2026-11-24, for the PaSh suite comparison).** *Why: the
+PaSh benchmark-suite comparison (`runs/2026-11-24_pash_koala_naive_vs_pash/`) loads the agent's PaSh files
+for every command it has, and these three are in 54, 24 and 18 of the suite's 92 scripts but not in the
+paper's figure 7. Tiran decided to run them exactly as the figure 7 campaign ran its commands: PROMPT_v1,
+one run each, Fable 5.1 at medium effort, a fresh clone of `naive-golden`, the same program-start logger,
+driven by `fig7_campaign/run_campaign.py --commands tr,xargs,awk --billing requesty --budget 15 --added …`.
+One change: **billing went through requesty.ai**, not OpenRouter, because the OpenRouter key was rejected
+(401) the same morning. Added for this: a requesty path in `vm/naive-run`, `run_campaign.py`,
+`credit_watch.py`, and requesty-key redaction in `collect_run.sh`. The session is sent to
+`https://router.requesty.ai`; the key is checked with requesty's model catalogue before and after each run
+(200 each time); requesty's catalogue spells the model `anthropic/claude-fable-5.1` (with a dot), the same
+id the campaign used; a one-line trial call goes through the router before each session (answered `OK`,
+$0.004 to $0.008). Requesty has no balance endpoint and Claude Code shows no requesty cost field, so **the
+dollar figures below are Claude Code's own list-price estimate**, not a bill (on OpenRouter that estimate
+ran about 1.4 times the bill). Ledger rows carry `"billing": "requesty"` and the `added` note.*
+
+| Command | Package in the clone | Run folder | Wall time | Turns | Program runs logged (refused) | Claude Code's figure |
+|---|---|---|---|---|---|---|
+| `tr` | coreutils 9.4-3ubuntu6.3 | `runs/2026-11-24_114025_naive-run-tr_tr_PROMPT_v1/` | 240 s | 11 | 56 (10) | $1.87 |
+| `xargs` | findutils 4.9.0-5build1 | `runs/2026-11-24_114448_naive-run-xargs_xargs_PROMPT_v1/` | 436 s | 20 | 237 (36) | $3.04 |
+| `awk` | gawk 1:5.2.1 (`/usr/bin/awk` resolves to `gawk` in the golden image) | `runs/2026-11-24_115222_naive-run-awk_awk_PROMPT_v1/` | 579 s | 27 | 366 (0) | $4.32 |
+
+All three finished normally and wrote all four files. No URL in any Bash command (the `awk` session tried
+`pip download pash-annotations`, which failed because the image has no pip). **Each run's three PaSh files
+work under pash-annotations 0.2.4**: copied into a fresh copy of the package, the table loads, both classes
+import, and PaSh's own entry points give an input/output answer and a parallelizability answer for 4 or 5
+typical lines per command (e.g. `tr -cs A-Za-z '\n'`, `xargs -I {} cp {} /tmp`, `awk -F , '{print $2}' a.csv`).
+Not analysed and not scored.
 
 ### PROMPT_v2 — execution is the standard
 

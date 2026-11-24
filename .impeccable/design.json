@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-24T19:30:00Z",
+  "title": "Design System: Caruca v2",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "primary", "displayName": "Ink navy", "canonical": "#0B1F33", "tonalRamp": ["#060f19", "#0B1F33", "#1a3550", "#2f4f6e", "#4b6a8a", "#7490ab", "#a6bccf", "#dde7ef"] },
+      "blue": { "role": "primary", "displayName": "Electric blue", "canonical": "#2563EB", "tonalRamp": ["#0c1f55", "#13308f", "#1D4ED8", "#2563EB", "#4f82f0", "#7ea3f4", "#b3c8f8", "#e3ebfd"] },
+      "teal": { "role": "secondary", "displayName": "Teal", "canonical": "#0E7490", "tonalRamp": ["#052a35", "#084a5c", "#0E7490", "#1a90b0", "#3eadcb", "#78c7dd", "#b1dfeb", "#e2f3f8"] },
+      "gray-700": { "role": "neutral", "displayName": "Gray 700", "canonical": "#374151", "tonalRamp": ["#111827", "#1f2937", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#f3f4f6"] },
+      "gray-600": { "role": "neutral", "displayName": "Gray 600", "canonical": "#475569", "tonalRamp": ["#0f172a", "#1e293b", "#334155", "#475569", "#64748b", "#94a3b8", "#cbd5e1", "#f1f5f9"] },
+      "gray-500": { "role": "neutral", "displayName": "Gray 500", "canonical": "#616B73", "tonalRamp": ["#1c2126", "#30383e", "#48525a", "#616B73", "#7f8991", "#a3abb2", "#c9ced3", "#eceef0"] },
+      "surface-page": { "role": "neutral", "displayName": "Paper", "canonical": "#FFFFFF", "tonalRamp": ["#262626", "#4d4d4d", "#737373", "#999999", "#bfbfbf", "#e6e6e6", "#f5f5f5", "#FFFFFF"] },
+      "surface-code": { "role": "neutral", "displayName": "Code surface", "canonical": "#F6F8FA", "tonalRamp": ["#1f2428", "#3a4248", "#5a646c", "#7d8890", "#a3adb5", "#c9d1d8", "#e4e9ee", "#F6F8FA"] },
+      "surface-thead": { "role": "neutral", "displayName": "Head surface (the one tint)", "canonical": "#F1F5F9", "tonalRamp": ["#1d2630", "#34414f", "#52627a", "#7487a0", "#9aabc0", "#c2cfdd", "#dde5ed", "#F1F5F9"] },
+      "surface-info": { "role": "neutral", "displayName": "Info surface (selection only)", "canonical": "#EFF6FF", "tonalRamp": ["#172a4a", "#274580", "#3a62b0", "#5a84d2", "#86a8e6", "#b4cbf3", "#d6e4fa", "#EFF6FF"] },
+      "border-strong": { "role": "neutral", "displayName": "Strong rule", "canonical": "#D0D7DE", "tonalRamp": ["#20262c", "#39434c", "#56626d", "#78858f", "#9da8b1", "#bcc5cd", "#D0D7DE", "#eef1f4"] },
+      "border-subtle": { "role": "neutral", "displayName": "Subtle rule", "canonical": "#E5E7EB", "tonalRamp": ["#222427", "#3d4146", "#5c6167", "#7f858c", "#a4a9af", "#c6cacf", "#E5E7EB", "#f5f6f7"] },
+      "src-pash": { "role": "tertiary", "displayName": "PaSh's own files (reference, dark grey)", "canonical": "#4a4a4a", "tonalRamp": ["#1a1a1a", "#2e2e2e", "#4a4a4a", "#666666", "#848484", "#a6a6a6", "#cccccc", "#f0f0f0"] },
+      "src-naive": { "role": "tertiary", "displayName": "Naive LLM's files (the identity blue)", "canonical": "#2563EB", "tonalRamp": ["#0c1f55", "#13308f", "#1D4ED8", "#2563EB", "#4f82f0", "#7ea3f4", "#b3c8f8", "#e3ebfd"] },
+      "src-cpash": { "role": "tertiary", "displayName": "Caruca's files, PaSh grammar (orange)", "canonical": "#e8622b", "tonalRamp": ["#4a1c08", "#7d2f0e", "#b14516", "#e8622b", "#ee8355", "#f4a583", "#f9c9b3", "#fdeae0"] },
+      "src-cmain": { "role": "tertiary", "displayName": "Caruca's files, main grammar (light orange)", "canonical": "#f0b060", "tonalRamp": ["#4d3209", "#815412", "#b8781f", "#e09a3a", "#f0b060", "#f4c588", "#f8dbb3", "#fdf1e2"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The document title, once, balanced over two lines. Skill's print value: 28pt." },
+      "headline": { "displayName": "Headline", "purpose": "Section heads, blue. Skill's print value: 20pt at weight 700." },
+      "title": { "displayName": "Title", "purpose": "Sub-sections and addendum entries. Skill's print value: 15pt." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs capped at 72ch. Skill's print value: 11pt, +0.01em." },
+      "stat": { "displayName": "Stat", "purpose": "The leading figure in a board cell; always over an 8.3pt grey basis line." },
+      "table": { "displayName": "Table", "purpose": "Cell text; heads 600 8.6pt sentence case with an 8pt grey sub-line." },
+      "label": { "displayName": "Label", "purpose": "Column heads in the board; sentence case, ink, bottom-aligned under a 3px source cap." },
+      "caption": { "displayName": "Caption", "purpose": "Below tables and figures, gray-600; the 'Table n.' label 600 ink." },
+      "mono": { "displayName": "Mono", "purpose": "Script listings and the script list table; anything a shell would read." },
+      "chrome": { "displayName": "Chrome", "purpose": "Running head and foot, stamped with pdf-lib in the embedded Lexend Deca files." }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [],
+    "print": {
+      "pageSize": "Letter portrait",
+      "margins": { "top": "0.95in", "right": "0.8in", "bottom": "0.8in", "left": "0.8in" },
+      "baseFontSize": "10.5pt",
+      "chromeRuleWeight": "0.5pt",
+      "sourceCapWeight": "3px",
+      "figureWidthIn": 6.5,
+      "figureDpi": 300,
+      "pageBreakRules": [
+        ".page-break { break-before: page }",
+        "h2, h3, h4, .tcap { break-after: avoid }",
+        "table, figure { break-inside: avoid }",
+        ".board + .caption { break-before: avoid }",
+        "table.scripts { break-inside: auto } with thead repeated and tr { break-inside: avoid }"
+      ]
+    }
+  },
+  "components": [
+    {
+      "name": "Comparison board",
+      "kind": "custom",
+      "refersTo": "board-cell",
+      "description": "The report's signature table: one colour-capped column per source, PaSh's own files first and tinted, a 13pt stat over a grey basis line in every cell.",
+      "html": "<table class=\"ds-board\"><thead><tr><th></th><th class=\"ds-src\" style=\"--src: var(--src-pash, #4a4a4a)\">PaSh's own files<span class=\"ds-what\">the files that ship with PaSh, hand-written</span></th><th class=\"ds-src\" style=\"--src: var(--src-naive, #2563EB)\">Naive LLM's files<span class=\"ds-what\">written by a coding agent from the goal and four examples</span></th><th class=\"ds-src\" style=\"--src: var(--src-cpash, #e8622b)\">Caruca's files, PaSh grammar<span class=\"ds-what\">from the small grammar Caruca keeps for PaSh</span></th></tr></thead><tbody><tr><th>Time, median of 3</th><td class=\"ds-ref\"><span class=\"ds-big\">0.64 s</span><span class=\"ds-sub\">1.67× faster than bash</span></td><td><span class=\"ds-big\">0.93 s</span><span class=\"ds-sub\">1.15× faster than bash</span></td><td><span class=\"ds-big\">1.10 s</span><span class=\"ds-sub\">0.96×, slightly slower</span></td></tr></tbody></table>",
+      "css": ".ds-board { border-collapse: collapse; width: 100%; font-family: var(--font-sans, 'Lexend Deca', sans-serif); font-size: 9.3pt; color: var(--ink, #0B1F33); font-variant-numeric: tabular-nums; } .ds-board th, .ds-board td { text-align: left; vertical-align: top; padding: 4pt 7pt; border-bottom: 1px solid var(--border-subtle, #E5E7EB); } .ds-board thead th { font-weight: 600; font-size: 8.6pt; vertical-align: bottom; border-bottom: 1px solid var(--border-strong, #D0D7DE); } .ds-board thead th.ds-src { border-top: 3px solid var(--src); padding-top: 6pt; } .ds-board .ds-what { display: block; font-weight: 400; color: var(--gray-600, #475569); font-size: 8pt; line-height: 1.3; margin-top: 2pt; } .ds-board tbody th { width: 17%; font-weight: 600; color: var(--gray-700, #374151); } .ds-board td { width: 20.75%; } .ds-board td.ds-ref { background: var(--surface-thead, #F1F5F9); } .ds-board .ds-big { display: block; font-size: 13pt; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; } .ds-board .ds-sub { display: block; color: var(--gray-600, #475569); font-size: 8.3pt; line-height: 1.3; margin-top: 1pt; } .ds-board tbody tr:last-child td, .ds-board tbody tr:last-child th { border-bottom: 1px solid var(--border-strong, #D0D7DE); }"
+    },
+    {
+      "name": "Differences table",
+      "kind": "custom",
+      "refersTo": "diff-cell-changed",
+      "description": "One-word state per cell; a cell that differs from the reference is tinted and set 600 so the meaning survives greyscale print.",
+      "html": "<table class=\"ds-diff\"><thead><tr><th>Command</th><th class=\"ds-src\" style=\"--src: var(--src-pash, #4a4a4a)\">PaSh's own</th><th class=\"ds-src\" style=\"--src: var(--src-naive, #2563EB)\">Naive LLM</th></tr></thead><tbody><tr><th><code>sed</code></th><td class=\"ds-split\">split</td><td class=\"ds-whole ds-changed\">whole</td></tr><tr><th><code>sort</code></th><td class=\"ds-split\">split</td><td class=\"ds-split\">split</td></tr></tbody></table>",
+      "css": ".ds-diff { border-collapse: collapse; width: 100%; font-family: var(--font-sans, 'Lexend Deca', sans-serif); font-size: 9.3pt; color: var(--ink, #0B1F33); } .ds-diff th, .ds-diff td { text-align: left; vertical-align: top; padding: 4pt 7pt; border-bottom: 1px solid var(--border-subtle, #E5E7EB); } .ds-diff thead th { font-weight: 600; font-size: 8.6pt; border-bottom: 1px solid var(--border-strong, #D0D7DE); vertical-align: bottom; } .ds-diff thead th.ds-src { border-top: 3px solid var(--src); padding-top: 6pt; } .ds-diff tbody th { font-weight: 600; } .ds-diff tbody th code { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 1em; } .ds-diff td.ds-split { font-weight: 600; } .ds-diff td.ds-whole { color: var(--gray-600, #475569); } .ds-diff td.ds-changed { background: var(--surface-thead, #F1F5F9); font-weight: 600; color: var(--ink, #0B1F33); }"
+    },
+    {
+      "name": "Script box",
+      "kind": "card",
+      "refersTo": "script-box",
+      "description": "A boxed listing of the artefact under study: title bar with name and provenance, mono listing with command words in blue.",
+      "html": "<div class=\"ds-script\"><div class=\"ds-script-name\"><b>spell.sh</b><span>Koala, one-liners</span></div><pre><span class=\"ds-c\"># Count misspelled words in a text</span>\n<span class=\"ds-k\">cat</span> $1 |\n<span class=\"ds-k\">sort</span> |\n<span class=\"ds-k\">uniq</span></pre></div>",
+      "css": ".ds-script { border: 1px solid var(--border-strong, #D0D7DE); border-radius: 6px; overflow: hidden; font-family: var(--font-sans, 'Lexend Deca', sans-serif); font-size: 8.6pt; color: var(--ink, #0B1F33); } .ds-script-name { display: flex; justify-content: space-between; align-items: baseline; padding: 5pt 8pt; border-bottom: 1px solid var(--border-subtle, #E5E7EB); background: var(--surface-thead, #F1F5F9); font-size: 8.5pt; } .ds-script-name b { font-weight: 600; } .ds-script-name span { color: var(--gray-600, #475569); } .ds-script pre { margin: 0; padding: 6pt 8pt; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 8.3pt; line-height: 1.45; background: var(--surface-code, #F6F8FA); white-space: pre; } .ds-script .ds-c { color: var(--gray-500, #616B73); } .ds-script .ds-k { color: var(--blue, #2563EB); font-weight: 600; }"
+    },
+    {
+      "name": "Table caption and note",
+      "kind": "custom",
+      "refersTo": "caption",
+      "description": "A caption above a table in ink with the table number at 600, and a grey note below for the baseline or control.",
+      "html": "<p class=\"ds-tcap\"><b>Table 1.</b> What PaSh did with each source's files on <code>spell</code>.</p><p class=\"ds-caption\">Plain bash: 1.06 s. Two identical copies of PaSh's own files differed by 0.2% between runs.</p>",
+      "css": ".ds-tcap { font-family: var(--font-sans, 'Lexend Deca', sans-serif); font-size: 9pt; margin: 0 0 4pt 0; color: var(--ink, #0B1F33); line-height: 1.4; } .ds-tcap b { font-weight: 600; } .ds-tcap code { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 1em; } .ds-caption { font-family: var(--font-sans, 'Lexend Deca', sans-serif); font-size: 8.6pt; color: var(--gray-600, #475569); line-height: 1.4; margin: 2pt 0 12pt 0; }"
+    },
+    {
+      "name": "Source key",
+      "kind": "chip",
+      "refersTo": "source-column-head",
+      "description": "Legend row: an 8pt swatch at 2px radius in each source's colour, then its name.",
+      "html": "<div class=\"ds-source-key\"><span style=\"--src: var(--src-pash, #4a4a4a)\"><i class=\"ds-swatch\"></i>PaSh's own files</span><span style=\"--src: var(--src-naive, #2563EB)\"><i class=\"ds-swatch\"></i>Naive LLM's files</span><span style=\"--src: var(--src-cpash, #e8622b)\"><i class=\"ds-swatch\"></i>Caruca, PaSh grammar</span><span style=\"--src: var(--src-cmain, #f0b060)\"><i class=\"ds-swatch\"></i>Caruca, main grammar</span></div>",
+      "css": ".ds-source-key { display: flex; gap: 14pt; flex-wrap: wrap; font-family: var(--font-sans, 'Lexend Deca', sans-serif); font-size: 8.6pt; color: var(--gray-700, #374151); } .ds-source-key span { display: inline-flex; align-items: center; } .ds-swatch { display: inline-block; width: 8pt; height: 8pt; border-radius: 2px; background: var(--src); vertical-align: -0.5pt; margin-right: 4pt; }"
+    },
+    {
+      "name": "Running head and foot",
+      "kind": "nav",
+      "refersTo": "running-head",
+      "description": "Page chrome as stamped by pdf-lib: logo, 'Caruca v2' at 600 ink, running title right in gray-500, 0.5pt rule; foot mirrors it with 'CARUCA V2' and 'Page n of N'.",
+      "html": "<div class=\"ds-chrome\"><div class=\"ds-head\"><span class=\"ds-brand\">Caruca v2</span><span class=\"ds-title\">PaSh's benchmark suite, with three sources of annotation files</span></div><div class=\"ds-foot\"><span>CARUCA V2</span><span>Page 1 of 10</span></div></div>",
+      "css": ".ds-chrome { font-family: var(--font-sans, 'Lexend Deca', sans-serif); font-size: 8pt; color: var(--gray-500, #616B73); } .ds-head, .ds-foot { display: flex; justify-content: space-between; align-items: baseline; padding: 4pt 0; } .ds-head { border-bottom: 0.5pt solid var(--border-subtle, #E5E7EB); margin-bottom: 24pt; } .ds-foot { border-top: 0.5pt solid var(--border-subtle, #E5E7EB); } .ds-brand { font-weight: 600; color: var(--ink, #0B1F33); }"
+    },
+    {
+      "name": "Lead paragraph with run-in label",
+      "kind": "custom",
+      "refersTo": "body",
+      "description": "The opener's labelled summary paragraph: a 600 run-in on the first words, no kicker above.",
+      "html": "<p class=\"ds-lead\"><strong>What we saw.</strong> The output was right in every run. The sources differ in <em>which of the nine commands</em> PaSh split.</p>",
+      "css": ".ds-lead { font-family: var(--font-sans, 'Lexend Deca', sans-serif); font-size: 10.3pt; line-height: 1.4; color: var(--ink, #0B1F33); letter-spacing: 0.005em; margin: 0 0 4pt 0; } .ds-lead strong { font-weight: 600; }"
+    },
+    {
+      "name": "List with teal markers",
+      "kind": "custom",
+      "refersTo": "body",
+      "description": "Bulleted list: 1.1em indent, teal marker, 4pt between items, 72ch cap.",
+      "html": "<ul class=\"ds-list\"><li><b>Naive LLM, <code>col</code>: a wrong judgment.</b> The file says <code>col</code> cannot be split; PaSh's own file splits it.</li><li><b>Caruca, <code>sort</code>: a limit of the method.</b> Caruca allows only splits it observed joining correctly.</li></ul>",
+      "css": ".ds-list { font-family: var(--font-sans, 'Lexend Deca', sans-serif); font-size: 10.5pt; line-height: 1.5; color: var(--ink, #0B1F33); margin: 0 0 8pt 0; padding-left: 1.1em; max-width: 72ch; } .ds-list li { margin: 0 0 4pt 0; } .ds-list li::marker { color: var(--teal, #0E7490); } .ds-list b { font-weight: 600; } .ds-list code { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.95em; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Typeset Systems Paper",
+    "overview": "Caruca's documents look like a well-set systems paper, not a product. One sans face (Lexend Deca) at three weights does every job from the page title to the running foot; one mono face (JetBrains Mono) marks every command, file name and script. The page is flat white; hairline rules separate, nothing is shadowed, and colour is spent only where it carries a meaning the reader needs: blue on section heads, teal on list markers, and, in a comparison report, one colour per source of data.\n\nThe identity was established in the PDF pipeline (scripts/md-to-pdf/) and codified in the caruca-design skill; this file records how it landed in the first hand-authored report surface, the PaSh benchmark comparison of 24 November 2026. Where the report departs from the skill's stated values, the departure is recorded as what was built and the skill's value is named beside it. The skill remains the authority for new screen surfaces; the report's values are the authority for the report surface.\n\nDensity is editorial: body copy is capped at 72 characters, tables run the full measure, and a page carries one idea with its evidence. Numbers are set with tabular figures document-wide and always carry their basis beneath them.",
+    "keyCharacteristics": [
+      "Flat white paper; hairline rules do all the separating.",
+      "Lexend Deca 400/600/700 only (no italic cut is shipped); JetBrains Mono for anything a shell would read.",
+      "Blue section heads; teal appears only as the list marker.",
+      "A comparison board whose columns are colour-capped by source and whose reference column is tinted.",
+      "Figures are lettered in the same faces and filled with the same four source colours as the tables."
+    ],
+    "rules": [
+      { "name": "The One Colour Per Source Rule", "body": "Each source of data owns exactly one colour, and that colour appears everywhere the source does: column cap, figure fill, legend swatch. PaSh's own files are always the tinted reference column. Figures read the same four values as the stylesheet.", "section": "colors" },
+      { "name": "The One Tint Rule", "body": "A body document has one tint, surface-thead. It marks the reference column and the cells that differ from it; it never marks emphasis. A cell whose meaning rests on the tint also carries weight 600, so a greyscale print still reads.", "section": "colors" },
+      { "name": "The Spent Teal Rule", "body": "Teal is a mark, not a colour family: list markers in the body, the accent bar on covers and Markdown titles. It is never a fill, a head colour or a border.", "section": "colors" },
+      { "name": "The Basis Line Rule", "body": "A number set large is never alone: a 13pt figure sits over an 8.3pt grey line stating what it is out of or compared against (\"3 of 3\", \"1.67× faster than bash\").", "section": "typography" },
+      { "name": "The Mono Means Shell Rule", "body": "Command names, flags, file paths, script text and commit hashes are mono; nothing else is. Numbers in tables are the sans with tabular figures, not mono.", "section": "typography" },
+      { "name": "The Run-in Label Rule", "body": "A paragraph that needs a label gets a 600-weight run-in on its first words (\"What we ran.\"), in sentence case, in the text colour. No eyebrow, no kicker, no uppercase label above a heading.", "section": "typography" },
+      { "name": "The Board Whole Rule", "body": "A comparison board, its caption above and its note below are one unit; they never straddle a page.", "section": "layout" },
+      { "name": "The 72ch Rule", "body": "Prose is capped at 72 characters; evidence (tables, figures, the script box) runs the full measure.", "section": "layout" },
+      { "name": "The Flat Paper Rule", "body": "A document never casts a shadow. Depth, where needed, is a 1px rule or the one tint.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do give every source of data one colour and use it for its column cap, its figure fills and its legend swatch, in both the stylesheet and the figure scripts.",
+      "Do put PaSh's own files (or whatever the reference is) in the first data column and tint its cells surface-thead.",
+      "Do set a large number over its basis line; \"0.64 s\" over \"1.67× faster than bash\".",
+      "Do cap prose at 72ch and let tables, figures and listings run the full measure.",
+      "Do declare page breaks: break-before: page on a section that opens a page, break-after: avoid on every heading and table caption, break-inside: avoid on tables and figures.",
+      "Do stamp the running head and foot after render with the embedded Lexend Deca files, at 8pt, with a 0.5pt rule.",
+      "Do letter figures in Lexend Deca and JetBrains Mono at 300dpi and the text width, with the top and right spines removed.",
+      "Do carry a tinted cell's meaning in weight as well, so greyscale print reads."
+    ],
+    "donts": [
+      "Don't add a second tint; surface-thead is the only one in a document, and it marks reference and difference, never emphasis.",
+      "Don't use teal as a fill, head colour or border; it is a list marker in body documents and the accent bar on covers.",
+      "Don't set numbers in mono inside a sans table; tabular figures in the sans line up already.",
+      "Don't add kickers, eyebrows or uppercase labels above headings; a labelled paragraph gets a 600 run-in on its first words.",
+      "Don't cast a shadow on anything in a document.",
+      "Don't italicise a designed element; Lexend Deca has no italic cut and the browser will fake one.",
+      "Don't use Chromium's header and footer templates for the running head and foot; they fall back to Times.",
+      "Don't give a column that is not a source of files a colour cap."
+    ]
+  }
+}

@@ -144,3 +144,17 @@ files before the batch starts. Read section 5 in full; in short:
 
 Keep `README.md` for `spell` as it is until the full suite runs; the report itself will be built from
 the records by a separate counting script (plan section 5.4), not by you.
+
+## Amendment 3 (2026-11-24): fix the direct-call method before the full suite (from the checker)
+
+The independent checker's review is `orchestration/review_checker.md`. Its main finding: when the
+runner asks a set's annotation files directly, it does not hand them the operands the way PaSh does.
+Inside PaSh a quoted word reaches the file **with its double quotes still on**; the direct call strips
+them. On 2 of `spell`'s 9 command lines the direct answer therefore differs from what PaSh did, which
+is the whole explanation for the "not established" `sed` result and for "only 2 of 3 `tr` split".
+
+Do now: make the direct call pass operands exactly as PaSh passes them (take them from PaSh's own
+expansion, or reproduce its quoting); re-run `answers` and `controls` for `spell`; confirm the two
+lines now agree with PaSh and rewrite the two README paragraphs that said "not established". Fix every
+other item the review marks as failed or doubtful. Then wait for the go (naive `tr`/`xargs`/`awk`
+files in the ledger; `inputs_setup.md` present).

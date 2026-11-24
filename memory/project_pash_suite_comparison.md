@@ -40,6 +40,15 @@ TERA-Seq scripts can't run there (fetch.sh pulls ~15 GB at every non-min size, `
 `bio.sh` at min only. `pkg` has nothing any source lets PaSh split. Command lists came from parsing
 with PaSh's bundled libdash + shasta (`~/pash/python_pkgs/bin/python3`), then hand checks.
 
+**Inputs set up 2026-11-24 (pash-inventory; `orchestration/inputs_setup.md`).** analytics small
+(nginx, pcaps, ray-tracing), file-mod small (all 5), bio.sh min are installed and fetched in the VM and
+run under bash. pkg skipped (installer needs proget.makedeb.org + npm; pacaur fetches keys/sources at
+run time). Koala-hash mismatches, each stable across two runs, so use VM bash output as the reference:
+pcaps 35/69 (tcpdump 4.99.4 vs Koala's Debian 12; untested), img_convert 1/508, thumbnail 460/508,
+to_mp3 40/40. to_mp3's check also can't work as shipped: validate.sh uses `ffmpeg` from PATH, and only
+execute.sh adds `/usr/local/legacy-bin`. minimap2 fails to build on ARM (Koala uses `-msse` flags);
+bio.sh doesn't need it. Free disk afterwards: 9.3 GB.
+
 **Why Koala groups, not PaSh's `evaluation/benchmarks`:** those scripts exist in the VM but their
 inputs can't be fetched ([[reference-pash-annotations-runtime]]).
 Related: [[feedback-pash-runs-test-our-annotations]], [[reference-pash-comparison-scorer]].
@@ -52,3 +61,21 @@ copied from it; delivery = Markdown → PDF, no results page). Tiran's decisions
 `tr`/`xargs`/`awk` (worker `naive-runs`, new tab); scope = six ready groups + `analytics` (no port-scan)
 + `file-mod`, `bio.sh` at min, `pkg` once at min (worker `pash-inventory` setting up inputs). Checker
 (`pash-checker`) verifying the pilot. Full-suite batch waits for the three naive files.
+
+**Report tooling ready (counter worker, 2026-11-24, in the run folder):** `count_report.py` (count-only,
+standard library, writes `numbers.md` + `numbers.json`; fails loudly on missing fields or a bad timing
+window), `make_charts.py` (`figures/chart{A,B,C}.png`, dataviz-skill palette), `timing_check.py` (Mac side:
+reads `run_windows.jsonl` + `pmset -g log`, writes `timing_check.jsonl` per window with sleep events, power
+source, VM clock offset; run it soon after the batch, the Mac keeps only a few days of power log; a snapshot
+is in `orchestration/pmset_log_snapshot_*.txt`), `count_report.md` (how to run). Pilot outputs carry a
+`_pilot` suffix. **Full batch launched 12:05 on 2026-11-24** (73 scripts × bash/pash-own/pash-own-copy/
+naive/caruca-pash/caruca-main × 3 timed repeats, plus instrumented passes; ~9 h). Then: fresh checker →
+count → charts → `report.md` from the plan's skeleton → PDF.
+
+**Vetted pilot differences (worker, 2026-11-24, `orchestration/judgment_errors.md`):** naive `sed` =
+instrument gap (repaired, re-run, PaSh rerun pending); naive `col` = safe refusal, **naive file right in
+general, PaSh's own `col` unsafe** (`\v` at a piece boundary changes `col -bx` output; safe in spell.sh only
+because `sed` strips it first) — the report's "col: wrong judgment" needs correcting; `cat` (naive + Caruca)
+= correct but useless split (task 022: 0.27 s split vs 0.10 s whole on 64 MB; inside spell.sh not measurable,
+one control run 0.877 vs 0.89 s); Caruca `sort` = method limit (only end-to-end joins). PaSh's own `sed` also
+wrongly splits `N;s/\n/ /`. No source's file is wrong about a command on spell.sh.
