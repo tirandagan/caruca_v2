@@ -34,6 +34,10 @@ published one, whose input server is down), at Koala's small size (a 30 MB text)
 
 ## What was found
 
+*Corrected 2026-11-24 after the checker's review (`orchestration/review_checker.md`): the `sed` and `tr`
+explanations, the `sort` wording, the control sentence, the power and time-window statements, and the
+number of repeats. The measurements are unchanged.*
+
 | Set | Commands PaSh split | Output same as bash, and as Koala's stored answer | Seconds, median of 3 (min–max) | vs bash |
 |---|---|---|---|---|
 | `bash` | – | (reference) | 1.03 (1.02–1.03) | – |
@@ -47,18 +51,24 @@ published one, whose input server is down), at Koala's small size (a 30 MB text)
 - **PaSh never fell back to plain bash with these four sets.** The script is one *region* (the piece
   PaSh's compiler is asked to handle); it was parallelized in 1 of 1 regions for every set, every run.
   No compiler exceptions, no "No region was parallelized" warning.
-- **Splitting `sort` is what pays.** PaSh's own files and the naive LLM's both let PaSh sort 8 pieces
-  and merge them. **Caruca's `sort` file allows no split for a bare `sort`**: Caruca's method only
-  allows a split it can join end to end, and the file has a branch only for `sort -m`. Without the
-  `sort` split, the Caruca sets split four cheap commands and end up slightly slower than bash.
+- **The two faster sets are the two that split `sort`.** PaSh's own files and the naive LLM's both let
+  PaSh sort 8 pieces and merge them. Which command made the time difference was not tested: all of a
+  set's commands are swapped in at once. **Caruca's `sort` files allow no split for a bare `sort`**:
+  Caruca's method only allows a split whose pieces can be joined end to end, and neither of its files
+  has a branch for `sort` without options (the PaSh-grammar file has one only for `sort -m`; the
+  main-grammar file has 34 option combinations, none of them empty).
 - **The naive set loses `sed` and `col`.** The naive `col` file says `col` cannot be split. The naive
-  `sed` file says it can (asked directly, it answers exactly as PaSh's own does), yet inside PaSh
-  `sed` stays a single copy; with PaSh's own `sed` files in the naive set, `sed` splits (control below).
-  So the naive `sed` file answers differently when PaSh calls it than when we call it. Why is **not
-  established**; the file reads the sed script from the command's first word and checks it character by
-  character, which is where the two calls could differ. It cost nothing in correctness here, only speed.
-- **The naive set splits `cat`**, which PaSh's own files never do. Splitting a plain `cat` of one file
-  is pure overhead; task 022 measured the same.
+  `sed` file looks at the sed script itself. PaSh hands it the script with its double quotes still on
+  (`"s/[^[:print:]]//g"`), and the file reads the opening quote as a sed command it does not know, so
+  it allows no split. Given the script without quotes it would allow one. It cost nothing in
+  correctness here, only speed.
+- **Why only 2 of the 3 `tr` commands split, under every set.** All sets use PaSh's own `tr` files.
+  PaSh hands them `tr -cs A-Za-z "\n"` with the quotes on, so the file sees that the command squeezes
+  newlines, and then offers only a merge step that PaSh has not implemented. PaSh uses only recipes
+  whose parts are all implemented, so it leaves that `tr` whole. `uniq` stays whole for the same reason
+  (its only merge step, in PaSh's file and in the naive LLM's, is not implemented).
+- **The naive set splits `cat`**, which PaSh's own files never do. Its cost was not measured here
+  (the control that removes it ran once, untimed).
 
 ## Checks that the folder decides
 
@@ -72,7 +82,10 @@ Same script, one run each (outputs all right):
 | `naive-cat-pash-own` | PaSh's own `cat` files | tr, sort (**cat** no longer split) |
 | `naive-sed-pash-own` | PaSh's own `sed` files | cat, **sed**, tr, sort |
 
-Each change of one command's files changed exactly that command, so PaSh is reading the folder given.
+In the three controls that swap one command's files for PaSh's own, exactly that command changed. In the
+control that deletes `sort`'s files, nothing split at all: PaSh ran the whole script as plain bash.
+Either way PaSh is reading the folder it is given. The controls were run again after the method fix
+below, at the start and at the end of a run of the script, with the same result.
 
 ## How splitting was judged
 
@@ -81,13 +94,24 @@ Three signals per run: PaSh's debug log (each region sent, and whether a paralle
 the parallel script PaSh wrote (how many copies of each command it runs side by side); and a stand-in
 program placed first on the search path that records every time a command starts. A command counts as
 split when PaSh's script runs 2 or more copies of it **and** it started more often than under bash.
-Each set's files were also called directly, outside PaSh, for every command line of the script, and
-their answers and any errors recorded (`answers.jsonl`); none raised an error.
+Each set's files are also asked for their answer, with errors recorded rather than hidden (PaSh hides
+them). **Method fixed 2026-11-24:** the first version asked the files directly with the command line
+rebuilt by us, which drops the double quotes PaSh keeps on quoted words. That gave a different answer
+from PaSh's on 2 of the 9 command lines (`sed` under the naive set, `tr -cs` under all sets). The runner
+now replays PaSh's own steps on the files PaSh keeps (its expansion of the script's variables and its
+parsing of each command), so the files get exactly what they get inside PaSh. On the re-run, that answer
+predicted whether PaSh split the command for all 180 command uses compared (every set, main and control
+runs). Those records are in `validation_2026-11-24/`; the direct answers are kept beside them for
+comparison.
 
 Times come from separate runs without the stand-in program (it adds about 0.1 s to PaSh runs), run one
 at a time and interleaved across sets, inside the Lima virtual machine `pash` (8 cores, Ubuntu 24.04,
-PaSh commit `42a8b87`, its annotation package 0.2.4). The Mac was awake and on mains power for the whole
-window (10:57–11:00; the power log shows the last wake at 10:18 and no sleep after).
+PaSh commit `42a8b87`, its annotation package 0.2.4). The Mac was awake for every timed and control run:
+the timed runs were 10:59:38–11:00:08 and the controls 10:59:29–10:59:38 and 11:01:04–11:01:16, and the
+power log shows the last wake at 10:18 and no sleep after. Whether it was on mains power is not shown:
+the battery status read at 10:49 said mains power, but the power log records no change of power source
+after 10:18, when it was on battery. Each set was timed **3 times, not the 5 the first brief asked for**;
+3 is Tiran's later decision (`orchestration/metrics_spec.md`).
 
 ## Files
 
@@ -96,13 +120,14 @@ window (10:57–11:00; the power log shows the last wake at 10:18 and no sleep a
 | `run_koala.py` | the runner (runs inside the virtual machine; steps below) |
 | `manifest.json` | commits (PaSh, Koala, Caruca's branch, this repo), package hashes, machine, and for every command in every set which source its files came from, with the naive run folder or Caruca folder and the three files' hashes |
 | `invocations.jsonl` | how each of the 77 scripts in Koala's six groups is started, recorded from Koala's own launchers |
-| `answers.jsonl` | each set's direct answer for each command line of `spell.sh` |
+| `answers.jsonl` | each set's answer for each command line of `spell.sh`, asked directly (first method; see "How splitting was judged") |
 | `commands.jsonl` | per command and set: the files' source (`ours`, `pash-own` or `none`) |
 | `results.jsonl` | one row per set and repeat: state, commands split, copies, region outcomes, output hash, same as bash, Koala's hash, seconds, fallback reasons |
 | `regions.jsonl` | one row per region, set and repeat: region text, its commands and their sources, outcome, reason |
 | `controls.jsonl`, `controls_regions.jsonl` | the same for the control sets |
 | `logs/` | PaSh's debug logs (first repeat of each set), compressed |
-| `orchestration/` | the briefs this work was done from |
+| `orchestration/` | the briefs this work was done from, and the checker's review |
+| `validation_2026-11-24/` | the re-run with the fixed method and the records the report needs (one row per command use, a second copy of PaSh's own files for timing, and others; see its `NOTES.md`). Its times are not used: another worker was using the virtual machine |
 
 To run again (inside the VM; the Mac's home folder is visible there read-only):
 
@@ -119,10 +144,11 @@ Any of the 77 recorded scripts can be given as `--script <group>/<name>` (e.g. `
 ## Limits
 
 - One script, one input size, 8 workers. One region, so every rate here is out of 1.
-- The other groups' scripts are recorded but not run. Weather's launcher stopped with an error after
-  recording its 2 scripts; not looked into.
-- The direct-call answers did not predict PaSh's behaviour for the naive `sed` file (above), so for the
-  full suite those answers are a check, not proof.
+- The other groups' scripts are recorded but not run. Weather's launcher ends with an error after
+  recording its 2 scripts; the error comes from its last step (moving an empty `plots` folder), not from
+  the scripts.
+- The first method's direct answers did not match PaSh on 2 of 9 command lines (above). The fixed method
+  replays PaSh's steps; it matched PaSh on all 180 command uses re-run, on this one script.
 - Harness fault found and fixed during the pilot: the stand-in recorded a command started with no
   arguments as having one empty argument (so the direct check asked about `sort ''`). Fixed, and every
   record here comes from the rerun.

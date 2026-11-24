@@ -1,0 +1,35 @@
+{
+ "display_names": {
+  "bash": "Plain bash",
+  "pash-own": "PaSh's own files",
+  "naive": "Naive LLM's files",
+  "caruca-pash": "Caruca's files, PaSh grammar",
+  "caruca-main": "Caruca's files, main grammar",
+  "pash-own-copy": "PaSh's own files, second copy",
+  "naive-sed2": "Naive LLM, sed file v2",
+  "naive-no-sort": "Control: naive LLM's files, sort's files removed",
+  "naive-col-pash-own": "Control: naive LLM's files, PaSh's own col files",
+  "naive-cat-pash-own": "Control: naive LLM's files, PaSh's own cat files",
+  "naive-sed-pash-own": "Control: naive LLM's files, PaSh's own sed files"
+ },
+ "main": [
+  "bash",
+  "pash-own",
+  "naive",
+  "naive-sed2",
+  "caruca-pash",
+  "caruca-main",
+  "pash-own-copy"
+ ],
+ "timing_only": [
+  "pash-own-copy"
+ ],
+ "controls": [
+  "bash",
+  "naive",
+  "naive-no-sort",
+  "naive-col-pash-own",
+  "naive-cat-pash-own",
+  "naive-sed-pash-own"
+ ]
+}

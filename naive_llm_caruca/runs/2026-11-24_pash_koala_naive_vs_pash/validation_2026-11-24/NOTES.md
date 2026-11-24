@@ -1,9 +1,21 @@
-# Validation run of the amended records on `spell` (2026-11-24, 11:33–11:34)
+# Validation run of the amended records on `spell` (2026-11-24; records here are from the re-run at 11:43–11:44)
 
-This is a run of `run_koala.py` after Amendment 2 and section 5 of the report plan. It checks the new
-records only. **Its times are not valid**: while it ran, another worker was running Koala's own
-`analytics/pcaps.sh` in the same virtual machine (the VM load rose from 0.5 to 3.8, recorded in
-`run_windows.jsonl`). The accepted pilot's records are in the folder above and are unchanged.
+**Re-run after the checker's review (11:43).** The files' answers are now taken by replaying PaSh's own
+steps on the files PaSh keeps (its expansion of variables, its parsing of each command), so quoted words
+keep their quotes as inside PaSh. In `occurrences.jsonl`, `file_answer` is that answer
+(`answer_method`: "as PaSh passes them"); `direct_file_answer` is the old direct one, and
+`direct_differs` marks where they disagree. `answers.jsonl` holds both, told apart by `method`.
+Each recipe now records whether PaSh can carry it out (`implemented`: PaSh's own test), which adds the
+answer "allows only a split PaSh has not implemented". Result: over all 180 command uses in the main and
+control runs, PaSh split a use exactly when this answer allowed a split it can carry out. The VM was at
+load 0.31 when the re-run started; the inputs worker was downloading into Koala at the time, so these
+times are not used either.
+
+The first validation run (11:33, after Amendment 2 and section 5 of the report plan; its records were
+replaced by the re-run) also had invalid times: another worker was running Koala's own
+`analytics/pcaps.sh` in the same virtual machine. The VM's load also rises during these runs from PaSh's
+own 8 copies, so the load at the start of each script is the cleaner sign of a quiet VM. The accepted
+pilot's records are in the folder above and are unchanged.
 
 What is new in the records:
 

@@ -151,7 +151,7 @@
   "rule": "sides.jsonl of the task-021 comparison: v1-pash rows; caruca-main takes the v1-main row where a command has one"
  },
  "caruca_v1_branch_commit": "4bf74dd9a502e97a760b8a9d1e93c20a7a548450",
- "caruca_v2_commit": "2f8ff8b1f8fdb742337c12b8fbed25871264cdac",
+ "caruca_v2_commit": "fee275bd0b01b5a366e31c6fa7e7b437284f4ed8",
  "koala": {
   "commit": "ccf25a572cef29cef6463534e4429e3ed42758d2",
   "dirty_files": "?? .tools/nodejs18/\n?? web-search/scripts/package.json",
@@ -1627,5 +1627,5 @@
   "xargs": "/usr/bin/xargs",
   "zcat": "/usr/bin/zcat"
  },
- "when": "2026-11-24 11:33:09 -0500"
+ "when": "2026-11-24 11:43:17 -0500"
 }

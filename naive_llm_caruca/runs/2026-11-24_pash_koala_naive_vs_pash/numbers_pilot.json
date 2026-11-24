@@ -1,0 +1,2159 @@
+{
+ "records": "validation_2026-11-24",
+ "names": {
+  "bash": "Plain bash",
+  "pash-own": "PaSh's own files",
+  "naive": "Naive LLM's files",
+  "caruca-pash": "Caruca's files, PaSh grammar",
+  "caruca-main": "Caruca's files, main grammar",
+  "pash-own-copy": "PaSh's own files, second copy",
+  "naive-no-sort": "Control: naive LLM's files, sort's files removed",
+  "naive-col-pash-own": "Control: naive LLM's files, PaSh's own col files",
+  "naive-cat-pash-own": "Control: naive LLM's files, PaSh's own cat files",
+  "naive-sed-pash-own": "Control: naive LLM's files, PaSh's own sed files"
+ },
+ "sources": [
+  "pash-own",
+  "naive",
+  "caruca-pash",
+  "caruca-main"
+ ],
+ "reference": "pash-own",
+ "N": 1,
+ "scripts_run": 1,
+ "bash_output_varies": [],
+ "P": 1,
+ "U": 9,
+ "uses_outside_pash": {
+  "pash-own": 0,
+  "naive": 0,
+  "caruca-pash": 0,
+  "caruca-main": 0
+ },
+ "table1": [
+  {
+   "source": "pash-own",
+   "label": "PaSh's own files",
+   "reference": true,
+   "output_same_as_bash": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "wrong_scripts": [],
+   "scripts_any_part_parallel": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "parts_parallel": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "uses_split": {
+    "a": 5,
+    "b": 9,
+    "text": "5 of 9"
+   },
+   "faster_than_bash": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "median_speedup": 1.669811320754717
+  },
+  {
+   "source": "naive",
+   "label": "Naive LLM's files",
+   "reference": false,
+   "output_same_as_bash": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "wrong_scripts": [],
+   "scripts_any_part_parallel": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "parts_parallel": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "uses_split": {
+    "a": 4,
+    "b": 9,
+    "text": "4 of 9"
+   },
+   "faster_than_bash": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "median_speedup": 1.1468682505399568
+  },
+  {
+   "source": "caruca-pash",
+   "label": "Caruca's files, PaSh grammar",
+   "reference": false,
+   "output_same_as_bash": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "wrong_scripts": [],
+   "scripts_any_part_parallel": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "parts_parallel": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "uses_split": {
+    "a": 5,
+    "b": 9,
+    "text": "5 of 9"
+   },
+   "faster_than_bash": {
+    "a": 0,
+    "b": 1,
+    "text": "0 of 1"
+   },
+   "median_speedup": 0.9610859728506788
+  },
+  {
+   "source": "caruca-main",
+   "label": "Caruca's files, main grammar",
+   "reference": false,
+   "output_same_as_bash": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "wrong_scripts": [],
+   "scripts_any_part_parallel": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "parts_parallel": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "uses_split": {
+    "a": 5,
+    "b": 9,
+    "text": "5 of 9"
+   },
+   "faster_than_bash": {
+    "a": 0,
+    "b": 1,
+    "text": "0 of 1"
+   },
+   "median_speedup": 0.9743119266055046
+  }
+ ],
+ "table2": [
+  {
+   "source": "naive",
+   "label": "Naive LLM's files",
+   "uses_own_files": {
+    "a": 6,
+    "b": 9,
+    "text": "6 of 9"
+   },
+   "own_split_with_them": {
+    "a": 2,
+    "b": 6,
+    "text": "2 of 6"
+   },
+   "own_split_with_pash_own": {
+    "a": 3,
+    "b": 6,
+    "text": "3 of 6"
+   },
+   "uses_pash_own_filled_in": {
+    "a": 3,
+    "b": 9,
+    "text": "3 of 9"
+   },
+   "filled_same_as_pash_own": {
+    "a": 3,
+    "b": 3,
+    "text": "3 of 3"
+   },
+   "filled_differs": [],
+   "uses_no_files": {
+    "a": 0,
+    "b": 9,
+    "text": "0 of 9"
+   }
+  },
+  {
+   "source": "caruca-pash",
+   "label": "Caruca's files, PaSh grammar",
+   "uses_own_files": {
+    "a": 2,
+    "b": 9,
+    "text": "2 of 9"
+   },
+   "own_split_with_them": {
+    "a": 1,
+    "b": 2,
+    "text": "1 of 2"
+   },
+   "own_split_with_pash_own": {
+    "a": 1,
+    "b": 2,
+    "text": "1 of 2"
+   },
+   "uses_pash_own_filled_in": {
+    "a": 7,
+    "b": 9,
+    "text": "7 of 9"
+   },
+   "filled_same_as_pash_own": {
+    "a": 7,
+    "b": 7,
+    "text": "7 of 7"
+   },
+   "filled_differs": [],
+   "uses_no_files": {
+    "a": 0,
+    "b": 9,
+    "text": "0 of 9"
+   }
+  },
+  {
+   "source": "caruca-main",
+   "label": "Caruca's files, main grammar",
+   "uses_own_files": {
+    "a": 2,
+    "b": 9,
+    "text": "2 of 9"
+   },
+   "own_split_with_them": {
+    "a": 1,
+    "b": 2,
+    "text": "1 of 2"
+   },
+   "own_split_with_pash_own": {
+    "a": 1,
+    "b": 2,
+    "text": "1 of 2"
+   },
+   "uses_pash_own_filled_in": {
+    "a": 7,
+    "b": 9,
+    "text": "7 of 9"
+   },
+   "filled_same_as_pash_own": {
+    "a": 7,
+    "b": 7,
+    "text": "7 of 7"
+   },
+   "filled_differs": [],
+   "uses_no_files": {
+    "a": 0,
+    "b": 9,
+    "text": "0 of 9"
+   }
+  }
+ ],
+ "table3": [
+  {
+   "command": "cat",
+   "uses": 1,
+   "cells": {
+    "pash-own": {
+     "split": 0,
+     "of": 1,
+     "differs": false
+    },
+    "naive": {
+     "split": 1,
+     "of": 1,
+     "differs": true
+    },
+    "caruca-pash": {
+     "split": 1,
+     "of": 1,
+     "differs": true
+    },
+    "caruca-main": {
+     "split": 1,
+     "of": 1,
+     "differs": true
+    }
+   },
+   "scripts_wrong": {}
+  },
+  {
+   "command": "col",
+   "uses": 1,
+   "cells": {
+    "pash-own": {
+     "split": 1,
+     "of": 1,
+     "differs": false
+    },
+    "naive": {
+     "split": 0,
+     "of": 1,
+     "differs": true
+    },
+    "caruca-pash": {
+     "split": 1,
+     "of": 1,
+     "differs": false
+    },
+    "caruca-main": {
+     "split": 1,
+     "of": 1,
+     "differs": false
+    }
+   },
+   "scripts_wrong": {}
+  },
+  {
+   "command": "sed",
+   "uses": 1,
+   "cells": {
+    "pash-own": {
+     "split": 1,
+     "of": 1,
+     "differs": false
+    },
+    "naive": {
+     "split": 0,
+     "of": 1,
+     "differs": true
+    },
+    "caruca-pash": {
+     "split": 1,
+     "of": 1,
+     "differs": false
+    },
+    "caruca-main": {
+     "split": 1,
+     "of": 1,
+     "differs": false
+    }
+   },
+   "scripts_wrong": {}
+  },
+  {
+   "command": "sort",
+   "uses": 1,
+   "cells": {
+    "pash-own": {
+     "split": 1,
+     "of": 1,
+     "differs": false
+    },
+    "naive": {
+     "split": 1,
+     "of": 1,
+     "differs": false
+    },
+    "caruca-pash": {
+     "split": 0,
+     "of": 1,
+     "differs": true
+    },
+    "caruca-main": {
+     "split": 0,
+     "of": 1,
+     "differs": true
+    }
+   },
+   "scripts_wrong": {}
+  }
+ ],
+ "table3_unchanged_commands": [
+  "tr",
+  "comm",
+  "uniq"
+ ],
+ "table4": {
+  "agreement": [
+   {
+    "source": "naive",
+    "label": "Naive LLM's files",
+    "lines": 6,
+    "same_inputs_outputs": {
+     "a": 6,
+     "b": 6,
+     "text": "6 of 6"
+    },
+    "same_split_decision": {
+     "a": 2,
+     "b": 4,
+     "text": "2 of 4"
+    },
+    "commands_all_lines_agree": {
+     "a": 2,
+     "b": 4,
+     "text": "2 of 4"
+    },
+    "pash_own_gives_no_io_answer": 0,
+    "pash_own_gives_no_split_answer": 2,
+    "pash_own_splits_only_with_special_merge_source_says_no": 0,
+    "source_files_raised": 0,
+    "lines_answered_differently_in_different_scripts": 0
+   },
+   {
+    "source": "caruca-pash",
+    "label": "Caruca's files, PaSh grammar",
+    "lines": 2,
+    "same_inputs_outputs": {
+     "a": 2,
+     "b": 2,
+     "text": "2 of 2"
+    },
+    "same_split_decision": {
+     "a": 0,
+     "b": 1,
+     "text": "0 of 1"
+    },
+    "commands_all_lines_agree": {
+     "a": 0,
+     "b": 1,
+     "text": "0 of 1"
+    },
+    "pash_own_gives_no_io_answer": 0,
+    "pash_own_gives_no_split_answer": 1,
+    "pash_own_splits_only_with_special_merge_source_says_no": 1,
+    "source_files_raised": 0,
+    "lines_answered_differently_in_different_scripts": 0
+   },
+   {
+    "source": "caruca-main",
+    "label": "Caruca's files, main grammar",
+    "lines": 2,
+    "same_inputs_outputs": {
+     "a": 2,
+     "b": 2,
+     "text": "2 of 2"
+    },
+    "same_split_decision": {
+     "a": 0,
+     "b": 1,
+     "text": "0 of 1"
+    },
+    "commands_all_lines_agree": {
+     "a": 0,
+     "b": 1,
+     "text": "0 of 1"
+    },
+    "pash_own_gives_no_io_answer": 0,
+    "pash_own_gives_no_split_answer": 1,
+    "pash_own_splits_only_with_special_merge_source_says_no": 1,
+    "source_files_raised": 0,
+    "lines_answered_differently_in_different_scripts": 0
+   }
+  ],
+  "output_identical": {
+   "pash-own": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "naive": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "caruca-pash": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "caruca-main": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   }
+  },
+  "parts_parallel": {
+   "pash-own": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "naive": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "caruca-pash": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   },
+   "caruca-main": {
+    "a": 1,
+    "b": 1,
+    "text": "1 of 1"
+   }
+  },
+  "median_speedup": {
+   "pash-own": 1.669811320754717,
+   "naive": 1.1468682505399568,
+   "caruca-pash": 0.9610859728506788,
+   "caruca-main": 0.9743119266055046
+  }
+ },
+ "chartA": [
+  {
+   "source": "naive",
+   "label": "Naive LLM's files",
+   "P": 1,
+   "both": 1,
+   "only_this": 0,
+   "neither": 0,
+   "only_pash_own": 0
+  },
+  {
+   "source": "caruca-pash",
+   "label": "Caruca's files, PaSh grammar",
+   "P": 1,
+   "both": 1,
+   "only_this": 0,
+   "neither": 0,
+   "only_pash_own": 0
+  },
+  {
+   "source": "caruca-main",
+   "label": "Caruca's files, main grammar",
+   "P": 1,
+   "both": 1,
+   "only_this": 0,
+   "neither": 0,
+   "only_pash_own": 0
+  }
+ ],
+ "chartA_reference": {
+  "source": "pash-own",
+  "label": "PaSh's own files",
+  "P": 1,
+  "parallel": 1,
+  "not_parallel": 0
+ },
+ "chartB": {
+  "panels": [
+   {
+    "source": "naive",
+    "label": "Naive LLM's files",
+    "points": [
+     {
+      "script": "oneliners/spell",
+      "x": 0.636,
+      "y": 0.926,
+      "output_ok": true,
+      "split_differs": true
+     }
+    ]
+   },
+   {
+    "source": "caruca-pash",
+    "label": "Caruca's files, PaSh grammar",
+    "points": [
+     {
+      "script": "oneliners/spell",
+      "x": 0.636,
+      "y": 1.105,
+      "output_ok": true,
+      "split_differs": true
+     }
+    ]
+   },
+   {
+    "source": "caruca-main",
+    "label": "Caruca's files, main grammar",
+    "points": [
+     {
+      "script": "oneliners/spell",
+      "x": 0.636,
+      "y": 1.09,
+      "output_ok": true,
+      "split_differs": true
+     }
+    ]
+   }
+  ],
+  "noise": [
+   {
+    "script": "oneliners/spell",
+    "x": 0.636,
+    "y": 0.637
+   }
+  ],
+  "noise_max_pct": 0.15723270440251014,
+  "noise_label": "PaSh's own files, second copy"
+ },
+ "chartC": {
+  "commands": [
+   {
+    "command": "cat",
+    "scripts": 1
+   },
+   {
+    "command": "col",
+    "scripts": 1
+   },
+   {
+    "command": "comm",
+    "scripts": 1
+   },
+   {
+    "command": "sed",
+    "scripts": 1
+   },
+   {
+    "command": "sort",
+    "scripts": 1
+   },
+   {
+    "command": "tr",
+    "scripts": 1
+   },
+   {
+    "command": "uniq",
+    "scripts": 1
+   }
+  ],
+  "N": 1,
+  "rows": [
+   {
+    "source": "pash-own",
+    "label": "PaSh's own files",
+    "has": [
+     "cat",
+     "col",
+     "comm",
+     "sed",
+     "sort",
+     "tr",
+     "uniq"
+    ]
+   },
+   {
+    "source": "naive",
+    "label": "Naive LLM's files",
+    "has": [
+     "cat",
+     "col",
+     "comm",
+     "sed",
+     "sort",
+     "uniq"
+    ]
+   },
+   {
+    "source": "caruca-pash",
+    "label": "Caruca's files (both grammars)",
+    "has": [
+     "cat",
+     "sort"
+    ]
+   }
+  ],
+  "nobody": []
+ },
+ "A1": [
+  {
+   "published_set": "Classics",
+   "group": "oneliners",
+   "script": "nfa-regex",
+   "path": "~/koala/oneliners/scripts/nfa-regex.sh",
+   "published_script": "~/pash/evaluation/benchmarks/oneliners/nfa-regex.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 10270030
+  },
+  {
+   "published_set": "Classics",
+   "group": "oneliners",
+   "script": "sort",
+   "path": "~/koala/oneliners/scripts/sort.sh",
+   "published_script": "~/pash/evaluation/benchmarks/oneliners/sort.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 30810090
+  },
+  {
+   "published_set": "Classics",
+   "group": "oneliners",
+   "script": "top-n",
+   "path": "~/koala/oneliners/scripts/top-n.sh",
+   "published_script": "~/pash/evaluation/benchmarks/oneliners/top-n.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 30810090
+  },
+  {
+   "published_set": "Classics",
+   "group": "oneliners",
+   "script": "wf",
+   "path": "~/koala/oneliners/scripts/wf.sh",
+   "published_script": "~/pash/evaluation/benchmarks/oneliners/wf.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 30810090
+  },
+  {
+   "published_set": "Classics",
+   "group": "oneliners",
+   "script": "spell",
+   "path": "~/koala/oneliners/scripts/spell.sh",
+   "published_script": "~/pash/evaluation/benchmarks/oneliners/spell.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": true,
+   "launches": 1,
+   "input_bytes": 30810090
+  },
+  {
+   "published_set": "Classics",
+   "group": "oneliners",
+   "script": "diff",
+   "path": "~/koala/oneliners/scripts/diff.sh",
+   "published_script": "~/pash/evaluation/benchmarks/oneliners/diff.sh",
+   "closeness": "same commands; input wiring or option spelling changed",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 30810090
+  },
+  {
+   "published_set": "Classics",
+   "group": "oneliners",
+   "script": "bi-grams",
+   "path": "~/koala/oneliners/scripts/bi-grams.sh",
+   "published_script": "~/pash/evaluation/benchmarks/oneliners/bi-grams.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 30810090
+  },
+  {
+   "published_set": "Classics",
+   "group": "oneliners",
+   "script": "set-diff",
+   "path": "~/koala/oneliners/scripts/set-diff.sh",
+   "published_script": "~/pash/evaluation/benchmarks/oneliners/set-diff.sh",
+   "closeness": "same commands; input wiring or option spelling changed",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 30810090
+  },
+  {
+   "published_set": "Classics",
+   "group": "oneliners",
+   "script": "sort-sort",
+   "path": "~/koala/oneliners/scripts/sort-sort.sh",
+   "published_script": "~/pash/evaluation/benchmarks/oneliners/sort-sort.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 30810090
+  },
+  {
+   "published_set": null,
+   "group": "oneliners",
+   "script": "uniq-ips",
+   "path": "~/koala/oneliners/scripts/uniq-ips.sh",
+   "published_script": null,
+   "closeness": "new in Koala (no published original)",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 7096110
+  },
+  {
+   "published_set": null,
+   "group": "oneliners",
+   "script": "comm",
+   "path": "~/koala/oneliners/scripts/comm.sh",
+   "published_script": null,
+   "closeness": "new in Koala (no published original)",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 11432645
+  },
+  {
+   "published_set": null,
+   "group": "oneliners",
+   "script": "opt-parallel",
+   "path": "~/koala/oneliners/scripts/opt-parallel.sh",
+   "published_script": null,
+   "closeness": "new in Koala (no published original)",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 112699617
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "1",
+   "path": "~/koala/unixfun/scripts/1.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/1.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31450500
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "2",
+   "path": "~/koala/unixfun/scripts/2.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/2.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31450500
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "3",
+   "path": "~/koala/unixfun/scripts/3.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/3.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31450500
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "4",
+   "path": "~/koala/unixfun/scripts/4.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/4.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31450500
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "5",
+   "path": "~/koala/unixfun/scripts/5.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/5.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31435500
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "6",
+   "path": "~/koala/unixfun/scripts/6.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/6.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31456920
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "7",
+   "path": "~/koala/unixfun/scripts/7.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/7.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31450200
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "8",
+   "path": "~/koala/unixfun/scripts/8.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/8.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31450200
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "9",
+   "path": "~/koala/unixfun/scripts/9.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/9.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31450200
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "10",
+   "path": "~/koala/unixfun/scripts/10.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/10.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31450200
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "11",
+   "path": "~/koala/unixfun/scripts/11.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/11.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31450200
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "12",
+   "path": "~/koala/unixfun/scripts/12.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/12.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31450200
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "13",
+   "path": "~/koala/unixfun/scripts/13.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/13.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31457250
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "14",
+   "path": "~/koala/unixfun/scripts/14.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/14.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31456590
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "15",
+   "path": "~/koala/unixfun/scripts/15.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/15.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31452780
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "16",
+   "path": "~/koala/unixfun/scripts/16.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/16.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31452780
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "17",
+   "path": "~/koala/unixfun/scripts/17.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/17.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31452780
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "18",
+   "path": "~/koala/unixfun/scripts/18.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/18.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 30451500
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "19",
+   "path": "~/koala/unixfun/scripts/19.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/19.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 30451500
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "20",
+   "path": "~/koala/unixfun/scripts/20.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/20.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 30451500
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "21",
+   "path": "~/koala/unixfun/scripts/21.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/21.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 30451500
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "23",
+   "path": "~/koala/unixfun/scripts/23.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/23.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31456080
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "24",
+   "path": "~/koala/unixfun/scripts/24.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/24.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31455600
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "25",
+   "path": "~/koala/unixfun/scripts/25.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/25.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31457160
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "26",
+   "path": "~/koala/unixfun/scripts/26.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/26.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31457250
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "28",
+   "path": "~/koala/unixfun/scripts/28.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/28.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31457280
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "29",
+   "path": "~/koala/unixfun/scripts/29.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/29.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31454130
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "30",
+   "path": "~/koala/unixfun/scripts/30.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/30.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31457250
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "31",
+   "path": "~/koala/unixfun/scripts/31.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/31.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31457250
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "32",
+   "path": "~/koala/unixfun/scripts/32.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/32.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31393080
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "33",
+   "path": "~/koala/unixfun/scripts/33.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/33.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31393080
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "34",
+   "path": "~/koala/unixfun/scripts/34.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/34.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31393080
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "35",
+   "path": "~/koala/unixfun/scripts/35.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/35.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31425810
+  },
+  {
+   "published_set": "Unix50",
+   "group": "unixfun",
+   "script": "36",
+   "path": "~/koala/unixfun/scripts/36.sh",
+   "published_script": "~/pash/evaluation/benchmarks/unix50/36.sh",
+   "closeness": "same",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 31425810
+  },
+  {
+   "published_set": "COVID-mts",
+   "group": "covid",
+   "script": "1",
+   "path": "~/koala/covid/scripts/1.sh",
+   "published_script": "~/pash/evaluation/benchmarks/analytics-mts/1.sh",
+   "closeness": "same commands; input wiring or option spelling changed",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 3589542298
+  },
+  {
+   "published_set": "COVID-mts",
+   "group": "covid",
+   "script": "2",
+   "path": "~/koala/covid/scripts/2.sh",
+   "published_script": "~/pash/evaluation/benchmarks/analytics-mts/2.sh",
+   "closeness": "same commands; input wiring or option spelling changed",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 3589542298
+  },
+  {
+   "published_set": "COVID-mts",
+   "group": "covid",
+   "script": "3",
+   "path": "~/koala/covid/scripts/3.sh",
+   "published_script": "~/pash/evaluation/benchmarks/analytics-mts/3.sh",
+   "closeness": "same commands; input wiring or option spelling changed",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 3589542298
+  },
+  {
+   "published_set": "COVID-mts",
+   "group": "covid",
+   "script": "4",
+   "path": "~/koala/covid/scripts/4.sh",
+   "published_script": "~/pash/evaluation/benchmarks/analytics-mts/4.sh",
+   "closeness": "same commands; input wiring or option spelling changed",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 3589542298
+  },
+  {
+   "published_set": "COVID-mts",
+   "group": "covid",
+   "script": "5",
+   "path": "~/koala/covid/scripts/5.sh",
+   "published_script": "~/pash/evaluation/benchmarks/analytics-mts/5.sh",
+   "closeness": "same commands; input wiring or option spelling changed",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 3589542298
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "syllable_words_1",
+   "path": "~/koala/nlp/scripts/syllable_words_1.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/6_4.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "syllable_words_2",
+   "path": "~/koala/nlp/scripts/syllable_words_2.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/6_5.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "letter_words",
+   "path": "~/koala/nlp/scripts/letter_words.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/6_2.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "bigrams_appear_twice",
+   "path": "~/koala/nlp/scripts/bigrams_appear_twice.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/8.2_2.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "bigrams",
+   "path": "~/koala/nlp/scripts/bigrams.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/4_3.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "compare_exodus_genesis",
+   "path": "~/koala/nlp/scripts/compare_exodus_genesis.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/8.3_3.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "count_consonant_seq",
+   "path": "~/koala/nlp/scripts/count_consonant_seq.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/7_2.sh",
+   "closeness": "same commands; input wiring or option spelling changed",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "count_morphs",
+   "path": "~/koala/nlp/scripts/count_morphs.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/7_1.sh",
+   "closeness": "same commands; input wiring or option spelling changed",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "count_trigrams",
+   "path": "~/koala/nlp/scripts/count_trigrams.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/4_3b.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "count_vowel_seq",
+   "path": "~/koala/nlp/scripts/count_vowel_seq.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/2_2.sh",
+   "closeness": "same commands; input wiring or option spelling changed",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "count_words",
+   "path": "~/koala/nlp/scripts/count_words.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/1_1.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "find_anagrams",
+   "path": "~/koala/nlp/scripts/find_anagrams.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/8.3_2.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "merge_upper",
+   "path": "~/koala/nlp/scripts/merge_upper.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/2_1.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "sort",
+   "path": "~/koala/nlp/scripts/sort.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/3_1.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "sort_words_by_folding",
+   "path": "~/koala/nlp/scripts/sort_words_by_folding.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/3_2.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "sort_words_by_num_of_syllables",
+   "path": "~/koala/nlp/scripts/sort_words_by_num_of_syllables.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/8_1.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "sort_words_by_rhyming",
+   "path": "~/koala/nlp/scripts/sort_words_by_rhyming.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/3_3.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "trigram_rec",
+   "path": "~/koala/nlp/scripts/trigram_rec.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/6_1.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "uppercase_by_token",
+   "path": "~/koala/nlp/scripts/uppercase_by_token.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/6_1_1.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "uppercase_by_type",
+   "path": "~/koala/nlp/scripts/uppercase_by_type.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/6_1_2.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "verses_2om_3om_2instances",
+   "path": "~/koala/nlp/scripts/verses_2om_3om_2instances.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/6_7.sh",
+   "closeness": "same commands; input wiring or option spelling changed",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "vowel_sequencies_gr_1K",
+   "path": "~/koala/nlp/scripts/vowel_sequencies_gr_1K.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/8.2_1.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "NLP",
+   "group": "nlp",
+   "script": "words_no_vowels",
+   "path": "~/koala/nlp/scripts/words_no_vowels.sh",
+   "published_script": "~/pash/evaluation/benchmarks/nlp/6_3.sh",
+   "closeness": "light edit: same pipeline with a stage added or swapped",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 1118570034
+  },
+  {
+   "published_set": "AvgTemp",
+   "group": "weather",
+   "script": "max-temp",
+   "path": "~/koala/weather/scripts/temp-analytics.sh",
+   "published_script": "~/pash/evaluation/benchmarks/max-temp/temp-analytics.sh",
+   "closeness": "same analysis; the download step (curl, gunzip) removed, input is a prepared file",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": null,
+   "group": "weather",
+   "script": "tuft-weather",
+   "path": "~/koala/weather/scripts/tuft-weather.sh",
+   "published_script": null,
+   "closeness": "new in Koala (no published original)",
+   "run": false,
+   "launches": 0,
+   "input_bytes": 936125600
+  },
+  {
+   "published_set": "WebIndex",
+   "group": "web-search",
+   "script": "web-index",
+   "path": "~/koala/web-search/scripts/engine.sh",
+   "published_script": "~/pash/evaluation/benchmarks/web-index/web-index.sh",
+   "closeness": "rewritten: a crawl-and-index loop with Node.js helpers instead of one pipeline",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": "FileEnc",
+   "group": "file-mod",
+   "script": "compress_files",
+   "path": "~/koala/file-mod/scripts/compress_files.sh",
+   "published_script": "~/pash/evaluation/benchmarks/dependency_untangling/compress_files.sh",
+   "closeness": "rewritten: gzip from standard input instead of zip on a file",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": "FileEnc",
+   "group": "file-mod",
+   "script": "encrypt_files",
+   "path": "~/koala/file-mod/scripts/encrypt_files.sh",
+   "published_script": "~/pash/evaluation/benchmarks/dependency_untangling/encrypt_files.sh",
+   "closeness": "same tool and settings; reads standard input instead of a named file",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": "MediaConv",
+   "group": "file-mod",
+   "script": "img_convert",
+   "path": "~/koala/file-mod/scripts/img_convert.sh",
+   "published_script": "~/pash/evaluation/benchmarks/dependency_untangling/img_convert.sh",
+   "closeness": "same tool and settings; reads standard input instead of a named file",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": "MediaConv",
+   "group": "file-mod",
+   "script": "to_mp3",
+   "path": "~/koala/file-mod/scripts/to_mp3.sh",
+   "published_script": "~/pash/evaluation/benchmarks/dependency_untangling/to_mp3.sh",
+   "closeness": "same tool and settings; reads standard input instead of a named file",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": null,
+   "group": "file-mod",
+   "script": "thumbnail_generation",
+   "path": "~/koala/file-mod/scripts/thumbnail_generation.sh",
+   "published_script": null,
+   "closeness": "new in Koala (no published original)",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": "AurPkg",
+   "group": "pkg",
+   "script": "pacaur",
+   "path": "~/koala/pkg/scripts/pacaur.sh",
+   "published_script": "~/pash/evaluation/benchmarks/dependency_untangling/pacaur.sh",
+   "closeness": "same idea (fetch build file, build with makedeb); fetch source moved to Koala server, adds key fetch",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": "ProgInf",
+   "group": "pkg",
+   "script": "proginf",
+   "path": "~/koala/pkg/scripts/proginf.sh",
+   "published_script": "~/pash/evaluation/benchmarks/dependency_untangling/proginf.sh",
+   "closeness": "same tool (mir-sa); package list now read from an index file",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": "LogAnalysis",
+   "group": "analytics",
+   "script": "nginx",
+   "path": "~/koala/analytics/scripts/nginx.sh",
+   "published_script": "~/pash/evaluation/benchmarks/dependency_untangling/nginx.sh",
+   "closeness": "same pipelines; log now read from standard input through a temporary file",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": "LogAnalysis",
+   "group": "analytics",
+   "script": "pcaps",
+   "path": "~/koala/analytics/scripts/pcaps.sh",
+   "published_script": "~/pash/evaluation/benchmarks/dependency_untangling/pcap.sh",
+   "closeness": "same pipelines plus one more tcpdump query; capture read from standard input",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": null,
+   "group": "analytics",
+   "script": "port-scan",
+   "path": "~/koala/analytics/scripts/port-scan.sh",
+   "published_script": null,
+   "closeness": "new in Koala (no published original)",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": null,
+   "group": "analytics",
+   "script": "ray-tracing",
+   "path": "~/koala/analytics/scripts/ray-tracing.sh",
+   "published_script": null,
+   "closeness": "new in Koala (no published original)",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": "Genomics",
+   "group": "bio",
+   "script": "bio",
+   "path": "~/koala/bio/scripts/bio.sh",
+   "published_script": "~/pash/evaluation/benchmarks/dependency_untangling/genomics.sh",
+   "closeness": "same samtools steps; restructured loop, system samtools instead of a bundled one",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": null,
+   "group": "bio",
+   "script": "data",
+   "path": "~/koala/bio/scripts/data.sh",
+   "published_script": null,
+   "closeness": "new in Koala (TERA-Seq reference preparation)",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": null,
+   "group": "bio",
+   "script": "run_dRNASeq",
+   "path": "~/koala/bio/scripts/run_dRNASeq.sh",
+   "published_script": null,
+   "closeness": "new in Koala (TERA-Seq)",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  },
+  {
+   "published_set": null,
+   "group": "bio",
+   "script": "run_5TERA",
+   "path": "~/koala/bio/scripts/run_5TERA.sh",
+   "published_script": null,
+   "closeness": "new in Koala (TERA-Seq)",
+   "run": false,
+   "launches": 0,
+   "input_bytes": null
+  }
+ ],
+ "A3": {
+  "distinct": {},
+  "per_execution": {}
+ },
+ "A3_parts_total": 1,
+ "A3_executions_total": {
+  "pash-own": 1,
+  "naive": 1,
+  "caruca-pash": 1,
+  "caruca-main": 1
+ },
+ "A4": [
+  {
+   "script": "oneliners/spell",
+   "position": 1,
+   "command": "cat",
+   "invocation": "cat ~/t024/shadow/oneliners/inputs/30M.txt",
+   "result": {
+    "pash-own": "whole",
+    "naive": "split",
+    "caruca-pash": "split",
+    "caruca-main": "split"
+   },
+   "why_not": {
+    "pash-own": "no answer"
+   },
+   "file_source": {
+    "pash-own": "pash-own",
+    "naive": "ours",
+    "caruca-pash": "ours",
+    "caruca-main": "ours"
+   },
+   "output_same_as_bash": {
+    "pash-own": true,
+    "naive": true,
+    "caruca-pash": true,
+    "caruca-main": true
+   }
+  },
+  {
+   "script": "oneliners/spell",
+   "position": 2,
+   "command": "sed",
+   "invocation": "sed '\"s/[^[:print:]]//g\"'",
+   "result": {
+    "pash-own": "split",
+    "naive": "whole",
+    "caruca-pash": "split",
+    "caruca-main": "split"
+   },
+   "why_not": {
+    "naive": "file says no split"
+   },
+   "file_source": {
+    "pash-own": "pash-own",
+    "naive": "ours",
+    "caruca-pash": "pash-own",
+    "caruca-main": "pash-own"
+   },
+   "output_same_as_bash": {
+    "pash-own": true,
+    "naive": true,
+    "caruca-pash": true,
+    "caruca-main": true
+   }
+  },
+  {
+   "script": "oneliners/spell",
+   "position": 3,
+   "command": "col",
+   "invocation": "col -bx",
+   "result": {
+    "pash-own": "split",
+    "naive": "whole",
+    "caruca-pash": "split",
+    "caruca-main": "split"
+   },
+   "why_not": {
+    "naive": "file says no split"
+   },
+   "file_source": {
+    "pash-own": "pash-own",
+    "naive": "ours",
+    "caruca-pash": "pash-own",
+    "caruca-main": "pash-own"
+   },
+   "output_same_as_bash": {
+    "pash-own": true,
+    "naive": true,
+    "caruca-pash": true,
+    "caruca-main": true
+   }
+  },
+  {
+   "script": "oneliners/spell",
+   "position": 7,
+   "command": "sort",
+   "invocation": "sort",
+   "result": {
+    "pash-own": "split",
+    "naive": "split",
+    "caruca-pash": "whole",
+    "caruca-main": "whole"
+   },
+   "why_not": {
+    "caruca-pash": "file says no split",
+    "caruca-main": "file says no split"
+   },
+   "file_source": {
+    "pash-own": "pash-own",
+    "naive": "ours",
+    "caruca-pash": "ours",
+    "caruca-main": "ours"
+   },
+   "output_same_as_bash": {
+    "pash-own": true,
+    "naive": true,
+    "caruca-pash": true,
+    "caruca-main": true
+   }
+  }
+ ],
+ "A4_answers": [
+  {
+   "source": "naive",
+   "command": "cat",
+   "invocation": "cat ~/t024/shadow/oneliners/inputs/30M.txt",
+   "same_io": true,
+   "source_answer": "allows a split",
+   "pash_own_answer": "no answer"
+  },
+  {
+   "source": "naive",
+   "command": "col",
+   "invocation": "col -bx",
+   "same_io": true,
+   "source_answer": "says no split",
+   "pash_own_answer": "allows a split"
+  },
+  {
+   "source": "naive",
+   "command": "comm",
+   "invocation": "comm -23 - ~/t024/shadow/oneliners/inputs/dict.txt",
+   "same_io": true,
+   "source_answer": "says no split",
+   "pash_own_answer": "no answer"
+  },
+  {
+   "source": "naive",
+   "command": "sed",
+   "invocation": "sed '\"s/[^[:print:]]//g\"'",
+   "same_io": true,
+   "source_answer": "says no split",
+   "pash_own_answer": "allows a split"
+  },
+  {
+   "source": "naive",
+   "command": "sort",
+   "invocation": "sort",
+   "same_io": true,
+   "source_answer": "allows a split",
+   "pash_own_answer": "allows a split"
+  },
+  {
+   "source": "naive",
+   "command": "uniq",
+   "invocation": "uniq",
+   "same_io": true,
+   "source_answer": "allows only a split PaSh has not implemented",
+   "pash_own_answer": "allows only a split PaSh has not implemented"
+  },
+  {
+   "source": "caruca-pash",
+   "command": "cat",
+   "invocation": "cat ~/t024/shadow/oneliners/inputs/30M.txt",
+   "same_io": true,
+   "source_answer": "allows a split",
+   "pash_own_answer": "no answer"
+  },
+  {
+   "source": "caruca-pash",
+   "command": "sort",
+   "invocation": "sort",
+   "same_io": true,
+   "source_answer": "says no split",
+   "pash_own_answer": "allows a split"
+  },
+  {
+   "source": "caruca-main",
+   "command": "cat",
+   "invocation": "cat ~/t024/shadow/oneliners/inputs/30M.txt",
+   "same_io": true,
+   "source_answer": "allows a split",
+   "pash_own_answer": "no answer"
+  },
+  {
+   "source": "caruca-main",
+   "command": "sort",
+   "invocation": "sort",
+   "same_io": true,
+   "source_answer": "says no split",
+   "pash_own_answer": "allows a split"
+  }
+ ],
+ "A5": [
+  {
+   "script": "oneliners/spell",
+   "bash": {
+    "median": 1.062,
+    "min": 1.041,
+    "max": 1.079,
+    "n": 3
+   },
+   "pash-own": {
+    "median": 0.636,
+    "min": 0.614,
+    "max": 0.665,
+    "n": 3
+   },
+   "naive": {
+    "median": 0.926,
+    "min": 0.894,
+    "max": 0.963,
+    "n": 3
+   },
+   "caruca-pash": {
+    "median": 1.105,
+    "min": 1.098,
+    "max": 1.113,
+    "n": 3
+   },
+   "caruca-main": {
+    "median": 1.09,
+    "min": 1.073,
+    "max": 1.096,
+    "n": 3
+   },
+   "pash-own-copy": {
+    "median": 0.637,
+    "min": 0.627,
+    "max": 0.673,
+    "n": 3
+   }
+  }
+ ],
+ "A6_controls": [
+  {
+   "phase": "start",
+   "set": "naive",
+   "label": "Naive LLM's files",
+   "split_commands": [
+    "cat",
+    "sort",
+    "tr"
+   ],
+   "output_same_as_bash": true
+  },
+  {
+   "phase": "start",
+   "set": "naive-no-sort",
+   "label": "Control: naive LLM's files, sort's files removed",
+   "split_commands": [],
+   "output_same_as_bash": true
+  },
+  {
+   "phase": "start",
+   "set": "naive-col-pash-own",
+   "label": "Control: naive LLM's files, PaSh's own col files",
+   "split_commands": [
+    "cat",
+    "col",
+    "sort",
+    "tr"
+   ],
+   "output_same_as_bash": true
+  },
+  {
+   "phase": "start",
+   "set": "naive-cat-pash-own",
+   "label": "Control: naive LLM's files, PaSh's own cat files",
+   "split_commands": [
+    "sort",
+    "tr"
+   ],
+   "output_same_as_bash": true
+  },
+  {
+   "phase": "start",
+   "set": "naive-sed-pash-own",
+   "label": "Control: naive LLM's files, PaSh's own sed files",
+   "split_commands": [
+    "cat",
+    "sed",
+    "sort",
+    "tr"
+   ],
+   "output_same_as_bash": true
+  },
+  {
+   "phase": "end",
+   "set": "naive",
+   "label": "Naive LLM's files",
+   "split_commands": [
+    "cat",
+    "sort",
+    "tr"
+   ],
+   "output_same_as_bash": true
+  },
+  {
+   "phase": "end",
+   "set": "naive-no-sort",
+   "label": "Control: naive LLM's files, sort's files removed",
+   "split_commands": [],
+   "output_same_as_bash": true
+  },
+  {
+   "phase": "end",
+   "set": "naive-col-pash-own",
+   "label": "Control: naive LLM's files, PaSh's own col files",
+   "split_commands": [
+    "cat",
+    "col",
+    "sort",
+    "tr"
+   ],
+   "output_same_as_bash": true
+  },
+  {
+   "phase": "end",
+   "set": "naive-cat-pash-own",
+   "label": "Control: naive LLM's files, PaSh's own cat files",
+   "split_commands": [
+    "sort",
+    "tr"
+   ],
+   "output_same_as_bash": true
+  },
+  {
+   "phase": "end",
+   "set": "naive-sed-pash-own",
+   "label": "Control: naive LLM's files, PaSh's own sed files",
+   "split_commands": [
+    "cat",
+    "sed",
+    "sort",
+    "tr"
+   ],
+   "output_same_as_bash": true
+  }
+ ],
+ "A6_windows": [
+  {
+   "what": "controls.jsonl",
+   "phase": "start",
+   "id": "oneliners/spell",
+   "start": "2026-11-24 11:43:20 -0500",
+   "end": "2026-11-24 11:43:32 -0500",
+   "load_start": "0.31, 1.18, 0.89",
+   "load_end": "1.06, 1.31, 0.94",
+   "koala_changed": false,
+   "power_check": "awake, on mains power"
+  },
+  {
+   "what": "results.jsonl",
+   "phase": "main",
+   "id": "oneliners/spell",
+   "start": "2026-11-24 11:43:32 -0500",
+   "end": "2026-11-24 11:44:05 -0500",
+   "load_start": "1.06, 1.31, 0.94",
+   "load_end": "3.09, 1.72, 1.09",
+   "koala_changed": false,
+   "power_check": "awake, on mains power"
+  },
+  {
+   "what": "controls.jsonl",
+   "phase": "end",
+   "id": "oneliners/spell",
+   "start": "2026-11-24 11:44:06 -0500",
+   "end": "2026-11-24 11:44:19 -0500",
+   "load_start": "3.09, 1.72, 1.09",
+   "load_end": "3.23, 1.82, 1.13",
+   "koala_changed": false,
+   "power_check": "awake, on mains power"
+  }
+ ],
+ "checks": [
+  {
+   "check": "bash's own output is identical across all its runs",
+   "passed": true,
+   "detail": "1 of 1 scripts; varying: none"
+  },
+  {
+   "check": "the distinct parts are the same for every source (same texts, same count)",
+   "passed": true,
+   "detail": "PaSh's own files: 1; Naive LLM's files: 1; Caruca's files, PaSh grammar: 1; Caruca's files, main grammar: 1"
+  },
+  {
+   "check": "each script sends the same sequence of part texts to PaSh under every source (repeat 1)",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "check": "the part count in results.jsonl equals the parts listed in regions.jsonl",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "check": "the command uses are the same for every source (same part, same position)",
+   "passed": true,
+   "detail": "PaSh's own files: 9; Naive LLM's files: 9; Caruca's files, PaSh grammar: 9; Caruca's files, main grammar: 9"
+  },
+  {
+   "check": "a use that appears in more than one launch of a script has the same result in each",
+   "passed": true,
+   "detail": "0 differ"
+  },
+  {
+   "check": "the commands split per use match the commands split per script in results.jsonl",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "check": "PaSh split a use exactly when its files allowed a split PaSh can carry out",
+   "passed": true,
+   "detail": "0 uses where the answer and PaSh differ"
+  },
+  {
+   "check": "every instrumented repeat split the same uses as repeat 1",
+   "passed": true,
+   "detail": "36 uses x sources, up to 3 repeats each; 0 vary"
+  },
+  {
+   "check": "Naive LLM's files: a command line gets the same answer in every script that uses it",
+   "passed": true,
+   "detail": "0 lines differ"
+  },
+  {
+   "check": "Caruca's files, PaSh grammar: a command line gets the same answer in every script that uses it",
+   "passed": true,
+   "detail": "0 lines differ"
+  },
+  {
+   "check": "Caruca's files, main grammar: a command line gets the same answer in every script that uses it",
+   "passed": true,
+   "detail": "0 lines differ"
+  },
+  {
+   "check": "every script run is in the inventory",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "check": "the commands the inventory lists equal the commands seen starting, per script",
+   "passed": true,
+   "detail": "listed, not seen: []; seen, not listed: []"
+  },
+  {
+   "check": "the folder-decides controls were run at the start and the end",
+   "passed": true,
+   "detail": "phases found: ['end', 'start']; sets: 6"
+  },
+  {
+   "check": "Koala's checkout did not change during any run window",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "check": "the Mac was awake and on mains power in every run window",
+   "passed": true,
+   "detail": "3 of 3 windows; from timing_check_pilot.jsonl"
+  }
+ ],
+ "invalid_windows": []
+}

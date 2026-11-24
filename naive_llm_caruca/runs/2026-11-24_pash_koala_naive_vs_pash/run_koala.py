@@ -58,6 +58,8 @@ PASH_SRC = Path.home() / "pash"
 KOALA = Path.home() / "koala"
 SHADOW = ROOT / "shadow"
 SHIM = ROOT / "shim"
+SHIM_LOOKUP = ":".join(["/usr/local/legacy-bin", "/usr/local/bin", "/usr/bin", "/bin",
+                        str(Path.home() / "koala/.tools/nodejs18/bin")])
 WIDTH = 8
 TIMEOUT = 1800
 GEN = "annotation_generation/annotation_generators"
@@ -66,7 +68,7 @@ GROUPS = {"oneliners": "--small", "unixfun": "--small", "covid": "--small", "nlp
           "weather": "--small", "web-search": "--min"}
 # Tiran, 2026-11-24: also analytics (without port-scan), file-mod, bio.sh at min, the two pkg scripts once
 # at min. Discovered by default only once the inputs worker has written orchestration/inputs_setup.md.
-EXTRA_GROUPS = {"analytics": "--small", "file-mod": "--small", "bio": "--min", "pkg": "--min"}
+EXTRA_GROUPS = {"analytics": "--small", "file-mod": "--small", "bio": "--min"}  # pkg skipped (Tiran)
 KEEP_ONLY = {"bio": {"bio"}}
 LEAVE_OUT = {"analytics": {"port-scan"}}
 ONCE = {"pkg"}  # one timed repeat
@@ -102,6 +104,12 @@ def naive_runs():
     return {r["command"]: {"source": "naive LLM, " + r["run_folder"].split("/")[-1],
                            "run_folder": r["run_folder"], "dir": REPO / r["run_folder"] / "output/annotation"}
             for r in jl(LEDGER) if r["repeat"] == 1}
+
+
+def naive_repeat(cmd, repeat):
+    r = next(r for r in jl(LEDGER) if r["command"] == cmd and r["repeat"] == repeat)
+    return {"source": "naive LLM, " + r["run_folder"].split("/")[-1], "run_folder": r["run_folder"],
+            "dir": REPO / r["run_folder"] / "output/annotation"}
 
 
 def caruca_files(main):
@@ -182,6 +190,8 @@ def sets_wanted():
         "pash-own": {},
         "pash-own-copy": {},  # timing control: a second, byte-identical copy of PaSh's own files
         "naive": {"replace": nv},
+        # the naive set with sed's files from the campaign's second sed run (orchestrator, 2026-11-24)
+        "naive-sed2": {"replace": nv | {"sed": naive_repeat("sed", 2)}},
         "caruca-pash": {"replace": caruca_files(main=False)},
         "caruca-main": {"replace": caruca_files(main=True)},
         # controls: the folder must decide what splits
@@ -192,11 +202,12 @@ def sets_wanted():
     }
 
 
-MAIN_SETS = ["bash", "pash-own", "naive", "caruca-pash", "caruca-main", "pash-own-copy"]
+MAIN_SETS = ["bash", "pash-own", "naive", "naive-sed2", "caruca-pash", "caruca-main", "pash-own-copy"]
 TIMING_ONLY_SETS = {"pash-own-copy"}
 DISPLAY_NAMES = {"bash": "Plain bash", "pash-own": "PaSh's own files", "naive": "Naive LLM's files",
                  "caruca-pash": "Caruca's files, PaSh grammar", "caruca-main": "Caruca's files, main grammar",
                  "pash-own-copy": "PaSh's own files, second copy",
+                 "naive-sed2": "Naive LLM, sed file v2",
                  "naive-no-sort": "Control: naive LLM's files, sort's files removed",
                  "naive-col-pash-own": "Control: naive LLM's files, PaSh's own col files",
                  "naive-cat-pash-own": "Control: naive LLM's files, PaSh's own cat files",
@@ -219,14 +230,19 @@ def make_shim(names):
     SHIM.mkdir(parents=True)
     real = {}
     for c in sorted(names):
-        r = shutil.which(c, path="/usr/local/bin:/usr/bin:/bin")
-        if not r:
+        r = shutil.which(c, path=SHIM_LOOKUP)
+        if not r:  # no stand-in for a program that is not installed: a script's own test for it must fail
             continue
         real[c] = r
+        # the stand-in hands over to the next program of that name on the search path, so a group's own
+        # builds (file-mod's /usr/local/legacy-bin) are used exactly as without it
         (SHIM / c).write_text(
             "#!/bin/bash\n"
             "if [ -n \"$STANDIN_LOG\" ]; then _a=; [ $# -gt 0 ] && printf -v _a '\\x1f%s' \"$@\"; "
             f"printf '%s%s\\x1e' {c} \"$_a\" >> \"$STANDIN_LOG\"; fi\n"
+            "IFS=:\n"
+            f"for _d in $PATH; do [ \"$_d\" = \"{SHIM}\" ] && continue; "
+            f"[ -f \"$_d/{c}\" ] && [ -x \"$_d/{c}\" ] && exec \"$_d/{c}\" \"$@\"; done\n"
             f"exec {r} \"$@\"\n")
         (SHIM / c).chmod(0o755)
     return real
@@ -403,6 +419,12 @@ def cmd_discover(args):
     with open(path, "w") as f:
         for r in keep:
             f.write(json.dumps(r, sort_keys=True) + "\n")
+
+
+def script_path(inv):
+    """The script file; a launcher may give it relative to the folder it runs from (unixfun: ./scripts/N.sh)."""
+    p = Path(inv["argv"][0])
+    return p if p.is_absolute() else Path(inv["cwd"]) / p
 
 
 def invocation(sid):
@@ -602,9 +624,113 @@ for f, vs in req["irs"].items():
 print(json.dumps({"regions": regions, "keys": {json.dumps(a): key(a) for a in req["argvs"]}}))
 '''
 
+PASH_PATH_HELPER = r'''
+# Runs with PaSh's own Python, on the region and variables file PaSh kept (debug level 2). Replays PaSh's
+# own steps: read the variables file, expand the region with PaSh's expansion code, turn each command into
+# PaSh's command object with PaSh's parse_arg_list_to_command_invocation, and ask the set's two generators
+# with that object. Words therefore reach the files exactly as inside PaSh (a quoted word keeps its
+# quotes). Unlike PaSh, exceptions are recorded, not swallowed.
+import sys, os, json, pickle, importlib
+top, setroot = os.environ["PASH_TOP"], os.environ["SET_ROOT"]
+sys.path[:0] = [setroot, top + "/compiler", top]
+import config
+from sh_expand import env_vars_util
+from sh_expand.expand import expand_command, ExpansionState
+from annotations_utils.util_parsing import parse_arg_list_to_command_invocation, format_arg_chars
+from pash_annotations.datatypes.BasicDatatypes import Option, WhichClassForArg
+import pash_annotations.annotation_generation.AnnotationGeneration as AG
+GEN = "pash_annotations.annotation_generation.annotation_generators."
+bash_version = tuple(int(x) for x in os.environ.get("PASH_BASH_VERSION", "5 2 21").split())
+def kind_of(t):
+    which, acc = t
+    if which == WhichClassForArg.FILESTD:
+        return acc.kind.name if acc is not None else "FILESTD?"
+    return which.name
+def recipe(p):
+    out = {"split": p.get_splitter().kind.name}
+    try:
+        out["implemented"] = bool(p.are_all_parts_implemented())  # PaSh only uses recipes that pass this
+    except Exception:
+        out["implemented"] = None
+    for k, f in (("aggregate", lambda: p.get_aggregator_spec().get_kind().name),
+                 ("map", lambda: p.get_mapper_spec().kind.name)):
+        try:
+            out[k] = f()
+        except Exception:
+            out[k] = "?"
+    return out
+def ask(kind, cmd_inv):
+    rep = AG.DICT_CMD_NAME_TO_REPRESENTATION_IN_MODULE_NAMES.get(cmd_inv.cmd_name)
+    if rep is None:
+        return "not in name table", None, None
+    try:
+        klass = getattr(importlib.import_module(GEN + kind + rep), kind + rep)
+    except ModuleNotFoundError:
+        return "no class", None, None
+    except Exception as e:
+        return "exception", None, "import: " + type(e).__name__ + ": " + str(e)[:300]
+    try:
+        g = klass(cmd_inv); g.generate_info(); info = g.get_info()
+    except Exception as e:
+        return "exception", None, type(e).__name__ + ": " + str(e)[:300]
+    return ("no answer", None, None) if info is None else ("answered", info, None)
+def commands(o, acc, depth=0):
+    if depth > 400:
+        return
+    if type(o).__name__ == "CommandNode" and o.arguments:
+        acc.append(o)
+    if isinstance(o, (list, tuple)):
+        for x in o:
+            commands(x, acc, depth + 1)
+    elif hasattr(o, "__dict__"):
+        for v in vars(o).values():
+            commands(v, acc, depth + 1)
+req = json.load(sys.stdin)
+out = {}
+for f, var_file in req.items():
+    res = {"uses": []}
+    try:
+        variables = env_vars_util.read_vars_file(var_file, bash_version) if var_file else {}
+        region = pickle.load(open(f, "rb"))
+        region = region if isinstance(region, list) else [region]
+        nodes = []
+        for ast in region:
+            try:
+                commands(expand_command(ast, ExpansionState(variables)), nodes)
+            except Exception as e:
+                res.setdefault("expansion_errors", []).append(type(e).__name__ + ": " + str(e)[:300])
+                commands(ast, nodes)
+        for n in nodes:
+            u = {"words": [format_arg_chars(a) for a in n.arguments]}
+            try:
+                ci = parse_arg_list_to_command_invocation(n.arguments[0], n.arguments[1:])
+            except Exception as e:
+                u["parse_error"] = type(e).__name__ + ": " + str(e)[:300]
+                res["uses"].append(u)
+                continue
+            u["flagoptions"] = [[fo.get_name(), format_arg_chars(fo.get_arg().arg_char_list) if isinstance(fo, Option) and hasattr(fo.get_arg(), "arg_char_list") else (str(fo.get_arg()) if isinstance(fo, Option) else None)] for fo in ci.flag_option_list]
+            u["operands"] = [str(o.get_name()) for o in ci.operand_list]
+            io_o, io, io_e = ask("InputOutputInfoGenerator", ci)
+            par_o, par, par_e = ask("ParallelizabilityInfoGenerator", ci)
+            u["io_outcome"], u["io_exception"] = io_o, io_e
+            if io is not None:
+                u["io"] = {"flagoptions": [kind_of(t) for t in io.flagoption_list_typer],
+                           "operands": [kind_of(t) for t in io.operand_list_typer],
+                           "stdin": io.implicit_use_of_streaming_input is not None,
+                           "stdout": io.implicit_use_of_streaming_output is not None}
+            u["par_outcome"], u["par_exception"] = par_o, par_e
+            u["par"] = [recipe(p) for p in par.parallelizer_list] if par is not None else []
+            res["uses"].append(u)
+    except Exception as e:
+        res["error"] = type(e).__name__ + ": " + str(e)[:300]
+    out[f] = res
+print(json.dumps(out))
+'''
+
+
 CRASH = re.compile(r"\b(NameError|AttributeError|KeyError|TypeError|AssertionError|IndexError|ValueError|"
                    r"UnboundLocalError|ImportError|ModuleNotFoundError|RecursionError|Traceback)\b")
-COMPILE = re.compile(r"Received data: Compile:(\S+?)\| Variable File:\S+?\| Input IR File:(\S+)")
+COMPILE = re.compile(r"Received data: Compile:(\S+?)\| Variable File:(\S+?)\| Input IR File:(\S+)")
 EXPANSION = re.compile(r"^Expansion: Var: (\S+) value: (.*)$", re.M)
 RUNTIME_TOOL = re.compile(r"/runtime/(r_split|r_merge|r_unwrap|dgsh-tee|wait_for_output_and_sigpipe_rest|"
                           r"auto-split|split|eager)\b")
@@ -626,19 +752,41 @@ def file_answer_of(a):
         return "no files"
     if a.get("exception"):
         return "raised"
-    if a["parallelizability_outcome"] == "no class" and a["io_outcome"] == "no class":
+    if a["parallelizability_outcome"] in ("no class", "not in name table") and \
+            a["io_outcome"] in ("no class", "not in name table"):
         return "no files"
     if a["parallelizability_outcome"] != "answered":
         return "no answer"
-    return "allows a split" if a["allows_split"] else "says no split"
+    if not a["allows_split"]:
+        return "says no split"
+    if not any(x.get("implemented", True) for x in a["split_recipes"]):
+        return "allows only a split PaSh has not implemented"
+    return "allows a split"
+
+
+def pash_answer(u):
+    """An answer row (answers.jsonl shape) from one use replayed through PaSh's own parsing."""
+    if u.get("parse_error"):
+        return {"io_outcome": "parse failed", "parallelizability_outcome": "parse failed", "allows_split": False,
+                "split_recipes": [], "exception": u["parse_error"], "io": None}
+    par = u.get("par") or []
+    return {"io_outcome": u.get("io_outcome"), "parallelizability_outcome": u.get("par_outcome"),
+            "allows_split": u.get("par_outcome") == "answered" and bool(par), "split_recipes": par,
+            "exception": u.get("io_exception") or u.get("par_exception"), "io": u.get("io"),
+            "words": u.get("words"), "flagoptions": u.get("flagoptions"), "operands": u.get("operands")}
+
+
+def answers_path(sid):
+    """One answers file per script (answers/<group>_<script>.jsonl): loops make some scripts' files large."""
+    return OUT / "answers" / (sid.replace("/", "_") + ".jsonl")
 
 
 def load_answers(sid):
-    """{(set, line): answer row} and {(set, command): [rows]} from answers.jsonl."""
+    """{(set, line): answer row} and {(set, command): [rows]} from the script's answers file."""
     by_line, by_cmd = {}, {}
-    path = OUT / "answers.jsonl"
+    path = answers_path(sid)
     for r in (jl(path) if path.exists() else []):
-        if r["id"] == sid:
+        if r["id"] == sid and r.get("method") == "direct, quotes removed":
             by_line[(r["set"], r["line"])] = r
             by_cmd.setdefault((r["set"], r["command"]), []).append(r)
     return by_line, by_cmd
@@ -703,37 +851,56 @@ def regions_of(log, sname, used, answers, more):
     Returns (regions, uses, PaSh's temporary folder)."""
     by_line, by_cmd = answers
     if not log.exists():
-        return [], [], None
+        return [], [], None, Counter()
     raw = log.read_text(errors="replace")
     ms = list(COMPILE.finditer(raw))
     prefix = None
     if ms:
         m0 = re.match(r"(/tmp/pash_\w+)/", ms[0].group(1))
         prefix = m0.group(1) if m0 else None
-    segs, irs, bodies = [], {}, []
+    segs, irs, bodies, var_files = [], {}, [], {}
     for i, m in enumerate(ms):
         seg = raw[m.end(): ms[i + 1].start() if i + 1 < len(ms) else len(raw)]
         segs.append(seg)
-        irs.setdefault(m.group(2).strip(), {}).update(dict(EXPANSION.findall(seg)))
+        irs.setdefault(m.group(3).strip(), {}).update(dict(EXPANSION.findall(seg)))
+        var_files[m.group(3).strip()] = m.group(2).strip()
         body = ""
         if "Optimized script saved in" in seg:
             target = Path(m.group(1).replace("//", "/"))
             body = target.read_text(errors="replace") if target.exists() else ""
         bodies.append(worker_argvs(body) if body else None)
     helper = {"regions": {}, "keys": {}}
+    pash_path, pash_path_error = {}, None
     if irs:
         env = dict(os.environ, PASH_TOP=str(PASH_SRC / "src/pash"), SET_ROOT=str(ROOT / "sets" / sname))
-        req = {"irs": irs, "argvs": [w["argv"] for b in bodies if b for w in b]}
+        req = {"irs": irs, "argvs": [json.loads(x) for x in sorted({json.dumps(w["argv"]) for b in bodies if b for w in b})]}
         p = subprocess.run([str(PASH.parent / "python3"), "-c", REGION_HELPER], input=json.dumps(req),
                            capture_output=True, text=True, env=env)
         if p.stdout.strip():
             helper = json.loads(p.stdout)
+        # the same parts replayed through PaSh's own expansion and parsing: what the files really get
+        env["PASH_TMP_PREFIX"] = (prefix or "/tmp") + "/"
+        # (once per distinct part text: a loop sends the same part many times)
+        rep_of, first = {}, {}
+        for f in irs:
+            txt = (helper["regions"].get(f) or {}).get("text")
+            rep_of[f] = first.setdefault(txt, f) if txt is not None else f
+        q = subprocess.run([str(PASH.parent / "python3"), "-c", PASH_PATH_HELPER],
+                           input=json.dumps({f: var_files[f] for f in set(rep_of.values())}),
+                           capture_output=True, text=True, env=env)
+        got = json.loads(q.stdout) if q.stdout.strip() else {}
+        pash_path = {f: got[r] for f, r in rep_of.items() if r in got}
+        if not q.stdout.strip():
+            pash_path_error = q.stderr.strip()[-300:]
     regions, uses_out = [], []
     for i, (m, seg) in enumerate(zip(ms, segs)):
-        ri = helper["regions"].get(m.group(2).strip(), {})
+        ri = helper["regions"].get(m.group(3).strip(), {})
+        pp = pash_path.get(m.group(3).strip(), {})
+        pp_uses = pp.get("uses") or []
         text = ri.get("text") or ""
         sha = hashlib.sha256(text.encode()).hexdigest()[:16]
         uses = ri.get("uses") or []
+        pp_ok = len(pp_uses) == len(uses)
         workers = bodies[i]
         wkeys = Counter(helper["keys"].get(json.dumps(w["argv"])) for w in (workers or []))
         ukeys = Counter(u["key"] for u in uses)
@@ -750,7 +917,14 @@ def regions_of(log, sname, used, answers, more):
             if a is None and c:
                 a = ask_files(sname, argv)
             src = source_kind(used, c)
-            fa = file_answer_of(a) if src != "none" else "no files"
+            direct = file_answer_of(a) if src != "none" else "no files"
+            ppu = pp_uses[pos - 1] if pp_ok else None
+            if ppu is not None:
+                pa = pash_answer(ppu)
+                fa = file_answer_of(pa) if src != "none" else "no files"
+                pash_words = ppu.get("words")
+            else:
+                pa, fa, pash_words = a, direct, None
             if workers is None:
                 copies, attributed = None, None
             else:
@@ -765,21 +939,30 @@ def regions_of(log, sname, used, answers, more):
                 why = "part not run in parallel"
             elif fa == "allows a split":
                 why = OTHER_ALLOWED_NOT_SPLIT
+            elif fa == "allows only a split PaSh has not implemented":
+                why = "file allows only a split PaSh has not implemented"
             else:
                 why = {"says no split": "file says no split", "no answer": "no answer", "raised": "raised",
                        "no files": "no files"}[fa]
             rows.append({"region": i + 1, "region_text_sha": sha, "position": pos, "command": c,
-                         "invocation": home(line), "line": line, "exact_words": u["exact"], "answer_ref": ref,
+                         "invocation": home(shlex.join(pash_words)) if pash_words else home(line),
+                         "invocation_as": "as PaSh passes it" if pash_words else "rebuilt, quotes removed",
+                         "line": line, "exact_words": u["exact"], "answer_ref": ref,
                          "source": src, "source_detail": used.get(c, "none"), "file_answer": fa,
-                         "exception": (a or {}).get("exception"),
-                         "recipes": [x["split"] + ">" + x["aggregate"] for x in (a or {}).get("split_recipes") or []],
+                         "answer_method": "as PaSh passes them" if ppu is not None else "direct, quotes removed",
+                         "direct_file_answer": direct, "direct_differs": direct != fa,
+                         "pash_answer": pa if ppu is not None else None,
+                         "exception": (pa or {}).get("exception"),
+                         "recipes": [x["split"] + ">" + x["aggregate"] + ("" if x.get("implemented", True) else " (not implemented)")
+                                     for x in (pa or {}).get("split_recipes") or []],
                          "copies": copies, "copies_attributed": attributed, "split": split, "why_not_split": why,
                          "outside_pash": False})
         split_cmds = sorted({r["command"] for r in rows if r["split"]})
         if text == "" and ri.get("error") is not None:
             outcome, reason = "other", f"{OTHER_UNREADABLE}: {ri['error']}"
         elif region_parallel:
-            refused = sorted({r["command"] for r in rows if r["file_answer"] == "says no split"})
+            refused = sorted({r["command"] for r in rows
+                              if r["file_answer"] in ("says no split", "allows only a split PaSh has not implemented")})
             if split_cmds:
                 outcome = "parallelized"
             elif any(r["why_not_split"] == OTHER_ALLOWED_NOT_SPLIT for r in rows):
@@ -808,6 +991,9 @@ def regions_of(log, sname, used, answers, more):
             outcome = "other"
             reason = f"{OTHER_UNKNOWN}: " + (reason or seg.strip()[:300])
         regions.append({"region": i + 1, "text_sha": sha, "text": text[:600],
+                        "pash_path": "replayed" if pp_ok else (pp.get("error") or pash_path_error or
+                                                                 f"use count differs ({len(pp_uses)} vs {len(uses)})"),
+                        "expansion_errors": pp.get("expansion_errors"),
                         "commands": [{"command": r["command"], "position": r["position"], "source": r["source"],
                                       "source_detail": r["source_detail"], "file_answer": r["file_answer"],
                                       "recipes": r["recipes"], "exception": r["exception"]} for r in rows],
@@ -815,19 +1001,40 @@ def regions_of(log, sname, used, answers, more):
                         "worker_lines": None if workers is None else
                         sorted(Counter(home(shlex.join(w["argv"])) for w in workers).items())})
         uses_out.extend(rows)
-    return regions, uses_out, prefix
+    # one record per distinct part text, outcome and split commands, with how many executions it stands for
+    seen, keep = {}, set()
+    for r in regions:
+        k = (r["text_sha"], r["outcome"], tuple(r["split_commands"]))
+        if k in seen:
+            seen[k]["executions"] += 1
+        else:
+            seen[k] = r
+            r["executions"] = 1
+            keep.add(r["region"])
+    for r in regions:
+        r["emit"] = r["region"] in keep
+    all_lines = Counter(u["line"] for u in uses_out)
+    uses_out = [u for u in uses_out if u["region"] in keep]
+    for u in uses_out:
+        u["executions"] = next(r["executions"] for r in regions if r["region"] == u["region"])
+    return regions, uses_out, prefix, all_lines
 
 
-def outside_uses(bash_calls, uses, sname, used, answers):
-    """Uses started under bash that are in no part sent to PaSh (matched by full command line)."""
+def outside_uses(bash_calls, all_lines, sname, used, answers):
+    """Uses started under bash that are in no part sent to PaSh (matched by full command line, against every
+    execution of every part). One row per distinct command line, with how many starts it stands for."""
     by_line, _ = answers
-    left = Counter(u["line"] for u in uses)
-    out = []
+    left = Counter(all_lines)
+    outside = Counter()
     for argv in bash_calls:
         line = shlex.join(argv)
         if left[line] > 0:
             left[line] -= 1
             continue
+        outside[line] += 1
+    out = []
+    for line, n in outside.items():
+        argv = shlex.split(line)
         a = by_line.get((sname, line))
         src = source_kind(used, argv[0])
         out.append({"region": None, "region_text_sha": None, "position": None, "command": argv[0],
@@ -837,7 +1044,7 @@ def outside_uses(bash_calls, uses, sname, used, answers):
                     "file_answer": file_answer_of(a) if src != "none" else "no files",
                     "exception": (a or {}).get("exception"), "recipes": None, "copies": None,
                     "copies_attributed": None, "split": None, "why_not_split": "ran outside every part sent to PaSh",
-                    "outside_pash": True})
+                    "outside_pash": True, "executions": n})
     return out
 
 
@@ -882,7 +1089,7 @@ def cmd_run(args):
             inv = invocation(sid)
             rdir = ROOT / "runs" / sid.replace("/", "_")
             rdir.mkdir(parents=True, exist_ok=True)
-            progs = script_programs(Path(inv["argv"][0]).read_text(errors="replace")) | set(coverage_commands(sid))
+            progs = script_programs(script_path(inv).read_text(errors="replace")) | set(coverage_commands(sid))
             answers = load_answers(sid)
             if not answers[0]:
                 sys.exit(f"no answers for {sid}: run `answers --script {sid}` first")
@@ -893,9 +1100,10 @@ def cmd_run(args):
             # pass 1 "instrumented": stand-ins on PATH, starts counted, uses recorded.
             # pass 2 "plain": no stand-ins, for timing; timing-only sets (the second copy of PaSh's own files)
             # run here only. The order of sets is rotated from repeat to repeat.
-            for mode in ("instrumented", "plain"):
+            first = getattr(args, "first_repeat", None) or 1
+            for mode in (getattr(args, "modes", None) or ("instrumented", "plain")):
                 order = [s for s in sets if s not in timing_only] if mode == "instrumented" else list(sets)
-                for rep in range(1, (1 if inv["group"] in ONCE else args.repeats) + 1):
+                for rep in range(first, first + (1 if inv["group"] in ONCE else args.repeats)):
                     k = (rep - 1) % len(order)
                     for sname in order[k:] + order[:k]:
                         tag = f"{sname}_{mode}_{rep}"
@@ -911,18 +1119,40 @@ def cmd_run(args):
                         if got is not None and sname != "bash":
                             # only the script's own commands: PaSh itself starts programs such as dirname
                             more = {c: n for c, n in got.items() if c in progs and n > (base_counts or {}).get(c, 0)}
-                        regions, uses, tmp = ([], [], None) if sname == "bash" else \
+                        regions, uses, tmp, all_lines = ([], [], None, Counter()) if sname == "bash" else \
                             regions_of(log, sname, used_by[sname], answers, more)
                         if mode == "instrumented" and sname != "bash":
-                            uses = uses + outside_uses(bash_calls or [], uses, sname, used_by[sname], answers)
+                            uses = uses + outside_uses(bash_calls or [], all_lines, sname, used_by[sname], answers)
                             base = {"group": inv["group"], "script": inv["script"], "id": sid, "set": sname,
                                     "mode": mode, "repeat": rep, "phase": phase}
                             for r in regions:
-                                rf.write(json.dumps(base | r, sort_keys=True) + "\n")
+                                if r.get("emit"):
+                                    rf.write(json.dumps(base | {k: v for k, v in r.items() if k != "emit"},
+                                                        sort_keys=True) + "\n")
                             for u in uses:
                                 u = dict(u)
                                 u.pop("line", None)
+                                u.pop("pash_answer", None)
                                 of.write(json.dumps(base | u, sort_keys=True) + "\n")
+                        if mode == "instrumented" and rep == 1 and sname != "bash":
+                            # what the files answered inside PaSh (replayed on PaSh's kept files)
+                            with open(answers_path(sid), "a") as af:
+                                for u in uses:
+                                    if u.get("answer_method") != "as PaSh passes them":
+                                        continue
+                                    pa = u["pash_answer"]
+                                    af.write(json.dumps({
+                                        "group": inv["group"], "script": inv["script"], "id": sid, "set": sname,
+                                        "method": "as PaSh passes them", "region": u["region"],
+                                        "region_text_sha": u["region_text_sha"], "position": u["position"],
+                                        "command": u["command"], "invocation": u["invocation"],
+                                        "source": u["source"], "files_from": u["source_detail"],
+                                        "io_outcome": pa["io_outcome"], "io": pa["io"],
+                                        "parallelizability_outcome": pa["parallelizability_outcome"],
+                                        "allows_split": pa["allows_split"], "split_recipes": pa["split_recipes"],
+                                        "file_answer": u["file_answer"], "exception": pa["exception"],
+                                        "direct_file_answer": u["direct_file_answer"],
+                                        "direct_differs": u["direct_differs"]}, sort_keys=True) + "\n")
                         if tmp and tmp.startswith("/tmp/pash_"):
                             shutil.rmtree(tmp, ignore_errors=True)  # PaSh keeps its temp folder at debug level 2
                         rc_ = region_counts(regions) if sname != "bash" else None
@@ -983,6 +1213,33 @@ def cmd_controls(args):
     cmd_run(args)
 
 
+def cmd_batch(args):
+    """The whole batch: the controls on spell, every script one after another, the controls again.
+    A script that fails in the runner is recorded in batch_errors.jsonl and the batch goes on."""
+    import traceback
+    sids = args.script or [r["id"] for r in jl(OUT / "invocations.jsonl")]
+    done = {r["id"] for r in jl(OUT / "results.jsonl") if r.get("phase") == args.phase} \
+        if (OUT / "results.jsonl").exists() and args.resume else set()
+    if not args.resume and not args.no_controls:
+        cmd_controls(argparse.Namespace(script=None, phase="start"))
+    for sid in sids:
+        if sid in done:
+            continue
+        try:
+            cmd_run(argparse.Namespace(script=[sid], sets=args.sets, out=None, repeats=args.repeats,
+                                       phase=args.phase, modes=args.modes, first_repeat=args.first_repeat))
+        except Exception as e:  # noqa: BLE001
+            with open(OUT / "batch_errors.jsonl", "a") as f:
+                f.write(json.dumps({"id": sid, "when": time.strftime("%Y-%m-%d %H:%M:%S %z"),
+                                    "error": f"{type(e).__name__}: {e}", "traceback": traceback.format_exc()[-2000:]}) + "\n")
+            print(f"BATCH ERROR {sid}: {type(e).__name__}: {e}", flush=True)
+        with open(OUT / "batch_progress.txt", "a") as f:  # read by the copier on the Mac side
+            f.write(sid + "\n")
+    if not args.no_controls:
+        cmd_controls(argparse.Namespace(script=None, phase="end"))
+    print("BATCH DONE", flush=True)
+
+
 # ------------------------------------------------------------------ answers
 
 WORKER = r'''
@@ -1019,7 +1276,11 @@ def recipe(p):
         mk = m.kind.name
     except Exception:
         mk = type(m).__name__
-    return {"split": sp, "map": mk, "aggregate": a}
+    try:
+        imp = bool(p.are_all_parts_implemented())
+    except Exception:
+        imp = None
+    return {"split": sp, "map": mk, "aggregate": a, "implemented": imp}
 for raw in sys.stdin:
     row = json.loads(raw)
     out = {"id": row["id"], "in_pash_name_table": cmd in AG.DICT_CMD_NAME_TO_REPRESENTATION_IN_MODULE_NAMES}
@@ -1066,6 +1327,62 @@ for raw in sys.stdin:
 '''
 
 
+def add_answers(sids, sets):
+    """Direct answers for sets added after the answers step, from the saved bash start records (no new bash
+    run). Rows already in the script's answers file for these sets are replaced; other rows are kept."""
+    for sid in sids:
+        inv = invocation(sid)
+        calls, seen = [], set()
+        for argv in json.loads((OUT / f"{sid.replace('/', '_')}.bash_calls.json").read_text()):
+            k = shlex.join(argv)
+            if k not in seen:
+                seen.add(k)
+                calls.append(argv)
+        path = answers_path(sid)
+        keep = [r for r in jl(path) if not (r["set"] in sets and r.get("method") == "direct, quotes removed")] \
+            if path.exists() else []
+        new = []
+        for s, used in sets.items():
+            by_cmd = {}
+            for n, argv in enumerate(calls, 1):
+                by_cmd.setdefault(argv[0], []).append((n, argv))
+            for cmd, items in by_cmd.items():
+                p = subprocess.run([sys.executable, "-I", "-c", WORKER, str(ROOT / "sets" / s), cmd, cls(cmd)],
+                                   input="".join(json.dumps({"id": n, "line": shlex.join(a)}) + "\n" for n, a in items),
+                                   capture_output=True, text=True)
+                outs = {r["id"]: r for r in map(json.loads, p.stdout.splitlines())} if p.stdout.strip() else {}
+                for n, argv in items:
+                    a = outs.get(n) or {"io_outcome": "worker crashed", "par_outcome": "worker crashed"}
+                    par = a.get("par") or []
+                    new.append({"group": inv["group"], "script": inv["script"], "id": sid, "position": n,
+                                "command": cmd, "invocation": shlex.join(argv).replace(str(Path.home()), "~"),
+                                "line": shlex.join(argv), "set": s, "source": source_kind(used, cmd),
+                                "method": "direct, quotes removed",
+                                "files_from": used.get(cmd, "none (PaSh has no files)"),
+                                "in_pash_name_table": a.get("in_pash_name_table"),
+                                "io_outcome": a.get("io_outcome"), "io": a.get("io"),
+                                "parallelizability_outcome": a.get("par_outcome"),
+                                "allows_split": a.get("par_outcome") == "answered" and bool(par),
+                                "split_recipes": par,
+                                "exception": a.get("io_exception") or a.get("par_exception") or a.get("crash")
+                                or a.get("parse_error")})
+        with open(path, "w") as f:
+            for r in keep + new:
+                f.write(json.dumps(r, sort_keys=True) + "\n")
+        cpath = OUT / "commands.jsonl"
+        crow = [r for r in jl(cpath) if not (r["id"] == sid and r["set"] in sets)] if cpath.exists() else []
+        seen = set()
+        for r in new:
+            if (r["command"], r["set"]) not in seen:
+                seen.add((r["command"], r["set"]))
+                crow.append({"group": r["group"], "script": r["script"], "id": sid, "command": r["command"],
+                             "set": r["set"], "source": r["source"], "source_detail": r["files_from"]})
+        with open(cpath, "w") as f:
+            for r in crow:
+                f.write(json.dumps(r, sort_keys=True) + "\n")
+        print(f"added answers {sid}: {len(new)} rows for {sorted(sets)}", flush=True)
+
+
 def invocations_of(sid):
     """The script's command invocations, exactly as started under plain bash (from the stand-in records)."""
     inv = invocation(sid)
@@ -1073,6 +1390,10 @@ def invocations_of(sid):
     rdir.mkdir(parents=True, exist_ok=True)
     res, standin, log, out = run_one("bash", inv, rdir, "answers_bash")
     _, calls = counts(standin)
+    with open(OUT / "answers_bash_runs.jsonl", "a") as f:
+        f.write(json.dumps({"id": sid, "seconds": res["seconds"], "rc": res["rc"], "timed_out": res["timed_out"],
+                            "starts": len(calls), "out_bytes": out.stat().st_size,
+                            "stderr": res["stderr"][-300:]}) + "\n")
     (OUT / f"{sid.replace('/', '_')}.bash_calls.json").write_text(json.dumps(calls, indent=0))
     seen, rows = set(), []
     for argv in calls:
@@ -1086,8 +1407,10 @@ def invocations_of(sid):
 def cmd_answers(args):
     sids = args.script or ["oneliners/spell"]
     sets = {name: sources_of(**spec) for name, spec in sets_wanted().items()}
-    path = OUT / "answers.jsonl"
-    rows = [r for r in jl(path) if r["id"] not in sids] if path.exists() else []
+    if getattr(args, "add_sets", None):
+        return add_answers(sids, {s: sets[s] for s in args.add_sets})
+    (OUT / "answers").mkdir(parents=True, exist_ok=True)
+    allrows, rows = [], []
     seen_vs = []
     for sid in sids:
         inv = invocation(sid)
@@ -1096,21 +1419,28 @@ def cmd_answers(args):
         seen_vs.append({"id": sid, "started_under_bash": started, "listed_by_inventory": listed,
                         "started_not_listed": sorted(set(started) - set(listed)),
                         "listed_not_started": sorted(set(listed) - set(started))})
+        got = {}
+        for s in sets:  # one worker per set and command, all its lines at once
+            by_cmd = {}
+            for n, argv in enumerate(calls, 1):
+                by_cmd.setdefault(argv[0], []).append((n, argv))
+            for cmd, items in by_cmd.items():
+                p = subprocess.run([sys.executable, "-I", "-c", WORKER, str(ROOT / "sets" / s), cmd, cls(cmd)],
+                                   input="".join(json.dumps({"id": n, "line": shlex.join(a)}) + "\n" for n, a in items),
+                                   capture_output=True, text=True)
+                outs = {r["id"]: r for r in map(json.loads, p.stdout.splitlines())} if p.stdout.strip() else {}
+                for n, _ in items:
+                    got[(s, n)] = outs.get(n) or {"io_outcome": "worker crashed", "par_outcome": "worker crashed",
+                                                  "crash": (p.stderr.strip().splitlines() or [""])[-1][:300]}
         for n, argv in enumerate(calls, 1):
             cmd = argv[0]
             for s, used in sets.items():
-                p = subprocess.run([sys.executable, "-I", "-c", WORKER, str(ROOT / "sets" / s), cmd, cls(cmd)],
-                                   input=json.dumps({"id": n, "line": shlex.join(argv)}) + "\n",
-                                   capture_output=True, text=True)
-                if p.returncode:
-                    a = {"io_outcome": "worker crashed", "par_outcome": "worker crashed",
-                         "crash": (p.stderr.strip().splitlines() or [""])[-1][:300]}
-                else:
-                    a = json.loads(p.stdout.splitlines()[-1])
+                a = got[(s, n)]
                 par = a.get("par") or []
                 rows.append({"group": inv["group"], "script": inv["script"], "id": sid, "position": n,
                              "command": cmd, "invocation": shlex.join(argv).replace(str(Path.home()), "~"),
                              "line": shlex.join(argv), "set": s, "source": source_kind(used, cmd),
+                             "method": "direct, quotes removed",
                              "files_from": used.get(cmd, "none (PaSh has no files)"),
                              "in_pash_name_table": a.get("in_pash_name_table"),
                              "io_outcome": a.get("io_outcome"), "io": a.get("io"),
@@ -1120,12 +1450,13 @@ def cmd_answers(args):
                              "exception": a.get("io_exception") or a.get("par_exception") or a.get("crash")
                              or a.get("parse_error")})
                 r = rows[-1]
-                print(f"{n:2} {cmd:6} {s:20} io={r['io_outcome']:10} par={r['parallelizability_outcome']:10} "
-                      f"split={r['allows_split']!s:5} {[x['split'] + '>' + x['aggregate'] for x in par]} "
-                      f"{(r['exception'] or '')[:80]} [{r['files_from'][:40]}]")
-    with open(path, "w") as f:
-        for r in rows:
-            f.write(json.dumps(r, sort_keys=True) + "\n")
+        print(f"answers {sid}: {len(calls)} distinct command lines", flush=True)
+        with open(answers_path(sid), "w") as f:
+            for r in rows:
+                f.write(json.dumps(r, sort_keys=True) + "\n")
+        allrows.extend({k: r[k] for k in ("id", "command", "set", "group", "script", "files_from")} for r in rows)
+        rows = []
+    rows = allrows
     vpath = OUT / "standin_vs_inventory.jsonl"
     old = [r for r in jl(vpath) if r["id"] not in sids] if vpath.exists() else []
     with open(vpath, "w") as f:
@@ -1153,9 +1484,17 @@ def main():
     sub = ap.add_subparsers(dest="what", required=True)
     sub.add_parser("build")
     d = sub.add_parser("discover"); d.add_argument("--group", nargs="*")
+    b = sub.add_parser("batch"); b.add_argument("--script", nargs="*"); b.add_argument("--resume", action="store_true")
+    b.add_argument("--repeats", type=int, default=3)
+    b.add_argument("--no-controls", action="store_true")
+    b.add_argument("--sets", nargs="*"); b.add_argument("--phase", default="main")
+    b.add_argument("--modes", nargs="*", choices=["instrumented", "plain"])
+    b.add_argument("--first-repeat", type=int, default=1)
     for n in ("answers", "run", "controls"):
         p = sub.add_parser(n)
         p.add_argument("--script", nargs="*")
+        if n == "answers":
+            p.add_argument("--add-sets", nargs="*")
         if n in ("run", "controls"):
             p.add_argument("--phase")
         if n == "run":
@@ -1163,7 +1502,7 @@ def main():
             p.add_argument("--sets", nargs="*")
             p.add_argument("--out")
     args = ap.parse_args()
-    {"build": cmd_build, "discover": cmd_discover, "answers": cmd_answers, "run": cmd_run,
+    {"build": cmd_build, "discover": cmd_discover, "answers": cmd_answers, "run": cmd_run, "batch": cmd_batch,
      "controls": cmd_controls}[args.what](args)
 
 

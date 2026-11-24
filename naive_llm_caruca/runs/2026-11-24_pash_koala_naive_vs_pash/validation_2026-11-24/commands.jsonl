@@ -7,15 +7,6 @@
 {"command": "cat", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-col-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_100411_naive-run-cat_cat_PROMPT_v1"}
 {"command": "cat", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-cat-pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
 {"command": "cat", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-sed-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_100411_naive-run-cat_cat_PROMPT_v1"}
-{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
-{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own-copy", "source": "pash-own", "source_detail": "PaSh's own"}
-{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive", "source": "ours", "source_detail": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"}
-{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-pash", "source": "pash-own", "source_detail": "PaSh's own"}
-{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-main", "source": "pash-own", "source_detail": "PaSh's own"}
-{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-no-sort", "source": "ours", "source_detail": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"}
-{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-col-pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
-{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-cat-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"}
-{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-sed-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"}
 {"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
 {"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own-copy", "source": "pash-own", "source_detail": "PaSh's own"}
 {"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive", "source": "ours", "source_detail": "naive LLM, 2026-10-28_124823_naive-run-sed_sed_PROMPT_v1"}
@@ -25,6 +16,15 @@
 {"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-col-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_124823_naive-run-sed_sed_PROMPT_v1"}
 {"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-cat-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_124823_naive-run-sed_sed_PROMPT_v1"}
 {"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-sed-pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own-copy", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive", "source": "ours", "source_detail": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-pash", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-main", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-no-sort", "source": "ours", "source_detail": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-col-pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-cat-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-sed-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"}
 {"command": "tr", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
 {"command": "tr", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own-copy", "source": "pash-own", "source_detail": "PaSh's own"}
 {"command": "tr", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive", "source": "pash-own", "source_detail": "PaSh's own"}
