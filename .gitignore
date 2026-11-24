@@ -45,3 +45,6 @@ videos/*/.hyperframes/
 videos/*/node_modules/
 videos/**/*.mp4
 videos/**/*.mov
+
+# raw per-use records are tracked as a gzipped snapshot (file exceeds GitHub limits)
+naive_llm_caruca/runs/*/full_run/occurrences.jsonl

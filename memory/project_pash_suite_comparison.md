@@ -79,3 +79,12 @@ because `sed` strips it first) — the report's "col: wrong judgment" needs corr
 = correct but useless split (task 022: 0.27 s split vs 0.10 s whole on 64 MB; inside spell.sh not measurable,
 one control run 0.877 vs 0.89 s); Caruca `sort` = method limit (only end-to-end joins). PaSh's own `sed` also
 wrongly splits `N;s/\n/ /`. No source's file is wrong about a command on spell.sh.
+
+**First full-run numbers, the 46 quick scripts (oneliners 12 + unixfun 34), 2026-11-24 15:00, one timed
+repeat, `full_run/numbers.md` (builder's `summarise.py`):** every PaSh run's output = bash = Koala's hash
+for all five sources (46 of 46). Scripts with any part parallelized: PaSh's own 37 of 46, naive 39, Caruca
+PaSh-grammar 29, Caruca main-grammar 37, PaSh's own second copy 37. Distinct parts (51): naive 39 (gained 2,
+lost 0 vs PaSh's own), Caruca main = PaSh's own exactly (37, 0/0), Caruca PaSh-grammar 29 (lost 8; PaSh
+compiler crashes 11 vs 3: the `sort -rn` read as a file). Naive's gains: `cat` split in 39 scripts, `awk`
+2; loss: `col` 1. Method check: in 747 of 748 uses PaSh split exactly when the files (asked with PaSh's
+words) allowed a split PaSh can carry out. One naive file raised: `wc` (AssertionError).
