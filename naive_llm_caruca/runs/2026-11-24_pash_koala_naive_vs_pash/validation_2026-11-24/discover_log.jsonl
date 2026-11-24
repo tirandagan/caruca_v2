@@ -1,0 +1,6 @@
+{"group": "oneliners", "when": "2026-11-24 11:35:41 -0500", "exit": 0, "stderr_tail": ""}
+{"group": "unixfun", "when": "2026-11-24 11:35:41 -0500", "exit": 0, "stderr_tail": ""}
+{"group": "covid", "when": "2026-11-24 11:35:41 -0500", "exit": 0, "stderr_tail": ""}
+{"group": "nlp", "when": "2026-11-24 11:35:41 -0500", "exit": 0, "stderr_tail": ""}
+{"group": "weather", "when": "2026-11-24 11:35:42 -0500", "exit": 1, "stderr_tail": "mv: cannot stat '/home/tirandagan.guest/t024/shadow/weather/plots/*': No such file or directory\n"}
+{"group": "web-search", "when": "2026-11-24 11:35:42 -0500", "exit": 0, "stderr_tail": ""}

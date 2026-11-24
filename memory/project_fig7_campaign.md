@@ -69,6 +69,10 @@ missing for `uglifyjs` and `unzip`. v1's curated `mogrify` file lists 3 options.
   account never purchased credits"). Key usage $0, limit $200/month. Campaign zero point $0.00 at 18:46:41
   (`fig7_campaign/campaign_state.json`). OpenRouter's Fable 5.1 prices: $10/M in, $50/M out, **$0.25/M cache
   read**, $12.50/M cache write.
+- **2026-11-24: the `OPENROUTER_API_KEY` in the repo's `.env` (file dated 2026-10-27) is rejected** — both
+  `/api/v1/key` and `/api/v1/credits` return 401 Unauthorized. Last good reading was 2026-10-28 15:54
+  (`credit_watch.log`: $40.45 left on the key). The tr/xargs/awk runs for the PaSh suite comparison stopped
+  here, before any clone or charge. Cause (revoked, rotated or disabled key) not established.
 - **Fig. 7 values are exact from the PDF's vector drawing** (page 12; `caruca_side/fig7_values.py`): they
   reproduce every count in the paper's text (80, 103, 24, `convert` 98.71 h vs 98.72). Paper time ÷ exact
   test runs: 37/48 within 3× of 0.0147 s/run; **`diff` and `cp` cannot match** (v1's curated files give 2.4 G

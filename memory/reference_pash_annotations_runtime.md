@@ -123,3 +123,76 @@ if the input/output lookup returns `None` (no class, or the class raised: Annota
 PaSh raises `UnparallelizableError("InputOutputInformation for … not provided so considered side-effectful")`
 and leaves the command unparallelized. Any operand marked other output also makes it unparallelizable. A
 `None` parallelizability answer is replaced by an empty one, i.e. no splitting.
+
+**Which PaSh script runs the paper's benchmark suite (read 2026-11-20 from `binpash/pash` main, Mac clone).**
+The Caruca paper's PaSh hash check (§7.1) cites [26] = the **OSDI'22 PaSh-JIT paper**, not EuroSys'21.
+Its Table 1 lists 14 rows; rows 2-13 (12 benchmark sets) are the performance suite, and the one script
+that runs them all is **`evaluation/osdi22-eval/run_all.sh`** (not in `evaluation/benchmarks/`). It `cd`s
+into `evaluation/benchmarks`, sources `run.seq.sh` / `run.par.sh`, and runs seven groups: `oneliners`
+(row 2, 10 scripts), `unix50` (3, 36), `analytics-mts` (4), `nlp` (5), `max-temp` (6), `web-index` (7),
+`dependency_untangling` (rows 8-13: MediaConv, ProgInf, LogAnalysis, Genomics, AurPkg, FileEnc). Needs
+`$PASH_TOP`; `--small` (4-5 h) or `--full` (paper inputs, >20 h); results in `$PWD/eval_results/run`,
+then `gen_data.sh` + `generate_charts.R`. It runs bash once plus several PaSh flag sets (AOT, JIT, and
+the Figure 6/7 variants). Row 1 (POSIX test suite) is not public; row 14 (microbenchmarks) is not in it.
+`evaluation/benchmarks/run_all_benchmarks.sh` is older (EuroSys era, last changed 2022): only five groups
+(oneliners, unix50, nlp, web-index, analytics-mts) and it checks outputs with `diff -q`.
+`evaluation/benchmarks/README.md` is stale: it points to an `evaluation/eurosys/` folder that no longer exists.
+More from reading the code at `42a8b87c` (2026-11-20, nothing run yet): the eval scripts need
+`PASH_TOP` = **repo root** (they source `$PASH_TOP/scripts/utils.sh`), unlike the VM doc's `src/pash`;
+the `pash` command (`src/pash/cli.py`) overwrites `PASH_TOP` with its own folder, so both can coexist.
+`run_all.sh` **never checks correctness**: it deletes `<group>/outputs/` after every PaSh run (bash
+outputs included). Width is hard-coded to 16 in `run.par.sh`. It ends with `pkill -f cat` (kills any
+process whose command line contains "cat"). Results go to `$PWD/eval_results/run`; `gen_data.sh` works
+relative to the current folder and zeroes the AOT numbers of the for-loop scripts on purpose.
+**The OSDI'22 suite cannot fetch its inputs (tested 2026-11-22 from the pash VM and the Mac):** every
+`--small` input comes from `http://pac-n4.csail.mit.edu:81/pash_data/...`, which resolves but times out;
+`ndr.md` (unix50 full inputs) no longer resolves; the COVID data link on `balab.aueb.gr` returns 404;
+`max-temp` fetches nothing (its setup just prints "use an FTP client"). Only `https://atlas.cs.brown.edu/data/`
+answers (used by the oneliners `--full` path, which also builds 3G/10G/100G files the 40 GiB VM can't hold).
+No PaSh issue mentions the outage. **`binpash/benchmarks` now redirects to `kbensh/koala` (Koala suite,
+active)**: inputs on atlas with `--small`/`--min` sizes, per-suite `validate.sh` + reference `hashes`;
+`unixfun` = the 36 Unix50 scripts, `oneliners` = 9 of PaSh's 10 (no shortest-scripts; adds comm,
+opt-parallel, uniq-ips), `covid` = analytics-mts's 5, `nlp` renamed, `weather`/`web-search` rewritten.
+Same family, not the same files. The VM's `~/pash` was clean at `42a8b87c` on 2026-11-22; R is not installed.
+**Decision 2026-11-22 (Tiran):** with the OSDI'22 inputs unreachable, run PaSh on **Koala's** versions of
+the same groups (oneliners, unixfun, covid, nlp, weather, web-search) at `--small`, checked against Koala's
+stored hashes. That first driver and its results were **deleted 2026-11-24 at Tiran's request** (it ran only
+PaSh's stock annotations, see [[feedback-pash-runs-test-our-annotations]]). Koala stays checked out at `~/koala`
+(`ccf25a57`) with its small inputs downloaded (15 GB). Koala's `validate.sh` prints `<output> 0` when the hash
+matches. Each group runs scripts as `$KOALA_SHELL script args…`, so a wrapper set as `KOALA_SHELL` can run PaSh.
+**How to tell PaSh really parallelized a script (observed 2026-11-22, `-d 2` logs):** count
+`Received data: Compile` (regions sent) vs `Optimized script saved in` (regions run in parallel). The
+`Got response from compilation-server: ERROR` line is **not** reliable: Koala's bi-grams (the `Arg`
+NameError), diff, set-diff and opt-parallel all fell back with zero ERROR lines; the reason appears as
+`Daemon:  WARNING: Exception caught …`. `(4) Will execute script in` is printed for fallbacks too. At
+`-d 1` a fully parallelized script logs nothing at all. Pilot at `--min`: all 12 one-liners matched
+Koala's hashes under bash and PaSh; 8 of 12 parallelized.
+**Stock-annotation Koala run (2026-11-22/23; results deleted 2026-11-24, figures kept here as PaSh-stock facts):** 77 scripts across oneliners, unixfun,
+covid, nlp, weather, web-search (web-search at `--min`: `--small` = 65,424 pages, each step slower as the
+index grows, well over half a day per pass). PaSh output = bash output byte for byte everywhere it can be
+compared; Koala's check passed for every group under both. PaSh parallelized 42 of 77 (oneliners 8/12, unixfun
+30/34, covid 4/5; nlp, weather, web-search 0). Group speed-ups (bash/PaSh time, `-w 8`): oneliners 1.9×,
+covid 1.6×, weather 1.0×, web-search 0.94×, nlp 0.62×, unixfun 0.5× (sub-second scripts). NLP falls back on
+"not implemented" (54k regions), its own shell function `pure_func` (24k), `rev` (3k). **Koala's web-search
+index (`global-index.txt`) differs run to run even under bash** (39 of ~138k lines, pages with `€`/`~`
+names), so it can't be used for a bash-vs-PaSh hash check. Koala's unixfun omits scripts 22 and 27 on purpose.
+**Pilot of the suite comparison, `spell.sh` (2026-11-24, builder worker; records in
+`naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/`):** one region; every set's output = bash
+= Koala's hash; PaSh's own files 0.61 s (sed, col, tr, sort split), naive 0.89 s (cat, tr, sort), both
+Caruca sets 1.07 s (cat, sed, col, tr; **Caruca's `sort` file allows no split for a bare `sort`**, only
+`sort -m`), bash 1.03 s. **The naive `sed` file allows a split when called directly but `sed` stays one
+copy inside PaSh; swapping in PaSh's own `sed` files makes it split; cause not established** (the file
+reads the sed script and checks it char by char). So direct-call answers are a check, not proof. Deleting
+`sort`'s files made PaSh run the whole script as bash ("InputOutputInformation for sort not provided").
+At `-d 2` PaSh keeps `/tmp/pash_*` with the region syntax trees. `PASH_ANNOTATIONS` is set in the VM's
+profile but PaSh never reads it. Noise control: in the six Koala groups only 1 of 77 scripts has no
+command with naive files and 3 of 77 none with Caruca files, so the plan adds a `pash-own-copy` set.
+
+**Why direct calls differ from PaSh (established 2026-11-24 by the checker, debug-print copies of sets in
+`~/t024-check/sets/` in the pash VM):** inside PaSh an annotation class receives a quoted shell word *with
+double quotes kept*: `sed 's/[^[:print:]]//g'` arrives as `"s/[^[:print:]]//g"`, `tr -cs A-Za-z '\n'` as
+`"\n"`, `tr -d '[:punct:]'` as `"[:punct:]"`. Calling the class directly via `pash_annotations.parser.parse`
+gives the unquoted word. Effects on Koala `spell.sh`: the naive sed file rejects the leading `"` (no split in
+PaSh, split when called directly); PaSh's own tr file sees `"\n"` as a newline set, so `tr -cs` gets the
+not-implemented squeeze recipe and is not split (all sets), though a direct call allows a split. Any direct-call
+check must pass operands as PaSh does (keep the quotes) to predict PaSh.

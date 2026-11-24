@@ -48,3 +48,12 @@ tracer writes into the job's working folder (a `mktemp -d` under `/tmp`). Find i
 `ls -l /proc/<python pid>/fd | grep tracer.log`; each started test run is a `strace invocation:` line.
 `tmux`, `htop` and `strace` are installed in the VM; `kernel.yama.ptrace_scope` is 1, so attaching strace to an
 existing process needs `sudo`.
+
+**Timings in any Lima VM include the Mac's sleep (observed 2026-11-22/23, pash VM, Koala run).** When the
+Mac sleeps the VM pauses, and on wake the VM's clock catches up, so any duration measured inside the VM
+(`date`, `time`) silently includes the sleep. `caffeinate -i` does **not** stop sleep when the lid is closed
+("Clamshell Sleep"), and on battery the Mac then only wakes ~45 s per hour ("DarkWake"), so a job crawls
+along. Consequence seen: a 1,000-page web-search pass "took" 6.2 h instead of ~11 min, and three NLP scripts
+looked 1.7-4.8x faster under PaSh only because their bash run spanned a 7-minute sleep. **Before trusting
+any timing, check the window:** `pmset -g log | grep -E '^YYYY-MM-DD HH' | grep -E 'Entering Sleep|Wake from|FullWake'`.
+Keep the Mac on AC with the lid open for timed runs.

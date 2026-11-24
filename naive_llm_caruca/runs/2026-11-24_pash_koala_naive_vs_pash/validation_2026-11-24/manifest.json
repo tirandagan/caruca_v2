@@ -1,0 +1,1631 @@
+{
+ "caruca": {
+  "caruca-main": {
+   "cat": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cat/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCat.py": "dbeb94b64eaf54c8f6e37c6730f41b3ae0a06766098e6aab246b687f10942de5",
+     "ParallelizabilityInfoGeneratorCat.py": "006fc34621b52dd9d31cbfec169f9c42cd2e339627ca2c2f644e214e28d31c02",
+     "cat.json": "5b4f26289f480365c3b54e9c29fa471ee0e98107292010ea99ac57b1f7f8bafa"
+    },
+    "source": "Caruca, v1-pash (cat/pash_grammar/trace_1)"
+   },
+   "cp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cp/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCp.py": "cda7370b1b91420f1d59837ab44988bb66bd1d990b3bbef5d2eef10e528309fb",
+     "ParallelizabilityInfoGeneratorCp.py": "65f09d6dfc532b9fe871200427571bf8dc0daaab8feb367d8674fec4c0f19dee",
+     "cp.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, v1-pash (cp/pash_grammar/trace_1)"
+   },
+   "cut": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cut/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCut.py": "36b56333049bacbebacf9df02ab01f9fdd6d86f8f6970317f0bdce6e1ac30270",
+     "ParallelizabilityInfoGeneratorCut.py": "4c2dde517dd5a041168948824d552da9e32fde8adf3c1507070cbf9ee36c46c3",
+     "cut.json": "e351e7d31b680b8ba290866e8f9ff111348618553a48e54d3640d661b1f188f5"
+    },
+    "source": "Caruca, v1-main (cut/main_grammar/trace_1)"
+   },
+   "grep": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/grep/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorGrep.py": "8b1593b6f03f66ceaa763dddbcb854754d8c512c6ef5a4451f1868c44c121b6c",
+     "ParallelizabilityInfoGeneratorGrep.py": "740af2421d45d7074a01597789adf9a405182a97802930dbb1cb299c5737e5a3",
+     "grep.json": "69998028af963bc63027b93d1cbc0280f64d0f5f194a40e21f0c0848a8caf036"
+    },
+    "source": "Caruca, v1-pash (grep/pash_grammar/trace_1)"
+   },
+   "rm": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/rm/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorRm.py": "f757df12cc320f62e399c3009c24347bc53f655e550e306ac83a5a663a6c9ed3",
+     "ParallelizabilityInfoGeneratorRm.py": "672c68a3be2030da40d0014d5f5cc5a421b1fc26cd40d387a84e0cdcdadbb71a",
+     "rm.json": "934a799bb814a9b5aa4ac88edf6e633537e9e1216a1d008e90de59a6bdfefcc1"
+    },
+    "source": "Caruca, v1-main (rm/main_grammar/trace_1)"
+   },
+   "sort": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/sort/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSort.py": "e9bb6096d83f1c051e5284084bbe46c53972b858a7bd829575c873d619b71b94",
+     "ParallelizabilityInfoGeneratorSort.py": "93684da2136b1df23ac48742e7c77c8d6462ce2f80864dc4b8c788d91b458243",
+     "sort.json": "f45a7bcceb51283fd02abe8b7cba8000ea1fb5b8a88abffbb791945d20689813"
+    },
+    "source": "Caruca, v1-main (sort/main_grammar/trace_1)"
+   },
+   "split": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/split/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSplit.py": "cc188fb5dbabd72104373009555675594a71d2238cd073b766153ab3a5e6e1d2",
+     "ParallelizabilityInfoGeneratorSplit.py": "5d5aa0615d4f2812d30b413b2e1aae3f678efb8bfbecd827898083fb0417ff24",
+     "split.json": "85fabfd5d43e3e8d7d6091dd65bace572bbf0f6bd3ad714b9ef904e97c22a2df"
+    },
+    "source": "Caruca, v1-pash (split/pash_grammar/trace_1)"
+   },
+   "wc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/wc/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorWc.py": "5a589bf27a100dcc4bee16833e032d2db897d63f9733220af9e34f8ebdbb1381",
+     "ParallelizabilityInfoGeneratorWc.py": "455aef784f99b938816dc8c6d77c4eb8e0907fc96da75cc593d5fee58cbd607b",
+     "wc.json": "9f49b8b75cec004f2845a1fa64de55900e8b7f4cbeda9d01db41c0bf89fac3ba"
+    },
+    "source": "Caruca, v1-pash (wc/pash_grammar/trace_1)"
+   }
+  },
+  "caruca-pash": {
+   "cat": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cat/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCat.py": "dbeb94b64eaf54c8f6e37c6730f41b3ae0a06766098e6aab246b687f10942de5",
+     "ParallelizabilityInfoGeneratorCat.py": "006fc34621b52dd9d31cbfec169f9c42cd2e339627ca2c2f644e214e28d31c02",
+     "cat.json": "5b4f26289f480365c3b54e9c29fa471ee0e98107292010ea99ac57b1f7f8bafa"
+    },
+    "source": "Caruca, v1-pash (cat/pash_grammar/trace_1)"
+   },
+   "cp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cp/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCp.py": "cda7370b1b91420f1d59837ab44988bb66bd1d990b3bbef5d2eef10e528309fb",
+     "ParallelizabilityInfoGeneratorCp.py": "65f09d6dfc532b9fe871200427571bf8dc0daaab8feb367d8674fec4c0f19dee",
+     "cp.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, v1-pash (cp/pash_grammar/trace_1)"
+   },
+   "cut": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cut/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCut.py": "ff356a5e9e0f45f2ba607623981f53717523792c9ca89f6ccd223370cf6c459f",
+     "ParallelizabilityInfoGeneratorCut.py": "b469304253e4e5d89a99ece59be452e894f20c2fb685fd3090867037641532cd",
+     "cut.json": "f9f68e332ea5b6c56a683a873604994a4b629f1bb7e7fb1c02a02268954120f7"
+    },
+    "source": "Caruca, v1-pash (cut/pash_grammar/trace_1)"
+   },
+   "grep": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/grep/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorGrep.py": "8b1593b6f03f66ceaa763dddbcb854754d8c512c6ef5a4451f1868c44c121b6c",
+     "ParallelizabilityInfoGeneratorGrep.py": "740af2421d45d7074a01597789adf9a405182a97802930dbb1cb299c5737e5a3",
+     "grep.json": "69998028af963bc63027b93d1cbc0280f64d0f5f194a40e21f0c0848a8caf036"
+    },
+    "source": "Caruca, v1-pash (grep/pash_grammar/trace_1)"
+   },
+   "rm": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/rm/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorRm.py": "fc6167515ea62ca14f0c2095c27483dd61aff79c8a27dfbd8a1abc419e96dc4e",
+     "ParallelizabilityInfoGeneratorRm.py": "0551115f5f76497e4d696b2368de98a86ffeaa4ebcc022813fbb3b451689ccdf",
+     "rm.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, v1-pash (rm/pash_grammar/trace_1)"
+   },
+   "sort": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/sort/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSort.py": "f3c7513fbc16db8fb29f43654d06d42ccbb67c68ac225d1f723e2f5d4669432f",
+     "ParallelizabilityInfoGeneratorSort.py": "1746dd93b9f5bb2bbbffcc9cbfb406a0c394853cb2022a011f357949f8fca533",
+     "sort.json": "6ead027a07e14a11b956d11501d282eaa6d4da77f903c07ea6c4b426793409fe"
+    },
+    "source": "Caruca, v1-pash (sort/pash_grammar/trace_1)"
+   },
+   "split": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/split/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSplit.py": "cc188fb5dbabd72104373009555675594a71d2238cd073b766153ab3a5e6e1d2",
+     "ParallelizabilityInfoGeneratorSplit.py": "5d5aa0615d4f2812d30b413b2e1aae3f678efb8bfbecd827898083fb0417ff24",
+     "split.json": "85fabfd5d43e3e8d7d6091dd65bace572bbf0f6bd3ad714b9ef904e97c22a2df"
+    },
+    "source": "Caruca, v1-pash (split/pash_grammar/trace_1)"
+   },
+   "wc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/wc/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorWc.py": "5a589bf27a100dcc4bee16833e032d2db897d63f9733220af9e34f8ebdbb1381",
+     "ParallelizabilityInfoGeneratorWc.py": "455aef784f99b938816dc8c6d77c4eb8e0907fc96da75cc593d5fee58cbd607b",
+     "wc.json": "9f49b8b75cec004f2845a1fa64de55900e8b7f4cbeda9d01db41c0bf89fac3ba"
+    },
+    "source": "Caruca, v1-pash (wc/pash_grammar/trace_1)"
+   }
+  },
+  "rule": "sides.jsonl of the task-021 comparison: v1-pash rows; caruca-main takes the v1-main row where a command has one"
+ },
+ "caruca_v1_branch_commit": "4bf74dd9a502e97a760b8a9d1e93c20a7a548450",
+ "caruca_v2_commit": "2f8ff8b1f8fdb742337c12b8fbed25871264cdac",
+ "koala": {
+  "commit": "ccf25a572cef29cef6463534e4429e3ed42758d2",
+  "dirty_files": "?? .tools/nodejs18/\n?? web-search/scripts/package.json",
+  "sizes": {
+   "covid": "--small",
+   "nlp": "--small",
+   "oneliners": "--small",
+   "unixfun": "--small",
+   "weather": "--small",
+   "web-search": "--min"
+  }
+ },
+ "machine": {
+  "bash": "GNU bash, version 5.2.21(1)-release (aarch64-unknown-linux-gnu)",
+  "coreutils": "sort (GNU coreutils) 9.4",
+  "cpus": "8",
+  "os": "Ubuntu 24.04.4 LTS",
+  "python": "3.12.3",
+  "uname": "Linux 6.8.0-147-generic aarch64",
+  "vm": "Lima VM `pash` on a Mac"
+ },
+ "naive": {
+  "commands": {
+   "b2sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_105421_naive-run-b2sum_b2sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorB2sum.py": "5567ecdd30537b10551f7db0d74a75e36dbe5b122782f30af4cbf27400181c2c",
+     "ParallelizabilityInfoGeneratorB2sum.py": "b9bf376ab245adb6048ff5da20743854d1d285b038cab90ad9ddce3fc78f3f00",
+     "b2sum.json": "398159d10147ffba6b73b49540f5fc67ebe40ec218a54860abb012d0dc2787a0"
+    },
+    "source": "naive LLM, 2026-10-28_105421_naive-run-b2sum_b2sum_PROMPT_v1"
+   },
+   "basenc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_111031_naive-run-basenc_basenc_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorBasenc.py": "79fb5d7260e9026b6d80fa8dc34a601e91db2619dae576db0fa10ef708e4031b",
+     "ParallelizabilityInfoGeneratorBasenc.py": "33ac207a667aec5d747f7c0fb009338751ece9a7480c0a030691e8c0af63f4fb",
+     "basenc.json": "284dca09c2fb3adad6ae189bd15c8c0819849a386bc7b2e5e75f530ce04df42a"
+    },
+    "source": "naive LLM, 2026-10-28_111031_naive-run-basenc_basenc_PROMPT_v1"
+   },
+   "bc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_084323_naive-run-bc_bc_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorBc.py": "7bf0cb4f7c742b51cebc20ce772cfef99c81186babf6402de81d146c0faa6286",
+     "ParallelizabilityInfoGeneratorBc.py": "c7b8f06b5150873ec663af3a4971a246366fad24561b8e92e59d42c8c14ed2f8",
+     "bc.json": "d449f398c87769db3a47c55bf60b8ffa8f61abdae01659609297015b289f0f5d"
+    },
+    "source": "naive LLM, 2026-10-28_084323_naive-run-bc_bc_PROMPT_v1"
+   },
+   "cat": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_100411_naive-run-cat_cat_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorCat.py": "b90313966c4d22557864e27e19b20a767e9b986972baa44463e07a3f603447b7",
+     "ParallelizabilityInfoGeneratorCat.py": "4a137a47c3512c686ab2836e22660635de771f9744147b3eb769c6a08c4eef2d",
+     "cat.json": "6eb904d0148b5f10d9ad0b05b3e07d7298f09c8aafee7badd13fc942eb0d6f49"
+    },
+    "source": "naive LLM, 2026-10-28_100411_naive-run-cat_cat_PROMPT_v1"
+   },
+   "chcon": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_125939_naive-run-chcon_chcon_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorChcon.py": "f102a05fb76d88fd7ec2320d276706d3cbde9a2c7dd2b969938d3201ce5a6309",
+     "ParallelizabilityInfoGeneratorChcon.py": "366e3a01736f374d5676d7673c00a896a57f25d3be4e9880aa684771329719a2",
+     "chcon.json": "7ea5148c06fde32f5e723efdf85cbcfb223bd60cc9c7f3485ce31d6f22c447fb"
+    },
+    "source": "naive LLM, 2026-10-28_125939_naive-run-chcon_chcon_PROMPT_v1"
+   },
+   "chgrp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_114550_naive-run-chgrp_chgrp_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorChgrp.py": "c9f6fdb66b6fb1b6237e7e6cffd629d13770172d01d7b358125830c1cd4ecc19",
+     "ParallelizabilityInfoGeneratorChgrp.py": "7fbcf5d940373e151b33a5e41ecabb5d14b0449b9533a462b7bf9a1b906e0f6b",
+     "chgrp.json": "ff8a4f455eab0ec808f180bda5256be489a609a8777f780a47b23c21843d4d38"
+    },
+    "source": "naive LLM, 2026-10-28_114550_naive-run-chgrp_chgrp_PROMPT_v1"
+   },
+   "chmod": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_112202_naive-run-chmod_chmod_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorChmod.py": "3114294373bc8bc3228d1b71c774e8d78669366645b84eebe913b4fe451ad8c4",
+     "ParallelizabilityInfoGeneratorChmod.py": "12f421d8175a027305d3e2054f912594da5b6a04cb7e0ef29770ec779ccbc2db",
+     "chmod.json": "22cea4ed576e7b6a81425a2f133e64430183e8596efeb5fef3e378e245ee1847"
+    },
+    "source": "naive LLM, 2026-10-28_112202_naive-run-chmod_chmod_PROMPT_v1"
+   },
+   "chown": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_115536_naive-run-chown_chown_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorChown.py": "89284aab4ade89cad3a8cffa8d0957bcc7345f47e68152e561547bb2be27833c",
+     "ParallelizabilityInfoGeneratorChown.py": "c9d9691e9e92cb3acbc6d47c191d77703d3e913a5899b434d79e947dcbddda6a",
+     "chown.json": "3391e97041d975192b3b08f75be72210e8c5c1a8c8e39d041c8b2f0c21075443"
+    },
+    "source": "naive LLM, 2026-10-28_115536_naive-run-chown_chown_PROMPT_v1"
+   },
+   "chroot": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_083453_naive-run-chroot_chroot_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorChroot.py": "d031260f48666f9249b44af7d4fa382ab77015e78efa318705efcb2c33d389bb",
+     "ParallelizabilityInfoGeneratorChroot.py": "a4e4b29b150efd1afbefdcd48114a5b0745aff80faad2ddb157fcfc4dc8732c8",
+     "chroot.json": "874a8289d14c25cc026baf4f3df93511bdf8aa418a10732358d1ca0b3fe6630b"
+    },
+    "source": "naive LLM, 2026-10-28_083453_naive-run-chroot_chroot_PROMPT_v1"
+   },
+   "col": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_093614_naive-run-col_col_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorCol.py": "85cdc93f21981914512193064b6fca8b4b3d7af78d145166ba817c6009693f5b",
+     "ParallelizabilityInfoGeneratorCol.py": "1dd76856f978a40ef2e8deec057e60ebd3853df522a1510f94f130c9fa350e96",
+     "col.json": "e71baee55d4477100738bd41fb7280bbcb73ca2359cac69fb676b55da353ddf5"
+    },
+    "source": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"
+   },
+   "comm": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_111854_naive-run-comm_comm_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorComm.py": "7bfbaa53773f1f62e803777d3c4f95e113c7868e63169892f770949d0f44a94c",
+     "ParallelizabilityInfoGeneratorComm.py": "03a315eeb3b5ceea1db4012a5d9dbf4db8a0374bf1a3f81177afdc1ef510a0b8",
+     "comm.json": "704c139db636339715151f61ef069b1436f0abec4b556e9dc8cbf0201f4776d0"
+    },
+    "source": "naive LLM, 2026-10-28_111854_naive-run-comm_comm_PROMPT_v1"
+   },
+   "convert": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-27_231631_naive-run-convert_convert_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorConvert.py": "742d96a609a0cc535f0a345192c06f107cc59ef9dc63a66f5aec4c6fe4a6f189",
+     "ParallelizabilityInfoGeneratorConvert.py": "ea42108a8353fe62b9e599d60b281eaa2f930e579ecb8b6331c099697020bb07",
+     "convert.json": "9836803159a15c7454c5662d8da3335015c1709b4282b8db49b7e5579b7429d4"
+    },
+    "source": "naive LLM, 2026-10-27_231631_naive-run-convert_convert_PROMPT_v1"
+   },
+   "cp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_114133_naive-run-cp_cp_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorCp.py": "780f732bbcab9ca45225e259718a901cfb996db9fa648bf50ecde324c008cfcc",
+     "ParallelizabilityInfoGeneratorCp.py": "7023b0882244013417a38cddd72947d997b0848e25bf8c30d191088a4d3692e1",
+     "cp.json": "1d1a6fe1dcd512c9aa0cfd5ea369bdc067088c832533ded3d1dbd23bb80c23d2"
+    },
+    "source": "naive LLM, 2026-10-28_114133_naive-run-cp_cp_PROMPT_v1"
+   },
+   "csplit": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_104909_naive-run-csplit_csplit_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorCsplit.py": "5a1f12dda2bddd18e9d03b349e66e705688cc95da59981ca1e831ccd96ead193",
+     "ParallelizabilityInfoGeneratorCsplit.py": "cd1b00c625e54f40947c0882e368f672d3114b8fd55b866fe34876ba85bc94b4",
+     "csplit.json": "00a684e6f578c55851d10c002cdb51ba9af5363b1e025af3458230afb482ba89"
+    },
+    "source": "naive LLM, 2026-10-28_104909_naive-run-csplit_csplit_PROMPT_v1"
+   },
+   "cut": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-27_230555_naive-run-cut_cut_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorCut.py": "7b527a080f4d2543746d4173006f3bb371b31171800f22c53698510ce24ef276",
+     "ParallelizabilityInfoGeneratorCut.py": "66f842490429eb3f9373b84887d99e9a37556cf109e1aa8ffc086f853a7f712f",
+     "cut.json": "ea25638fd86a055de33bb822ec3bae66eec95f3e7fe252500e628da221a2e78c"
+    },
+    "source": "naive LLM, 2026-10-27_230555_naive-run-cut_cut_PROMPT_v1"
+   },
+   "date": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_111357_naive-run-date_date_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorDate.py": "6e3c689902599f02f6adff728082f3af1245be82af846695451f48fda7c8e8ef",
+     "ParallelizabilityInfoGeneratorDate.py": "db5c2b4f1578629bfeafbcf2694e98ca7a70d1d3ee512c17f9e5bc5c1568a808",
+     "date.json": "a5f0b70d3da0b2052106b13e845ae28a6aa04c865671eb0f4c4391021c7f9376"
+    },
+    "source": "naive LLM, 2026-10-28_111357_naive-run-date_date_PROMPT_v1"
+   },
+   "dd": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-27_225152_naive-run-dd_dd_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorDd.py": "90242348a76c2be3b338951c615b7b7f46cc08de577ddd54b201351b173309d3",
+     "ParallelizabilityInfoGeneratorDd.py": "766540fac48b4abfa537af70e30b55f417d018c6bb6c3313a302bf82d1d4bc0d",
+     "dd.json": "c6e8cfd837b72c776e616fc1ffc5c500b2307355c5d1d7d466f8e6c0c8cf5658"
+    },
+    "source": "naive LLM, 2026-10-27_225152_naive-run-dd_dd_PROMPT_v1"
+   },
+   "df": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_125544_naive-run-df_df_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorDf.py": "079b3fedd2e010a40ea02159ee87a8ef9d1346bca7de8b4e8fef90ea135827fb",
+     "ParallelizabilityInfoGeneratorDf.py": "8a260e284969deab4487e2280ec27a6e4faaab52916d9c10748597b0b0a25aaf",
+     "df.json": "0bc9c8a7e55a0993eb11c4770f5c5a477374c2ac622cad1a9e3f4d585cd87ba4"
+    },
+    "source": "naive LLM, 2026-10-28_125544_naive-run-df_df_PROMPT_v1"
+   },
+   "diff": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_115007_naive-run-diff_diff_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorDiff.py": "c9014bd596fbb353180504efdfb657ad85008a3d43c31f57cc7311e667f50e1f",
+     "ParallelizabilityInfoGeneratorDiff.py": "7a1ba543eba0f097a7b3e7f529f3ea45b816209ca7995bc7db2184a9879dbb81",
+     "diff.json": "86b62fdb80ee483e5be9ad35a578abb96ee6ec82f5a343e1a655adcd2c4240a3"
+    },
+    "source": "naive LLM, 2026-10-28_115007_naive-run-diff_diff_PROMPT_v1"
+   },
+   "dir": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_143025_naive-run-dir_dir_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorDir.py": "27ec59e8ed07f822b3b79744121935218cd9c6fe180f2cbdcafe4cc8f895d6b6",
+     "ParallelizabilityInfoGeneratorDir.py": "841fbfe70af6090872d1ce7f39849dce545fe1611165d94d760f97cbb3a0b448",
+     "dir.json": "ce77a15fe2a12fccad208b27f0edbe7df3c0dfa1b50415dde7c271c9f391188e"
+    },
+    "source": "naive LLM, 2026-10-28_143025_naive-run-dir_dir_PROMPT_v1"
+   },
+   "du": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_141545_naive-run-du_du_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorDu.py": "80908e128762d7209f9adaa8c1b6c018da5f2d061293bdbb465a61b0c4c2d1d9",
+     "ParallelizabilityInfoGeneratorDu.py": "38e3a070dd81554b4e399a82c48b1c97b5f5b0b6e0860f3fe408952712dcf79b",
+     "du.json": "89a5873a06a507cc2b306c693ae3b60cf49592909c9754966fc943505e88b4aa"
+    },
+    "source": "naive LLM, 2026-10-28_141545_naive-run-du_du_PROMPT_v1"
+   },
+   "env": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_121513_naive-run-env_env_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorEnv.py": "7d32aab98919812dfe4ec81e769aaac77f416a1aadd73c24b9073d36fa809b90",
+     "ParallelizabilityInfoGeneratorEnv.py": "10ed1bd85c46219c66796d329e3ad11c78d2913183d117708d39db2ef459e20f",
+     "env.json": "bfdbb4cd80ff3d6379af715ad924aeab91a3ff940c231a95be324581a30796f4"
+    },
+    "source": "naive LLM, 2026-10-28_121513_naive-run-env_env_PROMPT_v1"
+   },
+   "expand": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_083113_naive-run-expand_expand_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorExpand.py": "4879300a5d11251ad44cb97fa58914cee37d2d693d7e34c039d6482476def9fc",
+     "ParallelizabilityInfoGeneratorExpand.py": "e0278e0855e8a781d25d52039dbef9c2e36a4a3ba338a24d62f006e1e6cabf7a",
+     "expand.json": "ebc0560ed862bf726d04c287784b6573b5087b9cd77b294216a973983642c0dc"
+    },
+    "source": "naive LLM, 2026-10-28_083113_naive-run-expand_expand_PROMPT_v1"
+   },
+   "fmt": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_104147_naive-run-fmt_fmt_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorFmt.py": "f92e1e96cd963e6f1c3cce54a765cd2148e3dc0a8d01acbe89367c9529fd56e8",
+     "ParallelizabilityInfoGeneratorFmt.py": "8fe3cacdf99e3e47a866d16f831a5c0b9ce2fd536c016eb2bc5184f6bba8e084",
+     "fmt.json": "d68bcfcecc199cf6db6bc7f295fbfd1fd502f3fa3a1652f20ba0859a9e7e078a"
+    },
+    "source": "naive LLM, 2026-10-28_104147_naive-run-fmt_fmt_PROMPT_v1"
+   },
+   "fold": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_081910_naive-run-fold_fold_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorFold.py": "5a00b008468965eb31f1a07b4529a35a5c9538c18c3aa38781d4268484f99df4",
+     "ParallelizabilityInfoGeneratorFold.py": "ac3ea2302ecbf499623b4fab4b8d03a6a85a283d8683fbc5eae8b178dc468918",
+     "fold.json": "afd347f19b7307efd454aac86c2d8426e2dbc3f668b6ef819a5e947a6b3bbcbc"
+    },
+    "source": "naive LLM, 2026-10-28_081910_naive-run-fold_fold_PROMPT_v1"
+   },
+   "grep": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_135447_naive-run-grep_grep_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorGrep.py": "f8e1bf53ac1c538f816227bee6d1bb5a213b8dd6b178ee6bb0286e19dfe443f0",
+     "ParallelizabilityInfoGeneratorGrep.py": "7ee7fd2af8f4d95ef6a4eb2ae387ee9933703b6d800ead609c78a3666e34eb20",
+     "grep.json": "9ad3efef75e87450a4df3bfa4727b148611cb977753bf1f070d4bc321684fc51"
+    },
+    "source": "naive LLM, 2026-10-28_135447_naive-run-grep_grep_PROMPT_v1"
+   },
+   "head": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_095255_naive-run-head_head_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorHead.py": "92762c82c3bc2ea5f7ea58dbb52114c393e39e1ec7c9a77995281082dbebba59",
+     "ParallelizabilityInfoGeneratorHead.py": "0c27166d2f878de7ab4d0775a8b20ad75da728bb344d121692548ff96faa5e77",
+     "head.json": "9c04cce13672a8bd4866e17ad62edfc881067ece06d74d04cb32d07993100ac1"
+    },
+    "source": "naive LLM, 2026-10-28_095255_naive-run-head_head_PROMPT_v1"
+   },
+   "iconv": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_110404_naive-run-iconv_iconv_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorIconv.py": "2d3b979e5449f46a529e037ad81b9913ee9bdd5edde8705a839909758c8db244",
+     "ParallelizabilityInfoGeneratorIconv.py": "637e42eb7ca46e2e3df2c6e4cb7ea9050c8d5adf6f3a306b294d2d3019f9dedb",
+     "iconv.json": "15853001e10079e034e5fa96ac8dfaac7a55ac348ee9276b02686869fe6ea1eb"
+    },
+    "source": "naive LLM, 2026-10-28_110404_naive-run-iconv_iconv_PROMPT_v1"
+   },
+   "id": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_093251_naive-run-id_id_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorId.py": "8b601c238f80a58e105b090384f2f5ee04274b8e61eaac8796057747a244b7ff",
+     "ParallelizabilityInfoGeneratorId.py": "f9839e7dc2044e6a0257213cb351b778716a56835340dcfe1be41a32f0ac39ca",
+     "id.json": "1a34fde685de8cef0a221c5442583a0ce352c341cb6a4640e932a4ba32022450"
+    },
+    "source": "naive LLM, 2026-10-28_093251_naive-run-id_id_PROMPT_v1"
+   },
+   "install": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_140311_naive-run-install_install_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorInstall.py": "1bf048fae4cdba96ca7b8506708236e58039f19590f1e8c3488fbd5b1dc25c01",
+     "ParallelizabilityInfoGeneratorInstall.py": "9d7373a73a92fa698a1b08e12cf7af750f16695b9f7332cae8670003015cfe25",
+     "install.json": "b0bc0b766e1d0ca59ccb92113607511de92712f1a57fdbabfe2311554f32b512"
+    },
+    "source": "naive LLM, 2026-10-28_140311_naive-run-install_install_PROMPT_v1"
+   },
+   "join": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_132048_naive-run-join_join_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorJoin.py": "b556381f62ca494c594e276474878dc38f05325a7e40974b2d567e2f34dfa99d",
+     "ParallelizabilityInfoGeneratorJoin.py": "ff175c42cf5a4e098cbfe9630f49431daa75613054828e14e0d7d9864448ab80",
+     "join.json": "e8f3f58daa3d53f6a2cdbbad480d5f8e21910bb064220c1cd84e5c6fd0ddfc52"
+    },
+    "source": "naive LLM, 2026-10-28_132048_naive-run-join_join_PROMPT_v1"
+   },
+   "kill": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_120050_naive-run-kill_kill_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorKill.py": "cbf165e29c706344ce4a8f49d7a60318934b2e2255b9fda2e7ec490e25902b6f",
+     "ParallelizabilityInfoGeneratorKill.py": "2606030485284048e82e2863b7d437e3a7edc0881da6f6838d5b510015688a86",
+     "kill.json": "e60bcd7d85b14308c64d269c7d8bf00f7fdc7295d8454afc0d0c6efe2967dae6"
+    },
+    "source": "naive LLM, 2026-10-28_120050_naive-run-kill_kill_PROMPT_v1"
+   },
+   "ln": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_130353_naive-run-ln_ln_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorLn.py": "8f55efc4e2c348c0645fb87354d36ceafd383e0d95ee4ef45bee6d9644e6c5b0",
+     "ParallelizabilityInfoGeneratorLn.py": "a7c50e694fd38d5540ab69f76a29297b52a8c7ad29587f717de0a69d3cdf051b",
+     "ln.json": "610a5a29e3c143f1e627bdf2d8dcd625a273d1f4d23c1c73f5a7edf888e13c45"
+    },
+    "source": "naive LLM, 2026-10-28_130353_naive-run-ln_ln_PROMPT_v1"
+   },
+   "ls": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-27_225849_naive-run-ls_ls_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorLs.py": "3d83f0660784cb60e09bd1eed66096e8303e73fcd77aa8d8f1c2be6a9e6e7956",
+     "ParallelizabilityInfoGeneratorLs.py": "8dfa191c9ae79f0d13759a0fe18a4f87195fd71f3ba7843b003226c6cd555f39",
+     "ls.json": "6f2af21fbcd3976b6a5ae469d9dd522b3ac3159db05881b02730fce536e36921"
+    },
+    "source": "naive LLM, 2026-10-27_225849_naive-run-ls_ls_PROMPT_v1"
+   },
+   "md5sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_103723_naive-run-md5sum_md5sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMd5sum.py": "a3361a13b47df172136cf5128749ac91bfbd9940c49db9464b0d08b14e792d91",
+     "ParallelizabilityInfoGeneratorMd5sum.py": "42ca736d62aca5737394f9555acd069447f80fdecbe27db266119946433df7b0",
+     "md5sum.json": "80ffd7f36e8838cfe93ccb54cdeb322ff184ea6093ef19298a07d531a79ec45b"
+    },
+    "source": "naive LLM, 2026-10-28_103723_naive-run-md5sum_md5sum_PROMPT_v1"
+   },
+   "mkdir": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_094955_naive-run-mkdir_mkdir_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMkdir.py": "656e0bb58c53a34e6d7af98c76321b43990ab0c4cd1278d806a110631d928660",
+     "ParallelizabilityInfoGeneratorMkdir.py": "f70e99110320187ef4dfd15477dc1cadebd8374772262d9173758e2a1ec2b4f8",
+     "mkdir.json": "f6bae86524d5ca175f725a9f2cf5fe32b999e2aaf7e3050d54c4129f2b4de482"
+    },
+    "source": "naive LLM, 2026-10-28_094955_naive-run-mkdir_mkdir_PROMPT_v1"
+   },
+   "mkfifo": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_082734_naive-run-mkfifo_mkfifo_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMkfifo.py": "5d4476f4b116aa5a0e7360bd73a0b2c14cabb6c842dfab6b368afcc1c1ef12a2",
+     "ParallelizabilityInfoGeneratorMkfifo.py": "023562072810f0f7352aa1fb0ccb6ccca359b66499338e905f6dbff3c74a4b62",
+     "mkfifo.json": "776db8a04140baf27457efaadf8b48df4040b6ed6122c7f85b83f9d2a6d2d834"
+    },
+    "source": "naive LLM, 2026-10-28_082734_naive-run-mkfifo_mkfifo_PROMPT_v1"
+   },
+   "mknod": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_120953_naive-run-mknod_mknod_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMknod.py": "47801227cefa9b0dfeae7eb4875afe5175e93a7ae45b2e90521061afc0ece568",
+     "ParallelizabilityInfoGeneratorMknod.py": "239ba74dc271cec889fdac113db4bcef9e286909f9a37ea9b0b3d10f1b1f734c",
+     "mknod.json": "eb3c7ef6cbc460292781c74215e1346dc2855a159f8992503c171cc2c6083eb4"
+    },
+    "source": "naive LLM, 2026-10-28_120953_naive-run-mknod_mknod_PROMPT_v1"
+   },
+   "mktemp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_092028_naive-run-mktemp_mktemp_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMktemp.py": "8934f8f00e1935e5a41fe8718390d0d89f6827057589f7ad9d7241e0ffa20325",
+     "ParallelizabilityInfoGeneratorMktemp.py": "c27ef9f0b5540198d07ccda56aa257e03eaa76e30cf6788f51017d01149a488d",
+     "mktemp.json": "3e84c309d8e7466b9b37bbfea9e293d98dbe98914a24de8c600ef05049940666"
+    },
+    "source": "naive LLM, 2026-10-28_092028_naive-run-mktemp_mktemp_PROMPT_v1"
+   },
+   "mogrify": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_084707_naive-run-mogrify_mogrify_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMogrify.py": "0b9a6f247df28ef1fcb8d8b54ad5454d5d40d6ed75c6e1c5bbe1bef0a541e7ca",
+     "ParallelizabilityInfoGeneratorMogrify.py": "ce29bf13331ccb0625f7ea76682bd4e9dcff53229b85a7425871dd74cc03d6b9",
+     "mogrify.json": "2f319ac1e84b757d5380e3b1b3769fbae270cb4a3712d0a55077c5bfe0318e88"
+    },
+    "source": "naive LLM, 2026-10-28_084707_naive-run-mogrify_mogrify_PROMPT_v1"
+   },
+   "mv": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_123450_naive-run-mv_mv_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMv.py": "03fb4625f61aea18e8baf48a20c9a1a4c68bced9a179ee026061130fd7102c77",
+     "ParallelizabilityInfoGeneratorMv.py": "dbf43cfd4c22d3a2f780b1d5a320beb930b6067cd29c6b092d225cadf516c0b2",
+     "mv.json": "46bbc64c10646bb140cdd13280d6c208de0e9866c6ccb4d55c52b4de8ca4d508"
+    },
+    "source": "naive LLM, 2026-10-28_123450_naive-run-mv_mv_PROMPT_v1"
+   },
+   "nl": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_131454_naive-run-nl_nl_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorNl.py": "8286f0b8c566a9c7eb65d0702a84f19816f475119017d1d26f5a5109d881b34e",
+     "ParallelizabilityInfoGeneratorNl.py": "ef26f445f74e2aedf16cce6fbc2354540b90ee587bc795ee66414d7aa5a26228",
+     "nl.json": "798e395104e2d0e86245684019146725b613693965de219f6b54c137680e7ac7"
+    },
+    "source": "naive LLM, 2026-10-28_131454_naive-run-nl_nl_PROMPT_v1"
+   },
+   "numfmt": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_135110_naive-run-numfmt_numfmt_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorNumfmt.py": "1db1560647a2ab5d719a6c5978a10c2ee23f586505d20c89a0b603310005ee58",
+     "ParallelizabilityInfoGeneratorNumfmt.py": "1c9cd9f2f858be7228e7838a19f6afb83d5e9563ca46cf01041ab148629c1ac8",
+     "numfmt.json": "d322683856d12d5df653f1718ca1a48682ee3022ccbeb068f5ea82121bd2747f"
+    },
+    "source": "naive LLM, 2026-10-28_135110_naive-run-numfmt_numfmt_PROMPT_v1"
+   },
+   "od": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_132554_naive-run-od_od_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorOd.py": "a556b4060d9a0bf336bf941fea6af432641f6fb154448f16f1e39033e5b455a5",
+     "ParallelizabilityInfoGeneratorOd.py": "20e4693232608c7d502c3587175ff006bed34569d3832394ef110b6ae615e395",
+     "od.json": "003e4fab44591d4d4246d57d5db4a28f3fe7559ce4ea0bf727298d96357cacd0"
+    },
+    "source": "naive LLM, 2026-10-28_132554_naive-run-od_od_PROMPT_v1"
+   },
+   "pandoc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_144226_naive-run-pandoc_pandoc_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorPandoc.py": "30cb5511f098960e3b84dc660f8ef2924f5a6397fed7a482052fb4fb4ec9e063",
+     "ParallelizabilityInfoGeneratorPandoc.py": "3700b7ad9261348832c06bdb9ab5c44d967ee7f31e8daa2031ad6da1894112b2",
+     "pandoc.json": "eba2995ac4192638cdb5f202f70dcfead068a45392407675cd9d40edd9c7bebb"
+    },
+    "source": "naive LLM, 2026-10-28_144226_naive-run-pandoc_pandoc_PROMPT_v1"
+   },
+   "pinky": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_094246_naive-run-pinky_pinky_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorPinky.py": "79427f0ffa1ea6e66186fdb1960cb2032c5d0c6081472887f5f29ef42de6781b",
+     "ParallelizabilityInfoGeneratorPinky.py": "7496866d5439cf812bec4c849b54e2ebbaeac1d4aac565dbaccfb45f0a1b5341",
+     "pinky.json": "fffb0b9abcfeabbfd2860809cfda20ebdde164df5771ee15c9e938f0b59345d5"
+    },
+    "source": "naive LLM, 2026-10-28_094246_naive-run-pinky_pinky_PROMPT_v1"
+   },
+   "pr": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_142022_naive-run-pr_pr_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorPr.py": "ec6d82dca2112f1a9218938379f9deccae4433b50c6379146069fd9de47fe440",
+     "ParallelizabilityInfoGeneratorPr.py": "9ff32d122a2597fb292c868c8411deaeba7ced7eaea3b8f34f544d88270f666e",
+     "pr.json": "be4cc63a15715c932aff9832cf90f1aa44c9340025d573e87b9f537608d67979"
+    },
+    "source": "naive LLM, 2026-10-28_142022_naive-run-pr_pr_PROMPT_v1"
+   },
+   "ptx": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_130800_naive-run-ptx_ptx_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorPtx.py": "061af8be55283a93bc1fac03ed24a899947e84e5dacbb1e38665d3045e6401ba",
+     "ParallelizabilityInfoGeneratorPtx.py": "7666617aec9c6bca151788aed319d2b70da453227de215342cffdc17620cb214",
+     "ptx.json": "24e9c7f4e6e9c65636719da73614e3fd21214049b209f8c58f8fddce6ef36ee8"
+    },
+    "source": "naive LLM, 2026-10-28_130800_naive-run-ptx_ptx_PROMPT_v1"
+   },
+   "readlink": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_101249_naive-run-readlink_readlink_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorReadlink.py": "5b7d565b57d6c22a72300dfa584f7968516a80c3ec1b10435f4212c76ce66cf1",
+     "ParallelizabilityInfoGeneratorReadlink.py": "5c556d1cced475d963f491c042f16dd007cd3a7c3c97ce2c758223f8aa9d7a1a",
+     "readlink.json": "afa3362c6367b5848cdbdbf62a149fb8b6ec5ab83c6949fd764bc1ea7e0cdbde"
+    },
+    "source": "naive LLM, 2026-10-28_101249_naive-run-readlink_readlink_PROMPT_v1"
+   },
+   "rev": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_090550_naive-run-rev_rev_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorRev.py": "49548a01dbcefe975f11a37717ab09c4e159a8682e146d7751330a4c104c8c5a",
+     "ParallelizabilityInfoGeneratorRev.py": "2c9c905aea5dc1257cd85ccbc4757e6b00b8c44c7efa627903e546d4a26bc160",
+     "rev.json": "c221e49c91469b19e601e31e198f771be7b45b674c3a2fc744f400d82d835567"
+    },
+    "source": "naive LLM, 2026-10-28_090550_naive-run-rev_rev_PROMPT_v1"
+   },
+   "rm": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_105951_naive-run-rm_rm_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorRm.py": "bbf3a1a0b47c632096f535ebc0f4737f8ffde50f6307a2b01bbe9c190766c912",
+     "ParallelizabilityInfoGeneratorRm.py": "90ac8266a3070352e154596cd46043cb466948ca40b2e25283a49be7b9992251",
+     "rm.json": "23de476b36332319608d9f23d4034e9b2b9e5d3ac156d50c1c399c91782da571"
+    },
+    "source": "naive LLM, 2026-10-28_105951_naive-run-rm_rm_PROMPT_v1"
+   },
+   "runcon": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_083856_naive-run-runcon_runcon_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorRuncon.py": "ad5aa526fd5b993a283c9178f4a836ebbb59df889788040bf10050b42fe38591",
+     "ParallelizabilityInfoGeneratorRuncon.py": "6ebddf0ceb96c589ed5341273d66d548bef68e7388c9ccc8978ed63a1e3758c2",
+     "runcon.json": "712f1f69f00cdc51fd3247eee85543537a9a57101f65cd7ba9b477bbbef47e75"
+    },
+    "source": "naive LLM, 2026-10-28_083856_naive-run-runcon_runcon_PROMPT_v1"
+   },
+   "sed": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_124823_naive-run-sed_sed_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSed.py": "0ee220be76e6d9f0602535c783336ff295d8af8a9a7706175cf8f0819554331f",
+     "ParallelizabilityInfoGeneratorSed.py": "8b4fa6b177251118c18dd0dbf7bc7419a16e66a834e70544aa65527ebf032dd3",
+     "sed.json": "5a8b7aa3facc5dfd6b6f1769bffb0a5a32427acdcb46e6b7d89af4dc3f8435a0"
+    },
+    "source": "naive LLM, 2026-10-28_124823_naive-run-sed_sed_PROMPT_v1"
+   },
+   "seq": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_095809_naive-run-seq_seq_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSeq.py": "4372789e4ee1f6cc3934e20d53154106f8249920eb00fff1aa9c0857b65c4535",
+     "ParallelizabilityInfoGeneratorSeq.py": "d44966c464ee8a85daa892d0d1aafe7caab08b07309ec6c05232aae8038edaae",
+     "seq.json": "bf752f71882ec1ebfea36cde4277afcf3f993d2c7db8370aef118c0c61541ce9"
+    },
+    "source": "naive LLM, 2026-10-28_095809_naive-run-seq_seq_PROMPT_v1"
+   },
+   "sha1sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_103316_naive-run-sha1sum_sha1sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSha1sum.py": "2d43fbcae59d914fd1bdb543bdb916e821822695a09cb9f2077cd73ed7de0006",
+     "ParallelizabilityInfoGeneratorSha1sum.py": "f5410c75e1aa8c18d33ab2ed4e0875c813c7a2aff5af80e0b59d2d8c9b7be99f",
+     "sha1sum.json": "80ffd7f36e8838cfe93ccb54cdeb322ff184ea6093ef19298a07d531a79ec45b"
+    },
+    "source": "naive LLM, 2026-10-28_103316_naive-run-sha1sum_sha1sum_PROMPT_v1"
+   },
+   "sha224sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_102417_naive-run-sha224sum_sha224sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSha224sum.py": "0b3f171ce14db983121c89361616efd8a77c73b901d138bb4118d559551479cd",
+     "ParallelizabilityInfoGeneratorSha224sum.py": "9798229e4ca4579f0c7f7ea9aa5cb66608ae5091068cd3d8deb760651cc7eed2",
+     "sha224sum.json": "80ffd7f36e8838cfe93ccb54cdeb322ff184ea6093ef19298a07d531a79ec45b"
+    },
+    "source": "naive LLM, 2026-10-28_102417_naive-run-sha224sum_sha224sum_PROMPT_v1"
+   },
+   "sha256sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_101707_naive-run-sha256sum_sha256sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSha256sum.py": "f1f15d75a4116da94678aa9ee6abd451fe40b8b62002af5046c57420e40db865",
+     "ParallelizabilityInfoGeneratorSha256sum.py": "fea85fc24fe2701054c34bddc81f81deeb17e3dd680f583d98dc5a085cdc0efd",
+     "sha256sum.json": "80ffd7f36e8838cfe93ccb54cdeb322ff184ea6093ef19298a07d531a79ec45b"
+    },
+    "source": "naive LLM, 2026-10-28_101707_naive-run-sha256sum_sha256sum_PROMPT_v1"
+   },
+   "sha384sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_102715_naive-run-sha384sum_sha384sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSha384sum.py": "f628bd149dc01d60c87f8d4e942ce3c75cdd06854bdeda1bc1ca5ef337c2b0bb",
+     "ParallelizabilityInfoGeneratorSha384sum.py": "cc0f92fcafc4b9f7d106e11d69d3dfd693616b3c36acda78b1e31c22f01a3ff5",
+     "sha384sum.json": "80ffd7f36e8838cfe93ccb54cdeb322ff184ea6093ef19298a07d531a79ec45b"
+    },
+    "source": "naive LLM, 2026-10-28_102715_naive-run-sha384sum_sha384sum_PROMPT_v1"
+   },
+   "sha512sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_102118_naive-run-sha512sum_sha512sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSha512sum.py": "b62c5edb75c61c424f5f621978e03da051226b277d8a41a59a447a4f2a372411",
+     "ParallelizabilityInfoGeneratorSha512sum.py": "288746d363158a2aee8444f91f7a7976a193d6e2652591e2aee93e4236117b31",
+     "sha512sum.json": "80ffd7f36e8838cfe93ccb54cdeb322ff184ea6093ef19298a07d531a79ec45b"
+    },
+    "source": "naive LLM, 2026-10-28_102118_naive-run-sha512sum_sha512sum_PROMPT_v1"
+   },
+   "shred": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_113129_naive-run-shred_shred_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorShred.py": "b8ec2a58c1bb5df8e5b3f0c7eca52c9269f80e2736c9b44ee88b1b7865d1dcfe",
+     "ParallelizabilityInfoGeneratorShred.py": "fbb2f1db062a30fa0b07a3ec90eb0ee1c01e10d1743ad803418fc518c9023056",
+     "shred.json": "48f65c420026f16dd5cc79c118f7a83b772a4e3729d988986257b30142a5d52a"
+    },
+    "source": "naive LLM, 2026-10-28_113129_naive-run-shred_shred_PROMPT_v1"
+   },
+   "shuf": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_113528_naive-run-shuf_shuf_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorShuf.py": "bd43ad5d5b8a310703ad04327bf7929ac09f6c28f3f2e26eb63a456f8787359e",
+     "ParallelizabilityInfoGeneratorShuf.py": "28e5ccf91b57ec29c6b114d238d884da2d24d1603db47aefd6382fa4f03742a7",
+     "shuf.json": "6695703580e43eb4f5e49ebe139c1ce847db05ebec68134ec4dc55cce5fb3be0"
+    },
+    "source": "naive LLM, 2026-10-28_113528_naive-run-shuf_shuf_PROMPT_v1"
+   },
+   "sort": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_140825_naive-run-sort_sort_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSort.py": "662b4ef5a6d3a2ce689fa5d11391aeea33320ddf70d829ef9c9c80f2e0bbb60f",
+     "ParallelizabilityInfoGeneratorSort.py": "d4a709c545266cda541778dfc9e1bc814ed16035c1117bd2fd3bd5e3c5e418c1",
+     "sort.json": "f103ad2e5da433991aab0a869c5f10087ad237c5fb76e0f49d69e07e2c34f9d5"
+    },
+    "source": "naive LLM, 2026-10-28_140825_naive-run-sort_sort_PROMPT_v1"
+   },
+   "split": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_134035_naive-run-split_split_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSplit.py": "ee9843dacf9cb0e6f44c5286cab4ab725571a55c3b44005303e0428ccee4bc46",
+     "ParallelizabilityInfoGeneratorSplit.py": "4ffec3dcf6e54718eb9cff8e534d62fe62989d3779706982ba0d25bd4a5c7f91",
+     "split.json": "334bfe9396539aba4b6017436d6d59120897909693ab5afb62a577e656663b80"
+    },
+    "source": "naive LLM, 2026-10-28_134035_naive-run-split_split_PROMPT_v1"
+   },
+   "stat": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_100917_naive-run-stat_stat_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorStat.py": "6f783badb9789ccdfd0443fbfb6396c93de4f562a96e58ce3fb1da31e0ed6fdc",
+     "ParallelizabilityInfoGeneratorStat.py": "cd6932426722b81cf581f6a851cc6eebf8ce7b6616e700b1f23339a69decc9ff",
+     "stat.json": "97b37b677900165d7183b98166092c86d2bfd22e6b4ad9a869d92fd385a18c6d"
+    },
+    "source": "naive LLM, 2026-10-28_100917_naive-run-stat_stat_PROMPT_v1"
+   },
+   "tail": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_122555_naive-run-tail_tail_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorTail.py": "047b28e42d19686d8da79d6dd5cb5de46a74d866478da1ce0087bd642b54ea9b",
+     "ParallelizabilityInfoGeneratorTail.py": "5940cee77637223a471cbd3317de1126d2f850dffeee03abdabf0e854489cc49",
+     "tail.json": "7fbaa448b800caaf19f19bad30de5ceae6879090f92ddfe0cabac899324219f0"
+    },
+    "source": "naive LLM, 2026-10-28_122555_naive-run-tail_tail_PROMPT_v1"
+   },
+   "tee": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_082342_naive-run-tee_tee_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorTee.py": "aa48b1730f258fe6866877bca4f73997b3cbcb777c4b64754840ada114ae486f",
+     "ParallelizabilityInfoGeneratorTee.py": "02692c7f8b3c446f4c0e72b0299eebd3aa135fd0f7ce2f16cf7cae7af16d0786",
+     "tee.json": "0a32df47b0d94a94b13ba5cfd9954465efc44d68db406dbab892b5d3a8660215"
+    },
+    "source": "naive LLM, 2026-10-28_082342_naive-run-tee_tee_PROMPT_v1"
+   },
+   "test": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-27_230951_naive-run-test_test_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorTest.py": "2309ebd04ca25950013ee8f26931221c1480d0b88fe21ba33eb6159a5a635861",
+     "ParallelizabilityInfoGeneratorTest.py": "d931720fd4afe859772c9167f64ca5b04e475c30969741788667f60f1c60ac50",
+     "test.json": "729948cf5661ae7373da4ceb7a3e75d01cfbf6a52d9e1d737382b86fddd03db3"
+    },
+    "source": "naive LLM, 2026-10-27_230951_naive-run-test_test_PROMPT_v1"
+   },
+   "timeout": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_100100_naive-run-timeout_timeout_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorTimeout.py": "32b1bed61f8d8965f8bb0531fdbedd3ddc845d6f2900172ce6fc7c6143dbcc7f",
+     "ParallelizabilityInfoGeneratorTimeout.py": "272736aa3115a6d7f81a1dea55d1ea613a83bb129f5c627ac2303effa066215d",
+     "timeout.json": "11025424d0ebe4dc9ca8eb2dbfd82d12460fda16b4fe0bfe402e1dcd850f661f"
+    },
+    "source": "naive LLM, 2026-10-28_100100_naive-run-timeout_timeout_PROMPT_v1"
+   },
+   "touch": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_112717_naive-run-touch_touch_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorTouch.py": "c25fd0e4fc02c45dbbcd3286aa07c34a51b0192f7f60c331042efe3b79249f11",
+     "ParallelizabilityInfoGeneratorTouch.py": "6e2485e9876e2bbe89104788162d7c2a7037e398d8a2f55ba74ea2c96be2d363",
+     "touch.json": "3ba0661f89e430674e50c1a938b3099e7e8c36955a1e9591c3b815fef980ff7d"
+    },
+    "source": "naive LLM, 2026-10-28_112717_naive-run-touch_touch_PROMPT_v1"
+   },
+   "truncate": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_094521_naive-run-truncate_truncate_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorTruncate.py": "4b964b4331ec6b659dc721f7a2dfc1ebd3d730a47d6324a20549f8a18b723106",
+     "ParallelizabilityInfoGeneratorTruncate.py": "f5fa5a64434b89582c17c4edce03860c398b887dc7d16028ea02c3b9d48335cb",
+     "truncate.json": "876ef6d49581cea85cd141ed7834411e370de53e9b20e6356a785251282fce5d"
+    },
+    "source": "naive LLM, 2026-10-28_094521_naive-run-truncate_truncate_PROMPT_v1"
+   },
+   "uglifyjs": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_133241_naive-run-uglifyjs_uglifyjs_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorUglifyjs.py": "9005cb3946649e43e54afb8f43a9027c3b66e801446789890517ebd62964d118",
+     "ParallelizabilityInfoGeneratorUglifyjs.py": "ff3d29fd4dec3248d786b61c1f868849979d6614b4df086dee6b6e23bfab1116",
+     "uglifyjs.json": "b7787b2751a8bc197fd3d85230175e2fe9cdc5fc1ab29e4c6fe057055708dc48"
+    },
+    "source": "naive LLM, 2026-10-28_133241_naive-run-uglifyjs_uglifyjs_PROMPT_v1"
+   },
+   "uname": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_092528_naive-run-uname_uname_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorUname.py": "af6126695634775dd48c208bbd32c65e59f98cc6e4158d5e8c681be588de939d",
+     "ParallelizabilityInfoGeneratorUname.py": "1557a53fd260dfd2dc63bd07dc876fc1937886e058ecf93ee66385c262d889da",
+     "uname.json": "adf2500ee34d46229d109f76278d321ed489bd56c4e5783da4ea4a77e897054e"
+    },
+    "source": "naive LLM, 2026-10-28_092528_naive-run-uname_uname_PROMPT_v1"
+   },
+   "unexpand": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_091112_naive-run-unexpand_unexpand_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorUnexpand.py": "ee47e2abca856234dae235c0934303effe9c1a2f3e47768c6adb8fd0edbcd402",
+     "ParallelizabilityInfoGeneratorUnexpand.py": "271b02749c25e3db259f1175bf8b9d214c21fad1ce814556d4999b7975d6c126",
+     "unexpand.json": "e294d22e3e2b8008bdaca6bbe82516144fd94e1aaafb6115c60ab98ec5a3a051"
+    },
+    "source": "naive LLM, 2026-10-28_091112_naive-run-unexpand_unexpand_PROMPT_v1"
+   },
+   "uniq": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorUniq.py": "8a1f21bf3544e1084897444d16b85c8c2e245c84af47569b79fb914a2a8b18c6",
+     "ParallelizabilityInfoGeneratorUniq.py": "2f6727c92970f0fb99e0d737f4a2826692c1834718dbb2b48794dac189d807a2",
+     "uniq.json": "2c8caa27b58a815995237db95989bc1a05970576413a64120568d7bf9e795789"
+    },
+    "source": "naive LLM, 2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1"
+   },
+   "unzip": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_143438_naive-run-unzip_unzip_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorUnzip.py": "3ec6f1b659c88cc9147008b002556c84ef3348cc6bbb000fd65b53bc0a99066c",
+     "ParallelizabilityInfoGeneratorUnzip.py": "628c176b7c7ebf22122f0162a43a2ca2414bce42f26291739f46d243f5076ee0",
+     "unzip.json": "1303c8de98b65d52d8ccda7081e96e61ce95f7fbc0555249de8b73320fcecb4d"
+    },
+    "source": "naive LLM, 2026-10-28_143438_naive-run-unzip_unzip_PROMPT_v1"
+   },
+   "vdir": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_142559_naive-run-vdir_vdir_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorVdir.py": "65dba1ea691455cb9032c33a6461a9d8075c07725ce115ae6ac65f4198c955b6",
+     "ParallelizabilityInfoGeneratorVdir.py": "2af85e396a553b9b60195053ac547728a569f9e98a57ffc042f65576d2f4e58f",
+     "vdir.json": "1f617efc04407076dc3a5c1543d36ae8ee57eea82297e9afe2de1301aef26f99"
+    },
+    "source": "naive LLM, 2026-10-28_142559_naive-run-vdir_vdir_PROMPT_v1"
+   },
+   "wc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_091448_naive-run-wc_wc_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorWc.py": "636dbf0eb9879ea9118d9c800863da71477b5d2974f5c5cf6558da182f587d3f",
+     "ParallelizabilityInfoGeneratorWc.py": "697e963c61b561e58082b4d99d3d9a7232a94fb4aa53ada40db9f601eb3f61aa",
+     "wc.json": "bacf71bbd86d168a9da93aecd643caffd68a92bcbe2ef6bea2be5021fc7f31ee"
+    },
+    "source": "naive LLM, 2026-10-28_091448_naive-run-wc_wc_PROMPT_v1"
+   },
+   "who": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_122120_naive-run-who_who_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorWho.py": "c1ee4a932c96b9548094d88a960aedb0892c90ac35e0f2ee1bc39582feec09f1",
+     "ParallelizabilityInfoGeneratorWho.py": "d23f672c12890525454f50ef4952cd79df7f3db731507775904d0fc68a322414",
+     "who.json": "cc892233af76e86c6b54e16a25f36b6264d3cf80d8af657487c8db4476ac4c3a"
+    },
+    "source": "naive LLM, 2026-10-28_122120_naive-run-who_who_PROMPT_v1"
+   },
+   "yes": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_104621_naive-run-yes_yes_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorYes.py": "7db03175e57ad1b1b235479cc7bf81b29602730049939665e08f5c9b498474b0",
+     "ParallelizabilityInfoGeneratorYes.py": "844ccba66be95c70d1a0369bf352026a225ab3020b0ef00baaf81d795670af3e",
+     "yes.json": "dbef8c299111bd7f57bfe82192ddfaa6d6f280279ece328f5a5fdab465507c05"
+    },
+    "source": "naive LLM, 2026-10-28_104621_naive-run-yes_yes_PROMPT_v1"
+   }
+  },
+  "rule": "fig7_campaign/ledger.jsonl, the row with repeat 1 for each command"
+ },
+ "pash": {
+  "annotations_version": "Version: 0.2.4",
+  "commit": "42a8b87c84555c11708a1d90c509b518f20f997c",
+  "dirty_files": "",
+  "settings": "pash -w 8 -d 2 --log_file <file> --local-annotations-dir <set> <script> <args>",
+  "stock_commands": [
+   "alt_bigram_aux_reduce",
+   "alt_bigrams_aux",
+   "awk",
+   "bigram_aux_map",
+   "bigram_aux_reduce",
+   "bigrams_aux",
+   "cat",
+   "col",
+   "comm",
+   "custom_sort",
+   "custom_tr",
+   "cut",
+   "diff",
+   "grep",
+   "head",
+   "mkfifo",
+   "mv",
+   "rm",
+   "sed",
+   "seq",
+   "set_diff",
+   "sort",
+   "tail",
+   "tee",
+   "test_one",
+   "test_two",
+   "tr",
+   "uniq",
+   "wc",
+   "xargs"
+  ],
+  "stock_files": 107,
+  "stock_package": "/home/tirandagan.guest/pash/python_pkgs/lib/python3.12/site-packages/pash_annotations",
+  "stock_package_sha": "77625cbdbe5c0ed7"
+ },
+ "sets": {
+  "caruca-main": {
+   "folder": "/home/tirandagan.guest/t024/sets/caruca-main",
+   "package_sha": "e4f24a7b838954de",
+   "source_per_command": {
+    "alt_bigram_aux_reduce": "PaSh's own",
+    "alt_bigrams_aux": "PaSh's own",
+    "awk": "PaSh's own",
+    "bigram_aux_map": "PaSh's own",
+    "bigram_aux_reduce": "PaSh's own",
+    "bigrams_aux": "PaSh's own",
+    "cat": "Caruca, v1-pash (cat/pash_grammar/trace_1)",
+    "col": "PaSh's own",
+    "comm": "PaSh's own",
+    "cp": "Caruca, v1-pash (cp/pash_grammar/trace_1)",
+    "custom_sort": "PaSh's own",
+    "custom_tr": "PaSh's own",
+    "cut": "Caruca, v1-main (cut/main_grammar/trace_1)",
+    "diff": "PaSh's own",
+    "grep": "Caruca, v1-pash (grep/pash_grammar/trace_1)",
+    "head": "PaSh's own",
+    "mkfifo": "PaSh's own",
+    "mv": "PaSh's own",
+    "rm": "Caruca, v1-main (rm/main_grammar/trace_1)",
+    "sed": "PaSh's own",
+    "seq": "PaSh's own",
+    "set_diff": "PaSh's own",
+    "sort": "Caruca, v1-main (sort/main_grammar/trace_1)",
+    "split": "Caruca, v1-pash (split/pash_grammar/trace_1)",
+    "tail": "PaSh's own",
+    "tee": "PaSh's own",
+    "test_one": "PaSh's own",
+    "test_two": "PaSh's own",
+    "tr": "PaSh's own",
+    "uniq": "PaSh's own",
+    "wc": "Caruca, v1-pash (wc/pash_grammar/trace_1)",
+    "xargs": "PaSh's own"
+   }
+  },
+  "caruca-pash": {
+   "folder": "/home/tirandagan.guest/t024/sets/caruca-pash",
+   "package_sha": "ea3a2a9187e89652",
+   "source_per_command": {
+    "alt_bigram_aux_reduce": "PaSh's own",
+    "alt_bigrams_aux": "PaSh's own",
+    "awk": "PaSh's own",
+    "bigram_aux_map": "PaSh's own",
+    "bigram_aux_reduce": "PaSh's own",
+    "bigrams_aux": "PaSh's own",
+    "cat": "Caruca, v1-pash (cat/pash_grammar/trace_1)",
+    "col": "PaSh's own",
+    "comm": "PaSh's own",
+    "cp": "Caruca, v1-pash (cp/pash_grammar/trace_1)",
+    "custom_sort": "PaSh's own",
+    "custom_tr": "PaSh's own",
+    "cut": "Caruca, v1-pash (cut/pash_grammar/trace_1)",
+    "diff": "PaSh's own",
+    "grep": "Caruca, v1-pash (grep/pash_grammar/trace_1)",
+    "head": "PaSh's own",
+    "mkfifo": "PaSh's own",
+    "mv": "PaSh's own",
+    "rm": "Caruca, v1-pash (rm/pash_grammar/trace_1)",
+    "sed": "PaSh's own",
+    "seq": "PaSh's own",
+    "set_diff": "PaSh's own",
+    "sort": "Caruca, v1-pash (sort/pash_grammar/trace_1)",
+    "split": "Caruca, v1-pash (split/pash_grammar/trace_1)",
+    "tail": "PaSh's own",
+    "tee": "PaSh's own",
+    "test_one": "PaSh's own",
+    "test_two": "PaSh's own",
+    "tr": "PaSh's own",
+    "uniq": "PaSh's own",
+    "wc": "Caruca, v1-pash (wc/pash_grammar/trace_1)",
+    "xargs": "PaSh's own"
+   }
+  },
+  "naive": {
+   "folder": "/home/tirandagan.guest/t024/sets/naive",
+   "package_sha": "d61aae9d0ed20b52",
+   "source_per_command": {
+    "alt_bigram_aux_reduce": "PaSh's own",
+    "alt_bigrams_aux": "PaSh's own",
+    "awk": "PaSh's own",
+    "b2sum": "naive LLM, 2026-10-28_105421_naive-run-b2sum_b2sum_PROMPT_v1",
+    "basenc": "naive LLM, 2026-10-28_111031_naive-run-basenc_basenc_PROMPT_v1",
+    "bc": "naive LLM, 2026-10-28_084323_naive-run-bc_bc_PROMPT_v1",
+    "bigram_aux_map": "PaSh's own",
+    "bigram_aux_reduce": "PaSh's own",
+    "bigrams_aux": "PaSh's own",
+    "cat": "naive LLM, 2026-10-28_100411_naive-run-cat_cat_PROMPT_v1",
+    "chcon": "naive LLM, 2026-10-28_125939_naive-run-chcon_chcon_PROMPT_v1",
+    "chgrp": "naive LLM, 2026-10-28_114550_naive-run-chgrp_chgrp_PROMPT_v1",
+    "chmod": "naive LLM, 2026-10-28_112202_naive-run-chmod_chmod_PROMPT_v1",
+    "chown": "naive LLM, 2026-10-28_115536_naive-run-chown_chown_PROMPT_v1",
+    "chroot": "naive LLM, 2026-10-28_083453_naive-run-chroot_chroot_PROMPT_v1",
+    "col": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1",
+    "comm": "naive LLM, 2026-10-28_111854_naive-run-comm_comm_PROMPT_v1",
+    "convert": "naive LLM, 2026-10-27_231631_naive-run-convert_convert_PROMPT_v1",
+    "cp": "naive LLM, 2026-10-28_114133_naive-run-cp_cp_PROMPT_v1",
+    "csplit": "naive LLM, 2026-10-28_104909_naive-run-csplit_csplit_PROMPT_v1",
+    "custom_sort": "PaSh's own",
+    "custom_tr": "PaSh's own",
+    "cut": "naive LLM, 2026-10-27_230555_naive-run-cut_cut_PROMPT_v1",
+    "date": "naive LLM, 2026-10-28_111357_naive-run-date_date_PROMPT_v1",
+    "dd": "naive LLM, 2026-10-27_225152_naive-run-dd_dd_PROMPT_v1",
+    "df": "naive LLM, 2026-10-28_125544_naive-run-df_df_PROMPT_v1",
+    "diff": "naive LLM, 2026-10-28_115007_naive-run-diff_diff_PROMPT_v1",
+    "dir": "naive LLM, 2026-10-28_143025_naive-run-dir_dir_PROMPT_v1",
+    "du": "naive LLM, 2026-10-28_141545_naive-run-du_du_PROMPT_v1",
+    "env": "naive LLM, 2026-10-28_121513_naive-run-env_env_PROMPT_v1",
+    "expand": "naive LLM, 2026-10-28_083113_naive-run-expand_expand_PROMPT_v1",
+    "fmt": "naive LLM, 2026-10-28_104147_naive-run-fmt_fmt_PROMPT_v1",
+    "fold": "naive LLM, 2026-10-28_081910_naive-run-fold_fold_PROMPT_v1",
+    "grep": "naive LLM, 2026-10-28_135447_naive-run-grep_grep_PROMPT_v1",
+    "head": "naive LLM, 2026-10-28_095255_naive-run-head_head_PROMPT_v1",
+    "iconv": "naive LLM, 2026-10-28_110404_naive-run-iconv_iconv_PROMPT_v1",
+    "id": "naive LLM, 2026-10-28_093251_naive-run-id_id_PROMPT_v1",
+    "install": "naive LLM, 2026-10-28_140311_naive-run-install_install_PROMPT_v1",
+    "join": "naive LLM, 2026-10-28_132048_naive-run-join_join_PROMPT_v1",
+    "kill": "naive LLM, 2026-10-28_120050_naive-run-kill_kill_PROMPT_v1",
+    "ln": "naive LLM, 2026-10-28_130353_naive-run-ln_ln_PROMPT_v1",
+    "ls": "naive LLM, 2026-10-27_225849_naive-run-ls_ls_PROMPT_v1",
+    "md5sum": "naive LLM, 2026-10-28_103723_naive-run-md5sum_md5sum_PROMPT_v1",
+    "mkdir": "naive LLM, 2026-10-28_094955_naive-run-mkdir_mkdir_PROMPT_v1",
+    "mkfifo": "naive LLM, 2026-10-28_082734_naive-run-mkfifo_mkfifo_PROMPT_v1",
+    "mknod": "naive LLM, 2026-10-28_120953_naive-run-mknod_mknod_PROMPT_v1",
+    "mktemp": "naive LLM, 2026-10-28_092028_naive-run-mktemp_mktemp_PROMPT_v1",
+    "mogrify": "naive LLM, 2026-10-28_084707_naive-run-mogrify_mogrify_PROMPT_v1",
+    "mv": "naive LLM, 2026-10-28_123450_naive-run-mv_mv_PROMPT_v1",
+    "nl": "naive LLM, 2026-10-28_131454_naive-run-nl_nl_PROMPT_v1",
+    "numfmt": "naive LLM, 2026-10-28_135110_naive-run-numfmt_numfmt_PROMPT_v1",
+    "od": "naive LLM, 2026-10-28_132554_naive-run-od_od_PROMPT_v1",
+    "pandoc": "naive LLM, 2026-10-28_144226_naive-run-pandoc_pandoc_PROMPT_v1",
+    "pinky": "naive LLM, 2026-10-28_094246_naive-run-pinky_pinky_PROMPT_v1",
+    "pr": "naive LLM, 2026-10-28_142022_naive-run-pr_pr_PROMPT_v1",
+    "ptx": "naive LLM, 2026-10-28_130800_naive-run-ptx_ptx_PROMPT_v1",
+    "readlink": "naive LLM, 2026-10-28_101249_naive-run-readlink_readlink_PROMPT_v1",
+    "rev": "naive LLM, 2026-10-28_090550_naive-run-rev_rev_PROMPT_v1",
+    "rm": "naive LLM, 2026-10-28_105951_naive-run-rm_rm_PROMPT_v1",
+    "runcon": "naive LLM, 2026-10-28_083856_naive-run-runcon_runcon_PROMPT_v1",
+    "sed": "naive LLM, 2026-10-28_124823_naive-run-sed_sed_PROMPT_v1",
+    "seq": "naive LLM, 2026-10-28_095809_naive-run-seq_seq_PROMPT_v1",
+    "set_diff": "PaSh's own",
+    "sha1sum": "naive LLM, 2026-10-28_103316_naive-run-sha1sum_sha1sum_PROMPT_v1",
+    "sha224sum": "naive LLM, 2026-10-28_102417_naive-run-sha224sum_sha224sum_PROMPT_v1",
+    "sha256sum": "naive LLM, 2026-10-28_101707_naive-run-sha256sum_sha256sum_PROMPT_v1",
+    "sha384sum": "naive LLM, 2026-10-28_102715_naive-run-sha384sum_sha384sum_PROMPT_v1",
+    "sha512sum": "naive LLM, 2026-10-28_102118_naive-run-sha512sum_sha512sum_PROMPT_v1",
+    "shred": "naive LLM, 2026-10-28_113129_naive-run-shred_shred_PROMPT_v1",
+    "shuf": "naive LLM, 2026-10-28_113528_naive-run-shuf_shuf_PROMPT_v1",
+    "sort": "naive LLM, 2026-10-28_140825_naive-run-sort_sort_PROMPT_v1",
+    "split": "naive LLM, 2026-10-28_134035_naive-run-split_split_PROMPT_v1",
+    "stat": "naive LLM, 2026-10-28_100917_naive-run-stat_stat_PROMPT_v1",
+    "tail": "naive LLM, 2026-10-28_122555_naive-run-tail_tail_PROMPT_v1",
+    "tee": "naive LLM, 2026-10-28_082342_naive-run-tee_tee_PROMPT_v1",
+    "test": "naive LLM, 2026-10-27_230951_naive-run-test_test_PROMPT_v1",
+    "test_one": "PaSh's own",
+    "test_two": "PaSh's own",
+    "timeout": "naive LLM, 2026-10-28_100100_naive-run-timeout_timeout_PROMPT_v1",
+    "touch": "naive LLM, 2026-10-28_112717_naive-run-touch_touch_PROMPT_v1",
+    "tr": "PaSh's own",
+    "truncate": "naive LLM, 2026-10-28_094521_naive-run-truncate_truncate_PROMPT_v1",
+    "uglifyjs": "naive LLM, 2026-10-28_133241_naive-run-uglifyjs_uglifyjs_PROMPT_v1",
+    "uname": "naive LLM, 2026-10-28_092528_naive-run-uname_uname_PROMPT_v1",
+    "unexpand": "naive LLM, 2026-10-28_091112_naive-run-unexpand_unexpand_PROMPT_v1",
+    "uniq": "naive LLM, 2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1",
+    "unzip": "naive LLM, 2026-10-28_143438_naive-run-unzip_unzip_PROMPT_v1",
+    "vdir": "naive LLM, 2026-10-28_142559_naive-run-vdir_vdir_PROMPT_v1",
+    "wc": "naive LLM, 2026-10-28_091448_naive-run-wc_wc_PROMPT_v1",
+    "who": "naive LLM, 2026-10-28_122120_naive-run-who_who_PROMPT_v1",
+    "xargs": "PaSh's own",
+    "yes": "naive LLM, 2026-10-28_104621_naive-run-yes_yes_PROMPT_v1"
+   }
+  },
+  "naive-cat-pash-own": {
+   "folder": "/home/tirandagan.guest/t024/sets/naive-cat-pash-own",
+   "package_sha": "2d2e08754901d8c9",
+   "source_per_command": {
+    "alt_bigram_aux_reduce": "PaSh's own",
+    "alt_bigrams_aux": "PaSh's own",
+    "awk": "PaSh's own",
+    "b2sum": "naive LLM, 2026-10-28_105421_naive-run-b2sum_b2sum_PROMPT_v1",
+    "basenc": "naive LLM, 2026-10-28_111031_naive-run-basenc_basenc_PROMPT_v1",
+    "bc": "naive LLM, 2026-10-28_084323_naive-run-bc_bc_PROMPT_v1",
+    "bigram_aux_map": "PaSh's own",
+    "bigram_aux_reduce": "PaSh's own",
+    "bigrams_aux": "PaSh's own",
+    "cat": "PaSh's own",
+    "chcon": "naive LLM, 2026-10-28_125939_naive-run-chcon_chcon_PROMPT_v1",
+    "chgrp": "naive LLM, 2026-10-28_114550_naive-run-chgrp_chgrp_PROMPT_v1",
+    "chmod": "naive LLM, 2026-10-28_112202_naive-run-chmod_chmod_PROMPT_v1",
+    "chown": "naive LLM, 2026-10-28_115536_naive-run-chown_chown_PROMPT_v1",
+    "chroot": "naive LLM, 2026-10-28_083453_naive-run-chroot_chroot_PROMPT_v1",
+    "col": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1",
+    "comm": "naive LLM, 2026-10-28_111854_naive-run-comm_comm_PROMPT_v1",
+    "convert": "naive LLM, 2026-10-27_231631_naive-run-convert_convert_PROMPT_v1",
+    "cp": "naive LLM, 2026-10-28_114133_naive-run-cp_cp_PROMPT_v1",
+    "csplit": "naive LLM, 2026-10-28_104909_naive-run-csplit_csplit_PROMPT_v1",
+    "custom_sort": "PaSh's own",
+    "custom_tr": "PaSh's own",
+    "cut": "naive LLM, 2026-10-27_230555_naive-run-cut_cut_PROMPT_v1",
+    "date": "naive LLM, 2026-10-28_111357_naive-run-date_date_PROMPT_v1",
+    "dd": "naive LLM, 2026-10-27_225152_naive-run-dd_dd_PROMPT_v1",
+    "df": "naive LLM, 2026-10-28_125544_naive-run-df_df_PROMPT_v1",
+    "diff": "naive LLM, 2026-10-28_115007_naive-run-diff_diff_PROMPT_v1",
+    "dir": "naive LLM, 2026-10-28_143025_naive-run-dir_dir_PROMPT_v1",
+    "du": "naive LLM, 2026-10-28_141545_naive-run-du_du_PROMPT_v1",
+    "env": "naive LLM, 2026-10-28_121513_naive-run-env_env_PROMPT_v1",
+    "expand": "naive LLM, 2026-10-28_083113_naive-run-expand_expand_PROMPT_v1",
+    "fmt": "naive LLM, 2026-10-28_104147_naive-run-fmt_fmt_PROMPT_v1",
+    "fold": "naive LLM, 2026-10-28_081910_naive-run-fold_fold_PROMPT_v1",
+    "grep": "naive LLM, 2026-10-28_135447_naive-run-grep_grep_PROMPT_v1",
+    "head": "naive LLM, 2026-10-28_095255_naive-run-head_head_PROMPT_v1",
+    "iconv": "naive LLM, 2026-10-28_110404_naive-run-iconv_iconv_PROMPT_v1",
+    "id": "naive LLM, 2026-10-28_093251_naive-run-id_id_PROMPT_v1",
+    "install": "naive LLM, 2026-10-28_140311_naive-run-install_install_PROMPT_v1",
+    "join": "naive LLM, 2026-10-28_132048_naive-run-join_join_PROMPT_v1",
+    "kill": "naive LLM, 2026-10-28_120050_naive-run-kill_kill_PROMPT_v1",
+    "ln": "naive LLM, 2026-10-28_130353_naive-run-ln_ln_PROMPT_v1",
+    "ls": "naive LLM, 2026-10-27_225849_naive-run-ls_ls_PROMPT_v1",
+    "md5sum": "naive LLM, 2026-10-28_103723_naive-run-md5sum_md5sum_PROMPT_v1",
+    "mkdir": "naive LLM, 2026-10-28_094955_naive-run-mkdir_mkdir_PROMPT_v1",
+    "mkfifo": "naive LLM, 2026-10-28_082734_naive-run-mkfifo_mkfifo_PROMPT_v1",
+    "mknod": "naive LLM, 2026-10-28_120953_naive-run-mknod_mknod_PROMPT_v1",
+    "mktemp": "naive LLM, 2026-10-28_092028_naive-run-mktemp_mktemp_PROMPT_v1",
+    "mogrify": "naive LLM, 2026-10-28_084707_naive-run-mogrify_mogrify_PROMPT_v1",
+    "mv": "naive LLM, 2026-10-28_123450_naive-run-mv_mv_PROMPT_v1",
+    "nl": "naive LLM, 2026-10-28_131454_naive-run-nl_nl_PROMPT_v1",
+    "numfmt": "naive LLM, 2026-10-28_135110_naive-run-numfmt_numfmt_PROMPT_v1",
+    "od": "naive LLM, 2026-10-28_132554_naive-run-od_od_PROMPT_v1",
+    "pandoc": "naive LLM, 2026-10-28_144226_naive-run-pandoc_pandoc_PROMPT_v1",
+    "pinky": "naive LLM, 2026-10-28_094246_naive-run-pinky_pinky_PROMPT_v1",
+    "pr": "naive LLM, 2026-10-28_142022_naive-run-pr_pr_PROMPT_v1",
+    "ptx": "naive LLM, 2026-10-28_130800_naive-run-ptx_ptx_PROMPT_v1",
+    "readlink": "naive LLM, 2026-10-28_101249_naive-run-readlink_readlink_PROMPT_v1",
+    "rev": "naive LLM, 2026-10-28_090550_naive-run-rev_rev_PROMPT_v1",
+    "rm": "naive LLM, 2026-10-28_105951_naive-run-rm_rm_PROMPT_v1",
+    "runcon": "naive LLM, 2026-10-28_083856_naive-run-runcon_runcon_PROMPT_v1",
+    "sed": "naive LLM, 2026-10-28_124823_naive-run-sed_sed_PROMPT_v1",
+    "seq": "naive LLM, 2026-10-28_095809_naive-run-seq_seq_PROMPT_v1",
+    "set_diff": "PaSh's own",
+    "sha1sum": "naive LLM, 2026-10-28_103316_naive-run-sha1sum_sha1sum_PROMPT_v1",
+    "sha224sum": "naive LLM, 2026-10-28_102417_naive-run-sha224sum_sha224sum_PROMPT_v1",
+    "sha256sum": "naive LLM, 2026-10-28_101707_naive-run-sha256sum_sha256sum_PROMPT_v1",
+    "sha384sum": "naive LLM, 2026-10-28_102715_naive-run-sha384sum_sha384sum_PROMPT_v1",
+    "sha512sum": "naive LLM, 2026-10-28_102118_naive-run-sha512sum_sha512sum_PROMPT_v1",
+    "shred": "naive LLM, 2026-10-28_113129_naive-run-shred_shred_PROMPT_v1",
+    "shuf": "naive LLM, 2026-10-28_113528_naive-run-shuf_shuf_PROMPT_v1",
+    "sort": "naive LLM, 2026-10-28_140825_naive-run-sort_sort_PROMPT_v1",
+    "split": "naive LLM, 2026-10-28_134035_naive-run-split_split_PROMPT_v1",
+    "stat": "naive LLM, 2026-10-28_100917_naive-run-stat_stat_PROMPT_v1",
+    "tail": "naive LLM, 2026-10-28_122555_naive-run-tail_tail_PROMPT_v1",
+    "tee": "naive LLM, 2026-10-28_082342_naive-run-tee_tee_PROMPT_v1",
+    "test": "naive LLM, 2026-10-27_230951_naive-run-test_test_PROMPT_v1",
+    "test_one": "PaSh's own",
+    "test_two": "PaSh's own",
+    "timeout": "naive LLM, 2026-10-28_100100_naive-run-timeout_timeout_PROMPT_v1",
+    "touch": "naive LLM, 2026-10-28_112717_naive-run-touch_touch_PROMPT_v1",
+    "tr": "PaSh's own",
+    "truncate": "naive LLM, 2026-10-28_094521_naive-run-truncate_truncate_PROMPT_v1",
+    "uglifyjs": "naive LLM, 2026-10-28_133241_naive-run-uglifyjs_uglifyjs_PROMPT_v1",
+    "uname": "naive LLM, 2026-10-28_092528_naive-run-uname_uname_PROMPT_v1",
+    "unexpand": "naive LLM, 2026-10-28_091112_naive-run-unexpand_unexpand_PROMPT_v1",
+    "uniq": "naive LLM, 2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1",
+    "unzip": "naive LLM, 2026-10-28_143438_naive-run-unzip_unzip_PROMPT_v1",
+    "vdir": "naive LLM, 2026-10-28_142559_naive-run-vdir_vdir_PROMPT_v1",
+    "wc": "naive LLM, 2026-10-28_091448_naive-run-wc_wc_PROMPT_v1",
+    "who": "naive LLM, 2026-10-28_122120_naive-run-who_who_PROMPT_v1",
+    "xargs": "PaSh's own",
+    "yes": "naive LLM, 2026-10-28_104621_naive-run-yes_yes_PROMPT_v1"
+   }
+  },
+  "naive-col-pash-own": {
+   "folder": "/home/tirandagan.guest/t024/sets/naive-col-pash-own",
+   "package_sha": "b4a57f4837c5fb39",
+   "source_per_command": {
+    "alt_bigram_aux_reduce": "PaSh's own",
+    "alt_bigrams_aux": "PaSh's own",
+    "awk": "PaSh's own",
+    "b2sum": "naive LLM, 2026-10-28_105421_naive-run-b2sum_b2sum_PROMPT_v1",
+    "basenc": "naive LLM, 2026-10-28_111031_naive-run-basenc_basenc_PROMPT_v1",
+    "bc": "naive LLM, 2026-10-28_084323_naive-run-bc_bc_PROMPT_v1",
+    "bigram_aux_map": "PaSh's own",
+    "bigram_aux_reduce": "PaSh's own",
+    "bigrams_aux": "PaSh's own",
+    "cat": "naive LLM, 2026-10-28_100411_naive-run-cat_cat_PROMPT_v1",
+    "chcon": "naive LLM, 2026-10-28_125939_naive-run-chcon_chcon_PROMPT_v1",
+    "chgrp": "naive LLM, 2026-10-28_114550_naive-run-chgrp_chgrp_PROMPT_v1",
+    "chmod": "naive LLM, 2026-10-28_112202_naive-run-chmod_chmod_PROMPT_v1",
+    "chown": "naive LLM, 2026-10-28_115536_naive-run-chown_chown_PROMPT_v1",
+    "chroot": "naive LLM, 2026-10-28_083453_naive-run-chroot_chroot_PROMPT_v1",
+    "col": "PaSh's own",
+    "comm": "naive LLM, 2026-10-28_111854_naive-run-comm_comm_PROMPT_v1",
+    "convert": "naive LLM, 2026-10-27_231631_naive-run-convert_convert_PROMPT_v1",
+    "cp": "naive LLM, 2026-10-28_114133_naive-run-cp_cp_PROMPT_v1",
+    "csplit": "naive LLM, 2026-10-28_104909_naive-run-csplit_csplit_PROMPT_v1",
+    "custom_sort": "PaSh's own",
+    "custom_tr": "PaSh's own",
+    "cut": "naive LLM, 2026-10-27_230555_naive-run-cut_cut_PROMPT_v1",
+    "date": "naive LLM, 2026-10-28_111357_naive-run-date_date_PROMPT_v1",
+    "dd": "naive LLM, 2026-10-27_225152_naive-run-dd_dd_PROMPT_v1",
+    "df": "naive LLM, 2026-10-28_125544_naive-run-df_df_PROMPT_v1",
+    "diff": "naive LLM, 2026-10-28_115007_naive-run-diff_diff_PROMPT_v1",
+    "dir": "naive LLM, 2026-10-28_143025_naive-run-dir_dir_PROMPT_v1",
+    "du": "naive LLM, 2026-10-28_141545_naive-run-du_du_PROMPT_v1",
+    "env": "naive LLM, 2026-10-28_121513_naive-run-env_env_PROMPT_v1",
+    "expand": "naive LLM, 2026-10-28_083113_naive-run-expand_expand_PROMPT_v1",
+    "fmt": "naive LLM, 2026-10-28_104147_naive-run-fmt_fmt_PROMPT_v1",
+    "fold": "naive LLM, 2026-10-28_081910_naive-run-fold_fold_PROMPT_v1",
+    "grep": "naive LLM, 2026-10-28_135447_naive-run-grep_grep_PROMPT_v1",
+    "head": "naive LLM, 2026-10-28_095255_naive-run-head_head_PROMPT_v1",
+    "iconv": "naive LLM, 2026-10-28_110404_naive-run-iconv_iconv_PROMPT_v1",
+    "id": "naive LLM, 2026-10-28_093251_naive-run-id_id_PROMPT_v1",
+    "install": "naive LLM, 2026-10-28_140311_naive-run-install_install_PROMPT_v1",
+    "join": "naive LLM, 2026-10-28_132048_naive-run-join_join_PROMPT_v1",
+    "kill": "naive LLM, 2026-10-28_120050_naive-run-kill_kill_PROMPT_v1",
+    "ln": "naive LLM, 2026-10-28_130353_naive-run-ln_ln_PROMPT_v1",
+    "ls": "naive LLM, 2026-10-27_225849_naive-run-ls_ls_PROMPT_v1",
+    "md5sum": "naive LLM, 2026-10-28_103723_naive-run-md5sum_md5sum_PROMPT_v1",
+    "mkdir": "naive LLM, 2026-10-28_094955_naive-run-mkdir_mkdir_PROMPT_v1",
+    "mkfifo": "naive LLM, 2026-10-28_082734_naive-run-mkfifo_mkfifo_PROMPT_v1",
+    "mknod": "naive LLM, 2026-10-28_120953_naive-run-mknod_mknod_PROMPT_v1",
+    "mktemp": "naive LLM, 2026-10-28_092028_naive-run-mktemp_mktemp_PROMPT_v1",
+    "mogrify": "naive LLM, 2026-10-28_084707_naive-run-mogrify_mogrify_PROMPT_v1",
+    "mv": "naive LLM, 2026-10-28_123450_naive-run-mv_mv_PROMPT_v1",
+    "nl": "naive LLM, 2026-10-28_131454_naive-run-nl_nl_PROMPT_v1",
+    "numfmt": "naive LLM, 2026-10-28_135110_naive-run-numfmt_numfmt_PROMPT_v1",
+    "od": "naive LLM, 2026-10-28_132554_naive-run-od_od_PROMPT_v1",
+    "pandoc": "naive LLM, 2026-10-28_144226_naive-run-pandoc_pandoc_PROMPT_v1",
+    "pinky": "naive LLM, 2026-10-28_094246_naive-run-pinky_pinky_PROMPT_v1",
+    "pr": "naive LLM, 2026-10-28_142022_naive-run-pr_pr_PROMPT_v1",
+    "ptx": "naive LLM, 2026-10-28_130800_naive-run-ptx_ptx_PROMPT_v1",
+    "readlink": "naive LLM, 2026-10-28_101249_naive-run-readlink_readlink_PROMPT_v1",
+    "rev": "naive LLM, 2026-10-28_090550_naive-run-rev_rev_PROMPT_v1",
+    "rm": "naive LLM, 2026-10-28_105951_naive-run-rm_rm_PROMPT_v1",
+    "runcon": "naive LLM, 2026-10-28_083856_naive-run-runcon_runcon_PROMPT_v1",
+    "sed": "naive LLM, 2026-10-28_124823_naive-run-sed_sed_PROMPT_v1",
+    "seq": "naive LLM, 2026-10-28_095809_naive-run-seq_seq_PROMPT_v1",
+    "set_diff": "PaSh's own",
+    "sha1sum": "naive LLM, 2026-10-28_103316_naive-run-sha1sum_sha1sum_PROMPT_v1",
+    "sha224sum": "naive LLM, 2026-10-28_102417_naive-run-sha224sum_sha224sum_PROMPT_v1",
+    "sha256sum": "naive LLM, 2026-10-28_101707_naive-run-sha256sum_sha256sum_PROMPT_v1",
+    "sha384sum": "naive LLM, 2026-10-28_102715_naive-run-sha384sum_sha384sum_PROMPT_v1",
+    "sha512sum": "naive LLM, 2026-10-28_102118_naive-run-sha512sum_sha512sum_PROMPT_v1",
+    "shred": "naive LLM, 2026-10-28_113129_naive-run-shred_shred_PROMPT_v1",
+    "shuf": "naive LLM, 2026-10-28_113528_naive-run-shuf_shuf_PROMPT_v1",
+    "sort": "naive LLM, 2026-10-28_140825_naive-run-sort_sort_PROMPT_v1",
+    "split": "naive LLM, 2026-10-28_134035_naive-run-split_split_PROMPT_v1",
+    "stat": "naive LLM, 2026-10-28_100917_naive-run-stat_stat_PROMPT_v1",
+    "tail": "naive LLM, 2026-10-28_122555_naive-run-tail_tail_PROMPT_v1",
+    "tee": "naive LLM, 2026-10-28_082342_naive-run-tee_tee_PROMPT_v1",
+    "test": "naive LLM, 2026-10-27_230951_naive-run-test_test_PROMPT_v1",
+    "test_one": "PaSh's own",
+    "test_two": "PaSh's own",
+    "timeout": "naive LLM, 2026-10-28_100100_naive-run-timeout_timeout_PROMPT_v1",
+    "touch": "naive LLM, 2026-10-28_112717_naive-run-touch_touch_PROMPT_v1",
+    "tr": "PaSh's own",
+    "truncate": "naive LLM, 2026-10-28_094521_naive-run-truncate_truncate_PROMPT_v1",
+    "uglifyjs": "naive LLM, 2026-10-28_133241_naive-run-uglifyjs_uglifyjs_PROMPT_v1",
+    "uname": "naive LLM, 2026-10-28_092528_naive-run-uname_uname_PROMPT_v1",
+    "unexpand": "naive LLM, 2026-10-28_091112_naive-run-unexpand_unexpand_PROMPT_v1",
+    "uniq": "naive LLM, 2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1",
+    "unzip": "naive LLM, 2026-10-28_143438_naive-run-unzip_unzip_PROMPT_v1",
+    "vdir": "naive LLM, 2026-10-28_142559_naive-run-vdir_vdir_PROMPT_v1",
+    "wc": "naive LLM, 2026-10-28_091448_naive-run-wc_wc_PROMPT_v1",
+    "who": "naive LLM, 2026-10-28_122120_naive-run-who_who_PROMPT_v1",
+    "xargs": "PaSh's own",
+    "yes": "naive LLM, 2026-10-28_104621_naive-run-yes_yes_PROMPT_v1"
+   }
+  },
+  "naive-no-sort": {
+   "folder": "/home/tirandagan.guest/t024/sets/naive-no-sort",
+   "package_sha": "9f352318dcb88cc7",
+   "source_per_command": {
+    "alt_bigram_aux_reduce": "PaSh's own",
+    "alt_bigrams_aux": "PaSh's own",
+    "awk": "PaSh's own",
+    "b2sum": "naive LLM, 2026-10-28_105421_naive-run-b2sum_b2sum_PROMPT_v1",
+    "basenc": "naive LLM, 2026-10-28_111031_naive-run-basenc_basenc_PROMPT_v1",
+    "bc": "naive LLM, 2026-10-28_084323_naive-run-bc_bc_PROMPT_v1",
+    "bigram_aux_map": "PaSh's own",
+    "bigram_aux_reduce": "PaSh's own",
+    "bigrams_aux": "PaSh's own",
+    "cat": "naive LLM, 2026-10-28_100411_naive-run-cat_cat_PROMPT_v1",
+    "chcon": "naive LLM, 2026-10-28_125939_naive-run-chcon_chcon_PROMPT_v1",
+    "chgrp": "naive LLM, 2026-10-28_114550_naive-run-chgrp_chgrp_PROMPT_v1",
+    "chmod": "naive LLM, 2026-10-28_112202_naive-run-chmod_chmod_PROMPT_v1",
+    "chown": "naive LLM, 2026-10-28_115536_naive-run-chown_chown_PROMPT_v1",
+    "chroot": "naive LLM, 2026-10-28_083453_naive-run-chroot_chroot_PROMPT_v1",
+    "col": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1",
+    "comm": "naive LLM, 2026-10-28_111854_naive-run-comm_comm_PROMPT_v1",
+    "convert": "naive LLM, 2026-10-27_231631_naive-run-convert_convert_PROMPT_v1",
+    "cp": "naive LLM, 2026-10-28_114133_naive-run-cp_cp_PROMPT_v1",
+    "csplit": "naive LLM, 2026-10-28_104909_naive-run-csplit_csplit_PROMPT_v1",
+    "custom_sort": "PaSh's own",
+    "custom_tr": "PaSh's own",
+    "cut": "naive LLM, 2026-10-27_230555_naive-run-cut_cut_PROMPT_v1",
+    "date": "naive LLM, 2026-10-28_111357_naive-run-date_date_PROMPT_v1",
+    "dd": "naive LLM, 2026-10-27_225152_naive-run-dd_dd_PROMPT_v1",
+    "df": "naive LLM, 2026-10-28_125544_naive-run-df_df_PROMPT_v1",
+    "diff": "naive LLM, 2026-10-28_115007_naive-run-diff_diff_PROMPT_v1",
+    "dir": "naive LLM, 2026-10-28_143025_naive-run-dir_dir_PROMPT_v1",
+    "du": "naive LLM, 2026-10-28_141545_naive-run-du_du_PROMPT_v1",
+    "env": "naive LLM, 2026-10-28_121513_naive-run-env_env_PROMPT_v1",
+    "expand": "naive LLM, 2026-10-28_083113_naive-run-expand_expand_PROMPT_v1",
+    "fmt": "naive LLM, 2026-10-28_104147_naive-run-fmt_fmt_PROMPT_v1",
+    "fold": "naive LLM, 2026-10-28_081910_naive-run-fold_fold_PROMPT_v1",
+    "grep": "naive LLM, 2026-10-28_135447_naive-run-grep_grep_PROMPT_v1",
+    "head": "naive LLM, 2026-10-28_095255_naive-run-head_head_PROMPT_v1",
+    "iconv": "naive LLM, 2026-10-28_110404_naive-run-iconv_iconv_PROMPT_v1",
+    "id": "naive LLM, 2026-10-28_093251_naive-run-id_id_PROMPT_v1",
+    "install": "naive LLM, 2026-10-28_140311_naive-run-install_install_PROMPT_v1",
+    "join": "naive LLM, 2026-10-28_132048_naive-run-join_join_PROMPT_v1",
+    "kill": "naive LLM, 2026-10-28_120050_naive-run-kill_kill_PROMPT_v1",
+    "ln": "naive LLM, 2026-10-28_130353_naive-run-ln_ln_PROMPT_v1",
+    "ls": "naive LLM, 2026-10-27_225849_naive-run-ls_ls_PROMPT_v1",
+    "md5sum": "naive LLM, 2026-10-28_103723_naive-run-md5sum_md5sum_PROMPT_v1",
+    "mkdir": "naive LLM, 2026-10-28_094955_naive-run-mkdir_mkdir_PROMPT_v1",
+    "mkfifo": "naive LLM, 2026-10-28_082734_naive-run-mkfifo_mkfifo_PROMPT_v1",
+    "mknod": "naive LLM, 2026-10-28_120953_naive-run-mknod_mknod_PROMPT_v1",
+    "mktemp": "naive LLM, 2026-10-28_092028_naive-run-mktemp_mktemp_PROMPT_v1",
+    "mogrify": "naive LLM, 2026-10-28_084707_naive-run-mogrify_mogrify_PROMPT_v1",
+    "mv": "naive LLM, 2026-10-28_123450_naive-run-mv_mv_PROMPT_v1",
+    "nl": "naive LLM, 2026-10-28_131454_naive-run-nl_nl_PROMPT_v1",
+    "numfmt": "naive LLM, 2026-10-28_135110_naive-run-numfmt_numfmt_PROMPT_v1",
+    "od": "naive LLM, 2026-10-28_132554_naive-run-od_od_PROMPT_v1",
+    "pandoc": "naive LLM, 2026-10-28_144226_naive-run-pandoc_pandoc_PROMPT_v1",
+    "pinky": "naive LLM, 2026-10-28_094246_naive-run-pinky_pinky_PROMPT_v1",
+    "pr": "naive LLM, 2026-10-28_142022_naive-run-pr_pr_PROMPT_v1",
+    "ptx": "naive LLM, 2026-10-28_130800_naive-run-ptx_ptx_PROMPT_v1",
+    "readlink": "naive LLM, 2026-10-28_101249_naive-run-readlink_readlink_PROMPT_v1",
+    "rev": "naive LLM, 2026-10-28_090550_naive-run-rev_rev_PROMPT_v1",
+    "rm": "naive LLM, 2026-10-28_105951_naive-run-rm_rm_PROMPT_v1",
+    "runcon": "naive LLM, 2026-10-28_083856_naive-run-runcon_runcon_PROMPT_v1",
+    "sed": "naive LLM, 2026-10-28_124823_naive-run-sed_sed_PROMPT_v1",
+    "seq": "naive LLM, 2026-10-28_095809_naive-run-seq_seq_PROMPT_v1",
+    "set_diff": "PaSh's own",
+    "sha1sum": "naive LLM, 2026-10-28_103316_naive-run-sha1sum_sha1sum_PROMPT_v1",
+    "sha224sum": "naive LLM, 2026-10-28_102417_naive-run-sha224sum_sha224sum_PROMPT_v1",
+    "sha256sum": "naive LLM, 2026-10-28_101707_naive-run-sha256sum_sha256sum_PROMPT_v1",
+    "sha384sum": "naive LLM, 2026-10-28_102715_naive-run-sha384sum_sha384sum_PROMPT_v1",
+    "sha512sum": "naive LLM, 2026-10-28_102118_naive-run-sha512sum_sha512sum_PROMPT_v1",
+    "shred": "naive LLM, 2026-10-28_113129_naive-run-shred_shred_PROMPT_v1",
+    "shuf": "naive LLM, 2026-10-28_113528_naive-run-shuf_shuf_PROMPT_v1",
+    "sort": "none (files removed)",
+    "split": "naive LLM, 2026-10-28_134035_naive-run-split_split_PROMPT_v1",
+    "stat": "naive LLM, 2026-10-28_100917_naive-run-stat_stat_PROMPT_v1",
+    "tail": "naive LLM, 2026-10-28_122555_naive-run-tail_tail_PROMPT_v1",
+    "tee": "naive LLM, 2026-10-28_082342_naive-run-tee_tee_PROMPT_v1",
+    "test": "naive LLM, 2026-10-27_230951_naive-run-test_test_PROMPT_v1",
+    "test_one": "PaSh's own",
+    "test_two": "PaSh's own",
+    "timeout": "naive LLM, 2026-10-28_100100_naive-run-timeout_timeout_PROMPT_v1",
+    "touch": "naive LLM, 2026-10-28_112717_naive-run-touch_touch_PROMPT_v1",
+    "tr": "PaSh's own",
+    "truncate": "naive LLM, 2026-10-28_094521_naive-run-truncate_truncate_PROMPT_v1",
+    "uglifyjs": "naive LLM, 2026-10-28_133241_naive-run-uglifyjs_uglifyjs_PROMPT_v1",
+    "uname": "naive LLM, 2026-10-28_092528_naive-run-uname_uname_PROMPT_v1",
+    "unexpand": "naive LLM, 2026-10-28_091112_naive-run-unexpand_unexpand_PROMPT_v1",
+    "uniq": "naive LLM, 2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1",
+    "unzip": "naive LLM, 2026-10-28_143438_naive-run-unzip_unzip_PROMPT_v1",
+    "vdir": "naive LLM, 2026-10-28_142559_naive-run-vdir_vdir_PROMPT_v1",
+    "wc": "naive LLM, 2026-10-28_091448_naive-run-wc_wc_PROMPT_v1",
+    "who": "naive LLM, 2026-10-28_122120_naive-run-who_who_PROMPT_v1",
+    "xargs": "PaSh's own",
+    "yes": "naive LLM, 2026-10-28_104621_naive-run-yes_yes_PROMPT_v1"
+   }
+  },
+  "naive-sed-pash-own": {
+   "folder": "/home/tirandagan.guest/t024/sets/naive-sed-pash-own",
+   "package_sha": "01c0458522a6ed5d",
+   "source_per_command": {
+    "alt_bigram_aux_reduce": "PaSh's own",
+    "alt_bigrams_aux": "PaSh's own",
+    "awk": "PaSh's own",
+    "b2sum": "naive LLM, 2026-10-28_105421_naive-run-b2sum_b2sum_PROMPT_v1",
+    "basenc": "naive LLM, 2026-10-28_111031_naive-run-basenc_basenc_PROMPT_v1",
+    "bc": "naive LLM, 2026-10-28_084323_naive-run-bc_bc_PROMPT_v1",
+    "bigram_aux_map": "PaSh's own",
+    "bigram_aux_reduce": "PaSh's own",
+    "bigrams_aux": "PaSh's own",
+    "cat": "naive LLM, 2026-10-28_100411_naive-run-cat_cat_PROMPT_v1",
+    "chcon": "naive LLM, 2026-10-28_125939_naive-run-chcon_chcon_PROMPT_v1",
+    "chgrp": "naive LLM, 2026-10-28_114550_naive-run-chgrp_chgrp_PROMPT_v1",
+    "chmod": "naive LLM, 2026-10-28_112202_naive-run-chmod_chmod_PROMPT_v1",
+    "chown": "naive LLM, 2026-10-28_115536_naive-run-chown_chown_PROMPT_v1",
+    "chroot": "naive LLM, 2026-10-28_083453_naive-run-chroot_chroot_PROMPT_v1",
+    "col": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1",
+    "comm": "naive LLM, 2026-10-28_111854_naive-run-comm_comm_PROMPT_v1",
+    "convert": "naive LLM, 2026-10-27_231631_naive-run-convert_convert_PROMPT_v1",
+    "cp": "naive LLM, 2026-10-28_114133_naive-run-cp_cp_PROMPT_v1",
+    "csplit": "naive LLM, 2026-10-28_104909_naive-run-csplit_csplit_PROMPT_v1",
+    "custom_sort": "PaSh's own",
+    "custom_tr": "PaSh's own",
+    "cut": "naive LLM, 2026-10-27_230555_naive-run-cut_cut_PROMPT_v1",
+    "date": "naive LLM, 2026-10-28_111357_naive-run-date_date_PROMPT_v1",
+    "dd": "naive LLM, 2026-10-27_225152_naive-run-dd_dd_PROMPT_v1",
+    "df": "naive LLM, 2026-10-28_125544_naive-run-df_df_PROMPT_v1",
+    "diff": "naive LLM, 2026-10-28_115007_naive-run-diff_diff_PROMPT_v1",
+    "dir": "naive LLM, 2026-10-28_143025_naive-run-dir_dir_PROMPT_v1",
+    "du": "naive LLM, 2026-10-28_141545_naive-run-du_du_PROMPT_v1",
+    "env": "naive LLM, 2026-10-28_121513_naive-run-env_env_PROMPT_v1",
+    "expand": "naive LLM, 2026-10-28_083113_naive-run-expand_expand_PROMPT_v1",
+    "fmt": "naive LLM, 2026-10-28_104147_naive-run-fmt_fmt_PROMPT_v1",
+    "fold": "naive LLM, 2026-10-28_081910_naive-run-fold_fold_PROMPT_v1",
+    "grep": "naive LLM, 2026-10-28_135447_naive-run-grep_grep_PROMPT_v1",
+    "head": "naive LLM, 2026-10-28_095255_naive-run-head_head_PROMPT_v1",
+    "iconv": "naive LLM, 2026-10-28_110404_naive-run-iconv_iconv_PROMPT_v1",
+    "id": "naive LLM, 2026-10-28_093251_naive-run-id_id_PROMPT_v1",
+    "install": "naive LLM, 2026-10-28_140311_naive-run-install_install_PROMPT_v1",
+    "join": "naive LLM, 2026-10-28_132048_naive-run-join_join_PROMPT_v1",
+    "kill": "naive LLM, 2026-10-28_120050_naive-run-kill_kill_PROMPT_v1",
+    "ln": "naive LLM, 2026-10-28_130353_naive-run-ln_ln_PROMPT_v1",
+    "ls": "naive LLM, 2026-10-27_225849_naive-run-ls_ls_PROMPT_v1",
+    "md5sum": "naive LLM, 2026-10-28_103723_naive-run-md5sum_md5sum_PROMPT_v1",
+    "mkdir": "naive LLM, 2026-10-28_094955_naive-run-mkdir_mkdir_PROMPT_v1",
+    "mkfifo": "naive LLM, 2026-10-28_082734_naive-run-mkfifo_mkfifo_PROMPT_v1",
+    "mknod": "naive LLM, 2026-10-28_120953_naive-run-mknod_mknod_PROMPT_v1",
+    "mktemp": "naive LLM, 2026-10-28_092028_naive-run-mktemp_mktemp_PROMPT_v1",
+    "mogrify": "naive LLM, 2026-10-28_084707_naive-run-mogrify_mogrify_PROMPT_v1",
+    "mv": "naive LLM, 2026-10-28_123450_naive-run-mv_mv_PROMPT_v1",
+    "nl": "naive LLM, 2026-10-28_131454_naive-run-nl_nl_PROMPT_v1",
+    "numfmt": "naive LLM, 2026-10-28_135110_naive-run-numfmt_numfmt_PROMPT_v1",
+    "od": "naive LLM, 2026-10-28_132554_naive-run-od_od_PROMPT_v1",
+    "pandoc": "naive LLM, 2026-10-28_144226_naive-run-pandoc_pandoc_PROMPT_v1",
+    "pinky": "naive LLM, 2026-10-28_094246_naive-run-pinky_pinky_PROMPT_v1",
+    "pr": "naive LLM, 2026-10-28_142022_naive-run-pr_pr_PROMPT_v1",
+    "ptx": "naive LLM, 2026-10-28_130800_naive-run-ptx_ptx_PROMPT_v1",
+    "readlink": "naive LLM, 2026-10-28_101249_naive-run-readlink_readlink_PROMPT_v1",
+    "rev": "naive LLM, 2026-10-28_090550_naive-run-rev_rev_PROMPT_v1",
+    "rm": "naive LLM, 2026-10-28_105951_naive-run-rm_rm_PROMPT_v1",
+    "runcon": "naive LLM, 2026-10-28_083856_naive-run-runcon_runcon_PROMPT_v1",
+    "sed": "PaSh's own",
+    "seq": "naive LLM, 2026-10-28_095809_naive-run-seq_seq_PROMPT_v1",
+    "set_diff": "PaSh's own",
+    "sha1sum": "naive LLM, 2026-10-28_103316_naive-run-sha1sum_sha1sum_PROMPT_v1",
+    "sha224sum": "naive LLM, 2026-10-28_102417_naive-run-sha224sum_sha224sum_PROMPT_v1",
+    "sha256sum": "naive LLM, 2026-10-28_101707_naive-run-sha256sum_sha256sum_PROMPT_v1",
+    "sha384sum": "naive LLM, 2026-10-28_102715_naive-run-sha384sum_sha384sum_PROMPT_v1",
+    "sha512sum": "naive LLM, 2026-10-28_102118_naive-run-sha512sum_sha512sum_PROMPT_v1",
+    "shred": "naive LLM, 2026-10-28_113129_naive-run-shred_shred_PROMPT_v1",
+    "shuf": "naive LLM, 2026-10-28_113528_naive-run-shuf_shuf_PROMPT_v1",
+    "sort": "naive LLM, 2026-10-28_140825_naive-run-sort_sort_PROMPT_v1",
+    "split": "naive LLM, 2026-10-28_134035_naive-run-split_split_PROMPT_v1",
+    "stat": "naive LLM, 2026-10-28_100917_naive-run-stat_stat_PROMPT_v1",
+    "tail": "naive LLM, 2026-10-28_122555_naive-run-tail_tail_PROMPT_v1",
+    "tee": "naive LLM, 2026-10-28_082342_naive-run-tee_tee_PROMPT_v1",
+    "test": "naive LLM, 2026-10-27_230951_naive-run-test_test_PROMPT_v1",
+    "test_one": "PaSh's own",
+    "test_two": "PaSh's own",
+    "timeout": "naive LLM, 2026-10-28_100100_naive-run-timeout_timeout_PROMPT_v1",
+    "touch": "naive LLM, 2026-10-28_112717_naive-run-touch_touch_PROMPT_v1",
+    "tr": "PaSh's own",
+    "truncate": "naive LLM, 2026-10-28_094521_naive-run-truncate_truncate_PROMPT_v1",
+    "uglifyjs": "naive LLM, 2026-10-28_133241_naive-run-uglifyjs_uglifyjs_PROMPT_v1",
+    "uname": "naive LLM, 2026-10-28_092528_naive-run-uname_uname_PROMPT_v1",
+    "unexpand": "naive LLM, 2026-10-28_091112_naive-run-unexpand_unexpand_PROMPT_v1",
+    "uniq": "naive LLM, 2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1",
+    "unzip": "naive LLM, 2026-10-28_143438_naive-run-unzip_unzip_PROMPT_v1",
+    "vdir": "naive LLM, 2026-10-28_142559_naive-run-vdir_vdir_PROMPT_v1",
+    "wc": "naive LLM, 2026-10-28_091448_naive-run-wc_wc_PROMPT_v1",
+    "who": "naive LLM, 2026-10-28_122120_naive-run-who_who_PROMPT_v1",
+    "xargs": "PaSh's own",
+    "yes": "naive LLM, 2026-10-28_104621_naive-run-yes_yes_PROMPT_v1"
+   }
+  },
+  "pash-own": {
+   "folder": "/home/tirandagan.guest/t024/sets/pash-own",
+   "package_sha": "77625cbdbe5c0ed7",
+   "source_per_command": {
+    "alt_bigram_aux_reduce": "PaSh's own",
+    "alt_bigrams_aux": "PaSh's own",
+    "awk": "PaSh's own",
+    "bigram_aux_map": "PaSh's own",
+    "bigram_aux_reduce": "PaSh's own",
+    "bigrams_aux": "PaSh's own",
+    "cat": "PaSh's own",
+    "col": "PaSh's own",
+    "comm": "PaSh's own",
+    "custom_sort": "PaSh's own",
+    "custom_tr": "PaSh's own",
+    "cut": "PaSh's own",
+    "diff": "PaSh's own",
+    "grep": "PaSh's own",
+    "head": "PaSh's own",
+    "mkfifo": "PaSh's own",
+    "mv": "PaSh's own",
+    "rm": "PaSh's own",
+    "sed": "PaSh's own",
+    "seq": "PaSh's own",
+    "set_diff": "PaSh's own",
+    "sort": "PaSh's own",
+    "tail": "PaSh's own",
+    "tee": "PaSh's own",
+    "test_one": "PaSh's own",
+    "test_two": "PaSh's own",
+    "tr": "PaSh's own",
+    "uniq": "PaSh's own",
+    "wc": "PaSh's own",
+    "xargs": "PaSh's own"
+   }
+  },
+  "pash-own-copy": {
+   "folder": "/home/tirandagan.guest/t024/sets/pash-own-copy",
+   "package_sha": "77625cbdbe5c0ed7",
+   "source_per_command": {
+    "alt_bigram_aux_reduce": "PaSh's own",
+    "alt_bigrams_aux": "PaSh's own",
+    "awk": "PaSh's own",
+    "bigram_aux_map": "PaSh's own",
+    "bigram_aux_reduce": "PaSh's own",
+    "bigrams_aux": "PaSh's own",
+    "cat": "PaSh's own",
+    "col": "PaSh's own",
+    "comm": "PaSh's own",
+    "custom_sort": "PaSh's own",
+    "custom_tr": "PaSh's own",
+    "cut": "PaSh's own",
+    "diff": "PaSh's own",
+    "grep": "PaSh's own",
+    "head": "PaSh's own",
+    "mkfifo": "PaSh's own",
+    "mv": "PaSh's own",
+    "rm": "PaSh's own",
+    "sed": "PaSh's own",
+    "seq": "PaSh's own",
+    "set_diff": "PaSh's own",
+    "sort": "PaSh's own",
+    "tail": "PaSh's own",
+    "tee": "PaSh's own",
+    "test_one": "PaSh's own",
+    "test_two": "PaSh's own",
+    "tr": "PaSh's own",
+    "uniq": "PaSh's own",
+    "wc": "PaSh's own",
+    "xargs": "PaSh's own"
+   }
+  }
+ },
+ "stand_in_programs": {
+  "awk": "/usr/bin/awk",
+  "basename": "/usr/bin/basename",
+  "cat": "/usr/bin/cat",
+  "chown": "/usr/bin/chown",
+  "col": "/usr/bin/col",
+  "comm": "/usr/bin/comm",
+  "curl": "/usr/bin/curl",
+  "cut": "/usr/bin/cut",
+  "diff": "/usr/bin/diff",
+  "dirname": "/usr/bin/dirname",
+  "echo": "/usr/bin/echo",
+  "egrep": "/usr/bin/egrep",
+  "find": "/usr/bin/find",
+  "fmt": "/usr/bin/fmt",
+  "git": "/usr/bin/git",
+  "gpg": "/usr/bin/gpg",
+  "grep": "/usr/bin/grep",
+  "gunzip": "/usr/bin/gunzip",
+  "gzip": "/usr/bin/gzip",
+  "head": "/usr/bin/head",
+  "iconv": "/usr/bin/iconv",
+  "join": "/usr/bin/join",
+  "jq": "/usr/bin/jq",
+  "ln": "/usr/bin/ln",
+  "ls": "/usr/bin/ls",
+  "mawk": "/usr/bin/mawk",
+  "mkdir": "/usr/bin/mkdir",
+  "mkfifo": "/usr/bin/mkfifo",
+  "mktemp": "/usr/bin/mktemp",
+  "mv": "/usr/bin/mv",
+  "openssl": "/usr/bin/openssl",
+  "paste": "/usr/bin/paste",
+  "pr": "/usr/bin/pr",
+  "printf": "/usr/bin/printf",
+  "python3": "/usr/bin/python3",
+  "realpath": "/usr/bin/realpath",
+  "rev": "/usr/bin/rev",
+  "rm": "/usr/bin/rm",
+  "script": "/usr/bin/script",
+  "sed": "/usr/bin/sed",
+  "seq": "/usr/bin/seq",
+  "sort": "/usr/bin/sort",
+  "split": "/usr/bin/split",
+  "sum": "/usr/bin/sum",
+  "tail": "/usr/bin/tail",
+  "tcpdump": "/usr/bin/tcpdump",
+  "tee": "/usr/bin/tee",
+  "touch": "/usr/bin/touch",
+  "tr": "/usr/bin/tr",
+  "true": "/usr/bin/true",
+  "uname": "/usr/bin/uname",
+  "uniq": "/usr/bin/uniq",
+  "wc": "/usr/bin/wc",
+  "xargs": "/usr/bin/xargs",
+  "zcat": "/usr/bin/zcat"
+ },
+ "when": "2026-11-24 11:33:09 -0500"
+}

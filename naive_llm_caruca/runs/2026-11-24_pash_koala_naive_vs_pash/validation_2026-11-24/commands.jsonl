@@ -1,0 +1,63 @@
+{"command": "cat", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "cat", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own-copy", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "cat", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive", "source": "ours", "source_detail": "naive LLM, 2026-10-28_100411_naive-run-cat_cat_PROMPT_v1"}
+{"command": "cat", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-pash", "source": "ours", "source_detail": "Caruca, v1-pash (cat/pash_grammar/trace_1)"}
+{"command": "cat", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-main", "source": "ours", "source_detail": "Caruca, v1-pash (cat/pash_grammar/trace_1)"}
+{"command": "cat", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-no-sort", "source": "ours", "source_detail": "naive LLM, 2026-10-28_100411_naive-run-cat_cat_PROMPT_v1"}
+{"command": "cat", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-col-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_100411_naive-run-cat_cat_PROMPT_v1"}
+{"command": "cat", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-cat-pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "cat", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-sed-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_100411_naive-run-cat_cat_PROMPT_v1"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own-copy", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive", "source": "ours", "source_detail": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-pash", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-main", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-no-sort", "source": "ours", "source_detail": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-col-pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-cat-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"}
+{"command": "col", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-sed-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"}
+{"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own-copy", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive", "source": "ours", "source_detail": "naive LLM, 2026-10-28_124823_naive-run-sed_sed_PROMPT_v1"}
+{"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-pash", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-main", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-no-sort", "source": "ours", "source_detail": "naive LLM, 2026-10-28_124823_naive-run-sed_sed_PROMPT_v1"}
+{"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-col-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_124823_naive-run-sed_sed_PROMPT_v1"}
+{"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-cat-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_124823_naive-run-sed_sed_PROMPT_v1"}
+{"command": "sed", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-sed-pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "tr", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "tr", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own-copy", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "tr", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "tr", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-pash", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "tr", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-main", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "tr", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-no-sort", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "tr", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-col-pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "tr", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-cat-pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "tr", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-sed-pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "sort", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "sort", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own-copy", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "sort", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive", "source": "ours", "source_detail": "naive LLM, 2026-10-28_140825_naive-run-sort_sort_PROMPT_v1"}
+{"command": "sort", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-pash", "source": "ours", "source_detail": "Caruca, v1-pash (sort/pash_grammar/trace_1)"}
+{"command": "sort", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-main", "source": "ours", "source_detail": "Caruca, v1-main (sort/main_grammar/trace_1)"}
+{"command": "sort", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-no-sort", "source": "none", "source_detail": "none (files removed)"}
+{"command": "sort", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-col-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_140825_naive-run-sort_sort_PROMPT_v1"}
+{"command": "sort", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-cat-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_140825_naive-run-sort_sort_PROMPT_v1"}
+{"command": "sort", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-sed-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_140825_naive-run-sort_sort_PROMPT_v1"}
+{"command": "comm", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "comm", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own-copy", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "comm", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive", "source": "ours", "source_detail": "naive LLM, 2026-10-28_111854_naive-run-comm_comm_PROMPT_v1"}
+{"command": "comm", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-pash", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "comm", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-main", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "comm", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-no-sort", "source": "ours", "source_detail": "naive LLM, 2026-10-28_111854_naive-run-comm_comm_PROMPT_v1"}
+{"command": "comm", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-col-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_111854_naive-run-comm_comm_PROMPT_v1"}
+{"command": "comm", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-cat-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_111854_naive-run-comm_comm_PROMPT_v1"}
+{"command": "comm", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-sed-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_111854_naive-run-comm_comm_PROMPT_v1"}
+{"command": "uniq", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "uniq", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "pash-own-copy", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "uniq", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive", "source": "ours", "source_detail": "naive LLM, 2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1"}
+{"command": "uniq", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-pash", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "uniq", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "caruca-main", "source": "pash-own", "source_detail": "PaSh's own"}
+{"command": "uniq", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-no-sort", "source": "ours", "source_detail": "naive LLM, 2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1"}
+{"command": "uniq", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-col-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1"}
+{"command": "uniq", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-cat-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1"}
+{"command": "uniq", "group": "oneliners", "id": "oneliners/spell", "script": "spell", "set": "naive-sed-pash-own", "source": "ours", "source_detail": "naive LLM, 2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1"}

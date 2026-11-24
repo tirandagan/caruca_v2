@@ -50,3 +50,5 @@ and CV — the front matter of the thesis PDF above; UCSB, Sept 2023):
 **How to apply:** background/rapport context only — e.g. if Tiran is drafting correspondence to Eiers and
 wants a personal touch, or wants to understand his mentorship style/academic lineage. Not relevant to
 Caruca-specific technical decisions.
+
+**Greenberg also co-authored the OSDI 2022 PaSh-JIT paper** ("Practically correct, Just-in-Time shell script parallelization"; seen in the citation in PaSh's README, 2026-11-24). So the v1-vs-v2 framing rule covers PaSh too: state PaSh's compiler failures plainly, once, as facts about that version; never "PaSh is the largest source of trouble" ([[feedback-greenberg-report-style]]).

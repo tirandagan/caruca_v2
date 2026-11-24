@@ -8,7 +8,8 @@
 # Key scan (task 019): runs billed through OpenRouter had the key in the session's environment, and run
 # folders are committed to a public repository. Every collected file is searched for the key in the repo's
 # .env (OPENROUTER_API_KEY); any hit is replaced by [REDACTED-OPENROUTER-KEY] before the folder is moved
-# into runs/, and listed in that folder's KEY_REDACTED.txt.
+# into runs/, and listed in that folder's KEY_REDACTED.txt. Since 2026-11-24 the requesty.ai key
+# (REQUESTY_API_KEY) is scanned for the same way, redacted as [REDACTED-REQUESTY-KEY].
 set -euo pipefail
 NAME="${1:?usage: collect_run.sh <vm-name> [--keep]}"
 KEEP="${2:-}"
@@ -17,16 +18,19 @@ limactl list -q | grep -qx "$NAME" || { echo "error: no VM named $NAME" >&2; exi
 [ "$(limactl list "$NAME" --format '{{.Status}}')" = "Running" ] || limactl start "$NAME" --tty=false
 ENV="$(limactl shell "$NAME" -- bash -lc 'claude --version; lsb_release -ds; uname -m; claude auth status 2>/dev/null | grep -E "subscriptionType|authMethod"' 2>/dev/null || true)"
 RUNS="$(limactl shell "$NAME" -- bash -lc 'ls -1 ~/runs 2>/dev/null' 2>/dev/null | tr -d '\r' || true)"
-KEY="$(sed -n 's/^OPENROUTER_API_KEY=//p' "$HERE/../.env" 2>/dev/null | tr -d "\"' \r")"
-scrub() {   # scrub <folder>: redact the key in every file under it, list the files in KEY_REDACTED.txt
-  [ -n "$KEY" ] || return 0
+scrub() {   # scrub <folder>: redact both keys in every file under it, list the files in KEY_REDACTED.txt
+  scrub_one "$1" OPENROUTER_API_KEY OPENROUTER; scrub_one "$1" REQUESTY_API_KEY REQUESTY
+}
+scrub_one() {   # scrub_one <folder> <.env variable> <label>
+  local KEY; KEY="$(sed -n "s/^$2=//p" "$HERE/../.env" 2>/dev/null | tr -d "\"' \r")"
+  [ -n "$KEY" ] && [ "$KEY" != REPLACE_ME ] || return 0
   local hits; hits="$(grep -rlF -- "$KEY" "$1" 2>/dev/null || true)"
   [ -z "$hits" ] && return 0
   printf '%s\n' "$hits" | while read -r F; do
-    python3 -c 'import sys; p,k=sys.argv[1],sys.argv[2]; b=open(p,"rb").read(); open(p,"wb").write(b.replace(k.encode(), b"[REDACTED-OPENROUTER-KEY]"))' "$F" "$KEY"
+    python3 -c 'import sys; p,k=sys.argv[1],sys.argv[2]; b=open(p,"rb").read(); open(p,"wb").write(b.replace(k.encode(), ("[REDACTED-"+sys.argv[3]+"-KEY]").encode()))' "$F" "$KEY" "$3"
   done
-  printf '%s\n' "$hits" | sed "s|$1/||" > "$1/KEY_REDACTED.txt"
-  echo "WARNING: the OpenRouter key appeared in $(printf '%s\n' "$hits" | wc -l | tr -d ' ') file(s) of $(basename "$1"); redacted (KEY_REDACTED.txt)" >&2
+  printf '%s\n' "$hits" | sed "s|$1/||" >> "$1/KEY_REDACTED.txt"
+  echo "WARNING: the $3 key appeared in $(printf '%s\n' "$hits" | wc -l | tr -d ' ') file(s) of $(basename "$1"); redacted (KEY_REDACTED.txt)" >&2
 }
 if [ -z "$RUNS" ]; then echo "(no runs in $NAME)"; else
   for R in $RUNS; do

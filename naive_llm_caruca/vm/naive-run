@@ -32,6 +32,11 @@
 # before the run, then deleted here), the session is sent to OpenRouter with that key instead of the
 # claude.ai subscription: the clone is signed out first, there is no trial call and no model fallback, and
 # naive-watch.py stops the session past COST_CAP dollars. The key is never written to run.env.
+# Billing through requesty.ai (2026-11-24, after the OpenRouter key died): the same file with PROVIDER=requesty
+# and REQUESTY_KEY= instead of OPENROUTER_KEY=. Base URL https://router.requesty.ai (the router root; its
+# /anthropic path answered 404 for Tiran's other project), model ids with dashes (anthropic/claude-fable-5-1).
+# Unlike the OpenRouter path, a one-line trial call goes through the router first; if it does not answer,
+# the run stops (exit 4) instead of falling back to another model.
 #
 # Program-start logging (task 019, section 3.2): while the session runs, ~/bin/exec-log.bt (bpftrace) writes
 # tries.log and an execve audit rule records every program start with its full arguments (audit.log).
@@ -63,11 +68,16 @@ BIN="$(type -P "$CMD" || true)"; MAN="$(man -w "$CMD" 2>/dev/null || true)"
 
 BILLING=subscription
 if [ -f ~/.naive-billing ]; then
-  BILLING=openrouter
-  OR_KEY="$(sed -n 's/^OPENROUTER_KEY=//p' ~/.naive-billing)"; OR_MODEL="$(sed -n 's/^MODEL=//p' ~/.naive-billing)"
+  BILLING="$(sed -n 's/^PROVIDER=//p' ~/.naive-billing)"; BILLING="${BILLING:-openrouter}"
+  case "$BILLING" in
+    openrouter) OR_KEY="$(sed -n 's/^OPENROUTER_KEY=//p' ~/.naive-billing)"; BASE_URL=https://openrouter.ai/api;;
+    requesty) OR_KEY="$(sed -n 's/^REQUESTY_KEY=//p' ~/.naive-billing)"; BASE_URL=https://router.requesty.ai;;
+    *) echo "error: unknown PROVIDER=$BILLING in ~/.naive-billing" >&2; rm -f ~/.naive-billing; exit 4;;
+  esac
+  OR_MODEL="$(sed -n 's/^MODEL=//p' ~/.naive-billing)"
   OR_EFFORT="$(sed -n 's/^EFFORT=//p' ~/.naive-billing)"; COST_CAP="$(sed -n 's/^COST_CAP=//p' ~/.naive-billing)"
   rm -f ~/.naive-billing
-  [ -n "$OR_KEY" ] && [ -n "$OR_MODEL" ] || { echo "error: ~/.naive-billing lacks OPENROUTER_KEY or MODEL" >&2; exit 4; }
+  [ -n "$OR_KEY" ] && [ -n "$OR_MODEL" ] || { echo "error: ~/.naive-billing lacks the $BILLING key or MODEL" >&2; exit 4; }
   claude auth logout >/dev/null 2>&1 || true     # nothing may be billed to the subscription by mistake
 else
   # a signed-out clone must stop here: otherwise the model trial call fails and looks like "no Fable access"
@@ -89,6 +99,26 @@ printf '%s\n' "$PROMPT" > "$RUN/prompt.md"
 # choose the model before the start mark, so the trial call's session is not copied as a run transcript
 if [ "$BILLING" = openrouter ]; then
   MODEL="$OR_MODEL"; EFFORT="${OR_EFFORT:-medium}"; CHOICE="openrouter (no trial call, no fallback)"
+elif [ "$BILLING" = requesty ]; then
+  MODEL="$OR_MODEL"; EFFORT="${OR_EFFORT:-medium}"
+  PROBE="$(ANTHROPIC_BASE_URL="$BASE_URL" ANTHROPIC_AUTH_TOKEN="$OR_KEY" ANTHROPIC_API_KEY= \
+    CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 DISABLE_AUTOUPDATER=1 \
+    claude -p "Reply with the single word OK." --model "$MODEL" --effort "$EFFORT" --tools "" \
+    --system-prompt "You reply with the single word OK." --strict-mcp-config --disable-slash-commands \
+    --output-format json --no-session-persistence 2>&1 || true)"
+  if TRIAL="$(printf '%s' "$PROBE" | python3 -c '
+import json, sys
+try: d = json.loads(sys.stdin.read().strip().splitlines()[-1])
+except Exception as e: print(f"unreadable trial reply: {e}"); sys.exit(1)
+r = str(d.get("result", "")).replace("\n", " ")[:80]
+if d.get("is_error") or "OK" not in r.upper(): print(r[:200]); sys.exit(1)
+c = d.get("total_cost_usd") or 0; m = sorted((d.get("modelUsage") or {}).keys())
+print(f"answered {r!r}, {c:.4f} USD by Claude Code, models {m}")
+')"; then
+    CHOICE="requesty (trial call $TRIAL; no fallback)"; echo "== trial call through requesty: $TRIAL"
+  else
+    echo "error: the trial call through requesty did not answer: $TRIAL" >&2; rm -rf "$RUN"; exit 4
+  fi
 else
 PROBE="$(claude -p "Reply with the single word OK." --model claude-fable-5-1 --effort medium --tools "" \
   --system-prompt "You reply with the single word OK." --strict-mcp-config --disable-slash-commands \
@@ -109,8 +139,8 @@ fi
 # start claude, with OpenRouter's Anthropic-compatible endpoint when billing through it. Shell assignments,
 # not `env KEY=…`: an argument of `env` lands in the audit log and in `ps` (seen in testing, 2026-10-27)
 session_claude() {
-  if [ "$BILLING" = openrouter ]; then
-    ANTHROPIC_BASE_URL=https://openrouter.ai/api ANTHROPIC_AUTH_TOKEN="$OR_KEY" ANTHROPIC_API_KEY= \
+  if [ "$BILLING" != subscription ]; then
+    ANTHROPIC_BASE_URL="$BASE_URL" ANTHROPIC_AUTH_TOKEN="$OR_KEY" ANTHROPIC_API_KEY= \
       CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 DISABLE_AUTOUPDATER=1 claude "$@"
   else
     claude "$@"
@@ -124,7 +154,7 @@ START_MARK="$RUN/.start"; touch "$START_MARK"
   echo "started=$(date -Is)"; echo "claude=$(claude --version)"; echo "os=$(lsb_release -ds) $(uname -m)"
   echo "model=$MODEL"; echo "effort=$EFFORT"; echo "model_choice=$CHOICE"
   echo "disallowed_tools=WebSearch WebFetch RemoteTrigger"; echo "mcp=none (strict)"
-  echo "billing=$BILLING"; [ "$BILLING" = openrouter ] && { echo "base_url=https://openrouter.ai/api"; echo "cost_cap=$COST_CAP"; }
+  echo "billing=$BILLING"; [ "$BILLING" != subscription ] && { echo "base_url=$BASE_URL"; echo "cost_cap=$COST_CAP"; }
   REAL="$(readlink -f "$BIN")"; PKG="$(dpkg -S "$REAL" 2>/dev/null | head -1 | cut -d: -f1)"
   [ -n "$PKG" ] || PKG="$(dpkg -S "$BIN" 2>/dev/null | head -1 | cut -d: -f1)"
   echo "binary_real=$REAL"; echo "package=$PKG $(dpkg-query -W -f='${Version}' "$PKG" 2>/dev/null)"
