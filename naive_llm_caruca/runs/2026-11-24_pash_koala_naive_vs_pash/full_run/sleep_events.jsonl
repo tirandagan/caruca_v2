@@ -1,0 +1,4 @@
+{"sleep": "2026-11-24 13:47:25 -0500", "wake": "2026-11-24 13:49:47 -0500", "cause": "lid closed, on battery", "scripts_affected": [], "note": "between unixfun/34 (ended 13:46:58) and unixfun/35 (started 13:49:59); no run overlaps"}
+{"sleep": "2026-11-24 15:26:34 -0500", "wake": "2026-11-24 15:47:00 -0500", "cause": "lid closed, on battery", "scripts_affected": ["nlp/uppercase_by_type"], "note": "inside nlp/uppercase_by_type (15:26:02-16:09:26); its times are not valid and the script is rerun after the batch"}
+{"sleep": "2026-11-24 15:47:45 -0500", "wake": "2026-11-24 15:51:34 -0500", "cause": "back to sleep after a notification wake", "scripts_affected": ["nlp/uppercase_by_type"], "note": "same script"}
+{"sleep": "2026-11-24 15:52:19 -0500", "wake": "2026-11-24 16:00:00 -0500", "cause": "maintenance sleep, on battery", "scripts_affected": ["nlp/uppercase_by_type"], "note": "same script; on mains power from 16:00"}

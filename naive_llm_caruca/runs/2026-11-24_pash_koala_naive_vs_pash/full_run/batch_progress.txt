@@ -121,3 +121,10 @@ covid/4
 covid/5
 covid/3
 file-mod/compress_files
+nlp/syllable_words_1
+nlp/trigram_rec
+nlp/uppercase_by_type
+nlp/count_words
+nlp/vowel_sequencies_gr_1K
+nlp/merge_upper
+file-mod/img_convert

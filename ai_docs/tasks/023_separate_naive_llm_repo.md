@@ -26,6 +26,12 @@ when copying or adapting this file. See `LICENSE-TEMPLATES.md` for the full term
 
 > **Status (2026-11-24):** **plan only, nothing moved yet.** Revised the same day after a second pass
 > for dependencies and risks (sections 6 to 9 are new; the decisions in section 12 grew from 7 to 12).
+> Updated again the same afternoon for four things that changed in the repo while the plan was being
+> written: task 024 now exists in `caruca_v2` (decision 9 default moved to 025); the Koala run's
+> 233 MB `occurrences.jsonl` is git-ignored and a history rewrite left a backup branch (risk 2, risk 11,
+> steps 1, 3 and 4); the hand-built report for Michael, its `build.ts` that imports fonts and tokens
+> from the converter folder, the design record `DESIGN.md` + `.impeccable/` and two new memory files
+> are now placed (sections 2, 4.1, 4.2, 6.4, step 7); and the open sessions were re-counted (risk 1).
 > Waiting on those decisions, and on the Koala PaSh run finishing (section 8, risk 1).
 > **Created:** 2026-11-24 · **Owner:** Tiran Dagan
 > **Tiran's direction, 2026-11-24:** plan how to separate the naive LLM from the Caruca v2 repo. Move
@@ -63,6 +69,24 @@ these two spellings are right.
 
 Measured with `git ls-files`, `git grep`, `du`, `lsof` and `limactl`; every number is from the working
 tree at commit `fee275b` plus the uncommitted edits of the day.
+
+**Re-checked at the end of the afternoon (working tree at `ce5c038`).** Three things changed:
+
+- **A task 024 exists** in `caruca_v2`: `ai_docs/tasks/024_md_to_pdf_page_break_marker.md`, a page-break
+  marker for the Markdown-to-PDF converter, written for an Antigravity agent (pane "Converter: page-break
+  marker") and committed at 13:37 in `f6bb6a4` together with the converter changes and a small test
+  (`scripts/md-to-pdf/test-pagebreak.{md,ts}`). It concerns the converter, which both repos keep
+  (section 4.2), so the document is **copied** like 023, and both repos then hold tasks 016 to 024.
+  Decision 9's default moves from 024 to 025 accordingly.
+- **The Koala run's `full_run/occurrences.jsonl` is 233 MB on disk and untracked.** It blocked a push at
+  120 MB (GitHub's 100 MB hard limit), so it is git-ignored since today (`.gitignore` line 50) and tracked
+  only as `occurrences.jsonl.gz` (1.5 MB). The two commits that had carried it were rewritten; `main` is
+  four commits ahead of `origin/main`, and a branch `backup-before-rewrite` (at `20f1b1f`) still holds the
+  old history with the large blob. Risk 2 and risk 11 cover what this means for the extraction.
+- **Sessions and VMs.** Three Herdr panes and three Claude Code sessions (one of them the Antigravity
+  pane above) still have `caruca_v2` as their working directory; the Koala results file holds 827 rows
+  and its batch log 125 entries, so the run is still being written. Only the `pash` VM is running;
+  `caruca` and `naive-golden` are stopped and the per-run `naive-run-tr` VM is gone.
 
 **Size.** The naive experiment is the bulk of the repo by far.
 
@@ -103,8 +127,11 @@ files under `memory/`, and five files in `videos/caruca-naive-run-1/`. **Nothing
 - `ai_docs/tasks/016` to `022` (seven task documents, every one about the naive arm or its PaSh comparison).
 - `videos/caruca-naive-run-1/` (the HyperFrames edit of naive run 1; its 169 MB recording is already a
   symlink into `~/Documents`, gitignored).
-- 19 memory topic files whose subject is the naive arm, its runs, its reports or its PaSh comparison
+- 20 memory topic files whose subject is the naive arm, its runs, its reports or its PaSh comparison
   (listed in section 4), plus their lines in `memory/MEMORY.md`.
+- `.impeccable/critique/` and `.impeccable/review/`: the design critique and page renders of the
+  2026-11-24 hand-built report for Michael (added today; `DESIGN.md` and `.impeccable/design.json` from
+  the same work are shared by both repos, section 4.2).
 - `ai_docs/docs/pash_vm_setup.md` and `scripts/pash/`, `eval/pash_scheduling/`,
   `ai_docs/analysis/pash_work_scheduling.md`, `memory/pash_work_scheduling.md`: the PaSh VM and the
   5 October PaSh work-division study. Written for task 012 (the v2 downstream study) before the naive
@@ -153,7 +180,8 @@ fresh clone of `caruca_v2` still downloads the 273 MB pack; only the working tre
 | `videos/caruca-naive-run-1/` | `videos/caruca-naive-run-1/` | The `~/Documents` symlink and the `videos/**` gitignore rules move with it |
 | `ai_docs/docs/pash_vm_setup.md` | `ai_docs/docs/pash_vm_setup.md` | PaSh VM operating doc. Default: moves (decision 4) |
 | `scripts/pash/`, `eval/pash_scheduling/`, `ai_docs/analysis/pash_work_scheduling.md` | same paths | The 5 October PaSh work-division study. Default: moves (decision 4). `ai_docs/analysis/README.md` loses its entry |
-| 19 memory topic files, naive-only: `project_naive_claude_code_arm`, `project_fig7_campaign`, `project_pash_suite_comparison`, `project_requesty_llm_billing`, `project_caruca_youtube_video`, `reference_naive_run_playbook`, `reference_pash_comparison_scorer`, `reference_pash_annotations_runtime`, `reference_excalidraw_diagram_skill`, `reference_md_to_pdf_wide_diagrams`, `feedback_single_entry_point`, `feedback_readme_is_prompt_variant_log`, `feedback_naive_llm_standalone`, `feedback_addendum_style`, `feedback_pash_bugs_annotate_first`, `feedback_pash_runs_test_our_annotations`, `feedback_qualitative_by_claude_in_session`, `feedback_greenberg_report_style`, `pash_work_scheduling` (with decision 4) | `memory/` | Their `MEMORY.md` lines move too |
+| `.impeccable/critique/` and `.impeccable/review/` | same paths | The impeccable skill's critique of the 2026-11-24 report and its ten page renders (PNG). They are about a naive report, so they move; `.impeccable/design.json` is copied instead (section 4.2) |
+| 20 memory topic files, naive-only: `project_naive_claude_code_arm`, `project_fig7_campaign`, `project_pash_suite_comparison`, `project_requesty_llm_billing`, `project_caruca_youtube_video`, `reference_naive_run_playbook`, `reference_pash_comparison_scorer`, `reference_pash_annotations_runtime`, `reference_excalidraw_diagram_skill`, `reference_md_to_pdf_wide_diagrams`, `feedback_single_entry_point`, `feedback_readme_is_prompt_variant_log`, `feedback_naive_llm_standalone`, `feedback_addendum_style`, `feedback_pash_bugs_annotate_first`, `feedback_pash_runs_test_our_annotations`, `feedback_qualitative_by_claude_in_session`, `feedback_greenberg_report_style`, `feedback_report_pdf_hand_built`, `pash_work_scheduling` (with decision 4) | `memory/` | Their `MEMORY.md` lines move too |
 
 ### 4.2 Copied (present in both repos afterwards)
 
@@ -162,14 +190,16 @@ fresh clone of `caruca_v2` still downloads the 273 MB pack; only the working tre
 | `.claude/skills/` — all six: `task-creator`, `excalidraw-diagram`, `diagram`, `caruca-design`, `impeccable`, `retrieve-caruca-run` | Tiran asked for all the skills in use. `task-creator` and `excalidraw-diagram` are used by the naive work daily; `diagram` occasionally; `caruca-design` governs document and PDF styling; `impeccable` and `retrieve-caruca-run` are about the console and `eval/runs`, which stay, so in the new repo they are inert but harmless. The Excalidraw skill's `references/.venv` (148 MB) is untracked and is rebuilt in the new copy with `uv sync && uv run playwright install chromium`; the renderer's pin to `@excalidraw/excalidraw@0.18.0` is in the tracked template, so it carries over |
 | `.claude/commands/` | Not copied by default: the five prep wrappers and `run_pipeline`/`setup_pipeline` are about the v2 pipeline. Decision 5 asks |
 | `.claude/settings.local.json` | Gitignored, so not in any clone. Copied by hand and trimmed: it holds the permission allow-list, including naive-specific entries (`./new_run_vm.sh`, `limactl shell`, the PaSh venv commands) |
-| `scripts/md-to-pdf.ts`, `scripts/md-to-pdf/`, `package.json`, `package-lock.json` | The PDF converter for analyses, the addendum and handouts. Needs `npm install` in the new repo |
+| `scripts/md-to-pdf.ts`, `scripts/md-to-pdf/`, `package.json`, `package-lock.json` | The PDF converter for analyses, the addendum and handouts, including the page-break marker of task 024 and its test files. `scripts/md-to-pdf/tokens.ts`, `assets/` and `fonts/` are also what the hand-built reports' `build.ts` import (section 6.4), and `package.json` carries their `puppeteer` and `pdf-lib`. Needs `npm install` in the new repo |
+| `DESIGN.md` (repo root) and `.impeccable/design.json` | The design record written 2026-11-24 from the hand-built report: the Caruca document identity (type ramp, one colour per source, print and page-break rules). The `impeccable` skill reads `DESIGN.md` from the repo root, and both repos' documents share the identity, so both get a copy with the same drift note as the shared memory files. `PRODUCT.md` (the console's product brief) stays in `caruca_v2`; in the new repo the skill's setup step will report it missing, which is correct there |
 | Two modules of the v2 package, **vendored** into `naive_llm_caruca/scoring/`: `src/caruca_v2/v1.py` (1,364 lines) and `src/caruca_v2/harness/score.py` (389 lines) | Task 018's scorer imports them (section 6.1). Vendoring makes the new repo self-contained; the alternative (install `caruca_v2` from the sibling folder) is decision 8 |
 | A `pyproject.toml` for the new repo (`pydantic`, `matplotlib`, `python-dotenv`) and a `.venv` | Today the naive scripts run under `caruca_v2`'s `.venv`, which exists only because `caruca_v2` has a `pyproject.toml`. The new repo needs its own (section 6.2) |
 | `LICENSE-TEMPLATES.md` | Every attribution notice names this file; the licence (PolyForm Noncommercial 1.0.0) is repo-wide and applies to the new repo too. Its text gets one added paragraph naming the new repo |
-| `.gitignore`, `.env.example` | Trimmed to what each repo has |
+| `.gitignore`, `.env.example` | Trimmed to what each repo has. The new repo's copy keeps today's rule `naive_llm_caruca/runs/*/full_run/occurrences.jsonl` (the 233 MB file that may never be committed) |
+| `design_system_record` memory file | Goes with `DESIGN.md`; same drift note |
 | 9 memory topic files about v1 facts that the naive scoring relies on: `caruca_v1_matcher_behaviour`, `caruca_v1_value_generation`, `caruca_v1_class_combining_rule`, `caruca_v1_eval_tooling_notes`, `caruca_grep_grammar_single_shape`, `pash_grep_annotation_current_vs_json`, `caruca_v1_pash_json_compat`, `caruca_v1_cross_platform_assets`, `feedback_never_modify_v1_source` | They are facts about v1 (the thing both repos measure against). Both repos' sessions need them. **Cost: two copies that can drift.** Each copy gets a line saying "also kept in `<other repo>/memory/`; the newer edit wins", and the paragraph in each `CLAUDE.md` about memory says to update both when a v1 fact changes. Section 9, item 3 proposes a small drift check |
 | 17 memory files about Tiran, the people and the machines: `project_key_people`, `dev_machine_paths`, `feedback_plain_language`, `feedback_be_brief`, `feedback_no_ai_credit`, `feedback_v1_v2_framing`, `feedback_handout_workflow`, `project_dual_objectives`, `project_greenberg_caruca_purpose`, `feedback_v1_questions_stay_v1`, `project_proposal_reviews_vision`, `project_v1_content_public_ok`, `project_v1_prompt_licensing`, `mac_lima_tracing_env`, `caruca_v1_macos_annotate_limitation`, `caruca_v1_pipeline_reference`, `feedback_large_media_out_of_git` | Who the advisors are, how Tiran wants to be written to, which machine has which path, how to run v1 in the Lima VM. Same drift note |
-| This task document, 023 | The founding record of the new repo belongs in both (and it keeps the task-number scan in both repos at 023, see decision 9) |
+| This task document, 023, and task 024 (the converter's page-break marker, 2026-11-24) | 023 is the founding record of the new repo and belongs in both. 024 documents a change to the converter, which both repos keep. Both repos then hold 016 to 024 and their `task-creator` scans agree (decision 9) |
 
 ### 4.3 Stays in `caruca_v2` only
 
@@ -177,7 +207,8 @@ fresh clone of `caruca_v2` still downloads the 273 MB pack; only the working tre
 4), `ai_docs/prep/`, `ai_docs/prep_templates/`, `ai_docs/dev_templates/`, `ai_docs/refs/`,
 `ai_docs/archive_2026-09_rebuild/`, `ai_docs/analysis/` (E0, the grep/purpose case, `findings/`),
 `ai_docs/_archive/`, `ai_docs/tasks/001` to `015`, `PRODUCT.md`, `pyproject.toml`, `uv.lock`, and the
-remaining memory files (the v2 pipeline, harness, console, experiment programme, rebuild decisions).
+remaining memory files (the v2 pipeline, harness, console, experiment programme, rebuild decisions, the
+paper review and the 2026-11-24 venue research, which belong to the paper and its resubmission).
 
 ## 5. Links between the two repos after the move
 
@@ -252,11 +283,17 @@ own venv. v1's interpreter stays where it is.
 
 ### 6.4 Scripts that compute "the repo root" from their own position
 
-Four scripts walk up from their own file to find the repo: `run_campaign.py`
+Five scripts walk up from their own file to find the repo: `run_campaign.py`
 (`REPO = dirname(dirname(HERE))`, then reads `REPO/.env`), `quality.py` (`CAMPAIGN.parents[1]`),
-`score_t018.py` (`parents[2]`, then `REPO/src`), `score_pash.py` (`HERE.parents[1]`, "the arm folder").
-With the subfolder kept, all four land on the new repo's root and keep working, which is the main
-reason decision 1 now defaults to keeping it. Flattening would need all four edited and re-tested.
+`score_t018.py` (`parents[2]`, then `REPO/src`), `score_pash.py` (`HERE.parents[1]`, "the arm folder"),
+and, since 2026-11-24, the hand-built report's `build.ts` in
+`runs/2026-11-24_pash_koala_naive_vs_pash/report/`, which imports the brand fonts, colour tokens and
+logo from `../../../../scripts/md-to-pdf/` (`tokens.ts`, `assets/logo-base64.ts`, `fonts/`), four
+levels up, and renders with `puppeteer` and `pdf-lib` from the root `package.json`. Every future report
+for Michael is to be built the same way (`memory/feedback_report_pdf_hand_built.md`), so this path is a
+standing dependency on the converter folder being copied (section 4.2) at the same place.
+With the subfolder kept, all five land on the new repo's root and keep working, which is the main
+reason decision 1 now defaults to keeping it. Flattening would need all five edited and re-tested.
 
 ### 6.5 The Lima VMs and what they hold
 
@@ -296,14 +333,19 @@ repo's `CLAUDE.md` lists them so a session on the WSL PC knows what will not wor
    Claude Code processes and one Python process have their working directory in `caruca_v2`: the Koala
    PaSh comparison (`naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/`, worker panes
    pash-builder, pash-inventory, pash-checker), with `run_koala.py` last edited at 12:06 and the `pash`
-   VM running. Ten files are uncommitted, and the list grows as the peer sessions write. **Moving under
+   VM running. Ten files are uncommitted, and the list grows as the peer sessions write. (Re-counted at
+   the end of the afternoon: three Herdr panes and three Claude Code sessions, one of them the
+   Antigravity pane for task 024; the Koala records were still being appended to; five files uncommitted.) **Moving under
    them would strand their working directories and split their edits between two folders.** The move
    starts only after Tiran says the Koala run is collected and the panes are closed. Step 1 of
    section 10 is that handshake, by `SendMessage` to the peer sessions as the playbook memory says.
 2. **A clone drops untracked files.** `.gitignore` excludes `*.log`, so the Fig. 7 campaign's `main.log`,
    `pilot.log`, `repeats.log`, `credit_watch.log`, `logs/`, `quality/firstpass.log`, the two
-   `caruca_side/*.log`, and every run's `stream.actions.log` exist only on this Mac's disk. Approach B
-   loses them unless they are copied over explicitly (step 4). The same holds for the Excalidraw
+   `caruca_side/*.log`, and every run's `stream.actions.log` exist only on this Mac's disk. So does the
+   Koala run's `full_run/occurrences.jsonl` (233 MB, git-ignored since 2026-11-24, tracked only as a
+   1.5 MB `.gz`); it is regenerated in the new folder with `gunzip -k` rather than copied, and stays
+   ignored there (it is over GitHub's 100 MB limit). Approach B loses all of these unless they are copied
+   or regenerated explicitly (step 4). The same holds for the Excalidraw
    environment and the videos' `node_modules`, which are rebuilt rather than copied.
 3. **The private repo hides the reports from the people they are written for.** The addendum for the
    co-authors, the run analyses and the PaSh observations move into a repo only Tiran can see. Either
@@ -314,12 +356,12 @@ repo's `CLAUDE.md` lists them so a session on the WSL PC knows what will not wor
    step 7.
 5. **Stale paths inside the VMs** (section 6.5): the `pash` VM's Koala checker and manifest. Covered by
    step 6.
-6. **Duplicated memory drifts.** 26 memory files exist in both repos afterwards. A fact corrected in one
+6. **Duplicated memory drifts.** 27 memory files (and `DESIGN.md`) exist in both repos afterwards. A fact corrected in one
    repo and not the other is the likely failure. Mitigations: the drift note in each file, the
    `CLAUDE.md` rule, and the drift-check script in section 9, item 3.
 7. **Task numbers collide.** Both repos' `task-creator` scans `ai_docs/tasks/` for the highest number.
-   With 016 to 022 and this 023 in both, both will propose 024 next, and "task 024" would then mean two
-   different things. Decision 9.
+   With 016 to 024 in both (023 and 024 copied), both will propose 025 next, and "task 025" would then
+   mean two different things. Decision 9.
 8. **Two repos, two machines, four checkouts to keep in sync.** The WSL PC will need the new repo cloned
    at `~/stevens/naive_llm`, and `memory/dev_machine_paths.md` in both repos must name both folders on
    both machines.
@@ -332,7 +374,11 @@ repo's `CLAUDE.md` lists them so a session on the WSL PC knows what will not wor
     as is; new files in the new repo use "caruca-naive-llm". The licence file gets a paragraph saying so.
 11. **`git filter-repo` refuses to run on a non-fresh clone** and rewrites every hash. Both are expected;
     the work is on a scratch clone, and no document cites a hash that will change (they cite `caruca_v2`
-    hashes, which do not).
+    hashes, which do not). It also rewrites every branch the clone has, so the `backup-before-rewrite`
+    branch (the pre-rewrite history with the 120 MB `occurrences.jsonl` blob) must be deleted from
+    `caruca_v2` before the clone is taken, or the blob comes along and the new repo's first push fails
+    the same way the old one did. Step 1 deletes it; step 3 checks the extracted repo for blobs over
+    50 MB before anything is pushed.
 12. **Disk and transfer.** The scratch clone plus the new folder need about 1 GB free on the Mac; the
     first push is about 200 MB; the WSL PC's clone the same. Nothing near any GitHub limit.
 
@@ -345,14 +391,15 @@ repo's `CLAUDE.md` lists them so a session on the WSL PC knows what will not wor
    commit it was extracted at, so a reader of an old email, task document or memory note can translate a
    `caruca_v2` path into the new repo. The naive README already carries a line of this kind for its
    2026-10-27 move out of `ai_docs/naive_llm_vs_v1/`; this is the same thing one level up.
-3. **A memory drift check.** A ten-line script in each repo (`memory/check_shared.sh`) that lists the 26
-   shared memory files and diffs each against the sibling folder's copy when that folder exists; run it
+3. **A memory drift check.** A ten-line script in each repo (`memory/check_shared.sh`) that lists the 27
+   shared memory files plus `DESIGN.md` and diffs each against the sibling folder's copy when that folder exists; run it
    when either repo's memory is edited. Cheap, and it turns the drift risk into a visible diff.
 4. **The `t024` label.** The Koala run's VM-side folders are called `~/t024` and `~/t024-check`, which
-   reads as "task 024" although no task 024 document exists; the run is recorded in task 022's successor
-   folder and in `memory/project_pash_suite_comparison.md`. If Tiran wants the Koala comparison to have
-   its own task document, it should take the number 024 in the **new** repo before anything else does,
-   so the label and the document agree. Decision 9 covers the numbering rule.
+   reads as "task 024". Task 024 now exists and is something else (the converter's page-break marker),
+   so the label matches no document; the Koala run is recorded in its run folder and in
+   `memory/project_pash_suite_comparison.md`. The label stays as it is (the VM files are records), and
+   the run's README gets one line saying so. If Tiran wants the Koala comparison to have its own task
+   document, it takes the next number in the **new** repo (025 under decision 9's default).
 5. **The pipeline's own single-prompt stage keeps the word "naive".** After the split a reader of
    `caruca_v2` sees `caruca-v2 naive-llm` in its README and may think of the moved experiment.
    `caruca_v2`'s README gets one sentence distinguishing the two (section 2, item 2 above has the text).
@@ -376,33 +423,43 @@ repo's `CLAUDE.md` lists them so a session on the WSL PC knows what will not wor
 Each step is checked before the next starts. Nothing is removed from `caruca_v2` before step 9.
 
 1. **Handshake.** Ask the peer sessions (by `SendMessage`) whether the Koala run is collected; wait for
-   Tiran to confirm the Herdr panes are closed. `lsof -d cwd | grep caruca_v2` shows only this session.
-   Commit the uncommitted edits in `caruca_v2` so the move starts from a clean tree. Tag that commit
-   `pre-naive-split` and push the tag. Note the hash here.
+   Tiran to confirm the Herdr panes and the Antigravity pane are closed. `lsof -d cwd | grep caruca_v2`
+   shows only this session. Commit the uncommitted edits in `caruca_v2` so the move starts from a clean
+   tree; push `main` (it is ahead of `origin/main` after the 2026-11-24 history rewrite) and, once the
+   push is confirmed, delete the `backup-before-rewrite` branch (risk 11). Check
+   `git ls-tree -r -l HEAD | awk '$4 > 50000000'` prints nothing. Tag that commit `pre-naive-split` and
+   push the tag. Note the hash here.
 2. **Create the empty private repo.** `gh repo create tirandagan/caruca-naive-llm --private` with a
    one-line description. No files yet.
 3. **Extract history (approach B).** Clone `caruca_v2` to the scratchpad, install `git filter-repo`,
    run it with the path list from section 4.1 (no renames; the subfolder is kept). Check:
    `git log --oneline | wc -l` is well below 104 (only commits touching those paths survive); `ls` shows
-   `naive_llm_caruca/`, `ai_docs/tasks/`, `videos/`, `memory/` and nothing else. Move the result to
-   `~/dev/stevens/naive_llm` and set `origin` to the new repo. **Fallback (approach A):** plain copy
+   `naive_llm_caruca/`, `ai_docs/tasks/`, `videos/`, `memory/` and nothing else; and no blob over 50 MB
+   survives anywhere in the history
+   (`git rev-list --objects --all | git cat-file --batch-check='%(objectsize) %(rest)' | awk '$1 > 50000000'`
+   prints nothing). Move the result to `~/dev/stevens/naive_llm` and set `origin` to the new repo. **Fallback (approach A):** plain copy
    and `git init`.
 4. **Copy the untracked files** from the old folder: every `*.log` under `naive_llm_caruca/` that is not
-   a `__pycache__` or `.DS_Store`, and the videos' `~/Documents` symlink. Check: `diff -rq` of the two
-   folders shows only `__pycache__`, `.DS_Store` and `.git` differences.
+   a `__pycache__` or `.DS_Store`, and the videos' `~/Documents` symlink. Regenerate the Koala run's
+   `full_run/occurrences.jsonl` from its tracked `.gz` (`gunzip -k`) rather than copying 233 MB, and
+   confirm `git status` in the new folder does not list it. Check: `diff -rq` of the two folders shows
+   only `__pycache__`, `.DS_Store` and `.git` differences.
 5. **Add the copied items** (section 4.2): skills, the PDF converter and `package.json` (`npm install`),
    the vendored v2 modules with the import edit in `score_t018.py`, the new `pyproject.toml` and
    `uv sync`, the licence file with its paragraph, `.gitignore`, `.env.example`, a hand-written `.env`
-   (not committed), `settings.local.json` trimmed, the shared memory files with their drift notes, this
-   task document, the new root `README.md` with the provenance table (section 9, item 2), the new
+   (not committed), `settings.local.json` trimmed, the shared memory files with their drift notes,
+   `DESIGN.md` and `.impeccable/design.json`, this task document and 024, the new root `README.md` with
+   the provenance table (section 9, item 2), the new
    `CLAUDE.md` (section 11) and `MEMORY.md`, and the drift-check script. Rebuild the Excalidraw skill's
    environment.
 6. **Fix VM-side paths.** Search both mounted VMs' homes for `dev/stevens/caruca_v2` (the two known hits
    in `pash` plus anything new); fix scripts, annotate records. Run the search again; zero live hits.
 7. **Run the new repo's scripts once each.** `score_t018.py --table` (vendored imports), `quality.py --table`,
    `score_pash.py` on one command, `make_figures.py`, `excalidraw_fill.py` on one existing diagram, the
-   PDF converter on one run analysis, `new_run_vm.sh --help` or its dry path, a `task-creator` invocation
-   that prints the attribution block and proposes the right next number. Every one must finish without
+   PDF converter on one run analysis, the hand-built report's `build.ts`
+   (`npx tsx naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/report/build.ts`, which proves
+   the four-levels-up import of fonts and tokens), `new_run_vm.sh --help` or its dry path, a
+   `task-creator` invocation that prints the attribution block and proposes the right next number (025). Every one must finish without
    an import or path error.
 8. **Rewrite links in the new repo** (section 5, item 2, pinned to the tag from step 1) and run the
    link checker over the new repo. Zero unresolved links.
@@ -456,7 +513,7 @@ pipeline's `naive-llm` stage option from the moved experiment, and whatever Tira
 ## 12. Decisions for Tiran (the default is what the plan above does)
 
 Background for all of them: today the naive experiment is one 182 MB folder inside the public
-`caruca_v2` repo, with its seven task documents, 19 memory notes and a video project scattered in the
+`caruca_v2` repo, with its seven task documents, 20 memory notes and a video project scattered in the
 repo's shared folders. The plan moves all of that into a new private repo and leaves the v2 pipeline
 behind.
 
@@ -507,13 +564,14 @@ behind.
    `caruca_v2` change can silently change task 018's numbers). **Default: copy, with the source commit
    written in the file header.**
 
-9. **Task numbering across two repos.** Both repos will hold tasks 016 to 023 and both will propose 024
-   next, so "task 024" could mean two different documents. Options: **let the new repo continue with 024
-   and have `caruca_v2` restart at a distinct range, say 101 (`caruca_v2` has no task in flight)**; or the
-   reverse (new repo from 101); or let both run on and always say which repo when citing a task. The
-   Koala run's VM folders are already labelled `t024`, which argues for the new repo taking 024.
-   **Default: new repo continues at 024; `caruca_v2`'s next task is 101; each `CLAUDE.md` states the
-   rule.**
+9. **Task numbering across two repos.** Both repos will hold tasks 016 to 024 (023 and 024 are copied;
+   024, created this afternoon, is the converter's page-break marker) and both will propose 025 next, so
+   "task 025" could mean two different documents. Options: **let the new repo continue with 025 and have
+   `caruca_v2` restart at a distinct range, say 101 (`caruca_v2` has no task in flight once 024 is
+   finished)**; or the reverse (new repo from 101); or let both run on and always say which repo when
+   citing a task. The Koala run's VM folders are labelled `t024`, but that label no longer matches any
+   task document either way (section 9, item 4). **Default: new repo continues at 025; `caruca_v2`'s
+   next task is 101; each `CLAUDE.md` states the rule.**
 
 10. **Leave a stub in `caruca_v2`?** Old links of the form `caruca_v2/blob/main/naive_llm_caruca/README.md`
     (the YouTube description has the path; any email might) will 404 after the removal. A one-file stub

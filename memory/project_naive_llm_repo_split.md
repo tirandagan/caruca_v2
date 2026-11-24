@@ -21,8 +21,10 @@ metadata:
 **Plan:** `ai_docs/tasks/023_separate_naive_llm_repo.md` (written 2026-11-24, revised the same day with
 dependencies, risks and 12 decisions). Defaults: keep `naive_llm_caruca/` as a subfolder of the new repo
 (zero path rewrites), extract history with `git filter-repo`, vendor the two v2 modules the task-018
-scorer imports, new repo continues task numbering at 024 and caruca_v2 restarts at 101, leave a stub
-README in caruca_v2, invite nobody to the private repo yet, tag caruca_v2 `pre-naive-split` first.
+scorer imports, new repo continues task numbering at 025 and caruca_v2 restarts at 101 (024 = the
+converter's page-break marker, created 2026-11-24 while the plan was written; it is copied like 023),
+leave a stub README in caruca_v2, invite nobody to the private repo yet, tag caruca_v2
+`pre-naive-split` first.
 **Status: plan only; nothing moved as of 2026-11-24.** Must wait for the Koala PaSh run and its Herdr
 panes to finish (their cwd is caruca_v2).
 
@@ -35,6 +37,14 @@ panes to finish (their cwd is caruca_v2).
   `naive-golden` mounts nothing. The `pash` VM's `~/t024-check/check1.py` and `~/t024/out/manifest.json`
   carry the Mac path of caruca_v2 and go stale on a move.
 - Nothing in `src/`, `tests/`, `console/src/`, `scripts/`, `prompts/` references `naive_llm_caruca`.
+- The hand-built report's `build.ts` (runs/2026-11-24_pash_koala_naive_vs_pash/report/) imports fonts,
+  colour tokens and the logo from `../../../../scripts/md-to-pdf/` (four levels up) and uses `puppeteer`
+  and `pdf-lib` from the root `package.json`; the converter folder must be copied to the same place.
+- `DESIGN.md` and `.impeccable/design.json` are read by the `impeccable` skill from the repo root
+  (copied to both repos); `.impeccable/critique/` and `review/` are about the 2026-11-24 report (move).
+- The Koala run's `full_run/occurrences.jsonl` (233 MB) is git-ignored since 2026-11-24 and tracked only
+  as `.gz`; branch `backup-before-rewrite` holds the pre-rewrite history with the large blob and must be
+  deleted before any clone that `git filter-repo` will process.
 
 **Why:** the naive folder is 182 MB of the repo's tracked content and its concerns (runs, PaSh,
 reports for the co-authors) have diverged from the pipeline rebuild; Tiran wants each to develop alone.

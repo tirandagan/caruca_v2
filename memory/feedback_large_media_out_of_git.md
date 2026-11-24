@@ -16,3 +16,10 @@ a HyperFrames project under `videos/` references the recording through a symlink
 **How to apply:** when staging media into a repo project, symlink or copy it to `~/Documents` instead, render with
 `-o ~/Documents/...`, and check `git ls-tree -r -l HEAD` for files over ~50 MB before telling Tiran a commit is pushable.
 Related: [[project-caruca-youtube-video]].
+
+**Addition 2026-11-24:** the PaSh-suite run's `full_run/occurrences.jsonl` (one row per command use per
+run) reached 120 MB and blocked a push (GitHub's 100 MB hard limit). It is now git-ignored
+(`naive_llm_caruca/runs/*/full_run/occurrences.jsonl`) and tracked only as `occurrences.jsonl.gz`
+(1.5 MB); regenerate the .gz before each commit of the records. Two unpushed commits were rewritten to
+carry the .gz (backup of the old history: branch `backup-before-rewrite`, delete after the push).
+Check `git ls-tree -r -l HEAD | awk '$4 > 50000000'` before telling Tiran a commit is pushable.
