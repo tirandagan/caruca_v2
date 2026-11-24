@@ -1,0 +1,35 @@
+{
+    "flag": [
+        ["-b", "--characters-as-bytes"],
+        ["-c", "--traditional"],
+        ["-C", "--copyright"],
+        ["-d", "--dump-variables"],
+        ["-D", "--debug"],
+        ["-g", "--gen-pot"],
+        ["-h", "--help"],
+        ["-I", "--trace"],
+        ["-L", "--lint"],
+        ["-M", "--bignum"],
+        ["-N", "--use-lc-numeric"],
+        ["-n", "--non-decimal-data"],
+        ["-o", "--pretty-print"],
+        ["-O", "--optimize"],
+        ["-p", "--profile"],
+        ["-P", "--posix"],
+        ["-r", "--re-interval"],
+        ["-s", "--no-optimize"],
+        ["-S", "--sandbox"],
+        ["-t", "--lint-old"],
+        ["-V", "--version"]
+    ],
+    "option": [
+        ["-f", "--file", ["FILE", "CONFIG_INPUT"]],
+        ["-F", "--field-separator", "FS"],
+        ["-v", "--assign", "VAR=VAL"],
+        ["-e", "--source", "PROGRAM-TEXT"],
+        ["-E", "--exec", ["FILE", "CONFIG_INPUT"]],
+        ["-i", "--include", ["FILE", "CONFIG_INPUT"]],
+        ["-l", "--load", ["FILE", "OTHER_INPUT"]],
+        ["-W", "LONG-OPTION-NAME"]
+    ]
+}

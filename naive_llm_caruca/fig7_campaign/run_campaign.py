@@ -17,6 +17,15 @@ clone); classify its tries (classify_tries.py); append a line to ledger.jsonl; r
 already in the ledger are skipped, so a stopped batch resumes where it stopped. Stops on billing or model
 errors. After the pilot and every 20 runs it re-projects the total and stops if the projection passes the
 ceiling. The key is read from the repo's .env and never printed or written to the repo.
+
+Requesty billing (2026-11-24, after the OpenRouter key died; --billing requesty): the session goes to
+https://router.requesty.ai with REQUESTY_API_KEY and the same model id; its catalogue lists Fable 5.1 as
+anthropic/claude-fable-5.1 (a dot, checked 2026-11-24; Opus 5.5 is the one written with dashes). Requesty
+has no balance endpoint, so the key is checked with GET /v1/models (200 = good key, and the model must be in
+the catalogue) before and after every run, billed_usd stays empty, and the run's cost is Claude Code's own
+figure (claude_cost_usd; "cost_source" says so). Money is limited by --budget for this invocation, summed
+from those figures. --commands may name commands outside commands.txt (group "extra"); --added puts a note
+in each ledger row.
 """
 import argparse
 import datetime
@@ -27,6 +36,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib.error
 import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -41,11 +51,27 @@ REPEATS = ["head", "cut", "dd", "cp", "sort"]
 WALL_LIMIT = 90 * 60          # seconds; the cost cap normally ends a long session first
 
 
-def key():
+def key(var="OPENROUTER_API_KEY"):
     for ln in open(os.path.join(REPO, ".env")):
-        if ln.startswith("OPENROUTER_API_KEY="):
-            return ln.split("=", 1)[1].strip().strip("\"'")
-    sys.exit("no OPENROUTER_API_KEY in .env")
+        if ln.startswith(var + "="):
+            v = ln.split("=", 1)[1].strip().strip("\"'")
+            if v and v != "REPLACE_ME":
+                return v
+            sys.exit(f"{var} in .env is still a placeholder")
+    sys.exit(f"no {var} in .env")
+
+
+REQUESTY = "https://router.requesty.ai"
+
+
+def requesty_check(k, model):
+    """Requesty's free model catalogue doubles as the key check: (HTTP status, whether model is listed)."""
+    req = urllib.request.Request(REQUESTY + "/v1/models", headers={"Authorization": f"Bearer {k}"})
+    try:
+        d = json.load(urllib.request.urlopen(req, timeout=30))
+    except urllib.error.HTTPError as e:
+        return e.code, False
+    return 200, any(m.get("id") == model for m in d.get("data", []))
 
 
 def usage(k, stable=True):
@@ -220,13 +246,22 @@ def one(row, repeat, args, k, st):
         return rec
     with tempfile.NamedTemporaryFile("w", delete=False) as f:
         os.chmod(f.name, 0o600)
-        f.write(f"OPENROUTER_KEY={k}\nMODEL={args.model}\nEFFORT={args.effort}\nCOST_CAP={args.cap}\n")
+        if args.billing == "requesty":
+            f.write(f"PROVIDER=requesty\nREQUESTY_KEY={k}\nMODEL={args.model}\nEFFORT={args.effort}\nCOST_CAP={args.cap}\n")
+        else:
+            f.write(f"OPENROUTER_KEY={k}\nMODEL={args.model}\nEFFORT={args.effort}\nCOST_CAP={args.cap}\n")
     try:
         sh(["limactl", "copy", f.name, f"{name}:~/.naive-billing"], log=log)
     finally:
         os.unlink(f.name)
     sh(["limactl", "shell", name, "--", "bash", "-lc", "chmod 600 ~/.naive-billing; ls ~/.naive-billing"], log=log)
-    before = usage(k)
+    before = usage(k) if args.billing == "openrouter" else None
+    if args.billing != "openrouter":
+        rec["billing"] = args.billing
+    if args.added:
+        rec["added"] = args.added
+    if args.note:
+        rec["note"] = args.note
     rec["overhead_before_s"] = round(time.time() - t0, 1)
     # was the caruca VM measuring Caruca's side meanwhile? (it shares the Mac's processors)
     busy = subprocess.run(["limactl", "shell", "caruca", "--", "pgrep", "-fc", "refused_share.py"],
@@ -253,11 +288,16 @@ def one(row, repeat, args, k, st):
     rec["key_redacted"] = os.path.exists(os.path.join(folder, "KEY_REDACTED.txt"))
     e = run_env(folder)
     res, toks = result_event(folder)
-    after = usage_after(k, before, (res or {}).get("total_cost_usd"))
-    rec["billed_usd"] = round(after - before, 6)
+    if args.billing == "requesty":
+        rec["billed_usd"] = None
+        rec["cost_source"] = "Claude Code's own estimate (result event total_cost_usd); requesty has no balance endpoint"
+        rec["key_check_after"] = requesty_check(k, args.model)[0]
+    else:
+        after = usage_after(k, before, (res or {}).get("total_cost_usd"))
+        rec["billed_usd"] = round(after - before, 6)
     # 2026-10-28: uname's charge had not reached the counter after the full wait and was billed under id
     # (Claude Code's own figure runs about 1.44 times the bill, so a quarter of it means the charge is missing)
-    if res and rec["billed_usd"] < 0.25 * (res.get("total_cost_usd") or 0):
+    if res and rec["billed_usd"] is not None and rec["billed_usd"] < 0.25 * (res.get("total_cost_usd") or 0):
         rec["bill_late"] = True
     rec.update(model=e.get("model"), effort=e.get("effort"), package=e.get("package"), logger=e.get("logger"),
                audit_lost=e.get("audit_lost"), tokens=toks)
@@ -308,9 +348,21 @@ def main():
     ap.add_argument("--cap", type=float, default=8.0)
     ap.add_argument("--ceiling", type=float, default=200.0)  # Tiran, 2026-10-28: "we can go as high as $200"
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--billing", choices=["openrouter", "requesty"], default="openrouter")
+    ap.add_argument("--budget", type=float, help="requesty: stop before a run if this invocation's spend + --cap would pass it")
+    ap.add_argument("--added", help="note written into each ledger row (e.g. why a command beyond Fig. 7 was run)")
+    ap.add_argument("--repeat", type=int, default=1, help="--commands only: the repeat number for the ledger rows (2026-11-24, sed re-run after a format repair)")
+    ap.add_argument("--note", help="written as the ledger row's \"note\"")
     args = ap.parse_args()
     rows = commands()
-    k = key()
+    if args.billing == "requesty":
+        k = key("REQUESTY_API_KEY")
+        code, listed = requesty_check(k, args.model)
+        if code != 200 or not listed:
+            sys.exit(f"requesty key check: HTTP {code}; {args.model} in the catalogue: {listed}")
+        print(f"requesty key check: HTTP 200, {args.model} listed", flush=True)
+    else:
+        k = key()
     if args.costs:
         st = state(k)
         write_costs(rows, args.ceiling, usage(k, stable=False) - st["zero_usage"])
@@ -325,8 +377,10 @@ def main():
     elif args.repeats:
         plan = [(by[c], n) for n in (2, 3) for c in REPEATS]
     else:
-        plan = [(by[c], 1) for c in args.commands.split(",")]
-    st = state(k)
+        plan = [(by.get(c) or {"command": c, "group": "extra", "example": False, "tool": False, "estimate": 2.5}, args.repeat)
+                for c in args.commands.split(",")]
+    st = state(k) if args.billing == "openrouter" else None
+    batch_spent = 0.0
     since_check = 0
     for row, rep in plan:
         done = ledger()
@@ -334,8 +388,14 @@ def main():
                and d.get("status") in ("ok", "capped") for d in done):
             print(f"skip {row['command']} (repeat {rep}): already in the ledger")
             continue
-        spent = usage(k, stable=False) - st["zero_usage"]
-        if spent + args.cap > args.ceiling:
+        if args.billing == "requesty":
+            if args.budget is not None and batch_spent + args.cap > args.budget:
+                print(f"STOP: this batch has spent ${batch_spent:.2f}; one more session could pass the ${args.budget:.2f} budget")
+                break
+            spent = batch_spent
+        else:
+            spent = usage(k, stable=False) - st["zero_usage"]
+        if args.billing == "openrouter" and spent + args.cap > args.ceiling:
             print(f"STOP: spent ${spent:.2f}; one more session could pass the ${args.ceiling:.0f} ceiling")
             break
         if args.repeats:
@@ -350,13 +410,20 @@ def main():
             continue
         with open(LEDGER, "a") as f:
             f.write(json.dumps(rec) + "\n")
-        spent = usage(k, stable=False) - st["zero_usage"]
-        write_costs(rows, args.ceiling, spent)
+        if args.billing == "requesty":
+            batch_spent += rec.get("claude_cost_usd") or 0
+            spent = batch_spent
+            write_costs(rows, args.ceiling)
+        else:
+            spent = usage(k, stable=False) - st["zero_usage"]
+            write_costs(rows, args.ceiling, spent)
         tr = rec.get("tries") or {}
-        print(f"   {rec['status']}: billed ${rec.get('billed_usd', 0):.2f}, {rec.get('wall_s', 0):.0f} s, "
+        print(f"   {rec['status']}: billed ${rec.get('billed_usd') or 0:.2f}, Claude Code's figure ${rec.get('claude_cost_usd') or 0:.2f}, {rec.get('wall_s', 0):.0f} s, "
               f"tries {tr.get('tries')}, refused {tr.get('classes', {}).get('refused', 0)}; total spent ${spent:.2f}", flush=True)
         if rec["status"] == "billing_or_model_error":
             print("STOP: billing or model error; see the run's log"); break
+        if args.billing == "requesty" and (rec["status"] not in ("ok", "capped") or rec.get("key_check_after") != 200):
+            print(f"STOP: run status {rec['status']}, key check after the run HTTP {rec.get('key_check_after')}"); break
         since_check += 1
         if not args.repeats and since_check >= 20:
             since_check = 0

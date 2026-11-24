@@ -1,6 +1,6 @@
 # Task 019: cost of every run, and of the campaign
 
-Rewritten after every run by `run_campaign.py` (2026-10-28 15:52). Budget: target $120, ceiling $200. **Billed** is OpenRouter's own usage counter for the key, read before and after each session; *Claude Code's figure* is the session's own estimate, kept for comparison with runs 3 to 10. Times are the session's wall clock.
+Rewritten after every run by `run_campaign.py` (2026-11-24 13:08). Budget: target $120, ceiling $200. **Billed** is OpenRouter's own usage counter for the key, read before and after each session; *Claude Code's figure* is the session's own estimate, kept for comparison with runs 3 to 10. Times are the session's wall clock.
 
 | # | Command | Group | Run | Status | Estimate | **Billed** | Claude Code's figure | Input / output / cache read / cache write tokens | Wall time | Turns |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -93,14 +93,15 @@ Rewritten after every run by `run_campaign.py` (2026-10-28 15:52). Budget: targe
 | 87 | `dd` | B | 3 | ok | $1.42 | **$2.96** | $4.80 | 76 / 1,280 / 2,447,916 / 76,732 | 370 s | 38 |
 | 88 | `cp` | A | 3 | ok | $1.79 | **$1.55** | $2.13 | 36 / 1,079 / 771,865 / 40,481 | 214 s | 18 |
 | 89 | `sort` | B | 3 | ok | $1.75 | **$2.58** | $3.56 | 48 / 1,126 / 1,295,041 / 54,608 | 387 s | 24 |
+| 90 | `tr` |  | 1 | ok | $0.00 | **?** | $1.87 | 22 / 964 / 392,926 / 49,164 | 240 s | 11 |
+| 91 | `xargs` |  | 1 | ok | $0.00 | **?** | $3.04 | 40 / 1,014 / 960,947 / 42,852 | 436 s | 20 |
+| 92 | `awk` |  | 1 | ok | $0.00 | **?** | $4.32 | 54 / 1,224 / 1,468,525 / 53,290 | 579 s | 27 |
+| 93 | `sed` | B | 2 | ok | $1.42 | **?** | $4.64 | 46 / 361 / 1,223,325 / 83,380 | 634 s | 23 |
 
 | Total | Money |
 |---|---|
-| Agent sessions (89 runs) | **$128.34** |
+| Agent sessions (93 runs) | **$128.34** |
 | Caruca's model step (77 commands) | $1.70 |
 | Smoke test | $0.30 |
 | Charges billed but not recorded by a run (Caruca's model step, convert: the GPT-4o call was billed but; Opus 5.5 extra-high comparison, 5 runs (dd ls cut test conve) | $25.92 |
 | **All billed** (sum of the rows above) | **$156.26** |
-| OpenRouter's counter since the campaign began | $159.55 |
-| Left before the $200 ceiling | $40.45 |
-| Projected total for the 79 commands (actual/estimate so far: 0.92; 0 not yet run) | $159.55 |

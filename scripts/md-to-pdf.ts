@@ -1,3 +1,13 @@
+/**
+ * CLI entry point for the Markdown-to-PDF converter (`npm run convert -- <file.md>`).
+ *
+ * Explicit page breaks: place `<!-- pagebreak -->` (preferred; invisible in GitHub
+ * and other Markdown viewers), `\pagebreak`, or `\newpage` on its own line:
+ *
+ *   <!-- pagebreak -->
+ *   ## Next section
+ */
+
 import path from "path";
 import fs from "fs";
 import { convertMarkdownToPdf } from "./md-to-pdf/converter";
@@ -53,6 +63,11 @@ Examples:
   npm run convert -- ai_docs/prep/roadmap.md
   npm run convert -- docs/report.md output/report-final.pdf
   npm run convert -- docs/report.md --title "Q3 Report" --subtitle "Engineering Review"
+
+Page breaks:
+  Put <!-- pagebreak --> (or \\pagebreak / \\newpage) on its own line:
+    <!-- pagebreak -->
+    ## Next section
 `);
     process.exit(args.length === 0 ? 1 : 0);
   }

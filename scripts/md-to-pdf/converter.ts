@@ -336,6 +336,7 @@ function createMarkdownIt(highlighter: Highlighter): MarkdownIt {
   md.use(footnote);
   md.use(taskLists, { enabled: true, label: true });
   md.use(anchor, { permalink: false });
+  md.use(pageBreakPlugin);
 
   // Custom container for callout boxes.
   //
@@ -368,6 +369,50 @@ function createMarkdownIt(highlighter: Highlighter): MarkdownIt {
   return md;
 }
 
+const PAGE_BREAK_COMMENT_RE = /^<!--\s*pagebreak\s*-->$/i;
+const PAGE_BREAK_CMD_RE = /^\\(?:pagebreak|newpage)$/;
+
+/**
+ * Block-level markdown-it plugin for explicit PDF page breaks.
+ *
+ * Recognizes `<!-- pagebreak -->`, `\pagebreak`, or `\newpage` when placed on
+ * its own line (outside code blocks) and emits a zero-height break element with
+ * no visible output or empty paragraph.
+ */
+function pageBreakPlugin(md: MarkdownIt): void {
+  md.block.ruler.before(
+    "html_block",
+    "page_break",
+    (state, startLine, _endLine, silent) => {
+      if (state.sCount[startLine] - state.blkIndent >= 4) {
+        return false;
+      }
+
+      const pos = state.bMarks[startLine] + state.tShift[startLine];
+      const max = state.eMarks[startLine];
+      const trimmed = state.src.slice(pos, max).trim();
+
+      if (!PAGE_BREAK_COMMENT_RE.test(trimmed) && !PAGE_BREAK_CMD_RE.test(trimmed)) {
+        return false;
+      }
+
+      if (silent) {
+        return true;
+      }
+
+      const token = state.push("page_break", "div", 0);
+      token.block = true;
+      token.map = [startLine, startLine + 1];
+      state.line = startLine + 1;
+      return true;
+    },
+    { alt: ["paragraph", "reference", "blockquote", "list"] }
+  );
+
+  md.renderer.rules.page_break = (): string =>
+    '<div class="page-break" aria-hidden="true"></div>\n';
+}
+
 /**
  * Keep each heading on the same page as the block that follows it.
  *
@@ -397,6 +442,7 @@ function wrapHeadingGroups(html: string): string {
     // trapped inside a group that forbids it.
     if (next.classList.contains("long-code")) continue;
     if (next.classList.contains("footnotes")) continue;
+    if (next.classList.contains("page-break")) continue;
 
     const group = doc.createElement("div");
     group.className = "heading-group";

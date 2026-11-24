@@ -6,6 +6,11 @@ Every 10 minutes, reads what is left: the key's monthly limit remaining (GET /ap
 unused credit (GET /api/v1/credits), and takes the smaller. Appends one line to credit_watch.log each time.
 Exits with a WARNING line once that falls below --below dollars, or quietly once no batch driver
 (run_campaign.py) is running. The key is read from the repo's .env and never printed.
+
+    python3 credit_watch.py --billing requesty [--every 600]
+
+requesty.ai (2026-11-24) has no balance endpoint, so this mode only checks the key with the free catalogue
+call (GET https://router.requesty.ai/v1/models: 200 = good, 403 = bad) and exits with a WARNING once it fails.
 """
 import argparse, datetime, json, subprocess, sys, time, urllib.request, os
 
@@ -15,8 +20,9 @@ import run_campaign as rc  # noqa: E402
 ap = argparse.ArgumentParser()
 ap.add_argument("--below", type=float, default=40.0)
 ap.add_argument("--every", type=int, default=600)
+ap.add_argument("--billing", choices=["openrouter", "requesty"], default="openrouter")
 args = ap.parse_args()
-k = rc.key()
+k = rc.key("REQUESTY_API_KEY" if args.billing == "requesty" else "OPENROUTER_API_KEY")
 LOG = os.path.join(rc.HERE, "credit_watch.log")
 
 
@@ -24,6 +30,18 @@ def get(url):
     req = urllib.request.Request(url, headers={"Authorization": f"Bearer {k}"})
     return json.load(urllib.request.urlopen(req, timeout=30))["data"]
 
+
+while args.billing == "requesty":
+    code, listed = rc.requesty_check(k, "anthropic/claude-fable-5.1")
+    line = f"{datetime.datetime.now():%Y-%m-%d %H:%M}  requesty key check HTTP {code}, fable 5.1 listed {listed} (no balance endpoint)"
+    open(LOG, "a").write(line + "\n")
+    if code != 200:
+        print("WARNING: " + line, flush=True)
+        sys.exit(0)
+    if subprocess.run(["pgrep", "-f", "[r]un_campaign.py"], capture_output=True).returncode != 0:
+        print("no batch running; " + line, flush=True)
+        sys.exit(0)
+    time.sleep(args.every)
 
 while True:
     try:

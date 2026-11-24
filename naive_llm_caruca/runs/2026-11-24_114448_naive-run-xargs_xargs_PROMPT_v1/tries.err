@@ -1,0 +1,3 @@
+/home/tirandagan.guest/bin/exec-log.bt:32:15-17: WARNING: Addrspace mismatch
+/args.fd == 2 && comm != "claude" && @w[pid] < 2/
+              ~~

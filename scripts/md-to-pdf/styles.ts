@@ -34,12 +34,38 @@ export function getStyles(): string {
       break-inside: avoid;
     }
 
-    h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + * {
+    h1 + *:not(.page-break),
+    h2 + *:not(.page-break),
+    h3 + *:not(.page-break),
+    h4 + *:not(.page-break),
+    h5 + *:not(.page-break),
+    h6 + *:not(.page-break) {
       break-before: avoid;
     }
 
     .heading-group {
       break-inside: avoid;
+    }
+
+    /* ========== PAGE BREAKS ========== */
+
+    .page-break {
+      break-before: page;
+      page-break-before: always;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .page-break + h1,
+    .page-break + h2,
+    .page-break + h3,
+    .page-break + h4,
+    .page-break + h5,
+    .page-break + h6,
+    .page-break + .heading-group > :first-child {
+      margin-top: 0;
     }
 
     /*

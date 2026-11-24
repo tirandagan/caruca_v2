@@ -34,7 +34,8 @@
 # naive-watch.py stops the session past COST_CAP dollars. The key is never written to run.env.
 # Billing through requesty.ai (2026-11-24, after the OpenRouter key died): the same file with PROVIDER=requesty
 # and REQUESTY_KEY= instead of OPENROUTER_KEY=. Base URL https://router.requesty.ai (the router root; its
-# /anthropic path answered 404 for Tiran's other project), model ids with dashes (anthropic/claude-fable-5-1).
+# /anthropic path answered 404 for Tiran's other project), model id as requesty's catalogue lists it
+# (Fable 5.1 = anthropic/claude-fable-5.1, checked 2026-11-24).
 # Unlike the OpenRouter path, a one-line trial call goes through the router first; if it does not answer,
 # the run stops (exit 4) instead of falling back to another model.
 #
