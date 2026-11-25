@@ -42,6 +42,11 @@ panes to finish (their cwd is caruca_v2).
   and `pdf-lib` from the root `package.json`; the converter folder must be copied to the same place.
 - `DESIGN.md` and `.impeccable/design.json` are read by the `impeccable` skill from the repo root
   (copied to both repos); `.impeccable/critique/` and `review/` are about the 2026-11-24 report (move).
+- 2026-11-25 re-check (task 023 section 14): `task-creator` reads `ai_docs/dev_templates/task_template.md`
+  (must be copied); 22 memory notes link across the boundary (rule: suffix `(in caruca_v2)` /
+  `(in caruca-naive-llm)`); `run_koala.py` and `pash_annotations_latest/refresh.py` also walk up to the
+  repo root; the `pash` VM holds four files with the old path incl. the live launcher `~/t024/full/step4.sh`;
+  eight comparison scripts hard-code v1's Mac path on `sys.path` (unaffected by the move).
 - The Koala run's `full_run/occurrences.jsonl` (233 MB) is git-ignored since 2026-11-24 and tracked only
   as `.gz`; branch `backup-before-rewrite` holds the pre-rewrite history with the large blob and must be
   deleted before any clone that `git filter-repo` will process.
