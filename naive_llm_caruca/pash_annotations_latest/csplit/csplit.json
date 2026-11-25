@@ -1,0 +1,44 @@
+{
+    "flag": [
+        [
+            "-k",
+            "--keep-files"
+        ],
+        [
+            "--suppress-matched"
+        ],
+        [
+            "-s",
+            "-q",
+            "--quiet",
+            "--silent"
+        ],
+        [
+            "-z",
+            "--elide-empty-files"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [
+        [
+            "-b",
+            "--suffix-format",
+            "FORMAT"
+        ],
+        [
+            "-f",
+            "--prefix",
+            ["FILE", "OTHER_OUTPUT"]
+        ],
+        [
+            "-n",
+            "--digits",
+            "DIGITS"
+        ]
+    ]
+}

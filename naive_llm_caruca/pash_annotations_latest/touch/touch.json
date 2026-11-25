@@ -1,0 +1,50 @@
+{
+    "flag": [
+        [
+            "-a"
+        ],
+        [
+            "-c",
+            "--no-create"
+        ],
+        [
+            "-f"
+        ],
+        [
+            "-h",
+            "--no-dereference"
+        ],
+        [
+            "-m"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [
+        [
+            "-d",
+            "--date",
+            "STRING"
+        ],
+        [
+            "-r",
+            "--reference",
+            [
+                "FILE",
+                "OTHER_INPUT"
+            ]
+        ],
+        [
+            "-t",
+            "STAMP"
+        ],
+        [
+            "--time",
+            "WORD"
+        ]
+    ]
+}

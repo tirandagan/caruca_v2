@@ -1,0 +1,32 @@
+{
+    "flag": [
+        [
+            "--preserve-status"
+        ],
+        [
+            "--foreground"
+        ],
+        [
+            "-v",
+            "--verbose"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [
+        [
+            "-k",
+            "--kill-after",
+            "DURATION"
+        ],
+        [
+            "-s",
+            "--signal",
+            "SIGNAL"
+        ]
+    ]
+}

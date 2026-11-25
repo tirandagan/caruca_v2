@@ -1,0 +1,43 @@
+{
+    "flag": [
+        [
+            "-e",
+            "--echo"
+        ],
+        [
+            "-r",
+            "--repeat"
+        ],
+        [
+            "-z",
+            "--zero-terminated"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [
+        [
+            "-i",
+            "--input-range",
+            "LO-HI"
+        ],
+        [
+            "-n",
+            "--head-count",
+            "COUNT"
+        ],
+        [
+            "-o",
+            "--output",
+            ["FILE", "STREAM_OUTPUT"]
+        ],
+        [
+            "--random-source",
+            ["FILE", "OTHER_INPUT"]
+        ]
+    ]
+}

@@ -18,11 +18,50 @@ NAMES = {"bash": "Plain bash", "pash-own": "PaSh's own files", "naive": "Naive L
 
 
 def jl(name):
+    import gzip
     p = HERE / name
+    if not p.exists() and (HERE / (name + ".gz")).exists():
+        with gzip.open(HERE / (name + ".gz"), "rt") as f:
+            return [json.loads(x) for x in f if x.strip()]
     return [json.loads(x) for x in open(p) if x.strip()] if p.exists() else []
 
 
-res, reg, occ = jl("results.jsonl"), jl("regions.jsonl"), jl("occurrences.jsonl")
+# step4_results.jsonl is the newest copy of the whole results file (it includes every earlier row)
+res = jl("step4_results.jsonl") or jl("results.jsonl")
+reg, occ = jl("regions.jsonl"), jl("occurrences.jsonl")
+
+# Fix-up 1 (recorder fault found 2026-11-24 23:40): in the repeats phase the runner rotated bash out of
+# first place, so a source that ran before bash in its repeat had no reference and was recorded as "not
+# same as bash". The records are not edited; the comparison is redone here from the stored hashes, against
+# bash's run of the same script, phase, pass and repeat.
+bash_ref = {(r["id"], r.get("phase"), r["mode"], r["repeat"]): r for r in res if r["set"] == "bash"}
+FIX1 = Counter()
+for r in res:
+    if r["set"] == "bash":
+        continue
+    b = bash_ref.get((r["id"], r.get("phase"), r["mode"], r["repeat"]))
+    if b is None:
+        continue
+    before = (r["same_as_bash"], r.get("output_files_same_as_bash"))
+    r["same_as_bash"] = r["out_sha256"] == b["out_sha256"]
+    if r.get("output_files_sha") and b.get("output_files_sha"):
+        r["output_files_same_as_bash"] = r["output_files_sha"] == b["output_files_sha"]
+    elif r.get("output_files") == 0 and b.get("output_files") == 0:
+        r["output_files_same_as_bash"] = True
+    elif r.get("order") and "bash" in r["order"] and r["order"].index("bash") > r["order"].index(r["set"]):
+        r["output_files_same_as_bash"] = None  # no reference was recorded and the files' hashes were not kept
+    FIX1["rows compared again"] += 1
+    if before[0] != r["same_as_bash"]:
+        FIX1["same as bash: changed"] += 1
+    if before[1] != r["output_files_same_as_bash"]:
+        FIX1["output files same as bash: changed"] += 1
+
+# Fix-up 2 (found 2026-11-24 23:40): web-search's launcher puts node at $TOP/.tools, which the shadow copy
+# did not have, so its timed runs (no stand-in programs, which had supplied node) stopped early with
+# "node: No such file or directory". Those rows are left out of times and output counts.
+BROKEN = [r for r in res if r["mode"] == "plain" and r["id"] == "web-search/engine"
+          and "node" in (r.get("stderr") or "") and "No such file" in (r.get("stderr") or "")]
+res = [r for r in res if r not in BROKEN]
 errs = jl("batch_errors.jsonl")
 ids = sorted({r["id"] for r in res})
 # Timed runs: every repeat of a source and script; bash's reference time is from the main phase only.
@@ -49,6 +88,8 @@ out = []
 w = out.append
 
 w(f"# Numbers for the run ({len(ids)} scripts)\n")
+w("Fix-ups applied when counting (records unchanged): output compared again against the same repeat's bash: "
+  + ", ".join(f"{k} {v}" for k, v in FIX1.items()) + f". Timed runs left out because node was missing: {len(BROKEN)}.\n")
 w("Built by `summarise.py` from the records in this folder. It only counts.\n")
 w("Timed repeats per script and source: " + ", ".join(f"{k} repeat(s): {v}" for k, v in sorted(reps.items())) +
   ". Times are medians over the repeats. The naive LLM's second sed file was run only on scripts that use sed.\n")
@@ -83,17 +124,18 @@ w("Runs with the stand-in programs whose output differs from bash: " +
 w("## 2. Parts of the scripts (what PaSh compiles), per source (runs with the stand-in programs)\n")
 w("A part is one piece of a script that PaSh asks its compiler to handle. Every part not run in parallel "
   "counts against the source, whatever the cause (Tiran, 2026-11-24); the causes are listed.\n")
-w("| Source | Parts sent (each time) | Run in parallel | Distinct parts | Distinct run in parallel | Causes, parts not run in parallel (each time) |")
-w("|---|---|---|---|---|---|")
+w("| Source | Scripts | Parts sent (each time) | Run in parallel | Distinct parts | Distinct run in parallel | Causes, parts not run in parallel (each time) |")
+w("|---|---|---|---|---|---|---|")
 for s in SETS:
     tot = Counter(); dist = Counter(); n = nd = 0
+    ns = sum(1 for i in ids if (i, s) in I)
     for i in ids:
         r = I.get((i, s))
         ro = (r or {}).get("region_outcomes") or {}
         n += ro.get("regions", 0); nd += ro.get("distinct_regions", 0)
         tot.update(ro.get("per_execution", {})); dist.update(ro.get("per_distinct", {}))
     causes = ", ".join(f"{k} {v}" for k, v in sorted(tot.items()) if k != "parallelized" and v)
-    w(f"| {NAMES[s]} | {n} | {tot['parallelized']} of {n} | {nd} | {dist['parallelized']} of {nd} | {causes or '-'} |")
+    w(f"| {NAMES[s]} | {ns} | {n} | {tot['parallelized']} of {n} | {nd} | {dist['parallelized']} of {nd} | {causes or '-'} |")
 
 # 3. parts against PaSh's own files
 w("\n## 3. Distinct parts compared with PaSh's own files\n")
@@ -155,7 +197,9 @@ w("|---|---|---|---|")
 for s in SETS[1:]:
     g, l = Counter(), Counter()
     for i in ids:
-        a, o = spl.get((i, s), set()), spl.get((i, "pash-own"), set())
+        if (i, s) not in spl or (i, "pash-own") not in spl:
+            continue
+        a, o = spl[(i, s)], spl[(i, "pash-own")]
         g.update(a - o); l.update(o - a)
     for c in sorted(set(g) | set(l)):
         w(f"| {NAMES[s]} | {c} | {g[c]} | {l[c]} |")

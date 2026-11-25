@@ -1,0 +1,31 @@
+{
+    "flag": [
+        [
+            "-c",
+            "-C",
+            "--complement"
+        ],
+        [
+            "-d",
+            "--delete"
+        ],
+        [
+            "-s",
+            "--squeeze-repeats"
+        ],
+        [
+            "-t",
+            "--truncate-set1"
+        ],
+        [
+            "-A"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": []
+}

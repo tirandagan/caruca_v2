@@ -44,3 +44,43 @@
 {"id": "unixfun/34", "seconds": 0.003, "rc": 0, "timed_out": false, "starts": 8, "out_bytes": 3, "stderr": ""}
 {"id": "unixfun/35", "seconds": 0.028, "rc": 0, "timed_out": false, "starts": 3, "out_bytes": 37050, "stderr": ""}
 {"id": "unixfun/36", "seconds": 0.063, "rc": 0, "timed_out": false, "starts": 9, "out_bytes": 8, "stderr": ""}
+{"id": "covid/1", "seconds": 13.314, "rc": 0, "timed_out": false, "starts": 8, "out_bytes": 5389, "stderr": ""}
+{"id": "covid/2", "seconds": 12.054, "rc": 0, "timed_out": false, "starts": 9, "out_bytes": 15434, "stderr": ""}
+{"id": "covid/3", "seconds": 16.408, "rc": 0, "timed_out": false, "starts": 9, "out_bytes": 17022, "stderr": ""}
+{"id": "covid/4", "seconds": 13.817, "rc": 0, "timed_out": false, "starts": 8, "out_bytes": 4856, "stderr": ""}
+{"id": "covid/5", "seconds": 15.105, "rc": 0, "timed_out": false, "starts": 2, "out_bytes": 1142437, "stderr": ""}
+{"id": "nlp/syllable_words_1", "seconds": 21.184, "rc": 0, "timed_out": false, "starts": 24004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/syllable_words_2", "seconds": 13.519, "rc": 0, "timed_out": false, "starts": 24004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/letter_words", "seconds": 41.685, "rc": 0, "timed_out": false, "starts": 30004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/bigrams_appear_twice", "seconds": 66.253, "rc": 0, "timed_out": false, "starts": 36004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/bigrams", "seconds": 53.098, "rc": 0, "timed_out": false, "starts": 33004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/compare_exodus_genesis", "seconds": 96.501, "rc": 0, "timed_out": false, "starts": 42004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/count_consonant_seq", "seconds": 43.593, "rc": 0, "timed_out": false, "starts": 18004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/count_morphs", "seconds": 11.515, "rc": 0, "timed_out": false, "starts": 18004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/count_trigrams", "seconds": 61.259, "rc": 0, "timed_out": false, "starts": 36004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/count_vowel_seq", "seconds": 10.218, "rc": 0, "timed_out": false, "starts": 18004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/count_words", "seconds": 32.675, "rc": 0, "timed_out": false, "starts": 18004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/find_anagrams", "seconds": 51.281, "rc": 0, "timed_out": false, "starts": 33004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/merge_upper", "seconds": 34.01, "rc": 0, "timed_out": false, "starts": 21004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/sort", "seconds": 36.021, "rc": 0, "timed_out": false, "starts": 21004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/sort_words_by_folding", "seconds": 35.139, "rc": 0, "timed_out": false, "starts": 21004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/sort_words_by_num_of_syllables", "seconds": 43.099, "rc": 0, "timed_out": false, "starts": 39004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/sort_words_by_rhyming", "seconds": 38.923, "rc": 0, "timed_out": false, "starts": 27004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/trigram_rec", "seconds": 24.878, "rc": 0, "timed_out": false, "starts": 75004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/uppercase_by_token", "seconds": 11.163, "rc": 0, "timed_out": false, "starts": 15004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/uppercase_by_type", "seconds": 31.744, "rc": 0, "timed_out": false, "starts": 18004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/verses_2om_3om_2instances", "seconds": 10.358, "rc": 0, "timed_out": false, "starts": 24004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/vowel_sequencies_gr_1K", "seconds": 33.784, "rc": 0, "timed_out": false, "starts": 24004, "out_bytes": 5, "stderr": ""}
+{"id": "nlp/words_no_vowels", "seconds": 11.995, "rc": 0, "timed_out": false, "starts": 21004, "out_bytes": 5, "stderr": ""}
+{"id": "weather/temp-analytics", "seconds": 6.613, "rc": 1, "timed_out": false, "starts": 11, "out_bytes": 0, "stderr": ": line 16: /home/tirandagan.guest/t024/shadow/weather/outputs/statistics.small/min.txt: No such file or directory\n/home/tirandagan.guest/t024/shadow/weather/scripts/temp-analytics.sh: line 21: /home/tirandagan.guest/t024/shadow/weather/outputs/statistics.small/average.txt: No such file or directory\n"}
+{"id": "weather/tuft-weather", "seconds": 490.341, "rc": 0, "timed_out": false, "starts": 5322, "out_bytes": 0, "stderr": ""}
+{"id": "web-search/engine", "seconds": 753.679, "rc": 0, "timed_out": false, "starts": 54002, "out_bytes": 0, "stderr": "t.jpg_2d5e.html\n[engine] crawling 0/0/6/Image~00692uc.jpg.html\n[engine] indexing 0/0/6/Image~00692uc.jpg.html\n[engine] crawling 0/0/6/Image~0069fr.jpg.html\n[engine] indexing 0/0/6/Image~0069fr.jpg.html\n[engine] crawling 0/0/6/Image~0069.JPG_c66f.html\n[engine] indexing 0/0/6/Image~0069.JPG_c66f.html\n"}
+{"id": "analytics/nginx", "seconds": 1.45, "rc": 0, "timed_out": false, "starts": 369, "out_bytes": 0, "stderr": ""}
+{"id": "analytics/pcaps", "seconds": 119.127, "rc": 0, "timed_out": false, "starts": 1243, "out_bytes": 0, "stderr": ""}
+{"id": "analytics/ray-tracing", "seconds": 0.006, "rc": 1, "timed_out": false, "starts": 7, "out_bytes": 0, "stderr": "me/tirandagan.guest/t024/shadow/analytics/scripts/ray-tracing.sh: line 9: /home/tirandagan.guest/t024/shadow/analytics/outputs/ray_tracing_small/rt.log: No such file or directory\n/usr/bin/cat: /home/tirandagan.guest/t024/shadow/analytics/outputs/ray_tracing_small/rays.csv: No such file or directory\n"}
+{"id": "file-mod/compress_files", "seconds": 20.561, "rc": 0, "timed_out": false, "starts": 208, "out_bytes": 0, "stderr": ""}
+{"id": "file-mod/encrypt_files", "seconds": 2.767, "rc": 0, "timed_out": false, "starts": 208, "out_bytes": 0, "stderr": ""}
+{"id": "file-mod/img_convert", "seconds": 34.396, "rc": 0, "timed_out": false, "starts": 1525, "out_bytes": 0, "stderr": ""}
+{"id": "file-mod/to_mp3", "seconds": 9.31, "rc": 0, "timed_out": false, "starts": 121, "out_bytes": 0, "stderr": ""}
+{"id": "file-mod/thumbnail_generation", "seconds": 11.996, "rc": 1, "timed_out": false, "starts": 1, "out_bytes": 0, "stderr": "mogrify: unable to open image `/home/tirandagan.guest/t024/shadow/file-mod/outputs/thumbnail.small/100000.gif': No such file or directory @ error/blob.c/OpenBlob/2924.\n"}
+{"id": "bio/bio", "seconds": 0.201, "rc": 0, "timed_out": false, "starts": 32, "out_bytes": 1150, "stderr": "[main_samview] region \"chrY\" specifies an invalid region or unknown reference. Continue anyway.\n"}

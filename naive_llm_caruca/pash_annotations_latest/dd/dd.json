@@ -1,0 +1,12 @@
+{
+    "flag": [
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [],
+    "comment": "dd has no dash-style options besides --help and --version. Its settings are KEY=VALUE operands (bs=, cbs=, conv=, count=, ibs=, if=, iflag=, obs=, of=, oflag=, seek=/oseek=, skip=/iseek=, status=), which the parser cannot split, so they reach the generators as operands and are interpreted there."
+}

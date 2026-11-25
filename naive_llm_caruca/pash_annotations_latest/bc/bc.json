@@ -1,0 +1,33 @@
+{
+    "flag": [
+        [
+            "-h",
+            "--help"
+        ],
+        [
+            "-i",
+            "--interactive"
+        ],
+        [
+            "-l",
+            "--mathlib"
+        ],
+        [
+            "-q",
+            "--quiet"
+        ],
+        [
+            "-s",
+            "--standard"
+        ],
+        [
+            "-w",
+            "--warn"
+        ],
+        [
+            "-v",
+            "--version"
+        ]
+    ],
+    "option": []
+}

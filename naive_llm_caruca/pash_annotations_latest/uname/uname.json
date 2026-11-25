@@ -1,0 +1,47 @@
+{
+    "flag": [
+        [
+            "-a",
+            "--all"
+        ],
+        [
+            "-s",
+            "--kernel-name"
+        ],
+        [
+            "-n",
+            "--nodename"
+        ],
+        [
+            "-r",
+            "--kernel-release"
+        ],
+        [
+            "-v",
+            "--kernel-version"
+        ],
+        [
+            "-m",
+            "--machine"
+        ],
+        [
+            "-p",
+            "--processor"
+        ],
+        [
+            "-i",
+            "--hardware-platform"
+        ],
+        [
+            "-o",
+            "--operating-system"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": []
+}

@@ -1,0 +1,6 @@
+{
+ "outside rows dropped": 1174718,
+ "outside rows written (one per command)": 1024,
+ "copies re-attributed by exact words": 174,
+ "by name only, no exact match (left)": 4
+}

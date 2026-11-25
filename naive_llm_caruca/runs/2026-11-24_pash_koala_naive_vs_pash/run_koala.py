@@ -341,6 +341,9 @@ def shadow_group(g):
             (d / e.name).symlink_to(e)
     for name in OWN_DIRS:
         (d / name).mkdir(exist_ok=True)
+    # launchers that use $TOP/.tools (web-search's node) need Koala's tool folder at the shadow's top
+    if not (SHADOW / ".tools").exists() and (KOALA / ".tools").exists():
+        (SHADOW / ".tools").symlink_to(KOALA / ".tools")
     return d
 
 
@@ -851,7 +854,7 @@ def regions_of(log, sname, used, answers, more):
     Returns (regions, uses, PaSh's temporary folder)."""
     by_line, by_cmd = answers
     if not log.exists():
-        return [], [], None, Counter()
+        return [], [], None, (Counter(), Counter())
     raw = log.read_text(errors="replace")
     ms = list(COMPILE.finditer(raw))
     prefix = None
@@ -904,6 +907,8 @@ def regions_of(log, sname, used, answers, more):
         workers = bodies[i]
         wkeys = Counter(helper["keys"].get(json.dumps(w["argv"])) for w in (workers or []))
         ukeys = Counter(u["key"] for u in uses)
+        wexact = Counter(json.dumps(w["argv"]) for w in (workers or []))  # worker words, PaSh's pipes removed
+        uexact = Counter(json.dumps(u["argv"]) for u in uses)
         reason = "; ".join(sorted({ln.strip()[:300] for ln in seg.splitlines()
                                    if re.search(r"WARNING|Exception|Error|not implemented|not provided", ln)}))
         region_parallel = workers is not None
@@ -928,10 +933,14 @@ def regions_of(log, sname, used, answers, more):
             if workers is None:
                 copies, attributed = None, None
             else:
-                copies = wkeys.get(u["key"], 0)
-                attributed = "by command line" if ukeys[u["key"]] == 1 else "by name only"
-                if ukeys[u["key"]] > 1:  # two uses with the same options cannot be told apart
+                ex = json.dumps(u["argv"])
+                if ukeys[u["key"]] == 1:  # the only use with this command and these options
+                    copies, attributed = wkeys.get(u["key"], 0), "by command line"
+                elif uexact[ex] == 1 and wexact.get(ex):  # same options as another use; the words tell them apart
+                    copies, attributed = wexact[ex], "by command line (exact words)"
+                else:  # two uses that cannot be told apart
                     copies = sum(n for k, n in wkeys.items() if k and json.loads(k)[0] == c) // ukeys[u["key"]]
+                    attributed = "by name only"
             split = None if copies is None else (copies >= 2 and (more is None or c in more))
             if split:
                 why = None
@@ -1014,13 +1023,39 @@ def regions_of(log, sname, used, answers, more):
     for r in regions:
         r["emit"] = r["region"] in keep
     all_lines = Counter(u["line"] for u in uses_out)
+    all_cmds = Counter(u["command"] for u in uses_out)
     uses_out = [u for u in uses_out if u["region"] in keep]
     for u in uses_out:
         u["executions"] = next(r["executions"] for r in regions if r["region"] == u["region"])
-    return regions, uses_out, prefix, all_lines
+    return regions, uses_out, prefix, (all_lines, all_cmds)
 
 
-def outside_uses(bash_calls, all_lines, sname, used, answers):
+def outside_uses(bash_calls, all_lines, sname, used, answers, all_cmds=None):
+    """Starts under bash that are not a command use in any part sent to PaSh: per command, the starts under
+    bash minus the uses of that command in every execution of every part. One row per command. (Matching by
+    full command line undercounts loop parts, whose variables are not always filled in.)"""
+    by_line, by_cmd = answers
+    starts = Counter(a[0] for a in bash_calls)
+    inside = all_cmds or Counter()
+    out = []
+    for c, n in sorted(starts.items()):
+        k = n - inside.get(c, 0)
+        if k <= 0:
+            continue
+        src = source_kind(used, c)
+        fa = Counter(file_answer_of(a) for a in by_cmd.get((sname, c), [])) if src != "none" else Counter({"no files": 1})
+        out.append({"region": None, "region_text_sha": None, "position": None, "command": c,
+                    "invocation": None, "line": None, "exact_words": None, "answer_ref": None,
+                    "source": src, "source_detail": used.get(c, "none"),
+                    "file_answer": fa.most_common(1)[0][0] if fa else "no files", "file_answers": dict(fa),
+                    "exception": None, "recipes": None, "copies": None, "copies_attributed": None, "split": None,
+                    "why_not_split": "started, but not a command use in any part sent to PaSh (outside every "
+                                     "part, or started by another program)",
+                    "outside_pash": True, "executions": k})
+    return out
+
+
+def outside_uses_by_line(bash_calls, all_lines, sname, used, answers):
     """Uses started under bash that are in no part sent to PaSh (matched by full command line, against every
     execution of every part). One row per distinct command line, with how many starts it stands for."""
     by_line, _ = answers
@@ -1104,13 +1139,18 @@ def cmd_run(args):
             for mode in (getattr(args, "modes", None) or ("instrumented", "plain")):
                 order = [s for s in sets if s not in timing_only] if mode == "instrumented" else list(sets)
                 for rep in range(first, first + (1 if inv["group"] in ONCE else args.repeats)):
-                    k = (rep - 1) % len(order)
-                    for sname in order[k:] + order[:k]:
+                    # bash first in every repeat, so every source is compared with bash's output of the same
+                    # repeat (found 2026-11-24 23:40: rotating bash out of first place left no reference);
+                    # the order of the other sources still rotates from repeat to repeat
+                    rest = [s for s in order if s != "bash"]
+                    k = (rep - 1) % max(1, len(rest))
+                    this_order = (["bash"] if "bash" in order else []) + rest[k:] + rest[:k]
+                    for sname in this_order:
                         tag = f"{sname}_{mode}_{rep}"
                         res, standin, log, out = run_one(sname, inv, rdir, tag, shim=(mode == "instrumented"))
                         o_sha = file_sha(out, True)
                         got, calls = counts(standin) if mode == "instrumented" else (None, None)
-                        if sname == "bash" and ref_sha is None:
+                        if sname == "bash":  # the reference is the same repeat's bash run
                             ref_sha, ref_files = o_sha, res["files"]
                         if sname == "bash" and mode == "instrumented" and base_counts is None:
                             base_counts, bash_calls = got, calls
@@ -1119,10 +1159,11 @@ def cmd_run(args):
                         if got is not None and sname != "bash":
                             # only the script's own commands: PaSh itself starts programs such as dirname
                             more = {c: n for c, n in got.items() if c in progs and n > (base_counts or {}).get(c, 0)}
-                        regions, uses, tmp, all_lines = ([], [], None, Counter()) if sname == "bash" else \
+                        regions, uses, tmp, all_lines = ([], [], None, (Counter(), Counter())) if sname == "bash" else \
                             regions_of(log, sname, used_by[sname], answers, more)
                         if mode == "instrumented" and sname != "bash":
-                            uses = uses + outside_uses(bash_calls or [], all_lines, sname, used_by[sname], answers)
+                            uses = uses + outside_uses(bash_calls or [], all_lines[0], sname, used_by[sname], answers,
+                                                       all_lines[1])
                             base = {"group": inv["group"], "script": inv["script"], "id": sid, "set": sname,
                                     "mode": mode, "repeat": rep, "phase": phase}
                             for r in regions:
@@ -1158,7 +1199,9 @@ def cmd_run(args):
                         rc_ = region_counts(regions) if sname != "bash" else None
                         split = sorted({c for r in regions for c in r["split_commands"]}) if sname != "bash" else None
                         rec = {"group": inv["group"], "script": inv["script"], "id": sid, "set": sname,
-                               "mode": mode, "repeat": rep, "phase": phase, "order": order[k:] + order[:k],
+                               "mode": mode, "repeat": rep, "phase": phase, "order": this_order,
+                               "bash_out_sha256": ref_sha,
+                               "output_files_sha": hashlib.sha256(json.dumps(res["files"]).encode()).hexdigest()[:16],
                                "state": "reference" if sname == "bash" else state_of(lg, more, res),
                                "split_commands": split,
                                "regions_sent": (lg or {}).get("regions_sent"),
