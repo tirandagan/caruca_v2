@@ -62,14 +62,22 @@ for r in res:
 BROKEN = [r for r in res if r["mode"] == "plain" and r["id"] == "web-search/engine"
           and "node" in (r.get("stderr") or "") and "No such file" in (r.get("stderr") or "")]
 res = [r for r in res if r not in BROKEN]
+
+# Redos (phases redo-r1, redo-r3): web-search's timed runs of repeat 1 (no node) and repeat 3 (Mac on
+# battery and asleep) were run again on mains power. Where a redo exists for a script, pass and repeat, the
+# earlier rows of that script, pass and repeat are left out.
+REDONE = {(r["id"], r["mode"], r["repeat"]) for r in res if str(r.get("phase", "")).startswith("redo")}
+SUPERSEDED = [r for r in res if not str(r.get("phase", "")).startswith("redo")
+              and (r["id"], r["mode"], r["repeat"]) in REDONE]
+res = [r for r in res if r not in SUPERSEDED]
 errs = jl("batch_errors.jsonl")
 ids = sorted({r["id"] for r in res})
-# Timed runs: every repeat of a source and script; bash's reference time is from the main phase only.
+# Timed runs: every repeat of a source and script; bash's reference time is the median of its repeats too.
 # `T` holds one row per script and source, its seconds replaced by the median over repeats, its output
 # "same as bash" only if every repeat was. `I` holds the first run with the stand-in programs.
 Tl = defaultdict(list)
 for r in res:
-    if r["mode"] == "plain" and not (r["set"] == "bash" and r.get("phase") not in (None, "main", "repeats")):
+    if r["mode"] == "plain" and not (r["set"] == "bash" and r.get("phase") not in (None, "main", "repeats", "redo-r1", "redo-r3")):
         Tl[(r["id"], r["set"])].append(r)
 T = {}
 for k, rows in Tl.items():
@@ -89,10 +97,11 @@ w = out.append
 
 w(f"# Numbers for the run ({len(ids)} scripts)\n")
 w("Fix-ups applied when counting (records unchanged): output compared again against the same repeat's bash: "
-  + ", ".join(f"{k} {v}" for k, v in FIX1.items()) + f". Timed runs left out because node was missing: {len(BROKEN)}.\n")
+  + ", ".join(f"{k} {v}" for k, v in FIX1.items()) + f". Timed runs left out because node was missing: {len(BROKEN)}. "
+  f"Rows replaced by redone runs: {len(SUPERSEDED)}.\n")
 w("Built by `summarise.py` from the records in this folder. It only counts.\n")
 w("Timed repeats per script and source: " + ", ".join(f"{k} repeat(s): {v}" for k, v in sorted(reps.items())) +
-  ". Times are medians over the repeats. The naive LLM's second sed file was run only on scripts that use sed.\n")
+  ". Times are medians over the repeats. The naive LLM's second sed file was run on the 12 oneliners and unixfun scripts that use sed and on all 40 scripts of the other groups (52; in 27 of them bash starts no sed), so its time ratios cover a different set of scripts from the other sources' 86.\n")
 if errs:
     w(f"Scripts the runner itself failed on: {len(errs)} ({', '.join(e['id'] for e in errs)}).\n")
 
@@ -205,7 +214,7 @@ for s in SETS[1:]:
         w(f"| {NAMES[s]} | {c} | {g[c]} | {l[c]} |")
 
 # 6. time
-w("\n## 6. Time (one timed run per source and script)\n")
+w("\n## 6. Time (median of three timed runs per source and script)\n")
 w("Ratios are bash time divided by the source's time (above 1 = faster than bash). Summaries are geometric "
   "means over the scripts. All of a source's commands are swapped in at once, so a time difference belongs "
   "to the source as a whole, not to any one command.\n")

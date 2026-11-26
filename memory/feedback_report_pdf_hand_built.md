@@ -35,3 +35,15 @@ Layout rules that survived the finish review: the board (Table 1) must sit whole
 caption; only the addendum forces a page break; tables and figures don't break inside; put a figure after the
 paragraph that cites it, never right under a heading at a page end. Finish review + critique snapshots:
 `.impeccable/critique/2026-11-24T18-04-31Z__…report-html.md`.
+
+
+## Update 2026-11-26: conference typography for paper-bound reports
+
+Tiran: "when generating the pdf - use font, text size, etc - which are congruent with an academic conference. they
+use latex" (ISSTA as the example). ISSTA requires ACM `acmart` with `acmsmall` (single column); no font size is
+stated there, so the report uses acmart's look: Libertinus Serif 10/12 pt text, Libertinus Sans bold black
+headings, Inconsolata code, numbered sections, appendix A.1..A.n, booktabs tables, "Figure n:" captions.
+Fonts are in `scripts/md-to-pdf/fonts/academic/` with TrueType conversions in `ttf/` (Chromium embeds CFF OTF as
+Type 3; pdf-lib garbles subsetted conversions, so stamp unsubsetted; avoid "fi" in the stamped running title).
+**How to apply:** any report that may become part of the paper or go to the advisors uses this academic block
+(see the report folder's README); the Lexend Deca house style stays for internal documents.

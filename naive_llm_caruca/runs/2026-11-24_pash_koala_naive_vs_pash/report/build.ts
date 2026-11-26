@@ -24,13 +24,29 @@ import { LOGO_DATA_URI } from "../../../../scripts/md-to-pdf/assets/logo-base64"
 
 const HERE = __dirname;
 const FONTS = path.resolve(HERE, "../../../../scripts/md-to-pdf/fonts");
+const FONTS_ACADEMIC = path.join(FONTS, "academic"); // Libertinus (the maintained Linux Libertine) + Inconsolata, as ACM acmart uses
+
+function academicFontFaceCss(): string {
+  const u = (f: string) => pathToFileURL(path.join(FONTS_ACADEMIC, f.endsWith('.otf') ? 'ttf/' + f.replace('.otf', '.ttf') : f)).href; // TrueType conversions: Chromium embeds CFF OTF as Type 3
+  const face = (fam: string, f: string, w: number, st = "normal") =>
+    `@font-face{font-family:'${fam}';src:url('${u(f)}') format('truetype');font-weight:${w};font-style:${st};}`;
+  return [
+    face("Libertinus Serif", "LibertinusSerif-Regular.otf", 400), face("Libertinus Serif", "LibertinusSerif-Italic.otf", 400, "italic"),
+    face("Libertinus Serif", "LibertinusSerif-Semibold.otf", 600), face("Libertinus Serif", "LibertinusSerif-Bold.otf", 700),
+    face("Libertinus Serif", "LibertinusSerif-BoldItalic.otf", 700, "italic"),
+    face("Libertinus Sans", "LibertinusSans-Regular.otf", 400), face("Libertinus Sans", "LibertinusSans-Italic.otf", 400, "italic"),
+    face("Libertinus Sans", "LibertinusSans-Bold.otf", 700),
+    `@font-face{font-family:'Inconsolata';src:url('${u("ttf/Inconsolata-Regular.ttf")}') format('truetype');font-weight:400;}`,
+    `@font-face{font-family:'Inconsolata';src:url('${u("ttf/Inconsolata-Bold.ttf")}') format('truetype');font-weight:700;}`,
+  ].join("");
+}
 const htmlPath = path.join(HERE, "report.html");
 const cssPath = path.join(HERE, "report.css");
 const outPath = path.join(HERE, "report.pdf");
-const runningTitle = process.argv[2] ?? "PaSh's benchmark suite, with three sources of annotation files";
+const runningTitle = process.argv[2] ?? "PaSh's benchmark suite under three sources of annotations"; // no "fi" ligature: pdf-lib mis-spaces it
 
 const PT = 72; // points per inch
-const MARGIN = { top: 0.95 * PT, bottom: 0.8 * PT, left: 0.8 * PT, right: 0.8 * PT };
+const MARGIN = { top: 1.0 * PT, bottom: 0.9 * PT, left: 1.1 * PT, right: 1.1 * PT }; // ~6.3 in measure, close to acmart's acmsmall
 
 function hex(h: string) {
   const n = parseInt(h.slice(1), 16);
@@ -42,7 +58,7 @@ async function main() {
   const css = fs.readFileSync(cssPath, "utf8");
   const page = html.replace(
     "</head>",
-    `<style>${fontFaceCss()}${tokensCss()}</style>\n<style>${css}</style>\n<base href="${pathToFileURL(HERE + "/").href}">\n</head>`,
+    `<style>${fontFaceCss()}${academicFontFaceCss()}${tokensCss()}</style>\n<style>${css}</style>\n<base href="${pathToFileURL(HERE + "/").href}">\n</head>`,
   );
   const tmp = path.join(HERE, ".report.render.html");
   fs.writeFileSync(tmp, page);
@@ -69,8 +85,8 @@ async function main() {
   // Running head and foot, in the brand face, on every page.
   const doc = await PDFDocument.load(pdfBytes);
   doc.registerFontkit(fontkit);
-  const regular = await doc.embedFont(fs.readFileSync(path.join(FONTS, "LexendDeca-Regular.ttf")), { subset: true });
-  const semibold = await doc.embedFont(fs.readFileSync(path.join(FONTS, "LexendDeca-SemiBold.ttf")), { subset: true });
+  const regular = await doc.embedFont(fs.readFileSync(path.join(FONTS_ACADEMIC, "ttf", "LibertinusSans-Regular.ttf")), { subset: false });
+  const semibold = await doc.embedFont(fs.readFileSync(path.join(FONTS_ACADEMIC, "ttf", "LibertinusSans-Bold.ttf")), { subset: false });
   const logo = await doc.embedPng(Buffer.from(LOGO_DATA_URI.split(",")[1], "base64"));
   const ink = hex(TOKENS.color.ink);
   const grey = hex(TOKENS.color.gray500);

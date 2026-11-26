@@ -47,3 +47,24 @@ worker's README at its word. Read it last, and only to compare its claims with w
 
 Reply with three lines: the path of your review; how many of the 7 checks passed; the most important
 problem, if any.
+
+## Amendment 4 (2026-11-25, full run): check the full records, not the pilot
+
+The batch is complete: 86 scripts, six sources (PaSh's own, naive, naive with sed file v2, Caruca PaSh
+grammar, Caruca main grammar, a second copy of PaSh's own files as a timing control), three timed repeats.
+Records are in `full_run/` (`results.jsonl.gz`, `regions.jsonl.gz`, `occurrences.jsonl.gz`,
+`run_windows.jsonl`, `sleep_events.jsonl`), the counts in `full_run/numbers.md` (built by
+`full_run/summarise.py`), the builder's account in `full_run/README.md`. Run the same seven checks as before
+against these files, plus:
+
+8. The two recorder fix-ups described in numbers.md (same-repeat bash reference; the seven node-less
+   web-search rows left out and the redone rows used instead): confirm from the raw rows that the fix-up
+   is applied exactly as described and nothing else was dropped. Report counts before and after.
+9. The Mac sleeps in `sleep_events.jsonl`: confirm every timed row that overlaps a sleep window was either
+   redone or excluded; list any that was not.
+10. Recompute the headline numbers of numbers.md sections 1, 3, 5 and 6 independently from the raw rows
+    (your own short script, not summarise.py) and report any cell that differs.
+11. Spot-check five parallel-split claims by opening the PaSh logs in the VM (`~/t024/runs/<group>_<script>/`).
+
+Write `orchestration/review_checker_full.md` (same shape as `review_checker.md`), then reply with pass/fail
+per check in at most twelve lines. Do not change any record or any file under `full_run/`.

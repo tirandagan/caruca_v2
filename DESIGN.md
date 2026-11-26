@@ -274,3 +274,14 @@ Bulleted lists indent 1.1em with teal markers and 4pt between items. A glossary 
 - **Don't** italicise a designed element; Lexend Deca has no italic cut and the browser will fake one.
 - **Don't** use Chromium's header and footer templates for the running head and foot; they fall back to Times.
 - **Don't** give a column that is not a source of files a colour cap.
+
+
+## Conference variant (2026-11-26)
+
+Reports that may become part of a paper, or go to the advisors as paper-grade documents, switch the type to the
+ACM `acmart` look (Tiran's call, ISSTA 2027 target): Libertinus Serif 10/12 pt justified text, Libertinus Sans bold
+headings in ink (no blue), Inconsolata code, numbered sections with appendix A.1..A.n, booktabs tables (1.2 pt top
+and bottom rules, 0.6 pt under the head, no vertical rules), captions in 8.8 pt sans with a bold "Figure n:" label.
+The source-colour family, the comparison board, the tinted reference column and the page-break rules above are kept.
+First instance: `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/report/` (the academic block at the
+end of its `report.css`; fonts in `scripts/md-to-pdf/fonts/academic/`).

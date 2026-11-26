@@ -1541,6 +1541,8 @@ def main():
         if n in ("run", "controls"):
             p.add_argument("--phase")
         if n == "run":
+            p.add_argument("--modes", nargs="*", choices=["instrumented", "plain"])
+            p.add_argument("--first-repeat", type=int, default=1)
             p.add_argument("--repeats", type=int, default=3)  # Tiran, 2026-11-24
             p.add_argument("--sets", nargs="*")
             p.add_argument("--out")

@@ -37,6 +37,7 @@ body {
 .page-opener { }
 
 h1 {
+  color: var(--ink);
   font-size: 22pt;
   line-height: 1.15;
   font-weight: 700;
@@ -145,7 +146,9 @@ tbody tr:last-child td, tbody tr:last-child th { border-bottom: 1px solid var(--
 .diff td { text-align: left; }
 .diff td.split { font-weight: 600; }
 .diff td.whole { color: var(--gray-600); }
-.diff td.changed { background: var(--surface-thead); font-weight: 600; color: var(--ink); }
+.diff td.ref { background: var(--surface-thead); }
+.diff td.changed { font-weight: 600; color: var(--ink); border-left: 1pt solid var(--src); }
+.diff td.same { color: var(--gray-600); }
 .diff tbody th code { background: none; padding: 0; font-size: 1em; }
 
 
@@ -170,6 +173,7 @@ figure.narrow img { width: 84%; margin: 0 auto; }
 
 /* keep a heading with what follows */
 h2, h3, h4, .tcap { break-after: avoid; }
+.tcap, .caption, figcaption { break-inside: avoid; }
 table { break-inside: avoid; }
 .board + .caption { break-before: avoid; }
 
@@ -192,7 +196,230 @@ table.scripts thead { display: table-header-group; }
 
 /* no single-row remnants when a script table breaks across pages */
 table.scripts tbody tr:nth-last-child(-n+2) { break-after: avoid; }
-table.scripts tbody tr:nth-child(-n+2) { break-before: avoid; }
+table.scripts tbody tr:nth-child(-n+4) { break-before: avoid; }
 
 /* the "what this does not show" list never leaves one item alone on a page */
 ul li:last-child { break-before: avoid; }
+
+/* row labels in the board may carry a basis line */
+.board tbody th .sub { display: block; font-weight: 400; color: var(--gray-600); font-size: 8pt; line-height: 1.3; margin-top: 1pt; }
+
+/* Table 2: four equal data columns */
+table.diff { table-layout: fixed; }
+table.diff th:first-child { width: 16%; }
+
+/* addendum tables A4-A6 */
+table.scripts thead th.src { border-top: 3px solid var(--src); }
+table.reasons { table-layout: fixed; }
+table.reasons th:first-child { width: 36%; }
+table.a5, table.a6 { font-size: 7.6pt; table-layout: fixed; }
+table.a5 th:first-child { width: 26%; }
+table.a5 th:nth-child(2) { width: 11%; }
+table.a5 td .p, table.a5 td .t { display: block; }
+table.a5 td .p { white-space: nowrap; }
+table.a5 td .t { color: var(--gray-600); }
+table.a5 small, table.a5 td.num small { display: block; font-size: 0.85em; color: var(--gray-500); }
+table.a5 td .t small { display: inline; margin-left: 3pt; }
+table.a5 td.num small { display: block; margin-left: 0; }
+table.a5 .crash { font-weight: 600; color: var(--ink); }
+table.a5 td code, table.a6 td code { font-size: 0.94em; overflow-wrap: anywhere; }
+table.a5 td.ref, table.a6 td.ref { background: var(--surface-thead); }
+table.a6 th:first-child { width: 20%; }
+table.a6 th:nth-child(2) { width: 32%; }
+table.a6 td.split { font-weight: 600; }
+table.a6 td.whole { color: var(--gray-600); }
+table.a6 td.changed { background: var(--surface-thead); color: var(--ink); }
+table.a6 td.ref.whole, table.a6 td.ref.split { background: none; }
+
+/* Table 1 on the opener: five rows must still fit beside the summary on page 1 */
+.page-opener .board th, .page-opener .board td { padding: 3pt 6pt; }
+.page-opener .board tbody th { width: 21%; }
+.page-opener .board td { width: 19.75%; }
+.page-opener .board td .big { font-size: 12pt; }
+.page-opener .board td .sub, .page-opener .board tbody th .sub { font-size: 7.8pt; line-height: 1.25; }
+.page-opener .board thead th .what { font-size: 7.6pt; line-height: 1.25; }
+.page-opener .board thead th.src { padding-top: 4pt; }
+.page-opener .tcap { margin-top: 2pt; }
+.page-opener p.lead { font-size: 9.9pt; line-height: 1.36; }
+.page-opener .version { margin-bottom: 10pt; }
+.page-opener .opener-grid { margin-bottom: 2pt; }
+
+/* ---------- round 3 (2026-11-26) ---------- */
+.finding { font-size: 12.5pt; line-height: 1.3; font-weight: 600; margin: 0 0 4pt 0; max-width: none; }
+.page-opener .version { font-size: 8.6pt; margin-bottom: 9pt; }
+.page-opener .opener-grid { grid-template-columns: 1.32fr 1fr; gap: 14pt; }
+p.question { font-size: 10.4pt; line-height: 1.35; margin-bottom: 5pt; max-width: none; }
+p.question strong { font-weight: 600; }
+.page-opener p.lead { font-size: 9.3pt; line-height: 1.38; }
+.page-opener .script pre { font-size: 7.9pt; line-height: 1.38; padding: 4pt 8pt; }
+.page-opener .script .script-name { padding: 3pt 8pt; font-size: 8pt; }
+figure.col { margin: 8pt 0 0 0; }
+figure.col img { width: 100%; }
+figure.col figcaption { margin-bottom: 0; font-size: 8.2pt; }
+.board tr.extra th { font-weight: 600; font-size: 8pt; }
+.board tr.extra td .line, .board td .line { display: block; font-size: 8.3pt; line-height: 1.35; }
+.board tr.extra td .line { color: var(--gray-700); }
+.board.paper td { font-size: 9.3pt; }
+.board.paper td .line.muted { color: var(--gray-600); font-size: 8.3pt; }
+ul.findings li { margin-bottom: 5pt; }
+
+/* A4: two-level head; the reference column alone is tinted */
+table.reasons { table-layout: fixed; }
+table.reasons th:first-child { width: 31%; }
+table.reasons thead th.grp { text-align: center; border-top: 3px solid var(--src); }
+table.reasons thead th.src.pash { border-top: 3px solid var(--src); vertical-align: bottom; }
+table.reasons thead tr.subhead th { font-weight: 400; color: var(--gray-600); font-size: 7.4pt; line-height: 1.2; text-align: right; }
+table.reasons td.ref { background: var(--surface-thead); }
+table.reasons tr.total th, table.reasons tr.total td { font-weight: 600; }
+table.reasons tr.total td[colspan] { text-align: center; }
+
+/* A5 */
+h3.first { margin-top: 0; }
+figure.a5 { margin-top: 2pt; }
+figure.a5 img { width: 100%; }
+table.crashes td { font-size: 8pt; }
+table.crashes th:first-child { width: 44%; }
+
+/* A6 */
+table.diff th:first-child { width: 17%; }
+table.diff th:last-child, table.diff td:last-child { width: 11%; }
+table.diff tr.extra th { font-size: 8.3pt; }
+
+/* A7: nine group blocks, two columns, no block split */
+.groups { column-count: 2; column-gap: 18pt; }
+.group { break-inside: avoid; margin: 0 0 7pt 0; }
+.group p { margin: 0 0 1pt 0; font-size: 8.4pt; max-width: none; }
+.group p b { font-weight: 600; }
+.group p.files { line-height: 1.45; }
+.group p.files code { font-size: 7.8pt; }
+.group sup, .addendum .entry sup { font-size: 6.5pt; font-weight: 600; color: var(--gray-700); }
+
+/* A8 */
+table.records td { font-size: 8.2pt; }
+table.records td:first-child { width: 42%; }
+
+/* round 3, fix batch */
+h1 { font-size: 20pt; }
+.finding { font-size: 11pt; }
+.page-opener .board th, .page-opener .board td { padding: 2.5pt 6pt; }
+.page-opener .board tbody th { width: 19%; }
+.page-opener .board td { width: 20.25%; }
+.page-opener .board td .big { font-size: 11.5pt; }
+.page-opener p.lead { font-size: 9.1pt; line-height: 1.36; }
+.page-opener .tcap { margin-top: 6pt; }
+.board.paper tbody th { width: 25%; }
+.board.paper td:nth-child(2) { width: 24%; }
+.board.paper td:nth-child(3) { width: 19%; }
+.board.paper td:nth-child(4) { width: 32%; }
+.addendum .entry, .addendum dl { font-size: 9.6pt; line-height: 1.45; }
+.addendum .entry { margin-bottom: 7pt; }
+.addendum h3 { margin-top: 11pt; }
+table.diff th, table.diff td { padding: 2.5pt 7pt; }
+.groups .group p { font-size: 8.1pt; }
+.group p.files code { font-size: 7.4pt; }
+table.records th, table.records td { padding: 2pt 6pt; }
+
+/* round 3, fix batch 2 */
+.page-opener .script pre { font-size: 7.6pt; line-height: 1.33; }
+figure.col { margin-top: 6pt; }
+.page-opener h1 { margin-bottom: 4pt; }
+table.diff { font-size: 8.8pt; }
+table.diff th, table.diff td { padding: 1.5pt 7pt; }
+.addendum h3.first + .tcap { margin-top: 0; }
+.addendum p.entry.compact, .groups + * { }
+.groups { margin-top: 2pt; }
+.groups .group { margin-bottom: 5pt; }
+.groups .group p { font-size: 7.8pt; line-height: 1.35; }
+.group p.files code { font-size: 7.1pt; }
+.addendum .entry sup { font-size: 6pt; }
+
+/* round 3, fix batch 3 */
+.addendum .entry, .addendum dl { font-size: 9.4pt; }
+figure.col img { width: 94%; margin: 0 auto; }
+.page-opener .finding { font-size: 10.8pt; }
+table.crashes th, table.crashes td { padding: 1.5pt 6pt; }
+.board.paper tbody th { width: 28%; }
+.board.paper td:nth-child(2) { width: 25%; }
+.board.paper td:nth-child(3) { width: 16%; }
+.board.paper td:nth-child(4) { width: 31%; }
+
+/* round 3, fix batch 4 */
+figure.col img { width: 90%; }
+.page-opener .script pre { line-height: 1.27; }
+.page-opener p.lead { line-height: 1.33; }
+.board.paper td:nth-child(3) { width: 19%; }
+.board.paper td:nth-child(4) { width: 28%; }
+.addendum h2 { margin-top: 22pt; }
+
+table.reasons { break-inside: avoid; }
+
+.groups { break-inside: avoid; }
+
+figure.a5 img { width: 92%; margin: 0 auto; }
+table.crashes { break-inside: avoid; }
+
+/* page-1 suite box */
+.script.suite table.suite { font-size: 7.9pt; margin: 0; }
+.script.suite table.suite th, .script.suite table.suite td { padding: 2pt 6pt; border-bottom: 1px solid var(--rule-soft); vertical-align: baseline; }
+.script.suite table.suite th { font-weight: 600; white-space: nowrap; }
+.script.suite table.suite td.num { text-align: right; width: 2em; padding-right: 10pt; }
+.script.suite table.suite tbody tr:last-child td, .script.suite table.suite tbody tr:last-child th { border-bottom: 0; }
+
+figure.col img { width: 86%; }
+.script.suite .script-note { padding-top: 3pt; padding-bottom: 4pt; }
+
+
+/* academic typography (Tiran, 2026-11-26): match ACM acmart (acmsmall, single column) as ISSTA requires.
+   Serif text (Libertinus = Linux Libertine), sans bold headings in black, Inconsolata code, 10/12 pt body,
+   booktabs-style tables, captions in small sans with a bold label. Later rules override the brand defaults above. */
+html { font-size: 10pt; }
+body { font-family: 'Libertinus Serif', 'Linux Libertine O', Georgia, serif; line-height: 1.22; letter-spacing: 0; font-variant-numeric: lining-nums tabular-nums; }
+p, ul, dl, .addendum .entry { max-width: none; }
+p { margin: 0 0 5pt 0; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+p.lead { font-size: 10pt; line-height: 1.22; text-align: justify; }
+li { text-align: justify; }
+h1 { font-family: 'Libertinus Sans', sans-serif; font-weight: 700; font-size: 17.3pt; line-height: 1.15; letter-spacing: 0; color: var(--ink); text-wrap: balance; margin: 0 0 6pt 0; }
+h1 + .subtitle, .finding { font-family: 'Libertinus Sans', sans-serif; }
+h2 { font-family: 'Libertinus Sans', sans-serif; font-weight: 700; font-size: 12pt; color: var(--ink); letter-spacing: 0; margin: 16pt 0 6pt 0; }
+h3 { font-family: 'Libertinus Sans', sans-serif; font-weight: 700; font-size: 10.5pt; margin: 12pt 0 4pt 0; letter-spacing: 0; }
+h4 { font-family: 'Libertinus Sans', sans-serif; font-weight: 700; font-size: 10pt; }
+/* numbered sections like acmart; the addendum is appendix A and its parts carry A1..A8 already */
+body { counter-reset: sec; }
+h2:not(.addendum-h):not(.nonum)::before { counter-increment: sec; content: counter(sec) "  "; }
+h2.addendum-h::before { content: "A  "; }
+.version, .script, .script .script-name, .script-note, .source-key { font-family: 'Libertinus Sans', sans-serif; }
+code, .script pre, pre { font-family: 'Inconsolata', 'JetBrains Mono', monospace; font-size: 0.96em; }
+.script pre { font-size: 8.2pt; }
+/* tables: booktabs */
+table { font-size: 9pt; font-family: 'Libertinus Serif', serif; }
+th, td { padding: 3pt 6pt; border-bottom: 0; }
+thead th { font-family: 'Libertinus Sans', sans-serif; font-weight: 700; font-size: 8.5pt; border-top: 1.2pt solid var(--ink); border-bottom: 0.6pt solid var(--ink); }
+.board thead th.src { border-top: 3px solid var(--src); }
+tbody tr:last-child td, tbody tr:last-child th { border-bottom: 1.2pt solid var(--ink); }
+tbody th { font-family: 'Libertinus Sans', sans-serif; font-weight: 700; font-size: 8.6pt; }
+.board td .big { font-family: 'Libertinus Sans', sans-serif; font-size: 12.5pt; font-weight: 700; letter-spacing: 0; }
+.board td .sub, .board thead th .what { font-family: 'Libertinus Sans', sans-serif; font-size: 7.8pt; }
+table.scripts, table.records, table.reasons, table.crashes, table.diff { font-size: 8.5pt; }
+table.diff tbody th code, table td code { font-size: 0.95em; }
+/* captions: small sans, bold label, colon */
+.caption, figcaption, .tcap { font-family: 'Libertinus Sans', sans-serif; font-size: 8.8pt; line-height: 1.3; color: var(--ink); text-align: left; }
+.caption b, figcaption b, .tcap b { font-weight: 700; }
+.caption, figcaption { margin: 3pt 0 10pt 0; }
+.tcap { margin: 0 0 3pt 0; }
+li::marker { color: var(--ink); }
+.muted { color: var(--gray-700); }
+.addendum .entry b, dt { font-family: 'Libertinus Sans', sans-serif; font-weight: 700; font-size: 9.5pt; }
+.group p { font-family: 'Libertinus Sans', sans-serif; }
+
+/* Table 3 may break across pages (LaTeX longtable style); rows stay whole */
+table.board.paper { break-inside: avoid; }
+table.board.paper tr { break-inside: avoid; }
+table.board.paper thead { display: table-header-group; }
+
+figure:has(img[src*="time_bars"]) img { width: 86%; margin: 0 auto; }
+
+/* final fixes 2026-11-26 */
+code { hyphens: none; -webkit-hyphens: none; }
+.group p.files { hyphens: none; -webkit-hyphens: none; text-align: left; }
+dl > *:nth-last-child(-n+2) { break-before: avoid; }
+dt { break-after: avoid; }

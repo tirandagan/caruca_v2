@@ -15,6 +15,7 @@ Fails loudly, naming the file, line and field, when a record lacks something it 
 """
 import argparse
 import json
+import math
 import re
 import statistics
 import sys
@@ -104,6 +105,10 @@ def main():
     ap.add_argument("--tag", default="", help="suffix for the output names, e.g. 'pilot' -> numbers_pilot.md")
     ap.add_argument("--timing-check", type=Path, default=None,
                     help="the Mac power check written by timing_check.py (default: timing_check.jsonl in --records)")
+    ap.add_argument("--sleep-events", type=Path, default=None,
+                    help="instead of a power check: the Mac's sleeps (sleep_events.jsonl); windows that overlap one "
+                         "are listed, and their rows must have been redone (full run)")
+    ap.add_argument("--notes", type=Path, default=None, help="a Markdown file appended to numbers.md as written")
     args = ap.parse_args()
     R = args.records
 
@@ -132,6 +137,21 @@ def main():
     windows = read_jsonl(R / "run_windows.jsonl", required=False) or []
     coverage = read_jsonl(args.coverage)
     occ = [o for o in occ_all if o.need("phase") == "main"]
+
+    # A source run on only some scripts (the full run's second sed file, 52 of 86) cannot be paired
+    # with PaSh's own files on every part; it is counted on its own scripts in a separate block below.
+    all_ids = {base_id(r.need("id")) for r in results}
+    ran = defaultdict(set)
+    for r in results:
+        ran[r.need("set")].add(base_id(r["id"]))
+    partial = [s for s in sources if s != REF and ran[s] != all_ids]
+    sources = [s for s in sources if s not in partial]
+    others = [s for s in sources if s != REF]
+    partial_rows = {s: ([r for r in results if r["set"] == s], [r for r in regions if r.need("set") == s],
+                        [o for o in occ if o.need("set") == s]) for s in partial}
+    results = [r for r in results if r["set"] not in partial]
+    regions = [r for r in regions if r["set"] not in partial]
+    occ = [o for o in occ if o["set"] not in partial]
 
     checks = []   # (name, passed, detail)
 
@@ -167,8 +187,9 @@ def main():
                 if s in copy_sets:
                     continue
                 die(f"results.jsonl: no run of '{sid}' with source '{s}'")
-            ok = all(r.need("same_as_bash") is True and r.need("output_files_same_as_bash") is True
-                     and r.need("state") != "timed out" for r in rows)
+            # printed output only; the files a script writes are counted separately (file_check below),
+            # because the full run could not compare them in every run (review_checker_full.md, check 4)
+            ok = all(r.need("same_as_bash") is True and r.need("state") != "timed out" for r in rows)
             out_ok[s][sid] = ok
             if not ok:
                 wrong_detail[s].append(sid)
@@ -278,10 +299,13 @@ def main():
     check("the commands split per use match the commands split per script in results.jsonl", cons)
 
     # self-check: the files' answer predicts whether PaSh split the use
-    mism = [(s, k) for s in sources for k in use_keys[s]
+    # only uses in parts PaSh ran in parallel can be split at all (in the pilot every part was; in the
+    # full run a use outside such a part has copies = None)
+    in_par = [(s, k) for s in sources for k in use_keys[s] if uses[s][k].get("copies", 0) is not None]
+    mism = [(s, k) for s, k in in_par
             if (uses[s][k]["file_answer"] == SPLIT_OK) != (uses[s][k]["split"] is True)]
     check("PaSh split a use exactly when its files allowed a split PaSh can carry out", not mism,
-          f"{len(mism)} uses where the answer and PaSh differ"
+          f"{len(in_par) - len(mism)} of {len(in_par)} uses in parts run in parallel agree; {len(mism)} differ"
           + (": " + "; ".join(f"{names[s]} {uses[s][k]['invocation']}" for s, k in mism[:10]) if mism else ""))
 
     # self-check: later instrumented repeats agree with repeat 1
@@ -394,7 +418,9 @@ def main():
         for f in ("source", "io", "io_outcome", "parallelizability_outcome", "file_answer", "split_recipes",
                   "invocation", "command", "position", "id"):
             a.need(f)
-        ans_by[a["set"]][(a["id"], a["position"])] = a
+        # keyed by part too: in the full run a script has many parts and positions repeat across them
+        # (the pilot's rows have no part key; there it is None)
+        ans_by[a["set"]][(a["id"], a.get("region_text_sha"), a["position"])] = a
 
     def decision(a):
         return a["file_answer"] == SPLIT_OK
@@ -616,7 +642,25 @@ def main():
     timing_check = args.timing_check or R / "timing_check.jsonl"
     tc = read_jsonl(timing_check, required=False)
     invalid_windows = []
-    if tc is None:
+    sleep_overlaps = []
+    if args.sleep_events:
+        # full run: no per-window power check was written; list every window that overlaps a sleep.
+        # Only those windows' rows are suspect; the records say which were redone (sleep_events.jsonl notes).
+        from datetime import datetime
+        def ts(x):
+            return datetime.strptime(x, "%Y-%m-%d %H:%M:%S %z")
+        sleeps = read_jsonl(args.sleep_events)
+        for w in win:
+            for z in sleeps:
+                if ts(w["start"]) < ts(z.need("wake")) and ts(z.need("sleep")) < ts(w["end"]):
+                    sleep_overlaps.append({"window": f"{w['what']} {w['phase']} {w['id']} {w['start']} to {w['end']}",
+                                           "sleep": f"{z['sleep']} to {z['wake']}", "note": z.get("note", "")})
+            w["power_check"] = "not checked per window here (see the sleep list)"
+        check("no kept run window overlaps a Mac sleep, except windows whose affected rows were redone",
+              all("web-search" in o["window"] for o in sleep_overlaps),
+              f"{len(sleep_overlaps)} of {len(win)} windows overlap a sleep: "
+              + "; ".join(f"{o['window']} (sleep {o['sleep']})" for o in sleep_overlaps))
+    elif tc is None:
         invalid_windows = [f"{w['what']} {w['phase']} {w['id']} {w['start']}: no power check" for w in win]
         check("the Mac was awake and on mains power in every run window", False,
               f"{timing_check.name} not found; run timing_check.py on the Mac")
@@ -639,6 +683,9 @@ def main():
 
     outside_counts = {s: len(outside[s]) for s in sources}
 
+    full = full_run_numbers(results, regions, occ, partial_rows, sources, copy_sets, names, N_ids, tstats,
+                            uses, U_keys, parts, P_keys, out_ok, check)
+
     numbers = {
         "records": str(R), "names": names, "sources": sources, "reference": REF,
         "N": N, "scripts_run": len(script_ids), "bash_output_varies": unstable, "P": P, "U": U,
@@ -650,10 +697,15 @@ def main():
         "checks": checks,
     }
     numbers["invalid_windows"] = invalid_windows
+    numbers["sleep_overlaps"] = sleep_overlaps
+    numbers["full"] = full
     stem = "numbers" + (f"_{args.tag}" if args.tag else "")
     args.out.mkdir(parents=True, exist_ok=True)
     (args.out / f"{stem}.json").write_text(json.dumps(numbers, indent=1, sort_keys=False) + "\n")
-    (args.out / f"{stem}.md").write_text(render_md(numbers))
+    md = render_md(numbers)
+    if args.notes:
+        md += "\n" + args.notes.read_text()
+    (args.out / f"{stem}.md").write_text(md)
     failed = [c for c in checks if not c["passed"]]
     print(f"wrote {args.out / stem}.md and .json; {len(checks) - len(failed)} of {len(checks)} checks pass")
     for c in failed:
@@ -664,7 +716,214 @@ def main():
                  "their times are not valid:\n  " + "\n  ".join(invalid_windows))
 
 
+# ---------------------------------------------------------------- the full run's extra counts
+
+def gmean(xs):
+    xs = [x for x in xs if x and x > 0]
+    return math.exp(sum(math.log(x) for x in xs) / len(xs)) if xs else None
+
+
+def full_run_numbers(results, regions, occ, partial_rows, sources, copy_sets, names, N_ids, tstats,
+                     uses, U_keys, parts, P_keys, out_ok, check):
+    """Counts the full run needs beyond the pilot's tables: per-source states and file checks over the timed
+    repeats, geometric-mean times, per-command gains and losses, and the same for a source run on only some
+    scripts (the second sed file). Written without summarise.py's code; compared with it in numbers_full.md."""
+    F = {"per_source": {}, "partial": {}}
+    writes_files = sorted({base_id(r["id"]) for r in results if r["set"] == "bash" and (r["output_files"] or 0) > 0})
+    F["scripts_writing_files"] = writes_files
+    all_rows = {s: [r for r in results if r["set"] == s] for s in ["bash", *sources, *copy_sets]}
+    for s, (pr, _, _) in partial_rows.items():
+        all_rows[s] = pr
+
+    def times_of(rows):
+        per = defaultdict(lambda: defaultdict(float))
+        for r in rows:
+            if r["mode"] == "plain":
+                per[base_id(r["id"])][r["repeat"]] += r["seconds"]
+        return {i: statistics.median(v.values()) for i, v in per.items()}
+
+    T = {s: times_of(rows) for s, rows in all_rows.items()}
+    bash_t = T["bash"]
+    for s in [*sources, *copy_sets, *partial_rows]:
+        rows = all_rows[s]
+        ids = sorted({base_id(r["id"]) for r in rows})
+        timed = [r for r in rows if r["mode"] == "plain"]
+        printed = {i: all(r["same_as_bash"] is True and r["state"] != "timed out"
+                          for r in rows if base_id(r["id"]) == i) for i in ids}
+        kh = defaultdict(list)
+        for r in timed:
+            if r["matches_koala_hash"] is not None:
+                kh[base_id(r["id"])].append(r["matches_koala_hash"] is True)
+        states = defaultdict(dict)
+        for r in timed:
+            states[base_id(r["id"])][r["repeat"]] = r["state"]
+        first_state = Counter(v[min(v)] for v in states.values())
+        varying_state = sorted(i for i, v in states.items() if len(set(v.values())) > 1)
+        files = Counter()
+        for r in timed:
+            if base_id(r["id"]) in writes_files:
+                files[{True: "same", False: "different", None: "not checked"}[r["output_files_same_as_bash"]]] += 1
+        vs_own = [T[s][i] / T["pash-own"][i] for i in ids if i in T[s] and i in T["pash-own"]]
+        vs_bash = [bash_t[i] / T[s][i] for i in ids if i in T[s] and i in bash_t]
+        F["per_source"][s] = {
+            "label": names[s], "scripts": len(ids),
+            "printed_output_same": rate(sum(printed.values()), len(ids)),
+            "koala_answer_same": rate(sum(all(v) for v in kh.values()), len(kh)),
+            "timed_state_first_repeat": dict(first_state),
+            "scripts_whose_state_varies_over_repeats": varying_state,
+            "timed_split": rate(first_state.get("split", 0), len(ids)),
+            "timed_fell_back": rate(first_state.get("fell back to bash", 0), len(ids)),
+            "file_check_timed_rows": dict(files),
+            "speedup_gmean": gmean(vs_bash),
+            "vs_pash_own_gmean": gmean(vs_own),
+            "faster_than_own_10pct": rate(sum(v < 0.9 for v in vs_own), len(vs_own)),
+            "slower_than_own_10pct": rate(sum(v > 1.1 for v in vs_own), len(vs_own)),
+            "faster_than_bash_10pct": rate(sum(v > 1 / 0.9 for v in vs_bash), len(vs_bash)),
+            "slower_than_bash": rate(sum(v < 1 for v in vs_bash), len(vs_bash)),
+            "noise_band": ([min(vs_own), max(vs_own), statistics.median(vs_own),
+                            sum(abs(v - 1) > 0.1 for v in vs_own)] if s in copy_sets else None),
+        }
+    b_kh = defaultdict(list)
+    for r in all_rows["bash"]:
+        if r["mode"] == "plain" and r["matches_koala_hash"] is not None:
+            b_kh[base_id(r["id"])].append(r["matches_koala_hash"] is True)
+    F["bash_koala_answer_same"] = rate(sum(all(v) for v in b_kh.values()), len(b_kh))
+    tot = Counter()
+    for s in [*sources, *copy_sets, *partial_rows]:
+        tot.update(F["per_source"][s]["file_check_timed_rows"])
+    F["file_check_timed_rows_all_sources"] = dict(tot)
+    F["file_check_different_by_script"] = dict(Counter(
+        base_id(r["id"]) for s in [*sources, *copy_sets, *partial_rows] for r in all_rows[s]
+        if r["mode"] == "plain" and base_id(r["id"]) in writes_files and r["output_files_same_as_bash"] is False))
+    F["per_script_seconds"] = {i: {s: T[s].get(i) for s in T} for i in sorted(bash_t)}
+
+    # per command, per script: split with this source and not with PaSh's own (gained), and the reverse
+    def split_by_cmd(us):
+        d = defaultdict(lambda: defaultdict(bool))
+        for k, u in us.items():
+            d[k[0]][u["command"]] |= u["split"] is True
+        return d
+
+    ref_sp = split_by_cmd({k: uses["pash-own"][k] for k in U_keys})
+    F["commands_gained_lost"] = {}
+    cmd_sp = {s: split_by_cmd({k: uses[s][k] for k in U_keys}) for s in sources if s != "pash-own"}
+    for s, (_, preg, pocc) in partial_rows.items():
+        us = {}
+        for o in pocc:
+            if o["mode"] == "instrumented" and o["repeat"] == 1 and not o["outside_pash"]:
+                us.setdefault((base_id(o["id"]), o["region_text_sha"], o["position"]), o)
+        cmd_sp[s] = split_by_cmd(us)
+        F["partial"].setdefault(s, {})["uses"] = {
+            "in_parts": len(us), "own": sum(u["source"] == "ours" for u in us.values()),
+            "split_own": sum(u["split"] is True and u["source"] == "ours" for u in us.values()),
+            "split_filled": sum(u["split"] is True and u["source"] == "pash-own" for u in us.values())}
+    for s, d in cmd_sp.items():
+        g, l = Counter(), Counter()
+        for i in d:
+            for c in set(d[i]) | set(ref_sp[i]):
+                a, o = d[i].get(c, False), ref_sp[i].get(c, False)
+                g[c] += a and not o
+                l[c] += o and not a
+        F["commands_gained_lost"][s] = {c: [g[c], l[c]] for c in sorted(set(g) | set(l)) if g[c] or l[c]}
+
+    # per command: scripts that use it inside a part, and scripts where PaSh's own files had it split
+    F["command_scripts"] = {c: [sum(c in ref_sp[i] for i in ref_sp), sum(ref_sp[i].get(c, False) for i in ref_sp)]
+                            for c in sorted({c for i in ref_sp for c in ref_sp[i]})}
+    # a partial source against the full source it varies (naive-sed2 against naive): of the scripts where
+    # the full source lost a command, in how many the partial source splits it
+    F["recovered"] = {}
+    for s in partial_rows:
+        base = s.split("-")[0]
+        if base in cmd_sp:
+            rec = {}
+            for c, (_, lost) in F["commands_gained_lost"][base].items():
+                if lost:
+                    lost_in = [i for i in ref_sp if ref_sp[i].get(c) and not cmd_sp[base][i].get(c, False)]
+                    rec[c] = [sum(cmd_sp[s][i].get(c, False) for i in lost_in if i in cmd_sp[s]),
+                              sum(i in cmd_sp[s] for i in lost_in), len(lost_in)]
+            F["recovered"][s] = {"against": base, "commands": rec}
+
+    # the partial source's parts, paired with PaSh's own on the same scripts
+    for s, (_, preg, _) in partial_rows.items():
+        first = {}
+        for r in sorted(preg, key=lambda r: (r["id"], r["region"])):
+            if r["mode"] == "instrumented" and r["repeat"] == 1:
+                first.setdefault((base_id(r["id"]), r["text_sha"]), r["outcome"])
+        missing = [k for k in first if k not in parts["pash-own"]]
+        check(f"{names[s]}: every distinct part it was sent is also a part under PaSh's own files", not missing,
+              f"{len(first)} parts; {len(missing)} not found")
+        c = Counter((first[k] == "parallelized", parts["pash-own"][k] == "parallelized") for k in first
+                    if k in parts["pash-own"])
+        F["partial"][s] = {**F["partial"].get(s, {}), "parts": len(first), "both": c[(True, True)], "gained": c[(True, False)],
+                           "lost": c[(False, True)], "neither": c[(False, False)],
+                           "scripts": len({k[0] for k in first})}
+    return F
+
+
 # ---------------------------------------------------------------- numbers.md
+
+def render_full(n):
+    F, nm, L = n["full"], n["names"], []
+    order = [*n["sources"], *[s for s in F["partial"]], *[s for s in F["per_source"] if s not in n["sources"] and s not in F["partial"]]]
+    L.append("## Full run: output, what PaSh did, files written (timed repeats)\n")
+    L.append("Printed output: every run of the script (timed and with the stand-in programs) the same as bash's run "
+             "of the same repeat. State: what PaSh did in the first timed repeat. File check: timed rows of the "
+             f"{len(F['scripts_writing_files'])} scripts that write files (bash wrote at least one).\n")
+    rows = []
+    for s in order:
+        r = F["per_source"][s]
+        st = {k: v for k, v in r["timed_state_first_repeat"].items() if k not in ("split", "fell back to bash")}
+        fc = r["file_check_timed_rows"]
+        rows.append([r["label"], r["scripts"], r["printed_output_same"]["text"], r["koala_answer_same"]["text"],
+                     r["timed_split"]["text"], r["timed_fell_back"]["text"],
+                     ", ".join(f"{k}: {v}" for k, v in sorted(st.items())) or "-",
+                     f"{fc.get('same', 0)} / {fc.get('not checked', 0)} / {fc.get('different', 0)}"])
+    L.append(table(["Source", "Scripts", "Printed output same as bash", "Same as Koala's stored answer",
+                    "PaSh ran a part in parallel", "Fell back to plain bash", "Other state",
+                    "File check: same / not checked / different"], rows) + "\n")
+    t = F["file_check_timed_rows_all_sources"]
+    L.append(f"All sources together, file check on timed rows: same {t.get('same', 0)}, not checked "
+             f"{t.get('not checked', 0)}, different {t.get('different', 0)}, of {sum(t.values())}. Different, by script: "
+             + ", ".join(f"{k} {v}" for k, v in sorted(F["file_check_different_by_script"].items())) + ".")
+    L.append(f"Plain bash matched Koala's stored answer in {F['bash_koala_answer_same']['text']} scripts that have one.")
+    vary = {nm[s]: F["per_source"][s]["scripts_whose_state_varies_over_repeats"] for s in order
+            if F["per_source"][s]["scripts_whose_state_varies_over_repeats"]}
+    L.append("Scripts whose recorded state differs between timed repeats: "
+             + ("; ".join(f"{k}: {', '.join(v)}" for k, v in vary.items()) or "none") + ".\n")
+
+    L.append("## Full run: parts paired with PaSh's own files, the partial source\n")
+    for s, r in F["partial"].items():
+        L.append(f"- {nm[s]}: {r['parts']} distinct parts in {r['scripts']} scripts; both in parallel {r['both']}, "
+                 f"gained {r['gained']}, lost {r['lost']}, neither {r['neither']}. Command uses in its parts: "
+                 f"{r['uses']['in_parts']}; with its own files {r['uses']['own']}, split with them "
+                 f"{r['uses']['split_own']}; split with PaSh's own files filled in {r['uses']['split_filled']}.")
+    L.append("")
+    L.append("## Full run: commands gained and lost, per script (from the per-use records)\n")
+    rows = [[nm[s], f"`{c}`", g, l] for s, d in F["commands_gained_lost"].items() for c, (g, l) in d.items()]
+    L.append(table(["Source", "Command", "Gained (scripts)", "Lost (scripts)"], rows) + "\n")
+
+    L.append("Per command (all commands used inside a part): scripts using it, and scripts where PaSh's own files had "
+             "it split: " + ", ".join(f"{c} {v[0]}/{v[1]}" for c, v in F["command_scripts"].items()) + ".\n")
+    for s, r in F["recovered"].items():
+        L.append(f"{nm[s]} against {nm[r['against']]}: of the scripts where {nm[r['against']]} lost a command, "
+                 + "; ".join(f"`{c}`: split again in {v[0]} of {v[2]} (it ran on {v[1]} of them)"
+                             for c, v in r["commands"].items()) + ".\n")
+    L.append("## Full run: time (median of the timed repeats; geometric means over scripts)\n")
+    rows = []
+    for s in order:
+        r = F["per_source"][s]
+        rows.append([r["label"], r["scripts"], f"{r['speedup_gmean']:.2f}x", f"{r['vs_pash_own_gmean']:.2f}",
+                     r["faster_than_own_10pct"]["text"], r["slower_than_own_10pct"]["text"],
+                     r["faster_than_bash_10pct"]["text"], r["slower_than_bash"]["text"]])
+    L.append(table(["Source", "Scripts", "Speed-up over bash", "Time vs PaSh's own", "Faster than PaSh's own by >10%",
+                    "Slower than PaSh's own by >10%", "Faster than bash by >10%", "Slower than bash"], rows) + "\n")
+    for s in order:
+        nb = F["per_source"][s]["noise_band"]
+        if nb:
+            L.append(f"Noise band ({nm[s]} against the first copy): {nb[0]:.2f} to {nb[1]:.2f}, median {nb[2]:.2f}; "
+                     f"{nb[3]} of {F['per_source'][s]['scripts']} scripts beyond 10%.\n")
+    return L
+
 
 NUMERIC = re.compile(r"^(\*\*)?(split )?-?[\d.]+(x)?( of \d+)?( \(.*\))?(\*\*)?$|^[–-]$|^\d+ / \d+$")
 
@@ -839,6 +1098,12 @@ def render_md(n):
                      "yes" if w["koala_changed"] else "no", w.get("power_check", "no power check")]
                     for w in n["A6_windows"]]) + "\n")
 
+    if n.get("full"):
+        L += render_full(n)
+    if n.get("sleep_overlaps") is not None and n["sleep_overlaps"]:
+        L.append("## Run windows that overlap a Mac sleep\n")
+        L.append(table(["Window", "Sleep", "Note in sleep_events.jsonl"],
+                       [[o["window"], o["sleep"], o["note"]] for o in n["sleep_overlaps"]]) + "\n")
     L.append("## Checks the script made on the records\n")
     L.append(table(["Check", "Result", "Detail"],
                    [[c["check"], "passed" if c["passed"] else "**not passed**", c["detail"]] for c in n["checks"]]) + "\n")

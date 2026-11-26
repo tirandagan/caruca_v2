@@ -88,3 +88,94 @@ lost 0 vs PaSh's own), Caruca main = PaSh's own exactly (37, 0/0), Caruca PaSh-g
 compiler crashes 11 vs 3: the `sort -rn` read as a file). Naive's gains: `cat` split in 39 scripts, `awk`
 2; loss: `col` 1. Method check: in 747 of 748 uses PaSh split exactly when the files (asked with PaSh's
 words) allowed a split PaSh can carry out. One naive file raised: `wc` (AssertionError).
+
+**Checker's review of the full run (86 scripts), 2026-11-25, `orchestration/review_checker_full.md`:** 10 of
+11 checks pass. Every number in `numbers.md` sections 1, 3, 5, 6 and the per-script table was recomputed from
+the raw rows with independent code: 0 cells differ. PaSh's logs agree with the recorded splits in 396 of 396
+instrumented runs. The README fails on these points:
+- **"same as bash" covers printed output only.** Of 588 timed rows from the 32 scripts that write files, 211
+  checked the files as the same as bash's, 352 were not checked and 25 differ. **web-search's written files
+  differ between two plain-bash runs** (redo-r1 vs redo-r3 file hashes), so file comparison cannot judge it.
+- The power statement misses short battery stretches in 13:10–17:31 and at 10:15 on 11-25. There was also an
+  unlogged 61 s lid-closed dark wake at 10:43 on 11-25 (on mains power, caffeinate held, not a sleep).
+- The naive LLM's 2 gained parts (unixfun/12, /16) are parts where PaSh's own files crash PaSh's compiler.
+- `numbers.md`'s "sed2 run only on scripts that use sed" is false: 27 of 52 have no sed.
+
+Facts about where things are and how they were built:
+- Full PaSh logs are in the VM at `~/t024/out/logs/`, not `~/t024/runs/`.
+- The runner rebuilds the set folders at each start. The first 46 scripts' main runs (13:10–13:50) used a build
+  with no record; the current build dates from 13:54.
+- The checker's scripts are in the VM at `~/t024-check/full/`.
+
+## Report refresh to the full run (2026-11-26, worker under `orchestration/brief_report_refresh.md`)
+
+Established by counting the records in `full_run/`:
+- **The naive LLM's second sed file DID recover the sed splits**: it splits `sed` in 5 of the 5 scripts where the
+  first file lost it (covid/1-4, oneliners/spell); against PaSh's own it gains and loses nothing on `sed`. The
+  brief's "did not recover (0 gained of 5 lost)" was wrong; the report follows the records.
+- Independent recount (`count_report.py` + new `prep_full_records.py`, output `numbers_full.md/.json`): 0 headline
+  cells differ from `full_run/numbers.md` sections 1, 3, 5, 6.
+- Written-file check after both fix-ups: 211 same / 347 not checked / 18 different, of 576 timed rows (32 scripts).
+  The checker's 211/352/25 of 588 counts before fix-up 2 (12 web-search rows: 7 different, 5 not checked).
+- The naive LLM's 2 gained parts (unixfun/12, /16) are both PaSh-own compiler crashes; all 29 of Caruca PaSh
+  grammar's filled-in differences sit in parts its own files broke (23 crash, 6 "other").
+- Full-run figures: `make_figures_interim.py --records full_run --numbers numbers_full.json --out figures_full`.
+
+## Full run complete (2026-11-25 12:53; report Draft 1.0 built 2026-11-26)
+
+Established by running (records in `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/full_run/`,
+checked independently in `orchestration/review_checker_full.md`, 10 of 11 checks pass):
+
+- 86 Koala scripts, six annotation sets (PaSh's own; naive; naive with sed file v2 on the 52 scripts that
+  were rerun; Caruca PaSh grammar; Caruca main grammar; a second copy of PaSh's own files as timing control),
+  three timed repeats, medians. Printed output identical to bash in 86 of 86 under every source; Koala's
+  stored answer matched in 46 of 46. Written files were compared in only 211 of 576 timed runs (347 no
+  reference, 18 differ: web-search 12, whose files differ even between two bash runs, bio 6).
+- Scripts with a parallel part: PaSh own 41, naive 43, Caruca main 41, Caruca PaSh grammar 29 (of 86).
+  Naive gained cat 43, awk 6, tr 3, cut 2, sort 2, grep 1 scripts; lost sed 5, col 1. Caruca main lost sort 17;
+  Caruca PaSh grammar lost sort 17, cut 9, tr 5, sed 5, grep 4 and gained cat 29. The sed v2 file did not
+  recover the sed splits. The naive LLM's two gained parts are parts where PaSh's own files crash PaSh's compiler.
+- Time: PaSh slower than bash under every source on small inputs (0.37x to 0.43x geometric mean). Naive files
+  1.15 times PaSh's own (34 of 86 scripts slower by >10%); noise band of the identical second copy 0.83 to 1.13.
+- Instrument faults, records untouched, fixed in the counting: repeats recorder compared sources run before
+  bash (rotated order) against a missing reference (482 rows); web-search's timed runs lacked `node` (7 rows
+  redone); Mac slept four times (two NLP scripts rerun, web-search repeat 3 redone on mains).
+- Report: `report/report.pdf` Draft 1.0, 12 pages, built from `numbers_full.json` (`count_report.py --tag full`
+  on records expanded by `prep_full_records.py`), figures in `figures_full/`. Not committed as of the build.
+- Parallel panes cannot speed up the timed repeats: PaSh uses all 8 VM cores per script, so concurrent scripts
+  distort each other's times (Tiran asked 2026-11-25; answer: wait or cut repeats, he chose to wait).
+- **PaSh compiler crashes in the suite (read from PaSh logs 2026-11-26):** two exceptions only. `NameError: name 'Arg'
+  is not defined` (PaSh's Jan 2026 refactor, issue #794) in one part of `oneliners/bi-grams` under every source;
+  and an `AssertionError` at `src/pash/compiler/ir.py` ~line 596 (`assert not other_in is None`, when PaSh pipes one
+  command into the next and the next command's annotation says it reads a file named by one of its own words,
+  not stdin): `tail -n 1`, `awk` with PaSh's own files (unixfun/12, 16, covid/5); `fmt -w1`, `sed` with the naive
+  files (unixfun/34, 36, covid/5); `sort -r/-n/-rn` with Caruca's PaSh-grammar files (10 more parts than PaSh's
+  own). Parts crashed per source: PaSh own 4, naive 4, Caruca PaSh grammar 14, Caruca main 4, of 177. PaSh falls
+  back to bash, so output stays right.
+- **Report Draft 1.0 final shape (2026-11-26):** 23 pages; body 6 pages (Table 1 incl. crash row, Table 2, Fig 1,
+  causes, "When PaSh itself failed", Fig 2, Table 3, limits); addendum A1 script, A2 words, A3 setup + Fig 3,
+  A4 reasons per part, A5 per-script parts/crashes/times with min–max, A6 every differing use (135), A7 all 86
+  scripts, A8 records. Tiran's rule: the metrics he specified (crashes with reasons, per-script rates and times)
+  must appear in the PDF's addendum, not only in numbers.md (he flagged their absence 2026-11-26).
+
+**Report round 3 (2026-11-26, brief `orchestration/brief_report_round3.md`): Draft 1.1, 10 pages (was 23).**
+Body 4½ pp, addendum A1–A8 (A5 = one-page chart, A6/A7 one page). Facts established from the records that day:
+- The naive LLM's 31 parts in Table A4's "other, not classified / only here" are **30 single-`mkdir` parts and 1
+  single-`mogrify` part**: PaSh's own has no file for them ("missing annotation"); the naive file declares a
+  non-stream output and PaSh logs "Command X has outputs other than streaming". Correct answer, nothing lost.
+  (Read from `full_run/regions.jsonl.gz`, `reason` field.)
+- **Scripts with a split command other than `cat`**: PaSh's own 41, naive 43, Caruca small grammar 27, full
+  grammar 39 of 86; second sed file 14 of 52 — so the naive LLM's +2 gain does **not** come from `cat`.
+- **Time ÷ bash time** (geometric mean = 1 / `speedup_gmean`): 2.35, 2.70, 2.47, 2.49; second sed file 1.96.
+- Excalidraw renderer cannot use Lexend Deca (built-in Excalidraw fonts only); Figure 3 is now drawn by
+  `figures_interim/make_figures_interim.py` (`full_setup`), which also draws A5's chart (`full_a5`).
+- **Report Draft 1.1 (2026-11-26, after /impeccable critique 22/36):** 10 pages. Body 4 pages: question + one-line
+  finding, "How it was run" with Figure 1 (setup) before Table 1, Table 1 with crash row, "without cat" counts and
+  time as "n × bash (lower is better)"; Figure 2 splits by command with PaSh's own counts as grey labels; five vetted
+  causes; three-sentence crash note; Figure 3 time with per-source "slower than bash: n of 86"; Table 3 paper
+  comparison; threats to validity. Addendum: A1 script, A2 words, A3 setup, A4 reasons per part (merged table; the
+  naive LLM's 31 "other" parts = mkdir in 30 scripts and mogrify in 1, whose naive files say they write something
+  other than a stream, so PaSh runs them as bash), A5 scripts (one page, run-in lists), A6 by command (old Table 2 +
+  command-line counts), A7 every-script chart (Figure A7: time ÷ bash, parts split, hollow = crash) + crash list, A8
+  records table. Rules learned: figures numbered in reading order; the Excalidraw renderer cannot use Lexend Deca, so
+  Figure 1 is drawn by the figure script; Chromium multicol blocks must be `break-inside: avoid` or they straddle pages.
