@@ -265,12 +265,12 @@ prompts are unchanged):
 Filed as an **instrument repair**, not a new version: without it no file that reads an operand's text could
 get a quoted operand right.
 
-**Why.** In the PaSh suite pilot (`runs/2026-11-24_pash_koala_naive_vs_pash/`) the naive `sed` file refused
+**Why.** In the PaSh suite pilot (`comparisons/2026-11-24_pash_suite_naive_vs_caruca/`) the naive `sed` file refused
 `sed 's/[^[:print:]]//g'` inside PaSh but allowed it when asked directly. PaSh hands a quoted word to the
 files with double quotes added (its `QArgChar.format`), and the file's sed-script reader reads `"` as an
 unknown sed command. The format description only said the call returns "the first operand's text"; nothing
 the agent had (formats, samples, prompt, the package's interface files) says the quotes stay. Full record:
-`runs/2026-11-24_pash_koala_naive_vs_pash/orchestration/judgment_errors.md`, section 1.
+`comparisons/2026-11-24_pash_suite_naive_vs_caruca/orchestration/judgment_errors.md`, section 1.
 
 **What we expect.** A file that reads an operand's text (here, `sed`'s script) now allows for the quotes,
 and allows a split for `"s/[^[:print:]]//g"`. Files that never look at operand text are unaffected.
@@ -573,7 +573,7 @@ syntax file with `-z`/`--zero`, `--help` and `--version`. The next pilot clone, 
 stopped before the session started: "OAuth session expired and could not be refreshed".
 
 **Observed, beyond figure 7: `tr`, `xargs`, `awk` (2026-11-24, for the PaSh suite comparison).** *Why: the
-PaSh benchmark-suite comparison (`runs/2026-11-24_pash_koala_naive_vs_pash/`) loads the agent's PaSh files
+PaSh benchmark-suite comparison (`comparisons/2026-11-24_pash_suite_naive_vs_caruca/`) loads the agent's PaSh files
 for every command it has, and these three are in 54, 24 and 18 of the suite's 92 scripts but not in the
 paper's figure 7. Tiran decided to run them exactly as the figure 7 campaign ran its commands: PROMPT_v1,
 one run each, Fable 5.1 at medium effort, a fresh clone of `naive-golden`, the same program-start logger,

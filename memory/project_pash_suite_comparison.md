@@ -11,7 +11,7 @@ and **PaSh's own** ("organic") annotations. For commands a source has no files f
 used, so the comparison is "ours where we have them, PaSh's elsewhere". Start with one script; the goal is
 all of them. Koala (`kbensh/koala`) stands in for the published suite because its inputs are gone.
 
-**Setup.** Work folder `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/` (briefs in
+**Setup.** Work folder `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/` (briefs in
 `orchestration/`). Sets per script: `bash`, `pash-own`, `naive` (first Fig. 7 run per command, 79
 commands), `caruca-pash` and `caruca-main` (v1's 8 commands `cat cp cut grep rm sort split wc`, paths from
 task 021's `sides.jsonl`). Pilot script: Koala `oneliners/scripts/spell.sh` (naive covers 6 of its 7
@@ -123,7 +123,7 @@ Established by counting the records in `full_run/`:
 
 ## Full run complete (2026-11-25 12:53; report Draft 1.0 built 2026-11-26)
 
-Established by running (records in `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/full_run/`,
+Established by running (records in `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/full_run/`,
 checked independently in `orchestration/review_checker_full.md`, 10 of 11 checks pass):
 
 - 86 Koala scripts, six annotation sets (PaSh's own; naive; naive with sed file v2 on the 52 scripts that
@@ -179,3 +179,132 @@ Body 4½ pp, addendum A1–A8 (A5 = one-page chart, A6/A7 one page). Facts estab
   command-line counts), A7 every-script chart (Figure A7: time ÷ bash, parts split, hollow = crash) + crash list, A8
   records table. Rules learned: figures numbered in reading order; the Excalidraw renderer cannot use Lexend Deca, so
   Figure 1 is drawn by the figure script; Chromium multicol blocks must be `break-inside: avoid` or they straddle pages.
+- **Framing rule (Tiran, 2026-11-26):** the one thing the report must show is how the naive LLM fared against
+  Caruca (correctness, reach, splits, crashes it caused, files that failed, wrong decisions, wall-clock), with
+  PaSh's own files as the yardstick for both. Draft 1.1 was retitled "How a naive LLM's annotation files fare
+  against Caruca's on PaSh's benchmark suite", opens with that question and a finding line in those terms, and
+  section 1 is a head-to-head Table 2 (naive | Caruca full | Caruca small): 82 vs 8 commands with own files;
+  523 vs 304 of 609 uses decided by own files; output equal; splits 43/41/29 of 86; compiler stops beyond PaSh's
+  own 2/0/10; files that fail to load 2/0/0; time vs PaSh's own 1.15 (1.07 with fixed sed)/1.06/1.05, i.e. naive
+  8 % slower than Caruca, 1 % once sed is fixed. Every figure caption must say why its items were chosen (Figure 2's
+  eight commands = every command that differed under any source).
+- **Per-command test vs PaSh's own (2026-11-26, per_command.py):** naive 82 files, PaSh's own 30, overlap 20; 18 of
+  the 20 met a part; on those 484 uses PaSh split 126 with its own files, 192 with the naive files (mostly `cat`;
+  also more tr/sort/awk/cut; fewer sed (quoting gap) and col (safer refusal)). 5 naive-only commands met a part
+  (mkdir 31, join 3, fmt 2, rev 2, mogrify 1), none split; 53 naive files never called. **Time correction:** naive is
+  9 % slower than Caruca full over 86 scripts; ~40 % of the log-gap from splitting a plain `cat` (25 cat-only scripts,
+  1.21×), ~26 % from COVID 1-4 (sed whole); the fixed sed file must be compared on its 52 scripts (8 % -> 3 %), not
+  against the 86-script mean. An earlier draft wrongly said "almost all in COVID" and "1 % with the fixed sed".
+- **Why Caruca has only 8 commands in this run (checked 2026-11-26):** current PaSh reads only Python annotation
+  classes; Caruca's 54 PaSh annotations in `caruca/save/*.json` (2024, old JSON) cannot be loaded. The task-020
+  converter (`run_pash_py.sh`, branch `pash-python-annotations`, `caruca/save_pash_py/`) was run for 8 commands only
+  (cat cp cut grep rm sort split wc, small grammar) and 3 with the full grammar (cut rm sort); tracing the rest was
+  deferred (task 022: "Default: the eight v1 has finished"). Caruca's repo has 54 small grammars
+  (`pash_syntax_specs/`) and ~120 full grammars (`syntax_specs/`). The paper's PaSh figure is 52 of 52 commands
+  (Tab. 1; 88 ground truths incl. 52 PaSh). **The report's "Caruca's full grammar" set is mixed:** full-grammar files
+  for cut, rm, sort only; small-grammar files for cat, cp, grep, split, wc (manifest.json source_per_command).
+  Tiran (2026-11-26) questioned the 8 ("there were 72 in the white paper"); 72 does not appear in the paper.
+- **Caruca conversion, 2026-11-26:** 45 more small grammars converted (53 of 54 now; `gzip` grammar broken:
+  defines gunzip_syntax_spec), 18 more full grammars at max-count 2 (21 total). Full-grammar `grep` (154K runs) and
+  `ls` were OOM-killed at 8 GB VM memory (tracer holds all traces in RAM, 7.7 GB at kill); grep retried alone at 16 GB.
+  Timeouts (2 s limit) inherent for rev/pandoc/grep (rev retraced idle: same 67 of 1,364, identical files). Record:
+  comparisons/2026-11-24_pash_suite_naive_vs_caruca/caruca_conversion/README.md. caruca VM now 16 GB (was 8).
+- **Converter fault found and repaired (2026-11-26 14:30):** our task-020 converter (`annotator/pash_py.py`
+  `_comment()`, branch pash-python-annotations, uncommitted edit) copied a traced example with a literal newline/tab
+  into a comment, so 3 of 106 new files (paste small+full, awk full) raised TabError and made PaSh's compiler server
+  die at start-up. Instrument fault (ours, not Caruca's method): escaped \n \t \r, regenerated the 3 files from
+  existing traces (logic lines identical, 14 converter tests pass). Rerun sets: caruca-pash-all 53 commands
+  (all small grammars but gzip), caruca-main-all full grammar for 22 commands, small for the rest.
+- **Rerun in progress (started ~15:15 2026-11-26, records in full_run_caruca_all/, runner copy run_koala_caruca_all.py).**
+  Not yet verified, reported by the builder at 54 of 86 scripts: with Caruca's expanded files PaSh's printed output is
+  wrong in 9 (caruca-pash-all) and 10 (caruca-main-all) of 54 scripts, identical across repeats; causes named: `sed`
+  with a line address (1d, 4d, 100q) split per chunk, `uniq` split with plain concatenation, unixfun/23 undiagnosed.
+  Consistent with v1's class-combining rule (keeps the most parallelizable label). Verify from the records before use.
+- **Pushed 2026-11-26 (Tiran's request):** binpash/caruca branch pash-python-annotations commit be33389a5 (522 files):
+  53 PaSh-grammar + 22 main-grammar conversions, save_pash_py/README.md table of all 75, and the `_comment()` escape fix.
+- **Caruca expanded rerun DONE 2026-11-27 04:37** (builder session; records in
+  `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/full_run_caruca_all/`, start at its README):
+  86/86 scripts, mains power, no sleep. Printed output wrong in 9/86 (caruca-pash-all) and 10/86 (caruca-main-all),
+  11 distinct; PaSh's own 86/86. unixfun/23 diagnosed from the records: Caruca allows splitting `tr -d '\n'`
+  (PaSh's own allows only an unimplemented split, which ends the parallel chain), so 8 `tr` copies feed 8
+  `cut -c 1-4` copies directly, each printing its own first 4 chars. Parallel distinct parts 41 / 29 / 40 of 177;
+  time vs pash-own 1.09 / 1.10 (noise copy 1.00, range 0.83-1.46). Same-session pash-own reproduces the first run
+  (41 parallel parts, 126 split uses, 4 compiler stops). Counting: `full_run_caruca_all/summarise.py`,
+  `../per_command_caruca.py <set>`.
+- **Gotchas found in that rerun:** (1) PaSh's AnnotationGeneration exec-imports every name-table generator at
+  start-up and catches only ModuleNotFoundError, so ONE file with a SyntaxError stops PaSh's compiler server and no
+  script runs (rc 1); always compile-check swapped-in files. (2) `limactl shell pash -- bash -lc 'pgrep -f "X"'` /
+  `pkill -f "X"` match the wrapping shell's own command line (pgrep loops never end; pkill kills the session) —
+  kill by PID or anchor the pattern (`^python3 ...`). (3) run_koala.py's `run` repeats the instrumented pass
+  `--repeats` times; the first run used one instrumented pass (fixed in run_koala_caruca_all.py only).
+- **Caruca rerun finished 2026-11-27 04:37 (full_run_caruca_all/, builder-counted, verification pending):** output
+  same as bash: PaSh's own 86/86, Caruca small (53 cmds) 77/86, Caruca full where traced (22) 76/86; 11 distinct
+  scripts wrong, same in every repeat; causes per builder: sed with a line address split (8), uniq split (2),
+  tr -d '\n' split before cut -c (unixfun/23). Scripts with a part split: own 41, Caruca small 29, full 40; parts
+  41/29/40 of 177, Caruca gains none. Time vs own, same session: 1.09 / 1.10 (second copy 1.00). Rerun's pash-own
+  reproduced the first run exactly (41 parts, 126 uses). Report Draft 2.0 being written (report-v2-opus pane).
+- **Verified 2026-11-27 (independent check, full_run_caruca_all/wrong_outputs_verified.md):** all 11 wrong-output
+  scripts confirmed (19 script-set pairs, identical wrong output in all 4 runs). Causes: 8 sed scripts (1d..5d, 100q):
+  sed grammar `choices=("s/a/b/g")` is a string so Caruca traced one-char scripts; `sed b` stateless + `sed g` non-pure
+  merged under the same (flags, n) with max -> stateless. 1 tr -d script: stateless in 1 of 3 split-capable inputs
+  (MATH, a no-op), non-pure in 2, max won. 2 uniq scripts: all 3 split inputs agreed stateless because none has a
+  repeated line at the split point. So 9 of 11 = Caruca's max-wins combining rule; 2 of 11 = test-input coverage.
+  Note: Parallelizability generator comments always show `# v1: stateless` (filtered before _comment).
+
+**Report Draft 2.0 (2026-11-27), Caruca at full reach.** Caruca's columns come from the second session
+(`full_run_caruca_all/`, counted into `numbers_caruca_all.md/.json` via `prep_full_records.py` + `count_report.py
+--sleep-events <empty>`); times are ratios to PaSh's own of the same session. Verified 2026-11-27 by per-use
+comparison: PaSh's own split the identical 126 of 609 uses in both sessions. Headlines: output naive 86/86, Caruca
+small 77, full 76; scripts split 43 / 29 / 40; parts lost: small 12 (10 compiler stops on sort options + 2 where its
+sort file gave no answer), full 1 (spell, its tr file gave no answer); compiler stops 4 / 11 / 3 (Caruca full's 2 own
+= fmt -w1 in unixfun/34, 36, same as the naive LLM's); time vs own 1.15 / 1.09 / 1.10. Caruca's tr files say
+"no split" only for tr -c (33 uses); its 24 "refused" parts = 23 single echo + 1 comm. **unixfun/23 explained (2026-11-27, orchestrator's log check + both tr files re-read):** both
+sources allow `tr -d '\n'` to split, but the naive LLM's tr file offers only consecutive chunks when newlines may be
+touched (round robin regroups by line), so PaSh rejoined before `cut` and output stayed right; Caruca's converted
+files offer round robin for every splittable case, so PaSh ran tr and cut per 1 MB block (155 bytes instead of 5).
+- **unixfun/23 explained (checked 2026-11-27 in PaSh logs + both tr files):** naive and Caruca both allow `tr -d '\n'`
+  and `cut -c 1-4` to split, but the naive LLM's tr file offers only consecutive chunks (comment: round robin regroups by
+  line, unsafe when newlines are deleted/created), so PaSh rejoined before cut -> right output; Caruca's converter emits
+  cc+rr for every stateless case, so PaSh r_wrap-ed all 7 commands per 1 MB block -> cut printed 4 chars per block.
+  A careful judgment by the naive LLM, not luck.
+- **Report Draft 2.0 built 2026-11-27 ~05:15 (14 pages):** Caruca at full reach (53 small / 22 full grammars, rerun
+  session), new section 2 "Where Caruca's files give wrong output" (Table 3, 11 scripts), Table 4 command by command for
+  all three sources vs PaSh's own, two-session timing (ratios to same-session PaSh's own), footnote 1 restored on page 1.
+  Headline: naive 86/86 correct, Caruca 77 and 76 of 86; splits naive 43, Caruca full 40, small 29 scripts; time vs
+  own 1.15 (naive), 1.09/1.10 (Caruca). Not committed.
+
+**2026-11-27, Draft 2.2 (15 pages):** the naive LLM's 2 compiler stops beyond PaSh's own (Unix50 34 and 36) are both
+`fmt -w1` — PaSh's log for `unixfun_36__naive__instrumented` shows `filedes name: -w1` before the `pipe_append`
+assertion, and the second sed file stops there too — not its quoted `sed` script (earlier drafts said so). Same 2 parts as
+Caruca's full grammar. Stop overlap (both runs' regions, instrumented/main/repeat 1): bi-grams all 4 sources; covid/5
+PaSh own + naive; unixfun/12,16 PaSh own only; 34,36 naive + Caruca full; 10 parts Caruca small only.
+**2026-11-27, Draft 2.2 second pass (16 pp):** PaSh overhead model (`overhead_adjusted.py`): 0.11 s/script + 6 ms/part
+compiled; with it removed PaSh's own ≈ ties bash over 72 scripts (0.97 pooled) and is ≈1.6× faster on one-pass
+scripts (0.63). Web search sends 7,003 parts (`regions_sent` in `full_run/results.jsonl.gz`) → ≈42 s overhead by that
+model, not the 36 s the orchestrator first quoted. Report cross-references are live PDF links (116 `/Link` with `/Dest`).
+**2026-11-27, Draft 2.3 (17 pp):** critique fixes done; the report build (`report/build.ts`) now does lettered table
+notes, two-pass ", p. N" page numbers, a pdf-lib outline, a per-section running head and the PDF title (conventions in
+`report/README.md`, "Draft 2.3"). Title line (Tiran): "The naive LLM's files never changed PaSh's output; Caruca's
+changed it in 11 of 86 scripts." Caruca's wrong-output scripts: 11 different, 9 of 86 small grammar, 10 of 86 full,
+8 under both. Old Table 2 merged into Table 1; setup figure moved to A.3 (Figure A.3).
+- **Decision 2026-11-27 (Tiran):** the report body shows ONE Caruca column = small (PaSh) grammars, as Caruca's paper
+  ran it for PaSh; the full-grammar variant goes to one appendix part. Both grammar sets are hand-written (syntax_specs =
+  human ground truth; pash_syntax_specs = hand-trimmed for PaSh), not Caruca's LLM output; the paper never mentions the
+  reduced set. So the comparison is naive-LLM files vs Caruca traces of hand-written grammars (favours Caruca).
+  Caruca (small): wrong in 9 of 86 scripts, splits 29, compiler stops 11, time 1.09 of PaSh's own.
+**2026-11-27, Draft 2.4 (17 pp), Tiran's decision:** the body shows ONE Caruca column = the small (PaSh, hand-trimmed)
+grammars, as Caruca's paper ran it for PaSh (wrong in 9 of 86); the full-grammar run is appendix A.8 only (wrong in 10,
+8 shared). Both grammar sets are hand-written. Caruca small `cat`-only time = 1.14 on 13 scripts (full 1.13); earlier
+drafts had them swapped. Figure scripts: `--no-caruca-full`.
+- **Time explanation, checked 2026-11-27:** naive 1.15 vs Caruca(small) 1.09 of PaSh's own; the naive LLM's extra time
+  vs Caruca comes almost entirely from the 34 tiny Unix50 scripts (bash 0.03-0.3 s, every split costs more than it
+  saves; naive splits more), COVID ~1/4 (first sed file), Classics go the other way; Caruca sometimes faster because its
+  sort file stops PaSh's compiler and the part runs as plain bash (unixfun/10, 11 at 0.5x own). One-pass real-work
+  scripts with start-up removed: naive 0.88, Caruca 0.85 of bash. **No large script (bash >= 1 s) gains from the naive
+  LLM's extra splits:** only 6 of 41 differ from PaSh's own (covid/1-4: slower, sed whole; spell, nfa-regex: cat split
+  adds nothing). Lower naive times elsewhere have identical splits = noise. Larger Koala inputs not tested (proposed).
+- **Large-input plan written 2026-11-27 (orchestration/plan_large_inputs.md), not run yet:** pre-registered: 29 scripts
+  whose split decisions differ beyond cat (group A) + 14 cat-only (group B); inputs = each small input concatenated k
+  times, k from a bash-only pilot (smallest of 10/30 reaching 3 s, cap 30 ~1 GB), built and deleted per script (pash VM
+  has 6.6 GB free); sources bash, PaSh own, naive with second sed file, Caruca small, own copy; ~1-1.5 h. Only time can
+  move with size; correctness/splits/stops are per command line. Unix50/10 under bash: 0.16 s at 30 MB, 0.76 s at 300 MB.

@@ -47,7 +47,7 @@ byte for byte (plain `cp`, keep mtimes with `cp -p`). Never edit a copied file. 
   "runs without PaSh files" section.
 - `sed` has a repeat 2 from 2026-11-24 (after the format-document repair); that is the latest. Note in
   the README that the earlier sed run exists and why it was superseded (see
-  `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/orchestration/judgment_errors.md`).
+  `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/orchestration/judgment_errors.md`).
 - Where two runs of the same command have the same date, the later time wins.
 
 ## README.md content (plain language, short)

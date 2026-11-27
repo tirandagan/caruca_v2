@@ -6,7 +6,7 @@ is counted by hand: the numbers are copied from `numbers.md`, and the checker re
 ## How to run
 
 ```sh
-cd naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash
+cd naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca
 python3 -I timing_check.py --windows <records>/run_windows.jsonl --out <records>/timing_check.jsonl   # on the Mac
 python3 -I count_report.py --records <records> --out <folder>
 uv run --with matplotlib==3.9.2 python make_charts.py --numbers <folder>/numbers.json

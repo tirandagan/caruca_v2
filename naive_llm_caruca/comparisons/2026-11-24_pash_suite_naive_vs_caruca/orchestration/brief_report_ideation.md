@@ -15,7 +15,7 @@ never as fixing the other's flaws; technical facts are still stated plainly.
 
 ## The experiment you are planning the report for
 
-Read, in this order, under `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/orchestration/`:
+Read, in this order, under `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/orchestration/`:
 `brief_builder.md` (including Amendment 1 at the end), `metrics_spec.md` (Tiran's metrics and his
 four decisions), `brief_inventory.md`, `brief_checker.md`. In short: PaSh's published benchmark suite
 (its newer form, Koala) is run under plain bash and under PaSh with four annotation sources: PaSh's

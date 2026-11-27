@@ -1,0 +1,4566 @@
+{
+  "generated_by": "per_command.py",
+  "records_dir": "full_run",
+  "fixups": {
+    "result_rows_read": 2224,
+    "fixup1_rows_compared_again": 1854,
+    "fixup1_same_as_bash_changed": 482,
+    "fixup1_output_files_changed": 642,
+    "fixup2_web_search_without_node_dropped": 7,
+    "fixup2_superseded_by_redo_dropped": 7,
+    "sed2_bash_rows_dropped": 24,
+    "result_rows_kept": 2186
+  },
+  "self_checks": {
+    "scripts": 86,
+    "distinct_parts": 177,
+    "uses_in_parts": 609,
+    "commands_in_parts": 44,
+    "pash_own_parallel_parts": 41,
+    "naive_parallel_parts": 43,
+    "pash_own_split_uses": 126,
+    "naive_split_uses": 192,
+    "pash_own_compiler_stops": 4,
+    "naive_compiler_stops": 4,
+    "differential_compiler_stops_unattributed": 0,
+    "source_manifest_mismatches": 0
+  },
+  "manifest_coverage": {
+    "naive_total_files": 82,
+    "pash_own_total_files": 30,
+    "both_files": 20,
+    "both_not_in_parts": [
+      "mv",
+      "tee"
+    ],
+    "naive_only_total_files": 62,
+    "naive_only_in_parts": [
+      "fmt",
+      "join",
+      "mkdir",
+      "mogrify",
+      "rev"
+    ],
+    "naive_only_outside_parts_only": [
+      "convert",
+      "iconv",
+      "ls",
+      "mktemp"
+    ],
+    "naive_only_unused_in_suite_count": 53,
+    "pash_own_only_total_files": 10,
+    "pash_own_only_in_parts": [
+      "bigrams_aux"
+    ],
+    "pash_own_only_not_in_parts": [
+      "alt_bigram_aux_reduce",
+      "alt_bigrams_aux",
+      "bigram_aux_map",
+      "bigram_aux_reduce",
+      "custom_sort",
+      "custom_tr",
+      "set_diff",
+      "test_one",
+      "test_two"
+    ]
+  },
+  "compiler_stops_detail": {
+    "naive_only": [
+      {
+        "script": "unixfun/34",
+        "text_sha": "90935e4affeef2d3",
+        "crashing_set": "naive",
+        "crashing_outcome": "pash crash",
+        "crashing_reason": "AssertionError; Daemon:  WARNING: Exception caught:",
+        "other_outcome": "missing annotation",
+        "other_reason": "Daemon:  WARNING: Exception caught because some region(s) are unparallelizable: InputOutputInformation for fmt not provided so considered side-effectful.",
+        "culprit_commands": [
+          "fmt"
+        ],
+        "all_commands_in_part": [
+          "cat",
+          "grep",
+          "cut",
+          "head",
+          "fmt",
+          "cut",
+          "tr",
+          "tr"
+        ]
+      },
+      {
+        "script": "unixfun/36",
+        "text_sha": "dfa9edbd82824d91",
+        "crashing_set": "naive",
+        "crashing_outcome": "pash crash",
+        "crashing_reason": "AssertionError; Daemon:  WARNING: Exception caught:",
+        "other_outcome": "missing annotation",
+        "other_reason": "Daemon:  WARNING: Exception caught because some region(s) are unparallelizable: InputOutputInformation for fmt not provided so considered side-effectful.",
+        "culprit_commands": [
+          "fmt"
+        ],
+        "all_commands_in_part": [
+          "cat",
+          "cut",
+          "cut",
+          "sort",
+          "uniq",
+          "sort",
+          "head",
+          "fmt",
+          "sed"
+        ]
+      }
+    ],
+    "pash_own_only": [
+      {
+        "script": "unixfun/12",
+        "text_sha": "493db171f7bd9f23",
+        "crashing_set": "pash-own",
+        "crashing_outcome": "pash crash",
+        "crashing_reason": "AssertionError; Daemon:  WARNING: Exception caught:",
+        "other_outcome": "parallelized",
+        "other_reason": "",
+        "culprit_commands": [
+          "tail"
+        ],
+        "all_commands_in_part": [
+          "cat",
+          "tr",
+          "grep",
+          "cut",
+          "cut",
+          "tr",
+          "sort",
+          "uniq",
+          "head",
+          "tail"
+        ]
+      },
+      {
+        "script": "unixfun/16",
+        "text_sha": "37cd4b87579d1031",
+        "crashing_set": "pash-own",
+        "crashing_outcome": "pash crash",
+        "crashing_reason": "AssertionError; Daemon:  WARNING: Exception caught:",
+        "other_outcome": "parallelized",
+        "other_reason": "",
+        "culprit_commands": [
+          "tail"
+        ],
+        "all_commands_in_part": [
+          "cat",
+          "cut",
+          "sort",
+          "uniq",
+          "sort",
+          "head",
+          "tr",
+          "tail"
+        ]
+      }
+    ],
+    "both": [
+      {
+        "script": "covid/5",
+        "text_sha": "7add665729a7c793",
+        "reason_pash_own": "AssertionError; Daemon:  WARNING: Exception caught:",
+        "reason_naive": "AssertionError; Daemon:  WARNING: Exception caught:",
+        "commands": [
+          "sed",
+          "awk"
+        ]
+      },
+      {
+        "script": "oneliners/bi-grams",
+        "text_sha": "a244f2e72b2094b3",
+        "reason_pash_own": "Daemon:  WARNING: Exception caught: name 'Arg' is not defined; NameError: name 'Arg' is not defined",
+        "reason_naive": "Daemon:  WARNING: Exception caught: name 'Arg' is not defined; NameError: name 'Arg' is not defined",
+        "commands": [
+          "cat",
+          "tr",
+          "grep",
+          "tr",
+          "bigrams_aux",
+          "sort",
+          "uniq"
+        ]
+      }
+    ]
+  },
+  "section1_commands": [
+    {
+      "command": "cat",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 94,
+        "b": 609,
+        "text": "94 of 609"
+      },
+      "parts_with_command": {
+        "a": 90,
+        "b": 177,
+        "text": "90 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 94,
+        "text": "0 of 94"
+      },
+      "split_naive": {
+        "a": 43,
+        "b": 94,
+        "text": "43 of 94"
+      },
+      "gained_uses": 43,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 94,
+        "text": "0 of 94"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 94,
+        "text": "0 of 94"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 94,
+        "text": "0 of 94"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 94,
+        "text": "0 of 94"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 94,
+        "text": "0 of 94"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 90,
+        "text": "0 of 90"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 90,
+        "text": "0 of 90"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 2,
+        "b": 90,
+        "text": "2 of 90"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 2,
+        "b": 90,
+        "text": "2 of 90"
+      },
+      "verdict": "naive splits more"
+    },
+    {
+      "command": "tr",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 75,
+        "b": 609,
+        "text": "75 of 609"
+      },
+      "parts_with_command": {
+        "a": 50,
+        "b": 177,
+        "text": "50 of 177"
+      },
+      "split_pash_own": {
+        "a": 29,
+        "b": 75,
+        "text": "29 of 75"
+      },
+      "split_naive": {
+        "a": 40,
+        "b": 75,
+        "text": "40 of 75"
+      },
+      "gained_uses": 11,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 5,
+        "b": 75,
+        "text": "5 of 75"
+      },
+      "naive_said_no_split_direct": {
+        "a": 5,
+        "b": 75,
+        "text": "5 of 75"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 75,
+        "text": "0 of 75"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 75,
+        "text": "0 of 75"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 75,
+        "text": "0 of 75"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 50,
+        "text": "0 of 50"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 50,
+        "text": "0 of 50"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 1,
+        "b": 50,
+        "text": "1 of 50"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 2,
+        "b": 50,
+        "text": "2 of 50"
+      },
+      "verdict": "naive splits more"
+    },
+    {
+      "command": "grep",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 74,
+        "b": 609,
+        "text": "74 of 609"
+      },
+      "parts_with_command": {
+        "a": 54,
+        "b": 177,
+        "text": "54 of 177"
+      },
+      "split_pash_own": {
+        "a": 29,
+        "b": 74,
+        "text": "29 of 74"
+      },
+      "split_naive": {
+        "a": 30,
+        "b": 74,
+        "text": "30 of 74"
+      },
+      "gained_uses": 1,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 7,
+        "b": 74,
+        "text": "7 of 74"
+      },
+      "naive_said_no_split_direct": {
+        "a": 7,
+        "b": 74,
+        "text": "7 of 74"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 74,
+        "text": "0 of 74"
+      },
+      "pash_own_said_no_split": {
+        "a": 7,
+        "b": 74,
+        "text": "7 of 74"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 74,
+        "text": "0 of 74"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 54,
+        "text": "0 of 54"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 54,
+        "text": "0 of 54"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 1,
+        "b": 54,
+        "text": "1 of 54"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 1,
+        "b": 54,
+        "text": "1 of 54"
+      },
+      "verdict": "naive splits more"
+    },
+    {
+      "command": "sort",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 67,
+        "b": 609,
+        "text": "67 of 609"
+      },
+      "parts_with_command": {
+        "a": 46,
+        "b": 177,
+        "text": "46 of 177"
+      },
+      "split_pash_own": {
+        "a": 25,
+        "b": 67,
+        "text": "25 of 67"
+      },
+      "split_naive": {
+        "a": 32,
+        "b": 67,
+        "text": "32 of 67"
+      },
+      "gained_uses": 7,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 67,
+        "text": "0 of 67"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 67,
+        "text": "0 of 67"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 67,
+        "text": "0 of 67"
+      },
+      "pash_own_said_no_split": {
+        "a": 9,
+        "b": 67,
+        "text": "9 of 67"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 67,
+        "text": "0 of 67"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 46,
+        "text": "0 of 46"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 46,
+        "text": "0 of 46"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 1,
+        "b": 46,
+        "text": "1 of 46"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 2,
+        "b": 46,
+        "text": "2 of 46"
+      },
+      "verdict": "naive splits more"
+    },
+    {
+      "command": "cut",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 58,
+        "b": 609,
+        "text": "58 of 609"
+      },
+      "parts_with_command": {
+        "a": 38,
+        "b": 177,
+        "text": "38 of 177"
+      },
+      "split_pash_own": {
+        "a": 36,
+        "b": 58,
+        "text": "36 of 58"
+      },
+      "split_naive": {
+        "a": 39,
+        "b": 58,
+        "text": "39 of 58"
+      },
+      "gained_uses": 3,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 58,
+        "text": "0 of 58"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 58,
+        "text": "0 of 58"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 58,
+        "text": "0 of 58"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 58,
+        "text": "0 of 58"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 58,
+        "text": "0 of 58"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 38,
+        "text": "0 of 38"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 38,
+        "text": "0 of 38"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 2,
+        "b": 38,
+        "text": "2 of 38"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 2,
+        "b": 38,
+        "text": "2 of 38"
+      },
+      "verdict": "naive splits more"
+    },
+    {
+      "command": "sed",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 37,
+        "b": 609,
+        "text": "37 of 609"
+      },
+      "parts_with_command": {
+        "a": 25,
+        "b": 177,
+        "text": "25 of 177"
+      },
+      "split_pash_own": {
+        "a": 6,
+        "b": 37,
+        "text": "6 of 37"
+      },
+      "split_naive": {
+        "a": 1,
+        "b": 37,
+        "text": "1 of 37"
+      },
+      "gained_uses": 0,
+      "lost_uses": 5,
+      "naive_said_no_split": {
+        "a": 36,
+        "b": 37,
+        "text": "36 of 37"
+      },
+      "naive_said_no_split_direct": {
+        "a": 24,
+        "b": 37,
+        "text": "24 of 37"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 37,
+        "text": "0 of 37"
+      },
+      "pash_own_said_no_split": {
+        "a": 24,
+        "b": 37,
+        "text": "24 of 37"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 37,
+        "text": "0 of 37"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 25,
+        "text": "0 of 25"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 25,
+        "text": "0 of 25"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 1,
+        "b": 25,
+        "text": "1 of 25"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 25,
+        "text": "0 of 25"
+      },
+      "verdict": "naive splits less"
+    },
+    {
+      "command": "mkdir",
+      "group": "naive_only",
+      "naive_has_file": true,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 31,
+        "b": 609,
+        "text": "31 of 609"
+      },
+      "parts_with_command": {
+        "a": 31,
+        "b": 177,
+        "text": "31 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 31,
+        "text": "0 of 31"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 31,
+        "text": "0 of 31"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 31,
+        "b": 31,
+        "text": "31 of 31"
+      },
+      "naive_said_no_split_direct": {
+        "a": 31,
+        "b": 31,
+        "text": "31 of 31"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 31,
+        "text": "0 of 31"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 31,
+        "text": "0 of 31"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 31,
+        "text": "0 of 31"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 31,
+        "text": "0 of 31"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 31,
+        "text": "0 of 31"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 31,
+        "text": "0 of 31"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 31,
+        "text": "0 of 31"
+      },
+      "verdict": "naive only"
+    },
+    {
+      "command": "echo",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 30,
+        "b": 609,
+        "text": "30 of 609"
+      },
+      "parts_with_command": {
+        "a": 26,
+        "b": 177,
+        "text": "26 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 26,
+        "text": "0 of 26"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 26,
+        "text": "0 of 26"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 26,
+        "text": "0 of 26"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 26,
+        "text": "0 of 26"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "uniq",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 30,
+        "b": 609,
+        "text": "30 of 609"
+      },
+      "parts_with_command": {
+        "a": 30,
+        "b": 177,
+        "text": "30 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 30,
+        "text": "0 of 30"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 1,
+        "b": 30,
+        "text": "1 of 30"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 2,
+        "b": 30,
+        "text": "2 of 30"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "awk",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 14,
+        "b": 609,
+        "text": "14 of 609"
+      },
+      "parts_with_command": {
+        "a": 11,
+        "b": 177,
+        "text": "11 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 14,
+        "text": "0 of 14"
+      },
+      "split_naive": {
+        "a": 7,
+        "b": 14,
+        "text": "7 of 14"
+      },
+      "gained_uses": 7,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 5,
+        "b": 14,
+        "text": "5 of 14"
+      },
+      "naive_said_no_split_direct": {
+        "a": 5,
+        "b": 14,
+        "text": "5 of 14"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 14,
+        "text": "0 of 14"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 14,
+        "text": "0 of 14"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 14,
+        "text": "0 of 14"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 11,
+        "text": "0 of 11"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 11,
+        "text": "0 of 11"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 11,
+        "text": "0 of 11"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 11,
+        "text": "0 of 11"
+      },
+      "verdict": "naive splits more"
+    },
+    {
+      "command": "export",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 13,
+        "b": 609,
+        "text": "13 of 609"
+      },
+      "parts_with_command": {
+        "a": 13,
+        "b": 177,
+        "text": "13 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 13,
+        "text": "0 of 13"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 13,
+        "text": "0 of 13"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 13,
+        "text": "0 of 13"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 13,
+        "text": "0 of 13"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 13,
+        "text": "0 of 13"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 13,
+        "text": "0 of 13"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 13,
+        "text": "0 of 13"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 13,
+        "text": "0 of 13"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 13,
+        "text": "0 of 13"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 13,
+        "text": "0 of 13"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 13,
+        "text": "0 of 13"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "pure_func",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 12,
+        "b": 609,
+        "text": "12 of 609"
+      },
+      "parts_with_command": {
+        "a": 12,
+        "b": 177,
+        "text": "12 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 12,
+        "text": "0 of 12"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 12,
+        "text": "0 of 12"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 12,
+        "text": "0 of 12"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 12,
+        "text": "0 of 12"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 12,
+        "text": "0 of 12"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 12,
+        "text": "0 of 12"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 12,
+        "text": "0 of 12"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 12,
+        "text": "0 of 12"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 12,
+        "text": "0 of 12"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 12,
+        "text": "0 of 12"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 12,
+        "text": "0 of 12"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "head",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 10,
+        "b": 609,
+        "text": "10 of 609"
+      },
+      "parts_with_command": {
+        "a": 10,
+        "b": 177,
+        "text": "10 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 10,
+        "text": "0 of 10"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 10,
+        "text": "0 of 10"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 7,
+        "b": 10,
+        "text": "7 of 10"
+      },
+      "naive_said_no_split_direct": {
+        "a": 1,
+        "b": 10,
+        "text": "1 of 10"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 10,
+        "text": "0 of 10"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 10,
+        "text": "0 of 10"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 10,
+        "text": "0 of 10"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 10,
+        "text": "0 of 10"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 10,
+        "text": "0 of 10"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 2,
+        "b": 10,
+        "text": "2 of 10"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 2,
+        "b": 10,
+        "text": "2 of 10"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "wc",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 8,
+        "b": 609,
+        "text": "8 of 609"
+      },
+      "parts_with_command": {
+        "a": 7,
+        "b": 177,
+        "text": "7 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 8,
+        "text": "0 of 8"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 8,
+        "text": "0 of 8"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 8,
+        "text": "0 of 8"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 8,
+        "text": "0 of 8"
+      },
+      "naive_raised": {
+        "a": 8,
+        "b": 8,
+        "text": "8 of 8"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 8,
+        "text": "0 of 8"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 8,
+        "text": "0 of 8"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 7,
+        "text": "0 of 7"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 7,
+        "text": "0 of 7"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 7,
+        "text": "0 of 7"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 7,
+        "text": "0 of 7"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "comm",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 5,
+        "b": 609,
+        "text": "5 of 609"
+      },
+      "parts_with_command": {
+        "a": 4,
+        "b": 177,
+        "text": "4 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 5,
+        "text": "0 of 5"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 5,
+        "text": "0 of 5"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 5,
+        "b": 5,
+        "text": "5 of 5"
+      },
+      "naive_said_no_split_direct": {
+        "a": 5,
+        "b": 5,
+        "text": "5 of 5"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 5,
+        "text": "0 of 5"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 5,
+        "text": "0 of 5"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 5,
+        "text": "0 of 5"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "samtools",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 5,
+        "b": 609,
+        "text": "5 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 5,
+        "text": "0 of 5"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 5,
+        "text": "0 of 5"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 5,
+        "text": "0 of 5"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 5,
+        "text": "0 of 5"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 5,
+        "text": "0 of 5"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 5,
+        "text": "0 of 5"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 5,
+        "text": "0 of 5"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "[",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 4,
+        "b": 609,
+        "text": "4 of 609"
+      },
+      "parts_with_command": {
+        "a": 3,
+        "b": 177,
+        "text": "3 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "read",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 4,
+        "b": 609,
+        "text": "4 of 609"
+      },
+      "parts_with_command": {
+        "a": 3,
+        "b": 177,
+        "text": "3 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 4,
+        "text": "0 of 4"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "join",
+      "group": "naive_only",
+      "naive_has_file": true,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 3,
+        "b": 609,
+        "text": "3 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 1,
+        "b": 3,
+        "text": "1 of 3"
+      },
+      "naive_said_no_split_direct": {
+        "a": 1,
+        "b": 3,
+        "text": "1 of 3"
+      },
+      "naive_raised": {
+        "a": 2,
+        "b": 3,
+        "text": "2 of 3"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "naive only"
+    },
+    {
+      "command": "rm",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 3,
+        "b": 609,
+        "text": "3 of 609"
+      },
+      "parts_with_command": {
+        "a": 3,
+        "b": 177,
+        "text": "3 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 3,
+        "b": 3,
+        "text": "3 of 3"
+      },
+      "naive_said_no_split_direct": {
+        "a": 3,
+        "b": 3,
+        "text": "3 of 3"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "tail",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 3,
+        "b": 609,
+        "text": "3 of 609"
+      },
+      "parts_with_command": {
+        "a": 3,
+        "b": 177,
+        "text": "3 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 1,
+        "b": 3,
+        "text": "1 of 3"
+      },
+      "naive_said_no_split_direct": {
+        "a": 1,
+        "b": 3,
+        "text": "1 of 3"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 2,
+        "b": 3,
+        "text": "2 of 3"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 3,
+        "text": "0 of 3"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 2,
+        "b": 3,
+        "text": "2 of 3"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "[[",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 2,
+        "b": 609,
+        "text": "2 of 609"
+      },
+      "parts_with_command": {
+        "a": 2,
+        "b": 177,
+        "text": "2 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "cd",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 2,
+        "b": 609,
+        "text": "2 of 609"
+      },
+      "parts_with_command": {
+        "a": 2,
+        "b": 177,
+        "text": "2 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "dirname",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 2,
+        "b": 609,
+        "text": "2 of 609"
+      },
+      "parts_with_command": {
+        "a": 2,
+        "b": 177,
+        "text": "2 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "fmt",
+      "group": "naive_only",
+      "naive_has_file": true,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 2,
+        "b": 609,
+        "text": "2 of 609"
+      },
+      "parts_with_command": {
+        "a": 2,
+        "b": 177,
+        "text": "2 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_naive_only": {
+        "a": 2,
+        "b": 2,
+        "text": "2 of 2"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 2,
+        "b": 2,
+        "text": "2 of 2"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "verdict": "naive only"
+    },
+    {
+      "command": "mkfifo",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 2,
+        "b": 609,
+        "text": "2 of 609"
+      },
+      "parts_with_command": {
+        "a": 2,
+        "b": 177,
+        "text": "2 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 2,
+        "b": 2,
+        "text": "2 of 2"
+      },
+      "naive_said_no_split_direct": {
+        "a": 2,
+        "b": 2,
+        "text": "2 of 2"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "rev",
+      "group": "naive_only",
+      "naive_has_file": true,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 2,
+        "b": 609,
+        "text": "2 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 2,
+        "text": "0 of 2"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "naive only"
+    },
+    {
+      "command": ".",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "./crawl.sh",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "./index.sh",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "bigrams_aux",
+      "group": "pash_only",
+      "naive_has_file": false,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "break",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "col",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 1,
+        "b": 1,
+        "text": "1 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 1,
+      "naive_said_no_split": {
+        "a": 1,
+        "b": 1,
+        "text": "1 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 1,
+        "b": 1,
+        "text": "1 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "naive splits less"
+    },
+    {
+      "command": "continue",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "diff",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 1,
+        "b": 1,
+        "text": "1 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 1,
+        "b": 1,
+        "text": "1 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "ffmpeg",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "find",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "gzip",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "mawk",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "mogrify",
+      "group": "naive_only",
+      "naive_has_file": true,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "naive only"
+    },
+    {
+      "command": "printf",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "python3",
+      "group": "neither",
+      "naive_has_file": false,
+      "pash_own_has_file": false,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "seq",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 1,
+        "b": 1,
+        "text": "1 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 1,
+        "b": 1,
+        "text": "1 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    },
+    {
+      "command": "xargs",
+      "group": "both",
+      "naive_has_file": true,
+      "pash_own_has_file": true,
+      "uses_in_parts": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "parts_with_command": {
+        "a": 1,
+        "b": 177,
+        "text": "1 of 177"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "gained_uses": 0,
+      "lost_uses": 0,
+      "naive_said_no_split": {
+        "a": 1,
+        "b": 1,
+        "text": "1 of 1"
+      },
+      "naive_said_no_split_direct": {
+        "a": 1,
+        "b": 1,
+        "text": "1 of 1"
+      },
+      "naive_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_said_no_split": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "pash_own_raised": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_naive_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stop_pash_own_only_cooccurring_parts": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "verdict": "neither splits"
+    }
+  ],
+  "section2_groups": [
+    {
+      "group": "both",
+      "label": "Both have files",
+      "commands": {
+        "a": 18,
+        "b": 44,
+        "text": "18 of 44"
+      },
+      "command_names": [
+        "awk",
+        "cat",
+        "col",
+        "comm",
+        "cut",
+        "diff",
+        "grep",
+        "head",
+        "mkfifo",
+        "rm",
+        "sed",
+        "seq",
+        "sort",
+        "tail",
+        "tr",
+        "uniq",
+        "wc",
+        "xargs"
+      ],
+      "uses": {
+        "a": 484,
+        "b": 609,
+        "text": "484 of 609"
+      },
+      "split_pash_own": {
+        "a": 126,
+        "b": 484,
+        "text": "126 of 484"
+      },
+      "split_naive": {
+        "a": 192,
+        "b": 484,
+        "text": "192 of 484"
+      },
+      "compiler_stops_naive_only": {
+        "a": 0,
+        "b": 177,
+        "text": "0 of 177"
+      },
+      "compiler_stops_pash_own_only": {
+        "a": 2,
+        "b": 177,
+        "text": "2 of 177"
+      },
+      "files_raising_uses_naive": {
+        "a": 8,
+        "b": 484,
+        "text": "8 of 484"
+      },
+      "files_raising_uses_pash_own": {
+        "a": 0,
+        "b": 484,
+        "text": "0 of 484"
+      },
+      "files_raising_commands_naive": [
+        "wc"
+      ],
+      "files_raising_commands_pash_own": []
+    },
+    {
+      "group": "naive_only",
+      "label": "Only the naive LLM has a file",
+      "commands": {
+        "a": 5,
+        "b": 44,
+        "text": "5 of 44"
+      },
+      "command_names": [
+        "fmt",
+        "join",
+        "mkdir",
+        "mogrify",
+        "rev"
+      ],
+      "uses": {
+        "a": 39,
+        "b": 609,
+        "text": "39 of 609"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 39,
+        "text": "0 of 39"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 39,
+        "text": "0 of 39"
+      },
+      "compiler_stops_naive_only": {
+        "a": 2,
+        "b": 177,
+        "text": "2 of 177"
+      },
+      "compiler_stops_pash_own_only": {
+        "a": 0,
+        "b": 177,
+        "text": "0 of 177"
+      },
+      "files_raising_uses_naive": {
+        "a": 2,
+        "b": 39,
+        "text": "2 of 39"
+      },
+      "files_raising_uses_pash_own": {
+        "a": 0,
+        "b": 39,
+        "text": "0 of 39"
+      },
+      "files_raising_commands_naive": [
+        "join"
+      ],
+      "files_raising_commands_pash_own": []
+    },
+    {
+      "group": "pash_only",
+      "label": "Only PaSh's own has a file",
+      "commands": {
+        "a": 1,
+        "b": 44,
+        "text": "1 of 44"
+      },
+      "command_names": [
+        "bigrams_aux"
+      ],
+      "uses": {
+        "a": 1,
+        "b": 609,
+        "text": "1 of 609"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "compiler_stops_naive_only": {
+        "a": 0,
+        "b": 177,
+        "text": "0 of 177"
+      },
+      "compiler_stops_pash_own_only": {
+        "a": 0,
+        "b": 177,
+        "text": "0 of 177"
+      },
+      "files_raising_uses_naive": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "files_raising_uses_pash_own": {
+        "a": 0,
+        "b": 1,
+        "text": "0 of 1"
+      },
+      "files_raising_commands_naive": [],
+      "files_raising_commands_pash_own": []
+    },
+    {
+      "group": "neither",
+      "label": "Neither has a file (reconciliation)",
+      "commands": {
+        "a": 20,
+        "b": 44,
+        "text": "20 of 44"
+      },
+      "command_names": [
+        ".",
+        "./crawl.sh",
+        "./index.sh",
+        "[",
+        "[[",
+        "break",
+        "cd",
+        "continue",
+        "dirname",
+        "echo",
+        "export",
+        "ffmpeg",
+        "find",
+        "gzip",
+        "mawk",
+        "printf",
+        "pure_func",
+        "python3",
+        "read",
+        "samtools"
+      ],
+      "uses": {
+        "a": 85,
+        "b": 609,
+        "text": "85 of 609"
+      },
+      "split_pash_own": {
+        "a": 0,
+        "b": 85,
+        "text": "0 of 85"
+      },
+      "split_naive": {
+        "a": 0,
+        "b": 85,
+        "text": "0 of 85"
+      },
+      "compiler_stops_naive_only": {
+        "a": 0,
+        "b": 177,
+        "text": "0 of 177"
+      },
+      "compiler_stops_pash_own_only": {
+        "a": 0,
+        "b": 177,
+        "text": "0 of 177"
+      },
+      "files_raising_uses_naive": {
+        "a": 0,
+        "b": 85,
+        "text": "0 of 85"
+      },
+      "files_raising_uses_pash_own": {
+        "a": 0,
+        "b": 85,
+        "text": "0 of 85"
+      },
+      "files_raising_commands_naive": [],
+      "files_raising_commands_pash_own": []
+    }
+  ],
+  "section3_naive_only": {
+    "in_parts": [
+      {
+        "command": "mkdir",
+        "uses_in_parts": 31,
+        "parts": 31,
+        "scripts": [
+          "analytics/nginx",
+          "analytics/pcaps",
+          "bio/bio",
+          "file-mod/compress_files",
+          "file-mod/encrypt_files",
+          "file-mod/img_convert",
+          "file-mod/to_mp3",
+          "nlp/bigrams",
+          "nlp/bigrams_appear_twice",
+          "nlp/compare_exodus_genesis",
+          "nlp/count_consonant_seq",
+          "nlp/count_morphs",
+          "nlp/count_trigrams",
+          "nlp/count_vowel_seq",
+          "nlp/count_words",
+          "nlp/find_anagrams",
+          "nlp/letter_words",
+          "nlp/merge_upper",
+          "nlp/sort",
+          "nlp/sort_words_by_folding",
+          "nlp/sort_words_by_num_of_syllables",
+          "nlp/sort_words_by_rhyming",
+          "nlp/syllable_words_1",
+          "nlp/syllable_words_2",
+          "nlp/trigram_rec",
+          "nlp/uppercase_by_token",
+          "nlp/uppercase_by_type",
+          "nlp/verses_2om_3om_2instances",
+          "nlp/vowel_sequencies_gr_1K",
+          "nlp/words_no_vowels",
+          "weather/tuft-weather"
+        ],
+        "file_answers": {
+          "says no split": 31
+        },
+        "split_in_pash": {
+          "a": 0,
+          "b": 31,
+          "text": "0 of 31"
+        },
+        "recipes": {
+          "none": 31
+        },
+        "exceptions": [],
+        "part_outcome_transitions": {
+          "missing annotation -> other": 30,
+          "other -> other": 1
+        },
+        "sample_invocations": [
+          "mkdir -p '\"./outputs/bigrams/\"'",
+          "mkdir -p '\"./outputs/bigrams_appear_twice/\"'",
+          "mkdir -p '\"./outputs/count_consonant_seq/\"'"
+        ],
+        "judgement": "right",
+        "unsure": false,
+        "explanation": "`mkdir` creates directories (filesystem side effects, not a data stream), so refusing to split is right."
+      },
+      {
+        "command": "join",
+        "uses_in_parts": 3,
+        "parts": 1,
+        "scripts": [
+          "weather/tuft-weather"
+        ],
+        "file_answers": {
+          "raised": 2,
+          "says no split": 1
+        },
+        "split_in_pash": {
+          "a": 0,
+          "b": 3,
+          "text": "0 of 3"
+        },
+        "recipes": {
+          "none": 3
+        },
+        "exceptions": [
+          "Exception: join requires exactly two operands (FILE1 FILE2)"
+        ],
+        "part_outcome_transitions": {
+          "other -> other": 1
+        },
+        "sample_invocations": [
+          "join -1 1 -2 1 -e '\"NA\"' '\"${processed}\"' '\"${j2}\"'",
+          "join -a1 -a2 -e '\"-99\"' -o '\"0,1.2,1.3,2.2\"' '\"${j1}\"' '\"${max_y}\"'",
+          "join -a1 -a2 -e '\"-99\"' -o '\"0,1.2,2.2\"' '\"${yr_txt}\"' '\"${min_y}\"'"
+        ],
+        "judgement": "mixed (no-split right; raises wrong)",
+        "unsure": false,
+        "explanation": "The 1 'no split' answer is right for `join` in general under PaSh's stream-splitting model (joining two sorted inputs on a key requires key-partitioned co-shuffling, which PaSh does not implement). The 2 exceptions (`join requires exactly two operands`) are bugs in the naive file's argument parser."
+      },
+      {
+        "command": "fmt",
+        "uses_in_parts": 2,
+        "parts": 2,
+        "scripts": [
+          "unixfun/34",
+          "unixfun/36"
+        ],
+        "file_answers": {
+          "allows a split": 2
+        },
+        "split_in_pash": {
+          "a": 0,
+          "b": 2,
+          "text": "0 of 2"
+        },
+        "recipes": {
+          "INDIV_FILES>CONCATENATE": 2
+        },
+        "exceptions": [],
+        "part_outcome_transitions": {
+          "missing annotation -> pash crash": 2
+        },
+        "sample_invocations": [
+          "fmt -w1"
+        ],
+        "judgement": "wrong",
+        "unsure": false,
+        "explanation": "`fmt` reflows paragraphs across line boundaries (and across multiple input files when there is no blank line between them), so splitting arbitrarily or per file does not preserve exact output in general. In addition, the naive file misparsed `-w1` as a filename operand (`stdin: False`), which triggered a PaSh compiler stop (`AssertionError` in `pipe_append`) in both parts that use it."
+      },
+      {
+        "command": "rev",
+        "uses_in_parts": 2,
+        "parts": 1,
+        "scripts": [
+          "nlp/sort_words_by_rhyming"
+        ],
+        "file_answers": {
+          "allows a split": 2
+        },
+        "split_in_pash": {
+          "a": 0,
+          "b": 2,
+          "text": "0 of 2"
+        },
+        "recipes": {
+          "INDIV_FILES>CONCATENATE, CONSEC_CHUNKS>CONCATENATE, ROUND_ROBIN_PLAIN>CONCATENATE": 2
+        },
+        "exceptions": [],
+        "part_outcome_transitions": {
+          "missing annotation -> unsupported construct": 1
+        },
+        "sample_invocations": [
+          "rev"
+        ],
+        "judgement": "right",
+        "unsure": false,
+        "explanation": "`rev` reverses characters within each line independently, so splitting by line chunks and concatenating outputs preserves exact output."
+      },
+      {
+        "command": "mogrify",
+        "uses_in_parts": 1,
+        "parts": 1,
+        "scripts": [
+          "file-mod/thumbnail_generation"
+        ],
+        "file_answers": {
+          "allows a split": 1
+        },
+        "split_in_pash": {
+          "a": 0,
+          "b": 1,
+          "text": "0 of 1"
+        },
+        "recipes": {
+          "INDIV_FILES>CONCATENATE": 1
+        },
+        "exceptions": [],
+        "part_outcome_transitions": {
+          "missing annotation -> other": 1
+        },
+        "sample_invocations": [
+          "mogrify -format gif -path '\"~/t024/shadow/file-mod/outputs/thumbnail.small\"' -thumbnail 100x100 '~/t024/shadow/file-mod/inputs/jpg_small/jpg/*.jpg'"
+        ],
+        "judgement": "not sure",
+        "unsure": true,
+        "explanation": "Not sure: `mogrify` transforms each input image file independently, so per-file parallelism (`INDIV_FILES`) is semantically valid when output paths do not collide; however, `mogrify` writes files directly rather than streaming stdin to stdout, so PaSh cannot split it as a streaming stage (and rejected the part because of `OTHER_OUTPUT`)."
+      }
+    ],
+    "outside_parts_only": [
+      {
+        "command": "convert",
+        "answer_rows": 1,
+        "answer_lines": 1,
+        "allows_split_lines": 0,
+        "no_split_lines": 1,
+        "raised_lines": 0,
+        "scripts_count": 1,
+        "sample_scripts": [
+          "file-mod/img_convert"
+        ],
+        "sample_invocations": [
+          "convert -resize 70% - -"
+        ],
+        "judgement": "right",
+        "unsure": false,
+        "explanation": "`convert -resize 70% - -` transforms a binary image stream on stdin/stdout; it cannot be split on line boundaries, so 'no split' is right."
+      },
+      {
+        "command": "iconv",
+        "answer_rows": 1,
+        "answer_lines": 1,
+        "allows_split_lines": 1,
+        "no_split_lines": 0,
+        "raised_lines": 0,
+        "scripts_count": 1,
+        "sample_scripts": [
+          "web-search/engine"
+        ],
+        "sample_invocations": [
+          "iconv -c -t ascii//TRANSLIT"
+        ],
+        "judgement": "not sure",
+        "unsure": true,
+        "explanation": "Not sure: `iconv` returned `INDIV_FILES -> CONCATENATE`; per-file transcoding is valid for independent files in stateless encodings (such as UTF-8/ASCII here), but can fail in general for stateful encodings (e.g. ISO-2022) or BOM handling across concatenated outputs."
+      },
+      {
+        "command": "ls",
+        "answer_rows": 23,
+        "answer_lines": 23,
+        "allows_split_lines": 0,
+        "no_split_lines": 23,
+        "raised_lines": 0,
+        "scripts_count": 23,
+        "sample_scripts": [
+          "nlp/bigrams",
+          "nlp/bigrams_appear_twice",
+          "nlp/compare_exodus_genesis",
+          "nlp/count_consonant_seq",
+          "nlp/count_morphs"
+        ],
+        "sample_invocations": [
+          "ls ~/t024/shadow/nlp/inputs/pg-small"
+        ],
+        "judgement": "right",
+        "unsure": false,
+        "explanation": "`ls` lists directory entries with no input stream to split and global sorting of entries, so 'no split' is right."
+      },
+      {
+        "command": "mktemp",
+        "answer_rows": 11,
+        "answer_lines": 17,
+        "allows_split_lines": 0,
+        "no_split_lines": 17,
+        "raised_lines": 0,
+        "scripts_count": 11,
+        "sample_scripts": [
+          "analytics/nginx",
+          "analytics/pcaps",
+          "nlp/bigrams",
+          "nlp/bigrams_appear_twice",
+          "nlp/compare_exodus_genesis"
+        ],
+        "sample_invocations": [
+          "mktemp",
+          "mktemp -d"
+        ],
+        "judgement": "right",
+        "unsure": false,
+        "explanation": "`mktemp` creates a unique temporary file or directory (filesystem side effect, no input stream), so 'no split' is right."
+      }
+    ],
+    "unused_in_suite_count": 53
+  },
+  "section4_wall_clock": {
+    "total_scripts": 86,
+    "scripts_with_zero_split_diffs": 43,
+    "scripts_with_one_differing_command": 25,
+    "scripts_with_multiple_differing_commands": 18,
+    "noise_band_pash_own_copy_vs_pash_own": {
+      "min": 0.8294,
+      "median": 0.9943,
+      "max": 1.1332
+    },
+    "single_command_summary": {
+      "cat": {
+        "scripts": {
+          "a": 25,
+          "b": 86,
+          "text": "25 of 86"
+        },
+        "geom_mean_ratio": 1.2094,
+        "median_ratio": 1.153,
+        "min_ratio": 0.9824,
+        "max_ratio": 1.7396,
+        "slower_than_noise_band_max": {
+          "a": 15,
+          "b": 25,
+          "text": "15 of 25"
+        },
+        "faster_than_noise_band_min": {
+          "a": 0,
+          "b": 25,
+          "text": "0 of 25"
+        }
+      }
+    },
+    "single_command_scripts": [
+      {
+        "script": "oneliners/nfa-regex",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 1.936,
+        "naive_seconds": 1.902,
+        "ratio_naive_over_pash_own": 0.9824
+      },
+      {
+        "script": "oneliners/sort",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.245,
+        "naive_seconds": 0.254,
+        "ratio_naive_over_pash_own": 1.0367
+      },
+      {
+        "script": "oneliners/sort-sort",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.357,
+        "naive_seconds": 0.401,
+        "ratio_naive_over_pash_own": 1.1232
+      },
+      {
+        "script": "oneliners/top-n",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.591,
+        "naive_seconds": 0.705,
+        "ratio_naive_over_pash_own": 1.1929
+      },
+      {
+        "script": "oneliners/uniq-ips",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.183,
+        "naive_seconds": 0.211,
+        "ratio_naive_over_pash_own": 1.153
+      },
+      {
+        "script": "oneliners/wf",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.504,
+        "naive_seconds": 0.621,
+        "ratio_naive_over_pash_own": 1.2321
+      },
+      {
+        "script": "unixfun/1",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.2,
+        "naive_seconds": 0.21,
+        "ratio_naive_over_pash_own": 1.05
+      },
+      {
+        "script": "unixfun/10",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.327,
+        "naive_seconds": 0.469,
+        "ratio_naive_over_pash_own": 1.4343
+      },
+      {
+        "script": "unixfun/11",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.371,
+        "naive_seconds": 0.511,
+        "ratio_naive_over_pash_own": 1.3774
+      },
+      {
+        "script": "unixfun/13",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.23,
+        "naive_seconds": 0.278,
+        "ratio_naive_over_pash_own": 1.2087
+      },
+      {
+        "script": "unixfun/15",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.186,
+        "naive_seconds": 0.214,
+        "ratio_naive_over_pash_own": 1.1505
+      },
+      {
+        "script": "unixfun/17",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.351,
+        "naive_seconds": 0.361,
+        "ratio_naive_over_pash_own": 1.0285
+      },
+      {
+        "script": "unixfun/18",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.192,
+        "naive_seconds": 0.334,
+        "ratio_naive_over_pash_own": 1.7396
+      },
+      {
+        "script": "unixfun/2",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.285,
+        "naive_seconds": 0.304,
+        "ratio_naive_over_pash_own": 1.0667
+      },
+      {
+        "script": "unixfun/20",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.175,
+        "naive_seconds": 0.172,
+        "ratio_naive_over_pash_own": 0.9829
+      },
+      {
+        "script": "unixfun/21",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.545,
+        "naive_seconds": 0.638,
+        "ratio_naive_over_pash_own": 1.1706
+      },
+      {
+        "script": "unixfun/3",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.132,
+        "naive_seconds": 0.172,
+        "ratio_naive_over_pash_own": 1.303
+      },
+      {
+        "script": "unixfun/32",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.225,
+        "naive_seconds": 0.256,
+        "ratio_naive_over_pash_own": 1.1378
+      },
+      {
+        "script": "unixfun/33",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.201,
+        "naive_seconds": 0.246,
+        "ratio_naive_over_pash_own": 1.2239
+      },
+      {
+        "script": "unixfun/35",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.185,
+        "naive_seconds": 0.209,
+        "ratio_naive_over_pash_own": 1.1297
+      },
+      {
+        "script": "unixfun/4",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.345,
+        "naive_seconds": 0.367,
+        "ratio_naive_over_pash_own": 1.0638
+      },
+      {
+        "script": "unixfun/5",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.185,
+        "naive_seconds": 0.205,
+        "ratio_naive_over_pash_own": 1.1081
+      },
+      {
+        "script": "unixfun/7",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.192,
+        "naive_seconds": 0.306,
+        "ratio_naive_over_pash_own": 1.5938
+      },
+      {
+        "script": "unixfun/8",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.2,
+        "naive_seconds": 0.314,
+        "ratio_naive_over_pash_own": 1.57
+      },
+      {
+        "script": "unixfun/9",
+        "command": "cat",
+        "gained_in_naive": 1,
+        "lost_in_naive": 0,
+        "pash_own_seconds": 0.224,
+        "naive_seconds": 0.35,
+        "ratio_naive_over_pash_own": 1.5625
+      }
+    ],
+    "multi_command_scripts": [
+      {
+        "script": "covid/1",
+        "commands": {
+          "awk": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "sed": {
+            "gained_in_naive": 0,
+            "lost_in_naive": 1
+          },
+          "sort": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 6.731,
+        "naive_seconds": 13.194,
+        "ratio_naive_over_pash_own": 1.9602
+      },
+      {
+        "script": "covid/2",
+        "commands": {
+          "awk": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "sed": {
+            "gained_in_naive": 0,
+            "lost_in_naive": 1
+          },
+          "sort": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 7.14,
+        "naive_seconds": 14.453,
+        "ratio_naive_over_pash_own": 2.0242
+      },
+      {
+        "script": "covid/3",
+        "commands": {
+          "awk": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "sed": {
+            "gained_in_naive": 0,
+            "lost_in_naive": 1
+          },
+          "sort": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 7.496,
+        "naive_seconds": 17.901,
+        "ratio_naive_over_pash_own": 2.3881
+      },
+      {
+        "script": "covid/4",
+        "commands": {
+          "awk": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "sed": {
+            "gained_in_naive": 0,
+            "lost_in_naive": 1
+          },
+          "sort": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 6.674,
+        "naive_seconds": 16.75,
+        "ratio_naive_over_pash_own": 2.5097
+      },
+      {
+        "script": "oneliners/spell",
+        "commands": {
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "col": {
+            "gained_in_naive": 0,
+            "lost_in_naive": 1
+          },
+          "sed": {
+            "gained_in_naive": 0,
+            "lost_in_naive": 1
+          }
+        },
+        "pash_own_seconds": 0.631,
+        "naive_seconds": 0.91,
+        "ratio_naive_over_pash_own": 1.4422
+      },
+      {
+        "script": "unixfun/12",
+        "commands": {
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "cut": {
+            "gained_in_naive": 2,
+            "lost_in_naive": 0
+          },
+          "grep": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "sort": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "tr": {
+            "gained_in_naive": 2,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 0.409,
+        "naive_seconds": 0.601,
+        "ratio_naive_over_pash_own": 1.4694
+      },
+      {
+        "script": "unixfun/14",
+        "commands": {
+          "awk": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 0.631,
+        "naive_seconds": 0.567,
+        "ratio_naive_over_pash_own": 0.8986
+      },
+      {
+        "script": "unixfun/16",
+        "commands": {
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "cut": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "sort": {
+            "gained_in_naive": 2,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 0.277,
+        "naive_seconds": 0.352,
+        "ratio_naive_over_pash_own": 1.2708
+      },
+      {
+        "script": "unixfun/19",
+        "commands": {
+          "awk": {
+            "gained_in_naive": 2,
+            "lost_in_naive": 0
+          },
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 0.211,
+        "naive_seconds": 0.216,
+        "ratio_naive_over_pash_own": 1.0237
+      },
+      {
+        "script": "unixfun/23",
+        "commands": {
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "tr": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 0.271,
+        "naive_seconds": 0.548,
+        "ratio_naive_over_pash_own": 2.0221
+      },
+      {
+        "script": "unixfun/24",
+        "commands": {
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "tr": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 0.179,
+        "naive_seconds": 0.256,
+        "ratio_naive_over_pash_own": 1.4302
+      },
+      {
+        "script": "unixfun/25",
+        "commands": {
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "tr": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 0.171,
+        "naive_seconds": 0.252,
+        "ratio_naive_over_pash_own": 1.4737
+      },
+      {
+        "script": "unixfun/26",
+        "commands": {
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "tr": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 0.32,
+        "naive_seconds": 0.508,
+        "ratio_naive_over_pash_own": 1.5875
+      },
+      {
+        "script": "unixfun/28",
+        "commands": {
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "tr": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 0.384,
+        "naive_seconds": 0.599,
+        "ratio_naive_over_pash_own": 1.5599
+      },
+      {
+        "script": "unixfun/29",
+        "commands": {
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "tr": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 0.287,
+        "naive_seconds": 0.356,
+        "ratio_naive_over_pash_own": 1.2404
+      },
+      {
+        "script": "unixfun/30",
+        "commands": {
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "tr": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 0.327,
+        "naive_seconds": 0.537,
+        "ratio_naive_over_pash_own": 1.6422
+      },
+      {
+        "script": "unixfun/31",
+        "commands": {
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "tr": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 0.333,
+        "naive_seconds": 0.505,
+        "ratio_naive_over_pash_own": 1.5165
+      },
+      {
+        "script": "unixfun/6",
+        "commands": {
+          "cat": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          },
+          "tr": {
+            "gained_in_naive": 1,
+            "lost_in_naive": 0
+          }
+        },
+        "pash_own_seconds": 0.226,
+        "naive_seconds": 0.318,
+        "ratio_naive_over_pash_own": 1.4071
+      }
+    ]
+  }
+}

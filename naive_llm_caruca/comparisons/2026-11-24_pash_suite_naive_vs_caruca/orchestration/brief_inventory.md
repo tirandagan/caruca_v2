@@ -16,7 +16,7 @@ anyone runs the rest, we need to know what the rest is and what it would cost.
 ## Produce
 
 `orchestration/coverage.md` (for Tiran, plain words, short) and `orchestration/coverage.jsonl` (one row
-per script) in `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/`, answering:
+per script) in `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/`, answering:
 
 1. **Mapping.** For each of the 12 published benchmark sets (the OSDI'22 Table 1 rows: Classics,
    Unix50, COVID-mts, NLP, AvgTemp, WebIndex, MediaConv, ProgInf, LogAnalysis, Genomics, AurPkg,

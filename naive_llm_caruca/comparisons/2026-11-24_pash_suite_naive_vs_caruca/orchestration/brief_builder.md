@@ -75,7 +75,7 @@ this folder.
 
 ## Output
 
-Put everything in this folder: `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/`.
+Put everything in this folder: `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/`.
 
 - the runner script(s) you wrote;
 - `manifest.json`: commits, package hashes, the naive run folder and the three files' hashes per command, machine;

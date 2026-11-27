@@ -2,137 +2,225 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>PaSh's benchmark suite, with three sources of annotation files</title>
+<title>How a naive LLM's annotation files fare against Caruca's on PaSh's benchmark suite</title>
 </head>
 <body>
 <!--
-THESIS: One board, four columns, the whole way through. The reader compares the sources by reading across, never by hunting through prose; the category default (a memo with tables dropped in wherever they fall) is refused.
-OWN-WORLD: Caruca document identity: Lexend Deca 400/600/700, JetBrains Mono for the script, ink text, blue section heads, teal only in list markers; each source owns one colour that tops its column everywhere (dark grey, blue, orange, light orange), the same four the figures use.
-STORY: Michael reads the question and the one-line finding, learns the six words he needs from "How it was run" and Figure 1, sees the board; then reads down for the why, the time, and the paper comparison.
-FORM: comparison board, locked by Tiran on 2026-11-24. Round 3 (2026-11-26): method before results, one time convention (time ÷ bash time, lower is better), number strings moved into tables and figures, addendum condensed to one page per section.
+THESIS: One board, four columns, the whole way through. The reader compares the sources by reading across, never by hunting through prose; every finding answers its next question on the spot or links to where it is answered.
+OWN-WORLD: ACM acmart (acmsmall) look: Libertinus Serif 10/12 text, Libertinus Sans bold headings, Inconsolata code, booktabs tables; each source owns one colour that tops its column everywhere (dark grey, blue, orange, light orange), the same four the figures use, always in that order; links in #3B3F99 with a dotted underline.
+STORY: Michael reads the one-line finding and "What we saw", then Table 1 (verdict marks, "Behind the result", "Reading"); then reads down for the why, the time, and the paper comparison, with live links and page numbers into the appendix.
+FORM: comparison board, locked by Tiran on 2026-11-24. Draft 2.3 (2026-11-27): critique fixes (lettered table notes, two-pass page numbers, PDF outline, section running head).
 -->
 
 <section class="page page-opener">
-  <h1>PaSh's benchmark suite, with three sources of annotation files</h1>
-  <p class="finding">Output was always correct; the sources differ in which commands were split and by 5 to 15&nbsp;% in time.</p>
-  <p class="version"><strong>Draft 1.1, 26 November 2026.</strong> 86 scripts, three timed runs each, independently checked.</p>
+  <h1 id="top">How a naive LLM's annotation files fare against Caruca's on PaSh's benchmark suite</h1>
+  <p class="finding">The naive LLM's files never changed PaSh's output; Caruca's changed it in 9 of 86 scripts.</p>
+  <p class="contents"><a class="xr" href="#sec-1">1 Result</a> · <a class="xr" href="#sec-2">2 Wrong output</a> · <a class="xr" href="#sec-3">3 By command</a> · <a class="xr" href="#sec-4">4 Why they differ</a> · <a class="xr" href="#sec-5">5 Time</a> · <a class="xr" href="#sec-6">6 The paper</a> · <a class="xr" href="#sec-7">7 Limits</a> · <a class="xr" href="#app">A Appendix</a></p>
+  <p class="version"><strong>Draft 2.4, 27 November 2026.</strong> 86 scripts, three timed runs each.</p>
 
-  <div class="opener-grid">
-    <div>
-      <p class="question"><strong>The question.</strong> Does the source of PaSh's annotation files change what PaSh does on its own benchmark suite?</p>
-      <p class="lead"><strong>How it was run.</strong> Koala, the PaSh team's current benchmark suite, succeeds its 2022 suite; we ran its 86 scripts on small inputs. PaSh reads <em>annotation files</em> to decide which commands it may run in parallel. A <em>source</em> is whose annotation files PaSh was given. A <em>part</em> is a piece of a script that PaSh compiles, such as a pipeline. A command is <em>split</em> when PaSh runs several copies of it on pieces of its input, and <em>whole</em> when it runs one. Caruca made its files from two lists of each command's options: <em>Caruca's small grammar</em>, written for PaSh's scripts, and <em>Caruca's full grammar</em>. <em>The naive LLM</em> is an off-the-shelf coding agent, Claude Code, given only the goal, the file formats and four examples. <em>The second sed file</em> is one fix to the agent's <code>sed</code> file after the pilot; where it changes a number, both are shown. Each run recorded the printed output, which commands were split, and the seconds taken (Figure 1). Table 1 sums up the results.</p>
-    </div>
-    <div>
-      <div class="script suite">
-        <div class="script-name"><b>What was run</b><span>86 scripts, nine groups</span></div>
-        <table class="suite">
-          <tbody>
-            <tr><th>Classics</th><td class="num">12</td><th>Log analysis</th><td class="num">3</td></tr>
-            <tr><th>Unix50</th><td class="num">34</td><th>Weather</th><td class="num">2</td></tr>
-            <tr><th>Natural language</th><td class="num">23</td><th>Web indexing</th><td class="num">1</td></tr>
-            <tr><th>COVID transit</th><td class="num">5</td><th>Genomics</th><td class="num">1</td></tr>
-            <tr><th>File conversion</th><td class="num">5</td><th></th><td></td></tr>
-          </tbody>
-        </table>
-        <div class="script-note">At Koala's smallest inputs. A.5 lists every file.</div>
-      </div>
-      
-      <figure class="col">
-        <img src="../figures_full/setup_diagram.png" alt="Each script runs under plain bash and under PaSh with four sets of annotation files; three things are recorded per run">
-        <figcaption><b>Figure 1:</b> How each script was run; all of a source's files at once, PaSh's own for the rest.</figcaption>
-      </figure>
-    </div>
-  </div>
+  <p class="question" id="question"><strong>The question.</strong> Given only the goal, the file formats and four examples, how do the annotation files a naive LLM writes fare against Caruca's, a carefully engineered pipeline, when PaSh runs its own benchmark suite? PaSh's own hand-written files are the reference for both.</p>
+  <p class="lead" id="saw"><strong>What we saw.</strong> With the naive LLM's files PaSh's output matched bash in all 86 scripts, as with PaSh's own; with Caruca's files, as Caruca's paper ran them for PaSh, it was wrong in 9 of 86 (<a class="xr" href="#sec-2">section 2</a>). PaSh split a part in 43 of 86 scripts with the naive LLM's files, 41 with PaSh's own and 29 with Caruca's (<a class="xr" href="#fig-2">Figure 2</a>). It took 1.15 times as long with the naive LLM's files as with PaSh's own, and 1.09 times with Caruca's. That gap comes from tiny scripts that bash finishes in a fraction of a second, where every split costs more than it saves and the naive LLM's files split more; on the scripts that do real work in one pass the two are within 4&nbsp;% of each other with PaSh's start-up removed (<a class="xr" href="#sec-5">section 5</a>). <a class="xr" href="#tab-1">Table 1</a> has every measure; Caruca with its full grammars, in <a class="xr" href="#a-8">A.8</a>, gives much the same picture.</p>
 
-  <p class="tcap"><b>Table 1:</b> What PaSh did with each source's files on the 86 scripts; PaSh's own files are the reference. <em>Gained</em>: parts split with this source and not with PaSh's own files; <em>lost</em>: the reverse.</p>
-  <table class="board">
+  <p class="tcap" id="tab-1"><b>Table 1:</b> What PaSh did with each source's files on the 86 scripts (terms: <a class="xr" href="#run">How it was run</a>). PaSh's own files are the reference: ▲ marks a result better than theirs, ▼ worse, in the source's colour; ↑ or ↓ in the row label says which way is better.</p>
+  <table class="board verdict">
     <thead>
       <tr>
         <th></th>
         <th class="src pash">PaSh's own files</th>
         <th class="src naive">The naive LLM</th>
-        <th class="src cpash">Caruca's small grammar</th>
-        <th class="src cmain">Caruca's full grammar</th>
+        <th class="src cpash">Caruca<a class="tn" href="#t1-full"></a></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th>Printed output same as bash</th>
-        <td class="ref"><span class="big">86 of 86</span></td>
-        <td><span class="big">86 of 86</span></td>
-        <td><span class="big">86 of 86</span></td>
-        <td><span class="big">86 of 86</span></td>
-      </tr>
-      <tr>
-        <th>Scripts with a part split</th>
-        <td class="ref"><span class="big">41 of 86</span><span class="sub">without <code>cat</code>: 41 of 86</span></td>
-        <td><span class="big">43 of 86</span><span class="sub">without <code>cat</code>: 43 of 86</span></td>
-        <td><span class="big">29 of 86</span><span class="sub">without <code>cat</code>: 27 of 86</span></td>
-        <td><span class="big">41 of 86</span><span class="sub">without <code>cat</code>: 39 of 86</span></td>
-      </tr>
-      <tr>
-        <th>Parts split<span class="sub">of the parts compiled</span></th>
-        <td class="ref"><span class="big">41 of 177</span><span class="sub">the reference</span></td>
-        <td><span class="big">43 of 177</span><span class="sub">gained 2, lost 0 against PaSh's own</span></td>
-        <td><span class="big">29 of 177</span><span class="sub">gained 0, lost 12 against PaSh's own</span></td>
-        <td><span class="big">41 of 177</span><span class="sub">gained 0, lost 0 against PaSh's own</span></td>
-      </tr>
-      <tr>
-        <th>PaSh compiler stopped<span class="sub">crashes, in every run</span></th>
-        <td class="ref"><span class="big">4 of 177</span><span class="sub">parts</span></td>
-        <td><span class="big">4 of 177</span><span class="sub">parts: 2 the same, 2 others</span></td>
-        <td><span class="big">14 of 177</span><span class="sub">parts: the same 4, and 10 more</span></td>
-        <td><span class="big">4 of 177</span><span class="sub">parts: the same 4</span></td>
-      </tr>
-      <tr>
-        <th>Time<span class="sub">lower is better</span></th>
-        <td class="ref"><span class="big">2.4 × bash</span><span class="sub">1.00 × PaSh's own</span></td>
-        <td><span class="big">2.7 × bash</span><span class="sub">1.15 × PaSh's own</span></td>
-        <td><span class="big">2.5 × bash</span><span class="sub">1.05 × PaSh's own</span></td>
-        <td><span class="big">2.5 × bash</span><span class="sub">1.06 × PaSh's own</span></td>
-      </tr>
-      <tr class="extra">
-        <th>Naive LLM, second sed file (52 scripts)</th>
-        <td class="ref"><span class="sub">–</span></td>
-        <td colspan="3"><span class="line">Output same: 52 of 52 · scripts with a part split: 14 of 52 (without <code>cat</code>: 14) · parts split: 14 of 139, gained 0, lost 0</span><span class="line">Compiler stopped: 3 of 139 parts · time: 2.0 × bash, 1.07 × PaSh's own</span></td>
-      </tr>
+      <tr id="t1r-output"><th>Output same as bash, of 86 scripts ↑<a class="tn" href="#t1-output"></a></th>
+        <td class="ref"><span class="big">86</span></td><td><span class="big">86</span></td>
+        <td class="worse cpash"><span class="big">77</span><span class="v">▼</span></td></tr>
+      <tr id="t1r-parts"><th>Parts split, of 177 ↑<a class="tn" href="#t1-parts"></a></th>
+        <td class="ref"><span class="big">41</span></td>
+        <td class="better naive"><span class="big">43</span><span class="v">▲</span><span class="sub">gained 2, lost 0</span></td>
+        <td class="worse cpash"><span class="big">29</span><span class="v">▼</span><span class="sub">gained 0, lost 12</span></td>
+        </tr>
+      <tr id="t1r-scripts"><th>Scripts with a part split, of 86 ↑<a class="tn" href="#t1-scripts"></a></th>
+        <td class="ref"><span class="big">41</span></td>
+        <td class="better naive"><span class="big">43</span><span class="v">▲</span></td>
+        <td class="worse cpash"><span class="big">29</span><span class="v">▼</span></td>
+        </tr>
+      <tr id="t1r-stops"><th>Parts where PaSh's compiler stopped, of 177 ↓<a class="tn" href="#t1-stops"></a></th>
+        <td class="ref"><span class="big">4</span></td>
+        <td><span class="big">4</span><span class="sub">2 same, 2 others</span></td>
+        <td class="worse cpash"><span class="big">11</span><span class="v">▼</span><span class="sub">1 same, 10 others</span></td>
+        </tr>
+      <tr id="t1r-time"><th>Time ÷ time with PaSh's own files ↓<a class="tn" href="#t1-time"></a></th>
+        <td class="ref"><span class="big">1.00</span></td>
+        <td class="worse naive"><span class="big">1.15</span><span class="v">▼</span></td>
+        <td class="worse cpash"><span class="big">1.09</span><span class="v">▼</span></td>
+        </tr>
+      <tr id="t1r-startup"><th>Time ÷ bash time, PaSh's start-up removed, all 72 scripts over 0.05 s ↓<a class="tn" href="#t1-startup"></a></th>
+        <td class="ref"><span class="big">0.97</span></td>
+        <td class="worse naive"><span class="big">1.26</span><span class="v">▼</span></td>
+        <td class="worse cpash"><span class="big">1.05</span><span class="v">▼</span></td>
+        </tr>
+      <tr class="blockrow"><th colspan="4">Behind the result</th></tr>
+      <tr id="t1r-cmds"><th>Commands with the source's own files ↑<a class="tn" href="#t1-cmds"></a></th>
+        <td class="ref"><span class="mid">30</span></td>
+        <td class="better naive"><span class="mid">82</span><span class="v">▲</span></td>
+        <td class="better cpash"><span class="mid">53</span><span class="v">▲</span></td>
+        </tr>
+      <tr id="t1r-load"><th>Commands whose files failed to load ↓<a class="tn" href="#t1-load"></a></th>
+        <td class="ref"><span class="mid">0</span></td>
+        <td class="worse naive"><span class="mid">2</span><span class="v">▼</span><span class="sub"><code>wc</code>, <code>join</code></span></td>
+        <td><span class="mid">0</span></td></tr>
+      <tr id="t1r-rw"><th>Same reads and writes as PaSh's own files, of 178 command lines<a class="tn" href="#t1-lines"></a></th>
+        <td class="ref"><span class="sub">the reference</span></td>
+        <td><span class="mid">172</span></td><td><span class="mid">147</span></td></tr>
+      <tr id="t1r-sd"><th>Same split decision as PaSh's own files, of 113 command lines<a class="tn" href="#t1-lines"></a></th>
+        <td class="ref"><span class="sub">the reference</span></td>
+        <td><span class="mid">99</span></td><td><span class="mid">79</span></td></tr>
+      <tr class="reading"><th>Reading</th>
+        <td>the reference; its own files stop the compiler in 4 parts</td>
+        <td>always right; splits most; 15&nbsp;% slower, almost all on tiny scripts</td>
+        <td>wrong in 9 of 86 scripts; splits least, mostly for lack of <code>sort</code> options, which also makes it faster on tiny scripts; 9&nbsp;% slower</td></tr>
     </tbody>
   </table>
-  <p class="caption">Koala's stored answer matched in 46 of 46 scripts that have one. Times: medians of three runs, geometric means.</p>
+  <ol class="tnotes" data-table="1">
+    <li id="t1-full">Caruca as its paper ran it for PaSh: files traced under its hand-written grammars for PaSh's scripts, for 53 commands. With its full grammars where traceable: <a class="xr" href="#a-8">A.8</a>.</li>
+    <li id="t1-output">Which scripts and why: <a class="xr" href="#sec-2">section 2</a>; four outputs side by side: <a class="xr" href="#a-7">A.7</a>. Koala's stored answer (46 scripts) matched in 46, 46 and 37.</li>
+    <li id="t1-parts">Gained: split with this source and not with PaSh's own files; lost: the reverse. Why parts were not split: <a class="xr" href="#tab-a2">Table A.2</a>; by command: <a class="xr" href="#tab-a4">Table A.4</a>.</li>
+    <li id="t1-scripts">Without <code>cat</code>: 41, 43 and 27 of 86. By command: <a class="xr" href="#fig-2">Figure 2</a>; per script: <a class="xr" href="#fig-a9">Figure A.9</a>.</li>
+    <li id="t1-stops">The same in every run. Which parts and why: <a class="xr" href="#tab-4">Table 4</a>.</li>
+    <li id="t1-time">Geometric mean over the 86 scripts of each script's median of three runs. Why: <a class="xr" href="#sec-5">section 5</a>.</li>
+    <li id="t1-startup">0.11 s per script and 6 ms per part compiled taken off; below 1 is faster than bash. Scripts doing real work in one pass: <a class="xr" href="#tab-5">Table 5</a>.</li>
+    <li id="t1-cmds">PaSh's own files fill in for every command a source has no file for (<a class="xr" href="#a-3">A.3</a>); command uses by command: <a class="xr" href="#tab-3">Table 3</a>.</li>
+    <li id="t1-load">Caruca: none after one repair of our converter (<a class="xr" href="#a-3">A.3</a>). The naive LLM's <code>wc</code>: <a class="xr" href="#tab-3">Table 3</a>.</li>
+    <li id="t1-lines">Distinct command lines where both the source and PaSh's own package have files; counting rule: <a class="xr" href="#tab-6">Table 6</a>.</li>
+  </ol>
+  <p class="extra-line" id="t1r-sed2"><b>The second sed file</b> (52 scripts it covers): output 52 of 52, 14 of 52 scripts split (gained 0, lost 0), 3 compiler stops, time 1.07 × PaSh's own (<a class="xr" href="#tab-a4">Table A.4</a>).</p>
+  <p class="lead" id="run"><strong>How it was run.</strong> We ran the 86 scripts of Koala, the PaSh team's current benchmark suite, on its smallest inputs, in nine groups: Classics 12, Unix50 34, natural language 23, COVID transit 5, file conversion 5, log analysis 3, weather 2, web indexing 1, genomics 1 (<a class="xr" href="#a-2">A.2</a>; every file in <a class="xr" href="#a-5">A.5</a>). Each script ran under plain bash and under PaSh with each <em>source</em> of <em>annotation files</em>, the files PaSh reads to decide which commands it may run in parallel (setup: <a class="xr" href="#a-3">A.3</a>). A <em>part</em> is a piece of a script that PaSh compiles, such as a pipeline. A command is <em>split</em> when PaSh runs several copies of it on pieces of its input, and <em>whole</em> when it runs one. <em>The naive LLM</em> is Claude Code, an off-the-shelf coding agent. <em>Caruca</em> derives its files by running each command many times under a <em>grammar</em>, a list of the command's options, and watching what it reads and writes. Both of Caruca's grammar sets are written by hand:<sup class="fnref"><a href="#fn1">1</a></sup> a full set, the reference its paper scores its LLM against, and a set trimmed by hand to the options PaSh's scripts use (54 commands; 64 options against 923 for the 42 commands in both). Caruca's code loads the trimmed set when it runs for PaSh, so that is what Caruca means here; its paper describes one grammar per command written by an LLM and does not mention the trimmed set. So the comparison is files a naive LLM wrote from the goal, the formats and four examples, against files Caruca derived under hand-written grammars. The full set, where traceable, is in <a class="xr" href="#a-8">A.8</a>. <em>The second sed file</em> is the naive LLM's <code>sed</code> file after one fix. Each run recorded the printed output, which commands were split, and the seconds taken. More terms: <a class="xr" href="#a-1">A.1</a>.</p>
+  <p class="footnote" id="fn1"><sup>1</sup> <code>binpash/caruca</code>: full grammars in <code>caruca/src/caruca/syntax_specs/</code> (120 commands), the trimmed set for PaSh in <code>caruca/src/caruca/pash_syntax_specs/</code> (54).</p>
 </section>
 
 <section class="page">
-  <h2>Where the sources differ</h2>
-  <p>The output was the same everywhere, so the sources differ only in what PaSh split, and in time. Figure 2 counts, for each command, the scripts where a source split it and PaSh's own files did not, or the reverse. The naive LLM's two gained parts are parts where PaSh's own files make PaSh's compiler stop (A.4).</p>
+  <h2 id="sec-1">The naive LLM against Caruca</h2>
+  <figure id="fig-1">
+    <img src="../figures_full/scorecard.png" alt="Metric rows; for each, one dot per source placed at its result as a fraction of PaSh's own files, with 1.0 marked; the naive LLM sits at 1.0 on output, Caruca left of it; Caruca furthest left on splits and compiler stops.">
+    <figcaption><b>Figure 1:</b> How the naive LLM fared, metric by metric. Each dot is one source's result as a fraction of PaSh's own files' result (the line at 1.0); right of the line is better on every row, so "compiler stops" and "wall-clock" are plotted inverted. The shaded band on the wall-clock row shows typical run-to-run noise; <a class="xr" href="#fig-3">Figure 3</a> gives the full spread. The light blue dot is the naive LLM with its second sed file, on the 52 scripts that file covers; the grey dot is an identical second copy of PaSh's own files. Values: <a class="xr" href="#tab-1">Table 1</a>.</figcaption>
+  </figure>
+  <p><b>How it fared.</b> On correctness the naive LLM's files were never wrong: in all 86 scripts PaSh printed what bash prints. Caruca's files, covering 53 commands, let PaSh print wrong output in 9 of 86 scripts. Each time a Caruca file allowed a split that changes the result; <a class="xr" href="#sec-2">section 2</a> lists them (<a class="xr" href="#tab-2">Table 2</a>) and <a class="xr" href="#a-7">A.7</a> shows four outputs beside bash's. On one line both sources allow a split: <code>tr -d '\n'</code>. The naive LLM's file allows only splits into consecutive pieces, and says why: round robin regroups by line, which is unsafe when newlines are deleted. That careful judgment kept its output right.</p>
+  <p>On splitting, PaSh split a part in 43 of 86 scripts with the naive LLM's files, in 41 of 86 with PaSh's own and in 29 of 86 with Caruca's, because Caruca's grammars for PaSh lack <code>sort</code>'s <code>-r</code> and <code>-n</code> and so lose whole parts (<a class="xr" href="#sec-4">section 4</a>). The naive LLM's own weaknesses are two files that fail to load (<code>wc</code>, <code>join</code>; <a class="xr" href="#tab-3">Table 3</a>), two extra compiler stops (<a class="xr" href="#tab-4">Table 4</a>), and one misread <code>sed</code> (<a class="xr" href="#sec-4">section 4</a>); none changed an output.</p>
+  <p>On time, both ran PaSh slower than its own files, because at these small inputs a split mostly adds work: the naive LLM's files took 1.15 times as long as PaSh's own, Caruca's 1.09 times. Splitting a plain <code>cat</code> costs both: in the 25 scripts where it is the only difference, the naive LLM's files took 1.21 times as long as PaSh's own; in the 13 such scripts for Caruca, Caruca's took 1.14 times as long. The naive LLM's extra time against Caruca comes almost entirely from the 34 Unix50 scripts, which bash runs in tenths of a second: there each split starts a splitter and eight copies for almost no work, and the naive LLM's files split more often. Caruca is sometimes faster because it fails to parallelize: in two Unix50 scripts its <code>sort</code> file stops PaSh's compiler, the part runs as plain bash, and that takes half of PaSh's own time. Where splitting pays, the two are close (0.88 and 0.85 of bash's time with start-up removed). <a class="xr" href="#sec-5">Section 5</a> explains both effects.</p>
 
-  <figure>
-    <img src="../figures_full/split_map.png" alt="Four panels, one per source, of bars per command: scripts gained to the right, scripts lost to the left; PaSh's own count in grey under each command">
-    <figcaption><b>Figure 2:</b> For each command, the scripts in which PaSh split it with this source and not with PaSh's own files (solid, gained), or the reverse (hatched, lost). In grey under each command: the scripts where PaSh's own files had it split, of those that use it in a part. The second sed file ran on 52 scripts. A.6 gives the same counts with the command lines behind them.</figcaption>
+  <h2 id="sec-2">Where Caruca's files give wrong output</h2>
+  <p>Caruca's files let PaSh print wrong output in 9 of 86 scripts. Each wrong output was the same in all four runs, and an independent check confirmed all 9 (<a class="xr" href="#tab-2">Table 2</a>; the check is listed in <a class="xr" href="#tab-a7">Table A.7</a>). In every case a file allowed a split that changes the result; nothing crashed. <a class="xr" href="#a-7">A.7</a> shows four wrong outputs line by line beside bash's. With full grammars where those could be traced, Caruca's files gave wrong output in 10 scripts, 8 of them the same as here (<a class="xr" href="#a-8">A.8</a>).</p>
+  <p class="tcap" id="tab-2"><b>Table 2:</b> The 9 scripts where Caruca's files gave wrong output, and what each source's file decided on the same command line.</p>
+  <table class="scripts wrongout">
+    <thead><tr><th>Scripts</th><th>Command line</th><th>Why the split is wrong</th><th class="src pash">PaSh's own</th><th class="src naive">Naive LLM</th><th class="src cpash">Caruca</th></tr></thead>
+    <tbody>
+      <tr><td>Unix50: seven scripts</td><td><code>sed 1d</code> to <code>sed 5d</code></td><td>Deletes line <i>n</i> of the whole input; split, it deletes line <i>n</i> of every piece</td><td>no split</td><td>no split</td><td>split</td></tr>
+      <tr><td>Classics: spell</td><td><code>uniq</code></td><td>A repeated line that falls where two pieces meet survives</td><td>whole</td><td>whole</td><td>split</td></tr>
+      <tr><td>Unix50: one script</td><td><code>tr -d '\n'</code>, then <code>cut -c 1-4</code></td><td>Joins all lines into one; split, each piece becomes its own line, and <code>cut</code> prints 4 letters per piece</td><td>whole</td><td>split, consecutive pieces only; output right</td><td>split</td></tr>
+    </tbody>
+  </table>
+  <p class="caption">Pieces: PaSh cut the input into blocks of one megabyte here. "Whole": the file allows only a split PaSh has not implemented. On <code>tr -d '\n'</code> the naive LLM's file allows only splits into consecutive pieces, so PaSh rejoined them before <code>cut</code>; Caruca's also allows round robin, so PaSh ran <code>tr</code> and <code>cut</code> on each block. The scripts are listed in <a class="xr" href="#a-6">A.6</a>; four outputs side by side in <a class="xr" href="#a-7">A.7</a>.</p>
+  <p>Eight of the 9 follow from one rule in Caruca. When its test runs of a command disagree, Caruca keeps the most parallelizable label: <code>sed</code> was tested with one-letter scripts, where a no-op passed and a real edit failed; <code>tr -d</code> passed on one of three test inputs and failed on two. The <code>uniq</code> case is different: none of Caruca's test inputs had a repeated line at the split point, so every test agreed by chance.</p>
+
+  <h2 id="sec-3">Each source against PaSh's own files, command by command</h2>
+  <p>PaSh's own package has files for 30 commands. The naive LLM has files for 20 of them and Caruca for 20, and the suite used 18 of those inside parts. That allows a direct test: the same command uses, decided once by PaSh's hand-written file and once by each source's (<a class="xr" href="#tab-3">Table 3</a>).</p>
+  <p class="tcap" id="tab-3"><b>Table 3:</b> The 18 commands every source has files for, over the command uses inside parts (484 of the 609). Split: uses PaSh ran as several copies. "No split": uses where the file allowed none.</p>
+  <table class="scripts percmd">
+    <thead>
+      <tr><th rowspan="2">Command</th><th rowspan="2" class="num">Uses</th><th colspan="3" class="grp">Split</th><th colspan="3" class="grp">File said "no split"</th></tr>
+      <tr class="subhead"><th class="num src pash">PaSh's own</th><th class="num src naive">Naive LLM</th><th class="num src cpash">Caruca</th><th class="num src pash">PaSh's own</th><th class="num src naive">Naive LLM</th><th class="num src cpash">Caruca</th></tr>
+    </thead>
+    <tbody>
+      <tr><th><code>cat</code></th><td class="num">94</td><td class="num">0</td><td class="num">43</td><td class="num">29</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+      <tr><th><code>tr</code></th><td class="num">75</td><td class="num">29</td><td class="num">40</td><td class="num">23</td><td class="num">0</td><td class="num">5</td><td class="num">33</td></tr>
+      <tr><th><code>grep</code></th><td class="num">74</td><td class="num">29</td><td class="num">30</td><td class="num">22</td><td class="num">7</td><td class="num">7</td><td class="num">11</td></tr>
+      <tr><th><code>sort</code></th><td class="num">67</td><td class="num">25</td><td class="num">32</td><td class="num">0</td><td class="num">9</td><td class="num">0</td><td class="num">67</td></tr>
+      <tr><th><code>cut</code></th><td class="num">58</td><td class="num">36</td><td class="num">39</td><td class="num">20</td><td class="num">0</td><td class="num">0</td><td class="num">6</td></tr>
+      <tr><th><code>sed</code></th><td class="num">37</td><td class="num">6</td><td class="num">1</td><td class="num">19</td><td class="num">24</td><td class="num">36</td><td class="num">4</td></tr>
+      <tr><th><code>uniq</code></th><td class="num">30</td><td class="num">0</td><td class="num">0</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">24</td></tr>
+      <tr><th><code>awk</code></th><td class="num">14</td><td class="num">0</td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="num">5</td><td class="num">14</td></tr>
+      <tr><th><code>head</code></th><td class="num">10</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">7</td><td class="num">7</td></tr>
+      <tr><th><code>wc</code></th><td class="num">8</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">8<a class="tn" href="#t3-raised"></a></td><td class="num">8</td></tr>
+      <tr><th><code>comm</code></th><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">5</td><td class="num">5</td></tr>
+      <tr><th><code>tail</code></th><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">1</td><td class="num">3</td></tr>
+      <tr><th><code>rm, mkfifo, diff, seq, xargs</code></th><td class="num">8</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">8</td><td class="num">8</td></tr>
+      <tr><th><code>col</code></th><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">1</td><td class="num">0</td><td class="num">1</td><td class="num">0</td></tr>
+      <tr class="total"><th>All 18</th><td class="num">484</td><td class="num">126</td><td class="num">192</td><td class="num">116</td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+  <ol class="tnotes one" data-table="3"><li id="t3-raised">The naive LLM's <code>wc</code> file raised an error when PaSh loaded it, so PaSh treated all 8 uses as "no split" (<a class="xr" href="#a-3">A.3</a>).</li></ol>
+  <p class="caption">A use is not split either because its file said no, or because PaSh did not run its part in parallel at all. Compiler stops on these commands: PaSh's own files 3 (<code>awk</code> once, <code>tail</code> twice), Caruca's 10 (<code>sort</code>). Commands that only one source has files for and that met a part: the naive LLM 5 (<code>mkdir</code>, <code>join</code>, <code>fmt</code>, <code>rev</code>, <code>mogrify</code>), Caruca 7 (<code>echo</code>, <code>read</code>, <code>join</code>, <code>fmt</code>, <code>rev</code>, <code>ffmpeg</code>, <code>find</code>); PaSh split none of them. The naive LLM's <code>fmt</code> file stops PaSh's compiler on <code>fmt -w1</code>. Full counts: <a class="xr" href="#tab-a7">Table A.7</a>; Caruca with full grammars: <a class="xr" href="#a-8">A.8</a>.</p>
+  <p>On these 18 commands the naive LLM's files let PaSh split 192 of 484 uses, PaSh's own 126 and Caruca's 116. Most of the naive LLM's extra is <code>cat</code>, which PaSh's own file deliberately leaves whole. Caruca's files never split <code>sort</code> and refuse <code>tr -c</code>, a split PaSh's own file allows; they also split <code>sed</code> and <code>uniq</code> where PaSh's own files do not, which is where the wrong output comes from.</p>
+
+  <h2 id="sec-4">Where the sources differ</h2>
+  <p><a class="xr" href="#fig-2">Figure 2</a> counts, for each command, the scripts where a source split it and PaSh's own files did not, or the reverse. The naive LLM's two gained parts are parts where PaSh's own files make PaSh's compiler stop (<a class="xr" href="#tab-4">Table 4</a>).</p>
+
+  <figure id="fig-2">
+    <img src="../figures_full/split_map.png" alt="Three panels (the naive LLM, its second sed file, Caruca) of bars per command: scripts gained to the right, scripts lost to the left; PaSh's own count in grey under each command">
+    <figcaption><b>Figure 2:</b> For each command, the scripts in which PaSh split it with this source and not with PaSh's own files (solid, gained), or the reverse (hatched, lost). In grey under each command: the scripts where PaSh's own files had it split, of those that use it in a part. The second sed file ran on 52 scripts. <a class="xr" href="#a-6">A.6</a> gives the same counts with the command lines behind them. The commands shown are every command for which a source differed from PaSh's own files; all others came out the same under every source.</figcaption>
   </figure>
 
   <h3>Why they differ</h3>
-  <p>Each cause was checked against the commands, including whether PaSh's own file is right.</p>
+  <p>Each cause was checked against the commands and the records, including whether PaSh's own file is right.</p>
   <ul>
-    <li><b>Caruca, <code>sort</code>: a limit of the method.</b> Caruca's files never split a plain <code>sort</code>, so both grammars lose it in 17 scripts. Caruca allows only splits whose pieces are joined end to end. <code>sort</code> needs a merge, which PaSh's own file provides.</li>
-    <li><b>Caruca's small grammar, the other commands: lost along with <code>sort</code>.</b> The small grammar lacks <code>sort</code>'s <code>-r</code> and <code>-n</code>, so its file reads <code>sort -r</code> as a file named <code>-r</code>. PaSh's compiler then stops on the whole part, and every command in it runs whole.</li>
-    <li><b>The naive LLM, <code>sed</code>: a gap in what the agent was told.</b> PaSh passes the <code>sed</code> script with its quotes still on, and the format description never said so. The agent's first file misreads it. The second sed file splits <code>sed</code> again in all five scripts where the first lost it.</li>
-    <li><b>The naive LLM, <code>col</code>: a careful refusal.</b> Its file says <code>col</code> cannot be split, which is right in general: a reverse line feed near a piece boundary changes the output (tested). In the spelling script (<code>spell.sh</code>, classics group) the split is safe only because the <code>sed</code> before it removes those characters.</li>
-    <li><b>The naive LLM and Caruca, <code>cat</code>: correct but not useful.</b> Both let PaSh split a plain <code>cat</code> of one file. The output is the same, and the split only adds work. That is why PaSh's own file leaves <code>cat</code> whole.</li>
+    <li><b>Caruca, <code>sed</code>, <code>uniq</code> and <code>tr -d</code>: splits that change the output.</b> These are the gains in <a class="xr" href="#fig-2">Figure 2</a> for <code>sed</code>, <code>uniq</code> and <code>tr</code>. <a class="xr" href="#sec-2">Section 2</a> explains each one (<a class="xr" href="#tab-2">Table 2</a>); <a class="xr" href="#a-7">A.7</a> shows the outputs.</li>
+    <li><b>Caruca, <code>sort</code>: a limit of the method.</b> Caruca's files never split <code>sort</code>, so Caruca loses it in 17 scripts. Caruca allows only splits whose pieces are joined end to end. <code>sort</code> needs a merge, which PaSh's own file provides (<a class="xr" href="#tab-3">Table 3</a>, the <code>sort</code> row).</li>
+    <li><b>Caruca, <code>tr -c</code>: a refusal.</b> Caruca's file says "no split" for <code>tr</code> with the complement option, in 33 of 75 uses. PaSh's own file splits it, which is safe: <code>tr</code> works one character at a time (<a class="xr" href="#tab-3">Table 3</a>, the <code>tr</code> row).</li>
+    <li><b>Caruca, the other commands: lost with their part.</b> Caruca's grammar for PaSh lacks <code>sort</code>'s <code>-r</code> and <code>-n</code>. Its file then stops PaSh's compiler in 10 parts and gives no answer in 2 more, so every command there runs whole (<a class="xr" href="#tab-4">Table 4</a>; reasons per part in <a class="xr" href="#tab-a2">Table A.2</a>). The full grammars know these options (<a class="xr" href="#a-8">A.8</a>).</li>
+    <li><b>The naive LLM, <code>sed</code>: a gap in what the agent was told.</b> PaSh passes the <code>sed</code> script with its quotes still on, and the format description never said so. The agent's first file misreads it. The second sed file splits <code>sed</code> again in all five scripts where the first lost it (<a class="xr" href="#tab-a4">Table A.4</a>, last row).</li>
+    <li><b>The naive LLM, <code>col</code>: a careful refusal.</b> Its file says <code>col</code> cannot be split, which is right in general: a reverse line feed near a piece boundary changes the output (tested). In the spelling script the split is safe only because the <code>sed</code> before it removes those characters. The test is in the vetted causes (<a class="xr" href="#tab-a7">Table A.7</a>).</li>
+    <li><b>The naive LLM and Caruca, <code>cat</code>: correct but not useful.</b> Both let PaSh split a plain <code>cat</code> of one file. The output is the same, and the split only adds work. That is why PaSh's own file leaves <code>cat</code> whole; <a class="xr" href="#sec-5">section 5</a> gives the cost.</li>
   </ul>
 
   <h3>When PaSh itself failed</h3>
-  <p>PaSh's own compiler stopped in 4 parts under its own files and in 14 under Caruca's small grammar; the 10 extra all come from Caruca's <code>sort</code> file. Both failures are PaSh bugs, one of which we reported. In every case PaSh ran the part as plain bash, so the output stayed right (details in A.4).</p>
+  <p>PaSh's compiler stopped in 4 parts under its own files, 4 under the naive LLM's and 11 under Caruca's. <a class="xr" href="#tab-4">Table 4</a> shows which parts and why. One stop, shared by every source, is a PaSh bug we reported. Every other stop has one cause: an annotation file took a word on the command line for an input file name, so PaSh believed the command would not read its pipe.</p>
+  <p class="tcap" id="tab-4"><b>Table 4:</b> The parts where PaSh's compiler stopped, by cause (✕: stopped with this source). One part per script, the same in every run.</p>
+  <table class="scripts stops">
+    <thead><tr><th>Stopped part</th><th class="num src pash">PaSh's own</th><th class="num src naive">Naive LLM</th><th class="num src cpash">Caruca</th><th>Cause</th></tr></thead>
+    <tbody>
+      <tr><th>Classics: bi-grams</th><td class="num x">✕</td><td class="num x">✕</td><td class="num x">✕</td><td>PaSh bug, <code>NameError</code> (issue 794)</td></tr>
+      <tr><th>COVID: script 5</th><td class="num x">✕</td><td class="num x">✕</td><td class="num">–</td><td><code>awk</code> program text read as a file</td></tr>
+      <tr><th>Unix50: scripts 12, 16</th><td class="num x">✕</td><td class="num">–</td><td class="num">–</td><td>PaSh's own <code>tail -n 1</code> file: the <code>1</code> read as a file</td></tr>
+      <tr><th>Unix50: scripts 34, 36</th><td class="num">–</td><td class="num x">✕</td><td class="num">–</td><td><code>fmt -w1</code>: the value read as a file name</td></tr>
+      <tr><th>10 parts: Classics top-n, wf, sort-sort; Unix50 4, 10, 11, 14, 17; COVID 1, 4</th><td class="num">–</td><td class="num">–</td><td class="num x">✕</td><td><code>sort -r</code>/<code>-n</code> missing from Caruca's grammar, read as file names</td></tr>
+      <tr class="total"><th>Total</th><td class="num">4</td><td class="num">4</td><td class="num">11</td><td></td></tr>
+    </tbody>
+  </table>
+  <p>The naive LLM shares 2 of its 4 stops with PaSh's own files, avoids PaSh's own other 2 (its <code>tail</code> file is right) and adds 2 of its own (<code>fmt -w1</code>). Caruca shares only the PaSh bug; its other 10 come from the missing <code>sort</code> options. Every stop ran as plain bash, so no stop changed an output; <a class="xr" href="#tab-a3">Table A.3</a> gives PaSh's error text and <a class="xr" href="#tab-a5">Table A.5</a> the scripts.</p>
 
-  <h2 class="paper">Next to the Caruca paper</h2>
-  <p>The paper compared Caruca's files with PaSh's hand-written ones by hand, on the suite's own command lines. Where PaSh's own split needs a special joining step, as <code>sort</code>'s does, the paper counted a "no split" answer as agreement. Table 2 puts this run's checks beside it.</p>
-  <p class="tcap"><b>Table 2:</b> The Caruca paper's PaSh check beside this run's. The paper counted commands; this run counts distinct command lines. Here output means printed output; the last two rows are new.</p>
+  <h2 id="sec-5">Time</h2>
+  <p><b>Why PaSh is slower than bash here.</b> With its own files PaSh took 2.3 times as long as bash (geometric mean over the 86 scripts), and was slower than bash in 74 of 86; with the naive LLM's files 2.7 times, with Caruca's 2.5. Koala's small inputs make most scripts quick: 45 of 86 run in under a second under bash. PaSh pays a start-up and a compile for every part before any work is done, and the natural-language scripts run their parts inside a loop, so PaSh compiles them once per pass, thousands of times in some scripts. Splitting pays only when the work per piece outweighs that overhead: the Classics regular-expression script fell from 8.2 seconds under bash to 1.9, and the four COVID scripts that PaSh's own files split fell from 10 to 15 seconds to about 7. These times therefore say little about larger inputs (<a class="xr" href="#sec-7">section 7</a>).</p>
+  <p><b>Why the naive LLM's files are slower than PaSh's own (1.15).</b> They split about as many parts as PaSh's own files, but they split cheap commands that PaSh's own files leave whole. A plain <code>cat</code> of one file is the main case: in the 25 scripts where it is the only difference, the naive LLM's files took 1.21 times as long as PaSh's own. In the four COVID scripts the first sed file left <code>sed</code> whole, so the pipeline ran through one copy and took about twice as long (13 to 18 seconds against about 7); the second sed file narrows the gap to 1.07 on its 52 scripts. Caruca's files pay the same start-up and compile with fewer extra splits (<code>cat</code> in 29 scripts against the naive LLM's 43), hence 1.09. <a class="xr" href="#fig-3">Figure 3</a> shows each script against PaSh's own files; <a class="xr" href="#fig-a9">Figure A.9</a> shows each against bash.</p>
+  <p><b>Why Caruca's files are faster than the naive LLM's (1.09 against 1.15).</b> The gap is small and comes from where splitting cannot pay. Script by script, the naive LLM's extra time against Caruca comes almost entirely from the 34 Unix50 scripts, which bash runs in 0.03 to 0.3 seconds; the four COVID scripts add about a quarter (its first <code>sed</code> file), and on the Classics one-liners Caruca is the slower of the two. On such tiny scripts any split costs more than it saves, so the source that splits less is faster: Caruca splits a part in 29 scripts against the naive LLM's 43, often because its <code>sort</code> file lacks <code>-r</code> and <code>-n</code> and stops PaSh's compiler, after which the part runs as plain bash (in Unix50 scripts 10 and 11 that took half of PaSh's own time). Where splitting does pay, in the scripts that do real work in one pass, the two are within 4&nbsp;% of each other with PaSh's start-up removed (0.88 and 0.85 of bash's time; <a class="xr" href="#tab-5">Table 5</a>).</p>
+  <p><b>No large script gains from the naive LLM's extra splits.</b> Of the 41 scripts that bash runs for at least a second, the naive LLM's files split differently from PaSh's own in only six, and none ran faster for it: in the four COVID scripts its extra <code>awk</code> and <code>cat</code> splits cannot make up for <code>sed</code> left whole (13 to 18 seconds against about 7), and in two Classics scripts an extra <code>cat</code> split adds nothing or costs a little. Where its time is lower than PaSh's own on other large scripts, the split decisions are identical, so the difference is run-to-run noise. Whether its extra splits pay on larger inputs was not tested (<a class="xr" href="#sec-7">section 7</a>). Its advantage in this run is correctness, not speed.</p>
+  <p><b>With PaSh's start-up removed.</b> PaSh's own cost, measured on the 44 scripts where its own files split nothing, is about 0.11 seconds per script plus about 6 milliseconds per part it compiles; the loop scripts send it 3,000 to 9,000 parts, 20 to 52 seconds. Taking that off each run (<a class="xr" href="#tab-5">Table 5</a>), PaSh's own files about tie bash overall and run about 1.6 times faster than bash on the scripts that do real work in one pass. The cost of the split copies themselves is not taken off, so the naive LLM's extra splits of cheap commands such as <code>cat</code> are real process cost and stay. No script ran for hours: the longest, web search, took about 11 to 12 minutes, about 42 seconds of it start-up and compiling (7,003 parts).</p>
+  <p class="tcap" id="tab-5"><b>Table 5:</b> Time ÷ bash time, measured and with PaSh's start-up removed (geometric means; lower is better, below 1 is faster than bash).</p>
+  <table class="scripts overhead">
+    <thead><tr><th>Scripts</th><th class="num src pash">PaSh's own</th><th class="num src naive">Naive LLM</th><th class="num src cpash">Caruca</th></tr></thead>
+    <tbody>
+      <tr><th>All 72 scripts over 0.05 s, measured</th><td class="num">1.65</td><td class="num">1.95</td><td class="num">1.76</td></tr>
+      <tr><th>The same 72, start-up removed</th><td class="num">0.97</td><td class="num">1.26</td><td class="num">1.05</td></tr>
+      <tr><th>One-pass scripts (at most 3 parts, bash 1 s or more), start-up removed</th><td class="num">0.63</td><td class="num">0.88</td><td class="num">0.85</td></tr>
+    </tbody>
+  </table>
+  <p class="caption">Model fitted on the 44 scripts where PaSh's own files split nothing; how the two runs were pooled: <a class="xr" href="#a-3">A.3</a>. Script and full table: <a class="xr" href="#tab-a7">Table A.7</a>.</p>
+  <figure id="fig-3">
+    <img style="width:98%;margin:0 auto;display:block" src="../figures_full/time_bars.png" alt="Four rows, one per source: each dot a script's time against PaSh's own files, with the noise band shaded and the geometric mean marked; on the right, the geometric mean, the scripts slower by more than 10% and the scripts slower than bash">
+    <figcaption><b>Figure 3:</b> Each dot is one script: its time with this source divided by its time with PaSh's own files, both medians of three runs (lower is better). The black bar is the geometric mean. The shaded band is the range of an identical copy of PaSh's own files run twice (0.83 to 1.46, 172 paired runs), with an inner band for the middle 90&nbsp;% (0.92 to 1.06).</figcaption>
+  </figure>
+  <p>Run twice, PaSh's own files ranged from 0.83 to 1.46 (8 of 172 runs strayed by more than 10&nbsp;%); the 1.46 is one file-encryption script. Each source is compared against PaSh's own files run alongside it (<a class="xr" href="#a-3">A.3</a>); per-script seconds are listed in the records (<a class="xr" href="#tab-a7">Table A.7</a>).</p>
+
+  <h2 id="sec-6" class="paper">Next to the Caruca paper</h2>
+  <p>The paper compared Caruca's files with PaSh's hand-written ones by hand, on the suite's own command lines. Where PaSh's own split needs a special joining step, as <code>sort</code>'s does, the paper counted a "no split" answer as agreement. <a class="xr" href="#tab-6">Table 6</a> puts this run's checks beside it.</p>
+  <p class="tcap" id="tab-6"><b>Table 6:</b> The Caruca paper's PaSh check beside this run's. The paper counted commands; this run counts distinct command lines. Here output means printed output; the last two rows are new.</p>
   <table class="board cols4 paper">
     <thead>
       <tr>
         <th>What was checked</th>
         <th>The Caruca paper<span class="what">2022 suite</span></th>
         <th class="src naive">The naive LLM<span class="what">this run</span></th>
-        <th>Caruca, both grammars<span class="what">this run</span></th>
+        <th class="src cpash">Caruca<span class="what">this run</span></th>
       </tr>
     </thead>
     <tbody>
@@ -140,63 +228,65 @@ FORM: comparison board, locked by Tiran on 2026-11-24. Round 3 (2026-11-26): met
         <th>Same reads and writes as PaSh's own files</th>
         <td>52 of 52 commands</td>
         <td>172 of 178 lines</td>
-        <td><span class="line">small grammar: 93 of 110 lines</span><span class="line">full grammar: 101 of 110 lines</span></td>
+        <td>147 of 178 lines</td>
       </tr>
       <tr>
         <th>Same split decision</th>
         <td>"no split" counted as agreement where PaSh needs a joining step</td>
         <td>99 of 113 lines</td>
-        <td><span class="line">54 of 70 lines</span><span class="line muted">7 of the 16 others: PaSh's own split needs a merge step</span></td>
+        <td><span class="line">79 of 113 lines</span><span class="line muted">7 of the others: PaSh's own split needs a merge step</span></td>
       </tr>
       <tr>
         <th>Suite output the same with the files swapped in</th>
         <td>yes, by hash; number of scripts not given</td>
         <td>86 of 86 scripts</td>
-        <td>86 of 86 scripts</td>
+        <td>77 of 86 scripts</td>
       </tr>
       <tr>
         <th>Parts PaSh split</th>
         <td>not reported</td>
         <td>43 of 177 parts</td>
-        <td><span class="line">small grammar: 29 of 177</span><span class="line">full grammar: 41 of 177</span></td>
+        <td>29 of 177 parts</td>
       </tr>
       <tr>
         <th>Time (lower is better)</th>
         <td>not reported</td>
         <td>2.7 × bash time</td>
-        <td><span class="line">small grammar: 2.5 × bash time</span><span class="line">full grammar: 2.5 × bash time</span></td>
+        <td>2.5 × bash time</td>
       </tr>
     </tbody>
   </table>
-  <p class="caption">How lines are counted: only lines where the source has its own files (the naive LLM 215, Caruca 110). The first row keeps lines where PaSh's own file says what the command reads and writes (naive LLM 178, Caruca 110). The second keeps lines where it gives a split decision (113 and 70), which leaves out <code>cat</code>. The paper's 52 are the commands it had hand-written files for; here Caruca has files for 8, 6 of them used in a part. The last column holds both of Caruca's grammars, so it has no source colour.</p>
+  <p class="caption">How lines are counted: only lines where the source has its own files (the naive LLM 215, Caruca 196). The first row keeps lines where PaSh's own file says what the command reads and writes (178 for both). The second keeps lines where it gives a split decision (113), which leaves out <code>cat</code>. The paper's 52 are the commands it had hand-written files for; here Caruca has files for 53, 25 of them used in a part. As in the paper's PaSh runs, Caruca's files here come from its hand-written grammars for PaSh (<a class="xr" href="#run">How it was run</a>).</p>
 
-  <h2>Time</h2>
-  <figure>
-    <img style="width:84%;margin:0 auto;display:block" src="../figures_full/time_bars.png" alt="One row of dots per source: each dot a script's time against PaSh's own files, with the noise band shaded and the geometric mean marked; on the right, the scripts slower by more than 10% and the scripts slower than bash">
-    <figcaption><b>Figure 3:</b> Each dot is one script: its time with this source divided by its time with PaSh's own files, both medians of three runs (lower is better). The black bar is the geometric mean. The shaded band is how far the same files, run twice, strayed by chance.</figcaption>
-  </figure>
-  <ul class="findings">
-    <li>On these small inputs PaSh took longer than bash in most scripts under every source (Figure 3, the counts at the right): start-up and compile time outweigh the work.</li>
-    <li>The naive LLM's files took 1.15 times as long as PaSh's own, Caruca's small grammar 1.05 times and its full grammar 1.06.</li>
-    <li>The four COVID scripts show the largest single effect. With its first <code>sed</code> file the naive LLM leaves <code>sed</code> whole there and takes about twice as long; the second sed file narrows that gap.</li>
-    <li>The slowest script, web-search, took 10 to 12 minutes a run and had no part split under any source.</li>
-  </ul>
-
-  <h2>What this does not show (threats to validity)</h2>
+  <h2 id="sec-7">What this does not show (threats to validity)</h2>
   <ul>
     <li>Small inputs only. The times mostly show PaSh's start-up cost, and a split that was right here is not proved right on every input.</li>
-    <li>Written files are only partly checked. Of 576 timed runs of the 32 scripts that write files, 211 matched bash's and 347 had no bash run in the same repeat to compare with. The 18 that differ are web-search's, which differ even between two bash runs, and bio's, whose check failed.</li>
-    <li>The naive LLM's files are its first run per command, and its runs differ. Its <code>awk</code> splits were not examined one by one. Its files raised an error on 3 command lines (<code>wc</code>, <code>join</code>), which PaSh hides by treating the command as having no files.</li>
-    <li>PaSh's own files are the yardstick, but they are not always right: for <code>col</code> the naive LLM's refusal is the safer answer. The second sed file covers 52 scripts, so its times stand alone.</li>
+    <li>Written files are only partly checked. For the naive LLM's runs of scripts that write files, 211 of 576 timed runs matched bash's and 347 had no bash run in the same repeat to compare with; for Caruca's runs, 93 of 96 matched, and the 3 others are web-search's, whose files differ even between two bash runs.</li>
+    <li>The two sources did not start from the same place. The naive LLM wrote its files from the goal, the file formats and four examples. Caruca derived its files by tracing commands under grammars written by hand; Caruca's paper describes its grammars as written by an LLM from each command's manual and does not mention the reduced set for PaSh. If anything this favours Caruca. With its full hand-written grammars where traceable the result is much the same (<a class="xr" href="#a-8">A.8</a>).</li>
+    <li>The naive LLM's files are its first run per command, and its runs differ. Caruca's files are one trace per command, and <code>gzip</code> is missing (<a class="xr" href="#a-3">A.3</a>).</li>
+    <li>PaSh's own files are the yardstick, but they are not always right: for <code>col</code> the naive LLM's refusal is the safer answer.</li>
   </ul>
 </section>
 
 <section class="page addendum">
-  <h2 class="addendum-h">Addendum</h2>
+  <h2 class="addendum-h" id="app">Appendix</h2>
 
-  <h3>A.1  The suite</h3>
-  <p class="entry">Koala (commit <code>ccf25a57</code>) is the PaSh team's current benchmark suite; its scripts are the 2022 suite's, kept up to date, with their inputs. Nine of its groups ran here, 86 scripts, at Koala's smallest input size. The 2022 paper's twelve sets map onto them as below; the package-building set and the newer genomics scripts need downloads, memory or Intel-only tools this machine lacks, so they did not run. A.5 lists every script file; <code>orchestration/coverage.md</code> gives each one's 2022 original.</p>
-  <p class="tcap"><b>Table A.1:</b> The nine groups run, with the 2022 set each stands for.</p>
+  <h3 id="a-1">A.1  Words used</h3>
+  <p class="supports">Supports: <a class="xr" href="#run">How it was run</a>; <a class="xr" href="#tab-1">Table 1</a>.</p>
+  <dl>
+    <dt>Gained, lost.</dt> <dd>Split with this source and not with PaSh's own files; or the reverse.</dd>
+    <dt>Command use.</dt> <dd>One call of a command in a part.</dd>
+    <dt>Printed output, written files.</dt> <dd>What the script prints, compared in every run; and the files it writes, compared only where bash's run of the same repeat was there to compare with.</dd>
+    <dt>Time ÷ bash time.</dt> <dd>A script's time under PaSh divided by its time under plain bash; below 1 is faster than bash, and lower is better.</dd>
+    <dt>Geometric mean.</dt> <dd>The average of ratios that treats "twice as fast" and "twice as slow" alike.</dd>
+    <dt>Noise band.</dt> <dd>How far an identical second copy of PaSh's own files strayed in time: 0.83 to 1.46 across 172 paired runs (beyond 10&nbsp;% in 8 of 172), with the 1.46 coming from one file-encryption script.</dd>
+    <dt>Session.</dt> <dd>One batch of runs on the same machine: the first (24 to 25 November) with PaSh's own files and the naive LLM's; the second (26 to 27 November) with PaSh's own files and Caruca's files for all converted commands.</dd>
+  </dl>
+
+  <h3 id="a-2">A.2  The suite</h3>
+  <p class="supports">Supports: <a class="xr" href="#run">How it was run</a>.</p>
+  <p class="entry">Koala (commit <code>ccf25a57</code>) is the PaSh team's current benchmark suite; its scripts are the 2022 suite's, kept up to date, with their inputs. Nine of its groups ran here, 86 scripts, at Koala's smallest input size. <a class="xr" href="#tab-a1">Table A.1</a> maps them to the 2022 paper's sets; two sets could not run here (<a class="xr" href="#a-3">A.3</a>). <a class="xr" href="#a-5">A.5</a> lists every script file; <code>orchestration/coverage.md</code> gives each one's 2022 original.</p>
+  <p class="tcap" id="tab-a1"><b>Table A.1:</b> The nine groups run, with the 2022 set each stands for.</p>
   <table class="scripts records">
     <thead><tr><th>Group (Koala folder)</th><th class="num">Scripts</th><th>Stands for (2022 suite)</th></tr></thead>
     <tbody>
@@ -212,51 +302,58 @@ FORM: comparison board, locked by Tiran on 2026-11-24. Round 3 (2026-11-26): met
     </tbody>
   </table>
 
-  <h3>A.2  Other words used</h3>
-  <dl>
-    <dt>Gained, lost.</dt> <dd>Split with this source and not with PaSh's own files; or the reverse.</dd>
-    <dt>Command use.</dt> <dd>One call of a command in a part.</dd>
-    <dt>Printed output, written files.</dt> <dd>What the script prints, compared in every run; and the files it writes, compared only where bash's run of the same repeat was there to compare with.</dd>
-    <dt>Time ÷ bash time.</dt> <dd>A script's time under PaSh divided by its time under plain bash; below 1 is faster than bash, and lower is better.</dd>
-    <dt>Geometric mean.</dt> <dd>The average of ratios that treats "twice as fast" and "twice as slow" alike.</dd>
-    <dt>PaSh's own files filled in.</dt> <dd>The source has no files for the command, so PaSh's own were used.</dd>
-    <dt>Noise band.</dt> <dd>How far an identical second copy of PaSh's own files strayed in time: 0.83 to 1.13 times, beyond 10% in 4 of 86 scripts.</dd>
-  </dl>
-
-  <h3>A.3  How the experiment was set up, for a reader new to PaSh</h3>
+  <h3 id="a-3">A.3  How the experiment was set up, for a reader new to PaSh</h3>
+  <p class="supports">Supports: <a class="xr" href="#run">How it was run</a>; <a class="xr" href="#t1r-cmds">Table 1, commands with files</a>; <a class="xr" href="#sec-5">section 5</a>; <a class="xr" href="#sec-7">section 7</a>.</p>
   <p class="entry"><b>What PaSh does.</b> PaSh takes an ordinary shell script and, without changing what it computes, runs parts of it in parallel. A command such as <code>sort</code> that reads a stream of lines can be given eight pieces of its input at once; eight copies run side by side and the results are joined. PaSh must know, for every command, whether that is safe and how to join the pieces. That knowledge lives in the annotation files; PaSh ships with its own, hand-written set. Where PaSh has no files for a command, or the files say "cannot be split", it runs that part as plain bash, quietly, and the output is then still correct. So a right answer on its own tells you nothing about what PaSh did.</p>
-  <p class="entry"><b>What we compared.</b> The annotation files already existed: PaSh's own; the naive LLM's, written weeks earlier for 79 commands, plus <code>tr</code>, <code>xargs</code> and <code>awk</code>, added on 24 November because most suite scripts use them (82 in all); and Caruca's, generated from its traces for 8 commands, once from each grammar. For each source we made a private copy of PaSh's annotation package with that source's files swapped in for the commands it has, and pointed PaSh at that copy for the run (Figure 1). PaSh itself was not changed. Two more copies were run: the naive LLM's files with the second sed file, and an identical second copy of PaSh's own files, timed only, to measure how much times vary by chance.</p>
+  <p class="entry"><b>What we compared.</b> The annotation files already existed: PaSh's own; the naive LLM's, written weeks earlier for 79 commands, plus <code>tr</code>, <code>xargs</code> and <code>awk</code>, added on 24 November because most suite scripts use them (82 in all); and Caruca's, generated from its traces, once from each grammar. For each source we made a private copy of PaSh's annotation package with that source's files swapped in for the commands it has, and pointed PaSh at that copy for the run (<a class="xr" href="#fig-a3">Figure A.3</a>). PaSh itself was not changed. Two more copies were run: the naive LLM's files with the second sed file, and an identical second copy of PaSh's own files, timed only, to measure how much times vary by chance.</p>
+  <figure class="a3" id="fig-a3">
+    <img src="../figures_full/setup_diagram.png" alt="Each script runs under plain bash and under PaSh with four sets of annotation files; three things are recorded per run">
+    <figcaption><b>Figure A.3:</b> How each script was run: under plain bash, then under PaSh with all of one source's files at once and PaSh's own files for the commands that source has none for.</figcaption>
+  </figure>
+  <p class="entry"><b>Caruca's files, in two steps.</b> The first session had Caruca's files for 8 commands only, those converted on 10 November with Caruca's own converter. Since nearly every difference then came from that small reach, the remaining commands were converted on 26 November and the suite was run again (the second session). The small grammar converted for 53 commands; <code>gzip</code> failed, because its grammar file in Caruca's repository is named for <code>gunzip</code>. Full grammars were traced for the 22 commands where that is tractable; <code>comm</code>, <code>join</code>, <code>cp</code> and <code>diff</code> would need 2 to 271 million runs, and <code>ls</code> ran out of memory. Our converter had to be repaired once: it copied a traced example holding a tab into a comment, so three files did not compile, and one such file stops PaSh from starting at all. The repair escapes the example; the files were regenerated from the same traces. Details: <code>caruca_conversion/README.md</code>.</p>
   <p class="entry"><b>Which scripts.</b> The 2022 PaSh paper evaluated PaSh on 12 sets of real scripts. Their original input data can no longer be downloaded, so we used Koala, the same group's current benchmark suite, which keeps updated versions of those scripts and their inputs. Ten of the twelve sets have a successor there; the genomics set's new scripts and the package-building set need downloads, memory or Intel-only tools this machine lacks.</p>
   <p class="entry"><b>How each script was run.</b> Once under plain bash, which gives the reference output and time; then under PaSh with each source's files, with 8 workers (the machine has 8 cores): once with the stand-in programs below, and three times timed without them. Every run's printed output was compared byte for byte with bash's run of the same repeat, and, for the 46 one-liner and Unix50 scripts, with Koala's stored reference answer.</p>
   <p class="entry"><b>How we know what PaSh did.</b> Three records per run: PaSh's own log, which says which parts it compiled and which it ran in parallel; the parallel script PaSh wrote, which shows how many copies of each command it started; and a small stand-in program placed ahead of every command, which notes each time the command starts. A command counts as split only when PaSh's script runs two or more copies of it and it started more often than under bash. Each source's files were also asked directly, outside PaSh, what they would answer for every command line, with the command's words passed exactly as PaSh passes them. In 849 of 850 uses inside parts PaSh ran in parallel (the four sources together), PaSh split the use exactly when the files allowed a split it can carry out; the exception is two <code>awk</code> uses in one part whose copies cannot be told apart.</p>
-  <p class="entry"><b>Why the full run takes hours.</b> The time is the scripts themselves running: a one-liner takes about a second, a natural-language script up to 3 minutes, web-search 10 to 12. Each script runs seven ways (bash and six PaSh sets), timed three times.</p>
-  <p class="entry"><b>Timing conditions and faults.</b> Timed runs were made one at a time with nothing else running in the machine, a Linux virtual machine on a Mac. The Mac slept four times (lid closed); the runs it hit, two natural-language scripts and web-search's third repeat, were run again. Two faults in our own runner were found and handled in the counting, with the records left untouched. In the repeats, bash was rotated out of first place, so 482 runs that came before bash were recorded "not the same as bash"; all had bash's output, and they are compared with bash's run of the same repeat instead. And web-search's timed runs of the first repeat lacked the <code>node</code> program and stopped early; those 7 runs were redone and the broken ones left out.</p>
-  <p class="entry"><b>Independent check.</b> A separate reviewer, given the records and not the write-up, re-ran scripts with every source, hashed every annotation file against its origin, confirmed PaSh reads the folder it is given, read all 396 PaSh logs, and recomputed every number: 10 of 11 checks pass and no cell differs. The one failure was the runner's summary calling every output right where only printed output was checked; this report follows the reviewer. A second, separately written count gave the same headline numbers (A.8).</p>
+  <p class="entry"><b>Why the full run takes hours.</b> The time is the scripts themselves running: a one-liner takes about a second, a natural-language script up to 3 minutes, web-search 10 to 12. In the first session each script ran seven ways (bash and six PaSh sets), in the second five (bash, PaSh's own files twice, Caruca's two sets), each timed three times.</p>
+  <p class="entry"><b>Timing conditions and faults.</b> Timed runs were made one at a time with nothing else running in the machine, a Linux virtual machine on a Mac. In the second session the Mac stayed on mains power and never slept. In the first it slept four times (lid closed); the runs it hit, two natural-language scripts and web-search's third repeat, were run again. Two faults in our own runner were found and handled in the counting, with the records left untouched. In the repeats, bash was rotated out of first place, so 482 runs that came before bash were recorded "not the same as bash"; all had bash's output, and they are compared with bash's run of the same repeat instead. And web-search's timed runs of the first repeat lacked the <code>node</code> program and stopped early; those 7 runs were redone and the broken ones left out. <b>Pooling.</b> Each source's time is divided by bash's and by PaSh's own files' time in its own session, and PaSh's own files are pooled over both sessions (geometric mean): time ÷ bash 1.69 and 1.62, start-up removed 1.03 and 0.92 (pooled 0.97), one-pass scripts 0.62 and 0.64 (pooled 0.63; 11 one-pass scripts in the first session, 10 in the second). The reasons parts were not split (<a class="xr" href="#tab-a2">Table A.2</a>) are counted from the second session for Caruca; PaSh's own files gave the same counts in both.</p>
+  <p class="entry"><b>Independent check.</b> A separate reviewer, given the records and not the write-up, re-ran scripts with every source, hashed every annotation file against its origin, confirmed PaSh reads the folder it is given, read all 396 PaSh logs, and recomputed every number: 10 of 11 checks pass and no cell differs. The one failure was the runner's summary calling every output right where only printed output was checked; this report follows the reviewer. A second, separately written count gave the same headline numbers (<a class="xr" href="#a-10">A.10</a>). The second session was also counted by two separately written scripts, with the same results, and in 639 of 639 uses inside parts run in parallel PaSh split exactly when the files allowed it.</p>
 
-  <h3>A.4  Why parts were not run in parallel</h3>
-  <p class="tcap"><b>Table A.4:</b> The 177 distinct parts per source, by the reason PaSh did not split them; every part not split counts against the source. For the other sources: parts with the same reason under PaSh's own files, and parts with it only here.</p>
+  <h3 id="a-4">A.4  Why parts were not run in parallel</h3>
+  <p class="supports">Supports: <a class="xr" href="#t1r-parts">Table 1, parts split</a>; <a class="xr" href="#sec-4">section 4</a>.</p>
+  <p class="tcap" id="tab-a2"><b>Table A.2:</b> The 177 distinct parts per source, by the reason PaSh did not split them; every part not split counts against the source. Caruca's 24 "said no split" parts are 23 single <code>echo</code> parts, which PaSh's own package has no file for, and one <code>comm</code> part. For the other sources: parts with the same reason under PaSh's own files, and parts with it only here.</p>
   <table class="scripts reasons">
     <thead>
-      <tr><th rowspan="2">Reason</th><th rowspan="2" class="src pash num">PaSh's own files</th><th colspan="2" class="src naive grp">The naive LLM</th><th colspan="2" class="src cpash grp">Caruca's small grammar</th><th colspan="2" class="src cmain grp">Caruca's full grammar</th></tr>
-      <tr class="subhead"><th class="num">same as PaSh's own</th><th class="num">only here</th><th class="num">same as PaSh's own</th><th class="num">only here</th><th class="num">same as PaSh's own</th><th class="num">only here</th></tr>
+      <tr><th rowspan="2">Reason</th><th rowspan="2" class="src pash num">PaSh's own files</th><th colspan="2" class="src naive grp">The naive LLM</th><th colspan="2" class="src cpash grp">Caruca</th></tr>
+      <tr class="subhead"><th class="num">same as PaSh's own</th><th class="num">only here</th><th class="num">same as PaSh's own</th><th class="num">only here</th></tr>
     </thead>
     <tbody>
-      <tr><th>No files for a command</th><td class="num ref">95</td><td class="num">61</td><td class="num">0</td><td class="num">95</td><td class="num">0</td><td class="num">95</td><td class="num">0</td></tr>
-      <tr><th>A shell construct PaSh does not compile</th><td class="num ref">27</td><td class="num">27</td><td class="num">1</td><td class="num">27</td><td class="num">0</td><td class="num">27</td><td class="num">0</td></tr>
-      <tr><th>PaSh's compiler stopped</th><td class="num ref">4</td><td class="num">2</td><td class="num">2</td><td class="num">4</td><td class="num">10</td><td class="num">4</td><td class="num">0</td></tr>
-      <tr><th>The source's files said no split</th><td class="num ref">0</td><td class="num">0</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
-      <tr><th>The files say the command writes something other than a stream</th><td class="num ref">0</td><td class="num">0</td><td class="num">31</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
-      <tr><th>The source has files, but they gave no answer</th><td class="num ref">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">4</td><td class="num">0</td><td class="num">2</td></tr>
-      <tr><th>Nothing in the part can be split with these files</th><td class="num ref">1</td><td class="num">0</td><td class="num">0</td><td class="num">1</td><td class="num">0</td><td class="num">1</td><td class="num">0</td></tr>
-      <tr><th>Other, not classified</th><td class="num ref">9</td><td class="num">9</td><td class="num">0</td><td class="num">7</td><td class="num">0</td><td class="num">7</td><td class="num">0</td></tr>
-      <tr class="total"><th>Parts split</th><td class="num ref">41</td><td class="num" colspan="2">43</td><td class="num" colspan="2">29</td><td class="num" colspan="2">41</td></tr>
+      <tr><th>No files for a command</th><td class="num ref">95</td><td class="num">61</td><td class="num">0</td><td class="num">64</td><td class="num">0</td></tr>
+      <tr><th>A shell construct PaSh does not compile</th><td class="num ref">27</td><td class="num">27</td><td class="num">1</td><td class="num">26</td><td class="num">3</td></tr>
+      <tr><th>PaSh's compiler stopped</th><td class="num ref">4</td><td class="num">2</td><td class="num">2</td><td class="num">1</td><td class="num">10</td></tr>
+      <tr><th>The source's files said no split</th><td class="num ref">0</td><td class="num">0</td><td class="num">1</td><td class="num">0</td><td class="num">24</td></tr>
+      <tr><th>The files say the command writes something other than a stream</th><td class="num ref">0</td><td class="num">0</td><td class="num">31</td><td class="num">0</td><td class="num">0</td></tr>
+      <tr><th>The source has files, but they gave no answer</th><td class="num ref">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">15</td></tr>
+      <tr><th>Nothing in the part can be split with these files</th><td class="num ref">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+      <tr><th>Other, not classified</th><td class="num ref">9</td><td class="num">9</td><td class="num">0</td><td class="num">5</td><td class="num">0</td></tr>
+      <tr class="total"><th>Parts split</th><td class="num ref">41</td><td class="num" colspan="2">43</td><td class="num" colspan="2">29</td></tr>
     </tbody>
   </table>
-  <p class="caption">Each column adds up to 177. Counted per execution (a loop's part once per pass) the three "other" rows merge into one: PaSh's own 10; the naive LLM 9, and 31 only here; Caruca's small grammar 10, and 2 only here; its full grammar 10 and 0. The other rows are unchanged.</p>
+  <p class="caption">Each column adds up to 177. Counted per execution (a loop's part once per pass) the three "other" rows merge into one: PaSh's own 10; the naive LLM 9, and 31 only here; Caruca 9, and 11 only here. The other rows are unchanged.</p>
   <p class="entry"><b>The naive LLM's 31 parts that only it does not split.</b> Each is a part holding a single command for which PaSh has no file of its own: <code>mkdir</code> in 30 scripts, <code>mogrify</code> in one. The naive LLM's file says the command writes something other than a stream, so PaSh logs "has outputs other than streaming" and runs it as plain bash. Under PaSh's own files the same parts count as "no files". The answer is correct and nothing splittable was lost; the counting script calls them "other, not classified", and PaSh's log names them.</p>
-  <p class="entry"><b>Why PaSh's compiler stopped.</b> It stopped with one of two errors, in the same parts in every run; both are read from PaSh's logs. One is <code>NameError: name 'Arg' is not defined</code>, in <code>create_reduce_tree</code> (<code>compiler/ir.py</code>, line 1454), the code that builds the tree joining split pieces. The name was lost in PaSh's January 2026 code reorganisation; we reported it to PaSh on 20 November as issue 794. It hits one part of <code>oneliners/bi-grams</code> under every source. The other is an <code>AssertionError</code> in <code>pipe_append</code> (<code>compiler/ir.py</code>, line 596), where PaSh joins the commands of a pipeline. It checks that the command after each <code>|</code> reads its standard input, and fails when a command's file says the command reads a file named by one of its own words instead. That happens for <code>tail -n 1</code> and <code>awk</code> with PaSh's own files, <code>fmt -w1</code> and <code>sed</code> with the naive LLM's, and <code>sort -r</code>, <code>sort -n</code> and <code>sort -rn</code> with Caruca's small grammar. The scripts are listed under the chart in A.7.</p>
+  <p class="entry"><b>Why PaSh's compiler stopped.</b> Every stop is one of two errors in PaSh's log (<a class="xr" href="#tab-a3">Table A.3</a>): a PaSh bug independent of the files, and an assertion with one cause in every source: an annotation file took a word on the command line for an input file name, so PaSh believed the command would not read its pipe. Only the mistaken word differs: an option's value (PaSh's own <code>tail -n 1</code>, the naive LLM's <code>fmt -w1</code>), a program text (<code>awk</code>), or an option missing from Caruca's grammar for PaSh (<code>sort -r</code>, <code>-n</code>, <code>-rn</code>). Of the naive LLM's three assertion stops, one (<code>covid/5</code>, the <code>awk</code> program) is shared with PaSh's own files; its own two are both <code>fmt -w1</code> (Unix50 scripts 34 and 36; PaSh's log shows <code>-w1</code> taken as a file name in both). Caruca's files stop on neither <code>awk</code> nor <code>tail</code>. PaSh ran every such part as plain bash, so the output stayed right; <a class="xr" href="#tab-a5">Table A.5</a> lists the scripts.</p>
+  <p class="tcap" id="tab-a3"><b>Table A.3:</b> The two errors behind every compiler stop, read from PaSh's logs, and what in the annotation files triggers them. Counts are distinct parts, all repeats alike.</p>
+  <table class="scripts causes">
+    <colgroup><col style="width:22%"><col style="width:26%"><col style="width:27%"><col style="width:8.3%"><col style="width:8.3%"><col style="width:8.3%"></colgroup>
+    <thead><tr><th>Error in PaSh's log</th><th>What it means</th><th>What triggers it</th><th class="src pash">PaSh's own</th><th class="src naive">Naive LLM</th><th class="src cpash">Caruca</th></tr></thead>
+    <tbody>
+      <tr><td><code>NameError: name 'Arg' is not defined</code> in <code>create_reduce_tree</code></td><td>A PaSh bug: a name lost in its January 2026 code reorganisation, hit when PaSh builds the tree that joins split pieces; reported as issue 794</td><td>Nothing in the files; one part of <code>oneliners/bi-grams</code> under every source</td><td class="num">1</td><td class="num">1</td><td class="num">1</td></tr>
+      <tr><td><code>AssertionError</code> in <code>pipe_append</code> (<code>assert not other_in is None</code>)</td><td>PaSh pipes one command into the next, but the next command's file says it reads a named file, not standard input</td><td>A word taken for an input file: option value (<code>tail -n 1</code>; <code>fmt -w1</code>, naive LLM), program text (<code>awk</code>), option missing from the grammar (<code>sort -r</code>, <code>-n</code>, <code>-rn</code>)</td><td class="num">3</td><td class="num">3</td><td class="num">10</td></tr>
+      <tr><th>Parts where the compiler stopped</th><td></td><td></td><td class="num">4</td><td class="num">4</td><td class="num">11</td></tr>
+    </tbody>
+  </table>
 
-  <h3 class="first">A.5  The scripts</h3>
+  <h3 id="a-5" class="first">A.5  The scripts</h3>
+  <p class="supports">Supports: <a class="xr" href="#run">How it was run</a>.</p>
   <p class="entry">Scripts are in Koala's checkout in the virtual machine, under <code>~/koala/</code>. Marks: <sup>e</sup> edited, <sup>r</sup> rewritten, <sup>n</sup> new in Koala; unmarked scripts are the published 2022 script, except how the input is passed in. The 2022 original of each is in <code>orchestration/coverage.md</code>.</p>
   <div class="groups">
 <div class="group"><p><b>Classics (one-liners)</b> <span class="muted">12 scripts,</span> <code>oneliners/scripts/</code></p><p class="files"><code>bi-grams.sh</code><sup>e</sup>, <code>comm.sh</code><sup>n</sup>, <code>diff.sh</code>, <code>nfa-regex.sh</code>, <code>opt-parallel.sh</code><sup>n</sup>, <code>set-diff.sh</code>, <code>sort.sh</code>, <code>sort-sort.sh</code>, <code>spell.sh</code><sup>e</sup>, <code>top-n.sh</code><sup>e</sup>, <code>uniq-ips.sh</code><sup>n</sup>, <code>wf.sh</code><sup>e</sup></p></div>
@@ -270,81 +367,177 @@ FORM: comparison board, locked by Tiran on 2026-11-24. Round 3 (2026-11-26): met
 <div class="group"><p><b>Genomics</b> <span class="muted">1 script,</span> <code>bio/scripts/</code></p><p class="files"><code>bio.sh</code></p></div>
   </div>
 
-  <h3>A.6  Where a source changed what PaSh split, by command</h3>
-  <p class="tcap"><b>Table A.6:</b> Commands where a source changed what PaSh split, in scripts (as in Figure 2). PaSh's own: scripts split, of those using the command in a part. Others: split here and not with PaSh's own (+), or the reverse (−). Last column: distinct command lines behind the counts.</p>
+  <h3 id="a-6">A.6  Where a source changed what PaSh split, by command</h3>
+  <p class="supports">Supports: <a class="xr" href="#t1r-parts">Table 1, parts split</a>; <a class="xr" href="#fig-2">Figure 2</a>; <a class="xr" href="#sec-4">section 4</a>.</p>
+  <p class="tcap" id="tab-a4"><b>Table A.4:</b> Commands where a source changed what PaSh split, in scripts (as in <a class="xr" href="#fig-2">Figure 2</a>). PaSh's own: scripts split, of those using the command in a part. Others: split here and not with PaSh's own (+), or the reverse (−). Last column: distinct command lines behind the counts.</p>
   <table class="diff">
     <thead>
       <tr>
         <th>Command</th>
         <th class="src pash">PaSh's own files</th>
         <th class="src naive">The naive LLM</th>
-        <th class="src cpash">Caruca's small grammar</th>
-        <th class="src cmain">Caruca's full grammar</th>
+        <th class="src cpash">Caruca</th>
         <th class="num">Command lines</th>
       </tr>
     </thead>
     <tbody>
-      <tr><th><code>cat</code></th><td class="ref">0 of 82</td><td class="naive changed">+43</td><td class="cpash changed">+29</td><td class="cmain changed">+41</td><td class="num">1</td></tr>
-      <tr><th><code>sort</code></th><td class="ref">17 of 44</td><td class="naive changed">+2</td><td class="cpash changed">−17</td><td class="cmain changed">−17</td><td class="num">7</td></tr>
-      <tr><th><code>cut</code></th><td class="ref">26 of 35</td><td class="naive changed">+2</td><td class="cpash changed">−9</td><td class="same">same</td><td class="num">14</td></tr>
-      <tr><th><code>awk</code></th><td class="ref">0 of 11</td><td class="naive changed">+6</td><td class="same">same</td><td class="same">same</td><td class="num">4</td></tr>
-      <tr><th><code>tr</code></th><td class="ref">20 of 49</td><td class="naive changed">+3</td><td class="cpash changed">−5</td><td class="same">same</td><td class="num">5</td></tr>
-      <tr><th><code>sed</code></th><td class="ref">6 of 24</td><td class="naive changed">−5</td><td class="cpash changed">−5</td><td class="same">same</td><td class="num">4</td></tr>
-      <tr><th><code>grep</code></th><td class="ref">21 of 47</td><td class="naive changed">+1</td><td class="cpash changed">−4</td><td class="same">same</td><td class="num">4</td></tr>
-      <tr><th><code>col</code></th><td class="ref">1 of 1</td><td class="naive changed">−1</td><td class="same">same</td><td class="same">same</td><td class="num">1</td></tr>
-      <tr class="extra"><th>Naive LLM, second sed file (52 scripts)</th><td class="ref">–</td><td class="naive changed" colspan="3"><code>cat</code> +14, <code>awk</code> +4, <code>col</code> −1; <code>sed</code> the same as PaSh's own</td><td class="num">–</td></tr>
+      <tr><th><code>cat</code></th><td class="ref">0 of 82</td><td class="naive changed">+43</td><td class="cpash changed">+29</td><td class="num">1</td></tr>
+      <tr><th><code>sort</code></th><td class="ref">17 of 44</td><td class="naive changed">+2</td><td class="cpash changed">−17</td><td class="num">7</td></tr>
+      <tr><th><code>cut</code></th><td class="ref">26 of 35</td><td class="naive changed">+2</td><td class="cpash changed">−9</td><td class="num">14</td></tr>
+      <tr><th><code>sed</code></th><td class="ref">6 of 24</td><td class="naive changed">−5</td><td class="cpash changed">+7, −5</td><td class="num">10</td></tr>
+      <tr><th><code>tr</code></th><td class="ref">20 of 49</td><td class="naive changed">+3</td><td class="cpash changed">+2, −6</td><td class="num">8</td></tr>
+      <tr><th><code>awk</code></th><td class="ref">0 of 11</td><td class="naive changed">+6</td><td class="same">same</td><td class="num">4</td></tr>
+      <tr><th><code>grep</code></th><td class="ref">21 of 47</td><td class="naive changed">+1</td><td class="cpash changed">−4</td><td class="num">4</td></tr>
+      <tr><th><code>uniq</code></th><td class="ref">0 of 30</td><td class="same">same</td><td class="cpash changed">+2</td><td class="num">1</td></tr>
+      <tr><th><code>col</code></th><td class="ref">1 of 1</td><td class="naive changed">−1</td><td class="same">same</td><td class="num">1</td></tr>
+      <tr class="extra"><th>Naive LLM, second sed file (52 scripts)</th><td class="ref">–</td><td class="naive changed" colspan="2"><code>cat</code> +14, <code>awk</code> +4, <code>col</code> −1; <code>sed</code> the same as PaSh's own</td><td class="num">–</td></tr>
     </tbody>
   </table>
-  <p class="caption">Every other command came out the same under every source. Where PaSh's own files filled in, the result matched them in every use except 29 under Caruca's small grammar, which sit in parts its own files stopped PaSh from compiling.</p>
-</section>
-
-<section class="page page-break addendum">
-  <h3 class="first">A.7  Every script: time, parts split and crashes</h3>
-  <figure class="a5">
-    <img src="../figures_full/a5_scripts.png" alt="Two columns of rows, one per script grouped by suite group: dots for each source's time divided by bash's time on a log scale, hollow where PaSh's compiler stopped, bash's own seconds on the left and the parts split per source on the right">
-    <figcaption><b>Figure A.7:</b> One row per script. Dots: median time with each source's files ÷ bash's median, log scale; thin line: fastest to slowest of the three runs. Left: bash's median in seconds (0.00 is under 5 ms). Right: parts split under each source, in its colour, of the parts PaSh compiled. Two natural-language scripts and web-search were timed again after a Mac sleep (A.3).</figcaption>
-  </figure>
-  <p class="tcap"><b>Table A.7:</b> Where PaSh's compiler stopped (the hollow dots in Figure A.7; one part each).</p>
+  <p class="caption">Every other command came out the same under every source. <code>cat</code>'s line is one form, a plain <code>cat</code> of one file, over 22 file names. Where PaSh's own files filled in for a command, the result matched them in every use (Caruca: 1 use, <code>bigrams_aux</code>).</p>
+  <p class="entry"><b>Wrong output (the crosses in Figure A.9).</b> Caruca: <code>oneliners/spell</code>, <code>unixfun/23</code>, <code>26</code>, <code>28</code> to <code>33</code> (with full grammars: <a class="xr" href="#a-8">A.8</a>). The <code>sed</code> lines are <code>1d</code> to <code>5d</code> in <code>unixfun/26</code> and <code>28</code> to <code>33</code>.</p>
+  <p class="tcap" id="tab-a5"><b>Table A.5:</b> Where PaSh's compiler stopped (the hollow dots in <a class="xr" href="#fig-a9">Figure A.9</a>; one part each).</p>
   <table class="scripts crashes">
     <thead><tr><th>Scripts</th><th>Source</th><th>Error</th></tr></thead>
     <tbody>
       <tr><td><code>oneliners/bi-grams</code></td><td>every source, and the second sed file</td><td><code>NameError</code></td></tr>
-      <tr><td><code>covid/5</code></td><td>every source, and the second sed file</td><td><code>AssertionError</code></td></tr>
-      <tr><td><code>unixfun/12</code>, <code>unixfun/16</code></td><td>PaSh's own files, Caruca's small and full grammar</td><td><code>AssertionError</code></td></tr>
+      <tr><td><code>covid/5</code></td><td>PaSh's own files, the naive LLM, and the second sed file</td><td><code>AssertionError</code></td></tr>
+      <tr><td><code>unixfun/12</code>, <code>unixfun/16</code></td><td>PaSh's own files</td><td><code>AssertionError</code></td></tr>
       <tr><td><code>unixfun/34</code></td><td>the naive LLM</td><td><code>AssertionError</code></td></tr>
-      <tr><td><code>unixfun/36</code></td><td>the naive LLM, and the second sed file</td><td><code>AssertionError</code></td></tr>
-      <tr><td><code>oneliners/top-n</code>, <code>wf</code>, <code>sort-sort</code>; <code>unixfun/4</code>, <code>10</code>, <code>11</code>, <code>14</code>, <code>17</code>; <code>covid/1</code>, <code>4</code></td><td>Caruca's small grammar</td><td><code>AssertionError</code></td></tr>
+      <tr><td><code>unixfun/36</code></td><td>the naive LLM, the second sed file</td><td><code>AssertionError</code></td></tr>
+      <tr><td><code>oneliners/top-n</code>, <code>wf</code>, <code>sort-sort</code>; <code>unixfun/4</code>, <code>10</code>, <code>11</code>, <code>14</code>, <code>17</code>; <code>covid/1</code>, <code>4</code></td><td>Caruca</td><td><code>AssertionError</code></td></tr>
     </tbody>
   </table>
+  <h3 id="a-7">A.7  Caruca's wrong outputs, side by side</h3>
+  <p class="supports">Supports: <a class="xr" href="#t1r-output">Table 1, output</a>; <a class="xr" href="#sec-2">section 2</a>.</p>
+  <p class="entry">Four wrong outputs: three of the 9 with Caruca's files as run here and one (top-n) with its full grammars (<a class="xr" href="#a-8">A.8</a>), regenerated with the batch's runner and identical, by checksum, to what the batch recorded. + marks lines only in Caruca's output.</p>
+  <div class="wrongex">
+    <div class="ex">
+      <p class="ex-h"><b>Unix50, script 23</b></p>
+      <p class="ex-pipe"><code>… | grep "[A-Z]" | tr -d '\n' | cut -c 1-4</code></p>
+      <p class="ex-split">Caruca let <code>tr -d '\n'</code> and <code>cut</code> split.</p>
+<pre>  PORT
++ T'PO
++ T'PO
++ RT'P
++ RT'P
++ ORT'
+  … 25 more added lines</pre>
+      <p class="ex-why">bash prints 4 letters (5 bytes); Caruca's prints 31 lines of 4 letters (155 bytes), one per 1&nbsp;MB block, because each block's <code>tr</code> and <code>cut</code> ran on their own.</p>
+    </div>
+    <div class="ex">
+      <p class="ex-h"><b>Classics, top-n</b> <span class="muted">with full grammars (<a class="xr" href="#a-8">A.8</a>)</span></p>
+      <p class="ex-pipe"><code>… | uniq -c | sort -rn | sed 100q</code></p>
+      <p class="ex-split">Caruca let <code>sed 100q</code> split.</p>
+<pre>     7110 see
+     7080 go
++     390 explain
++     390 excellent
++     390 everywhere
+  … 697 more added lines</pre>
+      <p class="ex-why">bash prints the 100 most frequent words; Caruca's prints 800 lines, the first 100 of each of 8 pieces of the sorted list. The first two lines above are bash's lines 99 and 100.</p>
+    </div>
+    <div class="ex">
+      <p class="ex-h"><b>Classics, spell</b></p>
+      <p class="ex-pipe"><code>… | sort | uniq | comm -23 - dict</code></p>
+      <p class="ex-split">Caruca let <code>uniq</code> split.</p>
+<pre>  amstetten
++ an
+  anatole
+  bacawollai
++ back
+  badlyall
+  … 25 more added words</pre>
+      <p class="ex-why">bash prints 1,234 words not in the dictionary; Caruca's prints 1,261. A word that falls where two pieces meet leaves <code>uniq</code> twice; <code>comm</code> matches one copy with the dictionary and prints the other, so 27 dictionary words appear as misspellings.</p>
+    </div>
+    <div class="ex">
+      <p class="ex-h"><b>Unix50, script 26</b></p>
+      <p class="ex-pipe"><code>… | grep '"' | sed 4d | cut -d '"' -f 2 | tr -d '\n'</code></p>
+      <p class="ex-split">Caruca let <code>sed 4d</code> split.</p>
+      <p class="ex-why">One line either way, 3,044,246 bytes under bash and 3,044,195 under Caruca's files. bash deletes the 4th line of the whole stream; split, <code>sed</code> deletes the 4th line of every one of the 8 pieces, so 7 more short fields (51 bytes) are lost from the middle of the line.</p>
+    </div>
+  </div>
+
+</section>
+
+<section class="page addendum">
+  <h3 id="a-8" class="tight">A.8  Caruca with its full grammars</h3>
+  <p class="supports">Supports: <a class="xr" href="#t1-full">Table 1, Caruca column</a>; <a class="xr" href="#sec-2">section 2</a>; <a class="xr" href="#sec-7">section 7</a>.</p>
+  <p class="entry">The body's Caruca is Caruca as its paper ran it for PaSh: files traced under the hand-trimmed grammars ("small grammars"). Here, Caruca's files traced under its full hand-written grammars where tractable: 22 of the 53 commands, at up to 2 options per run (small grammars: up to 4), the small grammar for the other 31 (<a class="xr" href="#a-3">A.3</a>).</p>
+  <p class="tcap" id="tab-a6"><b>Table A.6:</b> Caruca with its small grammars (the body's Caruca) and with full grammars where traceable, on every row of <a class="xr" href="#tab-1">Table 1</a>.</p>
+  <table class="scripts fullvs">
+    <thead><tr><th>Measure</th><th class="num src pash">PaSh's own</th><th class="num src cpash">Caruca, small grammars</th><th class="num src cmain">Caruca, full where traced</th></tr></thead>
+    <tbody>
+      <tr><th>Output same as bash, of 86 scripts ↑</th><td class="num">86</td><td class="num">77</td><td class="num">76</td></tr>
+      <tr><th>Parts split, of 177 ↑ (gained, lost against PaSh's own)</th><td class="num">41</td><td class="num">29 (0, 12)</td><td class="num">40 (0, 1)</td></tr>
+      <tr><th>Scripts with a part split, of 86 ↑ (without <code>cat</code>)</th><td class="num">41 (41)</td><td class="num">29 (27)</td><td class="num">40 (38)</td></tr>
+      <tr><th>Parts where PaSh's compiler stopped, of 177 ↓</th><td class="num">4</td><td class="num">11</td><td class="num">3</td></tr>
+      <tr><th>Time ÷ time with PaSh's own files ↓</th><td class="num">1.00</td><td class="num">1.09</td><td class="num">1.10</td></tr>
+      <tr><th>Time ÷ bash time, start-up removed, 72 scripts ↓</th><td class="num">0.97</td><td class="num">1.05</td><td class="num">1.09</td></tr>
+      <tr><th>Commands with the source's own files</th><td class="num">30</td><td class="num">53</td><td class="num">53 (22 full)</td></tr>
+      <tr><th>Commands whose files failed to load ↓</th><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+      <tr><th>Same reads and writes as PaSh's own, of 178 lines</th><td class="num">–</td><td class="num">147</td><td class="num">155</td></tr>
+      <tr><th>Same split decision as PaSh's own, of 113 lines</th><td class="num">–</td><td class="num">79</td><td class="num">83</td></tr>
+    </tbody>
+  </table>
+  <p class="caption">Wrong output, full grammars: <code>oneliners/top-n</code> (<code>sed 100q</code>, shown in <a class="xr" href="#a-7">A.7</a>), <code>unixfun/17</code> (<code>uniq</code>), <code>23</code>, <code>26</code>, <code>28</code> to <code>33</code>; 8 shared with the small grammars, whose ninth is <code>oneliners/spell</code>. Each is right under the other set only because PaSh ran that part as plain bash there. Compiler stops, full grammars: <code>oneliners/bi-grams</code> (the PaSh bug) and <code>unixfun/34</code>, <code>36</code> (<code>fmt -w1</code>, as for the naive LLM).</p>
+  <p class="entry">The full grammars split more (40 of 86 scripts against 29) and stop PaSh's compiler less (3 parts against 11): the trimmed grammars lack options such as <code>sort -r</code> and <code>-n</code>. They do not fix correctness (10 of 86 scripts wrong against 9, 8 the same): the wrong outputs come from how Caruca merges test results and from its test inputs, not from which options it knows (<a class="xr" href="#sec-2">section 2</a>).</p>
+</section>
+
+<section class="page page-break addendum">
+  <h3 id="a-9" class="first">A.9  Every script: time, parts split and crashes</h3>
+  <p class="supports">Supports: <a class="xr" href="#t1r-scripts">Table 1, scripts with a part split</a>; <a class="xr" href="#sec-5">section 5</a>.</p>
+  <figure class="a5" id="fig-a9">
+    <img src="../figures_full/a5_scripts_1.png" alt="One row per script of the Classics and Unix50 groups: dots for each source's time divided by bash's time on a log scale, hollow where PaSh's compiler stopped, bash's own seconds on the left and the parts split per source on the right">
+    <figcaption><b>Figure A.9:</b> One row per script; this page Classics and Unix50, the next page the other seven groups. Dots: median time with each source's files ÷ bash's median, log scale; thin line: fastest to slowest of the three runs; a cross where the printed output differed from bash's. Left: bash's median in seconds (0.00 is under 5 ms). Right: parts split under each source, in its colour, of the parts PaSh compiled. Each source's time is divided by bash's time from the same run (<a class="xr" href="#a-3">A.3</a>).</figcaption>
+  </figure>
+</section>
+
+<section class="page page-break addendum">
+  <figure class="a5">
+    <img src="../figures_full/a5_scripts_2.png" alt="One row per script of the remaining seven groups, drawn as on the previous page">
+    <figcaption><b>Figure A.9, continued:</b> the other seven groups. Two natural-language scripts and web-search were timed again after a Mac sleep (<a class="xr" href="#a-3">A.3</a>).</figcaption>
+  </figure>
 </section>
 
 
 <section class="page page-break addendum">
-  <h3>A.8  Records</h3>
-  <p class="entry">Paths are relative to <code>naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/</code> in the repository, unless they start with <code>~</code> (the PaSh virtual machine).</p>
-  <p class="tcap"><b>Table A.8:</b> The records and where each lives.</p>
-  <table class="scripts records">
+  <h3 id="a-10">A.10  Records</h3>
+  <p class="supports">Supports: every number in the report, from <a class="xr" href="#tab-1">Table 1</a> on.</p>
+  <p class="entry">Paths are relative to <code>naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/</code> in the repository, unless they start with <code>~</code> (the PaSh virtual machine).</p>
+  <p class="tcap" id="tab-a7"><b>Table A.7:</b> The records and where each lives.</p>
+  <table class="scripts records recs">
     <thead><tr><th>What</th><th>Where</th></tr></thead>
     <tbody>
+      <tr><td>The naive LLM against PaSh's own files, per command (<a class="xr" href="#tab-3">Table 3</a>)</td><td><code>per_command.md</code>, <code>per_command.json</code>, written by <code>per_command.py</code></td></tr>
+      <tr><td>Caruca's annotation files used here, written from its two grammars</td><td><code>binpash/caruca</code>, branch <code>pash-python-annotations</code> (commit <code>be33389a5</code>), <code>caruca/save_pash_py/</code></td></tr>
+      <tr><td>Caruca's two grammars</td><td><code>binpash/caruca</code>: full grammars in <code>caruca/src/caruca/syntax_specs/</code> (120 commands), small grammars in <code>caruca/src/caruca/pash_syntax_specs/</code> (54)</td></tr>
+      <tr><td>How Caruca's remaining commands were converted, the converter repair, and what was left out</td><td><code>caruca_conversion/README.md</code>, <code>caruca_conversion/logs/status.tsv</code></td></tr>
+      <tr><td>The second session's records (Caruca's files for all converted commands)</td><td><code>full_run_caruca_all/</code>: <code>results.jsonl.gz</code>, <code>regions.jsonl.gz</code>, <code>occurrences.jsonl.gz</code>, <code>answers/</code>, <code>manifest.json</code> (file hashes and the grammar used per command), <code>README.md</code></td></tr>
+      <tr><td>Every second-session number</td><td><code>numbers_caruca_all.md</code>, <code>.json</code>, written by <code>count_report.py</code> (records prepared by <code>prep_full_records.py</code>); the runner's own count <code>full_run_caruca_all/numbers.md</code></td></tr>
+      <tr><td>Caruca against PaSh's own files, per command (<a class="xr" href="#tab-3">Table 3</a>)</td><td><code>full_run_caruca_all/per_command_caruca-main-all.md</code> and <code>-pash-all.md</code>, written by <code>per_command_caruca.py</code></td></tr>
+      <tr><td>The independent check of the wrong outputs (<a class="xr" href="#tab-2">Table 2</a>)</td><td><code>full_run_caruca_all/wrong_outputs_verified.md</code></td></tr>
+      <tr><td>PaSh's start-up and compile overhead, and time with it removed (<a class="xr" href="#tab-5">Table 5</a>, <a class="xr" href="#tab-1">Table 1</a>)</td><td><code>overhead_adjusted.md</code>, written by <code>overhead_adjusted.py</code></td></tr>
+      <tr><td>The four wrong outputs shown in <a class="xr" href="#a-7">A.7</a>, re-generated, with their diffs against bash</td><td><code>full_run_caruca_all/wrong_output_examples/</code>: <code>summary.json</code>, <code>*.out</code>, <code>*.diff</code></td></tr>
       <tr><td>Every number in this report</td><td><code>numbers_full.md</code>, <code>numbers_full.json</code>, written by <code>count_report.py</code></td></tr>
       <tr><td>The full run's records: per run, per part, per command use</td><td><code>full_run/results.jsonl.gz</code>, <code>regions.jsonl.gz</code>, <code>occurrences.jsonl.gz</code></td></tr>
       <tr><td>Each source's direct answer per command line</td><td><code>full_run/answers/</code></td></tr>
       <tr><td>Commits, file hashes, which source supplied each command's files</td><td><code>full_run/manifest.json</code></td></tr>
       <tr><td>Time windows of the runs, and the Mac's sleeps</td><td><code>full_run/run_windows.jsonl</code>, <code>sleep_events.jsonl</code></td></tr>
       <tr><td>The runner's own count, compared cell by cell (no headline cell differs)</td><td><code>full_run/numbers.md</code> and its README; last section of <code>numbers_full.md</code></td></tr>
-      <tr><td>The two fixes applied before counting (A.3)</td><td><code>prep_full_records.py</code></td></tr>
+      <tr><td>The two fixes applied before counting (<a class="xr" href="#a-3">A.3</a>)</td><td><code>prep_full_records.py</code></td></tr>
       <tr><td>Every command use whose result differs from PaSh's own</td><td><code>numbers_full.md</code>, section "Appendix A4: every use whose result differs from PaSh's own"</td></tr>
       <tr><td>Times per script and source, in seconds (median, fastest, slowest)</td><td><code>numbers_full.md</code>, section "Appendix A5: times per script"</td></tr>
-      <tr><td>Figures 1, 2, 3 and A.7 (each checks itself against <code>numbers_full.json</code>)</td><td><code>figures_interim/make_figures_interim.py</code>, drawn into <code>figures_full/</code></td></tr>
+      <tr><td><a class="xr" href="#fig-1">Figures 1</a>, <a class="xr" href="#fig-2">2</a>, <a class="xr" href="#fig-3">3</a>, <a class="xr" href="#fig-a3">A.3</a> and <a class="xr" href="#fig-a9">A.9</a> (each checks itself against <code>numbers_full.json</code> and <code>numbers_caruca_all.json</code>); <a class="xr" href="#fig-1">Figure 1</a></td><td><code>figures_interim/make_figures_interim.py</code> with <code>--caruca-records full_run_caruca_all</code>; <code>figures_interim/make_scorecard.py</code> (values and sources in its comments); drawn into <code>figures_full/</code></td></tr>
       <tr><td>The long-form setup drawing</td><td><code>figures_full/setup_diagram.excalidraw</code></td></tr>
       <tr><td>The 2022 original of each script</td><td><code>orchestration/coverage.md</code></td></tr>
       <tr><td>The independent check; the vetted causes</td><td><code>orchestration/review_checker_full.md</code>; <code>orchestration/judgment_errors.md</code></td></tr>
       <tr><td>PaSh version and workers</td><td>PaSh commit <code>42a8b87</code>, 8 workers (the machine's 8 cores)</td></tr>
       <tr><td>Koala version</td><td>commit <code>ccf25a57</code>, checked out at <code>~/koala/</code></td></tr>
-      <tr><td>PaSh's logs</td><td><code>~/t024/out/logs/</code></td></tr>
+      <tr><td>PaSh's logs</td><td><code>~/t024/out/logs/</code>; second session <code>~/t024/out_caruca_all/</code></td></tr>
       <tr><td>This document</td><td><code>report/report.html</code> and <code>report.css</code>, built with <code>report/build.ts</code></td></tr>
     </tbody>
   </table>
 </section>
+
 </body>
 </html>

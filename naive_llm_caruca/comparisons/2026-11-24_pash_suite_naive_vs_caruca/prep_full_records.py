@@ -102,7 +102,8 @@ def main():
     write(O / "commands.jsonl", jl(R / "commands.jsonl.gz"))
     for f in ("invocations.jsonl", "controls.jsonl", "controls_occurrences.jsonl", "run_windows.jsonl",
               "sets.json", "sleep_events.jsonl"):
-        shutil.copy(R / f, O / f)
+        if (R / f).exists():   # the Caruca rerun (full_run_caruca_all/) has no controls and no sleeps
+            shutil.copy(R / f, O / f)
     (O / "prep_log.json").write_text(json.dumps(log, indent=1) + "\n")
     for k, v in log.items():
         print(f"{k}: {v}")

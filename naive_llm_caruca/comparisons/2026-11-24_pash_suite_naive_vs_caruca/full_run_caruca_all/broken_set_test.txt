@@ -1,0 +1,19 @@
+# 2026-11-26 14:3x, pash VM: `pash -w 8 -d 2 --local-annotations-dir ~/t024/sets/caruca-pash-all /tmp/t.sh` (t.sh = `cat /tmp/in.txt | tr a-z A-Z | sort`) with Caruca's paste file in the set; pash-own on the same script: rc 0, 1 region sent, 1 parallelized.
+Traceback (most recent call last):
+  File "/home/tirandagan.guest/pash/src/pash/compiler/compilation_server.py", line 19, in <module>
+    from pash_graphviz import maybe_init_graphviz_dir, maybe_generate_graphviz
+  File "/home/tirandagan.guest/pash/src/pash/compiler/pash_graphviz.py", line 3, in <module>
+    from ir import IR
+  File "/home/tirandagan.guest/pash/src/pash/compiler/ir.py", line 29, in <module>
+    from annotations_utils.util_cmd_invocations import (
+  File "/home/tirandagan.guest/pash/src/pash/compiler/annotations_utils/util_cmd_invocations.py", line 13, in <module>
+    from pash_annotations.annotation_generation.AnnotationGeneration import (
+  File "/home/tirandagan.guest/t024/sets/caruca-pash-all/pash_annotations/annotation_generation/AnnotationGeneration.py", line 96, in <module>
+    exec(import_str)
+  File "<string>", line 1, in <module>
+  File "/home/tirandagan.guest/t024/sets/caruca-pash-all/pash_annotations/annotation_generation/annotation_generators/InputOutputInfoGeneratorPaste.py", line 23
+    ' abspath_1` (+5 more)
+TabError: inconsistent use of tabs and spaces in indentation
+Error: Maximum retries: 1000 exceeded when waiting for server: compilation-server to bind to socket: /tmp/pash_Kudw6oF//daemon_socket!
+Exiting...
+rc=1

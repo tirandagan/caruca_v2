@@ -1,7 +1,7 @@
 # Brief: independent check of the pilot run (naive LLM's PaSh files vs PaSh's own)
 
 You are a checker. Another worker built and ran an experiment in this folder:
-`naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/`. Its brief is
+`naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/`. Its brief is
 `orchestration/brief_builder.md`; read it for what was asked. Your job is to find out, **from the raw
 records and by re-running things yourself**, whether the results can be trusted. Do not take the
 worker's README at its word. Read it last, and only to compare its claims with what you found.

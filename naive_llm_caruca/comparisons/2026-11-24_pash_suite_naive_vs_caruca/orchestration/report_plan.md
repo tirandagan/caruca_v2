@@ -372,7 +372,7 @@ records:
 
 ## 6. Skeleton of the report
 
-Location: `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/report.md`, with the attribution
+Location: `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/report.md`, with the attribution
 notice the other analysis documents carry, at the top. Square brackets mark placeholders, all filled
 from `numbers.md`.
 

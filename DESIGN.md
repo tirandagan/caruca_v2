@@ -18,6 +18,7 @@ colors:
   src-naive: "#2563EB"
   src-cpash: "#e8622b"
   src-cmain: "#f0b060"
+  link: "#3B3F99"
 typography:
   display:
     fontFamily: "Lexend Deca, -apple-system, Segoe UI, sans-serif"
@@ -69,6 +70,41 @@ typography:
     lineHeight: 1.45
   chrome:
     fontFamily: "Lexend Deca, -apple-system, Segoe UI, sans-serif"
+    fontSize: "8pt"
+    fontWeight: 400
+  conf-body:
+    fontFamily: "Libertinus Serif, serif"
+    fontSize: "10pt"
+    fontWeight: 400
+    lineHeight: 1.2
+  conf-heading:
+    fontFamily: "Libertinus Sans, sans-serif"
+    fontSize: "12pt"
+    fontWeight: 700
+  conf-subheading:
+    fontFamily: "Libertinus Sans, sans-serif"
+    fontSize: "10.5pt"
+    fontWeight: 700
+  conf-table:
+    fontFamily: "Libertinus Serif, serif"
+    fontSize: "8.6pt"
+    fontWeight: 400
+  conf-caption:
+    fontFamily: "Libertinus Sans, sans-serif"
+    fontSize: "8.8pt"
+    fontWeight: 400
+    lineHeight: 1.3
+  conf-note:
+    fontFamily: "Libertinus Sans, sans-serif"
+    fontSize: "7.4pt"
+    fontWeight: 400
+    lineHeight: 1.18
+  conf-mono:
+    fontFamily: "Inconsolata, JetBrains Mono, monospace"
+    fontSize: "0.96em"
+    fontWeight: 400
+  conf-chrome:
+    fontFamily: "Libertinus Sans, sans-serif"
     fontSize: "8pt"
     fontWeight: 400
 rounded:
@@ -283,5 +319,22 @@ ACM `acmart` look (Tiran's call, ISSTA 2027 target): Libertinus Serif 10/12 pt j
 headings in ink (no blue), Inconsolata code, numbered sections with appendix A.1..A.n, booktabs tables (1.2 pt top
 and bottom rules, 0.6 pt under the head, no vertical rules), captions in 8.8 pt sans with a bold "Figure n:" label.
 The source-colour family, the comparison board, the tinted reference column and the page-break rules above are kept.
-First instance: `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/report/` (the academic block at the
+First instance: `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/report/` (the academic block at the
 end of its `report.css`; fonts in `scripts/md-to-pdf/fonts/academic/`).
+
+### Conference variant, Draft 2.3 additions (2026-11-27)
+
+- **Fonts** (tokens `conf-*` above): Libertinus Serif for text and table cells, Libertinus Sans for headings,
+  captions, notes and the running head and foot, Inconsolata for code. The `typography` tokens without the `conf-`
+  prefix stay the Caruca house style (Lexend Deca, JetBrains Mono).
+- **Links**: every internal link and table-note mark is `link` #3B3F99 (ACM's dark blue-violet, kept apart from the
+  naive LLM's #2563EB) with a 0.5 pt dotted underline offset 1.5 pt, so links show in black-and-white print too; note
+  marks are bold. References carry ", p. N" when their target is on another page (set by the build's two passes).
+- **Table notes**: ACM-style letters a, b, c restarting per table, one per line with a hanging indent, each with a
+  ↩ back-link to its row; body notes stay numbered at the foot of the page.
+- **Verdict cues** in a comparison board: ▲ better / ▼ worse than the reference column, in the source's colour and
+  bold; ↑ or ↓ in the row label says which way is better; a closing "Reading" row, no winner.
+- **Source order**: PaSh's own files, the naive LLM, Caruca's small grammar, Caruca full where traced, in every table,
+  legend and figure row.
+- **Chrome**: running head = the current section (page 1: the short title); foot = "Page n of N" only; PDF outline
+  from headings and captions; PDF title = the visible title.

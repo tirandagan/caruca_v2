@@ -112,7 +112,7 @@ Older runs of a command that has a later one. Their files are not copied here.
 - `head`: [2026-10-28_095255…](../runs/2026-10-28_095255_naive-run-head_head_PROMPT_v1/) (2026-10-28)
 - `head`: [2026-10-28_144919…](../runs/2026-10-28_144919_naive-run-head-r2_head_PROMPT_v1/) (2026-10-28)
 - `rm`: [2026-10-20_121932…](../runs/2026-10-20_121932_naive-run-rm_rm_PROMPT_v1/) (2026-10-20)
-- `sed`: [2026-10-28_124823…](../runs/2026-10-28_124823_naive-run-sed_sed_PROMPT_v1/) (2026-10-28): its file misreads quoted scripts because the format document never said PaSh keeps the quotes (an instrument gap, see [judgment_errors.md](../runs/2026-11-24_pash_koala_naive_vs_pash/orchestration/judgment_errors.md), section 1); re-run as repeat 2
+- `sed`: [2026-10-28_124823…](../runs/2026-10-28_124823_naive-run-sed_sed_PROMPT_v1/) (2026-10-28): its file misreads quoted scripts because the format document never said PaSh keeps the quotes (an instrument gap, see [judgment_errors.md](../comparisons/2026-11-24_pash_suite_naive_vs_caruca/orchestration/judgment_errors.md), section 1); re-run as repeat 2
 - `sort`: [2026-10-20_160340…](../runs/2026-10-20_160340_naive-run-sort_sort_PROMPT_v1/) (2026-10-20)
 - `sort`: [2026-10-28_140825…](../runs/2026-10-28_140825_naive-run-sort_sort_PROMPT_v1/) (2026-10-28)
 - `sort`: [2026-10-28_151151…](../runs/2026-10-28_151151_naive-run-sort-r2_sort_PROMPT_v1/) (2026-10-28)

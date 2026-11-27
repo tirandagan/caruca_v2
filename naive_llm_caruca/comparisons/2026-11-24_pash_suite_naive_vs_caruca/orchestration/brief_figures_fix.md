@@ -1,7 +1,7 @@
 # Brief: fix two figures after the font change (2026-11-26)
 
 You are a worker. Edit only `figures_interim/make_figures_interim.py` in this run folder
-(`naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/`) and regenerate its outputs into `figures_full/`
+(`naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/`) and regenerate its outputs into `figures_full/`
 with exactly this command, run from the run folder:
 
     uv run --with matplotlib --with numpy python figures_interim/make_figures_interim.py --records full_run --numbers numbers_full.json --out figures_full

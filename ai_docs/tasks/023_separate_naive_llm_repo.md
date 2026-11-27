@@ -299,7 +299,7 @@ Seven scripts walk up from their own file to find the repo: `run_campaign.py`
 (`REPO = dirname(dirname(HERE))`, then reads `REPO/.env`), `quality.py` (`CAMPAIGN.parents[1]`),
 `score_t018.py` (`parents[2]`, then `REPO/src`), `score_pash.py` (`HERE.parents[1]`, "the arm folder"),
 and, since 2026-11-24, the hand-built report's `build.ts` in
-`runs/2026-11-24_pash_koala_naive_vs_pash/report/`, which imports the brand fonts, colour tokens and
+`comparisons/2026-11-24_pash_suite_naive_vs_caruca/report/`, which imports the brand fonts, colour tokens and
 logo from `../../../../scripts/md-to-pdf/` (`tokens.ts`, `assets/logo-base64.ts`, `fonts/`), four
 levels up, and renders with `puppeteer` and `pdf-lib` from the root `package.json`. Every future report
 for Michael is to be built the same way (`memory/feedback_report_pdf_hand_built.md`), so this path is a
@@ -355,7 +355,7 @@ repo's `CLAUDE.md` lists them so a session on the WSL PC knows what will not wor
 
 1. **Work is in progress right now.** On 2026-11-24 at the time of writing, four Herdr panes, five
    Claude Code processes and one Python process have their working directory in `caruca_v2`: the Koala
-   PaSh comparison (`naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/`, worker panes
+   PaSh comparison (`naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/`, worker panes
    pash-builder, pash-inventory, pash-checker), with `run_koala.py` last edited at 12:06 and the `pash`
    VM running. Ten files are uncommitted, and the list grows as the peer sessions write. (Re-counted at
    the end of the afternoon: three Herdr panes and three Claude Code sessions, one of them the
@@ -512,7 +512,7 @@ Each step is checked before the next starts. Nothing is removed from `caruca_v2`
 7. **Run the new repo's scripts once each.** `score_t018.py --table` (vendored imports), `quality.py --table`,
    `score_pash.py` on one command, `make_figures.py`, `excalidraw_fill.py` on one existing diagram, the
    PDF converter on one run analysis, the hand-built report's `build.ts`
-   (`npx tsx naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/report/build.ts`, which proves
+   (`npx tsx naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/report/build.ts`, which proves
    the four-levels-up import of fonts and tokens), `new_run_vm.sh --help` or its dry path, a
    `task-creator` invocation that prints the attribution block, finds its template and proposes the
    right next number (025), `pash_annotations_latest/refresh.py --dry-run` (reads the ledger and the

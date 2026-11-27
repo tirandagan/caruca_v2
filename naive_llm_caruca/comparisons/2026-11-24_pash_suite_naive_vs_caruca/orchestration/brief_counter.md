@@ -9,7 +9,7 @@ The PaSh benchmark suite is being run right now in the Lima VM `pash` by another
 counting script writes**, never by hand. Your job is to write that script and the chart script now,
 against the pilot's records, so they are ready and tested when the full records arrive.
 
-Read, in this order, in `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/`:
+Read, in this order, in `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/`:
 `orchestration/report_plan.md` (sections 2, 5.4 and 5.5 define exactly what to count and draw; section
 6 is the report skeleton), `orchestration/metrics_spec.md`, `orchestration/brief_builder.md` (all
 amendments), `README.md` (the pilot), the pilot's records (`results.jsonl`, `regions.jsonl`,

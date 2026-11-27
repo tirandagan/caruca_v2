@@ -8,7 +8,7 @@ metadata:
 reports Michael reads; "tables, graphs, charts and text layout must be much more professional". Reports are
 now **hand-authored HTML + CSS**, rendered by a build script that reuses the repo's brand fonts, colour
 tokens and running head/foot (`scripts/md-to-pdf/tokens.ts`, `templates.ts`) via puppeteer. First
-instance: `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/report/` (`report.html`,
+instance: `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/report/` (`report.html`,
 `report.css`, `build.ts`, `README.md` with the update procedure). Build:
 `npx tsx <that folder>/build.ts` from the repo root; pages: `pdftoppm -r 70 -png report.pdf /tmp/p`.
 

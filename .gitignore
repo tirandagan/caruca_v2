@@ -48,3 +48,7 @@ videos/**/*.mov
 
 # raw per-use records are tracked as a gzipped snapshot (file exceeds GitHub limits)
 naive_llm_caruca/runs/*/full_run/occurrences.jsonl
+naive_llm_caruca/comparisons/*/full_run/occurrences.jsonl
+
+# report build scratch (page labels, written by report/build.ts)
+naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/report/.page_labels.json

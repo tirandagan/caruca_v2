@@ -22,7 +22,7 @@ Status on 2026-11-24 afternoon: one script (`spell`) measured, independently che
 the full batch (73 scripts) is running in the VM and will take about 10 hours; the interim report is
 built from the one script.
 
-## Where everything is (all under `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/`)
+## Where everything is (all under `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/`)
 
 | What | File |
 |---|---|

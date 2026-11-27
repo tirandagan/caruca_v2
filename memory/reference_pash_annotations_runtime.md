@@ -177,7 +177,7 @@ covid 1.6×, weather 1.0×, web-search 0.94×, nlp 0.62×, unixfun 0.5× (sub-se
 index (`global-index.txt`) differs run to run even under bash** (39 of ~138k lines, pages with `€`/`~`
 names), so it can't be used for a bash-vs-PaSh hash check. Koala's unixfun omits scripts 22 and 27 on purpose.
 **Pilot of the suite comparison, `spell.sh` (2026-11-24, builder worker; records in
-`naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/`):** one region; every set's output = bash
+`naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/`):** one region; every set's output = bash
 = Koala's hash; PaSh's own files 0.61 s (sed, col, tr, sort split), naive 0.89 s (cat, tr, sort), both
 Caruca sets 1.07 s (cat, sed, col, tr; **Caruca's `sort` file allows no split for a bare `sort`**, only
 `sort -m`), bash 1.03 s. **The naive `sed` file allows a split when called directly but `sed` stays one
@@ -215,7 +215,7 @@ split) and lets `N;s/\n/ /` split (wrong: pieces pair the wrong lines, checked w
 `col` file splits always; util-linux 2.39.3 `col -bx` gives a different output when a `\v` reverse line feed
 follows a piece boundary (checked); that `col` ignored `ESC 7` in the same test. On a split `cat FILE` PaSh
 runs `r_split` (1 MB blocks to 8 pipes) → 8 × `r_wrap bash -c 'cat'` → `r_merge`. Write-up:
-`naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/orchestration/judgment_errors.md`.
+`naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/orchestration/judgment_errors.md`.
 
 **Koala's other groups on the ARM VM (inputs worker, 2026-11-24, `orchestration/inputs_setup.md`):**
 `analytics` small (2.0 GB on disk), `file-mod` small (2.3 GB; ImageMagick 6.9.11 + FFmpeg 5.1.9 built from

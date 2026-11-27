@@ -1,0 +1,2263 @@
+{
+ "caruca": {
+  "caruca-main": {
+   "cat": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cat/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCat.py": "dbeb94b64eaf54c8f6e37c6730f41b3ae0a06766098e6aab246b687f10942de5",
+     "ParallelizabilityInfoGeneratorCat.py": "006fc34621b52dd9d31cbfec169f9c42cd2e339627ca2c2f644e214e28d31c02",
+     "cat.json": "5b4f26289f480365c3b54e9c29fa471ee0e98107292010ea99ac57b1f7f8bafa"
+    },
+    "source": "Caruca, v1-pash (cat/pash_grammar/trace_1)"
+   },
+   "cp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cp/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCp.py": "cda7370b1b91420f1d59837ab44988bb66bd1d990b3bbef5d2eef10e528309fb",
+     "ParallelizabilityInfoGeneratorCp.py": "65f09d6dfc532b9fe871200427571bf8dc0daaab8feb367d8674fec4c0f19dee",
+     "cp.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, v1-pash (cp/pash_grammar/trace_1)"
+   },
+   "cut": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cut/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCut.py": "36b56333049bacbebacf9df02ab01f9fdd6d86f8f6970317f0bdce6e1ac30270",
+     "ParallelizabilityInfoGeneratorCut.py": "4c2dde517dd5a041168948824d552da9e32fde8adf3c1507070cbf9ee36c46c3",
+     "cut.json": "e351e7d31b680b8ba290866e8f9ff111348618553a48e54d3640d661b1f188f5"
+    },
+    "source": "Caruca, v1-main (cut/main_grammar/trace_1)"
+   },
+   "grep": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/grep/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorGrep.py": "8b1593b6f03f66ceaa763dddbcb854754d8c512c6ef5a4451f1868c44c121b6c",
+     "ParallelizabilityInfoGeneratorGrep.py": "740af2421d45d7074a01597789adf9a405182a97802930dbb1cb299c5737e5a3",
+     "grep.json": "69998028af963bc63027b93d1cbc0280f64d0f5f194a40e21f0c0848a8caf036"
+    },
+    "source": "Caruca, v1-pash (grep/pash_grammar/trace_1)"
+   },
+   "rm": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/rm/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorRm.py": "f757df12cc320f62e399c3009c24347bc53f655e550e306ac83a5a663a6c9ed3",
+     "ParallelizabilityInfoGeneratorRm.py": "672c68a3be2030da40d0014d5f5cc5a421b1fc26cd40d387a84e0cdcdadbb71a",
+     "rm.json": "934a799bb814a9b5aa4ac88edf6e633537e9e1216a1d008e90de59a6bdfefcc1"
+    },
+    "source": "Caruca, v1-main (rm/main_grammar/trace_1)"
+   },
+   "sort": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/sort/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSort.py": "e9bb6096d83f1c051e5284084bbe46c53972b858a7bd829575c873d619b71b94",
+     "ParallelizabilityInfoGeneratorSort.py": "93684da2136b1df23ac48742e7c77c8d6462ce2f80864dc4b8c788d91b458243",
+     "sort.json": "f45a7bcceb51283fd02abe8b7cba8000ea1fb5b8a88abffbb791945d20689813"
+    },
+    "source": "Caruca, v1-main (sort/main_grammar/trace_1)"
+   },
+   "split": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/split/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSplit.py": "cc188fb5dbabd72104373009555675594a71d2238cd073b766153ab3a5e6e1d2",
+     "ParallelizabilityInfoGeneratorSplit.py": "5d5aa0615d4f2812d30b413b2e1aae3f678efb8bfbecd827898083fb0417ff24",
+     "split.json": "85fabfd5d43e3e8d7d6091dd65bace572bbf0f6bd3ad714b9ef904e97c22a2df"
+    },
+    "source": "Caruca, v1-pash (split/pash_grammar/trace_1)"
+   },
+   "wc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/wc/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorWc.py": "5a589bf27a100dcc4bee16833e032d2db897d63f9733220af9e34f8ebdbb1381",
+     "ParallelizabilityInfoGeneratorWc.py": "455aef784f99b938816dc8c6d77c4eb8e0907fc96da75cc593d5fee58cbd607b",
+     "wc.json": "9f49b8b75cec004f2845a1fa64de55900e8b7f4cbeda9d01db41c0bf89fac3ba"
+    },
+    "source": "Caruca, v1-pash (wc/pash_grammar/trace_1)"
+   }
+  },
+  "caruca-main-all": {
+   "awk": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/awk/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorAwk.py": "4a94ca7312d7d3502a82c3a82f994095412a55b4cb7845f04ef06646c804489d",
+     "ParallelizabilityInfoGeneratorAwk.py": "00ec94f4e22b7d3bb68a9ceb4374bf0e6090684dda800725d1a7669bbb78c776",
+     "awk.json": "0a6c75f802b9da566b167b29ae1508bc27636481fc86b73130cefe460c2d9a93"
+    },
+    "source": "Caruca, main grammar (awk/main_grammar/trace_1)"
+   },
+   "base64": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/base64/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorBase64.py": "b1b5c490e9ec5b3ceb117265c6847d9a073fc9f3b6792f6ae68809f15df1cf55",
+     "ParallelizabilityInfoGeneratorBase64.py": "6779a9a104193364f319207304e7594b0363813599ad015a86fa9598fee74a6d",
+     "base64.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (base64/pash_grammar/trace_1)"
+   },
+   "bc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/bc/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorBc.py": "f7e6fa268264183dbd994c9ccc5b11d305ac2ebf850b792f390468cf4d1bc864",
+     "ParallelizabilityInfoGeneratorBc.py": "baae0748e18146c10fbba2fcb2643533b73ecbaf2809e394ea803523673ff88a",
+     "bc.json": "19c26afa16f64e455eeb518d2e52b37b73a32cf75e557b338e57d35023dc0a24"
+    },
+    "source": "Caruca, pash grammar (bc/pash_grammar/trace_1)"
+   },
+   "cat": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cat/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCat.py": "88160d46eec2240f3c52d1e91d811633dd9f597a2543dc240507cc432c5fa8a2",
+     "ParallelizabilityInfoGeneratorCat.py": "f672a7a7c6e77f6b36e2b44a76f321f2f156ec9f2950da06b07cf3747d6d7250",
+     "cat.json": "77dc1f0c1ada1faa61d2a823d4edc5cba52f488388a81a7771797e57db0e298d"
+    },
+    "source": "Caruca, main grammar (cat/main_grammar/trace_1)"
+   },
+   "chmod": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/chmod/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorChmod.py": "3b0041d6013ec283d61be00f4ec76ed097974857b1d0ce6608e127e7e054011b",
+     "ParallelizabilityInfoGeneratorChmod.py": "162a59bcfa1ae63cbc0d2f3319681e4f7b83f15b1aaa03ba0eb5ad013180c675",
+     "chmod.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (chmod/pash_grammar/trace_1)"
+   },
+   "col": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/col/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCol.py": "284a2f30a0a53209f63f4e7f74ad8919ec0b925ea5ac9b35871a4981065ec0c4",
+     "ParallelizabilityInfoGeneratorCol.py": "fc61baad0cbedba985bb674f7e3129d5b8b0d1dc021185048724916797c5fcbf",
+     "col.json": "7237001190fba09dd4662b88c8346267b93d5381de67eda1f26af1ceab84e0e0"
+    },
+    "source": "Caruca, main grammar (col/main_grammar/trace_1)"
+   },
+   "comm": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/comm/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorComm.py": "7d5bcd1075dfcb5e7355fa65c65171a262d22078a76cc9576f922e6191680fdc",
+     "ParallelizabilityInfoGeneratorComm.py": "7db1c876c603ef46c211119b1bf89f8bf05a12cf6d46b1e08445e913e7a8fac9",
+     "comm.json": "bb05eefbd8def4ac63f045e2b0b52f6981011ccae1f6a4e99b71ec6e49b22821"
+    },
+    "source": "Caruca, pash grammar (comm/pash_grammar/trace_1)"
+   },
+   "convert": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/convert/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorConvert.py": "d05ec9301322249f6d1fdce0bbefd5f2fcb5b2c0ea9d527c42b55817d3df5102",
+     "ParallelizabilityInfoGeneratorConvert.py": "baf7995691d827c4dc4659e68dfe3a46d14ac9ed5a50623352cdd4989495a34f",
+     "convert.json": "b728acd9f8e9a9fa929c99ce4f09ab4317f610aed0551782a4d2190d76991fdd"
+    },
+    "source": "Caruca, pash grammar (convert/pash_grammar/trace_1)"
+   },
+   "cp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cp/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCp.py": "cda7370b1b91420f1d59837ab44988bb66bd1d990b3bbef5d2eef10e528309fb",
+     "ParallelizabilityInfoGeneratorCp.py": "65f09d6dfc532b9fe871200427571bf8dc0daaab8feb367d8674fec4c0f19dee",
+     "cp.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (cp/pash_grammar/trace_1)"
+   },
+   "cut": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cut/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCut.py": "36b56333049bacbebacf9df02ab01f9fdd6d86f8f6970317f0bdce6e1ac30270",
+     "ParallelizabilityInfoGeneratorCut.py": "4c2dde517dd5a041168948824d552da9e32fde8adf3c1507070cbf9ee36c46c3",
+     "cut.json": "e351e7d31b680b8ba290866e8f9ff111348618553a48e54d3640d661b1f188f5"
+    },
+    "source": "Caruca, main grammar (cut/main_grammar/trace_1)"
+   },
+   "date": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/date/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorDate.py": "4bd07e5f6fe944fa579b76068e3a8a0e5f87663772524ae22614b1993266fc86",
+     "ParallelizabilityInfoGeneratorDate.py": "ac112e817e85436626bdedca55f6166bc3bf0b1fcf0e0e10cc97986c47365757",
+     "date.json": "51ac3f5006b9775e6c491cd2a4371a3b74a0be38a05bd5423b50b8924c50d4e6"
+    },
+    "source": "Caruca, pash grammar (date/pash_grammar/trace_1)"
+   },
+   "dd": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/dd/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorDd.py": "5d8104d4543bd3fee982b5ccfa3fe3608c7fedc040b6ff7d3f01453ff13d9f28",
+     "ParallelizabilityInfoGeneratorDd.py": "be7be08c66e1c0c8abf55497a53320ff5ff647ffc04fa5a885374b812238e087",
+     "dd.json": "4c37de84e180ab3112e472d6bdf9e9c692a332a239d9734a13347da6c05e56d6"
+    },
+    "source": "Caruca, pash grammar (dd/pash_grammar/trace_1)"
+   },
+   "diff": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/diff/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorDiff.py": "bcddb035ac6679611292f06f0fe8cd3d6b1c37c9a32e22c80ce7c16a9fa3b557",
+     "ParallelizabilityInfoGeneratorDiff.py": "db70592273949fac200c1d3ed5bf1f0f29b2dcd1bdf3831533aa50433c0db217",
+     "diff.json": "2164abe5b49c529b15763eb61f89ca55b6251862ecb866fabba11d8c49e6d321"
+    },
+    "source": "Caruca, pash grammar (diff/pash_grammar/trace_1)"
+   },
+   "echo": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/echo/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorEcho.py": "c53555437fc10c70c67b14efa0248dbf9edd1751d76d306830d9d7bfde7d7425",
+     "ParallelizabilityInfoGeneratorEcho.py": "16b3e7649f31b6b411bcc5eae93b72d5877ce29e327c5194ba28237d72dbed9e",
+     "echo.json": "1427366e2b1659314e5ebe9cc850c57ba4866c997caa949cb2994b63776c0271"
+    },
+    "source": "Caruca, main grammar (echo/main_grammar/trace_1)"
+   },
+   "ffmpeg": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/ffmpeg/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorFfmpeg.py": "5bfda950fcc089e0c9b253ceab6dc76270c9ae132cbc7ef32668c7cd54aacefc",
+     "ParallelizabilityInfoGeneratorFfmpeg.py": "5b1a92234bf7b32874837c83926b93eabecc6f3be318dc07d3eb29caa4d6f60a",
+     "ffmpeg.json": "199af67503570937c03ca6298aedc37f51c94fbf3ea6e34a5c65fb615afea6b2"
+    },
+    "source": "Caruca, pash grammar (ffmpeg/pash_grammar/trace_1)"
+   },
+   "find": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/find/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorFind.py": "a922b8712ef22830686ba4bded138815f9fe905fe57e30fc4b9e6879d6bfd85e",
+     "ParallelizabilityInfoGeneratorFind.py": "aec12c177eca14ab58b0881f922693583690e878ca80e9e89183db6c175d6f93",
+     "find.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (find/pash_grammar/trace_1)"
+   },
+   "fmt": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/fmt/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorFmt.py": "df218ffdd1e88d5b45a6b4585b449e371e9b1610661a52c9f828e6270d171954",
+     "ParallelizabilityInfoGeneratorFmt.py": "7107ad5e653811f4ea60fa4c65a1658c7e4d61abc9c9205952c8a520d075f8e0",
+     "fmt.json": "81dbf26ee5dff8599efc998831fc3146bf569668b8cb6920be0a37b45a69eadf"
+    },
+    "source": "Caruca, main grammar (fmt/main_grammar/trace_1)"
+   },
+   "grep": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/grep/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorGrep.py": "e3d9de67717537726e3d55e139430f6704501d73c601c130b573a176ea2fb45e",
+     "ParallelizabilityInfoGeneratorGrep.py": "f34aabb4402dbf7e7f400647ea13885da6d43a829600e193dfc33977b2babc65",
+     "grep.json": "bab4f6f4ecb87627d67e9ace6c5f10db5d8137b7f8f75bcebfaac0732ca8cd99"
+    },
+    "source": "Caruca, main grammar (grep/main_grammar/trace_1)"
+   },
+   "groff": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/groff/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorGroff.py": "e0f484b2b8bf60d531f3e7dc80f029d70f8063142a1632d081a78cc3cc48a399",
+     "ParallelizabilityInfoGeneratorGroff.py": "7ab3b05284e65e110b02e5bde9ad34bbdc1fed280bf72e5f4a56684446f70009",
+     "groff.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (groff/pash_grammar/trace_1)"
+   },
+   "gunzip": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/gunzip/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorGunzip.py": "c63c5abc2e2e27fef71a832bd443d51fde2236f6227e086ecdf6c01345635f60",
+     "ParallelizabilityInfoGeneratorGunzip.py": "8eb236f4cfa0ac78123c9a156396169f6e93a8dd85e03fc8f47723bab7278943",
+     "gunzip.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (gunzip/pash_grammar/trace_1)"
+   },
+   "head": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/head/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorHead.py": "0ac47c5474fba2426a51265b45bbfdff6ce41280c4006f592366c915727dfd0f",
+     "ParallelizabilityInfoGeneratorHead.py": "187e54007e45d39863663e2d02ef65efad91bab3be81b1be1ac8bfeb56ff670e",
+     "head.json": "888b15f9d908bd15ccf8070b5e380450592a9a837f48b71f5e783e4e23e4410d"
+    },
+    "source": "Caruca, main grammar (head/main_grammar/trace_1)"
+   },
+   "history": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/history/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorHistory.py": "27469d89ac7312077204361948e68c9443d2205eb76c7d920d85a874854c3faa",
+     "ParallelizabilityInfoGeneratorHistory.py": "8b4f06c217759371dddd99ccd74827a6009f5448c93003551121dab1cdcefc29",
+     "history.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (history/pash_grammar/trace_1)"
+   },
+   "iconv": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/iconv/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorIconv.py": "d4a12b12e1b66612fe3a7cd440e2aead6bec5c50d2eceb6fa692169b50ce1277",
+     "ParallelizabilityInfoGeneratorIconv.py": "630926f688585c6b47e583deb840b3682e15996fa27684bae6a12fb5ef385836",
+     "iconv.json": "d327607963b08598ba30a25ff5df2b2952cd823964d09e8aee643d609e38ba19"
+    },
+    "source": "Caruca, main grammar (iconv/main_grammar/trace_1)"
+   },
+   "join": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/join/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorJoin.py": "967372328b62a5e60156e401283cc98fca1d116f51ce1aa1163c97ec2fbb4c80",
+     "ParallelizabilityInfoGeneratorJoin.py": "52dd1e7718549feb091635ab0bf4a060324d75380076edba18abaea8f1275339",
+     "join.json": "39566ab8075ee486c18a6c5cbeaac8d88500da6f6a985952c3f4d3530cd54108"
+    },
+    "source": "Caruca, pash grammar (join/pash_grammar/trace_1)"
+   },
+   "jq": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/jq/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorJq.py": "a55e32a81d44aa2269fdd24dfc14a9a01d0c4162b2110a31b61c3fc66c2d95b1",
+     "ParallelizabilityInfoGeneratorJq.py": "f6ac0a60aff234576edf409feb1fb78061f328872689359171bdd475caf28ae6",
+     "jq.json": "44b066a2bbaa75a8b3515864c1a292ec61da93790a53afe291cb96dfa5a6ad18"
+    },
+    "source": "Caruca, pash grammar (jq/pash_grammar/trace_1)"
+   },
+   "ln": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/ln/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorLn.py": "36d366bb536d5dac62adfca39b430027998b70bc3c6443fcf41592d513508bc4",
+     "ParallelizabilityInfoGeneratorLn.py": "d4eead441ece7bf5065384f912cf4cd056d35c91914427a985916a2fe5ce70ea",
+     "ln.json": "66479a6361214a54b8b1f3d87958d75608f2c133eb70fdd2568da442b1dcea05"
+    },
+    "source": "Caruca, pash grammar (ln/pash_grammar/trace_1)"
+   },
+   "ls": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/ls/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorLs.py": "a8fc75fafd56a09275f5f307e81123e0611abea0635624140cd051a59dcf42f0",
+     "ParallelizabilityInfoGeneratorLs.py": "c1d5c8675327ea5871bb894335b017fb165a04b46385e7dc50f1e03096ca9abd",
+     "ls.json": "b7efe969d4282772776783e473a23b8776cdab5ca7189ad4586fce7213fc8547"
+    },
+    "source": "Caruca, pash grammar (ls/pash_grammar/trace_1)"
+   },
+   "mkfifo": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/mkfifo/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorMkfifo.py": "1fe4c7b6edf262abcede55d1f52d3484777a17c3af06b72bf3c0804a921d256b",
+     "ParallelizabilityInfoGeneratorMkfifo.py": "1d619f672ac420b46f05bd0842ed5afc3cbcfb07ccda1746b4ef9e23ce5bb6b4",
+     "mkfifo.json": "ac13a9f8b69872b0430e1909f68430d1cb79b49a2ff33b6533234eac7d6f5b68"
+    },
+    "source": "Caruca, main grammar (mkfifo/main_grammar/trace_1)"
+   },
+   "mktemp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/mktemp/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorMktemp.py": "f0ee3ddb0a36c554f8268f5ceaa420842729dc5d63ae92f3019679018d244e9e",
+     "ParallelizabilityInfoGeneratorMktemp.py": "ac8e156f596ed1dd2e495acb7be628f3f528c53cd430ab3ca26ff9bb55b40e76",
+     "mktemp.json": "3a6c790e526ac2e0f315158e3fd4db418844212b2bc6b843c4a471830d59d908"
+    },
+    "source": "Caruca, main grammar (mktemp/main_grammar/trace_1)"
+   },
+   "mv": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/mv/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorMv.py": "cda9bbea4e4f620a9a4aa560b82623951c33c4d24890481059ab2e9bc7744385",
+     "ParallelizabilityInfoGeneratorMv.py": "7400637310a07bee2c9078002f60b1857b4d3dcb1501709bf1a9a85a1e5b83be",
+     "mv.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (mv/pash_grammar/trace_1)"
+   },
+   "nc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/nc/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorNc.py": "ae4f8da3fa19b2d86958eefde6c9800f1f5c9743fd89d850ec371b4357ee4ac0",
+     "ParallelizabilityInfoGeneratorNc.py": "b30bb52deefac3b26df54b1830a6fd30983628c4154c7e336bf0c7b95eb801e8",
+     "nc.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (nc/pash_grammar/trace_1)"
+   },
+   "nl": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/nl/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorNl.py": "0ca841d30ba42bd894c2369cdb2c596872088f1575955817782dd9886551e400",
+     "ParallelizabilityInfoGeneratorNl.py": "0e927d98b9f951e27c1a11314b0c69b982a9232e166c48adefb1389eaf7dd994",
+     "nl.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (nl/pash_grammar/trace_1)"
+   },
+   "pandoc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/pandoc/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorPandoc.py": "efb2a6be66f6e60becf42ca44020e542c2628e1aa856d48af21336454ef533dd",
+     "ParallelizabilityInfoGeneratorPandoc.py": "4db9d7a012f248187b9a44958eb9b128707d14a43ce91ca9635e83df0bcf5c4c",
+     "pandoc.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (pandoc/pash_grammar/trace_1)"
+   },
+   "paste": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/paste/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorPaste.py": "301590fe28c533c24fd12b68bfda656d7d3b7494d80974fcb71a8e719647a1df",
+     "ParallelizabilityInfoGeneratorPaste.py": "ffe5e0a6eeae08c05018c784209ee790eccd5abcf0bd902f1d49d4d50bd5a081",
+     "paste.json": "33e825bcfcf76841036cf910971ab7218cfd9ce6681f17a4eedc9d13225b19b4"
+    },
+    "source": "Caruca, main grammar (paste/main_grammar/trace_1)"
+   },
+   "pr": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/pr/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorPr.py": "8477f91a34507a0e97266f2fc10ae2e1fd340b8eb9668a9ffa22913efd964636",
+     "ParallelizabilityInfoGeneratorPr.py": "34c5330ca86874ea8f8cacc2b8560c69e07b2edb200f9053cb505aee2ed0af63",
+     "pr.json": "57aa3c8e3094989897d74673d4a6936727541bb73a08254d24989ddce892571d"
+    },
+    "source": "Caruca, pash grammar (pr/pash_grammar/trace_1)"
+   },
+   "ps": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/ps/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorPs.py": "2e8b3c0c1d41b3123488e75d0cdd434af82f1e35f9617562b3529eb7cd2718bd",
+     "ParallelizabilityInfoGeneratorPs.py": "f7044138a9301cec636c7772fe1c1aa093feab2fda2e293272f91bb65ae738ad",
+     "ps.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (ps/pash_grammar/trace_1)"
+   },
+   "pwd": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/pwd/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorPwd.py": "61747c431e150d99294caa6ec645fce61a76ce831e2f0d985f653a2c6878155c",
+     "ParallelizabilityInfoGeneratorPwd.py": "9e54a1d751a307f7e598568d389d39603cc1e031af155b2009ee1dd6d60c9ed0",
+     "pwd.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (pwd/pash_grammar/trace_1)"
+   },
+   "read": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/read/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorRead.py": "8f4b34d9050a02c8facc969182f488d85b1b8c6ad88726b92a695aa2471bea88",
+     "ParallelizabilityInfoGeneratorRead.py": "c886ce280fe35c0924ade56920c31cf9f9f48bba1353a254aad579d6a555a4c1",
+     "read.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (read/pash_grammar/trace_1)"
+   },
+   "readelf": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/readelf/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorReadelf.py": "52eb553a5369abdb37d9477d324a9a38fbc9758696ae220b453d1e6edb74fa86",
+     "ParallelizabilityInfoGeneratorReadelf.py": "c2a1476e4a276504eb36b707e1ae3b6317389631e603cabe10ad5583310b0ec9",
+     "readelf.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (readelf/pash_grammar/trace_1)"
+   },
+   "rev": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/rev/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorRev.py": "433fc2c881e447993965d80e4d8b095d9c8f5353c318f1134caec688e7d12569",
+     "ParallelizabilityInfoGeneratorRev.py": "5d286a64fafd525303b06ae21c37dc99a2a89dacde3c986efdf1e5db2ed7fc43",
+     "rev.json": "08c811f55cee95f1be05fb5aa920b7c01f24e162e0530359b69d16823e218ba5"
+    },
+    "source": "Caruca, main grammar (rev/main_grammar/trace_1)"
+   },
+   "rm": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/rm/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorRm.py": "f757df12cc320f62e399c3009c24347bc53f655e550e306ac83a5a663a6c9ed3",
+     "ParallelizabilityInfoGeneratorRm.py": "672c68a3be2030da40d0014d5f5cc5a421b1fc26cd40d387a84e0cdcdadbb71a",
+     "rm.json": "934a799bb814a9b5aa4ac88edf6e633537e9e1216a1d008e90de59a6bdfefcc1"
+    },
+    "source": "Caruca, main grammar (rm/main_grammar/trace_1)"
+   },
+   "sed": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/sed/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSed.py": "95ff45a1abfb787a7e13200658962b764d96f351a2908e6ff6be53112a9f9185",
+     "ParallelizabilityInfoGeneratorSed.py": "5807036223e47cf6d3f01194c67a360aea8a49a03a63067db380e6ca4b92b589",
+     "sed.json": "63df7dda187e667995977b19546a4f554fa8bbc605e4e9dbf279b050b6e7db7f"
+    },
+    "source": "Caruca, main grammar (sed/main_grammar/trace_1)"
+   },
+   "seq": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/seq/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSeq.py": "06166c8b6e464a20abef221f17e11c22ab585a21d4902b81dab7a5adac248dfc",
+     "ParallelizabilityInfoGeneratorSeq.py": "41985961769d3c1b82702a1ff0b976e944124c4c1389b215dbb0c22785f1d3ca",
+     "seq.json": "7ba11f07504902523ded15f7c1833bc5859315ae6bb3964bc99f08f8b8bb2981"
+    },
+    "source": "Caruca, main grammar (seq/main_grammar/trace_1)"
+   },
+   "sha256sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/sha256sum/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSha256sum.py": "90ec977d95a4495d97e5a610e93ac1f74d710fa274a6d50c09a51c3766570351",
+     "ParallelizabilityInfoGeneratorSha256sum.py": "157e33f6364a756b33d37046173976fd306b49710955fafad5d1c69095af5358",
+     "sha256sum.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (sha256sum/pash_grammar/trace_1)"
+   },
+   "shuf": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/shuf/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorShuf.py": "a7ebaeed0fa3160fe89fa289ee9067b8163d3c1bb0c5b563cff886a9e1a5e713",
+     "ParallelizabilityInfoGeneratorShuf.py": "e4567abcbada6fd6d37f3e3704a8964db089f3f14314455437c7e0e391418768",
+     "shuf.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (shuf/pash_grammar/trace_1)"
+   },
+   "sort": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/sort/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSort.py": "e9bb6096d83f1c051e5284084bbe46c53972b858a7bd829575c873d619b71b94",
+     "ParallelizabilityInfoGeneratorSort.py": "93684da2136b1df23ac48742e7c77c8d6462ce2f80864dc4b8c788d91b458243",
+     "sort.json": "f45a7bcceb51283fd02abe8b7cba8000ea1fb5b8a88abffbb791945d20689813"
+    },
+    "source": "Caruca, main grammar (sort/main_grammar/trace_1)"
+   },
+   "split": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/split/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSplit.py": "e20e41eac3e582cba5479447ac8e9d2b83955838541fd8f033720323cd279293",
+     "ParallelizabilityInfoGeneratorSplit.py": "144b4982e15adff480037ebc65e38572636a42a7eeb6629d7539db478f85477c",
+     "split.json": "60aa43819c8b23f565c9b955381f38f823e8cf147dd93d68de475df19ee0c73f"
+    },
+    "source": "Caruca, main grammar (split/main_grammar/trace_1)"
+   },
+   "tail": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/tail/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorTail.py": "f58127a063fa8a7047f7f50c9cc04c13d0f3df3b944f064793598be148652be8",
+     "ParallelizabilityInfoGeneratorTail.py": "f0298785ba4402556586e42bfe3da6b831a4b3b839fca473ac8e644bc9e0de02",
+     "tail.json": "43103830c7e4622a4e2c208568b50f783e02ab635f85e11b37f871ca2cec7013"
+    },
+    "source": "Caruca, main grammar (tail/main_grammar/trace_1)"
+   },
+   "tee": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/tee/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorTee.py": "80603f2505b24c2eb1a7bfd0d78f08cc857e77a777f689ee886b96e1a83084fe",
+     "ParallelizabilityInfoGeneratorTee.py": "07ed2d15190125fd93bb7aab40bdebfb73987e33f34959f788f69ff8449dffdf",
+     "tee.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (tee/pash_grammar/trace_1)"
+   },
+   "tr": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/tr/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorTr.py": "3b9333bfdfddbc27f94fa6d741796c8a1deb3b623ca484f2a36f69b81446915f",
+     "ParallelizabilityInfoGeneratorTr.py": "ae521f26de4f5e203a0f3e984aa8846b246c51709efbc0f92c85a2312f6b443e",
+     "tr.json": "28de1473a496c82680f77a0ff012a40d925a46eab7ab22bb10c746d3fcf3dfe9"
+    },
+    "source": "Caruca, main grammar (tr/main_grammar/trace_1)"
+   },
+   "uniq": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/uniq/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorUniq.py": "aa33cf8bde2da73e39ec74f47a573565b210816bb3cb299e4c46183ef0a14f45",
+     "ParallelizabilityInfoGeneratorUniq.py": "48dfe733053cd858ddd0053e805c7203c166a0ca8da52245ade5d555926c21eb",
+     "uniq.json": "12e3e6d2aef33c7bfe20b5b16f8facce814ed0fa8937f7a5fd444c1ddcbee13b"
+    },
+    "source": "Caruca, main grammar (uniq/main_grammar/trace_1)"
+   },
+   "wc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/wc/main_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorWc.py": "b511f0b42e982011e08178e47f761b1b7e51bf4b4ca9864fbe6eecdd5658a97b",
+     "ParallelizabilityInfoGeneratorWc.py": "78f13e0252904f3f8e1cbbe249096970abc6541175418b14d194476e1efe4a7e",
+     "wc.json": "835feba9e0e220a40e70f73e11765b6e14e00571b8829ce02e7dd90abec311c0"
+    },
+    "source": "Caruca, main grammar (wc/main_grammar/trace_1)"
+   },
+   "xargs": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/xargs/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorXargs.py": "7c1993691ba8d5d762d0f049cbb1147729b0e8f4e1a512461a5d20203310ad92",
+     "ParallelizabilityInfoGeneratorXargs.py": "302b50836f0d5244297a79441650bd68c0731df7425a79a691ee062dcf04b207",
+     "xargs.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (xargs/pash_grammar/trace_1)"
+   }
+  },
+  "caruca-main-all_grammar_per_command": {
+   "awk": "main",
+   "base64": "pash",
+   "bc": "pash",
+   "cat": "main",
+   "chmod": "pash",
+   "col": "main",
+   "comm": "pash",
+   "convert": "pash",
+   "cp": "pash",
+   "cut": "main",
+   "date": "pash",
+   "dd": "pash",
+   "diff": "pash",
+   "echo": "main",
+   "ffmpeg": "pash",
+   "find": "pash",
+   "fmt": "main",
+   "grep": "main",
+   "groff": "pash",
+   "gunzip": "pash",
+   "head": "main",
+   "history": "pash",
+   "iconv": "main",
+   "join": "pash",
+   "jq": "pash",
+   "ln": "pash",
+   "ls": "pash",
+   "mkfifo": "main",
+   "mktemp": "main",
+   "mv": "pash",
+   "nc": "pash",
+   "nl": "pash",
+   "pandoc": "pash",
+   "paste": "main",
+   "pr": "pash",
+   "ps": "pash",
+   "pwd": "pash",
+   "read": "pash",
+   "readelf": "pash",
+   "rev": "main",
+   "rm": "main",
+   "sed": "main",
+   "seq": "main",
+   "sha256sum": "pash",
+   "shuf": "pash",
+   "sort": "main",
+   "split": "main",
+   "tail": "main",
+   "tee": "pash",
+   "tr": "main",
+   "uniq": "main",
+   "wc": "main",
+   "xargs": "pash"
+  },
+  "caruca-pash": {
+   "cat": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cat/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCat.py": "dbeb94b64eaf54c8f6e37c6730f41b3ae0a06766098e6aab246b687f10942de5",
+     "ParallelizabilityInfoGeneratorCat.py": "006fc34621b52dd9d31cbfec169f9c42cd2e339627ca2c2f644e214e28d31c02",
+     "cat.json": "5b4f26289f480365c3b54e9c29fa471ee0e98107292010ea99ac57b1f7f8bafa"
+    },
+    "source": "Caruca, v1-pash (cat/pash_grammar/trace_1)"
+   },
+   "cp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cp/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCp.py": "cda7370b1b91420f1d59837ab44988bb66bd1d990b3bbef5d2eef10e528309fb",
+     "ParallelizabilityInfoGeneratorCp.py": "65f09d6dfc532b9fe871200427571bf8dc0daaab8feb367d8674fec4c0f19dee",
+     "cp.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, v1-pash (cp/pash_grammar/trace_1)"
+   },
+   "cut": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cut/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCut.py": "ff356a5e9e0f45f2ba607623981f53717523792c9ca89f6ccd223370cf6c459f",
+     "ParallelizabilityInfoGeneratorCut.py": "b469304253e4e5d89a99ece59be452e894f20c2fb685fd3090867037641532cd",
+     "cut.json": "f9f68e332ea5b6c56a683a873604994a4b629f1bb7e7fb1c02a02268954120f7"
+    },
+    "source": "Caruca, v1-pash (cut/pash_grammar/trace_1)"
+   },
+   "grep": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/grep/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorGrep.py": "8b1593b6f03f66ceaa763dddbcb854754d8c512c6ef5a4451f1868c44c121b6c",
+     "ParallelizabilityInfoGeneratorGrep.py": "740af2421d45d7074a01597789adf9a405182a97802930dbb1cb299c5737e5a3",
+     "grep.json": "69998028af963bc63027b93d1cbc0280f64d0f5f194a40e21f0c0848a8caf036"
+    },
+    "source": "Caruca, v1-pash (grep/pash_grammar/trace_1)"
+   },
+   "rm": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/rm/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorRm.py": "fc6167515ea62ca14f0c2095c27483dd61aff79c8a27dfbd8a1abc419e96dc4e",
+     "ParallelizabilityInfoGeneratorRm.py": "0551115f5f76497e4d696b2368de98a86ffeaa4ebcc022813fbb3b451689ccdf",
+     "rm.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, v1-pash (rm/pash_grammar/trace_1)"
+   },
+   "sort": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/sort/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSort.py": "f3c7513fbc16db8fb29f43654d06d42ccbb67c68ac225d1f723e2f5d4669432f",
+     "ParallelizabilityInfoGeneratorSort.py": "1746dd93b9f5bb2bbbffcc9cbfb406a0c394853cb2022a011f357949f8fca533",
+     "sort.json": "6ead027a07e14a11b956d11501d282eaa6d4da77f903c07ea6c4b426793409fe"
+    },
+    "source": "Caruca, v1-pash (sort/pash_grammar/trace_1)"
+   },
+   "split": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/split/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSplit.py": "cc188fb5dbabd72104373009555675594a71d2238cd073b766153ab3a5e6e1d2",
+     "ParallelizabilityInfoGeneratorSplit.py": "5d5aa0615d4f2812d30b413b2e1aae3f678efb8bfbecd827898083fb0417ff24",
+     "split.json": "85fabfd5d43e3e8d7d6091dd65bace572bbf0f6bd3ad714b9ef904e97c22a2df"
+    },
+    "source": "Caruca, v1-pash (split/pash_grammar/trace_1)"
+   },
+   "wc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/wc/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorWc.py": "5a589bf27a100dcc4bee16833e032d2db897d63f9733220af9e34f8ebdbb1381",
+     "ParallelizabilityInfoGeneratorWc.py": "455aef784f99b938816dc8c6d77c4eb8e0907fc96da75cc593d5fee58cbd607b",
+     "wc.json": "9f49b8b75cec004f2845a1fa64de55900e8b7f4cbeda9d01db41c0bf89fac3ba"
+    },
+    "source": "Caruca, v1-pash (wc/pash_grammar/trace_1)"
+   }
+  },
+  "caruca-pash-all": {
+   "awk": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/awk/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorAwk.py": "4271ef271b18b8ad940306453fd5d0bf2b4aee2df365f4f06e483e5693172e41",
+     "ParallelizabilityInfoGeneratorAwk.py": "a887dc37fabcdef831c3fc4fab98ee655a1b556370d1bd64d394e731b425cab9",
+     "awk.json": "d80b1f14d405f2893faa2b37b79d8d265a3c78de5e5e429531d80ac1cce8edde"
+    },
+    "source": "Caruca, pash grammar (awk/pash_grammar/trace_1)"
+   },
+   "base64": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/base64/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorBase64.py": "b1b5c490e9ec5b3ceb117265c6847d9a073fc9f3b6792f6ae68809f15df1cf55",
+     "ParallelizabilityInfoGeneratorBase64.py": "6779a9a104193364f319207304e7594b0363813599ad015a86fa9598fee74a6d",
+     "base64.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (base64/pash_grammar/trace_1)"
+   },
+   "bc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/bc/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorBc.py": "f7e6fa268264183dbd994c9ccc5b11d305ac2ebf850b792f390468cf4d1bc864",
+     "ParallelizabilityInfoGeneratorBc.py": "baae0748e18146c10fbba2fcb2643533b73ecbaf2809e394ea803523673ff88a",
+     "bc.json": "19c26afa16f64e455eeb518d2e52b37b73a32cf75e557b338e57d35023dc0a24"
+    },
+    "source": "Caruca, pash grammar (bc/pash_grammar/trace_1)"
+   },
+   "cat": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cat/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCat.py": "dbeb94b64eaf54c8f6e37c6730f41b3ae0a06766098e6aab246b687f10942de5",
+     "ParallelizabilityInfoGeneratorCat.py": "006fc34621b52dd9d31cbfec169f9c42cd2e339627ca2c2f644e214e28d31c02",
+     "cat.json": "5b4f26289f480365c3b54e9c29fa471ee0e98107292010ea99ac57b1f7f8bafa"
+    },
+    "source": "Caruca, pash grammar (cat/pash_grammar/trace_1)"
+   },
+   "chmod": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/chmod/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorChmod.py": "3b0041d6013ec283d61be00f4ec76ed097974857b1d0ce6608e127e7e054011b",
+     "ParallelizabilityInfoGeneratorChmod.py": "162a59bcfa1ae63cbc0d2f3319681e4f7b83f15b1aaa03ba0eb5ad013180c675",
+     "chmod.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (chmod/pash_grammar/trace_1)"
+   },
+   "col": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/col/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCol.py": "f6279e0c08db339d1125f24436c8f5cbdf77cd6e5b93a45061a07a7253b9a846",
+     "ParallelizabilityInfoGeneratorCol.py": "46d46e2ed92b54adf7ea528d4ee437afb87a31a2f203b4150bc24813a72bc59c",
+     "col.json": "00b5a8f8c966f873305d7b16d663098866ab795143f7f1e914e7cdf0da185853"
+    },
+    "source": "Caruca, pash grammar (col/pash_grammar/trace_1)"
+   },
+   "comm": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/comm/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorComm.py": "7d5bcd1075dfcb5e7355fa65c65171a262d22078a76cc9576f922e6191680fdc",
+     "ParallelizabilityInfoGeneratorComm.py": "7db1c876c603ef46c211119b1bf89f8bf05a12cf6d46b1e08445e913e7a8fac9",
+     "comm.json": "bb05eefbd8def4ac63f045e2b0b52f6981011ccae1f6a4e99b71ec6e49b22821"
+    },
+    "source": "Caruca, pash grammar (comm/pash_grammar/trace_1)"
+   },
+   "convert": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/convert/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorConvert.py": "d05ec9301322249f6d1fdce0bbefd5f2fcb5b2c0ea9d527c42b55817d3df5102",
+     "ParallelizabilityInfoGeneratorConvert.py": "baf7995691d827c4dc4659e68dfe3a46d14ac9ed5a50623352cdd4989495a34f",
+     "convert.json": "b728acd9f8e9a9fa929c99ce4f09ab4317f610aed0551782a4d2190d76991fdd"
+    },
+    "source": "Caruca, pash grammar (convert/pash_grammar/trace_1)"
+   },
+   "cp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cp/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCp.py": "cda7370b1b91420f1d59837ab44988bb66bd1d990b3bbef5d2eef10e528309fb",
+     "ParallelizabilityInfoGeneratorCp.py": "65f09d6dfc532b9fe871200427571bf8dc0daaab8feb367d8674fec4c0f19dee",
+     "cp.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (cp/pash_grammar/trace_1)"
+   },
+   "cut": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/cut/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorCut.py": "ff356a5e9e0f45f2ba607623981f53717523792c9ca89f6ccd223370cf6c459f",
+     "ParallelizabilityInfoGeneratorCut.py": "b469304253e4e5d89a99ece59be452e894f20c2fb685fd3090867037641532cd",
+     "cut.json": "f9f68e332ea5b6c56a683a873604994a4b629f1bb7e7fb1c02a02268954120f7"
+    },
+    "source": "Caruca, pash grammar (cut/pash_grammar/trace_1)"
+   },
+   "date": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/date/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorDate.py": "4bd07e5f6fe944fa579b76068e3a8a0e5f87663772524ae22614b1993266fc86",
+     "ParallelizabilityInfoGeneratorDate.py": "ac112e817e85436626bdedca55f6166bc3bf0b1fcf0e0e10cc97986c47365757",
+     "date.json": "51ac3f5006b9775e6c491cd2a4371a3b74a0be38a05bd5423b50b8924c50d4e6"
+    },
+    "source": "Caruca, pash grammar (date/pash_grammar/trace_1)"
+   },
+   "dd": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/dd/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorDd.py": "5d8104d4543bd3fee982b5ccfa3fe3608c7fedc040b6ff7d3f01453ff13d9f28",
+     "ParallelizabilityInfoGeneratorDd.py": "be7be08c66e1c0c8abf55497a53320ff5ff647ffc04fa5a885374b812238e087",
+     "dd.json": "4c37de84e180ab3112e472d6bdf9e9c692a332a239d9734a13347da6c05e56d6"
+    },
+    "source": "Caruca, pash grammar (dd/pash_grammar/trace_1)"
+   },
+   "diff": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/diff/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorDiff.py": "bcddb035ac6679611292f06f0fe8cd3d6b1c37c9a32e22c80ce7c16a9fa3b557",
+     "ParallelizabilityInfoGeneratorDiff.py": "db70592273949fac200c1d3ed5bf1f0f29b2dcd1bdf3831533aa50433c0db217",
+     "diff.json": "2164abe5b49c529b15763eb61f89ca55b6251862ecb866fabba11d8c49e6d321"
+    },
+    "source": "Caruca, pash grammar (diff/pash_grammar/trace_1)"
+   },
+   "echo": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/echo/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorEcho.py": "29ed6d728d7cfb08cbc029cbf6c533eb75c7c8a2c3a35cb9615eb34df0d63074",
+     "ParallelizabilityInfoGeneratorEcho.py": "59bcd2f4d87901206e1748e661ea7607cba5dea517230b78d62306d35edc9498",
+     "echo.json": "dcf9af79ec91fa1bc0ed1421985edcd38f54e0bf2e93616e1e7d46aca0bbaf60"
+    },
+    "source": "Caruca, pash grammar (echo/pash_grammar/trace_1)"
+   },
+   "ffmpeg": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/ffmpeg/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorFfmpeg.py": "5bfda950fcc089e0c9b253ceab6dc76270c9ae132cbc7ef32668c7cd54aacefc",
+     "ParallelizabilityInfoGeneratorFfmpeg.py": "5b1a92234bf7b32874837c83926b93eabecc6f3be318dc07d3eb29caa4d6f60a",
+     "ffmpeg.json": "199af67503570937c03ca6298aedc37f51c94fbf3ea6e34a5c65fb615afea6b2"
+    },
+    "source": "Caruca, pash grammar (ffmpeg/pash_grammar/trace_1)"
+   },
+   "find": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/find/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorFind.py": "a922b8712ef22830686ba4bded138815f9fe905fe57e30fc4b9e6879d6bfd85e",
+     "ParallelizabilityInfoGeneratorFind.py": "aec12c177eca14ab58b0881f922693583690e878ca80e9e89183db6c175d6f93",
+     "find.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (find/pash_grammar/trace_1)"
+   },
+   "fmt": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/fmt/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorFmt.py": "70cdc7dce13113d7708b12e9628e5e44e7faeaaf997e17f680f44a038f9376af",
+     "ParallelizabilityInfoGeneratorFmt.py": "2e520300a4544236d0f72e3f828971c75581965eba680c4fb2eb3d4a9a699a16",
+     "fmt.json": "633f6e23c1ab39fc0f979eb9a7460bd160c82fd06e0bd302ee1f80a116312569"
+    },
+    "source": "Caruca, pash grammar (fmt/pash_grammar/trace_1)"
+   },
+   "grep": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/grep/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorGrep.py": "8b1593b6f03f66ceaa763dddbcb854754d8c512c6ef5a4451f1868c44c121b6c",
+     "ParallelizabilityInfoGeneratorGrep.py": "740af2421d45d7074a01597789adf9a405182a97802930dbb1cb299c5737e5a3",
+     "grep.json": "69998028af963bc63027b93d1cbc0280f64d0f5f194a40e21f0c0848a8caf036"
+    },
+    "source": "Caruca, pash grammar (grep/pash_grammar/trace_1)"
+   },
+   "groff": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/groff/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorGroff.py": "e0f484b2b8bf60d531f3e7dc80f029d70f8063142a1632d081a78cc3cc48a399",
+     "ParallelizabilityInfoGeneratorGroff.py": "7ab3b05284e65e110b02e5bde9ad34bbdc1fed280bf72e5f4a56684446f70009",
+     "groff.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (groff/pash_grammar/trace_1)"
+   },
+   "gunzip": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/gunzip/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorGunzip.py": "c63c5abc2e2e27fef71a832bd443d51fde2236f6227e086ecdf6c01345635f60",
+     "ParallelizabilityInfoGeneratorGunzip.py": "8eb236f4cfa0ac78123c9a156396169f6e93a8dd85e03fc8f47723bab7278943",
+     "gunzip.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (gunzip/pash_grammar/trace_1)"
+   },
+   "head": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/head/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorHead.py": "55ed6f35fefec6a2e662376c9dda2eaf7094e4241b99eb540de1fed9d1134c5c",
+     "ParallelizabilityInfoGeneratorHead.py": "6a66548786b0346c0014fbf44f2adf9f4a698110ca3d9ab1a8d3061654e58e20",
+     "head.json": "ef417b349af049dd60082f8d74620dde4c6b66df5be2692e8594d4a44d738263"
+    },
+    "source": "Caruca, pash grammar (head/pash_grammar/trace_1)"
+   },
+   "history": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/history/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorHistory.py": "27469d89ac7312077204361948e68c9443d2205eb76c7d920d85a874854c3faa",
+     "ParallelizabilityInfoGeneratorHistory.py": "8b4f06c217759371dddd99ccd74827a6009f5448c93003551121dab1cdcefc29",
+     "history.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (history/pash_grammar/trace_1)"
+   },
+   "iconv": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/iconv/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorIconv.py": "54e6f6fbba4477e48a83d4b5c7725d14058d4c8a1e1783c1e61d1bfd86d4eb6d",
+     "ParallelizabilityInfoGeneratorIconv.py": "b4847634c9ad2ce54d5a9e8e228d2892a08dc279468e7293ed661b124376c230",
+     "iconv.json": "5e87f7e710ed985af38861817d13a0540fd92deaa092f37404a5c5ce9d265e97"
+    },
+    "source": "Caruca, pash grammar (iconv/pash_grammar/trace_1)"
+   },
+   "join": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/join/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorJoin.py": "967372328b62a5e60156e401283cc98fca1d116f51ce1aa1163c97ec2fbb4c80",
+     "ParallelizabilityInfoGeneratorJoin.py": "52dd1e7718549feb091635ab0bf4a060324d75380076edba18abaea8f1275339",
+     "join.json": "39566ab8075ee486c18a6c5cbeaac8d88500da6f6a985952c3f4d3530cd54108"
+    },
+    "source": "Caruca, pash grammar (join/pash_grammar/trace_1)"
+   },
+   "jq": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/jq/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorJq.py": "a55e32a81d44aa2269fdd24dfc14a9a01d0c4162b2110a31b61c3fc66c2d95b1",
+     "ParallelizabilityInfoGeneratorJq.py": "f6ac0a60aff234576edf409feb1fb78061f328872689359171bdd475caf28ae6",
+     "jq.json": "44b066a2bbaa75a8b3515864c1a292ec61da93790a53afe291cb96dfa5a6ad18"
+    },
+    "source": "Caruca, pash grammar (jq/pash_grammar/trace_1)"
+   },
+   "ln": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/ln/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorLn.py": "36d366bb536d5dac62adfca39b430027998b70bc3c6443fcf41592d513508bc4",
+     "ParallelizabilityInfoGeneratorLn.py": "d4eead441ece7bf5065384f912cf4cd056d35c91914427a985916a2fe5ce70ea",
+     "ln.json": "66479a6361214a54b8b1f3d87958d75608f2c133eb70fdd2568da442b1dcea05"
+    },
+    "source": "Caruca, pash grammar (ln/pash_grammar/trace_1)"
+   },
+   "ls": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/ls/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorLs.py": "a8fc75fafd56a09275f5f307e81123e0611abea0635624140cd051a59dcf42f0",
+     "ParallelizabilityInfoGeneratorLs.py": "c1d5c8675327ea5871bb894335b017fb165a04b46385e7dc50f1e03096ca9abd",
+     "ls.json": "b7efe969d4282772776783e473a23b8776cdab5ca7189ad4586fce7213fc8547"
+    },
+    "source": "Caruca, pash grammar (ls/pash_grammar/trace_1)"
+   },
+   "mkfifo": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/mkfifo/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorMkfifo.py": "658a62f7190700c3f6320fd093decdbfbbac86492d331c3ab96fad5ae2b08000",
+     "ParallelizabilityInfoGeneratorMkfifo.py": "5ad59a77b6ab3cb0abd924356eed8212427fa6eef22cf9f7dbc04677b09c7660",
+     "mkfifo.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (mkfifo/pash_grammar/trace_1)"
+   },
+   "mktemp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/mktemp/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorMktemp.py": "6ccd1cd66080a782ce3c4a4c1db29420a4255fa884c8785f24ae8b90254daec1",
+     "ParallelizabilityInfoGeneratorMktemp.py": "e2991221fdde6b85468d5900d4cbfa86b5b20451bcbf97c4152bc5b9655a2b08",
+     "mktemp.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (mktemp/pash_grammar/trace_1)"
+   },
+   "mv": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/mv/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorMv.py": "cda9bbea4e4f620a9a4aa560b82623951c33c4d24890481059ab2e9bc7744385",
+     "ParallelizabilityInfoGeneratorMv.py": "7400637310a07bee2c9078002f60b1857b4d3dcb1501709bf1a9a85a1e5b83be",
+     "mv.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (mv/pash_grammar/trace_1)"
+   },
+   "nc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/nc/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorNc.py": "ae4f8da3fa19b2d86958eefde6c9800f1f5c9743fd89d850ec371b4357ee4ac0",
+     "ParallelizabilityInfoGeneratorNc.py": "b30bb52deefac3b26df54b1830a6fd30983628c4154c7e336bf0c7b95eb801e8",
+     "nc.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (nc/pash_grammar/trace_1)"
+   },
+   "nl": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/nl/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorNl.py": "0ca841d30ba42bd894c2369cdb2c596872088f1575955817782dd9886551e400",
+     "ParallelizabilityInfoGeneratorNl.py": "0e927d98b9f951e27c1a11314b0c69b982a9232e166c48adefb1389eaf7dd994",
+     "nl.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (nl/pash_grammar/trace_1)"
+   },
+   "pandoc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/pandoc/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorPandoc.py": "efb2a6be66f6e60becf42ca44020e542c2628e1aa856d48af21336454ef533dd",
+     "ParallelizabilityInfoGeneratorPandoc.py": "4db9d7a012f248187b9a44958eb9b128707d14a43ce91ca9635e83df0bcf5c4c",
+     "pandoc.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (pandoc/pash_grammar/trace_1)"
+   },
+   "paste": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/paste/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorPaste.py": "f9182994dcfecc4b28abe15d3d945a921c58d24abe9acdb6ed1ded458ee65edd",
+     "ParallelizabilityInfoGeneratorPaste.py": "73dc0d321a1edcc5b722f0731ce267abe02c06ba59d84ac6bde3f90bc733b1bb",
+     "paste.json": "3b98a4485c339b4dc9af3005fd635e5b090001213c81502e46bc4a690bfc6f9c"
+    },
+    "source": "Caruca, pash grammar (paste/pash_grammar/trace_1)"
+   },
+   "pr": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/pr/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorPr.py": "8477f91a34507a0e97266f2fc10ae2e1fd340b8eb9668a9ffa22913efd964636",
+     "ParallelizabilityInfoGeneratorPr.py": "34c5330ca86874ea8f8cacc2b8560c69e07b2edb200f9053cb505aee2ed0af63",
+     "pr.json": "57aa3c8e3094989897d74673d4a6936727541bb73a08254d24989ddce892571d"
+    },
+    "source": "Caruca, pash grammar (pr/pash_grammar/trace_1)"
+   },
+   "ps": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/ps/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorPs.py": "2e8b3c0c1d41b3123488e75d0cdd434af82f1e35f9617562b3529eb7cd2718bd",
+     "ParallelizabilityInfoGeneratorPs.py": "f7044138a9301cec636c7772fe1c1aa093feab2fda2e293272f91bb65ae738ad",
+     "ps.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (ps/pash_grammar/trace_1)"
+   },
+   "pwd": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/pwd/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorPwd.py": "61747c431e150d99294caa6ec645fce61a76ce831e2f0d985f653a2c6878155c",
+     "ParallelizabilityInfoGeneratorPwd.py": "9e54a1d751a307f7e598568d389d39603cc1e031af155b2009ee1dd6d60c9ed0",
+     "pwd.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (pwd/pash_grammar/trace_1)"
+   },
+   "read": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/read/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorRead.py": "8f4b34d9050a02c8facc969182f488d85b1b8c6ad88726b92a695aa2471bea88",
+     "ParallelizabilityInfoGeneratorRead.py": "c886ce280fe35c0924ade56920c31cf9f9f48bba1353a254aad579d6a555a4c1",
+     "read.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (read/pash_grammar/trace_1)"
+   },
+   "readelf": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/readelf/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorReadelf.py": "52eb553a5369abdb37d9477d324a9a38fbc9758696ae220b453d1e6edb74fa86",
+     "ParallelizabilityInfoGeneratorReadelf.py": "c2a1476e4a276504eb36b707e1ae3b6317389631e603cabe10ad5583310b0ec9",
+     "readelf.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (readelf/pash_grammar/trace_1)"
+   },
+   "rev": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/rev/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorRev.py": "b0ef94a9653f7faaa0dbd6d9690ef7579df38ea8559d9053fd1751309cb5521b",
+     "ParallelizabilityInfoGeneratorRev.py": "d75c3918f4800ab4e99dde4137363a8f1166ea6cac24f7ac08b2be4a62857943",
+     "rev.json": "a525966933841aa26484198025f0673af99cee038901c3c2e338004d2478e0b8"
+    },
+    "source": "Caruca, pash grammar (rev/pash_grammar/trace_1)"
+   },
+   "rm": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/rm/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorRm.py": "fc6167515ea62ca14f0c2095c27483dd61aff79c8a27dfbd8a1abc419e96dc4e",
+     "ParallelizabilityInfoGeneratorRm.py": "0551115f5f76497e4d696b2368de98a86ffeaa4ebcc022813fbb3b451689ccdf",
+     "rm.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (rm/pash_grammar/trace_1)"
+   },
+   "sed": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/sed/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSed.py": "6966f6a65585910e209ea9998de91a2ba580b14b068f23ead0e1a00992bd784b",
+     "ParallelizabilityInfoGeneratorSed.py": "c08b4097cbb96803a9f714f0ea5ceaf6b067405255c43708b0597d3bf454ad24",
+     "sed.json": "efe184475cbbe931d774ec4da907f1b1c1919cf7cc75cc1cee51bffbe9c3a560"
+    },
+    "source": "Caruca, pash grammar (sed/pash_grammar/trace_1)"
+   },
+   "seq": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/seq/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSeq.py": "d28f77657f4a70d9d528b5d0e8ad928069b86a5ae91e0f899c693bb636902bd4",
+     "ParallelizabilityInfoGeneratorSeq.py": "d04a3b1dc88a109e213998ed2b195d218009601faf9bdc09502a3b15b703c265",
+     "seq.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (seq/pash_grammar/trace_1)"
+   },
+   "sha256sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/sha256sum/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSha256sum.py": "90ec977d95a4495d97e5a610e93ac1f74d710fa274a6d50c09a51c3766570351",
+     "ParallelizabilityInfoGeneratorSha256sum.py": "157e33f6364a756b33d37046173976fd306b49710955fafad5d1c69095af5358",
+     "sha256sum.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (sha256sum/pash_grammar/trace_1)"
+   },
+   "shuf": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/shuf/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorShuf.py": "a7ebaeed0fa3160fe89fa289ee9067b8163d3c1bb0c5b563cff886a9e1a5e713",
+     "ParallelizabilityInfoGeneratorShuf.py": "e4567abcbada6fd6d37f3e3704a8964db089f3f14314455437c7e0e391418768",
+     "shuf.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (shuf/pash_grammar/trace_1)"
+   },
+   "sort": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/sort/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSort.py": "f3c7513fbc16db8fb29f43654d06d42ccbb67c68ac225d1f723e2f5d4669432f",
+     "ParallelizabilityInfoGeneratorSort.py": "1746dd93b9f5bb2bbbffcc9cbfb406a0c394853cb2022a011f357949f8fca533",
+     "sort.json": "6ead027a07e14a11b956d11501d282eaa6d4da77f903c07ea6c4b426793409fe"
+    },
+    "source": "Caruca, pash grammar (sort/pash_grammar/trace_1)"
+   },
+   "split": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/split/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorSplit.py": "cc188fb5dbabd72104373009555675594a71d2238cd073b766153ab3a5e6e1d2",
+     "ParallelizabilityInfoGeneratorSplit.py": "5d5aa0615d4f2812d30b413b2e1aae3f678efb8bfbecd827898083fb0417ff24",
+     "split.json": "85fabfd5d43e3e8d7d6091dd65bace572bbf0f6bd3ad714b9ef904e97c22a2df"
+    },
+    "source": "Caruca, pash grammar (split/pash_grammar/trace_1)"
+   },
+   "tail": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/tail/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorTail.py": "cad43c814acc0182342b3738d91b52825bfe0de359bce69cb4ca95bbb9d54162",
+     "ParallelizabilityInfoGeneratorTail.py": "b9223586e64cec24264984562a316fe1a967eabcac8267026e72256dd73d2e8b",
+     "tail.json": "8d0390afac0de9b997fad6e185651230761f8126fd92ccd8a3d4201fb929c7aa"
+    },
+    "source": "Caruca, pash grammar (tail/pash_grammar/trace_1)"
+   },
+   "tee": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/tee/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorTee.py": "80603f2505b24c2eb1a7bfd0d78f08cc857e77a777f689ee886b96e1a83084fe",
+     "ParallelizabilityInfoGeneratorTee.py": "07ed2d15190125fd93bb7aab40bdebfb73987e33f34959f788f69ff8449dffdf",
+     "tee.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (tee/pash_grammar/trace_1)"
+   },
+   "tr": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/tr/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorTr.py": "d6f84f070840d4323866ae8a8ee6171a08799dd1e551f24b7e66823f68c7c409",
+     "ParallelizabilityInfoGeneratorTr.py": "baa0a492ce1eccc7f816ec8ec5dbe08795a62f591cf065fa987117716187fbd8",
+     "tr.json": "ce639062674045d42504cc63f58e9a42ecec855c22fb97f48ae7df0062143341"
+    },
+    "source": "Caruca, pash grammar (tr/pash_grammar/trace_1)"
+   },
+   "uniq": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/uniq/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorUniq.py": "c8db1a4bd3bdcd0590435909c14686c150c18e520ee3f4b34563e15027fee75c",
+     "ParallelizabilityInfoGeneratorUniq.py": "e0b357f69b599d74990109b2fdc1a10c1b08100bf8ba5e8210bd21edfae036b6",
+     "uniq.json": "7cc35ae14d9e17ed1fdaa4102ca263d34e571c884828d4219ea55c6689b30d16"
+    },
+    "source": "Caruca, pash grammar (uniq/pash_grammar/trace_1)"
+   },
+   "wc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/wc/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorWc.py": "5a589bf27a100dcc4bee16833e032d2db897d63f9733220af9e34f8ebdbb1381",
+     "ParallelizabilityInfoGeneratorWc.py": "455aef784f99b938816dc8c6d77c4eb8e0907fc96da75cc593d5fee58cbd607b",
+     "wc.json": "9f49b8b75cec004f2845a1fa64de55900e8b7f4cbeda9d01db41c0bf89fac3ba"
+    },
+    "source": "Caruca, pash grammar (wc/pash_grammar/trace_1)"
+   },
+   "xargs": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca/caruca/save_pash_py/xargs/pash_grammar/trace_1",
+    "files": {
+     "InputOutputInfoGeneratorXargs.py": "7c1993691ba8d5d762d0f049cbb1147729b0e8f4e1a512461a5d20203310ad92",
+     "ParallelizabilityInfoGeneratorXargs.py": "302b50836f0d5244297a79441650bd68c0731df7425a79a691ee062dcf04b207",
+     "xargs.json": "76a63ba0f078d4dac575842d8d0c744e763f1fac1db2ee55721203220e37a40a"
+    },
+    "source": "Caruca, pash grammar (xargs/pash_grammar/trace_1)"
+   }
+  },
+  "left_out_not_loadable": {},
+  "rule": "sides.jsonl of the task-021 comparison: v1-pash rows; caruca-main takes the v1-main row where a command has one",
+  "rule_all": "caruca-pash-all: save_pash_py/<cmd>/pash_grammar/trace_1 for every command with its three files; caruca-main-all: main_grammar/trace_1 where present, else pash_grammar"
+ },
+ "caruca_v1_branch_commit": "4bf74dd9a502e97a760b8a9d1e93c20a7a548450",
+ "caruca_v2_commit": "784aa68940629f433eeb888f625f7909ee9d8fef",
+ "koala": {
+  "commit": "ccf25a572cef29cef6463534e4429e3ed42758d2",
+  "dirty_files": "?? .tools/nodejs18/\n?? web-search/scripts/package.json",
+  "sizes": {
+   "analytics": "--small",
+   "bio": "--min",
+   "covid": "--small",
+   "file-mod": "--small",
+   "nlp": "--small",
+   "oneliners": "--small",
+   "unixfun": "--small",
+   "weather": "--small",
+   "web-search": "--min"
+  }
+ },
+ "machine": {
+  "bash": "GNU bash, version 5.2.21(1)-release (aarch64-unknown-linux-gnu)",
+  "coreutils": "sort (GNU coreutils) 9.4",
+  "cpus": "8",
+  "os": "Ubuntu 24.04.4 LTS",
+  "python": "3.12.3",
+  "uname": "Linux 6.8.0-151-generic aarch64",
+  "vm": "Lima VM `pash` on a Mac"
+ },
+ "naive": {
+  "commands": {
+   "awk": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-11-24_115222_naive-run-awk_awk_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorAwk.py": "69c5536fe0926a6751b55a3f48baee6fc2a57e451408a210b03aea02446eb451",
+     "ParallelizabilityInfoGeneratorAwk.py": "2e3e247f12f3ea4db1de2c276f09cd416f78afeba38e731604fdd7c553f04fdf",
+     "awk.json": "13b5773dec2c578e6206dab430ac78005b084d9db2d5b040be91b0c49a84c3ae"
+    },
+    "source": "naive LLM, 2026-11-24_115222_naive-run-awk_awk_PROMPT_v1"
+   },
+   "b2sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_105421_naive-run-b2sum_b2sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorB2sum.py": "5567ecdd30537b10551f7db0d74a75e36dbe5b122782f30af4cbf27400181c2c",
+     "ParallelizabilityInfoGeneratorB2sum.py": "b9bf376ab245adb6048ff5da20743854d1d285b038cab90ad9ddce3fc78f3f00",
+     "b2sum.json": "398159d10147ffba6b73b49540f5fc67ebe40ec218a54860abb012d0dc2787a0"
+    },
+    "source": "naive LLM, 2026-10-28_105421_naive-run-b2sum_b2sum_PROMPT_v1"
+   },
+   "basenc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_111031_naive-run-basenc_basenc_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorBasenc.py": "79fb5d7260e9026b6d80fa8dc34a601e91db2619dae576db0fa10ef708e4031b",
+     "ParallelizabilityInfoGeneratorBasenc.py": "33ac207a667aec5d747f7c0fb009338751ece9a7480c0a030691e8c0af63f4fb",
+     "basenc.json": "284dca09c2fb3adad6ae189bd15c8c0819849a386bc7b2e5e75f530ce04df42a"
+    },
+    "source": "naive LLM, 2026-10-28_111031_naive-run-basenc_basenc_PROMPT_v1"
+   },
+   "bc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_084323_naive-run-bc_bc_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorBc.py": "7bf0cb4f7c742b51cebc20ce772cfef99c81186babf6402de81d146c0faa6286",
+     "ParallelizabilityInfoGeneratorBc.py": "c7b8f06b5150873ec663af3a4971a246366fad24561b8e92e59d42c8c14ed2f8",
+     "bc.json": "d449f398c87769db3a47c55bf60b8ffa8f61abdae01659609297015b289f0f5d"
+    },
+    "source": "naive LLM, 2026-10-28_084323_naive-run-bc_bc_PROMPT_v1"
+   },
+   "cat": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_100411_naive-run-cat_cat_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorCat.py": "b90313966c4d22557864e27e19b20a767e9b986972baa44463e07a3f603447b7",
+     "ParallelizabilityInfoGeneratorCat.py": "4a137a47c3512c686ab2836e22660635de771f9744147b3eb769c6a08c4eef2d",
+     "cat.json": "6eb904d0148b5f10d9ad0b05b3e07d7298f09c8aafee7badd13fc942eb0d6f49"
+    },
+    "source": "naive LLM, 2026-10-28_100411_naive-run-cat_cat_PROMPT_v1"
+   },
+   "chcon": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_125939_naive-run-chcon_chcon_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorChcon.py": "f102a05fb76d88fd7ec2320d276706d3cbde9a2c7dd2b969938d3201ce5a6309",
+     "ParallelizabilityInfoGeneratorChcon.py": "366e3a01736f374d5676d7673c00a896a57f25d3be4e9880aa684771329719a2",
+     "chcon.json": "7ea5148c06fde32f5e723efdf85cbcfb223bd60cc9c7f3485ce31d6f22c447fb"
+    },
+    "source": "naive LLM, 2026-10-28_125939_naive-run-chcon_chcon_PROMPT_v1"
+   },
+   "chgrp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_114550_naive-run-chgrp_chgrp_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorChgrp.py": "c9f6fdb66b6fb1b6237e7e6cffd629d13770172d01d7b358125830c1cd4ecc19",
+     "ParallelizabilityInfoGeneratorChgrp.py": "7fbcf5d940373e151b33a5e41ecabb5d14b0449b9533a462b7bf9a1b906e0f6b",
+     "chgrp.json": "ff8a4f455eab0ec808f180bda5256be489a609a8777f780a47b23c21843d4d38"
+    },
+    "source": "naive LLM, 2026-10-28_114550_naive-run-chgrp_chgrp_PROMPT_v1"
+   },
+   "chmod": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_112202_naive-run-chmod_chmod_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorChmod.py": "3114294373bc8bc3228d1b71c774e8d78669366645b84eebe913b4fe451ad8c4",
+     "ParallelizabilityInfoGeneratorChmod.py": "12f421d8175a027305d3e2054f912594da5b6a04cb7e0ef29770ec779ccbc2db",
+     "chmod.json": "22cea4ed576e7b6a81425a2f133e64430183e8596efeb5fef3e378e245ee1847"
+    },
+    "source": "naive LLM, 2026-10-28_112202_naive-run-chmod_chmod_PROMPT_v1"
+   },
+   "chown": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_115536_naive-run-chown_chown_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorChown.py": "89284aab4ade89cad3a8cffa8d0957bcc7345f47e68152e561547bb2be27833c",
+     "ParallelizabilityInfoGeneratorChown.py": "c9d9691e9e92cb3acbc6d47c191d77703d3e913a5899b434d79e947dcbddda6a",
+     "chown.json": "3391e97041d975192b3b08f75be72210e8c5c1a8c8e39d041c8b2f0c21075443"
+    },
+    "source": "naive LLM, 2026-10-28_115536_naive-run-chown_chown_PROMPT_v1"
+   },
+   "chroot": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_083453_naive-run-chroot_chroot_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorChroot.py": "d031260f48666f9249b44af7d4fa382ab77015e78efa318705efcb2c33d389bb",
+     "ParallelizabilityInfoGeneratorChroot.py": "a4e4b29b150efd1afbefdcd48114a5b0745aff80faad2ddb157fcfc4dc8732c8",
+     "chroot.json": "874a8289d14c25cc026baf4f3df93511bdf8aa418a10732358d1ca0b3fe6630b"
+    },
+    "source": "naive LLM, 2026-10-28_083453_naive-run-chroot_chroot_PROMPT_v1"
+   },
+   "col": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_093614_naive-run-col_col_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorCol.py": "85cdc93f21981914512193064b6fca8b4b3d7af78d145166ba817c6009693f5b",
+     "ParallelizabilityInfoGeneratorCol.py": "1dd76856f978a40ef2e8deec057e60ebd3853df522a1510f94f130c9fa350e96",
+     "col.json": "e71baee55d4477100738bd41fb7280bbcb73ca2359cac69fb676b55da353ddf5"
+    },
+    "source": "naive LLM, 2026-10-28_093614_naive-run-col_col_PROMPT_v1"
+   },
+   "comm": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_111854_naive-run-comm_comm_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorComm.py": "7bfbaa53773f1f62e803777d3c4f95e113c7868e63169892f770949d0f44a94c",
+     "ParallelizabilityInfoGeneratorComm.py": "03a315eeb3b5ceea1db4012a5d9dbf4db8a0374bf1a3f81177afdc1ef510a0b8",
+     "comm.json": "704c139db636339715151f61ef069b1436f0abec4b556e9dc8cbf0201f4776d0"
+    },
+    "source": "naive LLM, 2026-10-28_111854_naive-run-comm_comm_PROMPT_v1"
+   },
+   "convert": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-27_231631_naive-run-convert_convert_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorConvert.py": "742d96a609a0cc535f0a345192c06f107cc59ef9dc63a66f5aec4c6fe4a6f189",
+     "ParallelizabilityInfoGeneratorConvert.py": "ea42108a8353fe62b9e599d60b281eaa2f930e579ecb8b6331c099697020bb07",
+     "convert.json": "9836803159a15c7454c5662d8da3335015c1709b4282b8db49b7e5579b7429d4"
+    },
+    "source": "naive LLM, 2026-10-27_231631_naive-run-convert_convert_PROMPT_v1"
+   },
+   "cp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_114133_naive-run-cp_cp_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorCp.py": "780f732bbcab9ca45225e259718a901cfb996db9fa648bf50ecde324c008cfcc",
+     "ParallelizabilityInfoGeneratorCp.py": "7023b0882244013417a38cddd72947d997b0848e25bf8c30d191088a4d3692e1",
+     "cp.json": "1d1a6fe1dcd512c9aa0cfd5ea369bdc067088c832533ded3d1dbd23bb80c23d2"
+    },
+    "source": "naive LLM, 2026-10-28_114133_naive-run-cp_cp_PROMPT_v1"
+   },
+   "csplit": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_104909_naive-run-csplit_csplit_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorCsplit.py": "5a1f12dda2bddd18e9d03b349e66e705688cc95da59981ca1e831ccd96ead193",
+     "ParallelizabilityInfoGeneratorCsplit.py": "cd1b00c625e54f40947c0882e368f672d3114b8fd55b866fe34876ba85bc94b4",
+     "csplit.json": "00a684e6f578c55851d10c002cdb51ba9af5363b1e025af3458230afb482ba89"
+    },
+    "source": "naive LLM, 2026-10-28_104909_naive-run-csplit_csplit_PROMPT_v1"
+   },
+   "cut": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-27_230555_naive-run-cut_cut_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorCut.py": "7b527a080f4d2543746d4173006f3bb371b31171800f22c53698510ce24ef276",
+     "ParallelizabilityInfoGeneratorCut.py": "66f842490429eb3f9373b84887d99e9a37556cf109e1aa8ffc086f853a7f712f",
+     "cut.json": "ea25638fd86a055de33bb822ec3bae66eec95f3e7fe252500e628da221a2e78c"
+    },
+    "source": "naive LLM, 2026-10-27_230555_naive-run-cut_cut_PROMPT_v1"
+   },
+   "date": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_111357_naive-run-date_date_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorDate.py": "6e3c689902599f02f6adff728082f3af1245be82af846695451f48fda7c8e8ef",
+     "ParallelizabilityInfoGeneratorDate.py": "db5c2b4f1578629bfeafbcf2694e98ca7a70d1d3ee512c17f9e5bc5c1568a808",
+     "date.json": "a5f0b70d3da0b2052106b13e845ae28a6aa04c865671eb0f4c4391021c7f9376"
+    },
+    "source": "naive LLM, 2026-10-28_111357_naive-run-date_date_PROMPT_v1"
+   },
+   "dd": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-27_225152_naive-run-dd_dd_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorDd.py": "90242348a76c2be3b338951c615b7b7f46cc08de577ddd54b201351b173309d3",
+     "ParallelizabilityInfoGeneratorDd.py": "766540fac48b4abfa537af70e30b55f417d018c6bb6c3313a302bf82d1d4bc0d",
+     "dd.json": "c6e8cfd837b72c776e616fc1ffc5c500b2307355c5d1d7d466f8e6c0c8cf5658"
+    },
+    "source": "naive LLM, 2026-10-27_225152_naive-run-dd_dd_PROMPT_v1"
+   },
+   "df": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_125544_naive-run-df_df_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorDf.py": "079b3fedd2e010a40ea02159ee87a8ef9d1346bca7de8b4e8fef90ea135827fb",
+     "ParallelizabilityInfoGeneratorDf.py": "8a260e284969deab4487e2280ec27a6e4faaab52916d9c10748597b0b0a25aaf",
+     "df.json": "0bc9c8a7e55a0993eb11c4770f5c5a477374c2ac622cad1a9e3f4d585cd87ba4"
+    },
+    "source": "naive LLM, 2026-10-28_125544_naive-run-df_df_PROMPT_v1"
+   },
+   "diff": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_115007_naive-run-diff_diff_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorDiff.py": "c9014bd596fbb353180504efdfb657ad85008a3d43c31f57cc7311e667f50e1f",
+     "ParallelizabilityInfoGeneratorDiff.py": "7a1ba543eba0f097a7b3e7f529f3ea45b816209ca7995bc7db2184a9879dbb81",
+     "diff.json": "86b62fdb80ee483e5be9ad35a578abb96ee6ec82f5a343e1a655adcd2c4240a3"
+    },
+    "source": "naive LLM, 2026-10-28_115007_naive-run-diff_diff_PROMPT_v1"
+   },
+   "dir": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_143025_naive-run-dir_dir_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorDir.py": "27ec59e8ed07f822b3b79744121935218cd9c6fe180f2cbdcafe4cc8f895d6b6",
+     "ParallelizabilityInfoGeneratorDir.py": "841fbfe70af6090872d1ce7f39849dce545fe1611165d94d760f97cbb3a0b448",
+     "dir.json": "ce77a15fe2a12fccad208b27f0edbe7df3c0dfa1b50415dde7c271c9f391188e"
+    },
+    "source": "naive LLM, 2026-10-28_143025_naive-run-dir_dir_PROMPT_v1"
+   },
+   "du": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_141545_naive-run-du_du_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorDu.py": "80908e128762d7209f9adaa8c1b6c018da5f2d061293bdbb465a61b0c4c2d1d9",
+     "ParallelizabilityInfoGeneratorDu.py": "38e3a070dd81554b4e399a82c48b1c97b5f5b0b6e0860f3fe408952712dcf79b",
+     "du.json": "89a5873a06a507cc2b306c693ae3b60cf49592909c9754966fc943505e88b4aa"
+    },
+    "source": "naive LLM, 2026-10-28_141545_naive-run-du_du_PROMPT_v1"
+   },
+   "env": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_121513_naive-run-env_env_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorEnv.py": "7d32aab98919812dfe4ec81e769aaac77f416a1aadd73c24b9073d36fa809b90",
+     "ParallelizabilityInfoGeneratorEnv.py": "10ed1bd85c46219c66796d329e3ad11c78d2913183d117708d39db2ef459e20f",
+     "env.json": "bfdbb4cd80ff3d6379af715ad924aeab91a3ff940c231a95be324581a30796f4"
+    },
+    "source": "naive LLM, 2026-10-28_121513_naive-run-env_env_PROMPT_v1"
+   },
+   "expand": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_083113_naive-run-expand_expand_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorExpand.py": "4879300a5d11251ad44cb97fa58914cee37d2d693d7e34c039d6482476def9fc",
+     "ParallelizabilityInfoGeneratorExpand.py": "e0278e0855e8a781d25d52039dbef9c2e36a4a3ba338a24d62f006e1e6cabf7a",
+     "expand.json": "ebc0560ed862bf726d04c287784b6573b5087b9cd77b294216a973983642c0dc"
+    },
+    "source": "naive LLM, 2026-10-28_083113_naive-run-expand_expand_PROMPT_v1"
+   },
+   "fmt": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_104147_naive-run-fmt_fmt_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorFmt.py": "f92e1e96cd963e6f1c3cce54a765cd2148e3dc0a8d01acbe89367c9529fd56e8",
+     "ParallelizabilityInfoGeneratorFmt.py": "8fe3cacdf99e3e47a866d16f831a5c0b9ce2fd536c016eb2bc5184f6bba8e084",
+     "fmt.json": "d68bcfcecc199cf6db6bc7f295fbfd1fd502f3fa3a1652f20ba0859a9e7e078a"
+    },
+    "source": "naive LLM, 2026-10-28_104147_naive-run-fmt_fmt_PROMPT_v1"
+   },
+   "fold": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_081910_naive-run-fold_fold_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorFold.py": "5a00b008468965eb31f1a07b4529a35a5c9538c18c3aa38781d4268484f99df4",
+     "ParallelizabilityInfoGeneratorFold.py": "ac3ea2302ecbf499623b4fab4b8d03a6a85a283d8683fbc5eae8b178dc468918",
+     "fold.json": "afd347f19b7307efd454aac86c2d8426e2dbc3f668b6ef819a5e947a6b3bbcbc"
+    },
+    "source": "naive LLM, 2026-10-28_081910_naive-run-fold_fold_PROMPT_v1"
+   },
+   "grep": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_135447_naive-run-grep_grep_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorGrep.py": "f8e1bf53ac1c538f816227bee6d1bb5a213b8dd6b178ee6bb0286e19dfe443f0",
+     "ParallelizabilityInfoGeneratorGrep.py": "7ee7fd2af8f4d95ef6a4eb2ae387ee9933703b6d800ead609c78a3666e34eb20",
+     "grep.json": "9ad3efef75e87450a4df3bfa4727b148611cb977753bf1f070d4bc321684fc51"
+    },
+    "source": "naive LLM, 2026-10-28_135447_naive-run-grep_grep_PROMPT_v1"
+   },
+   "head": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_095255_naive-run-head_head_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorHead.py": "92762c82c3bc2ea5f7ea58dbb52114c393e39e1ec7c9a77995281082dbebba59",
+     "ParallelizabilityInfoGeneratorHead.py": "0c27166d2f878de7ab4d0775a8b20ad75da728bb344d121692548ff96faa5e77",
+     "head.json": "9c04cce13672a8bd4866e17ad62edfc881067ece06d74d04cb32d07993100ac1"
+    },
+    "source": "naive LLM, 2026-10-28_095255_naive-run-head_head_PROMPT_v1"
+   },
+   "iconv": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_110404_naive-run-iconv_iconv_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorIconv.py": "2d3b979e5449f46a529e037ad81b9913ee9bdd5edde8705a839909758c8db244",
+     "ParallelizabilityInfoGeneratorIconv.py": "637e42eb7ca46e2e3df2c6e4cb7ea9050c8d5adf6f3a306b294d2d3019f9dedb",
+     "iconv.json": "15853001e10079e034e5fa96ac8dfaac7a55ac348ee9276b02686869fe6ea1eb"
+    },
+    "source": "naive LLM, 2026-10-28_110404_naive-run-iconv_iconv_PROMPT_v1"
+   },
+   "id": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_093251_naive-run-id_id_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorId.py": "8b601c238f80a58e105b090384f2f5ee04274b8e61eaac8796057747a244b7ff",
+     "ParallelizabilityInfoGeneratorId.py": "f9839e7dc2044e6a0257213cb351b778716a56835340dcfe1be41a32f0ac39ca",
+     "id.json": "1a34fde685de8cef0a221c5442583a0ce352c341cb6a4640e932a4ba32022450"
+    },
+    "source": "naive LLM, 2026-10-28_093251_naive-run-id_id_PROMPT_v1"
+   },
+   "install": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_140311_naive-run-install_install_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorInstall.py": "1bf048fae4cdba96ca7b8506708236e58039f19590f1e8c3488fbd5b1dc25c01",
+     "ParallelizabilityInfoGeneratorInstall.py": "9d7373a73a92fa698a1b08e12cf7af750f16695b9f7332cae8670003015cfe25",
+     "install.json": "b0bc0b766e1d0ca59ccb92113607511de92712f1a57fdbabfe2311554f32b512"
+    },
+    "source": "naive LLM, 2026-10-28_140311_naive-run-install_install_PROMPT_v1"
+   },
+   "join": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_132048_naive-run-join_join_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorJoin.py": "b556381f62ca494c594e276474878dc38f05325a7e40974b2d567e2f34dfa99d",
+     "ParallelizabilityInfoGeneratorJoin.py": "ff175c42cf5a4e098cbfe9630f49431daa75613054828e14e0d7d9864448ab80",
+     "join.json": "e8f3f58daa3d53f6a2cdbbad480d5f8e21910bb064220c1cd84e5c6fd0ddfc52"
+    },
+    "source": "naive LLM, 2026-10-28_132048_naive-run-join_join_PROMPT_v1"
+   },
+   "kill": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_120050_naive-run-kill_kill_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorKill.py": "cbf165e29c706344ce4a8f49d7a60318934b2e2255b9fda2e7ec490e25902b6f",
+     "ParallelizabilityInfoGeneratorKill.py": "2606030485284048e82e2863b7d437e3a7edc0881da6f6838d5b510015688a86",
+     "kill.json": "e60bcd7d85b14308c64d269c7d8bf00f7fdc7295d8454afc0d0c6efe2967dae6"
+    },
+    "source": "naive LLM, 2026-10-28_120050_naive-run-kill_kill_PROMPT_v1"
+   },
+   "ln": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_130353_naive-run-ln_ln_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorLn.py": "8f55efc4e2c348c0645fb87354d36ceafd383e0d95ee4ef45bee6d9644e6c5b0",
+     "ParallelizabilityInfoGeneratorLn.py": "a7c50e694fd38d5540ab69f76a29297b52a8c7ad29587f717de0a69d3cdf051b",
+     "ln.json": "610a5a29e3c143f1e627bdf2d8dcd625a273d1f4d23c1c73f5a7edf888e13c45"
+    },
+    "source": "naive LLM, 2026-10-28_130353_naive-run-ln_ln_PROMPT_v1"
+   },
+   "ls": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-27_225849_naive-run-ls_ls_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorLs.py": "3d83f0660784cb60e09bd1eed66096e8303e73fcd77aa8d8f1c2be6a9e6e7956",
+     "ParallelizabilityInfoGeneratorLs.py": "8dfa191c9ae79f0d13759a0fe18a4f87195fd71f3ba7843b003226c6cd555f39",
+     "ls.json": "6f2af21fbcd3976b6a5ae469d9dd522b3ac3159db05881b02730fce536e36921"
+    },
+    "source": "naive LLM, 2026-10-27_225849_naive-run-ls_ls_PROMPT_v1"
+   },
+   "md5sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_103723_naive-run-md5sum_md5sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMd5sum.py": "a3361a13b47df172136cf5128749ac91bfbd9940c49db9464b0d08b14e792d91",
+     "ParallelizabilityInfoGeneratorMd5sum.py": "42ca736d62aca5737394f9555acd069447f80fdecbe27db266119946433df7b0",
+     "md5sum.json": "80ffd7f36e8838cfe93ccb54cdeb322ff184ea6093ef19298a07d531a79ec45b"
+    },
+    "source": "naive LLM, 2026-10-28_103723_naive-run-md5sum_md5sum_PROMPT_v1"
+   },
+   "mkdir": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_094955_naive-run-mkdir_mkdir_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMkdir.py": "656e0bb58c53a34e6d7af98c76321b43990ab0c4cd1278d806a110631d928660",
+     "ParallelizabilityInfoGeneratorMkdir.py": "f70e99110320187ef4dfd15477dc1cadebd8374772262d9173758e2a1ec2b4f8",
+     "mkdir.json": "f6bae86524d5ca175f725a9f2cf5fe32b999e2aaf7e3050d54c4129f2b4de482"
+    },
+    "source": "naive LLM, 2026-10-28_094955_naive-run-mkdir_mkdir_PROMPT_v1"
+   },
+   "mkfifo": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_082734_naive-run-mkfifo_mkfifo_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMkfifo.py": "5d4476f4b116aa5a0e7360bd73a0b2c14cabb6c842dfab6b368afcc1c1ef12a2",
+     "ParallelizabilityInfoGeneratorMkfifo.py": "023562072810f0f7352aa1fb0ccb6ccca359b66499338e905f6dbff3c74a4b62",
+     "mkfifo.json": "776db8a04140baf27457efaadf8b48df4040b6ed6122c7f85b83f9d2a6d2d834"
+    },
+    "source": "naive LLM, 2026-10-28_082734_naive-run-mkfifo_mkfifo_PROMPT_v1"
+   },
+   "mknod": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_120953_naive-run-mknod_mknod_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMknod.py": "47801227cefa9b0dfeae7eb4875afe5175e93a7ae45b2e90521061afc0ece568",
+     "ParallelizabilityInfoGeneratorMknod.py": "239ba74dc271cec889fdac113db4bcef9e286909f9a37ea9b0b3d10f1b1f734c",
+     "mknod.json": "eb3c7ef6cbc460292781c74215e1346dc2855a159f8992503c171cc2c6083eb4"
+    },
+    "source": "naive LLM, 2026-10-28_120953_naive-run-mknod_mknod_PROMPT_v1"
+   },
+   "mktemp": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_092028_naive-run-mktemp_mktemp_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMktemp.py": "8934f8f00e1935e5a41fe8718390d0d89f6827057589f7ad9d7241e0ffa20325",
+     "ParallelizabilityInfoGeneratorMktemp.py": "c27ef9f0b5540198d07ccda56aa257e03eaa76e30cf6788f51017d01149a488d",
+     "mktemp.json": "3e84c309d8e7466b9b37bbfea9e293d98dbe98914a24de8c600ef05049940666"
+    },
+    "source": "naive LLM, 2026-10-28_092028_naive-run-mktemp_mktemp_PROMPT_v1"
+   },
+   "mogrify": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_084707_naive-run-mogrify_mogrify_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMogrify.py": "0b9a6f247df28ef1fcb8d8b54ad5454d5d40d6ed75c6e1c5bbe1bef0a541e7ca",
+     "ParallelizabilityInfoGeneratorMogrify.py": "ce29bf13331ccb0625f7ea76682bd4e9dcff53229b85a7425871dd74cc03d6b9",
+     "mogrify.json": "2f319ac1e84b757d5380e3b1b3769fbae270cb4a3712d0a55077c5bfe0318e88"
+    },
+    "source": "naive LLM, 2026-10-28_084707_naive-run-mogrify_mogrify_PROMPT_v1"
+   },
+   "mv": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_123450_naive-run-mv_mv_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorMv.py": "03fb4625f61aea18e8baf48a20c9a1a4c68bced9a179ee026061130fd7102c77",
+     "ParallelizabilityInfoGeneratorMv.py": "dbf43cfd4c22d3a2f780b1d5a320beb930b6067cd29c6b092d225cadf516c0b2",
+     "mv.json": "46bbc64c10646bb140cdd13280d6c208de0e9866c6ccb4d55c52b4de8ca4d508"
+    },
+    "source": "naive LLM, 2026-10-28_123450_naive-run-mv_mv_PROMPT_v1"
+   },
+   "nl": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_131454_naive-run-nl_nl_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorNl.py": "8286f0b8c566a9c7eb65d0702a84f19816f475119017d1d26f5a5109d881b34e",
+     "ParallelizabilityInfoGeneratorNl.py": "ef26f445f74e2aedf16cce6fbc2354540b90ee587bc795ee66414d7aa5a26228",
+     "nl.json": "798e395104e2d0e86245684019146725b613693965de219f6b54c137680e7ac7"
+    },
+    "source": "naive LLM, 2026-10-28_131454_naive-run-nl_nl_PROMPT_v1"
+   },
+   "numfmt": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_135110_naive-run-numfmt_numfmt_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorNumfmt.py": "1db1560647a2ab5d719a6c5978a10c2ee23f586505d20c89a0b603310005ee58",
+     "ParallelizabilityInfoGeneratorNumfmt.py": "1c9cd9f2f858be7228e7838a19f6afb83d5e9563ca46cf01041ab148629c1ac8",
+     "numfmt.json": "d322683856d12d5df653f1718ca1a48682ee3022ccbeb068f5ea82121bd2747f"
+    },
+    "source": "naive LLM, 2026-10-28_135110_naive-run-numfmt_numfmt_PROMPT_v1"
+   },
+   "od": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_132554_naive-run-od_od_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorOd.py": "a556b4060d9a0bf336bf941fea6af432641f6fb154448f16f1e39033e5b455a5",
+     "ParallelizabilityInfoGeneratorOd.py": "20e4693232608c7d502c3587175ff006bed34569d3832394ef110b6ae615e395",
+     "od.json": "003e4fab44591d4d4246d57d5db4a28f3fe7559ce4ea0bf727298d96357cacd0"
+    },
+    "source": "naive LLM, 2026-10-28_132554_naive-run-od_od_PROMPT_v1"
+   },
+   "pandoc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_144226_naive-run-pandoc_pandoc_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorPandoc.py": "30cb5511f098960e3b84dc660f8ef2924f5a6397fed7a482052fb4fb4ec9e063",
+     "ParallelizabilityInfoGeneratorPandoc.py": "3700b7ad9261348832c06bdb9ab5c44d967ee7f31e8daa2031ad6da1894112b2",
+     "pandoc.json": "eba2995ac4192638cdb5f202f70dcfead068a45392407675cd9d40edd9c7bebb"
+    },
+    "source": "naive LLM, 2026-10-28_144226_naive-run-pandoc_pandoc_PROMPT_v1"
+   },
+   "pinky": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_094246_naive-run-pinky_pinky_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorPinky.py": "79427f0ffa1ea6e66186fdb1960cb2032c5d0c6081472887f5f29ef42de6781b",
+     "ParallelizabilityInfoGeneratorPinky.py": "7496866d5439cf812bec4c849b54e2ebbaeac1d4aac565dbaccfb45f0a1b5341",
+     "pinky.json": "fffb0b9abcfeabbfd2860809cfda20ebdde164df5771ee15c9e938f0b59345d5"
+    },
+    "source": "naive LLM, 2026-10-28_094246_naive-run-pinky_pinky_PROMPT_v1"
+   },
+   "pr": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_142022_naive-run-pr_pr_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorPr.py": "ec6d82dca2112f1a9218938379f9deccae4433b50c6379146069fd9de47fe440",
+     "ParallelizabilityInfoGeneratorPr.py": "9ff32d122a2597fb292c868c8411deaeba7ced7eaea3b8f34f544d88270f666e",
+     "pr.json": "be4cc63a15715c932aff9832cf90f1aa44c9340025d573e87b9f537608d67979"
+    },
+    "source": "naive LLM, 2026-10-28_142022_naive-run-pr_pr_PROMPT_v1"
+   },
+   "ptx": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_130800_naive-run-ptx_ptx_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorPtx.py": "061af8be55283a93bc1fac03ed24a899947e84e5dacbb1e38665d3045e6401ba",
+     "ParallelizabilityInfoGeneratorPtx.py": "7666617aec9c6bca151788aed319d2b70da453227de215342cffdc17620cb214",
+     "ptx.json": "24e9c7f4e6e9c65636719da73614e3fd21214049b209f8c58f8fddce6ef36ee8"
+    },
+    "source": "naive LLM, 2026-10-28_130800_naive-run-ptx_ptx_PROMPT_v1"
+   },
+   "readlink": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_101249_naive-run-readlink_readlink_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorReadlink.py": "5b7d565b57d6c22a72300dfa584f7968516a80c3ec1b10435f4212c76ce66cf1",
+     "ParallelizabilityInfoGeneratorReadlink.py": "5c556d1cced475d963f491c042f16dd007cd3a7c3c97ce2c758223f8aa9d7a1a",
+     "readlink.json": "afa3362c6367b5848cdbdbf62a149fb8b6ec5ab83c6949fd764bc1ea7e0cdbde"
+    },
+    "source": "naive LLM, 2026-10-28_101249_naive-run-readlink_readlink_PROMPT_v1"
+   },
+   "rev": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_090550_naive-run-rev_rev_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorRev.py": "49548a01dbcefe975f11a37717ab09c4e159a8682e146d7751330a4c104c8c5a",
+     "ParallelizabilityInfoGeneratorRev.py": "2c9c905aea5dc1257cd85ccbc4757e6b00b8c44c7efa627903e546d4a26bc160",
+     "rev.json": "c221e49c91469b19e601e31e198f771be7b45b674c3a2fc744f400d82d835567"
+    },
+    "source": "naive LLM, 2026-10-28_090550_naive-run-rev_rev_PROMPT_v1"
+   },
+   "rm": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_105951_naive-run-rm_rm_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorRm.py": "bbf3a1a0b47c632096f535ebc0f4737f8ffde50f6307a2b01bbe9c190766c912",
+     "ParallelizabilityInfoGeneratorRm.py": "90ac8266a3070352e154596cd46043cb466948ca40b2e25283a49be7b9992251",
+     "rm.json": "23de476b36332319608d9f23d4034e9b2b9e5d3ac156d50c1c399c91782da571"
+    },
+    "source": "naive LLM, 2026-10-28_105951_naive-run-rm_rm_PROMPT_v1"
+   },
+   "runcon": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_083856_naive-run-runcon_runcon_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorRuncon.py": "ad5aa526fd5b993a283c9178f4a836ebbb59df889788040bf10050b42fe38591",
+     "ParallelizabilityInfoGeneratorRuncon.py": "6ebddf0ceb96c589ed5341273d66d548bef68e7388c9ccc8978ed63a1e3758c2",
+     "runcon.json": "712f1f69f00cdc51fd3247eee85543537a9a57101f65cd7ba9b477bbbef47e75"
+    },
+    "source": "naive LLM, 2026-10-28_083856_naive-run-runcon_runcon_PROMPT_v1"
+   },
+   "sed": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_124823_naive-run-sed_sed_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSed.py": "0ee220be76e6d9f0602535c783336ff295d8af8a9a7706175cf8f0819554331f",
+     "ParallelizabilityInfoGeneratorSed.py": "8b4fa6b177251118c18dd0dbf7bc7419a16e66a834e70544aa65527ebf032dd3",
+     "sed.json": "5a8b7aa3facc5dfd6b6f1769bffb0a5a32427acdcb46e6b7d89af4dc3f8435a0"
+    },
+    "source": "naive LLM, 2026-10-28_124823_naive-run-sed_sed_PROMPT_v1"
+   },
+   "seq": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_095809_naive-run-seq_seq_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSeq.py": "4372789e4ee1f6cc3934e20d53154106f8249920eb00fff1aa9c0857b65c4535",
+     "ParallelizabilityInfoGeneratorSeq.py": "d44966c464ee8a85daa892d0d1aafe7caab08b07309ec6c05232aae8038edaae",
+     "seq.json": "bf752f71882ec1ebfea36cde4277afcf3f993d2c7db8370aef118c0c61541ce9"
+    },
+    "source": "naive LLM, 2026-10-28_095809_naive-run-seq_seq_PROMPT_v1"
+   },
+   "sha1sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_103316_naive-run-sha1sum_sha1sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSha1sum.py": "2d43fbcae59d914fd1bdb543bdb916e821822695a09cb9f2077cd73ed7de0006",
+     "ParallelizabilityInfoGeneratorSha1sum.py": "f5410c75e1aa8c18d33ab2ed4e0875c813c7a2aff5af80e0b59d2d8c9b7be99f",
+     "sha1sum.json": "80ffd7f36e8838cfe93ccb54cdeb322ff184ea6093ef19298a07d531a79ec45b"
+    },
+    "source": "naive LLM, 2026-10-28_103316_naive-run-sha1sum_sha1sum_PROMPT_v1"
+   },
+   "sha224sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_102417_naive-run-sha224sum_sha224sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSha224sum.py": "0b3f171ce14db983121c89361616efd8a77c73b901d138bb4118d559551479cd",
+     "ParallelizabilityInfoGeneratorSha224sum.py": "9798229e4ca4579f0c7f7ea9aa5cb66608ae5091068cd3d8deb760651cc7eed2",
+     "sha224sum.json": "80ffd7f36e8838cfe93ccb54cdeb322ff184ea6093ef19298a07d531a79ec45b"
+    },
+    "source": "naive LLM, 2026-10-28_102417_naive-run-sha224sum_sha224sum_PROMPT_v1"
+   },
+   "sha256sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_101707_naive-run-sha256sum_sha256sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSha256sum.py": "f1f15d75a4116da94678aa9ee6abd451fe40b8b62002af5046c57420e40db865",
+     "ParallelizabilityInfoGeneratorSha256sum.py": "fea85fc24fe2701054c34bddc81f81deeb17e3dd680f583d98dc5a085cdc0efd",
+     "sha256sum.json": "80ffd7f36e8838cfe93ccb54cdeb322ff184ea6093ef19298a07d531a79ec45b"
+    },
+    "source": "naive LLM, 2026-10-28_101707_naive-run-sha256sum_sha256sum_PROMPT_v1"
+   },
+   "sha384sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_102715_naive-run-sha384sum_sha384sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSha384sum.py": "f628bd149dc01d60c87f8d4e942ce3c75cdd06854bdeda1bc1ca5ef337c2b0bb",
+     "ParallelizabilityInfoGeneratorSha384sum.py": "cc0f92fcafc4b9f7d106e11d69d3dfd693616b3c36acda78b1e31c22f01a3ff5",
+     "sha384sum.json": "80ffd7f36e8838cfe93ccb54cdeb322ff184ea6093ef19298a07d531a79ec45b"
+    },
+    "source": "naive LLM, 2026-10-28_102715_naive-run-sha384sum_sha384sum_PROMPT_v1"
+   },
+   "sha512sum": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_102118_naive-run-sha512sum_sha512sum_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSha512sum.py": "b62c5edb75c61c424f5f621978e03da051226b277d8a41a59a447a4f2a372411",
+     "ParallelizabilityInfoGeneratorSha512sum.py": "288746d363158a2aee8444f91f7a7976a193d6e2652591e2aee93e4236117b31",
+     "sha512sum.json": "80ffd7f36e8838cfe93ccb54cdeb322ff184ea6093ef19298a07d531a79ec45b"
+    },
+    "source": "naive LLM, 2026-10-28_102118_naive-run-sha512sum_sha512sum_PROMPT_v1"
+   },
+   "shred": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_113129_naive-run-shred_shred_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorShred.py": "b8ec2a58c1bb5df8e5b3f0c7eca52c9269f80e2736c9b44ee88b1b7865d1dcfe",
+     "ParallelizabilityInfoGeneratorShred.py": "fbb2f1db062a30fa0b07a3ec90eb0ee1c01e10d1743ad803418fc518c9023056",
+     "shred.json": "48f65c420026f16dd5cc79c118f7a83b772a4e3729d988986257b30142a5d52a"
+    },
+    "source": "naive LLM, 2026-10-28_113129_naive-run-shred_shred_PROMPT_v1"
+   },
+   "shuf": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_113528_naive-run-shuf_shuf_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorShuf.py": "bd43ad5d5b8a310703ad04327bf7929ac09f6c28f3f2e26eb63a456f8787359e",
+     "ParallelizabilityInfoGeneratorShuf.py": "28e5ccf91b57ec29c6b114d238d884da2d24d1603db47aefd6382fa4f03742a7",
+     "shuf.json": "6695703580e43eb4f5e49ebe139c1ce847db05ebec68134ec4dc55cce5fb3be0"
+    },
+    "source": "naive LLM, 2026-10-28_113528_naive-run-shuf_shuf_PROMPT_v1"
+   },
+   "sort": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_140825_naive-run-sort_sort_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSort.py": "662b4ef5a6d3a2ce689fa5d11391aeea33320ddf70d829ef9c9c80f2e0bbb60f",
+     "ParallelizabilityInfoGeneratorSort.py": "d4a709c545266cda541778dfc9e1bc814ed16035c1117bd2fd3bd5e3c5e418c1",
+     "sort.json": "f103ad2e5da433991aab0a869c5f10087ad237c5fb76e0f49d69e07e2c34f9d5"
+    },
+    "source": "naive LLM, 2026-10-28_140825_naive-run-sort_sort_PROMPT_v1"
+   },
+   "split": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_134035_naive-run-split_split_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorSplit.py": "ee9843dacf9cb0e6f44c5286cab4ab725571a55c3b44005303e0428ccee4bc46",
+     "ParallelizabilityInfoGeneratorSplit.py": "4ffec3dcf6e54718eb9cff8e534d62fe62989d3779706982ba0d25bd4a5c7f91",
+     "split.json": "334bfe9396539aba4b6017436d6d59120897909693ab5afb62a577e656663b80"
+    },
+    "source": "naive LLM, 2026-10-28_134035_naive-run-split_split_PROMPT_v1"
+   },
+   "stat": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_100917_naive-run-stat_stat_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorStat.py": "6f783badb9789ccdfd0443fbfb6396c93de4f562a96e58ce3fb1da31e0ed6fdc",
+     "ParallelizabilityInfoGeneratorStat.py": "cd6932426722b81cf581f6a851cc6eebf8ce7b6616e700b1f23339a69decc9ff",
+     "stat.json": "97b37b677900165d7183b98166092c86d2bfd22e6b4ad9a869d92fd385a18c6d"
+    },
+    "source": "naive LLM, 2026-10-28_100917_naive-run-stat_stat_PROMPT_v1"
+   },
+   "tail": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_122555_naive-run-tail_tail_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorTail.py": "047b28e42d19686d8da79d6dd5cb5de46a74d866478da1ce0087bd642b54ea9b",
+     "ParallelizabilityInfoGeneratorTail.py": "5940cee77637223a471cbd3317de1126d2f850dffeee03abdabf0e854489cc49",
+     "tail.json": "7fbaa448b800caaf19f19bad30de5ceae6879090f92ddfe0cabac899324219f0"
+    },
+    "source": "naive LLM, 2026-10-28_122555_naive-run-tail_tail_PROMPT_v1"
+   },
+   "tee": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_082342_naive-run-tee_tee_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorTee.py": "aa48b1730f258fe6866877bca4f73997b3cbcb777c4b64754840ada114ae486f",
+     "ParallelizabilityInfoGeneratorTee.py": "02692c7f8b3c446f4c0e72b0299eebd3aa135fd0f7ce2f16cf7cae7af16d0786",
+     "tee.json": "0a32df47b0d94a94b13ba5cfd9954465efc44d68db406dbab892b5d3a8660215"
+    },
+    "source": "naive LLM, 2026-10-28_082342_naive-run-tee_tee_PROMPT_v1"
+   },
+   "test": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-27_230951_naive-run-test_test_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorTest.py": "2309ebd04ca25950013ee8f26931221c1480d0b88fe21ba33eb6159a5a635861",
+     "ParallelizabilityInfoGeneratorTest.py": "d931720fd4afe859772c9167f64ca5b04e475c30969741788667f60f1c60ac50",
+     "test.json": "729948cf5661ae7373da4ceb7a3e75d01cfbf6a52d9e1d737382b86fddd03db3"
+    },
+    "source": "naive LLM, 2026-10-27_230951_naive-run-test_test_PROMPT_v1"
+   },
+   "timeout": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_100100_naive-run-timeout_timeout_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorTimeout.py": "32b1bed61f8d8965f8bb0531fdbedd3ddc845d6f2900172ce6fc7c6143dbcc7f",
+     "ParallelizabilityInfoGeneratorTimeout.py": "272736aa3115a6d7f81a1dea55d1ea613a83bb129f5c627ac2303effa066215d",
+     "timeout.json": "11025424d0ebe4dc9ca8eb2dbfd82d12460fda16b4fe0bfe402e1dcd850f661f"
+    },
+    "source": "naive LLM, 2026-10-28_100100_naive-run-timeout_timeout_PROMPT_v1"
+   },
+   "touch": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_112717_naive-run-touch_touch_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorTouch.py": "c25fd0e4fc02c45dbbcd3286aa07c34a51b0192f7f60c331042efe3b79249f11",
+     "ParallelizabilityInfoGeneratorTouch.py": "6e2485e9876e2bbe89104788162d7c2a7037e398d8a2f55ba74ea2c96be2d363",
+     "touch.json": "3ba0661f89e430674e50c1a938b3099e7e8c36955a1e9591c3b815fef980ff7d"
+    },
+    "source": "naive LLM, 2026-10-28_112717_naive-run-touch_touch_PROMPT_v1"
+   },
+   "tr": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-11-24_114025_naive-run-tr_tr_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorTr.py": "ae57b5ddaa86267b1edd84aed3a8abcd1667a443cfd7250fee6f39b77788fb2d",
+     "ParallelizabilityInfoGeneratorTr.py": "86164d8429c21dc0a5f5e56a069bfcda9440b8788b48e1e03abaa91d68511e3b",
+     "tr.json": "0b45663ddb15270f88116d17e59f570c6984aa71e316c27f699f3eddd1f089b5"
+    },
+    "source": "naive LLM, 2026-11-24_114025_naive-run-tr_tr_PROMPT_v1"
+   },
+   "truncate": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_094521_naive-run-truncate_truncate_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorTruncate.py": "4b964b4331ec6b659dc721f7a2dfc1ebd3d730a47d6324a20549f8a18b723106",
+     "ParallelizabilityInfoGeneratorTruncate.py": "f5fa5a64434b89582c17c4edce03860c398b887dc7d16028ea02c3b9d48335cb",
+     "truncate.json": "876ef6d49581cea85cd141ed7834411e370de53e9b20e6356a785251282fce5d"
+    },
+    "source": "naive LLM, 2026-10-28_094521_naive-run-truncate_truncate_PROMPT_v1"
+   },
+   "uglifyjs": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_133241_naive-run-uglifyjs_uglifyjs_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorUglifyjs.py": "9005cb3946649e43e54afb8f43a9027c3b66e801446789890517ebd62964d118",
+     "ParallelizabilityInfoGeneratorUglifyjs.py": "ff3d29fd4dec3248d786b61c1f868849979d6614b4df086dee6b6e23bfab1116",
+     "uglifyjs.json": "b7787b2751a8bc197fd3d85230175e2fe9cdc5fc1ab29e4c6fe057055708dc48"
+    },
+    "source": "naive LLM, 2026-10-28_133241_naive-run-uglifyjs_uglifyjs_PROMPT_v1"
+   },
+   "uname": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_092528_naive-run-uname_uname_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorUname.py": "af6126695634775dd48c208bbd32c65e59f98cc6e4158d5e8c681be588de939d",
+     "ParallelizabilityInfoGeneratorUname.py": "1557a53fd260dfd2dc63bd07dc876fc1937886e058ecf93ee66385c262d889da",
+     "uname.json": "adf2500ee34d46229d109f76278d321ed489bd56c4e5783da4ea4a77e897054e"
+    },
+    "source": "naive LLM, 2026-10-28_092528_naive-run-uname_uname_PROMPT_v1"
+   },
+   "unexpand": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_091112_naive-run-unexpand_unexpand_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorUnexpand.py": "ee47e2abca856234dae235c0934303effe9c1a2f3e47768c6adb8fd0edbcd402",
+     "ParallelizabilityInfoGeneratorUnexpand.py": "271b02749c25e3db259f1175bf8b9d214c21fad1ce814556d4999b7975d6c126",
+     "unexpand.json": "e294d22e3e2b8008bdaca6bbe82516144fd94e1aaafb6115c60ab98ec5a3a051"
+    },
+    "source": "naive LLM, 2026-10-28_091112_naive-run-unexpand_unexpand_PROMPT_v1"
+   },
+   "uniq": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorUniq.py": "8a1f21bf3544e1084897444d16b85c8c2e245c84af47569b79fb914a2a8b18c6",
+     "ParallelizabilityInfoGeneratorUniq.py": "2f6727c92970f0fb99e0d737f4a2826692c1834718dbb2b48794dac189d807a2",
+     "uniq.json": "2c8caa27b58a815995237db95989bc1a05970576413a64120568d7bf9e795789"
+    },
+    "source": "naive LLM, 2026-10-28_123910_naive-run-uniq_uniq_PROMPT_v1"
+   },
+   "unzip": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_143438_naive-run-unzip_unzip_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorUnzip.py": "3ec6f1b659c88cc9147008b002556c84ef3348cc6bbb000fd65b53bc0a99066c",
+     "ParallelizabilityInfoGeneratorUnzip.py": "628c176b7c7ebf22122f0162a43a2ca2414bce42f26291739f46d243f5076ee0",
+     "unzip.json": "1303c8de98b65d52d8ccda7081e96e61ce95f7fbc0555249de8b73320fcecb4d"
+    },
+    "source": "naive LLM, 2026-10-28_143438_naive-run-unzip_unzip_PROMPT_v1"
+   },
+   "vdir": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_142559_naive-run-vdir_vdir_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorVdir.py": "65dba1ea691455cb9032c33a6461a9d8075c07725ce115ae6ac65f4198c955b6",
+     "ParallelizabilityInfoGeneratorVdir.py": "2af85e396a553b9b60195053ac547728a569f9e98a57ffc042f65576d2f4e58f",
+     "vdir.json": "1f617efc04407076dc3a5c1543d36ae8ee57eea82297e9afe2de1301aef26f99"
+    },
+    "source": "naive LLM, 2026-10-28_142559_naive-run-vdir_vdir_PROMPT_v1"
+   },
+   "wc": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_091448_naive-run-wc_wc_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorWc.py": "636dbf0eb9879ea9118d9c800863da71477b5d2974f5c5cf6558da182f587d3f",
+     "ParallelizabilityInfoGeneratorWc.py": "697e963c61b561e58082b4d99d3d9a7232a94fb4aa53ada40db9f601eb3f61aa",
+     "wc.json": "bacf71bbd86d168a9da93aecd643caffd68a92bcbe2ef6bea2be5021fc7f31ee"
+    },
+    "source": "naive LLM, 2026-10-28_091448_naive-run-wc_wc_PROMPT_v1"
+   },
+   "who": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_122120_naive-run-who_who_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorWho.py": "c1ee4a932c96b9548094d88a960aedb0892c90ac35e0f2ee1bc39582feec09f1",
+     "ParallelizabilityInfoGeneratorWho.py": "d23f672c12890525454f50ef4952cd79df7f3db731507775904d0fc68a322414",
+     "who.json": "cc892233af76e86c6b54e16a25f36b6264d3cf80d8af657487c8db4476ac4c3a"
+    },
+    "source": "naive LLM, 2026-10-28_122120_naive-run-who_who_PROMPT_v1"
+   },
+   "xargs": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-11-24_114448_naive-run-xargs_xargs_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorXargs.py": "77cb1a8716ff47c23efd27b9b99b1da99fd2df58acabb50f6aa9f3f6f5147947",
+     "ParallelizabilityInfoGeneratorXargs.py": "ecb365c931889765f28fb7f2cba30fefa6f428cf71ad3a0d714996d61a0601ca",
+     "xargs.json": "117a8ed28e370aa46ab6ecd2eadce0a70d3c870a721b8a2e2b5c39a9c61636dd"
+    },
+    "source": "naive LLM, 2026-11-24_114448_naive-run-xargs_xargs_PROMPT_v1"
+   },
+   "yes": {
+    "dir": "/Users/tirandagan/dev/stevens/caruca_v2/naive_llm_caruca/runs/2026-10-28_104621_naive-run-yes_yes_PROMPT_v1/output/annotation",
+    "files": {
+     "InputOutputInfoGeneratorYes.py": "7db03175e57ad1b1b235479cc7bf81b29602730049939665e08f5c9b498474b0",
+     "ParallelizabilityInfoGeneratorYes.py": "844ccba66be95c70d1a0369bf352026a225ab3020b0ef00baaf81d795670af3e",
+     "yes.json": "dbef8c299111bd7f57bfe82192ddfaa6d6f280279ece328f5a5fdab465507c05"
+    },
+    "source": "naive LLM, 2026-10-28_104621_naive-run-yes_yes_PROMPT_v1"
+   }
+  },
+  "rule": "fig7_campaign/ledger.jsonl, the row with repeat 1 for each command"
+ },
+ "pash": {
+  "annotations_version": "Version: 0.2.4",
+  "commit": "42a8b87c84555c11708a1d90c509b518f20f997c",
+  "dirty_files": "",
+  "settings": "pash -w 8 -d 2 --log_file <file> --local-annotations-dir <set> <script> <args>",
+  "stock_commands": [
+   "alt_bigram_aux_reduce",
+   "alt_bigrams_aux",
+   "awk",
+   "bigram_aux_map",
+   "bigram_aux_reduce",
+   "bigrams_aux",
+   "cat",
+   "col",
+   "comm",
+   "custom_sort",
+   "custom_tr",
+   "cut",
+   "diff",
+   "grep",
+   "head",
+   "mkfifo",
+   "mv",
+   "rm",
+   "sed",
+   "seq",
+   "set_diff",
+   "sort",
+   "tail",
+   "tee",
+   "test_one",
+   "test_two",
+   "tr",
+   "uniq",
+   "wc",
+   "xargs"
+  ],
+  "stock_files": 107,
+  "stock_package": "/home/tirandagan.guest/pash/python_pkgs/lib/python3.12/site-packages/pash_annotations",
+  "stock_package_sha": "77625cbdbe5c0ed7"
+ },
+ "sets": {
+  "caruca-main-all": {
+   "folder": "/home/tirandagan.guest/t024/sets/caruca-main-all",
+   "package_sha": "8a5d0c0188e50ced",
+   "source_per_command": {
+    "alt_bigram_aux_reduce": "PaSh's own",
+    "alt_bigrams_aux": "PaSh's own",
+    "awk": "Caruca, main grammar (awk/main_grammar/trace_1)",
+    "base64": "Caruca, pash grammar (base64/pash_grammar/trace_1)",
+    "bc": "Caruca, pash grammar (bc/pash_grammar/trace_1)",
+    "bigram_aux_map": "PaSh's own",
+    "bigram_aux_reduce": "PaSh's own",
+    "bigrams_aux": "PaSh's own",
+    "cat": "Caruca, main grammar (cat/main_grammar/trace_1)",
+    "chmod": "Caruca, pash grammar (chmod/pash_grammar/trace_1)",
+    "col": "Caruca, main grammar (col/main_grammar/trace_1)",
+    "comm": "Caruca, pash grammar (comm/pash_grammar/trace_1)",
+    "convert": "Caruca, pash grammar (convert/pash_grammar/trace_1)",
+    "cp": "Caruca, pash grammar (cp/pash_grammar/trace_1)",
+    "custom_sort": "PaSh's own",
+    "custom_tr": "PaSh's own",
+    "cut": "Caruca, main grammar (cut/main_grammar/trace_1)",
+    "date": "Caruca, pash grammar (date/pash_grammar/trace_1)",
+    "dd": "Caruca, pash grammar (dd/pash_grammar/trace_1)",
+    "diff": "Caruca, pash grammar (diff/pash_grammar/trace_1)",
+    "echo": "Caruca, main grammar (echo/main_grammar/trace_1)",
+    "ffmpeg": "Caruca, pash grammar (ffmpeg/pash_grammar/trace_1)",
+    "find": "Caruca, pash grammar (find/pash_grammar/trace_1)",
+    "fmt": "Caruca, main grammar (fmt/main_grammar/trace_1)",
+    "grep": "Caruca, main grammar (grep/main_grammar/trace_1)",
+    "groff": "Caruca, pash grammar (groff/pash_grammar/trace_1)",
+    "gunzip": "Caruca, pash grammar (gunzip/pash_grammar/trace_1)",
+    "head": "Caruca, main grammar (head/main_grammar/trace_1)",
+    "history": "Caruca, pash grammar (history/pash_grammar/trace_1)",
+    "iconv": "Caruca, main grammar (iconv/main_grammar/trace_1)",
+    "join": "Caruca, pash grammar (join/pash_grammar/trace_1)",
+    "jq": "Caruca, pash grammar (jq/pash_grammar/trace_1)",
+    "ln": "Caruca, pash grammar (ln/pash_grammar/trace_1)",
+    "ls": "Caruca, pash grammar (ls/pash_grammar/trace_1)",
+    "mkfifo": "Caruca, main grammar (mkfifo/main_grammar/trace_1)",
+    "mktemp": "Caruca, main grammar (mktemp/main_grammar/trace_1)",
+    "mv": "Caruca, pash grammar (mv/pash_grammar/trace_1)",
+    "nc": "Caruca, pash grammar (nc/pash_grammar/trace_1)",
+    "nl": "Caruca, pash grammar (nl/pash_grammar/trace_1)",
+    "pandoc": "Caruca, pash grammar (pandoc/pash_grammar/trace_1)",
+    "paste": "Caruca, main grammar (paste/main_grammar/trace_1)",
+    "pr": "Caruca, pash grammar (pr/pash_grammar/trace_1)",
+    "ps": "Caruca, pash grammar (ps/pash_grammar/trace_1)",
+    "pwd": "Caruca, pash grammar (pwd/pash_grammar/trace_1)",
+    "read": "Caruca, pash grammar (read/pash_grammar/trace_1)",
+    "readelf": "Caruca, pash grammar (readelf/pash_grammar/trace_1)",
+    "rev": "Caruca, main grammar (rev/main_grammar/trace_1)",
+    "rm": "Caruca, main grammar (rm/main_grammar/trace_1)",
+    "sed": "Caruca, main grammar (sed/main_grammar/trace_1)",
+    "seq": "Caruca, main grammar (seq/main_grammar/trace_1)",
+    "set_diff": "PaSh's own",
+    "sha256sum": "Caruca, pash grammar (sha256sum/pash_grammar/trace_1)",
+    "shuf": "Caruca, pash grammar (shuf/pash_grammar/trace_1)",
+    "sort": "Caruca, main grammar (sort/main_grammar/trace_1)",
+    "split": "Caruca, main grammar (split/main_grammar/trace_1)",
+    "tail": "Caruca, main grammar (tail/main_grammar/trace_1)",
+    "tee": "Caruca, pash grammar (tee/pash_grammar/trace_1)",
+    "test_one": "PaSh's own",
+    "test_two": "PaSh's own",
+    "tr": "Caruca, main grammar (tr/main_grammar/trace_1)",
+    "uniq": "Caruca, main grammar (uniq/main_grammar/trace_1)",
+    "wc": "Caruca, main grammar (wc/main_grammar/trace_1)",
+    "xargs": "Caruca, pash grammar (xargs/pash_grammar/trace_1)"
+   }
+  },
+  "caruca-pash-all": {
+   "folder": "/home/tirandagan.guest/t024/sets/caruca-pash-all",
+   "package_sha": "279fcffc47f6b5e9",
+   "source_per_command": {
+    "alt_bigram_aux_reduce": "PaSh's own",
+    "alt_bigrams_aux": "PaSh's own",
+    "awk": "Caruca, pash grammar (awk/pash_grammar/trace_1)",
+    "base64": "Caruca, pash grammar (base64/pash_grammar/trace_1)",
+    "bc": "Caruca, pash grammar (bc/pash_grammar/trace_1)",
+    "bigram_aux_map": "PaSh's own",
+    "bigram_aux_reduce": "PaSh's own",
+    "bigrams_aux": "PaSh's own",
+    "cat": "Caruca, pash grammar (cat/pash_grammar/trace_1)",
+    "chmod": "Caruca, pash grammar (chmod/pash_grammar/trace_1)",
+    "col": "Caruca, pash grammar (col/pash_grammar/trace_1)",
+    "comm": "Caruca, pash grammar (comm/pash_grammar/trace_1)",
+    "convert": "Caruca, pash grammar (convert/pash_grammar/trace_1)",
+    "cp": "Caruca, pash grammar (cp/pash_grammar/trace_1)",
+    "custom_sort": "PaSh's own",
+    "custom_tr": "PaSh's own",
+    "cut": "Caruca, pash grammar (cut/pash_grammar/trace_1)",
+    "date": "Caruca, pash grammar (date/pash_grammar/trace_1)",
+    "dd": "Caruca, pash grammar (dd/pash_grammar/trace_1)",
+    "diff": "Caruca, pash grammar (diff/pash_grammar/trace_1)",
+    "echo": "Caruca, pash grammar (echo/pash_grammar/trace_1)",
+    "ffmpeg": "Caruca, pash grammar (ffmpeg/pash_grammar/trace_1)",
+    "find": "Caruca, pash grammar (find/pash_grammar/trace_1)",
+    "fmt": "Caruca, pash grammar (fmt/pash_grammar/trace_1)",
+    "grep": "Caruca, pash grammar (grep/pash_grammar/trace_1)",
+    "groff": "Caruca, pash grammar (groff/pash_grammar/trace_1)",
+    "gunzip": "Caruca, pash grammar (gunzip/pash_grammar/trace_1)",
+    "head": "Caruca, pash grammar (head/pash_grammar/trace_1)",
+    "history": "Caruca, pash grammar (history/pash_grammar/trace_1)",
+    "iconv": "Caruca, pash grammar (iconv/pash_grammar/trace_1)",
+    "join": "Caruca, pash grammar (join/pash_grammar/trace_1)",
+    "jq": "Caruca, pash grammar (jq/pash_grammar/trace_1)",
+    "ln": "Caruca, pash grammar (ln/pash_grammar/trace_1)",
+    "ls": "Caruca, pash grammar (ls/pash_grammar/trace_1)",
+    "mkfifo": "Caruca, pash grammar (mkfifo/pash_grammar/trace_1)",
+    "mktemp": "Caruca, pash grammar (mktemp/pash_grammar/trace_1)",
+    "mv": "Caruca, pash grammar (mv/pash_grammar/trace_1)",
+    "nc": "Caruca, pash grammar (nc/pash_grammar/trace_1)",
+    "nl": "Caruca, pash grammar (nl/pash_grammar/trace_1)",
+    "pandoc": "Caruca, pash grammar (pandoc/pash_grammar/trace_1)",
+    "paste": "Caruca, pash grammar (paste/pash_grammar/trace_1)",
+    "pr": "Caruca, pash grammar (pr/pash_grammar/trace_1)",
+    "ps": "Caruca, pash grammar (ps/pash_grammar/trace_1)",
+    "pwd": "Caruca, pash grammar (pwd/pash_grammar/trace_1)",
+    "read": "Caruca, pash grammar (read/pash_grammar/trace_1)",
+    "readelf": "Caruca, pash grammar (readelf/pash_grammar/trace_1)",
+    "rev": "Caruca, pash grammar (rev/pash_grammar/trace_1)",
+    "rm": "Caruca, pash grammar (rm/pash_grammar/trace_1)",
+    "sed": "Caruca, pash grammar (sed/pash_grammar/trace_1)",
+    "seq": "Caruca, pash grammar (seq/pash_grammar/trace_1)",
+    "set_diff": "PaSh's own",
+    "sha256sum": "Caruca, pash grammar (sha256sum/pash_grammar/trace_1)",
+    "shuf": "Caruca, pash grammar (shuf/pash_grammar/trace_1)",
+    "sort": "Caruca, pash grammar (sort/pash_grammar/trace_1)",
+    "split": "Caruca, pash grammar (split/pash_grammar/trace_1)",
+    "tail": "Caruca, pash grammar (tail/pash_grammar/trace_1)",
+    "tee": "Caruca, pash grammar (tee/pash_grammar/trace_1)",
+    "test_one": "PaSh's own",
+    "test_two": "PaSh's own",
+    "tr": "Caruca, pash grammar (tr/pash_grammar/trace_1)",
+    "uniq": "Caruca, pash grammar (uniq/pash_grammar/trace_1)",
+    "wc": "Caruca, pash grammar (wc/pash_grammar/trace_1)",
+    "xargs": "Caruca, pash grammar (xargs/pash_grammar/trace_1)"
+   }
+  },
+  "pash-own": {
+   "folder": "/home/tirandagan.guest/t024/sets/pash-own",
+   "package_sha": "77625cbdbe5c0ed7",
+   "source_per_command": {
+    "alt_bigram_aux_reduce": "PaSh's own",
+    "alt_bigrams_aux": "PaSh's own",
+    "awk": "PaSh's own",
+    "bigram_aux_map": "PaSh's own",
+    "bigram_aux_reduce": "PaSh's own",
+    "bigrams_aux": "PaSh's own",
+    "cat": "PaSh's own",
+    "col": "PaSh's own",
+    "comm": "PaSh's own",
+    "custom_sort": "PaSh's own",
+    "custom_tr": "PaSh's own",
+    "cut": "PaSh's own",
+    "diff": "PaSh's own",
+    "grep": "PaSh's own",
+    "head": "PaSh's own",
+    "mkfifo": "PaSh's own",
+    "mv": "PaSh's own",
+    "rm": "PaSh's own",
+    "sed": "PaSh's own",
+    "seq": "PaSh's own",
+    "set_diff": "PaSh's own",
+    "sort": "PaSh's own",
+    "tail": "PaSh's own",
+    "tee": "PaSh's own",
+    "test_one": "PaSh's own",
+    "test_two": "PaSh's own",
+    "tr": "PaSh's own",
+    "uniq": "PaSh's own",
+    "wc": "PaSh's own",
+    "xargs": "PaSh's own"
+   }
+  },
+  "pash-own-copy": {
+   "folder": "/home/tirandagan.guest/t024/sets/pash-own-copy",
+   "package_sha": "77625cbdbe5c0ed7",
+   "source_per_command": {
+    "alt_bigram_aux_reduce": "PaSh's own",
+    "alt_bigrams_aux": "PaSh's own",
+    "awk": "PaSh's own",
+    "bigram_aux_map": "PaSh's own",
+    "bigram_aux_reduce": "PaSh's own",
+    "bigrams_aux": "PaSh's own",
+    "cat": "PaSh's own",
+    "col": "PaSh's own",
+    "comm": "PaSh's own",
+    "custom_sort": "PaSh's own",
+    "custom_tr": "PaSh's own",
+    "cut": "PaSh's own",
+    "diff": "PaSh's own",
+    "grep": "PaSh's own",
+    "head": "PaSh's own",
+    "mkfifo": "PaSh's own",
+    "mv": "PaSh's own",
+    "rm": "PaSh's own",
+    "sed": "PaSh's own",
+    "seq": "PaSh's own",
+    "set_diff": "PaSh's own",
+    "sort": "PaSh's own",
+    "tail": "PaSh's own",
+    "tee": "PaSh's own",
+    "test_one": "PaSh's own",
+    "test_two": "PaSh's own",
+    "tr": "PaSh's own",
+    "uniq": "PaSh's own",
+    "wc": "PaSh's own",
+    "xargs": "PaSh's own"
+   }
+  }
+ },
+ "stand_in_programs": {
+  "awk": "/usr/bin/awk",
+  "basename": "/usr/bin/basename",
+  "cat": "/usr/bin/cat",
+  "chown": "/usr/bin/chown",
+  "col": "/usr/bin/col",
+  "comm": "/usr/bin/comm",
+  "convert": "/usr/local/legacy-bin/convert",
+  "curl": "/usr/bin/curl",
+  "cut": "/usr/bin/cut",
+  "diff": "/usr/bin/diff",
+  "dirname": "/usr/bin/dirname",
+  "echo": "/usr/bin/echo",
+  "egrep": "/usr/bin/egrep",
+  "ffmpeg": "/usr/local/legacy-bin/ffmpeg",
+  "find": "/usr/bin/find",
+  "fmt": "/usr/bin/fmt",
+  "fold": "/usr/bin/fold",
+  "git": "/usr/bin/git",
+  "gpg": "/usr/bin/gpg",
+  "grep": "/usr/bin/grep",
+  "gunzip": "/usr/bin/gunzip",
+  "gzip": "/usr/bin/gzip",
+  "head": "/usr/bin/head",
+  "iconv": "/usr/bin/iconv",
+  "join": "/usr/bin/join",
+  "jq": "/usr/bin/jq",
+  "ln": "/usr/bin/ln",
+  "login": "/usr/bin/login",
+  "logname": "/usr/bin/logname",
+  "ls": "/usr/bin/ls",
+  "mawk": "/usr/bin/mawk",
+  "mkdir": "/usr/bin/mkdir",
+  "mkfifo": "/usr/bin/mkfifo",
+  "mktemp": "/usr/bin/mktemp",
+  "mogrify": "/usr/local/legacy-bin/mogrify",
+  "mv": "/usr/bin/mv",
+  "node": "/home/tirandagan.guest/koala/.tools/nodejs18/bin/node",
+  "openssl": "/usr/bin/openssl",
+  "passwd": "/usr/bin/passwd",
+  "paste": "/usr/bin/paste",
+  "pr": "/usr/bin/pr",
+  "printf": "/usr/bin/printf",
+  "pwd": "/usr/bin/pwd",
+  "python3": "/usr/bin/python3",
+  "realpath": "/usr/bin/realpath",
+  "rev": "/usr/bin/rev",
+  "rm": "/usr/bin/rm",
+  "rmdir": "/usr/bin/rmdir",
+  "samtools": "/usr/local/bin/samtools",
+  "script": "/usr/bin/script",
+  "sed": "/usr/bin/sed",
+  "seq": "/usr/bin/seq",
+  "shuf": "/usr/bin/shuf",
+  "sort": "/usr/bin/sort",
+  "split": "/usr/bin/split",
+  "sum": "/usr/bin/sum",
+  "tail": "/usr/bin/tail",
+  "tcpdump": "/usr/bin/tcpdump",
+  "tee": "/usr/bin/tee",
+  "tempfile": "/usr/bin/tempfile",
+  "touch": "/usr/bin/touch",
+  "tr": "/usr/bin/tr",
+  "true": "/usr/bin/true",
+  "uname": "/usr/bin/uname",
+  "uniq": "/usr/bin/uniq",
+  "view": "/usr/bin/view",
+  "wc": "/usr/bin/wc",
+  "xargs": "/usr/bin/xargs",
+  "yes": "/usr/bin/yes",
+  "zcat": "/usr/bin/zcat"
+ },
+ "when": "2026-11-26 15:13:35 -0500"
+}

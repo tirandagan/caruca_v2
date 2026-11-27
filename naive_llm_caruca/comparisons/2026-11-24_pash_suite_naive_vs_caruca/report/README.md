@@ -3,14 +3,14 @@
 The report is hand-authored HTML, not converted Markdown, so its layout can be exact: `report.html`
 (content) and `report.css` (layout), rendered to `report.pdf` by `build.ts` with the repo's own brand
 fonts and colour tokens (`scripts/md-to-pdf/tokens.ts`); the running head and foot are stamped on afterwards with pdf-lib in the brand face (Chromium's own header templates cannot load it), so it stays
-one system with the other Caruca documents. The earlier Markdown draft (`../report_draft.md`) is kept
-for the record and is no longer the source.
+one system with the other Caruca documents. The earlier Markdown draft (`report_draft.md`, 2026-11-24) was removed on 2026-11-26 and is in
+git history; it is no longer the source.
 
 ## Build
 
 ```sh
 cd <repo root>
-npx tsx naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/report/build.ts
+npx tsx naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/report/build.ts
 # optional second argument: the running-head title
 ```
 
@@ -37,11 +37,13 @@ full); A5 the scripts (nine group blocks, two columns, kept whole); A6 where a s
 what PaSh split, by command (Table A6 = the body's old Table 2 + a command-lines column);
 A7 every script on one page (Figure A7, chart + crash list; starts a page); A8 records (a two-column table, incl. PaSh commit, worker
 count and the pointers to the per-use list and the per-script min–max times in `numbers_full.md`).
-A1–A8 are numbered without gaps; update every "(A…)" reference in the body when a section moves.
+A1–A9 are numbered without gaps; update every "(A…)" reference in the body when a section moves.
 
 ## Rules the layout follows
 
 - Every table and figure is numbered and referred to by number in the text.
+- Every finding answers its next question on the spot or points to where it is answered: each row of Tables 1 and 2
+  and each body claim with more detail elsewhere names the section, table or appendix part ("(Table A.4)", "(section 5)").
 - Every rate is written "a of b". No kicker/eyebrow labels, no coloured side stripes, no section numbers.
 - One noun per concept: annotation files, source, part, split / whole, the naive LLM, Caruca's small grammar /
   Caruca's full grammar, the second sed file. Script codes, exception names and file paths only in the addendum.
@@ -76,7 +78,7 @@ the annotation package's round-robin assertion; the `NameError` is `create_reduc
 
 ## Updating again
 
-1. Rebuild the records with `../count_report.py` and the figures with `../make_charts.py` /
+1. Rebuild the records with `../count_report.py` and the figures with
    `../figures_interim/make_figures_interim.py`.
 2. Replace the numbers in `report.html` from `numbers.md` (every number in the report comes from that
    file). Keep the four-column structure; add rows, never columns.
@@ -113,3 +115,141 @@ TrueType files, unsubsetted (pdf-lib garbles subsetted copies of these conversio
 Libertinus Sans and Inconsolata so figures match. The brand (Lexend Deca) rules in `report.css` remain above the
 academic block and are overridden by it; remove the block to go back to the Caruca house style.
 Regenerate figures with `uv run --with matplotlib --with numpy python figures_interim/make_figures_interim.py --records full_run --numbers numbers_full.json --out figures_full`.
+
+## Framing (Tiran, 2026-11-26)
+
+The report's one question is how the naive LLM's files fared against Caruca's, with PaSh's own files as the
+yardstick for both. The title, the finding line under it, the question on page 1 and section 1 ("The naive LLM
+against Caruca", Table 2 head to head: reach, uses decided, output, splits, compiler stops beyond PaSh's own, files
+that failed to load, wrong decisions, agreement on reads and writes, time) all state it in those terms. Every
+figure caption says why its items were chosen (Figure 2's eight commands are every command that differed under
+any source). Keep this framing when numbers are refreshed.
+
+**One set of results in the body (Tiran, 2026-11-27, Draft 2.1):** the body presents a single set of results across
+the board—one number per source, no "first session / second session" split in tables, text, or Figure 4. Each
+source's time is already normalised to bash and to PaSh's own files run alongside it; the two sessions are
+described only in the method appendix (A.3) and the records table (A.9).
+
+Figure 2 (`figures_full/scorecard.png`, drawn by `figures_interim/make_scorecard.py` from hand-fed values with their
+sources in comments) is the Tufte-style summary: every metric as a fraction of PaSh's own files' result on one axis.
+Table A.5 is the cause analysis of every compiler stop from PaSh's error text.
+
+## Additions 2026-11-26 (afternoon)
+
+- Section 2 "The naive LLM against PaSh's own files, command by command" with Table 3: the 18 commands both
+  sources have files for, uses split under each (126 vs 192 of 484), "no split" answers, compiler stops; the 5
+  naive-only commands that met a part in the caption. Counts from `../per_command.md/.json` (`../per_command.py`).
+- Corrections from that count: the naive LLM's time gap to Caruca's full grammar is 9 % over 86 scripts; about
+  two-fifths comes from splitting a plain `cat` (25 scripts where it is the only difference: 1.21×), about a
+  quarter from the four COVID scripts. The fixed `sed` file is compared on the same 52 scripts only (8 % → 3 %).
+- Footnote 1 on page 1 gives where Caruca's two grammars live in `binpash/caruca`.
+
+## Draft 2.0 (2026-11-27): Caruca at full reach (brief `orchestration/brief_report_caruca_full.md`)
+
+Caruca's two columns now come from the second session (`../full_run_caruca_all/`: Caruca's files for 53 commands,
+full grammar for 22 of them); the naive LLM's from the first (`../full_run/`). Rule: every time is a ratio to PaSh's
+own files of the same session; splits and output compare across sessions because PaSh's own files split the same 41
+parts and the same 126 of 609 uses in both (checked per use by the figure script, which stops otherwise).
+
+- Counts: `../prep_full_records.py --records full_run_caruca_all --out <scratch>` (it now skips the optional files
+  the rerun lacks), then `../count_report.py --records <scratch> --tag caruca_all --sleep-events <empty file>` (no
+  sleep in the window per `pmset -g log`; the Mac was on mains, `full_run_caruca_all/power_watch.tsv`) →
+  `../numbers_caruca_all.md/.json`. 13 of 15 checks pass; the 2 failures are the inventory checks that also fail on
+  the first run.
+- Figures: `uv run --offline --with matplotlib --with numpy python figures_interim/make_figures_interim.py --records
+  full_run --numbers numbers_full.json --caruca-records full_run_caruca_all --caruca-numbers numbers_caruca_all.json
+  --out figures_full`. Figure 4 (time) now has two blocks, one per session, each with its own noise band; A.7 adds a
+  cross for wrong output. Figure 2: `figures_interim/make_scorecard.py` (values and sources in its comments).
+- New body section 2, "Where Caruca's files give wrong output" (Table 3), from
+  `../full_run_caruca_all/wrong_outputs_verified.md`. Table 4 is now one combined command-by-command table for all
+  three sources. Sections reordered: Time (Figure 4) before "Next to the Caruca paper" (Table 5), for page fill.
+- Addendum: A.1 is now the word list and A.2 the suite (swapped so the page after the body fills); the
+  wrong-output script list and Table A.8 (compiler stops) sit under A.6 so A.7's chart keeps its own page.
+- `unixfun/23` (`tr -d '\n'` then `cut`), explained after the orchestrator's log check: the naive LLM's `tr` file offers
+  only consecutive chunks when newlines may be touched (round robin regroups by line), so PaSh rejoined before `cut`;
+  Caruca's file also offers round robin, so PaSh ran `tr` and `cut` per 1 MB block. Credited in "How it fared" and Table 3;
+  recorded in the notes of `../numbers_caruca_all.md`.
+- Review fixes: footnote 1 restored on page 1 (Table 1's notes moved into its title line to make room); Figure 2 redrawn
+  4.6 → 3.7 in tall (same font sizes) so Table 3 fits under it on page 3.
+- 14 pages (body 7, addendum 7).
+
+## Draft 2.2 (2026-11-27, brief `orchestration/brief_report_v22.md`)
+
+Tiran: "I have to hunt for information all over the place." Changes:
+- Cross-references on every row of Tables 1 and 2 (small grey `.xref` after the label) and in the body paragraphs.
+- Table 1's time row is one number per source, against PaSh's own files (1.00, 1.15, 1.09, 1.10); the × bash figures
+  (2.3, 2.7, 2.5, 2.5) moved to section 5.
+- New Table 5 in "When PaSh itself failed": the stopped parts by cause, ✕ per source, from both runs' `regions.jsonl.gz`
+  (outcome "pash crash", instrumented, main, repeat 1). The paper table is now Table 6. Correction from the logs: the
+  naive LLM's `unixfun/36` stop is `fmt -w1` (PaSh's log shows `-w1` taken as a file name; the second sed file stops
+  there too), not its quoted `sed` script; Table 2, A.4 and Table A.5 were corrected.
+- Section 5 opens with two paragraphs: why PaSh is slower than bash at these inputs (45 of 86 scripts under 1 s under
+  bash; per-part start-up and compile; loops compile once per pass; splitting pays in the Classics regular-expression
+  script, 8.2 s to 1.9 s, and the four COVID scripts, 10–15 s to about 7 s) and why the naive LLM's files are slower than
+  PaSh's own (cheap `cat` splits, 1.21× where it is the only difference; the first sed file in the COVID scripts).
+  Per-script seconds from `numbers_full.json` `A5`.
+- New A.7 "Caruca's wrong outputs, side by side" (four examples from `full_run_caruca_all/wrong_output_examples/`);
+  the chart is now A.8 (Figure A.8), records stay A.9. A.7 sits after Table A.8 so that page fills.
+- `h2.paper` no longer forces a page; the records table is set tighter (`table.recs`) so it stays under its heading.
+- 15 pages.
+
+## Draft 2.2, second pass (2026-11-27, orchestrator)
+
+- Time: Table 1 has two time rows (÷ PaSh's own; ÷ bash with PaSh's start-up removed, one-pass scripts) and section 5
+  has the overhead model and Table 6 from `../overhead_adjusted.md` (`../overhead_adjusted.py`); the paper table is now
+  Table 7. Web search: 7,003 parts sent, so the model gives about 42 s of overhead (0.11 s + 6 ms × 7,003), not 36 s.
+- Live cross-references: every section heading (`sec-n`), appendix part (`a-n`), table caption (`tab-…`) and figure
+  (`fig-…`) has an id; Tables 1 and 2 use numbered footnotes (`fn1`–`fn19`, one document-wide sequence, Table 1's notes
+  share the block with footnote 1); every "Table n", "Figure n", "section n" and "A.n" in running text is an
+  `<a class="xr">` (ink colour, no underline). The links were added by a one-off script (kept in the session scratchpad,
+  not the repo); when adding text, write the `<a class="xr" href="#…">` by hand. Check after a build with pypdf:
+  count `/Link` annotations and confirm every `/Dest` is a named destination.
+
+## Draft 2.3 (2026-11-27, brief `orchestration/brief_report_v23.md`, critiques `orchestration/critique_2026-11-27_*.md`)
+
+Conventions now in force (keep them when editing):
+- **Links look clickable.** Every internal link (`a.xr`), table-note mark (`a.tn`), body footnote mark and back-link is
+  `--link` #3B3F99 with a 0.5 pt dotted underline (offset 1.5 pt); marks are bold. Write new cross-references as
+  `<a class="xr" href="#id">Table 4</a>`; ids: `sec-n`, `a-n`, `tab-n`/`tab-aN`, `fig-n`/`fig-aN`, `app`, `run`,
+  Table 1 rows `t1r-*`.
+- **Page numbers in references are added by the build** (two passes): pass 1 renders with links to every id appended
+  after the document, reads each id's page from the PDF's named destinations, then adds ", p. N" after every `a.xr`
+  whose target is on another page (not in the contents line or the records table); the build repeats until the labels
+  stop changing (normally pass 2), then renders without the appended links. `.page_labels.json` (git-ignorable) keeps
+  the last labels and positions.
+- **Lettered table notes**: `<a class="tn" href="#note-id"></a>` in a cell or label, and `<ol class="tnotes"><li id="note-id">…</li></ol>`
+  under the table; the build sets the letters (a, b, … restarting per table) and adds a ↩ back-link to the first mark.
+  Body footnotes stay numbered (`sup.fnref`, `#fn1`).
+- **Outline**: built with pdf-lib from h2 (level 1), h3 and table/figure captions (level 2/3) at the measured
+  positions; the PDF opens with the outline shown. **Running head** = the current section (page 1: the short title),
+  drawn in pieces around fi/ff/fl because pdf-lib mis-spaces those ligatures; **foot** = "Page n of N" only.
+  **PDF title** = `<title>`.
+- **Source order everywhere**: PaSh's own, the naive LLM, Caruca's small grammar, Caruca full where traced (tables,
+  legends, figure rows). "Caruca, full where traced" is the column name (note a explains 22 full grammars + small rest).
+- **Table 1** is the only summary table: verdict marks ▲/▼ in the source colour against PaSh's own files, ↑/↓ in row
+  labels, a "Behind the result" block (the old Table 2's rows that were not duplicates: commands with files, load
+  failures, agreement on reads/writes and on split decisions) and a "Reading" row. The old Table 2's "uses decided by
+  own files" row was not carried over (Table 3 has the per-command uses; Figure 1 plots it). Tables renumbered 3→2 … 7→6.
+- **Figure 1 (setup) was moved, not dropped**: it is now Figure A.3 at 72 % width in A.3; body figures renumbered
+  (scorecard = Figure 1, split map = 2, time = 3). Figure A.8 is two images (`a5_scripts_1.png`, `_2.png`) on two pages
+  at 7 pt or more. Each appendix part opens with a "Supports:" line linking back to the body.
+- Per-session numbers live only in A.3 ("Pooling").
+- Verify after a build: pypdf — every `/Link` has a `/Dest` that is a named destination; outline entries > 0; every
+  ", p. N" equals the target's page (compare `.page_labels.json` with the final named destinations).
+
+## Draft 2.4 (2026-11-27, brief `orchestration/brief_report_v24.md`): one Caruca column
+
+- **Decision (Tiran):** the body shows one Caruca, as its paper ran it for PaSh: files traced under the hand-trimmed
+  grammars for PaSh's scripts (`caruca-pash-all`, 53 commands), called simply "Caruca". The full-grammar variant
+  (`caruca-main-all`) is appendix part A.8 (Table A.6, small vs full on every Table 1 row). Body tables, Figures 1–3
+  and Figure A.9 have three sources; the figure scripts take `--no-caruca-full` (code for the full series kept).
+- **Grammar facts stated in "How it was run" and the threats:** both of Caruca's grammar sets are hand-written
+  (`syntax_specs/` = the reference set its paper scores its LLM against; `pash_syntax_specs/` = trimmed by hand, 54
+  commands, 64 options against 923 for the 42 in both); Caruca's code loads the trimmed set for PaSh; the paper
+  describes LLM-written grammars and never mentions the trimmed set.
+- Numbers: Caruca's `cat`-only time is **1.14 on 13 scripts** (`full_run_caruca_all/per_command_caruca-pash-all.md`
+  section 4); earlier drafts had the small/full values (1.14/1.13) the wrong way round.
+- Appendix renumbered: A.8 Caruca with its full grammars (new, flows after A.7), A.9 every script (Figure A.9),
+  A.10 records. Appendix tables now numbered in order of appearance: A.1 suite, A.2 reasons, A.3 compiler-stop
+  errors, A.4 by command, A.5 compiler-stop scripts, A.6 small vs full, A.7 records.
+- `report/.page_labels.json` is git-ignored (repo `.gitignore`).

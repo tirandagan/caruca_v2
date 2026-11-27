@@ -37,7 +37,7 @@ panes to finish (their cwd is caruca_v2).
   `naive-golden` mounts nothing. The `pash` VM's `~/t024-check/check1.py` and `~/t024/out/manifest.json`
   carry the Mac path of caruca_v2 and go stale on a move.
 - Nothing in `src/`, `tests/`, `console/src/`, `scripts/`, `prompts/` references `naive_llm_caruca`.
-- The hand-built report's `build.ts` (runs/2026-11-24_pash_koala_naive_vs_pash/report/) imports fonts,
+- The hand-built report's `build.ts` (comparisons/2026-11-24_pash_suite_naive_vs_caruca/report/) imports fonts,
   colour tokens and the logo from `../../../../scripts/md-to-pdf/` (four levels up) and uses `puppeteer`
   and `pdf-lib` from the root `package.json`; the converter folder must be copied to the same place.
 - `DESIGN.md` and `.impeccable/design.json` are read by the `impeccable` skill from the repo root

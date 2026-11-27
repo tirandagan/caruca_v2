@@ -5,7 +5,7 @@ metadata:
   type: reference
 ---
 `DESIGN.md` at the repo root and the sidecar `.impeccable/design.json` were written on 2026-11-24 by the
-impeccable documenter from the built report (`naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/report/`).
+impeccable documenter from the built report (`naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/report/`).
 They record: the palette (ink on white, one blue for heads and the naive LLM's column, teal only on list
 markers, one tint for the reference column and changed cells, the four-source family `--src-*`), the type
 ramp as built (22/15/11pt headings against the skill's 28/20/15pt, named as deviations), print rules

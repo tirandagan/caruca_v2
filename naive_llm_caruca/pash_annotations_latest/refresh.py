@@ -32,7 +32,7 @@ RUN_NOTES = {
 SUPERSEDED_WHY = {
     "2026-10-28_124823_naive-run-sed_sed_PROMPT_v1":
         "its file misreads quoted scripts because the format document never said PaSh keeps the quotes "
-        "(an instrument gap, see [judgment_errors.md](../runs/2026-11-24_pash_koala_naive_vs_pash/orchestration/judgment_errors.md), "
+        "(an instrument gap, see [judgment_errors.md](../comparisons/2026-11-24_pash_suite_naive_vs_caruca/orchestration/judgment_errors.md), "
         "section 1); re-run as repeat 2",
 }
 

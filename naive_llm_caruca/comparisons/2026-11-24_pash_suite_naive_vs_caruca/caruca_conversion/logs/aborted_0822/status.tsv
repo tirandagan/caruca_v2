@@ -1,0 +1,4 @@
+time	lane	command	grammar	result	seconds
+2026-11-26 08:22:14	small-c	tr	pash	ok	19
+2026-11-26 08:22:37	small-c	sed	pash	ok	23
+2026-11-26 08:22:50	small-a	comm	pash	failed(143)	61

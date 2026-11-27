@@ -4,41 +4,336 @@
   "title": "Design System: Caruca v2",
   "extensions": {
     "colorMeta": {
-      "ink": { "role": "primary", "displayName": "Ink navy", "canonical": "#0B1F33", "tonalRamp": ["#060f19", "#0B1F33", "#1a3550", "#2f4f6e", "#4b6a8a", "#7490ab", "#a6bccf", "#dde7ef"] },
-      "blue": { "role": "primary", "displayName": "Electric blue", "canonical": "#2563EB", "tonalRamp": ["#0c1f55", "#13308f", "#1D4ED8", "#2563EB", "#4f82f0", "#7ea3f4", "#b3c8f8", "#e3ebfd"] },
-      "teal": { "role": "secondary", "displayName": "Teal", "canonical": "#0E7490", "tonalRamp": ["#052a35", "#084a5c", "#0E7490", "#1a90b0", "#3eadcb", "#78c7dd", "#b1dfeb", "#e2f3f8"] },
-      "gray-700": { "role": "neutral", "displayName": "Gray 700", "canonical": "#374151", "tonalRamp": ["#111827", "#1f2937", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#f3f4f6"] },
-      "gray-600": { "role": "neutral", "displayName": "Gray 600", "canonical": "#475569", "tonalRamp": ["#0f172a", "#1e293b", "#334155", "#475569", "#64748b", "#94a3b8", "#cbd5e1", "#f1f5f9"] },
-      "gray-500": { "role": "neutral", "displayName": "Gray 500", "canonical": "#616B73", "tonalRamp": ["#1c2126", "#30383e", "#48525a", "#616B73", "#7f8991", "#a3abb2", "#c9ced3", "#eceef0"] },
-      "surface-page": { "role": "neutral", "displayName": "Paper", "canonical": "#FFFFFF", "tonalRamp": ["#262626", "#4d4d4d", "#737373", "#999999", "#bfbfbf", "#e6e6e6", "#f5f5f5", "#FFFFFF"] },
-      "surface-code": { "role": "neutral", "displayName": "Code surface", "canonical": "#F6F8FA", "tonalRamp": ["#1f2428", "#3a4248", "#5a646c", "#7d8890", "#a3adb5", "#c9d1d8", "#e4e9ee", "#F6F8FA"] },
-      "surface-thead": { "role": "neutral", "displayName": "Head surface (the one tint)", "canonical": "#F1F5F9", "tonalRamp": ["#1d2630", "#34414f", "#52627a", "#7487a0", "#9aabc0", "#c2cfdd", "#dde5ed", "#F1F5F9"] },
-      "surface-info": { "role": "neutral", "displayName": "Info surface (selection only)", "canonical": "#EFF6FF", "tonalRamp": ["#172a4a", "#274580", "#3a62b0", "#5a84d2", "#86a8e6", "#b4cbf3", "#d6e4fa", "#EFF6FF"] },
-      "border-strong": { "role": "neutral", "displayName": "Strong rule", "canonical": "#D0D7DE", "tonalRamp": ["#20262c", "#39434c", "#56626d", "#78858f", "#9da8b1", "#bcc5cd", "#D0D7DE", "#eef1f4"] },
-      "border-subtle": { "role": "neutral", "displayName": "Subtle rule", "canonical": "#E5E7EB", "tonalRamp": ["#222427", "#3d4146", "#5c6167", "#7f858c", "#a4a9af", "#c6cacf", "#E5E7EB", "#f5f6f7"] },
-      "src-pash": { "role": "tertiary", "displayName": "PaSh's own files (reference, dark grey)", "canonical": "#4a4a4a", "tonalRamp": ["#1a1a1a", "#2e2e2e", "#4a4a4a", "#666666", "#848484", "#a6a6a6", "#cccccc", "#f0f0f0"] },
-      "src-naive": { "role": "tertiary", "displayName": "Naive LLM's files (the identity blue)", "canonical": "#2563EB", "tonalRamp": ["#0c1f55", "#13308f", "#1D4ED8", "#2563EB", "#4f82f0", "#7ea3f4", "#b3c8f8", "#e3ebfd"] },
-      "src-cpash": { "role": "tertiary", "displayName": "Caruca's files, PaSh grammar (orange)", "canonical": "#e8622b", "tonalRamp": ["#4a1c08", "#7d2f0e", "#b14516", "#e8622b", "#ee8355", "#f4a583", "#f9c9b3", "#fdeae0"] },
-      "src-cmain": { "role": "tertiary", "displayName": "Caruca's files, main grammar (light orange)", "canonical": "#f0b060", "tonalRamp": ["#4d3209", "#815412", "#b8781f", "#e09a3a", "#f0b060", "#f4c588", "#f8dbb3", "#fdf1e2"] }
+      "ink": {
+        "role": "primary",
+        "displayName": "Ink navy",
+        "canonical": "#0B1F33",
+        "tonalRamp": [
+          "#060f19",
+          "#0B1F33",
+          "#1a3550",
+          "#2f4f6e",
+          "#4b6a8a",
+          "#7490ab",
+          "#a6bccf",
+          "#dde7ef"
+        ]
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "Electric blue",
+        "canonical": "#2563EB",
+        "tonalRamp": [
+          "#0c1f55",
+          "#13308f",
+          "#1D4ED8",
+          "#2563EB",
+          "#4f82f0",
+          "#7ea3f4",
+          "#b3c8f8",
+          "#e3ebfd"
+        ]
+      },
+      "teal": {
+        "role": "secondary",
+        "displayName": "Teal",
+        "canonical": "#0E7490",
+        "tonalRamp": [
+          "#052a35",
+          "#084a5c",
+          "#0E7490",
+          "#1a90b0",
+          "#3eadcb",
+          "#78c7dd",
+          "#b1dfeb",
+          "#e2f3f8"
+        ]
+      },
+      "gray-700": {
+        "role": "neutral",
+        "displayName": "Gray 700",
+        "canonical": "#374151",
+        "tonalRamp": [
+          "#111827",
+          "#1f2937",
+          "#374151",
+          "#4b5563",
+          "#6b7280",
+          "#9ca3af",
+          "#d1d5db",
+          "#f3f4f6"
+        ]
+      },
+      "gray-600": {
+        "role": "neutral",
+        "displayName": "Gray 600",
+        "canonical": "#475569",
+        "tonalRamp": [
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#475569",
+          "#64748b",
+          "#94a3b8",
+          "#cbd5e1",
+          "#f1f5f9"
+        ]
+      },
+      "gray-500": {
+        "role": "neutral",
+        "displayName": "Gray 500",
+        "canonical": "#616B73",
+        "tonalRamp": [
+          "#1c2126",
+          "#30383e",
+          "#48525a",
+          "#616B73",
+          "#7f8991",
+          "#a3abb2",
+          "#c9ced3",
+          "#eceef0"
+        ]
+      },
+      "surface-page": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#262626",
+          "#4d4d4d",
+          "#737373",
+          "#999999",
+          "#bfbfbf",
+          "#e6e6e6",
+          "#f5f5f5",
+          "#FFFFFF"
+        ]
+      },
+      "surface-code": {
+        "role": "neutral",
+        "displayName": "Code surface",
+        "canonical": "#F6F8FA",
+        "tonalRamp": [
+          "#1f2428",
+          "#3a4248",
+          "#5a646c",
+          "#7d8890",
+          "#a3adb5",
+          "#c9d1d8",
+          "#e4e9ee",
+          "#F6F8FA"
+        ]
+      },
+      "surface-thead": {
+        "role": "neutral",
+        "displayName": "Head surface (the one tint)",
+        "canonical": "#F1F5F9",
+        "tonalRamp": [
+          "#1d2630",
+          "#34414f",
+          "#52627a",
+          "#7487a0",
+          "#9aabc0",
+          "#c2cfdd",
+          "#dde5ed",
+          "#F1F5F9"
+        ]
+      },
+      "surface-info": {
+        "role": "neutral",
+        "displayName": "Info surface (selection only)",
+        "canonical": "#EFF6FF",
+        "tonalRamp": [
+          "#172a4a",
+          "#274580",
+          "#3a62b0",
+          "#5a84d2",
+          "#86a8e6",
+          "#b4cbf3",
+          "#d6e4fa",
+          "#EFF6FF"
+        ]
+      },
+      "border-strong": {
+        "role": "neutral",
+        "displayName": "Strong rule",
+        "canonical": "#D0D7DE",
+        "tonalRamp": [
+          "#20262c",
+          "#39434c",
+          "#56626d",
+          "#78858f",
+          "#9da8b1",
+          "#bcc5cd",
+          "#D0D7DE",
+          "#eef1f4"
+        ]
+      },
+      "border-subtle": {
+        "role": "neutral",
+        "displayName": "Subtle rule",
+        "canonical": "#E5E7EB",
+        "tonalRamp": [
+          "#222427",
+          "#3d4146",
+          "#5c6167",
+          "#7f858c",
+          "#a4a9af",
+          "#c6cacf",
+          "#E5E7EB",
+          "#f5f6f7"
+        ]
+      },
+      "src-pash": {
+        "role": "tertiary",
+        "displayName": "PaSh's own files (reference, dark grey)",
+        "canonical": "#4a4a4a",
+        "tonalRamp": [
+          "#1a1a1a",
+          "#2e2e2e",
+          "#4a4a4a",
+          "#666666",
+          "#848484",
+          "#a6a6a6",
+          "#cccccc",
+          "#f0f0f0"
+        ]
+      },
+      "src-naive": {
+        "role": "tertiary",
+        "displayName": "Naive LLM's files (the identity blue)",
+        "canonical": "#2563EB",
+        "tonalRamp": [
+          "#0c1f55",
+          "#13308f",
+          "#1D4ED8",
+          "#2563EB",
+          "#4f82f0",
+          "#7ea3f4",
+          "#b3c8f8",
+          "#e3ebfd"
+        ]
+      },
+      "src-cpash": {
+        "role": "tertiary",
+        "displayName": "Caruca's files, PaSh grammar (orange)",
+        "canonical": "#e8622b",
+        "tonalRamp": [
+          "#4a1c08",
+          "#7d2f0e",
+          "#b14516",
+          "#e8622b",
+          "#ee8355",
+          "#f4a583",
+          "#f9c9b3",
+          "#fdeae0"
+        ]
+      },
+      "src-cmain": {
+        "role": "tertiary",
+        "displayName": "Caruca's files, main grammar (light orange)",
+        "canonical": "#f0b060",
+        "tonalRamp": [
+          "#4d3209",
+          "#815412",
+          "#b8781f",
+          "#e09a3a",
+          "#f0b060",
+          "#f4c588",
+          "#f8dbb3",
+          "#fdf1e2"
+        ]
+      },
+      "link": {
+        "displayName": "Link",
+        "purpose": "Internal links and table-note marks, dotted underline; ACM blue-violet, distinct from the naive LLM blue."
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "The document title, once, balanced over two lines. Skill's print value: 28pt." },
-      "headline": { "displayName": "Headline", "purpose": "Section heads, blue. Skill's print value: 20pt at weight 700." },
-      "title": { "displayName": "Title", "purpose": "Sub-sections and addendum entries. Skill's print value: 15pt." },
-      "body": { "displayName": "Body", "purpose": "Paragraphs capped at 72ch. Skill's print value: 11pt, +0.01em." },
-      "stat": { "displayName": "Stat", "purpose": "The leading figure in a board cell; always over an 8.3pt grey basis line." },
-      "table": { "displayName": "Table", "purpose": "Cell text; heads 600 8.6pt sentence case with an 8pt grey sub-line." },
-      "label": { "displayName": "Label", "purpose": "Column heads in the board; sentence case, ink, bottom-aligned under a 3px source cap." },
-      "caption": { "displayName": "Caption", "purpose": "Below tables and figures, gray-600; the 'Table n.' label 600 ink." },
-      "mono": { "displayName": "Mono", "purpose": "Script listings and the script list table; anything a shell would read." },
-      "chrome": { "displayName": "Chrome", "purpose": "Running head and foot, stamped with pdf-lib in the embedded Lexend Deca files." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "The document title, once, balanced over two lines. Skill's print value: 28pt."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section heads, blue. Skill's print value: 20pt at weight 700."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Sub-sections and addendum entries. Skill's print value: 15pt."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs capped at 72ch. Skill's print value: 11pt, +0.01em."
+      },
+      "stat": {
+        "displayName": "Stat",
+        "purpose": "The leading figure in a board cell; always over an 8.3pt grey basis line."
+      },
+      "table": {
+        "displayName": "Table",
+        "purpose": "Cell text; heads 600 8.6pt sentence case with an 8pt grey sub-line."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Column heads in the board; sentence case, ink, bottom-aligned under a 3px source cap."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Below tables and figures, gray-600; the 'Table n.' label 600 ink."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Script listings and the script list table; anything a shell would read."
+      },
+      "chrome": {
+        "displayName": "Chrome",
+        "purpose": "Running head and foot, stamped with pdf-lib; Lexend Deca in the house style, Libertinus Sans in the conference variant (head = current section, foot = page n of N)."
+      },
+      "conf-body": {
+        "displayName": "Conference body",
+        "purpose": "Libertinus Serif 10/12 pt justified text (ACM acmart, acmsmall)."
+      },
+      "conf-heading": {
+        "displayName": "Conference heading",
+        "purpose": "Libertinus Sans bold, ink, numbered sections."
+      },
+      "conf-subheading": {
+        "displayName": "Conference subheading",
+        "purpose": "Libertinus Sans bold, appendix parts A.1..A.n."
+      },
+      "conf-table": {
+        "displayName": "Conference table",
+        "purpose": "Libertinus Serif cells, booktabs rules."
+      },
+      "conf-caption": {
+        "displayName": "Conference caption",
+        "purpose": "Libertinus Sans 8.8 pt with a bold \"Table n:\" / \"Figure n:\" label."
+      },
+      "conf-note": {
+        "displayName": "Conference table note",
+        "purpose": "Libertinus Sans 7.4 pt, lettered a, b, c per table, hanging indent, back-link."
+      },
+      "conf-mono": {
+        "displayName": "Conference mono",
+        "purpose": "Inconsolata for code and command lines."
+      },
+      "conf-chrome": {
+        "displayName": "Conference chrome",
+        "purpose": "Libertinus Sans 8 pt running head and foot."
+      }
     },
     "shadows": [],
     "motion": [],
     "breakpoints": [],
     "print": {
       "pageSize": "Letter portrait",
-      "margins": { "top": "0.95in", "right": "0.8in", "bottom": "0.8in", "left": "0.8in" },
+      "margins": {
+        "top": "0.95in",
+        "right": "0.8in",
+        "bottom": "0.8in",
+        "left": "0.8in"
+      },
       "baseFontSize": "10.5pt",
       "chromeRuleWeight": "0.5pt",
       "sourceCapWeight": "3px",
@@ -130,15 +425,51 @@
       "Figures are lettered in the same faces and filled with the same four source colours as the tables."
     ],
     "rules": [
-      { "name": "The One Colour Per Source Rule", "body": "Each source of data owns exactly one colour, and that colour appears everywhere the source does: column cap, figure fill, legend swatch. PaSh's own files are always the tinted reference column. Figures read the same four values as the stylesheet.", "section": "colors" },
-      { "name": "The One Tint Rule", "body": "A body document has one tint, surface-thead. It marks the reference column and the cells that differ from it; it never marks emphasis. A cell whose meaning rests on the tint also carries weight 600, so a greyscale print still reads.", "section": "colors" },
-      { "name": "The Spent Teal Rule", "body": "Teal is a mark, not a colour family: list markers in the body, the accent bar on covers and Markdown titles. It is never a fill, a head colour or a border.", "section": "colors" },
-      { "name": "The Basis Line Rule", "body": "A number set large is never alone: a 13pt figure sits over an 8.3pt grey line stating what it is out of or compared against (\"3 of 3\", \"1.67× faster than bash\").", "section": "typography" },
-      { "name": "The Mono Means Shell Rule", "body": "Command names, flags, file paths, script text and commit hashes are mono; nothing else is. Numbers in tables are the sans with tabular figures, not mono.", "section": "typography" },
-      { "name": "The Run-in Label Rule", "body": "A paragraph that needs a label gets a 600-weight run-in on its first words (\"What we ran.\"), in sentence case, in the text colour. No eyebrow, no kicker, no uppercase label above a heading.", "section": "typography" },
-      { "name": "The Board Whole Rule", "body": "A comparison board, its caption above and its note below are one unit; they never straddle a page.", "section": "layout" },
-      { "name": "The 72ch Rule", "body": "Prose is capped at 72 characters; evidence (tables, figures, the script box) runs the full measure.", "section": "layout" },
-      { "name": "The Flat Paper Rule", "body": "A document never casts a shadow. Depth, where needed, is a 1px rule or the one tint.", "section": "elevation" }
+      {
+        "name": "The One Colour Per Source Rule",
+        "body": "Each source of data owns exactly one colour, and that colour appears everywhere the source does: column cap, figure fill, legend swatch. PaSh's own files are always the tinted reference column. Figures read the same four values as the stylesheet.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Tint Rule",
+        "body": "A body document has one tint, surface-thead. It marks the reference column and the cells that differ from it; it never marks emphasis. A cell whose meaning rests on the tint also carries weight 600, so a greyscale print still reads.",
+        "section": "colors"
+      },
+      {
+        "name": "The Spent Teal Rule",
+        "body": "Teal is a mark, not a colour family: list markers in the body, the accent bar on covers and Markdown titles. It is never a fill, a head colour or a border.",
+        "section": "colors"
+      },
+      {
+        "name": "The Basis Line Rule",
+        "body": "A number set large is never alone: a 13pt figure sits over an 8.3pt grey line stating what it is out of or compared against (\"3 of 3\", \"1.67× faster than bash\").",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Means Shell Rule",
+        "body": "Command names, flags, file paths, script text and commit hashes are mono; nothing else is. Numbers in tables are the sans with tabular figures, not mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Run-in Label Rule",
+        "body": "A paragraph that needs a label gets a 600-weight run-in on its first words (\"What we ran.\"), in sentence case, in the text colour. No eyebrow, no kicker, no uppercase label above a heading.",
+        "section": "typography"
+      },
+      {
+        "name": "The Board Whole Rule",
+        "body": "A comparison board, its caption above and its note below are one unit; they never straddle a page.",
+        "section": "layout"
+      },
+      {
+        "name": "The 72ch Rule",
+        "body": "Prose is capped at 72 characters; evidence (tables, figures, the script box) runs the full measure.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Paper Rule",
+        "body": "A document never casts a shadow. Depth, where needed, is a 1px rule or the one tint.",
+        "section": "elevation"
+      }
     ],
     "dos": [
       "Do give every source of data one colour and use it for its column cap, its figure fills and its legend swatch, in both the stylesheet and the figure scripts.",

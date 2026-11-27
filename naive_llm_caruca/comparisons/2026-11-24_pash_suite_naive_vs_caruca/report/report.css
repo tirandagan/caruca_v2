@@ -136,6 +136,7 @@ tbody tr:last-child td, tbody tr:last-child th { border-bottom: 1px solid var(--
 .board td .big { font-size: 13pt; font-weight: 600; letter-spacing: -0.01em; display: block; line-height: 1.15; }
 .board td .sub { display: block; color: var(--gray-600); font-size: 8.3pt; line-height: 1.3; margin-top: 1pt; }
 .board td.ref { background: var(--surface-thead); }
+.board td.changed { border-left: 1pt solid var(--src); }   /* differs from the reference (Draft 2.0: wrong output) */
 .pash  { --src: var(--src-pash); }
 .naive { --src: var(--src-naive); }
 .cpash { --src: var(--src-cpash); }
@@ -355,7 +356,7 @@ table.reasons { break-inside: avoid; }
 
 .groups { break-inside: avoid; }
 
-figure.a5 img { width: 92%; margin: 0 auto; }
+figure.a5 img { width: 84%; margin: 0 auto; }
 table.crashes { break-inside: avoid; }
 
 /* page-1 suite box */
@@ -423,3 +424,153 @@ code { hyphens: none; -webkit-hyphens: none; }
 .group p.files { hyphens: none; -webkit-hyphens: none; text-align: left; }
 dl > *:nth-last-child(-n+2) { break-before: avoid; }
 dt { break-after: avoid; }
+
+
+/* head-to-head table */
+.board.h2h tbody th { width: 34%; font-weight: 400; font-family: 'Libertinus Serif', serif; font-size: 9pt; color: var(--ink); }
+.board.h2h td { width: 22%; font-size: 9pt; }
+.board.h2h td code { font-size: 0.92em; }
+
+h2.paper { break-before: page; }
+
+table.causes { table-layout: fixed; font-size: 8.3pt; }
+table.causes td, table.causes th { padding: 2.5pt 5pt; vertical-align: top; }
+table.causes code { font-size: 0.9em; }
+
+.board.h2h { font-size: 8.6pt; }
+.board.h2h th, .board.h2h td { padding: 2pt 5pt; }
+.board.h2h tbody th { font-size: 8.6pt; }
+
+.footnote { font-size: 7.8pt; line-height: 1.25; color: var(--gray-700); margin: 2pt 0 6pt 0; border-top: 0.4pt solid var(--rule-soft); padding-top: 2pt; max-width: none; text-align: left; }
+.footnote code { font-size: 0.95em; }
+sup.fnref { font-size: 70%; }
+
+figure.col img { width: 80%; }
+.footnote { margin: 0 0 4pt 0; }
+
+/* page-1 fit with the grammar footnote */
+.page-opener .board:not(.h2h) th, .page-opener .board:not(.h2h) td { padding-top: 2pt; padding-bottom: 2pt; }
+.page-opener .board:not(.h2h) td .big { font-size: 11.5pt; }
+
+.footnote { margin: 1pt 0 0 0; padding-top: 1pt; line-height: 1.2; }
+
+.page-opener .footnote { font-size: 7.4pt; }
+.page-opener .opener-grid { margin-bottom: 2pt; }
+
+table.percmd { font-size: 8.4pt; break-inside: avoid; }
+table.percmd th, table.percmd td { padding: 1.8pt 5pt; }
+table.percmd tbody th { font-weight: 400; font-family: 'Libertinus Serif', serif; }
+table.percmd tbody tr:last-child th { font-weight: 700; }
+
+/* Draft 2.0 (2026-11-27): these tables are short enough to keep whole */
+table.records, table.wrongout, table.percmd, table.diff { break-inside: avoid; }
+table.wrongout td:nth-child(n+4) { white-space: normal; }
+
+/* Draft 2.2 (2026-11-27): cross-references, compiler-stop overlap table, wrong-output examples */
+.xref { font-family: 'Libertinus Sans', sans-serif; font-size: 7.8pt; color: var(--gray-600); font-weight: 400; white-space: nowrap; }
+table.stops { font-size: 8.4pt; break-inside: avoid; }
+table.stops th, table.stops td { padding: 1.8pt 5pt; }
+table.stops tbody th { font-weight: 400; font-family: 'Libertinus Serif', serif; width: 34%; }
+table.stops tbody tr.total th { font-weight: 700; font-family: 'Libertinus Sans', sans-serif; }
+table.stops td.num { text-align: center; width: 9%; }
+table.stops thead th.num { text-align: center; }
+table.stops td.x { font-weight: 700; }
+.wrongex { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt 16pt; margin: 4pt 0 8pt 0; }
+.wrongex .ex { break-inside: avoid; border-top: 0.6pt solid var(--ink); padding-top: 3pt; }
+.wrongex p { margin: 0 0 2pt 0; max-width: none; text-align: left; font-size: 8.6pt; line-height: 1.28; }
+.wrongex .ex-h { font-family: 'Libertinus Sans', sans-serif; }
+.wrongex .ex-pipe code { font-size: 0.92em; }
+.wrongex pre { margin: 2pt 0 3pt 0; padding: 3pt 6pt; font-size: 8pt; line-height: 1.3; background: var(--code-bg); white-space: pre; }
+.page-opener .board .xref { font-size: 7pt; }
+.page-opener .board:not(.h2h) th, .page-opener .board:not(.h2h) td { padding-top: 1.5pt; padding-bottom: 1.5pt; }
+.page-opener .board:not(.h2h) tbody th { line-height: 1.15; }
+h2.paper { break-before: auto; }
+table.recs { font-size: 8pt; line-height: 1.2; }
+table.recs th, table.recs td { padding: 1.4pt 5pt; }
+/* live cross-references (2026-11-27): read as plain text */
+a.xr, sup.fnref a { color: inherit; text-decoration: none; }
+.footnote span[id] { white-space: normal; }
+.footnote.tnotes { margin: 1pt 0 2pt 0; }
+table.overhead { font-size: 8.4pt; break-inside: avoid; }
+table.overhead th, table.overhead td { padding: 1.8pt 5pt; }
+table.overhead tbody th { font-weight: 400; font-family: 'Libertinus Serif', serif; width: 52%; }
+.page-opener .footnote { font-size: 7.1pt; line-height: 1.15; }
+.page-opener .board:not(.h2h) thead th:first-child { width: 21%; }
+.page-opener .board:not(.h2h) td .big { font-size: 10.8pt; }
+.page-opener .board:not(.h2h) td .sub { line-height: 1.15; }
+
+/* ===== Draft 2.3 (2026-11-27) ===== */
+:root { --link: #3B3F99; }   /* ACM-style link blue-violet; distinct from the naive LLM's #2563EB */
+a.xr, a.tn, sup.fnref a, a.back, .contents a {
+  color: var(--link);
+  text-decoration: underline dotted;
+  text-underline-offset: 1.5pt;
+  text-decoration-thickness: 0.5pt;
+}
+a.tn, sup.fnref a { font-weight: 700; }
+a.tn { font-family: 'Libertinus Sans', sans-serif; font-size: 0.72em; vertical-align: super; line-height: 0; margin-left: 1pt; }
+:target, h2[id], h3[id], p.tcap[id], figure[id] { scroll-margin-top: 14pt; }
+
+.page-opener .finding { font-size: 13pt; margin-bottom: 3pt; }
+.contents { font-family: 'Libertinus Sans', sans-serif; font-size: 8pt; margin: 0 0 3pt 0; max-width: none; }
+.page-opener p.question, .page-opener p.lead { font-size: 9.5pt; line-height: 1.24; margin: 0 0 4pt 0; text-align: justify; max-width: none; }
+
+/* Table 1: verdict board */
+table.board.verdict { font-size: 8.6pt; }
+table.board.verdict th, table.board.verdict td { padding-top: 1.6pt; padding-bottom: 1.6pt; }
+table.board.verdict thead th:first-child { width: 30%; }
+table.board.verdict tbody th { font-family: 'Libertinus Serif', serif; font-weight: 400; font-size: 8.6pt; line-height: 1.15; }
+table.board.verdict td .big { font-size: 11pt; }
+table.board.verdict td .mid { font-family: 'Libertinus Sans', sans-serif; font-size: 9.5pt; font-weight: 700; }
+table.board.verdict td .sub { display: block; font-size: 7.4pt; line-height: 1.1; }
+table.board.verdict td.worse .big, table.board.verdict td.worse .mid,
+table.board.verdict td.better .big, table.board.verdict td.better .mid { font-weight: 700; }
+table.board.verdict td.worse, table.board.verdict td.better { font-weight: 600; }
+table.board.verdict .v { color: var(--src); font-size: 8pt; margin-left: 3pt; font-family: 'Libertinus Sans', sans-serif; }
+table.board.verdict tr.block th, table.board.verdict tr.block td { border-top: 0.6pt solid var(--ink); padding-top: 2pt; }
+table.board.verdict .blockhead { display: block; font-family: 'Libertinus Sans', sans-serif; font-weight: 700; font-size: 7.8pt; font-style: italic; margin-bottom: 1pt; }
+table.board.verdict tr.reading td, table.board.verdict tr.reading th { border-top: 0.6pt solid var(--ink); font-family: 'Libertinus Sans', sans-serif; font-size: 7.6pt; line-height: 1.15; }
+table.board.verdict tr.reading th { font-weight: 700; }
+table.board.verdict td.changed { border-left: 0; }
+
+/* lettered table notes: one per line, hanging indent, letters set by build.ts */
+ol.tnotes { list-style: none; margin: 1pt 0 3pt 0; padding: 0; font-family: 'Libertinus Sans', sans-serif; font-size: 7.4pt; line-height: 1.18; columns: 2; column-gap: 14pt; }
+ol.tnotes li { padding-left: 9pt; text-indent: -9pt; break-inside: avoid; margin: 0 0 0.6pt 0; }
+ol.tnotes li .lt { font-weight: 700; color: var(--link); display: inline-block; width: 9pt; text-indent: 0; }
+ol.tnotes a.back { margin-left: 2pt; }
+ol.tnotes code { font-size: 0.95em; }
+p.extra-line { font-size: 8pt; line-height: 1.2; margin: 0 0 2pt 0; max-width: none; font-family: 'Libertinus Sans', sans-serif; }
+p.extra-line b { font-weight: 700; }
+.page-opener .footnote { font-size: 7.2pt; }
+p.supports { font-family: 'Libertinus Sans', sans-serif; font-size: 8pt; color: var(--gray-700); margin: 0 0 4pt 0; max-width: none; }
+figure.a3 img { width: 72%; margin: 0 auto; display: block; }
+.page-opener table.board.verdict thead th:first-child { width: 34%; }
+.page-opener table.board.verdict td { width: 16.5%; }
+table.board.verdict td .big, table.board.verdict td .mid { display: inline; }
+table.board.verdict td .sub { margin-top: 0; }
+.page-opener table.board.verdict th, .page-opener table.board.verdict td { padding: 1.3pt 5pt; }
+ol.tnotes li { text-align: left; }
+.page-opener .tcap { margin-bottom: 2pt; }
+table.board.verdict tr.blockrow th { border-top: 0.6pt solid var(--ink); font-family: 'Libertinus Sans', sans-serif; font-weight: 700; font-style: italic; font-size: 7.8pt; padding: 2pt 5pt 0 5pt; background: none; }
+ol.tnotes.one { columns: 1; }
+figure.a5 img { width: 100%; }
+figure.a5 { margin: 0; }
+figure.a5 img { width: auto; height: 7.75in; display: block; margin: 0 auto; }
+table.recs { font-size: 7.6pt; line-height: 1.12; }
+table.recs th, table.recs td { padding: 1pt 4pt; }
+table.fullvs { font-size: 8.6pt; break-inside: avoid; }
+table.fullvs th, table.fullvs td { padding: 2pt 6pt; }
+table.fullvs tbody th { font-weight: 400; font-family: 'Libertinus Serif', serif; width: 52%; }
+table.fullvs td.num { text-align: center; }
+table.fullvs { font-size: 8.2pt; }
+table.fullvs th, table.fullvs td { padding: 1.2pt 5pt; }
+.wrongex { gap: 5pt 14pt; margin-bottom: 4pt; }
+.wrongex pre { font-size: 7.4pt; line-height: 1.18; padding: 2pt 5pt; margin: 1pt 0 2pt 0; }
+.wrongex p { font-size: 8.2pt; line-height: 1.22; }
+table.fullvs { font-size: 8pt; }
+table.fullvs th, table.fullvs td { padding: 0.8pt 5pt; }
+.wrongex .ex { padding-top: 2pt; }
+.wrongex p { margin-bottom: 1pt; }
+h3.tight { margin-top: 6pt; }
+h3.tight ~ p.entry, h3.tight ~ p.caption { font-size: 9pt; line-height: 1.18; margin-bottom: 4pt; }
+h3.tight ~ p.caption { font-size: 8.2pt; }

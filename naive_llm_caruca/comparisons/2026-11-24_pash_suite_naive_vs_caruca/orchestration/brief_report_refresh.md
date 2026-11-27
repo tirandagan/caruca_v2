@@ -3,11 +3,11 @@
 You are a worker. The orchestrator gave you this brief on behalf of Tiran Dagan. Work only on it. Do not
 commit. Do not edit anything under `full_run/`, `../../` (the naive experiment's other folders) or v1.
 
-## Where things are (all paths relative to this run folder, `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/`)
+## Where things are (all paths relative to this run folder, `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/`)
 
 - `report/report.html`, `report/report.css`, `report/build.ts`, `report/README.md`: the hand-built report
   (read `report/README.md` first; it states the structure rules and the update steps). Build with
-  `npx tsx naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/report/build.ts` from the repo root;
+  `npx tsx naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/report/build.ts` from the repo root;
   render pages with `pdftoppm -r 70 -png report/report.pdf /tmp/p` and look at every page.
 - `full_run/`: the complete records (86 scripts, six sources, three timed repeats): `results.jsonl.gz`,
   `regions.jsonl.gz`, `occurrences.jsonl.gz`, `run_windows.jsonl`, `sleep_events.jsonl`, the builder's

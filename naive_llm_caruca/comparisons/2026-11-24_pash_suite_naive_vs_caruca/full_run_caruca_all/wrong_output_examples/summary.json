@@ -1,0 +1,42 @@
+[
+ {
+  "script": "unixfun/26",
+  "set": "caruca-pash-all",
+  "bash_lines": 1,
+  "set_lines": 1,
+  "bash_bytes": 3044246,
+  "set_bytes": 3044195,
+  "same_wrong_output_as_batch": true,
+  "diff_lines": 5
+ },
+ {
+  "script": "oneliners/top-n",
+  "set": "caruca-main-all",
+  "bash_lines": 100,
+  "set_lines": 800,
+  "bash_bytes": 1247,
+  "set_bytes": 12288,
+  "same_wrong_output_as_batch": true,
+  "diff_lines": 704
+ },
+ {
+  "script": "oneliners/spell",
+  "set": "caruca-pash-all",
+  "bash_lines": 1234,
+  "set_lines": 1261,
+  "bash_bytes": 10809,
+  "set_bytes": 10974,
+  "same_wrong_output_as_batch": true,
+  "diff_lines": 107
+ },
+ {
+  "script": "unixfun/23",
+  "set": "caruca-pash-all",
+  "bash_lines": 1,
+  "set_lines": 31,
+  "bash_bytes": 5,
+  "set_bytes": 155,
+  "same_wrong_output_as_batch": true,
+  "diff_lines": 34
+ }
+]

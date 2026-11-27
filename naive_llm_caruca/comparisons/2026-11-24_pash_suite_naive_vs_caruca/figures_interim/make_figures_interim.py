@@ -25,6 +25,7 @@ from pathlib import Path
 
 import matplotlib
 import matplotlib.ticker
+import numpy as np
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
@@ -36,7 +37,22 @@ _ap = argparse.ArgumentParser()
 _ap.add_argument("--records", type=Path, default=RUN / "validation_2026-11-24")
 _ap.add_argument("--numbers", type=Path, default=RUN / "numbers_pilot.json")
 _ap.add_argument("--out", type=Path, default=HERE)
+# Caruca at full reach (Draft 2.0, 2026-11-27): Caruca's two series come from the rerun's records, not the first
+# run's. Its sets caruca-pash-all / caruca-main-all are drawn as caruca-pash / caruca-main; every ratio of theirs is
+# taken against the rerun's own bash and PaSh's own runs (session rule), and the rerun's PaSh's own split uses are
+# checked to equal the first run's before PaSh's own counts are shared.
+_ap.add_argument("--caruca-records", type=Path, default=None)
+_ap.add_argument("--caruca-numbers", type=Path, default=None)
+# Draft 2.4 (2026-11-27): the body shows one Caruca series, the small (PaSh) grammars; this flag leaves the
+# full-grammar series (caruca-main) out of every drawing. The checks against the numbers files still cover it.
+_ap.add_argument("--no-caruca-full", action="store_true")
 ARGS = _ap.parse_args()
+RC = ARGS.caruca_records.resolve() if ARGS.caruca_records else None
+CNUM = json.load(open(ARGS.caruca_numbers)) if ARGS.caruca_numbers else None
+# rerun set name -> name drawn; the rerun's bash and PaSh's own keep a session suffix
+RENAME = {"caruca-pash-all": "caruca-pash", "caruca-main-all": "caruca-main", "bash": "bash@2",
+          "pash-own": "pash-own@2", "pash-own-copy": "pash-own-copy@2"}
+CNAME = {"caruca-pash": "caruca-pash-all", "caruca-main": "caruca-main-all", "pash-own-copy@2": "pash-own-copy"}
 R = ARGS.records.resolve()
 OUT = ARGS.out.resolve()
 OUT.mkdir(parents=True, exist_ok=True)
@@ -260,10 +276,15 @@ def uses_split():
 FULL = ["pash-own", "naive", "naive-sed2", "caruca-pash", "caruca-main"]
 FLABEL = {"pash-own": "PaSh's own files", "naive": "The naive LLM",
           "naive-sed2": "Naive LLM, second\nsed file (52 scripts)", "caruca-pash": "Caruca's small\ngrammar",
-          "caruca-main": "Caruca's full\ngrammar", "pash-own-copy": "PaSh's own files,\nrun twice"}
+          "caruca-main": "Caruca, full\nwhere traced", "pash-own-copy": "PaSh's own files,\nrun twice"}
 # one-line panel titles for Figure 1 (the caption says the second sed file ran on 52 scripts)
 PANEL = {"naive": "The naive LLM", "naive-sed2": "Second sed file", "caruca-pash": "Caruca's small grammar",
-         "caruca-main": "Caruca's full grammar"}
+         "caruca-main": "Caruca, full where traced"}
+NOFULL = ARGS.no_caruca_full
+DRAWN = lambda xs: [x for x in xs if not (NOFULL and x == "caruca-main")]
+if NOFULL:   # one Caruca series: call it simply "Caruca"
+    FLABEL["caruca-pash"] = "Caruca"
+    PANEL["caruca-pash"] = "Caruca"
 
 
 def gz_jsonl(p):
@@ -271,7 +292,7 @@ def gz_jsonl(p):
         return [json.loads(x) for x in f if x.strip()]
 
 
-def load_full():
+def load_full(R=R, rename=None):
     """The per-use rows (first instrumented repeat) and the timed rows, with fix-up 2 applied: web-search's
     timed rows without node are left out, and rows that have a redone run are replaced by it (fix-up 1 only
     changes output flags, which no figure uses). The second sed file's own bash rows are not a time reference."""
@@ -291,7 +312,42 @@ def load_full():
             if len(v) != 3:
                 die(f"{st} {i}: expected 3 timed runs, got {len(v)}")
     med = {st: {i: statistics.median(v) for i, v in d.items()} for st, d in per.items()}
+    if rename:
+        for o in occ:
+            o["set"] = rename.get(o["set"], o["set"])
+        med = {rename.get(st, st): d for st, d in med.items()}
     return occ, med
+
+
+def load_both():
+    """The first run's records, with Caruca's series replaced by the rerun's (when --caruca-records is given)."""
+    occ, med = load_full()
+    if RC is None:
+        return occ, med
+    occ2, med2 = load_full(RC, RENAME)
+    key = lambda rows, s: {(o["id"], o["region_text_sha"], o["position"], o["command"]): o["split"] is True
+                           for o in rows if o["set"] == s}
+    if key(occ, "pash-own") != key(occ2, "pash-own@2"):
+        die("the rerun's PaSh's own files split different uses from the first run's")
+    occ = [o for o in occ if o["set"] not in ("caruca-pash", "caruca-main")] + \
+          [o for o in occ2 if o["set"] in ("caruca-pash", "caruca-main", "pash-own@2")]
+    for s in ("caruca-pash", "caruca-main"):
+        med.pop(s, None)
+    med.update(med2)
+    return occ, med
+
+
+def ref_of(s):
+    """The PaSh's-own (and bash) series a source is compared with: its own session's."""
+    if RC is not None and (s in ("caruca-pash", "caruca-main") or s.endswith("@2")):
+        return "pash-own@2", "bash@2"
+    return "pash-own", "bash"
+
+
+def per_source_numbers(s, numbers):
+    if RC is not None and s in CNAME:
+        return CNUM["full"]["per_source"][CNAME[s]]
+    return numbers["full"]["per_source"][s]
 
 
 def commands_changed(occ):
@@ -304,7 +360,7 @@ def commands_changed(occ):
         for (st, i), d in sp.items():
             if st != s:
                 continue
-            ref = sp[("pash-own", i)]
+            ref = sp[(ref_of(s)[0], i)]
             for c in set(d) | set(ref):
                 g[c] += d.get(c, False) and not ref.get(c, False)
                 l[c] += ref.get(c, False) and not d.get(c, False)
@@ -314,7 +370,10 @@ def commands_changed(occ):
 
 def full_split_map(occ, numbers):
     ch = commands_changed(occ)
-    want = numbers["full"]["commands_gained_lost"]
+    want = dict(numbers["full"]["commands_gained_lost"])
+    if RC is not None:
+        for s in ("caruca-pash", "caruca-main"):
+            want[s] = CNUM["full"]["commands_gained_lost"][CNAME[s]]
     for s in FULL[1:]:
         if {c: v for c, v in ch[s].items()} != {c: v for c, v in want[s].items()}:
             die(f"{s}: commands gained/lost {ch[s]} differ from the numbers json {want[s]}")
@@ -326,7 +385,7 @@ def full_split_map(occ, numbers):
             if o["split"] is True:
                 own_split[o["command"]].add(o["id"])
     cmds = sorted({c for d in ch.values() for c in d}, key=lambda c: (-max(sum(d.get(c, [0, 0])) for d in ch.values()), c))
-    panels = FULL[1:]
+    panels = DRAWN(FULL[1:])
     fig, axes = plt.subplots(1, len(panels), figsize=(WIDTH, 3.3), sharey=True)
     ys = list(range(len(cmds)))[::-1]
     lim = max(max(v) for d in ch.values() for v in d.values())
@@ -366,63 +425,103 @@ def full_split_map(occ, numbers):
 
 
 def full_time(med, numbers):
-    rows = ["naive", "naive-sed2", "caruca-pash", "caruca-main", "pash-own-copy"]
-    ps = numbers["full"]["per_source"]
-    own = med["pash-own"]
-    ratios = {s: sorted(med[s][i] / own[i] for i in med[s]) for s in rows}
+    two = RC is not None
+    check_rows = ["naive", "naive-sed2", "caruca-pash", "caruca-main", "pash-own-copy"] + (
+        ["pash-own-copy@2"] if two else []
+    )
+    ps = {s: per_source_numbers(s, numbers) for s in check_rows + ["pash-own"]}
+    ratios = {s: sorted(med[s][i] / med[ref_of(s)[0]][i] for i in med[s]) for s in check_rows}
     gm = {s: math.exp(sum(map(math.log, v)) / len(v)) for s, v in ratios.items()}
-    for s in rows + ["pash-own"]:
-        slow_bash = sum(med[s][i] > med["bash"][i] for i in med[s])
+    for s in check_rows + ["pash-own"]:
+        bash = med[ref_of(s)[1]]
+        slow_bash = sum(med[s][i] > bash[i] for i in med[s])
         if slow_bash != ps[s]["slower_than_bash"]["a"]:
             die(f"{s}: {slow_bash} scripts slower than bash, the numbers json says {ps[s]['slower_than_bash']}")
-    for s in rows:
+    for s in check_rows:
         if abs(gm[s] - ps[s]["vs_pash_own_gmean"]) > 1e-9:
             die(f"{s}: geometric mean {gm[s]} differs from the numbers json {ps[s]['vs_pash_own_gmean']}")
         slow = sum(v > 1.1 for v in ratios[s])
         if slow != ps[s]["slower_than_own_10pct"]["a"] or len(ratios[s]) != ps[s]["slower_than_own_10pct"]["b"]:
             die(f"{s}: {slow} of {len(ratios[s])} slower by 10%, the numbers json says {ps[s]['slower_than_own_10pct']}")
-    lo, hi = min(ratios["pash-own-copy"]), max(ratios["pash-own-copy"])
-    if [round(lo, 2), round(hi, 2)] != [round(x, 2) for x in ps["pash-own-copy"]["noise_band"][:2]]:
-        die("noise band differs from the numbers json")
+    for c in ("pash-own-copy", "pash-own-copy@2"):
+        if c in ratios:
+            band = (min(ratios[c]), max(ratios[c]))
+            if [round(x, 2) for x in band] != [round(x, 2) for x in ps[c]["noise_band"][:2]]:
+                die(f"{c}: noise band differs from the numbers json")
+
+    # Single merged panel: one row per source, pooling PaSh's own files run twice across both runs.
+    rows = DRAWN(["pash-own-copy", "naive", "naive-sed2", "caruca-pash", "caruca-main"])   # one source order everywhere (Draft 2.3)
+    draw_ratios = dict(ratios)
+    draw_gm = dict(gm)
+    if two:
+        pooled_copy = sorted(ratios["pash-own-copy"] + ratios["pash-own-copy@2"])
+        draw_ratios["pash-own-copy"] = pooled_copy
+        draw_gm["pash-own-copy"] = math.exp(sum(map(math.log, pooled_copy)) / len(pooled_copy))
+    copy_v = draw_ratios["pash-own-copy"]
+    lo, hi = min(copy_v), max(copy_v)
+    p5, p95 = float(np.percentile(copy_v, 5)), float(np.percentile(copy_v, 95))
+
     color = {**SOURCE_COLOR, "pash-own-copy": SOURCE_COLOR["pash-own"]}
-    fig, ax = plt.subplots(figsize=(WIDTH, 3.15))
-    ax.axvspan(lo, hi, color="#f3f2ee", zorder=0)
-    ax.axvline(1, color=INK2, lw=0.7, zorder=1)
+    fig, ax = plt.subplots(figsize=(WIDTH, 3.35))
     ys = list(range(len(rows)))[::-1]
+    ax.axvspan(lo, hi, color="#f4f3ef", zorder=0)
+    ax.axvspan(p5, p95, color="#e9e7e0", zorder=0.5)
+    ax.axvline(1, color=INK2, lw=0.7, zorder=1)
+    fs = 8.8  # >= 7.0 pt at 5.4 in printed width (8.8 * 5.4 / 6.5 = 7.31 pt)
     for y, s in zip(ys, rows):
-        v = ratios[s]
+        v = draw_ratios[s]
         # spread equal values a little up and down so each script stays visible
         jit = [((k % 5) - 2) * 0.07 for k in range(len(v))]
         ax.scatter(v, [y + j for j in jit], s=9, color=color[s], alpha=0.85, linewidths=0, zorder=3)
-        ax.plot([gm[s], gm[s]], [y - 0.32, y + 0.32], color=INK, lw=1.6, zorder=4, solid_capstyle="butt")
-        r = ps[s]
-        ax.text(2.95, y + 0.17, f"{gm[s]:.2f}  ·  {r['slower_than_own_10pct']['a']} of {r['slower_than_own_10pct']['b']} slower by >10%",
-                va="center", ha="left", fontsize=8)
-        ax.text(2.95, y - 0.2, f"slower than bash: {r['slower_than_bash']['text']}", va="center", ha="left",
-                fontsize=8, color=INK2)
+        ax.plot([draw_gm[s], draw_gm[s]], [y - 0.32, y + 0.32], color=INK, lw=1.6, zorder=4, solid_capstyle="butt")
+        if s == "pash-own-copy" and two:
+            s10_a = ps["pash-own-copy"]["slower_than_own_10pct"]["a"] + ps["pash-own-copy@2"]["slower_than_own_10pct"]["a"]
+            s10_b = ps["pash-own-copy"]["slower_than_own_10pct"]["b"] + ps["pash-own-copy@2"]["slower_than_own_10pct"]["b"]
+            sb_a = ps["pash-own-copy"]["slower_than_bash"]["a"] + ps["pash-own-copy@2"]["slower_than_bash"]["a"]
+            sb_b = ps["pash-own-copy"]["slower_than_bash"]["b"] + ps["pash-own-copy@2"]["slower_than_bash"]["b"]
+            s10_txt, sb_txt = f"{s10_a} of {s10_b}", f"{sb_a} of {sb_b}"
+        else:
+            r = ps[s]
+            s10_txt = f"{r['slower_than_own_10pct']['a']} of {r['slower_than_own_10pct']['b']}"
+            sb_txt = r["slower_than_bash"]["text"]
+        ax.text(2.95, y + 0.17, f"{draw_gm[s]:.2f}  ·  {s10_txt} slower by >10%",
+                va="center", ha="left", fontsize=fs)
+        ax.text(2.95, y - 0.2, f"slower than bash: {sb_txt}", va="center", ha="left",
+                fontsize=fs, color=INK2)
     ax.set_xscale("log")
     ax.set_xlim(0.42, 2.9)
     ticks = [0.5, 0.75, 1, 1.5, 2]
     ax.set_xticks(ticks, [f"{t:g}" for t in ticks])
     ax.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
     ax.set_yticks(ys, [FLABEL[s] for s in rows])
-    ax.set_xlabel("Time against PaSh's own files, per script\n(median of 3 runs; below 1 = faster)")
+    ax.set_xlabel("Time against PaSh's own files, per script\n(median of 3 runs; below 1 = faster)", fontsize=9.2)
     ax.spines["left"].set_visible(False)
-    ax.tick_params(axis="y", length=0)
-    top = len(rows) - 0.45
-    ax.text(lo * 0.98, top, "noise band (same files run twice)", ha="right", va="bottom", fontsize=8, color=INK2)
-    ax.text(1.02, top + 0.32, f"PaSh's own files = 1; slower than bash: {ps['pash-own']['slower_than_bash']['text']}",
-            ha="left", va="bottom", fontsize=8, color=INK2)
-    ax.text(2.95, top, "geometric mean", ha="left", va="bottom", fontsize=8, color=INK2)
-    ax.set_ylim(-0.6, len(rows) + 0.25)
-    fig.subplots_adjust(left=0.2, right=0.69, bottom=0.2, top=0.97)  # tight_layout would count the side text
+    ax.tick_params(axis="x", labelsize=fs)
+    ax.tick_params(axis="y", length=0, labelsize=fs)
+    top = max(ys) + 0.55
+    ax.text(lo * 0.98, top, "noise band (same files run twice)", ha="right", va="bottom", fontsize=fs, color=INK2)
+    if two:
+        own_a = ps["pash-own"]["slower_than_bash"]["a"] + CNUM["full"]["per_source"]["pash-own"]["slower_than_bash"]["a"]
+        own_b = ps["pash-own"]["slower_than_bash"]["b"] + CNUM["full"]["per_source"]["pash-own"]["slower_than_bash"]["b"]
+        own_txt = f"{own_a} of {own_b}"
+    else:
+        own_txt = ps["pash-own"]["slower_than_bash"]["text"]
+    ax.text(1.02, top + 0.34, f"PaSh's own files = 1; slower than bash: {own_txt}",
+            ha="left", va="bottom", fontsize=fs, color=INK2)
+    ax.text(2.95, top, "geometric mean", ha="left", va="bottom", fontsize=fs, color=INK2)
+    ax.set_ylim(-0.6, top + 0.75)
+    fig.subplots_adjust(left=0.215, right=0.665, bottom=0.21, top=0.96)
     fig.savefig(OUT / "time_bars.png", dpi=DPI)
     plt.close(fig)
-    return gm
+    return draw_gm
 
 
 def full_uses_split(occ, numbers):
     t1 = {r["source"]: r["uses_split"] for r in numbers["table1"]}
+    if RC is not None:
+        for r in CNUM["table1"]:
+            if r["source"] in CNAME.values():
+                t1[{v: k for k, v in CNAME.items()}[r["source"]]] = r["uses_split"]
     part = numbers["full"]["partial"]["naive-sed2"]["uses"]
     counts = {}
     for s in FULL:
@@ -546,8 +645,13 @@ def parts_per_script():
     stopped), from the instrumented run (the timed runs stopped in exactly the same parts)."""
     seen = defaultdict(dict)
     for r in gz_jsonl(R / "regions.jsonl.gz"):
-        if r["set"] in SOURCES:
+        if r["set"] in SOURCES and not (RC is not None and r["set"] in ("caruca-pash", "caruca-main")):
             seen[(r["set"], r["id"])][r["text_sha"]] = r["outcome"]
+    if RC is not None:
+        for r in gz_jsonl(RC / "regions.jsonl.gz"):
+            st = RENAME.get(r["set"], r["set"])
+            if st in ("caruca-pash", "caruca-main"):
+                seen[(st, r["id"])][r["text_sha"]] = r["outcome"]
     return {k: (len(v), list(v.values()).count("parallelized"), list(v.values()).count("pash crash"))
             for k, v in seen.items()}
 
@@ -559,81 +663,111 @@ def full_a5(numbers):
     parts = parts_per_script()
     crash_total = {s: sum(v[2] for (st, _), v in parts.items() if st == s) for s in SOURCES}
     want = {"pash-own": 4, "naive": 4, "caruca-pash": 14, "caruca-main": 4}   # Table 1's crash row
+    if RC is not None:   # Caruca at full reach (numbers_caruca_all.md, Appendix A3: pash crash 1+10, 1+2)
+        want.update({"caruca-pash": 11, "caruca-main": 3})
+        crows = {r["script"]: r for r in CNUM["A5"]}
+        for sid, r in rows.items():   # Caruca's times ÷ the rerun's bash, re-expressed on the first run's bash
+            b1, b2 = r["bash"]["median"], crows[sid]["bash"]["median"]
+            for s in ("caruca-pash", "caruca-main"):
+                t = crows[sid][CNAME[s]]
+                k = (b1 / b2) if b2 else 1.0
+                r[s] = {"median": t["median"] * k, "min": t["min"] * k, "max": t["max"] * k, "n": t["n"]}
     if crash_total != want:
         die(f"A5: crashed parts {crash_total} differ from Table 1 {want}")
+    # scripts whose printed output differed from bash's, per source (only Caruca's rerun sets have any)
+    wrong = defaultdict(set)
+    for r in numbers["table1"]:
+        wrong[r["source"]] |= set(r.get("wrong_scripts") or [])
+    if RC is not None:
+        for r in CNUM["table1"]:
+            if r["source"] in CNAME.values():
+                wrong[{v: k for k, v in CNAME.items()}[r["source"]]] = set(r.get("wrong_scripts") or [])
     cols = [GROUPS[:2], GROUPS[2:]]
-    FW, FH = 6.9, 5.5
-    fig = plt.figure(figsize=(FW, FH))
+    # Draft 2.3: one figure per column (two pages), drawn at exact printed width so pt = printed pt (>= 7 pt).
+    FW, FH = 6.3, 8.3
     off = {"pash-own": 0.27, "naive": 0.09, "caruca-pash": -0.09, "caruca-main": -0.27}
+    if NOFULL:
+        off = {"pash-own": 0.22, "naive": 0.0, "caruca-pash": -0.22}
     lo_x, hi_x = 0.15, 260
+    # Horizontal layout in points (total width = 6.3 * 72 = 453.6 pt); both plots share the same 72 pt width.
+    fw_pt = FW * 72.0
+    col_cfg = [(190.0, -186.0), (190.0, -186.0)]   # axis left at 190 pt; labels start 186 pt left of it
+    plot_w_pt = 190.0
+    fs_row = 7.6
+    handles = [plt.Line2D([], [], marker="o", linestyle="-", lw=0.6, color=SOURCE_COLOR[s], markersize=4,
+                          label={"pash-own": "PaSh's own files", "naive": "The naive LLM",
+                                 "caruca-pash": "Caruca" if NOFULL else "Caruca's small grammar", "caruca-main": "Caruca, full where traced"}[s])
+               for s in DRAWN(SOURCES)]
+    handles += [plt.Line2D([], [], marker="o", linestyle="none", markerfacecolor=SURFACE, markeredgecolor=INK2,
+                           markersize=4, label="hollow: compiler stopped in a part"),
+                plt.Line2D([], [], marker="x", linestyle="none", color=INK2, markersize=4.5,
+                           label="cross: output differs from bash"),
+                plt.Line2D([], [], color=BASH, lw=2.2, label="grey bar: bash's fastest to slowest")]
+    order = [0, 3, 1, 4, 2, 5] if NOFULL else [0, 4, 1, 5, 2, 6, 3]
     for ci, groups in enumerate(cols):
+        fig = plt.figure(figsize=(FW, FH))
         lines = []
         for g, name in groups:
             ids = sorted((i for i in rows if i.split("/")[0] == g), key=natural)
             lines.append(("head", name, len(ids)))
             lines += [("row", i, None) for i in ids]
-        n = len(lines)
-        left = ci * 0.5 + 1.47 / FW
-        ax = fig.add_axes((left, 0.045, 1.22 / FW, 0.875))
+        ax_left_pt, lbl_off_pt = col_cfg[ci]
+        nrows = len(lines)
+        ax = fig.add_axes((ax_left_pt / fw_pt, 0.055, plot_w_pt / fw_pt, 0.865))
         ax.set_xscale("log")
         ax.set_xlim(lo_x, hi_x)
-        ax.set_ylim(48 - 0.4, -0.7)
+        ax.set_ylim(nrows - 0.35, -0.7)
         ax.axvline(1, color=INK2, lw=0.6, zorder=1)
         for x in (0.25, 4, 16, 64):
             ax.axvline(x, color=GRID, lw=0.5, zorder=0)
         ax.set_xticks([0.25, 1, 4, 16, 64], ["0.25", "1", "4", "16", "64"])
         ax.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
-        ax.tick_params(axis="x", labelsize=7, length=2, pad=1)
+        ax.tick_params(axis="x", labelsize=7.4, length=2, pad=2)
         ax.set_yticks([])
         ax.spines["left"].set_visible(False)
-        ax.set_xlabel("time ÷ bash time (lower is better)", fontsize=7.2, labelpad=2)
+        ax.set_xlabel("time ÷ bash time (lower is better)", fontsize=7.6, labelpad=3)
         for y, (kind, key, cnt) in enumerate(lines):
             if kind == "head":
                 ax.text(lo_x, y + 0.15, "", transform=ax.transData)
-                ax.annotate(f"{key} ({cnt})", xy=(0, y), xycoords=("axes fraction", "data"), xytext=(-104, 0),
-                            textcoords="offset points", ha="left", va="center", fontsize=7.2, fontweight=600)
+                ax.annotate(f"{key} ({cnt})", xy=(0, y), xycoords=("axes fraction", "data"), xytext=(lbl_off_pt, 0),
+                            textcoords="offset points", ha="left", va="center", fontsize=8.2, fontweight=600)
                 continue
             r = rows[key]
             b = r["bash"]
             short = key.split("/", 1)[1]
-            if len(short) > 19:
-                short = short[:18] + "…"
-            ax.annotate(short, xy=(0, y), xycoords=("axes fraction", "data"), xytext=(-104, 0),
-                        textcoords="offset points", ha="left", va="center", fontsize=6.2, family="monospace")
+            ax.annotate(short, xy=(0, y), xycoords=("axes fraction", "data"), xytext=(lbl_off_pt, 0),
+                        textcoords="offset points", ha="left", va="center", fontsize=fs_row, family="monospace")
             ax.annotate(f"{b['median']:.2f} s", xy=(0, y), xycoords=("axes fraction", "data"), xytext=(-4, 0),
-                        textcoords="offset points", ha="right", va="center", fontsize=6.2, color=INK2)
+                        textcoords="offset points", ha="right", va="center", fontsize=fs_row, color=INK2)
             ax.plot([b["min"] / b["median"], b["max"] / b["median"]], [y, y], color=BASH, lw=2.2, zorder=1,
                     solid_capstyle="butt")
-            for k, s in enumerate(SOURCES):
+            for k, s in enumerate(DRAWN(SOURCES)):
                 t = r[s]
                 yy = y - off[s]
                 ax.plot([t["min"] / b["median"], t["max"] / b["median"]], [yy, yy], color=SOURCE_COLOR[s], lw=0.6,
                         zorder=2)
                 n_parts, par, crash = parts.get((s, key), (0, 0, 0))
-                ax.scatter([t["median"] / b["median"]], [yy], s=8, zorder=3, linewidths=0.8,
-                           facecolors=SURFACE if crash else SOURCE_COLOR[s], edgecolors=SOURCE_COLOR[s])
+                if key in wrong[s]:   # wrong printed output: a cross instead of a dot
+                    ax.scatter([t["median"] / b["median"]], [yy], s=16, zorder=4, marker="x", linewidths=1.1,
+                               color=SOURCE_COLOR[s] if s != "caruca-main" else "#c98a2e")
+                else:
+                    ax.scatter([t["median"] / b["median"]], [yy], s=8, zorder=3, linewidths=0.8,
+                               facecolors=SURFACE if crash else SOURCE_COLOR[s], edgecolors=SOURCE_COLOR[s])
                 txt = str(par) if n_parts else "–"
-                ax.annotate(txt, xy=(1, y), xycoords=("axes fraction", "data"), xytext=(5 + 6.5 * k, 0),
-                            textcoords="offset points", ha="center", va="center", fontsize=6.3,
+                ax.annotate(txt, xy=(1, y), xycoords=("axes fraction", "data"), xytext=(8 + 11.0 * k, 0),
+                            textcoords="offset points", ha="center", va="center", fontsize=fs_row,
                             color=SOURCE_COLOR[s] if s != "caruca-main" else "#c98a2e", fontweight=600)
             n_parts = parts.get(("pash-own", key), (0, 0, 0))[0]
             ax.annotate(f"of {n_parts}" if n_parts else "", xy=(1, y), xycoords=("axes fraction", "data"),
-                        xytext=(28, 0), textcoords="offset points", ha="left", va="center", fontsize=6.1, color=INK2)
-        ax.annotate("bash", xy=(0, -0.7), xycoords=("axes fraction", "data"), xytext=(-4, 2),
-                    textcoords="offset points", ha="right", va="bottom", fontsize=6.4, color=INK2)
-        ax.annotate("parts split", xy=(1, -0.7), xycoords=("axes fraction", "data"), xytext=(3, 2),
-                    textcoords="offset points", ha="left", va="bottom", fontsize=6.4, color=INK2)
-    handles = [plt.Line2D([], [], marker="o", linestyle="-", lw=0.6, color=SOURCE_COLOR[s], markersize=4,
-                          label={"pash-own": "PaSh's own files", "naive": "The naive LLM",
-                                 "caruca-pash": "Caruca's small grammar", "caruca-main": "Caruca's full grammar"}[s])
-               for s in SOURCES]
-    handles += [plt.Line2D([], [], marker="o", linestyle="none", markerfacecolor=SURFACE, markeredgecolor=INK2,
-                           markersize=4, label="hollow: PaSh's compiler stopped in a part"),
-                plt.Line2D([], [], color=BASH, lw=2.2, label="grey bar at 1: bash's own fastest to slowest")]
-    fig.legend(handles=handles, loc="upper center", ncol=3, frameon=False, bbox_to_anchor=(0.5, 1.0),
-               fontsize=7.2, handlelength=1.8, columnspacing=1.6)
-    fig.savefig(OUT / "a5_scripts.png", dpi=DPI)
-    plt.close(fig)
+                        xytext=(50, 0), textcoords="offset points", ha="left", va="center", fontsize=fs_row, color=INK2)
+        ax.annotate("bash", xy=(0, -0.7), xycoords=("axes fraction", "data"), xytext=(-4, 3),
+                    textcoords="offset points", ha="right", va="bottom", fontsize=7.4, color=INK2)
+        ax.annotate("parts split", xy=(1, -0.7), xycoords=("axes fraction", "data"), xytext=(2.5, 3),
+                    textcoords="offset points", ha="left", va="bottom", fontsize=7.4, color=INK2)
+        fig.legend(handles=[handles[i] for i in order], loc="upper center", ncol=3 if NOFULL else 4, frameon=False,
+                   bbox_to_anchor=(0.5, 0.995), fontsize=7.2, handlelength=1.1, columnspacing=0.7, handletextpad=0.4)
+        fig.savefig(OUT / f"a5_scripts_{ci + 1}.png", dpi=DPI)
+        plt.close(fig)
     return crash_total
 
 
@@ -641,7 +775,7 @@ if __name__ == "__main__":
     plt.rcParams["hatch.linewidth"] = 0.6
     nums = json.load(open(ARGS.numbers))
     if nums["N"] > 1:
-        occ_f, med_f = load_full()
+        occ_f, med_f = load_both()
         print("commands gained/lost:", full_split_map(occ_f, nums))
         print("time against PaSh's own (geometric mean):", full_time(med_f, nums))
         print("uses split (own, filled in, not split, total):", full_uses_split(occ_f, nums))

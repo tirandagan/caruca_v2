@@ -35,7 +35,7 @@ simple Markdown marker the converter turns into a page break.
 ## Rules
 
 - Change only the converter files and their docs/tests. Do not touch report content.
-- Verify by converting `naive_llm_caruca/runs/2026-11-24_pash_koala_naive_vs_pash/report_draft.md` after
+- Verify by converting `naive_llm_caruca/comparisons/2026-11-24_pash_suite_naive_vs_caruca/report_draft.md` after
   inserting the marker before `## What we ran`, `## What we saw` and `## Addendum` **in a scratch copy** (not the
   original), and checking those headings start new pages.
 - Do not commit or push. Report: the marker syntax, the files changed, and the test result.
