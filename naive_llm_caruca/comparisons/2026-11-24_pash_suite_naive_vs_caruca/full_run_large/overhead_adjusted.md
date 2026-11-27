@@ -10,7 +10,7 @@ Scripts: those with bash median over 0.05 s. One-pass: at most 3 parts compiled 
 | group A: naive-sed2 | 29 | 1.03 | 0.99 | 28 | 0.96 |
 | group A: caruca-pash-all | 29 | 1.17 | 1.14 | 28 | 1.11 |
 | group A: pash-own-copy | 29 | 0.79 | 0.76 | 28 | 0.74 |
-| group B: pash-own | 0 | nan | nan | 0 | nan |
-| group B: naive-sed2 | 0 | nan | nan | 0 | nan |
-| group B: caruca-pash-all | 0 | nan | nan | 0 | nan |
-| group B: pash-own-copy | 0 | nan | nan | 0 | nan |
+| group B: pash-own | 12 | 1.05 | 0.97 | 8 | 0.73 |
+| group B: naive-sed2 | 12 | 1.73 | 1.65 | 8 | 1.12 |
+| group B: caruca-pash-all | 12 | 1.30 | 1.23 | 8 | 0.89 |
+| group B: pash-own-copy | 12 | 1.03 | 0.96 | 8 | 0.71 |

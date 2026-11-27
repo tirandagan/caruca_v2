@@ -253,3 +253,18 @@ Conventions now in force (keep them when editing):
   A.10 records. Appendix tables now numbered in order of appearance: A.1 suite, A.2 reasons, A.3 compiler-stop
   errors, A.4 by command, A.5 compiler-stop scripts, A.6 small vs full, A.7 records.
 - `report/.page_labels.json` is git-ignored (repo `.gitignore`).
+
+## Draft 2.5 (2026-11-27, brief `orchestration/brief_report_v25.md`): larger inputs
+
+- New section 6 "Larger inputs" (Table 6: groups A/B as sub-columns per source, one number per cell; Table 7: the plan's
+  expectations against the results; "Why PaSh's own files win on speed"; "What it means"), numbers from
+  `../full_run_large/numbers.md` and its README. Sections renumbered: the paper = 7 (its table = Table 8), threats = 8.
+- New A.10 "The larger-input run" (plan, input sizes, sources, runs); records are A.11, with rows for `full_run_large/`
+  and `orchestration/plan_large_inputs.md`. `table.records.recs` may now break across pages so A.10/A.11 share a page.
+- Time ÷ bash in Table 6 is 1 / the run's speed-up (A recomputed from per-script medians: 0.77, 1.03, 1.17). Group B's
+  ÷ bash (2.1, 3.3, 2.6) is inflated by Unix50 3 and 20 (under 5 ms under bash); without them 1.05, 1.73, 1.30 (note c).
+- Corrections to the brief, checked against the per-script table: the naive LLM's files were faster than Caruca's by
+  more than 10 % in 15 scripts (the run README says 14); Caruca's were faster by more than 10 % in 9 (wrong splits 5,
+  compiler stops 2, and Unix50 24, 25 where both split the same commands), not only where wrong or stopped.
+- Page 1: the "Caruca with full grammars … A.8" clause was dropped from "What we saw" (Table 1 note a says it) to keep
+  Table 1's notes on page 1. 20 pages.

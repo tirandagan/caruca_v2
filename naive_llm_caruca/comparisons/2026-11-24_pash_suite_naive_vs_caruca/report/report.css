@@ -574,3 +574,20 @@ table.fullvs th, table.fullvs td { padding: 0.8pt 5pt; }
 h3.tight { margin-top: 6pt; }
 h3.tight ~ p.entry, h3.tight ~ p.caption { font-size: 9pt; line-height: 1.18; margin-bottom: 4pt; }
 h3.tight ~ p.caption { font-size: 8.2pt; }
+
+/* Section 6 (Draft 2.5): larger inputs, two groups per source; the reference columns alone tinted */
+table.large { font-size: 8.4pt; break-inside: avoid; table-layout: fixed; }
+table.large th, table.large td { padding: 1.8pt 5pt; }
+table.large th:first-child { width: 37%; }
+table.large tbody th { font-weight: 400; font-family: 'Libertinus Serif', serif; }
+table.large thead th.grp { text-align: center; border-top: 3px solid var(--src); }
+table.large thead tr.subhead th { font-weight: 400; color: var(--gray-600); font-size: 7.4pt; text-align: right; }
+table.large td.ref { background: var(--surface-thead); }
+table.large td.changed { font-weight: 600; border-left: 1pt solid var(--src); }
+table.expect { font-size: 8.3pt; break-inside: avoid; }
+table.expect th, table.expect td { padding: 1.8pt 5pt; }
+table.expect td:first-child { width: 44%; }
+table.expect td:last-child { width: 13%; }
+
+/* Draft 2.5: the records table may run on to the next page, so A.10 and A.11 share a page without a gap */
+table.records.recs { break-inside: auto; }

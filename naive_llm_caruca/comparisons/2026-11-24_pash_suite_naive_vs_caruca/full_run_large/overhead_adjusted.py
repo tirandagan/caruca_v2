@@ -56,8 +56,8 @@ def table(rows, sets, ids=None):
 PHASES = {"main"}
 r1 = load(PARENT / "full_run/results.jsonl.gz")
 n, fixed, per = fit(r1)
-PHASES = {"groupA", "groupB"} | {p for p in {x.get("phase") for x in load(HERE / "results.jsonl")} if str(p).startswith("redo")}
-r = load(HERE / "results.jsonl")
+PHASES = {"groupA", "groupB"} | {p for p in {x.get("phase") for x in load(HERE / "results.jsonl.gz")} if str(p).startswith("redo")}
+r = load(HERE / "results.jsonl.gz")
 redone = {(x["id"], x["mode"], x["repeat"]) for x in r if str(x.get("phase", "")).startswith("redo")}
 r = [x for x in r if str(x.get("phase", "")).startswith("redo") or (x["id"], x["mode"], x["repeat"]) not in redone]
 SETS = [s for s in ["pash-own", "naive-sed2", "caruca-pash-all", "caruca-main-all", "pash-own-copy"] if any(x["set"] == s for x in r)]

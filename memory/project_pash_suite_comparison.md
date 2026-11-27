@@ -4,6 +4,17 @@ description: 2026-11-24 goal set by Tiran: run PaSh's whole published benchmark 
 metadata:
   type: project
 ---
+**LARGER-INPUT RUN DONE 2026-11-27 (`full_run_large/`, runner `run_koala_large.py`, plan
+`orchestration/plan_large_inputs.md`).** 43 scripts (group A 29, B 14), inputs = small input x k (k=10/30 from a
+bash-only pilot; COVID k=1 because its own input is already 3.6 GB, VM disk 6.6 GB free), sets bash / pash-own /
+naive-sed2 / caruca-pash-all / pash-own-copy (caruca-main-all left out: projected 127 min > 2 h). Observed: naive
+right 43/43, Caruca wrong 10 (its 9 + uniq-ips, which was right at small size: split `uniq` errors are
+data-dependent); time vs PaSh's own: naive 1.33 (A) / 1.57 (B), Caruca 1.52 / 1.23; naive faster than PaSh's own
+only on Unix50 12, 14, 16; vs Caruca naive 0.88 (A) / 1.28 (B). Every script where naive > 1.4x Caruca has a naive
+`tr` split whose file offers only CONSEC_CHUNKS (PaSh's own/Caruca's also offer round robin) - association, not
+tested. Gotchas: a `limactl shell` that starts a nohup job stays open until the job ends (use setsid + </dev/null);
+regions/occurrences files are flushed only when each script finishes.
+
 **Goal (Tiran, 2026-11-24).** Run the benchmark scripts PaSh itself ships ("not one-liners, 7 or 13 of
 them": the OSDI'22 paper's Table 1 rows 2–13, which the Caruca paper names as its PaSh check) under PaSh
 with three annotation sources, and compare: the **naive LLM's** PaSh files, **Caruca's** (v1's) PaSh files,
@@ -308,3 +319,11 @@ drafts had them swapped. Figure scripts: `--no-caruca-full`.
   times, k from a bash-only pilot (smallest of 10/30 reaching 3 s, cap 30 ~1 GB), built and deleted per script (pash VM
   has 6.6 GB free); sources bash, PaSh own, naive with second sed file, Caruca small, own copy; ~1-1.5 h. Only time can
   move with size; correctness/splits/stops are per command line. Unix50/10 under bash: 0.16 s at 30 MB, 0.76 s at 300 MB.
+- **Larger-input run done 2026-11-27 ~10:05 (full_run_large/, plan pre-registered):** 43 scripts (A 29 differing
+  beyond cat, B 14 cat-only), inputs x10/x30 (~1 GB), COVID own 3.6 GB. Speed vs bash A/B: PaSh own 1.30x/0.47x, naive
+  0.97x/0.30x, Caruca 0.85x/0.38x. Output right: naive 43/43, own 43/43, Caruca 33/43 (new: uniq-ips wrong at 30x, right
+  at small: data-dependent uniq split). Naive vs own: faster only Unix50 12/14/16 (0.59-0.71); A 1.33, B 1.57. Naive vs
+  Caruca A 0.88 (faster where Caruca can't split sort), B 1.28. Naive's tr file offers consecutive chunks only (no rr):
+  every script >1.4x Caruca has such a tr use (observed, not isolated). Tiran's insight (to report, Draft 2.5): PaSh's own
+  files are hand-written by PaSh's authors for this suite and carry cost knowledge (split worth it), the naive LLM only
+  safety knowledge; it says yes to every safe split (cat, tr cc-only), Caruca splits too little.

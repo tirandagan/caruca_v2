@@ -27,3 +27,17 @@ unixfun/30
 unixfun/31
 unixfun/32
 unixfun/33
+oneliners/nfa-regex
+unixfun/1
+unixfun/3
+unixfun/5
+unixfun/6
+unixfun/7
+unixfun/8
+unixfun/9
+unixfun/13
+unixfun/15
+unixfun/18
+unixfun/20
+unixfun/23
+unixfun/35

@@ -1,6 +1,6 @@
 # Numbers for the larger-input run
 
-Built by `summarise.py` from the records in this folder. It only counts. Timed repeats per script and source: 3 repeat(s): 116. Times are medians over the repeats. Rows replaced by redone runs: 0.
+Built by `summarise.py` from the records in this folder. It only counts. Timed repeats per script and source: 3 repeat(s): 172. Times are medians over the repeats. Rows replaced by redone runs: 0.
 
 ## 0. Input size per script (bash-only pilot, `scale.jsonl`)
 
@@ -160,33 +160,47 @@ Noise: the second copy of PaSh's own files took 0.89 to 1.18 times as long as th
 ✗ = output differs from bash in at least one timed repeat.
 
 
-# Group B (0 of 14 scripts with records)
+# Group B (14 of 14 scripts with records)
 
 ## 1. Output, splits, compiler stops, files that raised
 
 | Source | Output same as bash (timed, every repeat) | Same with stand-ins | Written files same as bash | Scripts with a part run in parallel | Parts run in parallel / sent (distinct) | Compiler stops (distinct parts) | Command uses whose files raised |
 |---|---|---|---|---|---|---|---|
-| PaSh's own files | 0 of 0 | 0 of 0 | 0 of 0 | 0 of 0 | 0 / 0 | 0 | 0 |
-| Naive LLM (sed file v2) | 0 of 0 | 0 of 0 | 0 of 0 | 0 of 0 | 0 / 0 | 0 | 0 |
-| Caruca (PaSh grammars, as in its paper) | 0 of 0 | 0 of 0 | 0 of 0 | 0 of 0 | 0 / 0 | 0 | 0 |
-| PaSh's own files, second copy | 0 of 0 | (timed only) | 0 of 0 | - | - | - | - |
+| PaSh's own files | 14 of 14 | 14 of 14 | 14 of 14 | 14 of 14 | 14 / 14 | 0 | 0 |
+| Naive LLM (sed file v2) | 14 of 14 | 14 of 14 | 14 of 14 | 14 of 14 | 14 / 14 | 0 | 5 |
+| Caruca (PaSh grammars, as in its paper) | 13 of 14 | 13 of 14 | 14 of 14 | 14 of 14 | 14 / 14 | 0 | 0 |
+| PaSh's own files, second copy | 14 of 14 | (timed only) | 14 of 14 | - | - | - | - |
 
-Wrong output (timed runs; repeats same as bash / repeats): none.
+Wrong output (timed runs; repeats same as bash / repeats): unixfun/23 (Caruca (PaSh grammars, as in its paper), 0/3).
 
-Wrong output with the stand-in programs: none.
+Wrong output with the stand-in programs: unixfun/23 (Caruca (PaSh grammars, as in its paper)).
 
 Compiler stops per script: none.
 
-Files that raised: none.
+Files that raised: wc (Naive LLM (sed file v2)): AssertionError: .
 
 ## 2. Commands split, per script (runs with the stand-in programs)
 
 | Script | PaSh's own files | Naive LLM (sed file v2) | Caruca (PaSh grammars, as in its paper) |
 |---|---|---|---|
+| oneliners/nfa-regex | grep, tr | cat, grep, tr | cat, grep, tr |
+| unixfun/1 | cut | cat, cut | cat, cut |
+| unixfun/3 | cut | cat, cut | cat, cut |
+| unixfun/5 | cut, tr | cat, cut, tr | cat, cut, tr |
+| unixfun/6 | cut, tr | cat, cut, tr | cat, cut, tr |
+| unixfun/7 | grep, tr | cat, grep, tr | cat, grep, tr |
+| unixfun/8 | grep, tr | cat, grep, tr | cat, grep, tr |
+| unixfun/9 | cut, grep, tr | cat, cut, grep, tr | cat, cut, grep, tr |
+| unixfun/13 | cut, grep | cat, cut, grep | cat, cut, grep |
+| unixfun/15 | cut, grep | cat, cut, grep | cat, cut, grep |
+| unixfun/18 | grep, tr | cat, grep, tr | cat, grep, tr |
+| unixfun/20 | cut, grep | cat, cut, grep | cat, cut, grep |
+| unixfun/23 | cut, grep, tr | cat, cut, grep, tr | cat, cut, grep, tr |
+| unixfun/35 | cut, grep | cat, cut, grep | cat, cut, grep |
 
-Naive LLM (sed file v2) against PaSh's own, per command (scripts gained / lost): no difference.
+Naive LLM (sed file v2) against PaSh's own, per command (scripts gained / lost): `cat` 14/0.
 
-Caruca (PaSh grammars, as in its paper) against PaSh's own, per command (scripts gained / lost): no difference.
+Caruca (PaSh grammars, as in its paper) against PaSh's own, per command (scripts gained / lost): `cat` 14/0.
 
 Naive LLM against Caruca, per command (scripts split by the naive LLM only / by Caruca only): no difference.
 
@@ -196,15 +210,32 @@ Speed-up = bash time / source time (above 1 = faster than bash). 'Against X' = s
 
 | Source | Scripts | Speed-up over bash | Against PaSh's own | Against Caruca | Faster / slower than PaSh's own by >10% | Speed-up, start-up removed | Against PaSh's own, start-up removed |
 |---|---|---|---|---|---|---|---|
-| PaSh's own files | 0 | nanx | nan | nan | 0 / 0 | nanx | nan |
-| Naive LLM (sed file v2) | 0 | nanx | nan | nan | 0 / 0 | nanx | nan |
-| Caruca (PaSh grammars, as in its paper) | 0 | nanx | nan | nan | 0 / 0 | nanx | nan |
-| PaSh's own files, second copy | 0 | nanx | nan | nan | 0 / 0 | nanx | nan |
+| PaSh's own files | 14 | 0.47x | 1.00 | 0.82 | 0 / 0 | 0.63x | 1.00 |
+| Naive LLM (sed file v2) | 14 | 0.30x | 1.57 | 1.28 | 0 / 12 | 0.37x | 1.69 |
+| Caruca (PaSh grammars, as in its paper) | 14 | 0.38x | 1.23 | 1.00 | 0 / 12 | 0.48x | 1.31 |
+| PaSh's own files, second copy | 14 | 0.48x | 0.99 | 0.81 | 1 / 1 | 0.64x | 0.98 |
+
+Noise: the second copy of PaSh's own files took 0.90 to 1.13 times as long as the first (median 1.00; 2 of 14 scripts beyond 10%).
+
 
 ### Per script (median seconds; ratios: naive LLM / PaSh's own, naive LLM / Caruca)
 
 | Script | k | bash | PaSh's own files | Naive LLM (sed file v2) | Caruca (PaSh grammars, as in its paper) | PaSh's own files, second copy | Naive / PaSh's own | Naive / Caruca | Same, start-up removed: naive / PaSh's own | naive / Caruca |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| oneliners/nfa-regex | 10 | 84.90 | 12.72 | 12.65 | 12.76 | 12.67 | 0.99 | 0.99 | 0.99 | 0.99 |
+| unixfun/1 | 30 | 1.86 | 1.34 | 1.81 | 1.78 | 1.34 | 1.36 | 1.02 | 1.39 | 1.02 |
+| unixfun/3 | 30 | 0.00 | 0.14 | 0.17 | 0.17 | 0.14 | 1.20 | 0.99 | 2.12 | 0.98 |
+| unixfun/5 | 30 | 1.10 | 1.17 | 1.69 | 1.65 | 1.18 | 1.44 | 1.03 | 1.48 | 1.03 |
+| unixfun/6 | 30 | 2.12 | 1.70 | 2.94 | 2.00 | 1.72 | 1.73 | 1.47 | 1.78 | 1.50 |
+| unixfun/7 | 30 | 2.51 | 1.80 | 3.87 | 2.36 | 1.62 | 2.15 | 1.64 | 2.23 | 1.68 |
+| unixfun/8 | 30 | 0.91 | 1.49 | 3.35 | 1.90 | 1.35 | 2.25 | 1.77 | 2.36 | 1.82 |
+| unixfun/9 | 30 | 0.93 | 1.91 | 3.68 | 2.28 | 1.84 | 1.93 | 1.61 | 1.99 | 1.65 |
+| unixfun/13 | 30 | 1.01 | 1.79 | 2.02 | 2.00 | 1.73 | 1.13 | 1.01 | 1.14 | 1.01 |
+| unixfun/15 | 30 | 1.67 | 1.63 | 1.94 | 1.99 | 1.68 | 1.19 | 0.98 | 1.21 | 0.98 |
+| unixfun/18 | 30 | 0.86 | 1.28 | 3.09 | 1.78 | 1.45 | 2.41 | 1.74 | 2.55 | 1.79 |
+| unixfun/20 | 30 | 0.00 | 0.15 | 0.16 | 0.16 | 0.16 | 1.05 | 1.00 | 1.18 | 1.00 |
+| unixfun/23 | 30 | 1.85 | 2.14 | 5.93 | 2.51 ✗ | 2.06 | 2.78 | 2.37 | 2.88 | 2.43 |
+| unixfun/35 | 30 | 0.43 | 1.11 | 1.67 | 1.58 | 1.11 | 1.50 | 1.05 | 1.55 | 1.06 |
 
 ✗ = output differs from bash in at least one timed repeat.
 

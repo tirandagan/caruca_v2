@@ -34,7 +34,7 @@ def jl(name):
     return [json.loads(x) for x in open(p) if x.strip()] if p.exists() else []
 
 
-res, reg, occ = jl("results.jsonl"), jl("regions.jsonl"), jl("occurrences.jsonl")
+res, reg, occ = jl("results.jsonl"), jl("regions.jsonl"), jl("occurrences.jsonl")  # .gz read too
 scale = {r["id"]: r for r in jl("scale.jsonl")}
 GROUPS = {"A": (HERE / "ids_group_a.txt").read_text().split(), "B": (HERE / "ids_group_b.txt").read_text().split()}
 REDONE = {(r["id"], r["mode"], r["repeat"]) for r in res if str(r.get("phase", "")).startswith("redo")}
